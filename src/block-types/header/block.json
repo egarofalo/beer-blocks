@@ -1,0 +1,17 @@
+{
+	"apiVersion": 2,
+	"name": "beer-blocks/header",
+	"title": "Header",
+	"category": "beer-blocks",
+	"description": "Create header with custom typography, margin and padding.",
+	"textdomain": "beer-blocks",
+	"editorScript": "file:./../../../build/header/index.js",
+	"editorStyle": "file:./../../../build/header/index.css",
+	"supports": {
+		"color": {
+			"background": true,
+			"gradients": true,
+			"text": true
+		}
+	}
+}

@@ -1,0 +1,128 @@
+.block-editor-block-list__layout {
+	&.is-root-container {
+		// Set initial values for typography and background.
+		@include font-size($font-size-base);
+		font-family: $font-family-base;
+		font-weight: $font-weight-base;
+		line-height: $line-height-base;
+		color: $body-color;
+		background-color: $body-bg;
+
+		// Remove top margins from headings
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			margin-top: 0;
+			margin-bottom: $headings-margin-bottom;
+		}
+
+		// Reset margins on paragraphs
+		p {
+			margin-top: 0;
+			margin-bottom: $paragraph-margin-bottom;
+		}
+
+		// Reset margins on lists
+		ol,
+		ul,
+		dl {
+			margin-top: 0;
+			margin-bottom: 1rem;
+		}
+
+		// Reset margins on nested lists
+		ol ol,
+		ul ul,
+		ol ul,
+		ul ol {
+			margin-bottom: 0;
+		}
+
+		// Reset margins on blockquote
+		blockquote {
+			margin: 0 0 1rem;
+		}
+
+		// Add the correct font weight in Chrome, Edge, and Safari
+		b,
+		strong {
+			font-weight: $font-weight-bolder;
+		}
+
+		// Add the correct font size in all browsers
+		small {
+			@include font-size(80%);
+		}
+
+		// Prevent `sub` and `sup` elements from affecting the line height in all browsers
+		sub,
+		sup {
+			position: relative;
+			@include font-size(75%);
+			line-height: 0;
+			vertical-align: baseline;
+		}
+		sub {
+			bottom: -0.25em;
+		}
+		sup {
+			top: -0.5em;
+		}
+
+		// Code
+		pre,
+		code,
+		kbd,
+		samp {
+			font-family: $font-family-monospace;
+			@include font-size(
+				1em
+			); // Correct the odd `em` font sizing in all browsers.
+		}
+
+		pre {
+			// Remove browser default top margin
+			margin-top: 0;
+			// Reset browser default of `1em` to use `rem`s
+			margin-bottom: 1rem;
+			// Don't allow content to break outside
+			overflow: auto;
+			// Disable auto-hiding scrollbar in IE & legacy Edge to avoid overlap,
+			// making it impossible to interact with the content
+			-ms-overflow-style: scrollbar;
+		}
+
+		// Images and content
+		img {
+			vertical-align: middle;
+			border-style: none; // Remove the border on images inside links in IE 10-.
+		}
+
+		svg {
+			// Workaround for the SVG overflow bug in IE10/11 is still required.
+			// See https://github.com/twbs/bootstrap/issues/26878
+			overflow: hidden;
+			vertical-align: middle;
+		}
+
+		// Tables
+		table {
+			border-collapse: collapse; // Prevent double borders
+		}
+	}
+}
+
+// Links
+a {
+	color: $link-color;
+	text-decoration: $link-decoration;
+	background-color: transparent; // Remove the gray background on active links in IE 10.
+
+	@include hover() {
+		color: $link-hover-color;
+		text-decoration: $link-hover-decoration;
+	}
+}

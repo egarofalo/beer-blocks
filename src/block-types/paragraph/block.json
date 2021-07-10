@@ -1,0 +1,17 @@
+{
+	"apiVersion": 2,
+	"name": "beer-blocks/paragraph",
+	"title": "Paragraph",
+	"category": "beer-blocks",
+	"description": "Create paragraph with custom typography, margin and padding.",
+	"textdomain": "beer-blocks",
+	"editorScript": "file:./../../../build/paragraph/index.js",
+	"editorStyle": "file:./../../../build/paragraph/index.css",
+	"supports": {
+		"color": {
+			"background": true,
+			"gradients": true,
+			"text": true
+		}
+	}
+}

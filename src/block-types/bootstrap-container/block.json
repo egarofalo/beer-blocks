@@ -1,0 +1,17 @@
+{
+	"apiVersion": 2,
+	"name": "beer-blocks/bootstrap-container",
+	"title": "Bootstrap Container",
+	"category": "beer-blocks",
+	"description": "Containers provide a means to center and horizontally pad your site’s contents.",
+	"textdomain": "beer-blocks",
+	"editorScript": "file:./../../../build/bootstrap-container/index.js",
+	"editorStyle": "file:./../../../build/bootstrap-container/index.css",
+	"supports": {
+		"color": {
+			"background": true,
+			"gradients": true,
+			"text": false
+		}
+	}
+}

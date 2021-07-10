@@ -1,0 +1,23 @@
+.beer-blocks__notices {
+	.components-notice {
+		margin: 0;
+		margin-bottom: 5px;
+
+		&.is-dismissible {
+			padding-right: 0;
+		}
+	}
+}
+
+.editor-styles-wrapper {
+	// Remove 500px default .wp-block max-width
+	.wp-block {
+		max-width: 100%;
+	}
+
+	// Remove aditional margins in all blocks
+	.block-editor-block-list__block {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+}

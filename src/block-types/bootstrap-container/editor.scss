@@ -1,0 +1,50 @@
+.wp-block-beer-blocks-bootstrap-container {
+	&.is-selected {
+		border: 1px dotted #035cff;
+
+		& > .button-block-appender__container {
+			&.has-child-blocks {
+				display: block;
+			}
+		}
+
+		& > .wp-block-beer-blocks-bootstrap-row {
+			& > .button-block-appender__container {
+				display: block;
+			}
+		}
+	}
+
+	&.has-child-selected {
+		border: 1px dotted #ff9f50;
+
+		& > .button-block-appender__container {
+			&.has-child-blocks {
+				display: block;
+			}
+		}
+
+		& > .wp-block-beer-blocks-bootstrap-row {
+			& > .button-block-appender__container {
+				display: block;
+			}
+		}
+	}
+
+	& > .button-block-appender__container {
+		margin-top: 8px;
+		margin-bottom: 8px;
+		text-align: right;
+
+		&.has-child-blocks {
+			display: none;
+		}
+
+		& > .block-editor-inserter,
+		& > .block-editor-button-block-appender {
+			max-width: 60px;
+			width: 100%;
+			display: inline-block;
+		}
+	}
+}

@@ -1,0 +1,23 @@
+@import "./variables.scss";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/mixins";
+@import "~bootstrap/scss/variables";
+
+.editor-styles-wrapper {
+	// Normalization of html elements styles, extracted from Normalize.css
+	@import "./reboot.scss";
+
+	// Load Bootstrap styles
+	.block-editor-block-list__layout {
+		&.is-root-container {
+			@import "~bootstrap/scss/type";
+			@import "~bootstrap/scss/code";
+		}
+	}
+
+	@import "~bootstrap/scss/grid";
+	@import "~bootstrap/scss/alert";
+	@import "~bootstrap/scss/buttons";
+	@import "~bootstrap/scss/jumbotron";
+	@import "~bootstrap/scss/utilities";
+}

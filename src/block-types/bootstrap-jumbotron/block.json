@@ -1,0 +1,17 @@
+{
+	"apiVersion": 2,
+	"name": "beer-blocks/bootstrap-jumbotron",
+	"title": "Bootstrap Jumbotron",
+	"category": "beer-blocks",
+	"description": "Lightweight, flexible component for showcasing hero unit style content.",
+	"textdomain": "beer-blocks",
+	"editorScript": "file:./../../../build/bootstrap-jumbotron/index.js",
+	"editorStyle": "file:./../../../build/bootstrap-jumbotron/index.css",
+	"supports": {
+		"color": {
+			"background": true,
+			"gradients": true,
+			"text": false
+		}
+	}
+}

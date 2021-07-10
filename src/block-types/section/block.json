@@ -1,0 +1,17 @@
+{
+	"apiVersion": 2,
+	"name": "beer-blocks/section",
+	"title": "Section",
+	"category": "beer-blocks",
+	"description": "Create a section element with custom paddings and margins.",
+	"textdomain": "beer-blocks",
+	"editorScript": "file:./../../../build/section/index.js",
+	"editorStyle": "file:./../../../build/section/index.css",
+	"supports": {
+		"color": {
+			"background": true,
+			"gradients": true,
+			"text": false
+		}
+	}
+}

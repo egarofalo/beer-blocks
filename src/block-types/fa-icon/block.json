@@ -1,0 +1,17 @@
+{
+	"apiVersion": 2,
+	"name": "beer-blocks/fa-icon",
+	"title": "Font Awesome Icon",
+	"category": "beer-blocks",
+	"description": "Create a Font Awesome icon.",
+	"textdomain": "beer-blocks",
+	"editorScript": "file:./../../../build/fa-icon/index.js",
+	"editorStyle": "file:./../../../build/fa-icon/index.css",
+	"parent": ["beer-blocks/info-box"],
+	"supports": {
+		"color": {
+			"text": true,
+			"background": false
+		}
+	}
+}

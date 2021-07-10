@@ -1,0 +1,10 @@
+{
+	"apiVersion": 2,
+	"name": "beer-blocks/bootstrap-button",
+	"title": "Bootstrap Button",
+	"category": "beer-blocks",
+	"description": "Create Bootstrap button with support for multiple sizes, states, and more.",
+	"textdomain": "beer-blocks",
+	"editorScript": "file:./../../../build/bootstrap-button/index.js",
+	"editorStyle": "file:./../../../build/bootstrap-button/index.css"
+}

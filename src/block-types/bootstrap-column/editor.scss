@@ -1,0 +1,14 @@
+.wp-block-beer-blocks-bootstrap-column {
+	&.wp-block {
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	&.is-selected {
+		border: 1px dotted #035cff;
+	}
+
+	&.has-child-selected {
+		border: 1px dotted #20c997;
+	}
+}
