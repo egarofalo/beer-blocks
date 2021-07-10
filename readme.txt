@@ -15,6 +15,8 @@ Extend the block editor with advanced and powerful blocks that help you build we
 
 Power-up the Gutenberg editor with advanced and powerful blocks that help you build websites very fast! Beer blocks is free, and always will be!
 
+Beer Blocks implements the grid system and components of the Bootstrap 4 Framework. It also contains a block that allows you to insert Font Awesome 5 icons, and contain other usefull blocks, such as, Info Box, Advanced Header, Section, etc.
+
 Simply select a block within the "Beer Blocks" category and you will notice that it will allow you customize it very easily.
 
 == Installation ==
@@ -25,13 +27,17 @@ Simply select a block within the "Beer Blocks" category and you will notice that
 
 == Frequently Asked Questions ==
 
-= A question that someone might have =
+= What do you mean with "implements Bootstrap 4 components"? =
 
-An answer to that question.
+Beer Blocks come with many blocks that represent the components of Bootstrap 4, such as Alert, Jumbotron, Accordion, Button, etc.
 
-= What about foo bar? =
+= What do you mean with "implements Bootstrap 4 grid system"? =
 
-Answer to foo bar dilemma.
+The Bootstrap 4 framework has a powerful grid system, which allows us to create beautiful responsive websites. Beer Blocks has four types of blocks that perfectly represent Bootstrap's grid system: Grid, Container, Row, and Col.
+
+= Has Beer Blocks a block type that allow us insert some icons in the editor? =
+
+The answer is yes!! It has a block type with all "Font Awesome 5" free icons available in Font Awesome web page.
 
 == Screenshots ==
 
@@ -46,8 +52,3 @@ directory take precedence. For example, `/assets/screenshot-1.png` would win ove
 = 1.0.0 =
 * Release
 
-== Arbitrary section ==
-
-You may provide arbitrary sections, in the same format as the ones above. This may be of use for extremely complicated
-plugins where more information needs to be conveyed that doesn't fit into the categories of "description" or
-"installation." Arbitrary sections will be shown below the built-in sections outlined above.
