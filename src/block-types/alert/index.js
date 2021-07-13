@@ -1,16 +1,9 @@
 /**
- * Internationalization.
- *
- * @see https://developer.wordpress.org/block-editor/how-to-guides/internationalization
- */
-import { __ } from "@wordpress/i18n";
-
-/**
  * Registers a new block provided a unique name and an object defining its behavior.
  *
  * @see https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
  */
-import { registerBlockType, createBlock } from "@wordpress/blocks";
+import { registerBlockType } from "@wordpress/blocks";
 
 /**
  * All files containing `style` keyword are bundled together. The code used
@@ -18,7 +11,7 @@ import { registerBlockType, createBlock } from "@wordpress/blocks";
  *
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
-//import "./style.scss";
+// import "./style.scss";
 
 /**
  * Styles applied only in the editor.
@@ -31,7 +24,6 @@ import "./editor.scss";
 import edit from "./edit";
 import save from "./save";
 import spacing from "./../../helpers/spacing";
-import typography from "./../../helpers/typography";
 
 /**
  * Block Icon.
@@ -43,35 +35,18 @@ import icon from "./../../icons/codevelopers.tech.icon";
  *
  * @see https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
  */
-registerBlockType("beer-blocks/paragraph", {
+registerBlockType("beer-blocks/alert", {
 	apiVersion: 2,
 	icon,
 	attributes: {
-		content: {
+		contents: {
 			type: "html",
 		},
-		textAlign: {
+		alertType: {
 			type: "string",
-			default: "left",
-		},
-		placeholder: {
-			type: "string",
-			default: __("Write your paragraph here...", "beer-blocks"),
+			default: "alert alert-light",
 		},
 		...spacing.attributes(),
-		...typography.attributes(),
-	},
-	transforms: {
-		from: [
-			{
-				type: "block",
-				blocks: ["core/paragraph"],
-				transform: (attributes) =>
-					createBlock("beer-blocks/paragraph", {
-						...attributes,
-					}),
-			},
-		],
 	},
 	edit,
 	save,

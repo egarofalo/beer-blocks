@@ -4,7 +4,7 @@
  * Plugin Name: Beer Blocks
  * Description: Beer Blocks extends the Gutenberg functionality with powerful blocks and some blocks wich represents Bootstrap components.
  * Requires at least: 5.6
- * Requires PHP: 7.0
+ * Requires PHP: 7.3
  * Version: 1.0.0
  * Author: codevelopers.tech
  * Author URI: https://codevelopers.tech

@@ -1,0 +1,10 @@
+{
+	"apiVersion": 2,
+	"name": "beer-blocks/alert",
+	"title": "Alert",
+	"category": "beer-blocks",
+	"description": "Represents Bootstrap Alerts that provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.",
+	"textdomain": "beer-blocks",
+	"editorScript": "file:./../../../build/alert/index.js",
+	"editorStyle": "file:./../../../build/alert/index.css"
+}

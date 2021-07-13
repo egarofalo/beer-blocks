@@ -1,5 +1,6 @@
 const defaultConfig = require("@wordpress/scripts/config/webpack.config");
 const blocks = require("./blocks.json");
+
 const entry = {
 	...blocks.entries,
 	editor: "./src/editor.js",

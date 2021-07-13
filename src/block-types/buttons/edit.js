@@ -5,7 +5,7 @@ const edit = () => {
 
 	return (
 		<div {...blockProps}>
-			<InnerBlocks allowedBlocks={["beer-blocks/bootstrap-button"]} />
+			<InnerBlocks allowedBlocks={["beer-blocks/button"]} />
 		</div>
 	);
 };

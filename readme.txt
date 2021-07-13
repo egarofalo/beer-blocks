@@ -2,7 +2,9 @@
 Contributors:      egarofalo83
 Donate link: 	   https://www.paypal.com/donate?hosted_button_id=8XSCNEV5WA5TU
 Tags:              block, design, blocks, gutenberg, blockeditor
+Requires at least: 5.6.0
 Tested up to:      5.6.0
+Requires PHP:      7.3
 Stable tag:        1.0.0
 License:           GPL-2.0-or-later
 License URI:       https://www.gnu.org/licenses/gpl-2.0.html
@@ -15,7 +17,7 @@ Extend the block editor with advanced and powerful blocks that help you build we
 
 Power-up the Gutenberg editor with advanced and powerful blocks that help you build websites very fast! Beer blocks is free, and always will be!
 
-Beer Blocks implements the grid system and components of the Bootstrap 4 Framework. It also contains a block that allows you to insert Font Awesome 5 icons, and contain other usefull blocks, such as, Info Box, Advanced Header, Section, etc.
+Beer Blocks implements the grid system and components of the Bootstrap 4 Framework. It also contains a block that allows you to insert Font Awesome 5 icons, and contain other usefull blocks, such as, Info Box, Advanced Header, Section, etc. Finally you can use Google Fonts font families in paragraphs, headers and other block types of Beer Blocks.
 
 Simply select a block within the "Beer Blocks" category and you will notice that it will allow you customize it very easily.
 
@@ -23,7 +25,6 @@ Simply select a block within the "Beer Blocks" category and you will notice that
 
 1. Upload the plugin files to the `/wp-content/plugins/beer-blocks` directory, or install the plugin through the WordPress plugins screen directly.
 2. Activate the plugin through the 'Plugins' screen in WordPress
-
 
 == Frequently Asked Questions ==
 
@@ -39,16 +40,19 @@ The Bootstrap 4 framework has a powerful grid system, which allows us to create 
 
 The answer is yes!! It has a block type with all "Font Awesome 5" free icons available in Font Awesome web page.
 
-== Screenshots ==
+= Can I change the font family and font weight of blocks that have text? =
 
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
-(or jpg, jpeg, gif).
-2. This is the second screen shot
+Yes, of course! You can choose any of the font families available in Google Fonts.
+
+== Screenshots ==
 
 == Changelog ==
 
 = 1.0.0 =
 * Release
+
+== Upgrade Notice ==
+
+= 1.0.0 =
+This is the first version.
 
