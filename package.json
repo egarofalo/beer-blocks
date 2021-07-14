@@ -26,6 +26,7 @@
 		"@wordpress/plugins": "^3.1.1",
 		"bootstrap": "4.6.0",
 		"lodash": "^4.17.21",
+		"popper.js": "^1.16.1",
 		"react-html-parser": "^2.0.2",
 		"react-select": "^4.3.1",
 		"react-transition-group": "^4.4.1",
