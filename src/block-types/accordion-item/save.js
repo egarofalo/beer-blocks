@@ -1,35 +1,62 @@
 import { useBlockProps, InnerBlocks, RichText } from "@wordpress/block-editor";
 import spacing from "./../../helpers/spacing";
+import typography from "./../../helpers/typography";
+import border from "./../../helpers/border";
 
 const save = (props) => {
 	const {
 		attributes: {
-			parentId,
 			id,
+			headingId,
+			parentId,
 			show,
 			headingLevel,
 			headingTextAlign,
+			headingPadding,
+			headingColor,
+			headingBackground,
 			headingContent,
+			bodyPadding,
+			bodyBackground,
 		},
 	} = props;
 
 	const blockProps = useBlockProps.save({
 		className: "card",
+		style: {
+			...spacing.styles(props.attributes),
+			...border.styles(props.attributes),
+		},
 	});
 
 	const HeadingTag = `h${headingLevel}`;
 
 	return (
 		<div {...blockProps}>
-			<div className="card-header" id={`heading-${id}`}>
-				<HeadingTag style={spacing.styles(props.attributes)}>
+			<div
+				className="card-header"
+				id={headingId}
+				style={{
+					backgroundColor: headingBackground,
+					padding: 0,
+					borderBottom: "none",
+				}}
+			>
+				<HeadingTag style={{ margin: 0, padding: 0 }}>
 					<button
 						class={`btn btn-link btn-block has-text-align-${headingTextAlign}`}
 						type="button"
 						data-toggle="collapse"
-						data-target={`#collapse-${id}`}
+						data-target={`#${id}`}
 						aria-expanded="true"
-						aria-controls={`collapse-${id}`}
+						aria-controls={id}
+						style={{
+							margin: 0,
+							color: headingColor,
+							textAlign: headingTextAlign,
+							...spacing.paddingStyles(headingPadding),
+							...typography.styles(props.attributes),
+						}}
 					>
 						<RichText.Content tagName="span" value={headingContent} />
 					</button>
@@ -37,12 +64,13 @@ const save = (props) => {
 			</div>
 
 			<div
-				id={`collapse-${id}`}
+				id={id}
 				className={`collapse${show ? " show" : ""}`}
-				aria-labelledby={`heading-${id}`}
+				aria-labelledby={headingId}
 				data-parent={`#${parentId}`}
+				style={{ backgroundColor: bodyBackground }}
 			>
-				<div className="card-body">
+				<div className="card-body" style={spacing.paddingStyles(bodyPadding)}>
 					<InnerBlocks.Content />
 				</div>
 			</div>

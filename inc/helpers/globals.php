@@ -3,9 +3,9 @@
 namespace BeerBlocks\Helpers\Globals;
 
 /**
- * Create Beer Block category.
+ * Create Beer Block category (before WordPress 5.8).
  */
-function create_blocks_category($categories, $post)
+function create_blocks_category__deprecated($categories, $post)
 {
 	return array_merge(
 		$categories,
@@ -16,6 +16,24 @@ function create_blocks_category($categories, $post)
 			],
 		]
 	);
+}
+
+/**
+ * Create Beer Block category (since WordPress 5.8).
+ */
+function create_blocks_category($block_categories, $editor_context)
+{
+	if (!empty($editor_context->post)) {
+		array_push(
+			$block_categories,
+			[
+				'slug' => PLUGIN_SLUG,
+				'title' => PLUGIN_NAME,
+			],
+		);
+	}
+
+	return $block_categories;
 }
 
 /**

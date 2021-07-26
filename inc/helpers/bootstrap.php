@@ -13,7 +13,7 @@ define('BOOTSTRAP_SETTINGS_SECTION', 'beer_blocks_bootstrap_settings_section');
  */
 function enqueue_editor_assets()
 {
-	$option = filter_var(get_option(BOOTSTRAP_IN_EDITOR_SETTING), FILTER_VALIDATE_BOOL);
+	$option = filter_var(get_option(BOOTSTRAP_IN_EDITOR_SETTING), FILTER_VALIDATE_BOOLEAN);
 
 	if ($option) {
 		$plugin_url = PLUGIN_DIR_URL;
@@ -41,7 +41,7 @@ function enqueue_editor_assets()
  */
 function enqueue_front_assets()
 {
-	$option = filter_var(get_option(BOOTSTRAP_IN_FRONT_SETTING), FILTER_VALIDATE_BOOL);
+	$option = filter_var(get_option(BOOTSTRAP_IN_FRONT_SETTING), FILTER_VALIDATE_BOOLEAN);
 
 	if ($option) {
 		$plugin_url = PLUGIN_DIR_URL;

@@ -13,7 +13,7 @@ define('FONTAWESOME_SETTINGS_SECTION', 'beer_blocks_fontawesome_settings_section
  */
 function enqueue_editor_assets()
 {
-	$option = filter_var(get_option(FONTAWESOME_IN_EDITOR_SETTING), FILTER_VALIDATE_BOOL);
+	$option = filter_var(get_option(FONTAWESOME_IN_EDITOR_SETTING), FILTER_VALIDATE_BOOLEAN);
 
 	if ($option) {
 		wp_enqueue_style(
@@ -28,7 +28,7 @@ function enqueue_editor_assets()
  */
 function enqueue_front_assets()
 {
-	$option = filter_var(get_option(FONTAWESOME_IN_FRONT_SETTING), FILTER_VALIDATE_BOOL);
+	$option = filter_var(get_option(FONTAWESOME_IN_FRONT_SETTING), FILTER_VALIDATE_BOOLEAN);
 
 	if ($option) {
 		wp_enqueue_style(

@@ -24,6 +24,8 @@ import "./editor.scss";
 import edit from "./edit";
 import save from "./save";
 import spacing from "./../../helpers/spacing";
+import typography from "./../../helpers/typography";
+import border from "./../../helpers/border";
 
 /**
  * Block Icon.
@@ -51,10 +53,34 @@ registerBlockType("beer-blocks/accordion-item", {
 			type: "string",
 			default: "left",
 		},
+		headingPadding: spacing.paddingAttribute(),
+		headingPaddingVisualizer: spacing.visualizerAttribute(),
+		headingColor: {
+			type: "string",
+		},
+		headingBackground: {
+			type: "string",
+		},
 		headingContent: {
 			type: "html",
 		},
+		bodyPadding: spacing.paddingAttribute(),
+		bodyPaddingVisualizer: spacing.visualizerAttribute(),
+		bodyBackground: {
+			type: "string",
+		},
+		id: {
+			type: "string",
+		},
+		headingId: {
+			type: "string",
+		},
+		parentId: {
+			type: "string",
+		},
 		...spacing.attributes(),
+		...typography.attributes(),
+		...border.attributes(),
 	},
 	edit,
 	save,
