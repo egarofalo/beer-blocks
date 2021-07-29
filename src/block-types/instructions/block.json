@@ -1,0 +1,17 @@
+{
+	"apiVersion": 2,
+	"name": "beer-blocks/instructions",
+	"title": "Instructions",
+	"category": "beer-blocks",
+	"description": "Create a section with instructions, wich each instruction is an Instruction block type.",
+	"textdomain": "beer-blocks",
+	"editorScript": "file:./../../../build/instructions/index.js",
+	"editorStyle": "file:./../../../build/instructions/index.css",
+	"supports": {
+		"color": {
+			"background": true,
+			"gradients": false,
+			"text": false
+		}
+	}
+}
