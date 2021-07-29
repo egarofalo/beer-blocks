@@ -33,6 +33,7 @@
 		"webfontloader": "^1.6.28"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^16.1.0"
+		"@wordpress/scripts": "^16.1.0",
+		"copy-webpack-plugin": "^9.0.1"
 	}
 }

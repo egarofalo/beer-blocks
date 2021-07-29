@@ -37,17 +37,14 @@ export const attributes = () => ({
 	},
 });
 
-export const controls = ({ props, initialOpen = false }) => {
+export const innerControls = (props) => {
 	const {
 		setAttributes,
 		attributes: { fontSizeUnit, fontSize, fontFamily, fontWeight, lineHeight },
 	} = props;
 
 	return (
-		<PanelBody
-			title={__("Typography", "beer-blocks")}
-			initialOpen={initialOpen}
-		>
+		<>
 			<TextControl
 				label={__("Font Family", "beer-blocks")}
 				help={ReactHtmlParser(
@@ -109,9 +106,15 @@ export const controls = ({ props, initialOpen = false }) => {
 					allowReset
 				/>
 			</BaseControl>
-		</PanelBody>
+		</>
 	);
 };
+
+export const controls = ({ props, initialOpen = false }) => (
+	<PanelBody title={__("Typography", "beer-blocks")} initialOpen={initialOpen}>
+		{innerControls(props)}
+	</PanelBody>
+);
 
 export const styles = ({ fontSize, fontFamily, fontWeight, lineHeight }) => {
 	let styles = {};
@@ -135,4 +138,4 @@ export const styles = ({ fontSize, fontFamily, fontWeight, lineHeight }) => {
 	return styles;
 };
 
-export default { defaultUnits, attributes, controls, styles };
+export default { defaultUnits, attributes, innerControls, controls, styles };

@@ -39,7 +39,10 @@ registerBlockType("beer-blocks/accordion", {
 	apiVersion: 2,
 	icon,
 	attributes: {
-		...spacing.attributes(),
+		id: {
+			type: "string",
+		},
+		...spacing.attributes({ padding: false }),
 	},
 	edit,
 	save,

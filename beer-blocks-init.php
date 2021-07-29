@@ -16,7 +16,11 @@ define('SETTINGS_PAGE_SLUG', 'beer_blocks_settings_page');
 include PLUGIN_DIR_PATH . "/beer-blocks-helpers.php";
 
 // Create Beer Blocks Category
-add_filter('block_categories', GLOBALS_HELPERS_NS . '\\create_blocks_category', 10, 2);
+if (class_exists('\\WP_Block_Editor_Context')) {
+	add_filter('block_categories_all', GLOBALS_HELPERS_NS . '\\create_blocks_category', 10, 2);
+} else {
+	add_filter('block_categories', GLOBALS_HELPERS_NS . '\\create_blocks_category__deprecated', 10, 2);
+}
 
 // Enqueue Bootstrap in the editor
 add_action('enqueue_block_editor_assets', BS_HELPERS_NS . '\\enqueue_editor_assets');

@@ -2,7 +2,9 @@ import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
 import spacing from "./../../helpers/spacing";
 
 const save = (props) => {
-	const { clientId } = props;
+	const {
+		attributes: { id },
+	} = props;
 	const blockProps = useBlockProps.save();
 
 	return (
@@ -10,7 +12,7 @@ const save = (props) => {
 			<div {...blockProps}>
 				<div
 					className="accordion"
-					id={`accordion-${clientId}`}
+					id={`accordion-${id}`}
 					style={spacing.styles(props.attributes)}
 				>
 					<InnerBlocks.Content />

@@ -12,12 +12,12 @@
 		&.is-root-container {
 			@import "~bootstrap/scss/type";
 			@import "~bootstrap/scss/code";
+			@import "~bootstrap/scss/grid";
+			@import "~bootstrap/scss/alert";
+			@import "~bootstrap/scss/buttons";
+			@import "~bootstrap/scss/jumbotron";
+			@import "~bootstrap/scss/transitions";
+			@import "~bootstrap/scss/utilities";
 		}
 	}
-
-	@import "~bootstrap/scss/grid";
-	@import "~bootstrap/scss/alert";
-	@import "~bootstrap/scss/buttons";
-	@import "~bootstrap/scss/jumbotron";
-	@import "~bootstrap/scss/utilities";
 }

@@ -13,19 +13,16 @@ const defaultUnits = [
 	{ value: "rem", label: "REM" },
 ];
 
-const visualizerAttributes = () => ({
-	visualizerValues: {
-		type: "object",
-		default: {
+const visualizerAttribute = () => ({
+	type: "object",
+	default: {
+		values: {
 			top: "",
 			right: "",
 			bottom: "",
 			left: "",
 		},
-	},
-	visualizerShowValues: {
-		type: "object",
-		default: {
+		showValues: {
 			top: false,
 			right: false,
 			bottom: false,
@@ -39,17 +36,16 @@ export const paddingAttribute = (
 ) => {
 	const paddingAttribute = Object.fromEntries(padding.map((key) => [key, ""]));
 
-	return Object.entries(paddingAttribute).length > 0
-		? { padding: { type: "object", default: paddingAttribute } }
-		: {};
+	return { type: "object", default: paddingAttribute };
 };
 
-export const paddingControl = (props) => {
-	const {
-		setAttributes,
-		attributes: { padding },
-	} = props;
-
+export const paddingControl = ({
+	props,
+	paddingAttr = "padding",
+	visualizerAttr = "visualizer",
+} = {}) => {
+	const { setAttributes, attributes } = props;
+	const padding = attributes[paddingAttr];
 	const sides = Object.entries(padding).map((side) => side[0]);
 	const defaultValues = Object.fromEntries(sides.map((side) => [side, ""]));
 
@@ -60,9 +56,14 @@ export const paddingControl = (props) => {
 			resetValues={defaultValues}
 			units={defaultUnits}
 			values={padding}
-			onChange={(nextValues) => setAttributes({ padding: nextValues })}
-			onChangeShowVisualizer={(visualizerShowValues) =>
-				setAttributes({ visualizerShowValues, visualizerValues: padding })
+			onChange={(nextValues) => setAttributes({ [paddingAttr]: nextValues })}
+			onChangeShowVisualizer={(showValues) =>
+				setAttributes({
+					[visualizerAttr]: {
+						values: padding,
+						showValues,
+					},
+				})
 			}
 			sides={sides}
 		/>
@@ -97,17 +98,12 @@ export const marginAttribute = (
 ) => {
 	const marginAttribute = Object.fromEntries(margin.map((key) => [key, ""]));
 
-	return Object.entries(marginAttribute).length > 0
-		? { margin: { type: "object", default: marginAttribute } }
-		: {};
+	return { type: "object", default: marginAttribute };
 };
 
-export const marginControl = (props) => {
-	const {
-		setAttributes,
-		attributes: { margin },
-	} = props;
-
+export const marginControl = ({ props, marginAttr = "margin" }) => {
+	const { setAttributes, attributes } = props;
+	const margin = attributes[marginAttr];
 	const sides = Object.entries(margin).map((side) => side[0]);
 	const defaultValues = Object.fromEntries(sides.map((side) => [side, ""]));
 
@@ -151,9 +147,9 @@ export const attributes = ({
 	padding = ["top", "right", "bottom", "left"],
 	margin = ["top", "right", "bottom", "left"],
 } = {}) => ({
-	...(isArray(padding) ? paddingAttribute(padding) : {}),
-	...(isArray(margin) ? marginAttribute(margin) : {}),
-	...visualizerAttributes(),
+	...(isArray(padding) ? { padding: paddingAttribute(padding) } : {}),
+	...(isArray(margin) ? { margin: marginAttribute(margin) } : {}),
+	visualizer: visualizerAttribute(),
 });
 
 export const controls = ({ props, initialOpen = false }) => {
@@ -163,8 +159,8 @@ export const controls = ({ props, initialOpen = false }) => {
 
 	return (
 		<PanelBody title={__("Spacing", "beer-blocks")} initialOpen={initialOpen}>
-			{isObjectLike(padding) ? paddingControl(props) : null}
-			{isObjectLike(margin) ? marginControl(props) : null}
+			{isObjectLike(padding) ? paddingControl({ props }) : null}
+			{isObjectLike(margin) ? marginControl({ props }) : null}
 		</PanelBody>
 	);
 };
@@ -174,9 +170,14 @@ export const styles = ({ padding, margin }) => ({
 	...(isObjectLike(margin) ? marginStyles(margin) : {}),
 });
 
-export const visualizer = (props, children) => {
+export const visualizer = (props, children, visualizerAttr = "visualizer") => {
 	const {
-		attributes: { visualizerValues, visualizerShowValues },
+		attributes: {
+			[visualizerAttr]: {
+				values: visualizerValues,
+				showValues: visualizerShowValues,
+			},
+		},
 	} = props;
 
 	return (
@@ -187,7 +188,7 @@ export const visualizer = (props, children) => {
 };
 
 export default {
-	visualizerAttributes,
+	visualizerAttribute,
 	paddingAttribute,
 	paddingControl,
 	paddingStyles,
