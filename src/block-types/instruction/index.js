@@ -23,6 +23,7 @@ import "./editor.scss";
  */
 import edit from "./edit";
 import save from "./save";
+import grid from "./../../helpers/grid";
 
 /**
  * Block Icon.
@@ -34,10 +35,14 @@ import icon from "../../icons/codevelopers.tech.icon";
  *
  * @see https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
  */
-registerBlockType("beer-blocks/instructions", {
+registerBlockType("beer-blocks/instruction", {
 	apiVersion: 2,
 	icon,
 	attributes: {
+		numeration: {
+			type: "number",
+			default: 1,
+		},
 		sizing: {
 			type: "object",
 			default: {

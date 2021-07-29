@@ -16,7 +16,8 @@
 		"fa-icon/index": "./src/block-types/fa-icon/index.js",
 		"info-box/index": "./src/block-types/info-box/index.js",
 		"accordion/index": "./src/block-types/accordion/index.js",
-		"accordion-item/index": "./src/block-types/accordion-item/index.js"
+		"accordion-item/index": "./src/block-types/accordion-item/index.js",
+		"instruction/index": "./src/block-types/instruction/index.js"
 	},
 	"blocks_metadata": [
 		"src/block-types/header",
@@ -35,6 +36,7 @@
 		"src/block-types/fa-icon",
 		"src/block-types/info-box",
 		"src/block-types/accordion",
-		"src/block-types/accordion-item"
+		"src/block-types/accordion-item",
+		"src/block-types/instruction"
 	]
 }

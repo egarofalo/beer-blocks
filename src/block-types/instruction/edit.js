@@ -3,7 +3,6 @@ import {
 	useBlockProps,
 	InnerBlocks,
 	InspectorControls,
-	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
 } from "@wordpress/block-editor";
 import {
 	PanelBody,
@@ -11,41 +10,31 @@ import {
 	RangeControl,
 	RadioControl,
 } from "@wordpress/components";
-import { useSelect } from "@wordpress/data";
 import grid from "./../../helpers/grid";
 
 const edit = (props) => {
 	const {
-		attributes: { sizing },
+		attributes: { numeration, sizing },
 		setAttributes,
-		clientId,
 	} = props;
-
-	const { hasChildBlocks } = useSelect(
-		(select) => {
-			const { getBlockOrder } = select("core/block-editor");
-
-			return {
-				hasChildBlocks: getBlockOrder(clientId).length > 0,
-			};
-		},
-		[clientId]
-	);
 
 	const blockProps = useBlockProps({
 		className: grid.getColClass(sizing),
+		style: {
+			listStyle: "none",
+		},
 	});
 
-	const innerBlocksProps = useInnerBlocksProps(
-		{
-			...blockProps,
-		},
-		{
-			renderAppender: !hasChildBlocks
-				? InnerBlocks.ButtonBlockAppender
-				: undefined,
-		}
-	);
+	const template = [
+		[
+			"beer-blocks/header",
+			{ placeholder: __("Write title here...", "beer-blocks") },
+		],
+		[
+			"beer-blocks/paragraph",
+			{ placeholder: __("Write instructions here...", "beer-blocks") },
+		],
+	];
 
 	return (
 		<>
@@ -123,7 +112,13 @@ const edit = (props) => {
 				</PanelBody>
 			</InspectorControls>
 
-			<div {...innerBlocksProps} />
+			<li {...blockProps}>
+				<div className="d-flex">
+					<span>{numeration}</span>
+
+					<InnerBlocks template={template} templateLock="all" />
+				</div>
+			</li>
 		</>
 	);
 };
