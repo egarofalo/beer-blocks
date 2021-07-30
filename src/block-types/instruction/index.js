@@ -53,6 +53,30 @@ registerBlockType("beer-blocks/instruction", {
 			type: "string",
 			default: "",
 		},
+		numerationWidth: {
+			type: "string",
+			default: "",
+		},
+		numerationWidthUnit: {
+			type: "string",
+			default: "px",
+		},
+		numerationHeight: {
+			type: "string",
+			default: "",
+		},
+		numerationHeightUnit: {
+			type: "string",
+			default: "px",
+		},
+		numerationBorderRadius: {
+			type: "string",
+			default: "",
+		},
+		numerationBorderRadiusUnit: {
+			type: "string",
+			default: "px",
+		},
 		stackedContents: {
 			type: "object",
 			default: {

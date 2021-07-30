@@ -9,6 +9,7 @@ import {
 	CheckboxControl,
 	ColorPicker,
 	BaseControl,
+	__experimentalUnitControl as UnitControl,
 } from "@wordpress/components";
 import grid from "./../../helpers/grid";
 import typography from "../../helpers/typography";
@@ -19,6 +20,12 @@ const edit = (props) => {
 			numeration,
 			numerationBackground,
 			numerationColor,
+			numerationWidth,
+			numerationWidthUnit,
+			numerationHeight,
+			numerationHeightUnit,
+			numerationBorderRadius,
+			numerationBorderRadiusUnit,
 			stackedContents,
 			sizing,
 		},
@@ -75,6 +82,77 @@ const edit = (props) => {
 							disableAlpha
 						/>
 					</BaseControl>
+
+					<BaseControl label={__("Font color", "beer-blocks")}>
+						<ColorPicker
+							color={numerationColor}
+							onChangeComplete={(value) => {
+								setAttributes({ numerationColor: value.hex });
+							}}
+							disableAlpha
+						/>
+					</BaseControl>
+
+					<BaseControl
+						label={sprintf(
+							__("Width (%s)", "beer-blocks"),
+							numerationWidthUnit
+						)}
+					>
+						<UnitControl
+							value={numerationWidth}
+							onChange={(numerationWidth) => setAttributes({ numerationWidth })}
+							onUnitChange={(numerationWidthUnit) =>
+								setAttributes({
+									numerationWidthUnit,
+									numerationWidth: "",
+								})
+							}
+							units={typography.defaultUnits}
+						></UnitControl>
+					</BaseControl>
+
+					<BaseControl
+						label={sprintf(
+							__("Height (%s)", "beer-blocks"),
+							numerationHeightUnit
+						)}
+					>
+						<UnitControl
+							value={numerationHeight}
+							onChange={(numerationHeight) =>
+								setAttributes({ numerationHeight })
+							}
+							onUnitChange={(numerationHeightUnit) =>
+								setAttributes({
+									numerationHeightUnit,
+									numerationHeight: "",
+								})
+							}
+							units={typography.defaultUnits}
+						></UnitControl>
+					</BaseControl>
+
+					<BaseControl
+						label={sprintf(
+							__("Border Radius (%s)", "beer-blocks"),
+							numerationBorderRadiusUnit
+						)}
+					>
+						<UnitControl
+							value={numerationBorderRadius}
+							onChange={(numerationBorderRadius) =>
+								setAttributes({ numerationBorderRadius })
+							}
+							onUnitChange={(numerationBorderRadiusUnit) =>
+								setAttributes({
+									numerationBorderRadiusUnit,
+									numerationBorderRadius: "",
+								})
+							}
+							units={[...typography.defaultUnits, { value: "%", label: "%" }]}
+						></UnitControl>
+					</BaseControl>
 				</PanelBody>
 			</InspectorControls>
 
@@ -88,7 +166,23 @@ const edit = (props) => {
 						""
 					)}`}
 				>
-					<span>{numeration}</span>
+					<span
+						className="d-inline-flex justify-content-center align-items-center flex-grow-0"
+						style={{
+							...(numerationBackground
+								? { backgroundColor: numerationBackground }
+								: {}),
+							...(numerationColor ? { color: numerationColor } : {}),
+							...(numerationWidth ? { width: numerationWidth } : {}),
+							...(numerationHeight ? { height: numerationHeight } : {}),
+							...(numerationBorderRadius
+								? { borderRadius: numerationBorderRadius }
+								: {}),
+							...typography.styles(props.attributes),
+						}}
+					>
+						{numeration}
+					</span>
 
 					<InnerBlocks template={template} templateLock="all" />
 				</div>

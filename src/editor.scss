@@ -9,6 +9,11 @@
 	}
 }
 
+.components-base-control__label {
+	margin-bottom: 8px;
+	display: inline-block;
+}
+
 .editor-styles-wrapper {
 	// Remove 500px default .wp-block max-width
 	.wp-block {
