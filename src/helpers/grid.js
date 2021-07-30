@@ -1,4 +1,5 @@
 import { __ } from "@wordpress/i18n";
+import { TabPanel, RadioControl } from "@wordpress/components";
 
 export const autoSizingEqualWidth = "auto-sizing-ew";
 export const autoSizingVariableWidthContent = "auto-sizing-vwc";
@@ -147,6 +148,87 @@ export const getColClass = (sizing) =>
 		"lg"
 	)} ${getBreakpointColClass(sizing.xl, "xl")}`;
 
+export const getColControls = (props, extraContents = (breakpoint) => null) => {
+	const {
+		attributes: { sizing },
+		setAttributes,
+	} = props;
+
+	return (
+		<TabPanel
+			className="beer-blocks-breakpoints-panel"
+			activeClass="active-tab"
+			initialTabName="xs"
+			tabs={breakpointsOptions}
+		>
+			{(tab) => (
+				<>
+					<RadioControl
+						label={sprintf(
+							__("Column sizing type (%s)", "beer-blocks"),
+							tab.name.toUpperCase()
+						)}
+						help={
+							<div style={{ marginTop: "5px" }}>
+								{sprintf(
+									__(
+										"Settings applied from %s resolution and up",
+										"beer-blocks"
+									),
+									tab.name.toUpperCase()
+								)}
+							</div>
+						}
+						selected={sizing[tab.name].sizingType}
+						options={colSizingTypeOptions(tab.name)}
+						onChange={(option) => {
+							setAttributes({
+								sizing: {
+									...sizing,
+									[tab.name]: {
+										...sizing[tab.name],
+										sizingType: option,
+									},
+								},
+							});
+						}}
+					/>
+
+					{sizing[tab.name].sizingType === manualSizing && (
+						<RangeControl
+							label={sprintf(
+								__(
+									`Column sizing${sizing[tab.name].size ? " (%s)" : ""}`,
+									"beer-blocks"
+								),
+								sizing[tab.name].size
+							)}
+							value={sizing[tab.name].size}
+							onChange={(width) => {
+								setAttributes({
+									sizing: {
+										...sizing,
+										[tab.name]: {
+											...sizing[tab.name],
+											size: width,
+										},
+									},
+								});
+							}}
+							min={1}
+							max={12}
+							step={1}
+							style={{ paddingBottom: 0, marginBottom: 0 }}
+						/>
+					)}
+
+					{extraContents(tab.name)}
+				</>
+			)}
+		</TabPanel>
+	);
+};
+
 export const getJustifyContentAttributes = ({
 	xs = "start",
 	sm = "start",
@@ -210,6 +292,7 @@ export default {
 	alignItemsOptions,
 	getColSizingAttributes,
 	getColClass,
+	getColControls,
 	getJustifyContentAttributes,
 	getAlignItemsAttributes,
 	getRowClass,

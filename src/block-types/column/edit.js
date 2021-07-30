@@ -50,76 +50,8 @@ const edit = (props) => {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title={__("Column configuration", "beer-blocks")}>
-					<TabPanel
-						className="beer-blocks-breakpoints-panel"
-						activeClass="active-tab"
-						initialTabName="xs"
-						tabs={grid.breakpointsOptions}
-					>
-						{(tab) => (
-							<>
-								<RadioControl
-									label={sprintf(
-										__("Column sizing type (%s)", "beer-blocks"),
-										tab.name.toUpperCase()
-									)}
-									help={
-										<div style={{ marginTop: "5px" }}>
-											{sprintf(
-												__(
-													"Settings applied from %s resolution and up",
-													"beer-blocks"
-												),
-												tab.name.toUpperCase()
-											)}
-										</div>
-									}
-									selected={sizing[tab.name].sizingType}
-									options={grid.colSizingTypeOptions(tab.name)}
-									onChange={(option) => {
-										setAttributes({
-											sizing: {
-												...sizing,
-												[tab.name]: {
-													...sizing[tab.name],
-													sizingType: option,
-												},
-											},
-										});
-									}}
-								/>
-
-								{sizing[tab.name].sizingType === grid.manualSizing && (
-									<RangeControl
-										label={sprintf(
-											__(
-												`Column sizing${sizing[tab.name].size ? " (%s)" : ""}`,
-												"beer-blocks"
-											),
-											sizing[tab.name].size
-										)}
-										value={sizing[tab.name].size}
-										onChange={(width) => {
-											setAttributes({
-												sizing: {
-													...sizing,
-													[tab.name]: {
-														...sizing[tab.name],
-														size: width,
-													},
-												},
-											});
-										}}
-										min={1}
-										max={12}
-										step={1}
-										style={{ paddingBottom: 0, marginBottom: 0 }}
-									/>
-								)}
-							</>
-						)}
-					</TabPanel>
+				<PanelBody title={__("Responsive options", "beer-blocks")}>
+					{grid.getColControls(props)}
 				</PanelBody>
 			</InspectorControls>
 

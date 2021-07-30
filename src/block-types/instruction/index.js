@@ -29,6 +29,7 @@ import grid from "./../../helpers/grid";
  * Block Icon.
  */
 import icon from "../../icons/codevelopers.tech.icon";
+import typography from "../../helpers/typography";
 
 /**
  * Every block starts by registering a new block type definition.
@@ -42,6 +43,25 @@ registerBlockType("beer-blocks/instruction", {
 		numeration: {
 			type: "number",
 			default: 1,
+		},
+		...typography.attributes(),
+		numerationBackground: {
+			type: "string",
+			default: "",
+		},
+		numerationColor: {
+			type: "string",
+			default: "",
+		},
+		stackedContents: {
+			type: "object",
+			default: {
+				xs: false,
+				sm: false,
+				md: false,
+				lg: false,
+				xl: false,
+			},
 		},
 		sizing: {
 			type: "object",
