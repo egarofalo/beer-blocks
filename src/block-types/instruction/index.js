@@ -77,6 +77,14 @@ registerBlockType("beer-blocks/instruction", {
 			type: "string",
 			default: "px",
 		},
+		numerationJustifyContent: {
+			type: "string",
+			default: "justify-content-start",
+		},
+		numerationAlignItems: {
+			type: "string",
+			default: "align-items-start",
+		},
 		stackedContents: {
 			type: "object",
 			default: {

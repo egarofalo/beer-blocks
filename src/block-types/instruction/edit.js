@@ -13,6 +13,9 @@ import {
 } from "@wordpress/components";
 import grid from "./../../helpers/grid";
 import typography from "../../helpers/typography";
+import { flex } from "../../helpers/bootstrap-utilities";
+
+console.log(flex);
 
 const edit = (props) => {
 	const {
@@ -167,7 +170,7 @@ const edit = (props) => {
 					)}`}
 				>
 					<span
-						className="d-inline-flex justify-content-center align-items-center flex-grow-0"
+						className="d-inline-flex flex-grow-0"
 						style={{
 							...(numerationBackground
 								? { backgroundColor: numerationBackground }
