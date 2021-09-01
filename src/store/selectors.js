@@ -4,8 +4,7 @@ export const googleFontsApiKey = (state) => state.googleFonts.apiKey;
 export const googleFontsApiKeyLoading = (state) =>
 	state.googleFonts.apiKeyLoading;
 // Font Families
-export const getFontFamilies = (state, apiKey) =>
-	state.googleFonts.fontFamilies;
+export const getFontFamilies = (state) => state.googleFonts.fontFamilies;
 export const fontFamilies = (state) => state.googleFonts.fontFamilies;
 export const fontFamiliesLoading = (state) =>
 	state.googleFonts.fontFamiliesLoading;

@@ -1,0 +1,23 @@
+.wp-block-beer-blocks-instructions {
+	&.is-selected {
+		border: 1px dotted #035cff;
+
+		& > .button-block-appender__container {
+			display: block;
+		}
+	}
+
+	&.has-child-selected {
+		border: 1px dotted #ff9f50;
+
+		& > .button-block-appender__container {
+			display: block;
+		}
+	}
+
+	& > .button-block-appender__container {
+		display: none;
+		margin-top: 8px;
+		margin-bottom: 8px;
+	}
+}

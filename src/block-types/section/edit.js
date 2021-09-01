@@ -23,7 +23,7 @@ const edit = (props) => {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title={__("Section configuration", "beer-blocks")}>
+				<PanelBody title={__("Section settings", "beer-blocks")}>
 					<SelectControl
 						label={__("HTML Tag", "beer-blocks")}
 						options={[

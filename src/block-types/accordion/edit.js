@@ -20,7 +20,7 @@ const edit = (props) => {
 		{},
 		{
 			allowedBlocks: ["beer-blocks/accordion-item"],
-			renderAppender: InnerBlocks.ButtonBlockAppender,
+			renderAppender: false,
 		}
 	);
 
@@ -45,6 +45,10 @@ const edit = (props) => {
 						style={spacing.styles(props.attributes)}
 					>
 						<div {...innerBlocksProps} />
+					</div>
+
+					<div className="button-block-appender__container">
+						<InnerBlocks.ButtonBlockAppender />
 					</div>
 				</div>
 			)}

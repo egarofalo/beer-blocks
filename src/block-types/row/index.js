@@ -1,4 +1,11 @@
 /**
+ * Internationalization.
+ *
+ * @see https://developer.wordpress.org/block-editor/how-to-guides/internationalization
+ */
+import { _x } from "@wordpress/i18n";
+
+/**
  * Registers a new block provided a unique name and an object defining its behavior.
  *
  * @see https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
@@ -37,6 +44,15 @@ import icon from "../../icons/codevelopers.tech.icon";
  */
 registerBlockType("beer-blocks/row", {
 	apiVersion: 2,
+	title: _x("Row", "block title", "beer-blocks"),
+	category: "beer-blocks",
+	description: _x(
+		"Create a Bootstrap row wich is part of the Bootstrap Grid system.",
+		"block description",
+		"beer-blocks"
+	),
+	textdomain: "beer-blocks",
+	parent: ["beer-blocks/container"],
 	icon,
 	attributes: {
 		justifyContent: {

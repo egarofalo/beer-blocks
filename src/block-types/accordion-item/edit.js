@@ -31,11 +31,9 @@ const edit = (props) => {
 			show,
 			headingLevel,
 			headingTextAlign,
-			headingPadding,
 			headingColor,
 			headingBackground,
 			headingContent,
-			bodyPadding,
 			bodyBackground,
 		},
 	} = props;
@@ -71,13 +69,8 @@ const edit = (props) => {
 				{border.controls({ props })}
 
 				<PanelBody title={__("Heading", "beer-blocks")}>
-					{spacing.paddingControl({
-						props,
-						paddingAttr: "headingPadding",
-						visualizerAttr: "headingPaddingVisualizer",
-					})}
-
-					{typography.innerControls(props)}
+					{spacing.innerControls(props, "heading")}
+					{typography.innerControls(props, "heading")}
 
 					<BaseControl label={__("Font color", "beer-blocks")}>
 						<ColorPicker
@@ -101,11 +94,7 @@ const edit = (props) => {
 				</PanelBody>
 
 				<PanelBody title={__("Body", "beer-blocks")}>
-					{spacing.paddingControl({
-						props,
-						paddingAttr: "bodyPadding",
-						visualizerAttr: "bodyPaddingVisualizer",
-					})}
+					{spacing.innerControls(props, "body")}
 
 					<BaseControl label={__("Background color", "beer-blocks")}>
 						<ColorPicker
@@ -158,8 +147,8 @@ const edit = (props) => {
 										margin: 0,
 										color: headingColor,
 										textAlign: headingTextAlign,
-										...spacing.paddingStyles(headingPadding),
-										...typography.styles(props.attributes),
+										...spacing.styles(props.attributes, "heading"),
+										...typography.styles(props.attributes, "heading"),
 									}}
 								>
 									<RichText
@@ -173,7 +162,7 @@ const edit = (props) => {
 										multiline={false}
 									/>
 								</button>,
-								"headingPaddingVisualizer"
+								"heading"
 							)}
 						</HeadingTag>
 					</div>
@@ -187,13 +176,10 @@ const edit = (props) => {
 					>
 						{spacing.visualizer(
 							props,
-							<div
-								className="card-body"
-								style={spacing.paddingStyles(bodyPadding)}
-							>
+							<div className="card-body" style={spacing.styles(props, "body")}>
 								<div {...innerBlocksProps} />
 							</div>,
-							"bodyPaddingVisualizer"
+							"body"
 						)}
 					</div>
 				</div>

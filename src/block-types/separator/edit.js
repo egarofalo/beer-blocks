@@ -1,3 +1,4 @@
+import { sprintf, __ } from "@wordpress/i18n";
 import {
 	useBlockProps,
 	InspectorControls,
@@ -37,10 +38,10 @@ const edit = (props) => {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title="Dimensions">
+				<PanelBody title={__("Dimensions", "beer-blocks")}>
 					<div style={{ paddingBottom: "20px" }}>
 						<RangeControl
-							label="Height"
+							label={__("Height", "beer-blocks")}
 							value={height}
 							onChange={(height) => setAttributes({ height })}
 							min={1}
@@ -51,7 +52,7 @@ const edit = (props) => {
 					</div>
 
 					<UnitControl
-						label={`Width (${widthUnit})`}
+						label={sprintf(__(`Width (%s)`, "beer-blocks"), widthUnit)}
 						value={width}
 						onChange={(width) => setAttributes({ width })}
 						onUnitChange={(widthUnit) =>
@@ -65,7 +66,7 @@ const edit = (props) => {
 					/>
 				</PanelBody>
 
-				<PanelBody title="Color">
+				<PanelBody title={__("Color", "beer-blocks")}>
 					<Text
 						as="label"
 						variant="label"
@@ -78,7 +79,8 @@ const edit = (props) => {
 							alignItems: "center",
 						}}
 					>
-						Background color <ColorIndicator colorValue={color} />
+						{__("Background color", "beer-blocks")}{" "}
+						<ColorIndicator colorValue={color} />
 					</Text>
 
 					<ColorPalette

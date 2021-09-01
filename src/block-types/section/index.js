@@ -1,4 +1,11 @@
 /**
+ * Internationalization.
+ *
+ * @see https://developer.wordpress.org/block-editor/how-to-guides/internationalization
+ */
+import { _x } from "@wordpress/i18n";
+
+/**
  * Registers a new block provided a unique name and an object defining its behavior.
  *
  * @see https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
@@ -28,7 +35,7 @@ import spacing from "./../../helpers/spacing";
 /**
  * Block Icon.
  */
-import icon from "./../../icons/codevelopers.tech.icon";
+import icon from "./../../icons/section.svg";
 
 /**
  * Every block starts by registering a new block type definition.
@@ -37,7 +44,22 @@ import icon from "./../../icons/codevelopers.tech.icon";
  */
 registerBlockType("beer-blocks/section", {
 	apiVersion: 2,
-	icon,
+	title: _x("Section", "block title", "beer-blocks"),
+	category: "beer-blocks",
+	description: _x(
+		"Create a section element with custom paddings and margins.",
+		"block description",
+		"beer-blocks"
+	),
+	textdomain: "beer-blocks",
+	supports: {
+		color: {
+			background: true,
+			gradients: true,
+			text: false,
+		},
+	},
+	icon: <img src={icon} alt={_x("Section", "block title", "beer-blocks")} />,
 	attributes: {
 		tagName: {
 			type: "string",

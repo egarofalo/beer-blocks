@@ -1,4 +1,11 @@
 /**
+ * Internationalization.
+ *
+ * @see https://developer.wordpress.org/block-editor/how-to-guides/internationalization
+ */
+import { _x } from "@wordpress/i18n";
+
+/**
  * Registers a new block provided a unique name and an object defining its behavior.
  *
  * @see https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
@@ -28,7 +35,7 @@ import spacing from "./../../helpers/spacing";
 /**
  * Block Icon.
  */
-import icon from "../../icons/codevelopers.tech.icon";
+import icon from "../../icons/jumbotron.svg";
 
 /**
  * Every block starts by registering a new block type definition.
@@ -37,7 +44,22 @@ import icon from "../../icons/codevelopers.tech.icon";
  */
 registerBlockType("beer-blocks/jumbotron", {
 	apiVersion: 2,
-	icon,
+	title: _x("Jumbotron", "block title", "beer-blocks"),
+	category: "beer-blocks",
+	description: _x(
+		"Lightweight, flexible Bootstrap component for showcasing hero unit style content.",
+		"block description",
+		"beer-blocks"
+	),
+	textdomain: "beer-blocks",
+	supports: {
+		color: {
+			background: true,
+			gradients: true,
+			text: false,
+		},
+	},
+	icon: <img src={icon} alt={_x("Jumbotron", "block title", "beer-blocks")} />,
 	attributes: {
 		...spacing.attributes({ padding: false }),
 	},

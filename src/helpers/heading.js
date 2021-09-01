@@ -5,9 +5,9 @@ import HeadingLevelIcon from "./../icons/heading-level.icon";
 
 export const headingLevels = [1, 2, 3, 4, 5, 6];
 
-export const headingLevelDropdown = (props) => {
+export const headingLevelDropdown = (props, attrName = "headingLevel") => {
 	const {
-		attributes: { headingLevel },
+		attributes: { [attrName]: headingLevel },
 		setAttributes,
 	} = props;
 

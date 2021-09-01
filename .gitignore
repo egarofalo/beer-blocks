@@ -32,3 +32,6 @@ build
 # lock files
 yarn.lock
 package-lock.json
+
+# WordPress CLI
+wp-cli.phar

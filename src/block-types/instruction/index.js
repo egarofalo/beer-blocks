@@ -1,4 +1,11 @@
 /**
+ * Internationalization.
+ *
+ * @see https://developer.wordpress.org/block-editor/how-to-guides/internationalization
+ */
+import { _x } from "@wordpress/i18n";
+
+/**
  * Registers a new block provided a unique name and an object defining its behavior.
  *
  * @see https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
@@ -24,11 +31,12 @@ import "./editor.scss";
 import edit from "./edit";
 import save from "./save";
 import grid from "./../../helpers/grid";
+import spacing from "./../../helpers/spacing";
 
 /**
  * Block Icon.
  */
-import icon from "../../icons/codevelopers.tech.icon";
+import icon from "../../icons/instruction.svg";
 import typography from "../../helpers/typography";
 
 /**
@@ -38,62 +46,31 @@ import typography from "../../helpers/typography";
  */
 registerBlockType("beer-blocks/instruction", {
 	apiVersion: 2,
-	icon,
+	title: _x("Instruction", "block title", "beer-blocks"),
+	category: "beer-blocks",
+	description: _x(
+		"Create a list item with a numeration, title and paragraph.",
+		"block description",
+		"beer-blocks"
+	),
+	textdomain: "beer-blocks",
+	parent: ["beer-blocks/instructions"],
+	supports: {
+		color: {
+			background: true,
+			gradients: false,
+			text: false,
+		},
+	},
+	icon: (
+		<img src={icon} alt={_x("Instruction", "block title", "beer-blocks")} />
+	),
 	attributes: {
-		numeration: {
-			type: "number",
-			default: 1,
-		},
-		...typography.attributes(),
-		numerationBackground: {
-			type: "string",
-			default: "",
-		},
-		numerationColor: {
-			type: "string",
-			default: "",
-		},
-		numerationWidth: {
-			type: "string",
-			default: "",
-		},
-		numerationWidthUnit: {
-			type: "string",
-			default: "px",
-		},
-		numerationHeight: {
-			type: "string",
-			default: "",
-		},
-		numerationHeightUnit: {
-			type: "string",
-			default: "px",
-		},
-		numerationBorderRadius: {
-			type: "string",
-			default: "",
-		},
-		numerationBorderRadiusUnit: {
-			type: "string",
-			default: "px",
-		},
-		numerationJustifyContent: {
-			type: "string",
-			default: "justify-content-start",
-		},
-		numerationAlignItems: {
-			type: "string",
-			default: "align-items-start",
-		},
 		stackedContents: {
 			type: "object",
-			default: {
-				xs: false,
-				sm: false,
-				md: false,
-				lg: false,
-				xl: false,
-			},
+			default: Object.fromEntries(
+				grid.breakpoints.map((key) => [[key], false])
+			),
 		},
 		sizing: {
 			type: "object",
@@ -103,6 +80,61 @@ registerBlockType("beer-blocks/instruction", {
 				}),
 			},
 		},
+		justifyContent: {
+			type: "object",
+			default: grid.getJustifyContentAttributes(),
+		},
+		alignItems: {
+			type: "object",
+			default: grid.getAlignItemsAttributes(),
+		},
+		numeration: {
+			type: "number",
+			default: 1,
+		},
+		numerationBackground: {
+			type: "string",
+			default: "#eaeaea",
+		},
+		numerationColor: {
+			type: "string",
+			default: "",
+		},
+		numerationWidth: {
+			type: "string",
+			default: "50px",
+		},
+		numerationWidthUnit: {
+			type: "string",
+			default: "px",
+		},
+		numerationHeight: {
+			type: "string",
+			default: "50px",
+		},
+		numerationHeightUnit: {
+			type: "string",
+			default: "px",
+		},
+		numerationBorderRadius: {
+			type: "string",
+			default: "50%",
+		},
+		numerationBorderRadiusUnit: {
+			type: "string",
+			default: "%",
+		},
+		numerationHorizontalAlignment: {
+			type: "string",
+			default: "center",
+		},
+		numerationVerticalAlignment: {
+			type: "string",
+			default: "center",
+		},
+		padding: spacing.paddingAttribute(),
+		visualizer: spacing.visualizerAttribute(),
+		...typography.attributes("numeration", { fontSize: "18px" }),
 	},
 	edit,
 	save,

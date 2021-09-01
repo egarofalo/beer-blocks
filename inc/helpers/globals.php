@@ -2,6 +2,8 @@
 
 namespace BeerBlocks\Helpers\Globals;
 
+use WP_Block_Type_Registry;
+
 /**
  * Create Beer Block category (before WordPress 5.8).
  */
@@ -37,16 +39,48 @@ function create_blocks_category($block_categories, $editor_context)
 }
 
 /**
+ * Enqueue block types assets.
+ */
+function enqueue_block_types_assets()
+{
+	$manifest = json_decode(file_get_contents(PLUGIN_DIR_PATH . '/manifest.json'), true);
+
+	foreach ($manifest['block_types'] as $block_type) {
+		$asset_file = include PLUGIN_DIR_PATH . "/build/{$block_type}/index.asset.php";
+
+		wp_enqueue_script(
+			"beer-blocks-{$block_type}-editor",
+			PLUGIN_DIR_URL . "/build/{$block_type}/index.js",
+			$asset_file['dependencies'],
+			$asset_file['version'],
+			true
+		);
+
+		wp_enqueue_style(
+			"beer-blocks-{$block_type}-editor",
+			PLUGIN_DIR_URL . "/build/{$block_type}/index.css",
+			[],
+			filemtime(PLUGIN_DIR_PATH . '/build/editor.css')
+		);
+
+		wp_set_script_translations(
+			"beer-blocks-{$block_type}-editor",
+			TEXT_DOMAIN,
+			PLUGIN_DIR_PATH . '/languages'
+		);
+	}
+}
+
+/**
  * Enqueue the editor.js and editor.css files wich include the necessary code for block types customization, styles and others.
  */
 function enqueue_editor_assets()
 {
-	$plugin_url = PLUGIN_DIR_URL;
 	$asset_file = include PLUGIN_DIR_PATH . '/build/editor.asset.php';
 
 	wp_enqueue_script(
 		'beer-blocks-editor',
-		"{$plugin_url}/build/editor.js",
+		PLUGIN_DIR_URL . '/build/editor.js',
 		$asset_file['dependencies'],
 		$asset_file['version'],
 		true
@@ -54,23 +88,16 @@ function enqueue_editor_assets()
 
 	wp_enqueue_style(
 		'beer-blocks-editor',
-		"{$plugin_url}/build/editor.css",
+		PLUGIN_DIR_URL . '/build/editor.css',
 		[],
 		filemtime(PLUGIN_DIR_PATH . '/build/editor.css')
 	);
-}
 
-/**
- * Register all block types using the metadata loaded from the .json files.
- */
-function register_block_types()
-{
-	$plugin_dir = PLUGIN_DIR_PATH;
-	$metadata = json_decode(file_get_contents("{$plugin_dir}/blocks.json"), true);
-
-	foreach ($metadata['blocks_metadata'] as $blockMetadata) {
-		register_block_type_from_metadata("{$plugin_dir}/" . ltrim($blockMetadata, '/'));
-	}
+	wp_set_script_translations(
+		'beer-blocks-editor',
+		TEXT_DOMAIN,
+		PLUGIN_DIR_PATH . '/languages'
+	);
 }
 
 /**

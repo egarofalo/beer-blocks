@@ -1,4 +1,5 @@
-import { __ } from "@wordpress/i18n";
+import { useEffect } from "react";
+import { sprintf, __ } from "@wordpress/i18n";
 import {
 	useBlockProps,
 	InnerBlocks,
@@ -9,17 +10,22 @@ import {
 	CheckboxControl,
 	ColorPicker,
 	BaseControl,
+	SelectControl,
 	__experimentalUnitControl as UnitControl,
 } from "@wordpress/components";
+import { select } from "@wordpress/data";
 import grid from "./../../helpers/grid";
 import typography from "../../helpers/typography";
-import { flex } from "../../helpers/bootstrap-utilities";
-
-console.log(flex);
+import spacing from "../../helpers/spacing";
 
 const edit = (props) => {
 	const {
 		attributes: {
+			stackedContents,
+			sizing,
+			justifyContent,
+			alignItems,
+			padding,
 			numeration,
 			numerationBackground,
 			numerationColor,
@@ -29,11 +35,24 @@ const edit = (props) => {
 			numerationHeightUnit,
 			numerationBorderRadius,
 			numerationBorderRadiusUnit,
-			stackedContents,
-			sizing,
+			numerationHorizontalAlignment,
+			numerationVerticalAlignment,
 		},
 		setAttributes,
+		clientId,
 	} = props;
+
+	useEffect(() => {
+		const blockEditorData = select("core/block-editor");
+		const instructions = blockEditorData.getBlock(
+			blockEditorData.getBlockParents(clientId, true)[0]
+		);
+
+		setAttributes({
+			numeration:
+				blockEditorData.getBlockIndex(clientId, instructions.clientId) + 1,
+		});
+	}, []);
 
 	const blockProps = useBlockProps({
 		className: grid.getColClass(sizing),
@@ -58,23 +77,53 @@ const edit = (props) => {
 			<InspectorControls>
 				<PanelBody title={__("Responsive settings", "beer-blocks")}>
 					{grid.getColControls(props, (breakpoint) => (
-						<CheckboxControl
-							label={__("Stacked contents?", "beer-blocks")}
-							checked={stackedContents[breakpoint]}
-							onChange={(checked) => {
-								setAttributes({
-									stackedContents: {
-										...stackedContents,
-										[breakpoint]: checked,
-									},
-								});
-							}}
-						/>
+						<>
+							<CheckboxControl
+								label={sprintf(
+									__("Stacked contents? (%s)", "beer-blocks"),
+									breakpoint.toUpperCase()
+								)}
+								checked={stackedContents[breakpoint]}
+								onChange={(checked) => {
+									setAttributes({
+										stackedContents: {
+											...stackedContents,
+											[breakpoint]: checked,
+										},
+									});
+								}}
+							/>
+
+							{grid.justifyContentControl({ props, breakpoint })}
+							{grid.alignItemsControl({ props, breakpoint })}
+						</>
 					))}
 				</PanelBody>
 
 				<PanelBody title={__("Numeration settings", "beer-blocks")}>
-					{typography.innerControls(props)}
+					{typography.innerControls(props, "numeration")}
+
+					<SelectControl
+						label={__("Horizontal alignment", "beer-blocks")}
+						value={numerationHorizontalAlignment}
+						options={grid.justifyContentOptions.filter((element) =>
+							["start", "end", "center"].includes(element.value)
+						)}
+						onChange={(value) =>
+							setAttributes({ numerationHorizontalAlignment: value })
+						}
+					/>
+
+					<SelectControl
+						label={__("Vertical alignment", "beer-blocks")}
+						value={numerationVerticalAlignment}
+						options={grid.alignItemsOptions.filter((element) =>
+							["start", "end", "center"].includes(element.value)
+						)}
+						onChange={(value) =>
+							setAttributes({ numerationVerticalAlignment: value })
+						}
+					/>
 
 					<BaseControl label={__("Background color", "beer-blocks")}>
 						<ColorPicker
@@ -96,99 +145,105 @@ const edit = (props) => {
 						/>
 					</BaseControl>
 
-					<BaseControl
+					<UnitControl
 						label={sprintf(
 							__("Width (%s)", "beer-blocks"),
 							numerationWidthUnit
 						)}
-					>
-						<UnitControl
-							value={numerationWidth}
-							onChange={(numerationWidth) => setAttributes({ numerationWidth })}
-							onUnitChange={(numerationWidthUnit) =>
-								setAttributes({
-									numerationWidthUnit,
-									numerationWidth: "",
-								})
-							}
-							units={typography.defaultUnits}
-						></UnitControl>
-					</BaseControl>
+						value={numerationWidth}
+						onChange={(numerationWidth) => setAttributes({ numerationWidth })}
+						onUnitChange={(numerationWidthUnit) =>
+							setAttributes({
+								numerationWidthUnit,
+								numerationWidth: "",
+							})
+						}
+						units={typography.defaultUnits}
+					></UnitControl>
 
-					<BaseControl
+					<UnitControl
 						label={sprintf(
 							__("Height (%s)", "beer-blocks"),
 							numerationHeightUnit
 						)}
-					>
-						<UnitControl
-							value={numerationHeight}
-							onChange={(numerationHeight) =>
-								setAttributes({ numerationHeight })
-							}
-							onUnitChange={(numerationHeightUnit) =>
-								setAttributes({
-									numerationHeightUnit,
-									numerationHeight: "",
-								})
-							}
-							units={typography.defaultUnits}
-						></UnitControl>
-					</BaseControl>
+						value={numerationHeight}
+						onChange={(numerationHeight) => setAttributes({ numerationHeight })}
+						onUnitChange={(numerationHeightUnit) =>
+							setAttributes({
+								numerationHeightUnit,
+								numerationHeight: "",
+							})
+						}
+						units={typography.defaultUnits}
+					></UnitControl>
 
-					<BaseControl
+					<UnitControl
 						label={sprintf(
 							__("Border Radius (%s)", "beer-blocks"),
 							numerationBorderRadiusUnit
 						)}
-					>
-						<UnitControl
-							value={numerationBorderRadius}
-							onChange={(numerationBorderRadius) =>
-								setAttributes({ numerationBorderRadius })
-							}
-							onUnitChange={(numerationBorderRadiusUnit) =>
-								setAttributes({
-									numerationBorderRadiusUnit,
-									numerationBorderRadius: "",
-								})
-							}
-							units={[...typography.defaultUnits, { value: "%", label: "%" }]}
-						></UnitControl>
-					</BaseControl>
+						value={numerationBorderRadius}
+						onChange={(numerationBorderRadius) =>
+							setAttributes({ numerationBorderRadius })
+						}
+						onUnitChange={(numerationBorderRadiusUnit) =>
+							setAttributes({
+								numerationBorderRadiusUnit,
+								numerationBorderRadius: "",
+							})
+						}
+						units={[...typography.defaultUnits, { value: "%", label: "%" }]}
+					></UnitControl>
+				</PanelBody>
+
+				<PanelBody title={__("Spacing", "beer-blocks")}>
+					{spacing.paddingControl({ props })}
 				</PanelBody>
 			</InspectorControls>
 
 			<li {...blockProps}>
-				<div
-					className={`d-flex${Object.entries(stackedContents).reduce(
-						(classes, [key, value]) =>
-							`${classes} flex${key !== "xs" ? `-${key}` : ""}-${
-								value ? "column" : "row"
-							}`,
-						""
-					)}`}
-				>
-					<span
-						className="d-inline-flex flex-grow-0"
-						style={{
-							...(numerationBackground
-								? { backgroundColor: numerationBackground }
-								: {}),
-							...(numerationColor ? { color: numerationColor } : {}),
-							...(numerationWidth ? { width: numerationWidth } : {}),
-							...(numerationHeight ? { height: numerationHeight } : {}),
-							...(numerationBorderRadius
-								? { borderRadius: numerationBorderRadius }
-								: {}),
-							...typography.styles(props.attributes),
-						}}
-					>
-						{numeration}
-					</span>
+				{spacing.visualizer(
+					props,
+					<div
+						className={`d-flex${Object.entries(stackedContents).reduce(
+							(classes, [key, value]) => {
+								const breakpoint = key !== "xs" ? `-${key}` : "";
 
-					<InnerBlocks template={template} templateLock="all" />
-				</div>
+								return `${classes} flex${breakpoint}-${
+									value ? "column" : "row"
+								} justify-content${breakpoint}-${
+									justifyContent[key]
+								} align-items${breakpoint}-${alignItems[key]}`;
+							},
+							""
+						)}`}
+						style={spacing.paddingStyles(padding)}
+					>
+						<div
+							className={`d-inline-flex flex-grow-0 justify-content-${numerationHorizontalAlignment} align-items-${numerationVerticalAlignment}`}
+							style={{
+								...(numerationBackground
+									? { backgroundColor: numerationBackground }
+									: {}),
+								...(numerationColor ? { color: numerationColor } : {}),
+								...(numerationWidth
+									? { width: numerationWidth, minWidth: numerationWidth }
+									: {}),
+								...(numerationHeight ? { height: numerationHeight } : {}),
+								...(numerationBorderRadius
+									? { borderRadius: numerationBorderRadius }
+									: {}),
+								...typography.styles(props.attributes, "numeration"),
+							}}
+						>
+							{numeration}
+						</div>
+
+						<div>
+							<InnerBlocks template={template} templateLock="all" />
+						</div>
+					</div>
+				)}
 			</li>
 		</>
 	);

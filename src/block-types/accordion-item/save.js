@@ -12,11 +12,9 @@ const save = (props) => {
 			show,
 			headingLevel,
 			headingTextAlign,
-			headingPadding,
 			headingColor,
 			headingBackground,
 			headingContent,
-			bodyPadding,
 			bodyBackground,
 		},
 	} = props;
@@ -54,8 +52,8 @@ const save = (props) => {
 							margin: 0,
 							color: headingColor,
 							textAlign: headingTextAlign,
-							...spacing.paddingStyles(headingPadding),
-							...typography.styles(props.attributes),
+							...spacing.styles(props.attributes, "heading"),
+							...typography.styles(props.attributes, "heading"),
 						}}
 					>
 						<RichText.Content tagName="span" value={headingContent} />
@@ -70,7 +68,10 @@ const save = (props) => {
 				data-parent={`#${parentId}`}
 				style={{ backgroundColor: bodyBackground }}
 			>
-				<div className="card-body" style={spacing.paddingStyles(bodyPadding)}>
+				<div
+					className="card-body"
+					style={spacing.styles(props.attributes, "body")}
+				>
 					<InnerBlocks.Content />
 				</div>
 			</div>

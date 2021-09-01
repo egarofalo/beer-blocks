@@ -8,6 +8,7 @@ import {
 import {
 	PanelBody,
 	__experimentalUnitControl as UnitControl,
+	BaseControl,
 } from "@wordpress/components";
 import FontIconPicker from "@fonticonpicker/react-fonticonpicker";
 import { defaultUnits } from "./../../helpers/typography";
@@ -46,26 +47,30 @@ const edit = (props) => {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title={__("Icon configuration", "beer-blocks")}>
-					<FontIconPicker
-						icons={icons}
-						onChange={(icon) => setAttributes({ icon })}
-						value={icon}
-						renderUsing="class"
-						isMulti={false}
-					/>
+				<PanelBody title={__("Icon settings", "beer-blocks")}>
+					<BaseControl label={__("Choose an Icon", "beer-blocks")}>
+						<FontIconPicker
+							icons={icons}
+							onChange={(icon) => setAttributes({ icon })}
+							value={icon}
+							renderUsing="class"
+							isMulti={false}
+							theme="beer-blocks"
+						/>
+					</BaseControl>
 
-					<UnitControl
-						label={`Icon Size${iconSize ? ` (${iconSize})` : ""}`}
-						value={iconSize}
-						onChange={(iconSize) => setAttributes({ iconSize })}
-						onUnitChange={() =>
-							setAttributes({
-								iconSize: "",
-							})
-						}
-						units={defaultUnits}
-					/>
+					<BaseControl label={`Icon Size${iconSize ? ` (${iconSize})` : ""}`}>
+						<UnitControl
+							value={iconSize}
+							onChange={(iconSize) => setAttributes({ iconSize })}
+							onUnitChange={() =>
+								setAttributes({
+									iconSize: "",
+								})
+							}
+							units={defaultUnits}
+						/>
+					</BaseControl>
 				</PanelBody>
 			</InspectorControls>
 

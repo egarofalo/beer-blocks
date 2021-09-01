@@ -3,8 +3,8 @@ const icon = (
 		id="svg"
 		version="1.1"
 		xmlns="http://www.w3.org/2000/svg"
-		width="400"
-		height="373.83177570093454"
+		width="24"
+		height="24"
 		viewBox="0, 0, 400,373.83177570093454"
 	>
 		<g id="svgg">

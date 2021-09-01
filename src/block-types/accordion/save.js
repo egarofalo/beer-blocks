@@ -5,6 +5,7 @@ const save = (props) => {
 	const {
 		attributes: { id },
 	} = props;
+
 	const blockProps = useBlockProps.save();
 
 	return (

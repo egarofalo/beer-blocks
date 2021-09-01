@@ -70,7 +70,7 @@ const BeerBlocksPluginDocumentSettingPanel = () => {
 
 					<br />
 					{__(
-						"Getting Google Maps API Key from Beer Blocks configuration...",
+						"Getting Google Fonts API Key from Beer Blocks configuration...",
 						"beer-blocks"
 					)}
 				</Notice>

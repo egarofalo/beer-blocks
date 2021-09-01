@@ -1,23 +1,17 @@
-import { __, sprintf } from "@wordpress/i18n";
+import { __ } from "@wordpress/i18n";
 import {
 	useBlockProps,
 	InnerBlocks,
 	InspectorControls,
 	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
 } from "@wordpress/block-editor";
-import {
-	PanelBody,
-	TabPanel,
-	RangeControl,
-	RadioControl,
-} from "@wordpress/components";
+import { PanelBody } from "@wordpress/components";
 import { useSelect } from "@wordpress/data";
 import grid from "./../../helpers/grid";
 
 const edit = (props) => {
 	const {
 		attributes: { sizing },
-		setAttributes,
 		clientId,
 	} = props;
 
@@ -50,7 +44,7 @@ const edit = (props) => {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title={__("Responsive options", "beer-blocks")}>
+				<PanelBody title={__("Responsive settings", "beer-blocks")}>
 					{grid.getColControls(props)}
 				</PanelBody>
 			</InspectorControls>

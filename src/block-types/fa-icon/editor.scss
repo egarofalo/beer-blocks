@@ -4,3 +4,24 @@
 .wp-block-beer-blocks-fa-icon.is-selected {
 	border: 1px dotted #035cff;
 }
+
+.rfip {
+	&.rfip--beer-blocks {
+		display: block;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		margin: 0;
+
+		.rfipbtn {
+			width: 100%;
+		}
+	}
+
+	.rfipdropdown {
+		&.rfipdropdown--beer-blocks {
+			right: 0;
+			width: 100%;
+			background: rgb(231, 231, 231);
+		}
+	}
+}

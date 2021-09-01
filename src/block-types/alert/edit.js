@@ -24,7 +24,7 @@ const edit = (props) => {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title={__("Alert configuration", "beer-blocks")}>
+				<PanelBody title={__("Alert settings", "beer-blocks")}>
 					<SelectControl
 						label={__("Select an alert type", "beer-blocks")}
 						value={alertType}

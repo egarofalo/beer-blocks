@@ -75,7 +75,7 @@ const edit = (props) => {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title={__("Button configuration", "beer-blocks")}>
+				<PanelBody title={__("Button settings", "beer-blocks")}>
 					<div style={{ paddingBottom: "20px" }}>
 						<SelectControl
 							label={__("Button variant", "beer-blocks")}

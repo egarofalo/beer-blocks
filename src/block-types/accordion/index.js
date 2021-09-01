@@ -1,4 +1,11 @@
 /**
+ * Internationalization.
+ *
+ * @see https://developer.wordpress.org/block-editor/how-to-guides/internationalization
+ */
+import { _x } from "@wordpress/i18n";
+
+/**
  * Registers a new block provided a unique name and an object defining its behavior.
  *
  * @see https://developer.wordpress.org/block-editor/developers/block-api/#registering-a-block
@@ -28,7 +35,7 @@ import spacing from "../../helpers/spacing";
 /**
  * Block Icon.
  */
-import icon from "../../icons/codevelopers.tech.icon";
+import icon from "../../icons/accordion.svg";
 
 /**
  * Every block starts by registering a new block type definition.
@@ -37,12 +44,20 @@ import icon from "../../icons/codevelopers.tech.icon";
  */
 registerBlockType("beer-blocks/accordion", {
 	apiVersion: 2,
-	icon,
+	title: _x("Accordion", "block title", "beer-blocks"),
+	category: "beer-blocks",
+	description: _x(
+		"Create an accordion for faqs and other purpose.",
+		"block description",
+		"beer-blocks"
+	),
+	textdomain: "beer-blocks",
+	icon: <img src={icon} alt={_x("Accordion", "block title", "beer-blocks")} />,
 	attributes: {
 		id: {
 			type: "string",
 		},
-		...spacing.attributes({ padding: false }),
+		...spacing.attributes(),
 	},
 	edit,
 	save,

@@ -3,7 +3,7 @@ import {
 	PanelBody,
 	__experimentalBoxControl as BoxControl,
 } from "@wordpress/components";
-import { isObjectLike, isArray } from "lodash";
+import { isObjectLike, isArray, camelCase } from "lodash";
 
 const { __Visualizer: Visualizer } = BoxControl;
 
@@ -44,8 +44,11 @@ export const paddingControl = ({
 	paddingAttr = "padding",
 	visualizerAttr = "visualizer",
 } = {}) => {
-	const { setAttributes, attributes } = props;
-	const padding = attributes[paddingAttr];
+	const {
+		setAttributes,
+		attributes: { [paddingAttr]: padding },
+	} = props;
+
 	const sides = Object.entries(padding).map((side) => side[0]);
 	const defaultValues = Object.fromEntries(sides.map((side) => [side, ""]));
 
@@ -72,25 +75,13 @@ export const paddingControl = ({
 
 export const paddingStyles = (padding = {}) => {
 	const { top, right, bottom, left } = padding;
-	let styles = {};
 
-	if (top) {
-		styles["paddingTop"] = top;
-	}
-
-	if (right) {
-		styles["paddingRight"] = right;
-	}
-
-	if (bottom) {
-		styles["paddingBottom"] = bottom;
-	}
-
-	if (left) {
-		styles["paddingLeft"] = left;
-	}
-
-	return styles;
+	return {
+		...(top ? { paddingTop: top } : {}),
+		...(right ? { paddingRight: right } : {}),
+		...(bottom ? { paddingBottom: bottom } : {}),
+		...(left ? { paddingLeft: left } : {}),
+	};
 };
 
 export const marginAttribute = (
@@ -102,8 +93,10 @@ export const marginAttribute = (
 };
 
 export const marginControl = ({ props, marginAttr = "margin" }) => {
-	const { setAttributes, attributes } = props;
-	const margin = attributes[marginAttr];
+	const {
+		setAttributes,
+		attributes: { [marginAttr]: margin },
+	} = props;
 	const sides = Object.entries(margin).map((side) => side[0]);
 	const defaultValues = Object.fromEntries(sides.map((side) => [side, ""]));
 
@@ -122,58 +115,80 @@ export const marginControl = ({ props, marginAttr = "margin" }) => {
 
 export const marginStyles = (margin = {}) => {
 	const { top, right, bottom, left } = margin;
-	let styles = {};
 
-	if (top) {
-		styles["marginTop"] = top;
-	}
-
-	if (right) {
-		styles["marginRight"] = right;
-	}
-
-	if (bottom) {
-		styles["marginBottom"] = bottom;
-	}
-
-	if (left) {
-		styles["marginLeft"] = left;
-	}
-
-	return styles;
+	return {
+		...(top ? { marginTop: top } : {}),
+		...(right ? { marginRight: right } : {}),
+		...(bottom ? { marginBottom: bottom } : {}),
+		...(left ? { marginLeft: left } : {}),
+	};
 };
 
-export const attributes = ({
-	padding = ["top", "right", "bottom", "left"],
-	margin = ["top", "right", "bottom", "left"],
-} = {}) => ({
-	...(isArray(padding) ? { padding: paddingAttribute(padding) } : {}),
-	...(isArray(margin) ? { margin: marginAttribute(margin) } : {}),
-	visualizer: visualizerAttribute(),
+export const attributes = (
+	{
+		padding = ["top", "right", "bottom", "left"],
+		margin = ["top", "right", "bottom", "left"],
+	} = {},
+	attrPrefixName = ""
+) => ({
+	...(isArray(padding)
+		? { [camelCase(`${attrPrefixName}-padding`)]: paddingAttribute(padding) }
+		: {}),
+	...(isArray(margin)
+		? { [camelCase(`${attrPrefixName}-margin`)]: marginAttribute(margin) }
+		: {}),
+	...(isArray(padding)
+		? { [camelCase(`${attrPrefixName}-visualizer`)]: visualizerAttribute() }
+		: {}),
 });
 
-export const controls = ({ props, initialOpen = false }) => {
+export const innerControls = (props, attrPrefixName = "") => {
+	const paddingAttr = camelCase(`${attrPrefixName}-padding`);
+	const visualizerAttr = camelCase(`${attrPrefixName}-visualizer`);
+	const marginAttr = camelCase(`${attrPrefixName}-margin`);
+
 	const {
-		attributes: { padding, margin },
+		attributes: { [paddingAttr]: padding, [marginAttr]: margin },
 	} = props;
 
 	return (
+		<>
+			{isObjectLike(padding)
+				? paddingControl({ props, paddingAttr, visualizerAttr })
+				: null}
+			{isObjectLike(margin) ? marginControl({ props, marginAttr }) : null}
+		</>
+	);
+};
+
+export const controls = ({
+	props,
+	initialOpen = false,
+	attrPrefixName = "",
+}) => {
+	return (
 		<PanelBody title={__("Spacing", "beer-blocks")} initialOpen={initialOpen}>
-			{isObjectLike(padding) ? paddingControl({ props }) : null}
-			{isObjectLike(margin) ? marginControl({ props }) : null}
+			{innerControls(props, attrPrefixName)}
 		</PanelBody>
 	);
 };
 
-export const styles = ({ padding, margin }) => ({
-	...(isObjectLike(padding) ? paddingStyles(padding) : {}),
-	...(isObjectLike(margin) ? marginStyles(margin) : {}),
-});
+export const styles = (attributes, attrPrefixName = "") => {
+	const {
+		[camelCase(`${attrPrefixName}-padding`)]: padding,
+		[camelCase(`${attrPrefixName}-margin`)]: margin,
+	} = attributes;
 
-export const visualizer = (props, children, visualizerAttr = "visualizer") => {
+	return {
+		...(isObjectLike(padding) ? paddingStyles(padding) : {}),
+		...(isObjectLike(margin) ? marginStyles(margin) : {}),
+	};
+};
+
+export const visualizer = (props, children, attrPrefixName = "") => {
 	const {
 		attributes: {
-			[visualizerAttr]: {
+			[camelCase(`${attrPrefixName}-visualizer`)]: {
 				values: visualizerValues,
 				showValues: visualizerShowValues,
 			},
@@ -196,6 +211,7 @@ export default {
 	marginControl,
 	marginStyles,
 	attributes,
+	innerControls,
 	controls,
 	styles,
 	visualizer,

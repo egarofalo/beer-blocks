@@ -3,7 +3,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/how-to-guides/internationalization
  */
-import { __ } from "@wordpress/i18n";
+import { _x, __ } from "@wordpress/i18n";
 
 /**
  * Registers a new block provided a unique name and an object defining its behavior.
@@ -36,7 +36,7 @@ import typography from "./../../helpers/typography";
 /**
  * Block Icon.
  */
-import icon from "./../../icons/codevelopers.tech.icon";
+import icon from "./../../icons/paragraph.svg";
 
 /**
  * Every block starts by registering a new block type definition.
@@ -45,7 +45,22 @@ import icon from "./../../icons/codevelopers.tech.icon";
  */
 registerBlockType("beer-blocks/paragraph", {
 	apiVersion: 2,
-	icon,
+	title: _x("Paragraph", "block title", "beer-blocks"),
+	category: "beer-blocks",
+	description: _x(
+		"Create paragraph with custom typography, margin and padding.",
+		"block description",
+		"beer-blocks"
+	),
+	textdomain: "beer-blocks",
+	supports: {
+		color: {
+			background: true,
+			gradients: true,
+			text: true,
+		},
+	},
+	icon: <img src={icon} alt={_x("Paragraph", "block title", "beer-blocks")} />,
 	attributes: {
 		content: {
 			type: "html",
