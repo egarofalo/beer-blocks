@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-08-27T18:22:02+00:00\n"
+"POT-Creation-Date: 2021-09-07T21:08:20+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.5.0\n"
 "X-Domain: beer-blocks\n"
@@ -167,6 +167,7 @@ msgstr ""
 
 #: build/accordion-item/index.js:1
 #: src/block-types/accordion-item/index.js:49
+#: src/block-types/accordion-item/index.js:59
 msgctxt "block title"
 msgid "Accordion Item"
 msgstr ""
@@ -497,6 +498,7 @@ msgstr ""
 
 #: build/column/index.js:1
 #: src/block-types/column/index.js:47
+#: src/block-types/column/index.js:63
 msgctxt "block title"
 msgid "Column"
 msgstr ""
@@ -545,13 +547,15 @@ msgid "HTML Tag"
 msgstr ""
 
 #: build/editor.js:1
-#: src/post-settings-panel.js:72
-msgid "Getting Google Fonts API Key from Beer Blocks configuration..."
+#: src/post-settings-panel.js:66
+#: src/post-settings-panel.js:82
+#: src/post-settings-panel.js:96
+msgid "Font Families:"
 msgstr ""
 
 #: build/editor.js:1
-#: src/post-settings-panel.js:96
-msgid "Font Families:"
+#: src/post-settings-panel.js:72
+msgid "Getting Google Fonts API Key from Beer Blocks configuration..."
 msgstr ""
 
 #: build/editor.js:1
@@ -586,6 +590,7 @@ msgstr ""
 
 #: build/fa-icon/index.js:1
 #: src/block-types/fa-icon/index.js:47
+#: src/block-types/fa-icon/index.js:65
 msgctxt "block title"
 msgid "Font Awesome Icon"
 msgstr ""
@@ -667,6 +672,7 @@ msgstr ""
 
 #: build/instruction/index.js:1
 #: src/block-types/instruction/index.js:49
+#: src/block-types/instruction/index.js:66
 msgctxt "block title"
 msgid "Instruction"
 msgstr ""
@@ -771,6 +777,7 @@ msgstr ""
 
 #: build/row/index.js:1
 #: src/block-types/row/index.js:47
+#: src/block-types/row/index.js:56
 msgctxt "block title"
 msgid "Row"
 msgstr ""

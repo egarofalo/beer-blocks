@@ -35,7 +35,7 @@ import grid from "./../../helpers/grid";
 /**
  * Block Icon.
  */
-import icon from "../../icons/codevelopers.tech.icon";
+import icon from "../../icons/column.svg";
 
 /**
  * Every block starts by registering a new block type definition.
@@ -60,7 +60,7 @@ registerBlockType("beer-blocks/column", {
 		},
 	},
 	parent: ["beer-blocks/row"],
-	icon,
+	icon: <img src={icon} alt={_x("Column", "block title", "beer-blocks")} />,
 	attributes: {
 		sizing: {
 			type: "object",

@@ -63,7 +63,7 @@ const BeerBlocksPluginDocumentSettingPanel = () => {
 	if (apiKeyLoading) {
 		result = (
 			<>
-				<p>Font Families:</p>
+				<p>{__("Font Families:", "beer-blocks")}</p>
 
 				<Notice isDismissible={false}>
 					<Spinner />
@@ -79,7 +79,7 @@ const BeerBlocksPluginDocumentSettingPanel = () => {
 	} else if (!apiKey) {
 		result = (
 			<>
-				<p>Font Families:</p>
+				<p>{__("Font Families:", "beer-blocks")}</p>
 
 				<Notice status="warning" isDismissible={false}>
 					{__(
