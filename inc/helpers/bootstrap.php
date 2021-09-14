@@ -13,27 +13,27 @@ define('BOOTSTRAP_SETTINGS_SECTION', 'beer_blocks_bootstrap_settings_section');
  */
 function enqueue_editor_assets()
 {
-	$option = filter_var(get_option(BOOTSTRAP_IN_EDITOR_SETTING), FILTER_VALIDATE_BOOLEAN);
+    $option = filter_var(get_option(BOOTSTRAP_IN_EDITOR_SETTING), FILTER_VALIDATE_BOOLEAN);
 
-	if ($option) {
-		$plugin_url = PLUGIN_DIR_URL;
-		$asset_file = include PLUGIN_DIR_PATH . '/build/vendor/bootstrap/editor.asset.php';
+    if ($option) {
+        $plugin_url = PLUGIN_DIR_URL;
+        $asset_file = include PLUGIN_DIR_PATH . '/build/vendor/bootstrap/editor.asset.php';
 
-		wp_enqueue_script(
-			BOOTSTRAP_IN_EDITOR_ASSET,
-			"{$plugin_url}/build/vendor/bootstrap/editor.js",
-			$asset_file['dependencies'],
-			$asset_file['version'],
-			true
-		);
+        wp_enqueue_script(
+            BOOTSTRAP_IN_EDITOR_ASSET,
+            "{$plugin_url}/build/vendor/bootstrap/editor.js",
+            $asset_file['dependencies'],
+            $asset_file['version'],
+            true
+        );
 
-		wp_enqueue_style(
-			BOOTSTRAP_IN_EDITOR_ASSET,
-			"{$plugin_url}/build/vendor/bootstrap/editor.css",
-			[],
-			filemtime(PLUGIN_DIR_PATH . '/build/vendor/bootstrap/editor.css')
-		);
-	}
+        wp_enqueue_style(
+            BOOTSTRAP_IN_EDITOR_ASSET,
+            "{$plugin_url}/build/vendor/bootstrap/editor.css",
+            [],
+            filemtime(PLUGIN_DIR_PATH . '/build/vendor/bootstrap/editor.css')
+        );
+    }
 }
 
 /**
@@ -41,27 +41,27 @@ function enqueue_editor_assets()
  */
 function enqueue_front_assets()
 {
-	$option = filter_var(get_option(BOOTSTRAP_IN_FRONT_SETTING), FILTER_VALIDATE_BOOLEAN);
+    $option = filter_var(get_option(BOOTSTRAP_IN_FRONT_SETTING), FILTER_VALIDATE_BOOLEAN);
 
-	if ($option) {
-		$plugin_url = PLUGIN_DIR_URL;
-		$asset_file = include PLUGIN_DIR_PATH . '/build/vendor/bootstrap/front.asset.php';
+    if ($option) {
+        $plugin_url = PLUGIN_DIR_URL;
+        $asset_file = include PLUGIN_DIR_PATH . '/build/vendor/bootstrap/front.asset.php';
 
-		wp_enqueue_script(
-			BOOTSTRAP_IN_FRONT_ASSET,
-			"{$plugin_url}/build/vendor/bootstrap/front.js",
-			$asset_file['dependencies'],
-			$asset_file['version'],
-			true
-		);
+        wp_enqueue_script(
+            BOOTSTRAP_IN_FRONT_ASSET,
+            "{$plugin_url}/build/vendor/bootstrap/front.js",
+            $asset_file['dependencies'],
+            $asset_file['version'],
+            true
+        );
 
-		wp_enqueue_style(
-			BOOTSTRAP_IN_FRONT_ASSET,
-			"{$plugin_url}/build/vendor/bootstrap/front.css",
-			[],
-			filemtime(PLUGIN_DIR_PATH . '/build/vendor/bootstrap/front.css')
-		);
-	}
+        wp_enqueue_style(
+            BOOTSTRAP_IN_FRONT_ASSET,
+            "{$plugin_url}/build/vendor/bootstrap/front.css",
+            [],
+            filemtime(PLUGIN_DIR_PATH . '/build/vendor/bootstrap/front.css')
+        );
+    }
 }
 
 /**
@@ -69,12 +69,12 @@ function enqueue_front_assets()
  */
 function add_settings_section()
 {
-	\add_settings_section(
-		BOOTSTRAP_SETTINGS_SECTION,
-		__('Bootstrap Settings (v4.6.0)', 'beer-blocks'),
-		null,
-		SETTINGS_PAGE_SLUG
-	);
+    \add_settings_section(
+        BOOTSTRAP_SETTINGS_SECTION,
+        __('Bootstrap Settings (v4.6.0)', 'beer-blocks'),
+        null,
+        SETTINGS_PAGE_SLUG
+    );
 }
 
 /**
@@ -82,8 +82,8 @@ function add_settings_section()
  */
 function register_settings()
 {
-	register_setting(SETTINGS_PAGE_SLUG, BOOTSTRAP_IN_EDITOR_SETTING);
-	register_setting(SETTINGS_PAGE_SLUG, BOOTSTRAP_IN_FRONT_SETTING);
+    register_setting(SETTINGS_PAGE_SLUG, BOOTSTRAP_IN_EDITOR_SETTING);
+    register_setting(SETTINGS_PAGE_SLUG, BOOTSTRAP_IN_FRONT_SETTING);
 }
 
 /**
@@ -91,29 +91,29 @@ function register_settings()
  */
 function add_settings_fields()
 {
-	// Create Bootstrap settings fields
-	add_settings_field(
-		BOOTSTRAP_IN_EDITOR_SETTING,
-		__('Load Bootstrap in the Editor', 'beer-blocks'),
-		GLOBALS_HELPERS_NS . '\\input_checkbox_setting_field',
-		SETTINGS_PAGE_SLUG,
-		BOOTSTRAP_SETTINGS_SECTION,
-		[
-			'label_text' => __('Load Bootstrap in the Editor', 'beer-blocks'),
-			'label_for' => BOOTSTRAP_IN_EDITOR_SETTING,
-			'description' => __('Enqueue Bootstrap styles in the Block editor.', 'beer-blocks'),
-		]
-	);
-	add_settings_field(
-		BOOTSTRAP_IN_FRONT_SETTING,
-		__('Load Bootstrap in Front', 'beer-blocks'),
-		GLOBALS_HELPERS_NS . '\\input_checkbox_setting_field',
-		SETTINGS_PAGE_SLUG,
-		BOOTSTRAP_SETTINGS_SECTION,
-		[
-			'label_text' => __('Load Bootstrap in Front', 'beer-blocks'),
-			'label_for' => BOOTSTRAP_IN_FRONT_SETTING,
-			'description' => __('Enqueue Bootstrap styles and scripts in the Frontend.', 'beer-blocks'),
-		]
-	);
+    // Create Bootstrap settings fields
+    add_settings_field(
+        BOOTSTRAP_IN_EDITOR_SETTING,
+        __('Load Bootstrap in the Editor', 'beer-blocks'),
+        GLOBALS_HELPERS_NS . '\\input_checkbox_setting_field',
+        SETTINGS_PAGE_SLUG,
+        BOOTSTRAP_SETTINGS_SECTION,
+        [
+            'label_text' => __('Load Bootstrap in the Editor', 'beer-blocks'),
+            'label_for' => BOOTSTRAP_IN_EDITOR_SETTING,
+            'description' => __('Enqueue Bootstrap styles in the Block editor.', 'beer-blocks'),
+        ]
+    );
+    add_settings_field(
+        BOOTSTRAP_IN_FRONT_SETTING,
+        __('Load Bootstrap in Front', 'beer-blocks'),
+        GLOBALS_HELPERS_NS . '\\input_checkbox_setting_field',
+        SETTINGS_PAGE_SLUG,
+        BOOTSTRAP_SETTINGS_SECTION,
+        [
+            'label_text' => __('Load Bootstrap in Front', 'beer-blocks'),
+            'label_for' => BOOTSTRAP_IN_FRONT_SETTING,
+            'description' => __('Enqueue Bootstrap styles and scripts in the Frontend.', 'beer-blocks'),
+        ]
+    );
 }

@@ -2,22 +2,20 @@
 
 namespace BeerBlocks\Helpers\Globals;
 
-use WP_Block_Type_Registry;
-
 /**
  * Create Beer Block category (before WordPress 5.8).
  */
 function create_blocks_category__deprecated($categories, $post)
 {
-	return array_merge(
-		$categories,
-		[
-			[
-				'slug' => PLUGIN_SLUG,
-				'title' => PLUGIN_NAME,
-			],
-		]
-	);
+    return array_merge(
+        $categories,
+        [
+            [
+                'slug' => PLUGIN_SLUG,
+                'title' => PLUGIN_NAME,
+            ],
+        ]
+    );
 }
 
 /**
@@ -25,17 +23,17 @@ function create_blocks_category__deprecated($categories, $post)
  */
 function create_blocks_category($block_categories, $editor_context)
 {
-	if (!empty($editor_context->post)) {
-		array_push(
-			$block_categories,
-			[
-				'slug' => PLUGIN_SLUG,
-				'title' => PLUGIN_NAME,
-			],
-		);
-	}
+    if (!empty($editor_context->post)) {
+        array_push(
+            $block_categories,
+            [
+                'slug' => PLUGIN_SLUG,
+                'title' => PLUGIN_NAME,
+            ]
+        );
+    }
 
-	return $block_categories;
+    return $block_categories;
 }
 
 /**
@@ -43,32 +41,32 @@ function create_blocks_category($block_categories, $editor_context)
  */
 function enqueue_block_types_assets()
 {
-	$manifest = json_decode(file_get_contents(PLUGIN_DIR_PATH . '/manifest.json'), true);
+    $manifest = json_decode(file_get_contents(PLUGIN_DIR_PATH . '/manifest.json'), true);
 
-	foreach ($manifest['block_types'] as $block_type) {
-		$asset_file = include PLUGIN_DIR_PATH . "/build/{$block_type}/index.asset.php";
+    foreach ($manifest['block_types'] as $block_type) {
+        $asset_file = include PLUGIN_DIR_PATH . "/build/{$block_type}/index.asset.php";
 
-		wp_enqueue_script(
-			"beer-blocks-{$block_type}-editor",
-			PLUGIN_DIR_URL . "/build/{$block_type}/index.js",
-			$asset_file['dependencies'],
-			$asset_file['version'],
-			true
-		);
+        wp_enqueue_script(
+            "beer-blocks-{$block_type}-editor",
+            PLUGIN_DIR_URL . "/build/{$block_type}/index.js",
+            $asset_file['dependencies'],
+            $asset_file['version'],
+            true
+        );
 
-		wp_enqueue_style(
-			"beer-blocks-{$block_type}-editor",
-			PLUGIN_DIR_URL . "/build/{$block_type}/index.css",
-			[],
-			filemtime(PLUGIN_DIR_PATH . '/build/editor.css')
-		);
+        wp_enqueue_style(
+            "beer-blocks-{$block_type}-editor",
+            PLUGIN_DIR_URL . "/build/{$block_type}/index.css",
+            [],
+            filemtime(PLUGIN_DIR_PATH . '/build/editor.css')
+        );
 
-		wp_set_script_translations(
-			"beer-blocks-{$block_type}-editor",
-			'beer-blocks',
-			PLUGIN_DIR_PATH . '/languages'
-		);
-	}
+        wp_set_script_translations(
+            "beer-blocks-{$block_type}-editor",
+            'beer-blocks',
+            PLUGIN_DIR_PATH . '/languages'
+        );
+    }
 }
 
 /**
@@ -76,28 +74,28 @@ function enqueue_block_types_assets()
  */
 function enqueue_editor_assets()
 {
-	$asset_file = include PLUGIN_DIR_PATH . '/build/editor.asset.php';
+    $asset_file = include PLUGIN_DIR_PATH . '/build/editor.asset.php';
 
-	wp_enqueue_script(
-		'beer-blocks-editor',
-		PLUGIN_DIR_URL . '/build/editor.js',
-		$asset_file['dependencies'],
-		$asset_file['version'],
-		true
-	);
+    wp_enqueue_script(
+        'beer-blocks-editor',
+        PLUGIN_DIR_URL . '/build/editor.js',
+        $asset_file['dependencies'],
+        $asset_file['version'],
+        true
+    );
 
-	wp_enqueue_style(
-		'beer-blocks-editor',
-		PLUGIN_DIR_URL . '/build/editor.css',
-		[],
-		filemtime(PLUGIN_DIR_PATH . '/build/editor.css')
-	);
+    wp_enqueue_style(
+        'beer-blocks-editor',
+        PLUGIN_DIR_URL . '/build/editor.css',
+        [],
+        filemtime(PLUGIN_DIR_PATH . '/build/editor.css')
+    );
 
-	wp_set_script_translations(
-		'beer-blocks-editor',
-		'beer-blocks',
-		PLUGIN_DIR_PATH . '/languages'
-	);
+    wp_set_script_translations(
+        'beer-blocks-editor',
+        'beer-blocks',
+        PLUGIN_DIR_PATH . '/languages'
+    );
 }
 
 /**
@@ -105,20 +103,20 @@ function enqueue_editor_assets()
  */
 function add_settings_menu_page()
 {
-	add_menu_page(
-		__('Beer Blocks Settings', 'beer-blocks'),
-		PLUGIN_NAME,
-		'manage_options',
-		SETTINGS_PAGE_SLUG,
-		function () {
-			// check user capabilities
-			if (!current_user_can('manage_options')) {
-				return;
-			}
+    add_menu_page(
+        __('Beer Blocks Settings', 'beer-blocks'),
+        PLUGIN_NAME,
+        'manage_options',
+        SETTINGS_PAGE_SLUG,
+        function () {
+            // check user capabilities
+            if (!current_user_can('manage_options')) {
+                return;
+            }
 
-			include PLUGIN_DIR_PATH . '/inc/beer-blocks-admin-page.php';
-		}
-	);
+            include PLUGIN_DIR_PATH . '/inc/beer-blocks-admin-page.php';
+        }
+    );
 }
 
 /**
@@ -126,9 +124,9 @@ function add_settings_menu_page()
  */
 function input_text_setting_field(array $args = [])
 {
-	$option = get_option($args['label_for']);
-	extract($args);
-	include PLUGIN_DIR_PATH . '/inc/settings-fields/input-text.php';
+    $option = get_option($args['label_for']);
+    extract($args);
+    include PLUGIN_DIR_PATH . '/inc/settings-fields/input-text.php';
 }
 
 /**
@@ -136,9 +134,9 @@ function input_text_setting_field(array $args = [])
  */
 function input_checkbox_setting_field(array $args = [])
 {
-	$option = get_option($args['label_for']);
-	extract($args);
-	include PLUGIN_DIR_PATH . '/inc/settings-fields/input-checkbox.php';
+    $option = get_option($args['label_for']);
+    extract($args);
+    include PLUGIN_DIR_PATH . '/inc/settings-fields/input-checkbox.php';
 }
 
 /**
@@ -146,74 +144,74 @@ function input_checkbox_setting_field(array $args = [])
  */
 function form_submit()
 {
-	// check if the user submit form
-	if (
-		filter_input(INPUT_POST, 'option_page') !== SETTINGS_PAGE_SLUG or
-		filter_input(INPUT_POST, 'action') !== 'update'
-	) {
-		return;
-	}
+    // check if the user submit form
+    if (
+        filter_input(INPUT_POST, 'option_page') !== SETTINGS_PAGE_SLUG or
+        filter_input(INPUT_POST, 'action') !== 'update'
+    ) {
+        return;
+    }
 
-	// check if nonce exists
-	$nonce = filter_input(INPUT_POST, '_wpnonce');
-	if (empty($nonce)) {
-		add_settings_error(
-			'beer_blocks_settings_messages',
-			'beer_blocks_settings_error_message',
-			__('<p>Security alert: <b>NONCE CHECK FAILED</b></p>', 'beer-blocks')
-		);
-		return;
-	}
+    // check if nonce exists
+    $nonce = filter_input(INPUT_POST, '_wpnonce');
+    if (empty($nonce)) {
+        add_settings_error(
+            'beer_blocks_settings_messages',
+            'beer_blocks_settings_error_message',
+            __('<p>Security alert: <b>NONCE CHECK FAILED</b></p>', 'beer-blocks')
+        );
+        return;
+    }
 
-	// check nonce
-	if (!wp_verify_nonce($nonce, 'beer_blocks_settings_page-options')) {
-		add_settings_error(
-			'beer_blocks_settings_messages',
-			'beer_blocks_settings_error_message',
-			__('<p>Security alert: <b>NONCE CHECK FAILED</b></p>', 'beer-blocks')
-		);
-		return;
-	}
+    // check nonce
+    if (!wp_verify_nonce($nonce, 'beer_blocks_settings_page-options')) {
+        add_settings_error(
+            'beer_blocks_settings_messages',
+            'beer_blocks_settings_error_message',
+            __('<p>Security alert: <b>NONCE CHECK FAILED</b></p>', 'beer-blocks')
+        );
+        return;
+    }
 
-	// get submited data
-	$bootstrap_in_editor = filter_input(INPUT_POST, BOOTSTRAP_IN_EDITOR_SETTING, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
-	$bootstrap_in_front = filter_input(INPUT_POST, BOOTSTRAP_IN_FRONT_SETTING, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
-	$fa_in_editor = filter_input(INPUT_POST, FONTAWESOME_IN_EDITOR_SETTING, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
-	$fa_in_front = filter_input(INPUT_POST, FONTAWESOME_IN_EDITOR_SETTING, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
-	$google_fonts_api_key = filter_input(INPUT_POST, GOOGLE_FONTS_API_KEY, FILTER_SANITIZE_STRING);
+    // get submited data
+    $bootstrap_in_editor = filter_input(INPUT_POST, BOOTSTRAP_IN_EDITOR_SETTING, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
+    $bootstrap_in_front = filter_input(INPUT_POST, BOOTSTRAP_IN_FRONT_SETTING, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
+    $fa_in_editor = filter_input(INPUT_POST, FONTAWESOME_IN_EDITOR_SETTING, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
+    $fa_in_front = filter_input(INPUT_POST, FONTAWESOME_IN_EDITOR_SETTING, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
+    $google_fonts_api_key = filter_input(INPUT_POST, GOOGLE_FONTS_API_KEY, FILTER_SANITIZE_STRING);
 
-	// update data
-	if (is_bool($bootstrap_in_editor)) {
-		update_option(BOOTSTRAP_IN_EDITOR_SETTING, ($bootstrap_in_editor ? 'yes' : 'no'));
-	}
+    // update data
+    if (is_bool($bootstrap_in_editor)) {
+        update_option(BOOTSTRAP_IN_EDITOR_SETTING, ($bootstrap_in_editor ? 'yes' : 'no'));
+    }
 
-	if (is_bool($bootstrap_in_front)) {
-		update_option(BOOTSTRAP_IN_FRONT_SETTING, ($bootstrap_in_front ? 'yes' : 'no'));
-	}
+    if (is_bool($bootstrap_in_front)) {
+        update_option(BOOTSTRAP_IN_FRONT_SETTING, ($bootstrap_in_front ? 'yes' : 'no'));
+    }
 
-	if (is_bool($fa_in_editor)) {
-		update_option(FONTAWESOME_IN_EDITOR_SETTING, ($fa_in_editor ? 'yes' : 'no'));
-	}
+    if (is_bool($fa_in_editor)) {
+        update_option(FONTAWESOME_IN_EDITOR_SETTING, ($fa_in_editor ? 'yes' : 'no'));
+    }
 
-	if (is_bool($fa_in_front)) {
-		update_option(FONTAWESOME_IN_FRONT_SETTING, ($fa_in_front ? 'yes' : 'no'));
-	}
+    if (is_bool($fa_in_front)) {
+        update_option(FONTAWESOME_IN_FRONT_SETTING, ($fa_in_front ? 'yes' : 'no'));
+    }
 
-	if (is_bool($fa_in_front)) {
-		update_option(FONTAWESOME_IN_FRONT_SETTING, ($fa_in_front ? 'yes' : 'no'));
-	}
+    if (is_bool($fa_in_front)) {
+        update_option(FONTAWESOME_IN_FRONT_SETTING, ($fa_in_front ? 'yes' : 'no'));
+    }
 
-	if (is_string($google_fonts_api_key)) {
-		update_option(GOOGLE_FONTS_API_KEY, $google_fonts_api_key);
-	}
+    if (is_string($google_fonts_api_key)) {
+        update_option(GOOGLE_FONTS_API_KEY, $google_fonts_api_key);
+    }
 
-	// add success message
-	add_settings_error(
-		'beer_blocks_settings_messages',
-		'beer_blocks_settings_success_message',
-		__('Settings updated successfully!!', 'beer-blocks'),
-		'success'
-	);
+    // add success message
+    add_settings_error(
+        'beer_blocks_settings_messages',
+        'beer_blocks_settings_success_message',
+        __('Settings updated successfully!!', 'beer-blocks'),
+        'success'
+    );
 }
 
 /**
@@ -221,9 +219,9 @@ function form_submit()
  */
 function uninstall()
 {
-	delete_option(BOOTSTRAP_IN_EDITOR_SETTING);
-	delete_option(BOOTSTRAP_IN_FRONT_SETTING);
-	delete_option(FONTAWESOME_IN_EDITOR_SETTING);
-	delete_option(FONTAWESOME_IN_FRONT_SETTING);
-	delete_option(GOOGLE_FONTS_API_KEY);
+    delete_option(BOOTSTRAP_IN_EDITOR_SETTING);
+    delete_option(BOOTSTRAP_IN_FRONT_SETTING);
+    delete_option(FONTAWESOME_IN_EDITOR_SETTING);
+    delete_option(FONTAWESOME_IN_FRONT_SETTING);
+    delete_option(GOOGLE_FONTS_API_KEY);
 }

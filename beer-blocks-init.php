@@ -14,11 +14,18 @@ define('SETTINGS_PAGE_SLUG', 'beer_blocks_settings_page');
 
 include PLUGIN_DIR_PATH . "/beer-blocks-helpers.php";
 
+// Loading the Text Domain
+add_action('plugins_loaded', function () {
+    $plugin_rel_path = basename(dirname(__FILE__)) . '/languages';
+    load_plugin_textdomain('beer-blocks', false, $plugin_rel_path);
+});
+
+
 // Create Beer Blocks Category
 if (class_exists('\\WP_Block_Editor_Context')) {
-	add_filter('block_categories_all', GLOBALS_HELPERS_NS . '\\create_blocks_category', 10, 2);
+    add_filter('block_categories_all', GLOBALS_HELPERS_NS . '\\create_blocks_category', 10, 2);
 } else {
-	add_filter('block_categories', GLOBALS_HELPERS_NS . '\\create_blocks_category__deprecated', 10, 2);
+    add_filter('block_categories', GLOBALS_HELPERS_NS . '\\create_blocks_category__deprecated', 10, 2);
 }
 
 // Enqueue Bootstrap in the editor

@@ -8,7 +8,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2021-08-17T13:56:20+00:00\n"
-"PO-Revision-Date: 2021-09-14 03:52+0000\n"
+"PO-Revision-Date: 2021-09-14 18:31+0000\n"
 "Language: es_ES\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: beer-blocks\n"
@@ -19,7 +19,7 @@ msgstr ""
 msgid "-- SELECT --"
 msgstr "-- SELECCIONE --"
 
-#: inc/helpers/globals.php:163 inc/helpers/globals.php:173
+#: inc/helpers/globals.php:161 inc/helpers/globals.php:171
 msgid "<p>Security alert: <b>NONCE CHECK FAILED</b></p>"
 msgstr "<p>Alerta de seguridad: <b>FALLÓ LA VERIFICACIÓN DEL NONCE</b></p>"
 
@@ -70,7 +70,7 @@ msgstr ""
 "Beer Blocks amplía el editor de WordPress con bloques potentes y avanzados "
 "que te ayudan a crear hermosos sitios web más rápido."
 
-#: inc/helpers/globals.php:109
+#: inc/helpers/globals.php:107
 msgid "Beer Blocks Settings"
 msgstr "Ajustes de Beer Blocks"
 
@@ -168,7 +168,6 @@ msgid "Create paragraph with custom typography, margin and padding."
 msgstr "Cree un párrafo con tipografía, margen y relleno ajustables."
 
 #: build/jumbotron/index.js:1 src/block-types/jumbotron/index.js:49
-#: src/block-types/jumbotron/block.json
 msgctxt "block description"
 msgid ""
 "Lightweight, flexible Bootstrap component for showcasing hero unit style "
@@ -285,7 +284,7 @@ msgid "Instructions"
 msgstr "Instrucciones"
 
 #: build/jumbotron/index.js:1 src/block-types/jumbotron/index.js:47
-#: src/block-types/jumbotron/index.js:62 src/block-types/jumbotron/block.json
+#: src/block-types/jumbotron/index.js:62
 msgctxt "block title"
 msgid "Jumbotron"
 msgstr "Jumbotron"
@@ -634,7 +633,7 @@ msgstr "Seleccione..."
 msgid "Settings applied from %s resolution and up"
 msgstr "Ajustes aplicados desde la resolución %s en adelante"
 
-#: inc/helpers/globals.php:214
+#: inc/helpers/globals.php:212
 msgid "Settings updated successfully!!"
 msgstr "¡¡Los ajustes se actualizaron correctamente!!"
 

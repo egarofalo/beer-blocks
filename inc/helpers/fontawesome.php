@@ -13,14 +13,14 @@ define('FONTAWESOME_SETTINGS_SECTION', 'beer_blocks_fontawesome_settings_section
  */
 function enqueue_editor_assets()
 {
-	$option = filter_var(get_option(FONTAWESOME_IN_EDITOR_SETTING), FILTER_VALIDATE_BOOLEAN);
+    $option = filter_var(get_option(FONTAWESOME_IN_EDITOR_SETTING), FILTER_VALIDATE_BOOLEAN);
 
-	if ($option) {
-		wp_enqueue_style(
-			FONTAWESOME_IN_EDITOR_ASSET,
-			'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css',
-		);
-	}
+    if ($option) {
+        wp_enqueue_style(
+            FONTAWESOME_IN_EDITOR_ASSET,
+            'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'
+        );
+    }
 }
 
 /**
@@ -28,14 +28,14 @@ function enqueue_editor_assets()
  */
 function enqueue_front_assets()
 {
-	$option = filter_var(get_option(FONTAWESOME_IN_FRONT_SETTING), FILTER_VALIDATE_BOOLEAN);
+    $option = filter_var(get_option(FONTAWESOME_IN_FRONT_SETTING), FILTER_VALIDATE_BOOLEAN);
 
-	if ($option) {
-		wp_enqueue_style(
-			FONTAWESOME_IN_FRONT_ASSET,
-			'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css',
-		);
-	}
+    if ($option) {
+        wp_enqueue_style(
+            FONTAWESOME_IN_FRONT_ASSET,
+            'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'
+        );
+    }
 }
 
 /**
@@ -43,19 +43,19 @@ function enqueue_front_assets()
  */
 function filters_html_link_tags($html, $handle, $href, $media)
 {
-	switch ($handle) {
-		case FONTAWESOME_IN_EDITOR_ASSET:
-		case FONTAWESOME_IN_FRONT_ASSET:
-			$integrity = 'sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==';
-			$html = preg_replace(
-				"/(>| \/>)$/",
-				" integrity=\"{$integrity}\" crossorigin=\"anonymous\" referrerpolicy=\"no-referrer\"$1",
-				$html
-			);
-			break;
-	}
+    switch ($handle) {
+        case FONTAWESOME_IN_EDITOR_ASSET:
+        case FONTAWESOME_IN_FRONT_ASSET:
+            $integrity = 'sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==';
+            $html = preg_replace(
+                "/(>| \/>)$/",
+                " integrity=\"{$integrity}\" crossorigin=\"anonymous\" referrerpolicy=\"no-referrer\"$1",
+                $html
+            );
+            break;
+    }
 
-	return $html;
+    return $html;
 }
 
 /**
@@ -63,12 +63,12 @@ function filters_html_link_tags($html, $handle, $href, $media)
  */
 function add_settings_section()
 {
-	\add_settings_section(
-		FONTAWESOME_SETTINGS_SECTION,
-		__('Font Awesome Settings (v5.15.3)', 'beer-blocks'),
-		null,
-		SETTINGS_PAGE_SLUG
-	);
+    \add_settings_section(
+        FONTAWESOME_SETTINGS_SECTION,
+        __('Font Awesome Settings (v5.15.3)', 'beer-blocks'),
+        null,
+        SETTINGS_PAGE_SLUG
+    );
 }
 
 /**
@@ -76,8 +76,8 @@ function add_settings_section()
  */
 function register_settings()
 {
-	register_setting(SETTINGS_PAGE_SLUG, FONTAWESOME_IN_EDITOR_SETTING);
-	register_setting(SETTINGS_PAGE_SLUG, FONTAWESOME_IN_FRONT_SETTING);
+    register_setting(SETTINGS_PAGE_SLUG, FONTAWESOME_IN_EDITOR_SETTING);
+    register_setting(SETTINGS_PAGE_SLUG, FONTAWESOME_IN_FRONT_SETTING);
 }
 
 /**
@@ -85,29 +85,29 @@ function register_settings()
  */
 function add_settings_fields()
 {
-	// Create Fontawesome settings fields
-	add_settings_field(
-		FONTAWESOME_IN_EDITOR_SETTING,
-		__('Load Font Awesome in the Editor', 'beer-blocks'),
-		GLOBALS_HELPERS_NS . '\\input_checkbox_setting_field',
-		SETTINGS_PAGE_SLUG,
-		FONTAWESOME_SETTINGS_SECTION,
-		[
-			'label_text' => __('Load Font Awesome in the Editor', 'beer-blocks'),
-			'label_for' => FONTAWESOME_IN_EDITOR_SETTING,
-			'description' => __('Enqueue Font Awesome styles in the Block editor.', 'beer-blocks'),
-		]
-	);
-	add_settings_field(
-		FONTAWESOME_IN_FRONT_SETTING,
-		__('Load FontAwesome in Front', 'beer-blocks'),
-		GLOBALS_HELPERS_NS . '\\input_checkbox_setting_field',
-		SETTINGS_PAGE_SLUG,
-		FONTAWESOME_SETTINGS_SECTION,
-		[
-			'label_text' => __('Load Font Awesome in Front', 'beer-blocks'),
-			'label_for' => FONTAWESOME_IN_FRONT_SETTING,
-			'description' => __('Enqueue Font Awesome styles in the Frontend.', 'beer-blocks'),
-		]
-	);
+    // Create Fontawesome settings fields
+    add_settings_field(
+        FONTAWESOME_IN_EDITOR_SETTING,
+        __('Load Font Awesome in the Editor', 'beer-blocks'),
+        GLOBALS_HELPERS_NS . '\\input_checkbox_setting_field',
+        SETTINGS_PAGE_SLUG,
+        FONTAWESOME_SETTINGS_SECTION,
+        [
+            'label_text' => __('Load Font Awesome in the Editor', 'beer-blocks'),
+            'label_for' => FONTAWESOME_IN_EDITOR_SETTING,
+            'description' => __('Enqueue Font Awesome styles in the Block editor.', 'beer-blocks'),
+        ]
+    );
+    add_settings_field(
+        FONTAWESOME_IN_FRONT_SETTING,
+        __('Load FontAwesome in Front', 'beer-blocks'),
+        GLOBALS_HELPERS_NS . '\\input_checkbox_setting_field',
+        SETTINGS_PAGE_SLUG,
+        FONTAWESOME_SETTINGS_SECTION,
+        [
+            'label_text' => __('Load Font Awesome in Front', 'beer-blocks'),
+            'label_for' => FONTAWESOME_IN_FRONT_SETTING,
+            'description' => __('Enqueue Font Awesome styles in the Frontend.', 'beer-blocks'),
+        ]
+    );
 }
