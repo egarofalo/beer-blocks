@@ -65,7 +65,7 @@ function add_settings_section()
 {
 	\add_settings_section(
 		FONTAWESOME_SETTINGS_SECTION,
-		__('Font Awesome Settings (v5.15.3)', TEXT_DOMAIN),
+		__('Font Awesome Settings (v5.15.3)', 'beer-blocks'),
 		null,
 		SETTINGS_PAGE_SLUG
 	);
@@ -88,26 +88,26 @@ function add_settings_fields()
 	// Create Fontawesome settings fields
 	add_settings_field(
 		FONTAWESOME_IN_EDITOR_SETTING,
-		__('Load Font Awesome in the Editor', TEXT_DOMAIN),
+		__('Load Font Awesome in the Editor', 'beer-blocks'),
 		GLOBALS_HELPERS_NS . '\\input_checkbox_setting_field',
 		SETTINGS_PAGE_SLUG,
 		FONTAWESOME_SETTINGS_SECTION,
 		[
-			'label_text' => __('Load Font Awesome in the Editor', TEXT_DOMAIN),
+			'label_text' => __('Load Font Awesome in the Editor', 'beer-blocks'),
 			'label_for' => FONTAWESOME_IN_EDITOR_SETTING,
-			'description' => __('Enqueue Font Awesome styles in the Block editor.', TEXT_DOMAIN),
+			'description' => __('Enqueue Font Awesome styles in the Block editor.', 'beer-blocks'),
 		]
 	);
 	add_settings_field(
 		FONTAWESOME_IN_FRONT_SETTING,
-		__('Load FontAwesome in Front', TEXT_DOMAIN),
+		__('Load FontAwesome in Front', 'beer-blocks'),
 		GLOBALS_HELPERS_NS . '\\input_checkbox_setting_field',
 		SETTINGS_PAGE_SLUG,
 		FONTAWESOME_SETTINGS_SECTION,
 		[
-			'label_text' => __('Load Font Awesome in Front', TEXT_DOMAIN),
+			'label_text' => __('Load Font Awesome in Front', 'beer-blocks'),
 			'label_for' => FONTAWESOME_IN_FRONT_SETTING,
-			'description' => __('Enqueue Font Awesome styles in the Frontend.', TEXT_DOMAIN),
+			'description' => __('Enqueue Font Awesome styles in the Frontend.', 'beer-blocks'),
 		]
 	);
 }

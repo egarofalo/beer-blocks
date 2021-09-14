@@ -71,7 +71,7 @@ function add_settings_section()
 {
 	\add_settings_section(
 		BOOTSTRAP_SETTINGS_SECTION,
-		__('Bootstrap Settings (v4.6.0)', TEXT_DOMAIN),
+		__('Bootstrap Settings (v4.6.0)', 'beer-blocks'),
 		null,
 		SETTINGS_PAGE_SLUG
 	);
@@ -94,26 +94,26 @@ function add_settings_fields()
 	// Create Bootstrap settings fields
 	add_settings_field(
 		BOOTSTRAP_IN_EDITOR_SETTING,
-		__('Load Bootstrap in the Editor', TEXT_DOMAIN),
+		__('Load Bootstrap in the Editor', 'beer-blocks'),
 		GLOBALS_HELPERS_NS . '\\input_checkbox_setting_field',
 		SETTINGS_PAGE_SLUG,
 		BOOTSTRAP_SETTINGS_SECTION,
 		[
-			'label_text' => __('Load Bootstrap in the Editor', TEXT_DOMAIN),
+			'label_text' => __('Load Bootstrap in the Editor', 'beer-blocks'),
 			'label_for' => BOOTSTRAP_IN_EDITOR_SETTING,
-			'description' => __('Enqueue Bootstrap styles in the Block editor.', TEXT_DOMAIN),
+			'description' => __('Enqueue Bootstrap styles in the Block editor.', 'beer-blocks'),
 		]
 	);
 	add_settings_field(
 		BOOTSTRAP_IN_FRONT_SETTING,
-		__('Load Bootstrap in Front', TEXT_DOMAIN),
+		__('Load Bootstrap in Front', 'beer-blocks'),
 		GLOBALS_HELPERS_NS . '\\input_checkbox_setting_field',
 		SETTINGS_PAGE_SLUG,
 		BOOTSTRAP_SETTINGS_SECTION,
 		[
-			'label_text' => __('Load Bootstrap in Front', TEXT_DOMAIN),
+			'label_text' => __('Load Bootstrap in Front', 'beer-blocks'),
 			'label_for' => BOOTSTRAP_IN_FRONT_SETTING,
-			'description' => __('Enqueue Bootstrap styles and scripts in the Frontend.', TEXT_DOMAIN),
+			'description' => __('Enqueue Bootstrap styles and scripts in the Frontend.', 'beer-blocks'),
 		]
 	);
 }

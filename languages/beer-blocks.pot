@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-09-07T21:08:20+00:00\n"
+"POT-Creation-Date: 2021-09-14T03:28:50+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.5.0\n"
 "X-Domain: beer-blocks\n"
@@ -28,6 +28,83 @@ msgstr ""
 
 #. Author URI of the plugin
 msgid "https://codevelopers.tech"
+msgstr ""
+
+#: inc/beer-blocks-admin-page.php:15
+msgid "Save Settings"
+msgstr ""
+
+#: inc/helpers/bootstrap.php:74
+msgid "Bootstrap Settings (v4.6.0)"
+msgstr ""
+
+#: inc/helpers/bootstrap.php:97
+#: inc/helpers/bootstrap.php:102
+msgid "Load Bootstrap in the Editor"
+msgstr ""
+
+#: inc/helpers/bootstrap.php:104
+msgid "Enqueue Bootstrap styles in the Block editor."
+msgstr ""
+
+#: inc/helpers/bootstrap.php:109
+#: inc/helpers/bootstrap.php:114
+msgid "Load Bootstrap in Front"
+msgstr ""
+
+#: inc/helpers/bootstrap.php:116
+msgid "Enqueue Bootstrap styles and scripts in the Frontend."
+msgstr ""
+
+#: inc/helpers/fontawesome.php:68
+msgid "Font Awesome Settings (v5.15.3)"
+msgstr ""
+
+#: inc/helpers/fontawesome.php:91
+#: inc/helpers/fontawesome.php:96
+msgid "Load Font Awesome in the Editor"
+msgstr ""
+
+#: inc/helpers/fontawesome.php:98
+msgid "Enqueue Font Awesome styles in the Block editor."
+msgstr ""
+
+#: inc/helpers/fontawesome.php:103
+msgid "Load FontAwesome in Front"
+msgstr ""
+
+#: inc/helpers/fontawesome.php:108
+msgid "Load Font Awesome in Front"
+msgstr ""
+
+#: inc/helpers/fontawesome.php:110
+msgid "Enqueue Font Awesome styles in the Frontend."
+msgstr ""
+
+#: inc/helpers/globals.php:109
+msgid "Beer Blocks Settings"
+msgstr ""
+
+#: inc/helpers/globals.php:163
+#: inc/helpers/globals.php:173
+msgid "<p>Security alert: <b>NONCE CHECK FAILED</b></p>"
+msgstr ""
+
+#: inc/helpers/globals.php:214
+msgid "Settings updated successfully!!"
+msgstr ""
+
+#: inc/helpers/google-fonts.php:17
+msgid "Google Fonts Settings"
+msgstr ""
+
+#: inc/helpers/google-fonts.php:43
+#: inc/helpers/google-fonts.php:48
+msgid "Google Fonts API Key"
+msgstr ""
+
+#: inc/helpers/google-fonts.php:50
+msgid "Copy and paste here the Google Fonts API Key to obtain the full dropdown list of all available fonts.<br>This feature apply only in each blocks that you can change the typography."
 msgstr ""
 
 #: build/accordion-item/index.js:1

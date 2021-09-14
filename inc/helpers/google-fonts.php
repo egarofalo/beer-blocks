@@ -14,7 +14,7 @@ function add_settings_section()
 {
 	\add_settings_section(
 		GOOGLE_FONTS_SETTINGS_SECTION,
-		__('Google Fonts Settings', TEXT_DOMAIN),
+		__('Google Fonts Settings', 'beer-blocks'),
 		null,
 		SETTINGS_PAGE_SLUG
 	);
@@ -40,14 +40,14 @@ function add_api_key_setting_field()
 {
 	add_settings_field(
 		GOOGLE_FONTS_API_KEY,
-		__('Google Fonts API Key', TEXT_DOMAIN),
+		__('Google Fonts API Key', 'beer-blocks'),
 		GLOBALS_HELPERS_NS . '\\input_text_setting_field',
 		SETTINGS_PAGE_SLUG,
 		GOOGLE_FONTS_SETTINGS_SECTION,
 		[
-			'label_text' => __('Google Fonts API Key', TEXT_DOMAIN),
+			'label_text' => __('Google Fonts API Key', 'beer-blocks'),
 			'label_for' => GOOGLE_FONTS_API_KEY,
-			'description' => __('Copy and paste here the Google Fonts API Key to obtain the full dropdown list of all available fonts.<br>This feature apply only in each blocks that you can change the typography.', TEXT_DOMAIN),
+			'description' => __('Copy and paste here the Google Fonts API Key to obtain the full dropdown list of all available fonts.<br>This feature apply only in each blocks that you can change the typography.', 'beer-blocks'),
 		]
 	);
 }

@@ -10,7 +10,6 @@ define('GF_HELPERS_NS', __NAMESPACE__ . '\\Helpers\\GoogleFonts');
 define('GLOBALS_HELPERS_NS', __NAMESPACE__ . '\\Helpers\\Globals');
 define('PLUGIN_NAME', 'Beer Blocks');
 define('PLUGIN_SLUG', 'beer-blocks');
-define('TEXT_DOMAIN', 'beer-blocks');
 define('SETTINGS_PAGE_SLUG', 'beer_blocks_settings_page');
 
 include PLUGIN_DIR_PATH . "/beer-blocks-helpers.php";

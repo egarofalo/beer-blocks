@@ -8,7 +8,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2021-08-17T13:56:20+00:00\n"
-"PO-Revision-Date: 2021-08-27 18:25+0000\n"
+"PO-Revision-Date: 2021-09-14 03:52+0000\n"
 "Language: es_ES\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: beer-blocks\n"
@@ -18,6 +18,10 @@ msgstr ""
 #: build/accordion-item/index.js:1 src/helpers/border.js:23
 msgid "-- SELECT --"
 msgstr "-- SELECCIONE --"
+
+#: inc/helpers/globals.php:163 inc/helpers/globals.php:173
+msgid "<p>Security alert: <b>NONCE CHECK FAILED</b></p>"
+msgstr "<p>Alerta de seguridad: <b>FALLÓ LA VERIFICACIÓN DEL NONCE</b></p>"
 
 #: build/alert/index.js:1 src/block-types/alert/edit.js:27
 msgid "Alert settings"
@@ -65,6 +69,10 @@ msgid ""
 msgstr ""
 "Beer Blocks amplía el editor de WordPress con bloques potentes y avanzados "
 "que te ayudan a crear hermosos sitios web más rápido."
+
+#: inc/helpers/globals.php:109
+msgid "Beer Blocks Settings"
+msgstr "Ajustes de Beer Blocks"
 
 #: build/container/index.js:1 src/block-types/container/index.js:49
 msgctxt "block description"
@@ -199,6 +207,7 @@ msgid "Accordion"
 msgstr "Acordeón"
 
 #: build/accordion-item/index.js:1 src/block-types/accordion-item/index.js:49
+#: src/block-types/accordion-item/index.js:59
 msgctxt "block title"
 msgid "Accordion Item"
 msgstr "Elemento de acordeón"
@@ -228,6 +237,7 @@ msgid "Buttons"
 msgstr "Botones"
 
 #: build/column/index.js:1 src/block-types/column/index.js:47
+#: src/block-types/column/index.js:63
 msgctxt "block title"
 msgid "Column"
 msgstr "Columna"
@@ -239,6 +249,7 @@ msgid "Container"
 msgstr "Contenedor"
 
 #: build/fa-icon/index.js:1 src/block-types/fa-icon/index.js:47
+#: src/block-types/fa-icon/index.js:65
 msgctxt "block title"
 msgid "Font Awesome Icon"
 msgstr "Icono de Font Awesome"
@@ -262,6 +273,7 @@ msgid "Info Box"
 msgstr "Caja de información"
 
 #: build/instruction/index.js:1 src/block-types/instruction/index.js:49
+#: src/block-types/instruction/index.js:66
 msgctxt "block title"
 msgid "Instruction"
 msgstr "Instrucción"
@@ -285,6 +297,7 @@ msgid "Paragraph"
 msgstr "Párrafo"
 
 #: build/row/index.js:1 src/block-types/row/index.js:47
+#: src/block-types/row/index.js:56
 msgctxt "block title"
 msgid "Row"
 msgstr "Fila"
@@ -303,6 +316,10 @@ msgstr "Línea separadora"
 #: build/accordion-item/index.js:1 src/block-types/accordion-item/edit.js:96
 msgid "Body"
 msgstr "Cuerpo"
+
+#: inc/helpers/bootstrap.php:74
+msgid "Bootstrap Settings (v4.6.0)"
+msgstr "Ajustes de Bootstrap (v4.6.0)"
 
 #: build/accordion-item/index.js:1 src/helpers/border.js:123
 msgid "Border"
@@ -376,6 +393,16 @@ msgstr "Ajustes del contenedor"
 msgid "Container type"
 msgstr "Tipo de contenedor"
 
+#: inc/helpers/google-fonts.php:50
+msgid ""
+"Copy and paste here the Google Fonts API Key to obtain the full dropdown "
+"list of all available fonts.<br>This feature apply only in each blocks that "
+"you can change the typography."
+msgstr ""
+"Copie y pegue aquí la clave API de Google Fonts para obtener la lista "
+"desplegable de todas las fuentes disponibles.<br>Esta función se aplica solo "
+"aquellos bloques en los que se puede cambiar la tipografía."
+
 #: build/separator/index.js:1 src/block-types/separator/edit.js:41
 msgid "Dimensions"
 msgstr "Dimensiones"
@@ -390,13 +417,34 @@ msgstr "Editar"
 msgid "End"
 msgstr "Final (end)"
 
+#: inc/helpers/bootstrap.php:116
+msgid "Enqueue Bootstrap styles and scripts in the Frontend."
+msgstr "Encolar en el Frontend las hojas de estilos y scripts de Bootstrap."
+
+#: inc/helpers/bootstrap.php:104
+msgid "Enqueue Bootstrap styles in the Block editor."
+msgstr "Encolar en el Editor las hojas de estilos de Bootstrap."
+
+#: inc/helpers/fontawesome.php:98
+msgid "Enqueue Font Awesome styles in the Block editor."
+msgstr "Encolar en el Editor las hojas de estilos de Font Awesome."
+
+#: inc/helpers/fontawesome.php:110
+msgid "Enqueue Font Awesome styles in the Frontend."
+msgstr "Encolar en el Frontend las hojas de estilos de Font Awesome."
+
+#: inc/helpers/fontawesome.php:68
+msgid "Font Awesome Settings (v5.15.3)"
+msgstr "Ajustes de Font Awesome (v5.15.3)"
+
 #: build/accordion-item/index.js:1 build/instruction/index.js:1
 #: src/block-types/accordion-item/edit.js:75
 #: src/block-types/instruction/edit.js:138
 msgid "Font color"
 msgstr "Color de fuente"
 
-#: build/editor.js:1 src/post-settings-panel.js:96
+#: build/editor.js:1 src/post-settings-panel.js:66
+#: src/post-settings-panel.js:82 src/post-settings-panel.js:96
 msgid "Font Families:"
 msgstr "Familias de fuentes:"
 
@@ -423,6 +471,14 @@ msgid "Getting Google Fonts API Key from Beer Blocks configuration..."
 msgstr ""
 "Obteniendo la clave API de Google Fonts desde la configuración de Beer "
 "Blocks..."
+
+#: inc/helpers/google-fonts.php:43 inc/helpers/google-fonts.php:48
+msgid "Google Fonts API Key"
+msgstr "Clave API de Google Fonts"
+
+#: inc/helpers/google-fonts.php:17
+msgid "Google Fonts Settings"
+msgstr "Ajustes de Google Fonts"
 
 #: build/accordion-item/index.js:1 src/block-types/accordion-item/edit.js:71
 msgid "Heading"
@@ -471,6 +527,26 @@ msgstr "Grande"
 #: build/paragraph/index.js:1 src/helpers/typography.js:131
 msgid "Line Height"
 msgstr "Altura de la línea"
+
+#: inc/helpers/bootstrap.php:109 inc/helpers/bootstrap.php:114
+msgid "Load Bootstrap in Front"
+msgstr "Cargar Bootstrap en el Frontend"
+
+#: inc/helpers/bootstrap.php:97 inc/helpers/bootstrap.php:102
+msgid "Load Bootstrap in the Editor"
+msgstr "Cargar Bootstrap en el Editor"
+
+#: inc/helpers/fontawesome.php:108
+msgid "Load Font Awesome in Front"
+msgstr "Cargar Font Awesome en el Frontend"
+
+#: inc/helpers/fontawesome.php:91 inc/helpers/fontawesome.php:96
+msgid "Load Font Awesome in the Editor"
+msgstr "Cargar Font Awesome en el Editor"
+
+#: inc/helpers/fontawesome.php:103
+msgid "Load FontAwesome in Front"
+msgstr "Cargar Font Awesome en el Frontend"
 
 #: build/column/index.js:1 build/instruction/index.js:1
 #: build/instructions/index.js:1 build/row/index.js:1 src/helpers/grid.js:15
@@ -527,6 +603,10 @@ msgstr "Ajustes de fila"
 msgid "Same as previous breakpoint"
 msgstr "Igual que el punto de interrupción anterior"
 
+#: inc/beer-blocks-admin-page.php:15
+msgid "Save Settings"
+msgstr "Guardar ajustes"
+
 #: build/section/index.js:1 src/block-types/section/edit.js:26
 msgid "Section settings"
 msgstr "Ajustes de la sección"
@@ -553,6 +633,10 @@ msgstr "Seleccione..."
 #: build/instructions/index.js:1 build/row/index.js:1 src/helpers/grid.js:245
 msgid "Settings applied from %s resolution and up"
 msgstr "Ajustes aplicados desde la resolución %s en adelante"
+
+#: inc/helpers/globals.php:214
+msgid "Settings updated successfully!!"
+msgstr "¡¡Los ajustes se actualizaron correctamente!!"
 
 #: build/button/index.js:1 src/block-types/button/edit.js:104
 msgid "Small"

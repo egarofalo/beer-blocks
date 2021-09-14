@@ -65,7 +65,7 @@ function enqueue_block_types_assets()
 
 		wp_set_script_translations(
 			"beer-blocks-{$block_type}-editor",
-			TEXT_DOMAIN,
+			'beer-blocks',
 			PLUGIN_DIR_PATH . '/languages'
 		);
 	}
@@ -95,7 +95,7 @@ function enqueue_editor_assets()
 
 	wp_set_script_translations(
 		'beer-blocks-editor',
-		TEXT_DOMAIN,
+		'beer-blocks',
 		PLUGIN_DIR_PATH . '/languages'
 	);
 }
@@ -106,7 +106,7 @@ function enqueue_editor_assets()
 function add_settings_menu_page()
 {
 	add_menu_page(
-		__('Beer Blocks Settings', TEXT_DOMAIN),
+		__('Beer Blocks Settings', 'beer-blocks'),
 		PLUGIN_NAME,
 		'manage_options',
 		SETTINGS_PAGE_SLUG,
@@ -160,7 +160,7 @@ function form_submit()
 		add_settings_error(
 			'beer_blocks_settings_messages',
 			'beer_blocks_settings_error_message',
-			__('<p>Security alert: <b>NONCE CHECK FAILED</b></p>', TEXT_DOMAIN)
+			__('<p>Security alert: <b>NONCE CHECK FAILED</b></p>', 'beer-blocks')
 		);
 		return;
 	}
@@ -170,7 +170,7 @@ function form_submit()
 		add_settings_error(
 			'beer_blocks_settings_messages',
 			'beer_blocks_settings_error_message',
-			__('<p>Security alert: <b>NONCE CHECK FAILED</b></p>', TEXT_DOMAIN)
+			__('<p>Security alert: <b>NONCE CHECK FAILED</b></p>', 'beer-blocks')
 		);
 		return;
 	}
@@ -211,7 +211,7 @@ function form_submit()
 	add_settings_error(
 		'beer_blocks_settings_messages',
 		'beer_blocks_settings_success_message',
-		__('Settings updated successfully!!', TEXT_DOMAIN),
+		__('Settings updated successfully!!', 'beer-blocks'),
 		'success'
 	);
 }
