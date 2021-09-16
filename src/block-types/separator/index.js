@@ -45,7 +45,7 @@ import icon from "./../../icons/separator.svg";
  */
 registerBlockType("beer-blocks/separator", {
 	apiVersion: 2,
-	title: _x("Separator Line", "beer-blocks"),
+	title: _x("Separator Line", "block title", "beer-blocks"),
 	category: "beer-blocks",
 	description: _x(
 		"Create a separator line with custom color, width, height and margins.",
