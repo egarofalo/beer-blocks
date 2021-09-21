@@ -18,7 +18,7 @@ import { registerBlockType } from "@wordpress/blocks";
  *
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
-// import "./style.scss";
+import "./style.scss";
 
 /**
  * Styles applied only in the editor.
@@ -76,6 +76,14 @@ registerBlockType("beer-blocks/separator", {
 		align: {
 			type: "string",
 			default: "left",
+		},
+		arrow: {
+			type: "object",
+			default: {
+				width: 0,
+				background: "#fff",
+				position: "top",
+			},
 		},
 		...spacing.attributes({ padding: false }),
 	},

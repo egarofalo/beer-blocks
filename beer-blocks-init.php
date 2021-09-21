@@ -62,8 +62,8 @@ add_action('init', BEERB_GF_HELPERS_NS . '\\register_selected_fonts_setting');
 add_action('rest_api_init', BEERB_GF_HELPERS_NS . '\\register_selected_fonts_setting');
 add_action('wp_enqueue_scripts', BEERB_GF_HELPERS_NS . '\\enqueue_selected_font_families');
 
-// Enqueue block types assets.
-add_action('enqueue_block_editor_assets', BEERB_GLOBALS_HELPERS_NS . '\\enqueue_block_types_assets');
+// Register block types
+add_action('init', BEERB_GLOBALS_HELPERS_NS . '\\register_block_types');
 
 // Enqueue editor.js and editor.css
 add_action('enqueue_block_editor_assets', BEERB_GLOBALS_HELPERS_NS . '\\enqueue_editor_assets');

@@ -21,7 +21,7 @@ import { getLineSeparatorDefaultWidth } from "./helpers";
 
 const edit = (props) => {
 	const {
-		attributes: { height, widthUnit, width, color, align },
+		attributes: { height, widthUnit, width, color, align, arrow },
 		setAttributes,
 	} = props;
 
@@ -34,6 +34,10 @@ const edit = (props) => {
 			...spacing.styles(props.attributes),
 		},
 	});
+
+	const triangleHypot = Math.sqrt(
+		Math.pow(parseFloat(width.replace(/px|rem|em|%/, "")), 2) / 2
+	);
 
 	return (
 		<>
@@ -90,6 +94,44 @@ const edit = (props) => {
 					/>
 				</PanelBody>
 
+				<PanelBody title={__("Triangle", "beer-blocks")}>
+					<RangeControl
+						label={__("Width", "beer-blocks")}
+						value={arrow.width}
+						onChange={(value) =>
+							setAttributes({ arrow: { ...arrow, width: value } })
+						}
+						min={0}
+						max={triangleHypot}
+						step={1}
+						style={{ paddingBottom: 0, marginBottom: 0 }}
+					/>
+
+					<Text
+						as="label"
+						variant="label"
+						style={{
+							marginBottom: "10px",
+							display: "block",
+							fontSize: "unset",
+							fontWeight: "unset",
+							display: "flex",
+							alignItems: "center",
+						}}
+					>
+						{__("Background color", "beer-blocks")}{" "}
+						<ColorIndicator colorValue={arrow.background} />
+					</Text>
+
+					<ColorPalette
+						colors={variants}
+						value={color}
+						onChange={(color) =>
+							setAttributes({ arrow: { ...arrow, background: color } })
+						}
+					/>
+				</PanelBody>
+
 				{spacing.controls({ props })}
 			</InspectorControls>
 
@@ -100,7 +142,22 @@ const edit = (props) => {
 				/>
 			</BlockControls>
 
-			<div {...blockProps}></div>
+			<div {...blockProps}>
+				{arrow.width > 0 && (
+					<div
+						className="wp-beer-blocks-separator-triangle"
+						style={{
+							width: `${arrow.width}px`,
+							height: `${arrow.width}px`,
+							backgroundColor: arrow.background,
+							"--wp-block-beer-blocks-separator-triangle-translate": `-${
+								(arrow.width - 1) / 2
+							}px`,
+							"--wp-block-beer-blocks-separator-triangle-color": color,
+						}}
+					></div>
+				)}
+			</div>
 		</>
 	);
 };

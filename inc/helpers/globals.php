@@ -37,35 +37,60 @@ function create_blocks_category($block_categories, $editor_context)
 }
 
 /**
- * Enqueue block types assets.
+ * Register block types.
  */
-function enqueue_block_types_assets()
+function register_block_types()
 {
     $manifest = json_decode(file_get_contents(BEERB_PLUGIN_DIR_PATH . '/manifest.json'), true);
 
     foreach ($manifest['block_types'] as $block_type) {
         $asset_file = include BEERB_PLUGIN_DIR_PATH . "/build/{$block_type}/index.asset.php";
 
-        wp_enqueue_script(
-            "beer-blocks-{$block_type}-editor",
+        $editor_script_handle = "beer-blocks-{$block_type}-editor-script";
+        $editor_style_handle = "beer-blocks-{$block_type}-editor-style";
+        $style_handle = "beer-blocks-{$block_type}-style";
+
+        $block_type_params = [
+            'api_version' => 2,
+            'editor_script' => $editor_script_handle,
+            'editor_style' => $editor_style_handle,
+        ];
+
+        if (file_exists(BEERB_PLUGIN_DIR_PATH . "/build/style-{$block_type}/index.css")) {
+            $block_type_params['style'] = $style_handle;
+        }
+
+        wp_register_script(
+            $editor_script_handle,
             BEERB_PLUGIN_DIR_URL . "/build/{$block_type}/index.js",
             $asset_file['dependencies'],
             $asset_file['version'],
             true
         );
 
-        wp_enqueue_style(
-            "beer-blocks-{$block_type}-editor",
+        wp_register_style(
+            $editor_script_handle,
             BEERB_PLUGIN_DIR_URL . "/build/{$block_type}/index.css",
             [],
             filemtime(BEERB_PLUGIN_DIR_PATH . '/build/editor.css')
         );
 
+        if (isset($block_type_params['style'])) {
+            wp_register_style(
+                $style_handle,
+                BEERB_PLUGIN_DIR_URL . "/build/style-{$block_type}/index.css",
+                [],
+                filemtime(BEERB_PLUGIN_DIR_PATH . '/build/editor.css')
+            );
+        }
+
         wp_set_script_translations(
-            "beer-blocks-{$block_type}-editor",
+            "beer-blocks-{$block_type}-editor-script",
             'beer-blocks',
             BEERB_PLUGIN_DIR_PATH . '/languages'
         );
+
+        register_block_type("beer-blocks/{$block_type}", $block_type_params);
     }
 }
 

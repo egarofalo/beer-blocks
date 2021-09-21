@@ -2,8 +2,8 @@
 Contributors: egarofalo
 Tags: block, design, blocks, gutenberg, blockeditor
 Donate link: https://www.paypal.com/donate?hosted_button_id=8XSCNEV5WA5TU
-Requires at least: 5.6.0
-Tested up to: 5.6.0
+Requires at least: 5.5.0
+Tested up to: 5.8.1
 Requires PHP: 7.3
 Stable tag: 1.0.0
 License: GPL-2.0-or-later

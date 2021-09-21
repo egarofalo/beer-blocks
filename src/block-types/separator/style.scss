@@ -1,0 +1,18 @@
+:root {
+	--wp-block-beer-blocks-separator-triangle-translate: 0px;
+	--wp-block-beer-blocks-separator-triangle-color: #000;
+}
+
+.wp-block-beer-blocks-separator {
+	.wp-beer-blocks-separator-triangle {
+		box-sizing: border-box;
+		border: 1px solid var(--wp-block-beer-blocks-separator-triangle-color);
+		border-left: none;
+		border-top: none;
+		transform: translateY(
+				var(--wp-block-beer-blocks-separator-triangle-translate)
+			)
+			rotate(45deg);
+		margin: auto;
+	}
+}
