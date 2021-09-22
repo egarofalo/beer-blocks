@@ -82,7 +82,6 @@ registerBlockType("beer-blocks/separator", {
 			default: {
 				width: 0,
 				background: "#fff",
-				position: "top",
 			},
 		},
 		...spacing.attributes({ padding: false }),

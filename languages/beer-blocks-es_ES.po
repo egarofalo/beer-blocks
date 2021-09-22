@@ -8,7 +8,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2021-08-17T13:56:20+00:00\n"
-"PO-Revision-Date: 2021-09-16 19:12+0000\n"
+"PO-Revision-Date: 2021-09-22 04:23+0000\n"
 "Language: es_ES\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: beer-blocks\n"
@@ -19,7 +19,7 @@ msgstr ""
 msgid "-- SELECT --"
 msgstr "-- SELECCIONE --"
 
-#: inc/helpers/globals.php:161 inc/helpers/globals.php:171
+#: inc/helpers/globals.php:185 inc/helpers/globals.php:195
 msgid "<p>Security alert: <b>NONCE CHECK FAILED</b></p>"
 msgstr "<p>Alerta de seguridad: <b>FALLÓ LA VERIFICACIÓN DEL NONCE</b></p>"
 
@@ -45,7 +45,8 @@ msgstr "Tamaño automático: columnas de ancho ajustable al contenido"
 #: build/accordion-item/index.js:1 build/instruction/index.js:1
 #: build/separator/index.js:1 src/block-types/accordion-item/edit.js:85
 #: src/block-types/accordion-item/edit.js:99
-#: src/block-types/instruction/edit.js:128 src/block-types/separator/edit.js:82
+#: src/block-types/instruction/edit.js:128 src/block-types/separator/edit.js:86
+#: src/block-types/separator/edit.js:122
 msgid "Background color"
 msgstr "Color de fondo"
 
@@ -70,7 +71,7 @@ msgstr ""
 "Beer Blocks amplía el editor de WordPress con bloques potentes y avanzados "
 "que te ayudan a crear hermosos sitios web más rápido."
 
-#: inc/helpers/globals.php:107
+#: inc/helpers/globals.php:131
 msgid "Beer Blocks Settings"
 msgstr "Ajustes de Beer Blocks"
 
@@ -168,6 +169,7 @@ msgid "Create paragraph with custom typography, margin and padding."
 msgstr "Cree un párrafo con tipografía, margen y relleno ajustables."
 
 #: build/jumbotron/index.js:1 src/block-types/jumbotron/index.js:49
+#: src/block-types/jumbotron/block.json
 msgctxt "block description"
 msgid ""
 "Lightweight, flexible Bootstrap component for showcasing hero unit style "
@@ -284,7 +286,7 @@ msgid "Instructions"
 msgstr "Instrucciones"
 
 #: build/jumbotron/index.js:1 src/block-types/jumbotron/index.js:47
-#: src/block-types/jumbotron/index.js:62
+#: src/block-types/jumbotron/index.js:62 src/block-types/jumbotron/block.json
 msgctxt "block title"
 msgid "Jumbotron"
 msgstr "Jumbotron"
@@ -307,7 +309,8 @@ msgctxt "block title"
 msgid "Section"
 msgstr "Sección"
 
-#: build/separator/index.js:1 src/block-types/separator/index.js:57
+#: build/separator/index.js:1 src/block-types/separator/index.js:48
+#: src/block-types/separator/index.js:57
 msgctxt "block title"
 msgid "Separator Line"
 msgstr "Línea separadora"
@@ -370,7 +373,7 @@ msgid "CoDevelopers"
 msgstr "CoDevelopers"
 
 #: build/accordion-item/index.js:1 build/separator/index.js:1
-#: src/block-types/separator/edit.js:69 src/helpers/border.js:82
+#: src/block-types/separator/edit.js:73 src/helpers/border.js:82
 msgid "Color"
 msgstr "Color"
 
@@ -402,7 +405,7 @@ msgstr ""
 "desplegable de todas las fuentes disponibles.<br>Esta función se aplica solo "
 "aquellos bloques en los que se puede cambiar la tipografía."
 
-#: build/separator/index.js:1 src/block-types/separator/edit.js:41
+#: build/separator/index.js:1 src/block-types/separator/edit.js:45
 msgid "Dimensions"
 msgstr "Dimensiones"
 
@@ -483,7 +486,7 @@ msgstr "Ajustes de Google Fonts"
 msgid "Heading"
 msgstr "Encabezado"
 
-#: build/separator/index.js:1 src/block-types/separator/edit.js:44
+#: build/separator/index.js:1 src/block-types/separator/edit.js:48
 msgid "Height"
 msgstr "Altura"
 
@@ -633,7 +636,7 @@ msgstr "Seleccione..."
 msgid "Settings applied from %s resolution and up"
 msgstr "Ajustes aplicados desde la resolución %s en adelante"
 
-#: inc/helpers/globals.php:212
+#: inc/helpers/globals.php:236
 msgid "Settings updated successfully!!"
 msgstr "¡¡Los ajustes se actualizaron correctamente!!"
 
@@ -680,6 +683,10 @@ msgstr "Estirar (stretch)"
 msgid "Style"
 msgstr "Estilo"
 
+#: build/separator/index.js:1 src/block-types/separator/edit.js:97
+msgid "Triangle"
+msgstr "Triángulo"
+
 #: build/accordion-item/index.js:1 build/fa-icon/index.js:1
 #: build/header/index.js:1 build/instruction/index.js:1
 #: build/paragraph/index.js:1 src/helpers/typography.js:73
@@ -700,7 +707,8 @@ msgstr "Actualizando fuentes seleccionadas..."
 msgid "Vertical alignment"
 msgstr "Alineación vertical"
 
-#: build/accordion-item/index.js:1 src/helpers/border.js:59
+#: build/accordion-item/index.js:1 build/separator/index.js:1
+#: src/block-types/separator/edit.js:99 src/helpers/border.js:59
 msgid "Width"
 msgstr "Ancho"
 

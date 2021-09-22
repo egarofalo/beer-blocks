@@ -151,9 +151,10 @@ const edit = (props) => {
 							height: `${arrow.width}px`,
 							backgroundColor: arrow.background,
 							"--wp-block-beer-blocks-separator-triangle-translate": `-${
-								(arrow.width - 1) / 2
+								(arrow.width - height) / 2
 							}px`,
 							"--wp-block-beer-blocks-separator-triangle-color": color,
+							"--wp-block-beer-blocks-separator-triangle-border-width": `${height}px`,
 						}}
 					></div>
 				)}
