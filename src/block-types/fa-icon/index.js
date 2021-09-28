@@ -66,6 +66,10 @@ registerBlockType("beer-blocks/fa-icon", {
 		/>
 	),
 	attributes: {
+		iconType: {
+			type: "string",
+			default: "fa",
+		},
 		icon: {
 			type: "string",
 			default: "fa fa-star",
@@ -81,6 +85,37 @@ registerBlockType("beer-blocks/fa-icon", {
 		textAlign: {
 			type: "string",
 			default: "left",
+		},
+		imgId: {
+			type: "number",
+			default: 0,
+		},
+		imgAlt: {
+			type: "string",
+			default: "",
+		},
+		imgUrl: {
+			type: "string",
+		},
+		imgNaturalWidth: {
+			type: "number",
+		},
+		imgNaturalHeight: {
+			type: "number",
+		},
+		imgWidth: {
+			type: "string",
+		},
+		imgHeight: {
+			type: "string",
+		},
+		imgWidthUnit: {
+			type: "string",
+			default: "px",
+		},
+		imgHeightUnit: {
+			type: "string",
+			default: "px",
 		},
 	},
 	edit,
