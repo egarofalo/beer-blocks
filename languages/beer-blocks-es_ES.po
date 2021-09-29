@@ -8,7 +8,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2021-08-17T13:56:20+00:00\n"
-"PO-Revision-Date: 2021-09-22 04:23+0000\n"
+"PO-Revision-Date: 2021-09-29 13:21+0000\n"
 "Language: es_ES\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: beer-blocks\n"
@@ -354,9 +354,13 @@ msgstr "Centrar (center)"
 msgid "Change heading level"
 msgstr "Cambiar nivel del encabezado"
 
-#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:51
+#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:97
 msgid "Choose an Icon"
 msgstr "Seleccione un icono"
+
+#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:155
+msgid "Choose an image"
+msgstr ""
 
 #: build/editor.js:1 src/post-settings-panel.js:97
 msgid "Choose one or more font families to load them in the post or page."
@@ -490,7 +494,8 @@ msgstr "Encabezado"
 msgid "Height"
 msgstr "Altura"
 
-#: build/instruction/index.js:1 src/block-types/instruction/edit.js:166
+#: build/fa-icon/index.js:1 build/instruction/index.js:1
+#: src/block-types/fa-icon/edit.js:217 src/block-types/instruction/edit.js:166
 msgid "Height (%s)"
 msgstr "Altura (%s)"
 
@@ -507,9 +512,17 @@ msgstr "Etiqueta HTML"
 msgid "https://codevelopers.tech"
 msgstr "https://codevelopers.tech"
 
-#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:50
+#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:245
 msgid "Icon settings"
 msgstr "Ajustes del icono"
+
+#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:109
+msgid "Icon Size (%s)"
+msgstr ""
+
+#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:254
+msgid "If you want to use an image as icon, enable this toggle field."
+msgstr ""
 
 #: build/instructions/index.js:1 src/block-types/instructions/edit.js:33
 msgid "Instructions settings"
@@ -577,6 +590,10 @@ msgstr "Sin opciones de familia de fuentes"
 msgid "Numeration settings"
 msgstr "Ajustes de numeración"
 
+#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:144
+msgid "Open media library"
+msgstr ""
+
 #: build/button/index.js:1 src/block-types/button/edit.js:114
 msgid "Outline Button?"
 msgstr "¿Botón con contorno?"
@@ -590,6 +607,15 @@ msgstr "¿Botón con contorno?"
 #: build/separator/index.js:1
 msgid "Padding"
 msgstr "Relleno"
+
+#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:180
+msgid "Remove image"
+msgstr "Eliminar imagen"
+
+#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:164
+#: src/block-types/fa-icon/edit.js:170
+msgid "Replace image"
+msgstr "Reemplazar imagen"
 
 #: build/column/index.js:1 build/instruction/index.js:1
 #: src/block-types/column/edit.js:47 src/block-types/instruction/edit.js:78
@@ -630,6 +656,14 @@ msgstr "Seleccione el valor de la propiedad justify-content de Flexbox."
 #: build/editor.js:1 src/post-settings-panel.js:127
 msgid "Select..."
 msgstr "Seleccione..."
+
+#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:206
+msgid "Set auto height"
+msgstr "Establecer altura automática"
+
+#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:236
+msgid "Set original size"
+msgstr "Establecer tamaño original"
 
 #: build/column/index.js:1 build/instruction/index.js:1
 #: build/instructions/index.js:1 build/row/index.js:1 src/helpers/grid.js:245
@@ -703,6 +737,10 @@ msgstr "Tipografía"
 msgid "Updating selected fonts..."
 msgstr "Actualizando fuentes seleccionadas..."
 
+#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:247
+msgid "Use an image"
+msgstr ""
+
 #: build/instruction/index.js:1 src/block-types/instruction/edit.js:118
 msgid "Vertical alignment"
 msgstr "Alineación vertical"
@@ -712,7 +750,8 @@ msgstr "Alineación vertical"
 msgid "Width"
 msgstr "Ancho"
 
-#: build/instruction/index.js:1 build/separator/index.js:1
+#: build/fa-icon/index.js:1 build/instruction/index.js:1
+#: build/separator/index.js:1 src/block-types/fa-icon/edit.js:188
 #: src/block-types/instruction/edit.js:150
 msgid "Width (%s)"
 msgstr "Ancho (%s)"

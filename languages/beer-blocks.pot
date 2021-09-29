@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-09-22T04:22:52+00:00\n"
+"POT-Creation-Date: 2021-09-29T12:36:53+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.5.0\n"
 "X-Domain: beer-blocks\n"
@@ -682,13 +682,74 @@ msgid "Create a Font Awesome icon."
 msgstr ""
 
 #: build/fa-icon/index.js:1
-#: src/block-types/fa-icon/edit.js:50
+#: src/block-types/fa-icon/edit.js:97
+msgid "Choose an Icon"
+msgstr ""
+
+#: build/fa-icon/index.js:1
+#: src/block-types/fa-icon/edit.js:109
+msgid "Icon Size (%s)"
+msgstr ""
+
+#: build/fa-icon/index.js:1
+#: src/block-types/fa-icon/edit.js:144
+msgid "Open media library"
+msgstr ""
+
+#: build/fa-icon/index.js:1
+#: src/block-types/fa-icon/edit.js:155
+msgid "Choose an image"
+msgstr ""
+
+#: build/fa-icon/index.js:1
+#: src/block-types/fa-icon/edit.js:164
+#: src/block-types/fa-icon/edit.js:170
+msgid "Replace image"
+msgstr ""
+
+#: build/fa-icon/index.js:1
+#: src/block-types/fa-icon/edit.js:180
+msgid "Remove image"
+msgstr ""
+
+#: build/fa-icon/index.js:1
+#: build/instruction/index.js:1
+#: build/separator/index.js:1
+#: src/block-types/fa-icon/edit.js:188
+#: src/block-types/instruction/edit.js:150
+msgid "Width (%s)"
+msgstr ""
+
+#: build/fa-icon/index.js:1
+#: src/block-types/fa-icon/edit.js:206
+msgid "Set auto height"
+msgstr ""
+
+#: build/fa-icon/index.js:1
+#: build/instruction/index.js:1
+#: src/block-types/fa-icon/edit.js:217
+#: src/block-types/instruction/edit.js:166
+msgid "Height (%s)"
+msgstr ""
+
+#: build/fa-icon/index.js:1
+#: src/block-types/fa-icon/edit.js:236
+msgid "Set original size"
+msgstr ""
+
+#: build/fa-icon/index.js:1
+#: src/block-types/fa-icon/edit.js:245
 msgid "Icon settings"
 msgstr ""
 
 #: build/fa-icon/index.js:1
-#: src/block-types/fa-icon/edit.js:51
-msgid "Choose an Icon"
+#: src/block-types/fa-icon/edit.js:247
+msgid "Use an image"
+msgstr ""
+
+#: build/fa-icon/index.js:1
+#: src/block-types/fa-icon/edit.js:254
+msgid "If you want to use an image as icon, enable this toggle field."
 msgstr ""
 
 #: build/grid/index.js:1
@@ -786,17 +847,6 @@ msgstr ""
 #: build/instruction/index.js:1
 #: src/block-types/instruction/edit.js:118
 msgid "Vertical alignment"
-msgstr ""
-
-#: build/instruction/index.js:1
-#: build/separator/index.js:1
-#: src/block-types/instruction/edit.js:150
-msgid "Width (%s)"
-msgstr ""
-
-#: build/instruction/index.js:1
-#: src/block-types/instruction/edit.js:166
-msgid "Height (%s)"
 msgstr ""
 
 #: build/instruction/index.js:1
