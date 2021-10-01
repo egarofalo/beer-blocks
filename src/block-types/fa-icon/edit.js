@@ -23,9 +23,6 @@ import {
 	fabIconsClasses,
 	BLOCK_LEVEL_ELEMENT,
 	INLINE_ELEMENT,
-	removeMedia,
-	onSelectMedia,
-	setOriginalImageSize,
 } from "./../../helpers/fa-icons";
 
 const edit = (props) => {
@@ -92,6 +89,39 @@ const edit = (props) => {
 			<i {...blockProps}></i>
 		);
 
+	const removeMedia = () => {
+		setAttributes({
+			imgId: 0,
+			imgUrl: "",
+			imgAlt: "",
+			imgNaturalWidth: 0,
+			imgNaturalHeight: 0,
+			imgWidth: "",
+			imgHeight: "",
+			imgWidthUnit: "px",
+			imgHeightUnit: "px",
+		});
+	};
+
+	const onSelectMedia = (media) =>
+		setAttributes({
+			imgId: media.id,
+			imgUrl: media.url,
+			imgAlt: media.alt,
+			imgNaturalWidth: media.width,
+			imgNaturalHeight: media.height,
+			imgWidth: media.width + "px",
+			imgHeight: media.height + "px",
+			imgWidthUnit: "px",
+			imgHeightUnit: "px",
+		});
+
+	const setOriginalImageSize = () =>
+		setAttributes({
+			imgWidth: `${imgNaturalWidth}px`,
+			imgHeight: `${imgNaturalHeight}px`,
+		});
+
 	const iconControls = (
 		<>
 			<BaseControl label={__("Choose an Icon", "beer-blocks")}>
@@ -153,7 +183,7 @@ const edit = (props) => {
 							</Button>
 						)}
 						title={__("Choose an image", "beer-blocks")}
-						onSelect={onSelectMedia(media, props)}
+						onSelect={onSelectMedia}
 						allowedTypes={["image"]}
 					/>
 				</MediaUploadCheck>
@@ -163,7 +193,7 @@ const edit = (props) => {
 						<MediaUpload
 							title={__("Replace image", "beer-blocks")}
 							value={imgId}
-							onSelect={onSelectMedia(media, props)}
+							onSelect={onSelectMedia}
 							allowedTypes={["image"]}
 							render={({ open }) => (
 								<Button onClick={open} isSecondary isLarge>
@@ -176,7 +206,7 @@ const edit = (props) => {
 
 				{imgId > 0 && (
 					<MediaUploadCheck>
-						<Button onClick={removeMedia(props)} isLink isDestructive>
+						<Button onClick={removeMedia} isLink isDestructive>
 							{__("Remove image", "beer-blocks")}
 						</Button>
 					</MediaUploadCheck>
@@ -232,7 +262,7 @@ const edit = (props) => {
 			</BaseControl>
 
 			<BaseControl>
-				<Button onClick={setOriginalImageSize(props)} isPrimary>
+				<Button onClick={setOriginalImageSize} isPrimary>
 					{__("Set original size", "beer-blocks")}
 				</Button>
 			</BaseControl>
