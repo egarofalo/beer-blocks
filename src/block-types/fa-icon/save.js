@@ -20,20 +20,23 @@ const save = (props) => {
 
 	const style = {
 		...(!useAnImage && iconSize ? { fontSize: iconSize } : {}),
-		...(useAnImage ? { width: imgWidth, height: imgHeight } : {}),
+		...(useAnImage
+			? {
+					...(imgWidth ? { width: imgWidth } : {}),
+					...(imgHeight ? { height: imgHeight } : {}),
+			  }
+			: {}),
 	};
 
 	const blockProps = useBlockProps.save({
 		...(htmlElementType === BLOCK_LEVEL_ELEMENT
 			? {
-					className: `has-text-align-${textAlign}${
-						useAnImage ? " img-fluid" : ""
-					}`,
+					className: `has-text-align-${textAlign}`,
 			  }
 			: {}),
 		...(htmlElementType === INLINE_ELEMENT
 			? {
-					className: icon,
+					className: useAnImage ? "img-fluid" : icon,
 					style,
 			  }
 			: {}),
@@ -41,12 +44,7 @@ const save = (props) => {
 
 	const imgElem =
 		htmlElementType === BLOCK_LEVEL_ELEMENT ? (
-			<img
-				className="img-fluid"
-				style={{ width: imgWidth, height: imgHeight }}
-				alt={imgAlt}
-				src={imgUrl}
-			/>
+			<img className="img-fluid" style={style} alt={imgAlt} src={imgUrl} />
 		) : (
 			<img alt={imgAlt} src={imgUrl} {...blockProps} />
 		);

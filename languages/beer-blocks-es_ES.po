@@ -8,14 +8,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2021-08-17T13:56:20+00:00\n"
-"PO-Revision-Date: 2021-09-29 13:21+0000\n"
+"PO-Revision-Date: 2021-10-04 14:54+0000\n"
 "Language: es_ES\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: beer-blocks\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Loco-Version: 2.5.3; wp-5.8"
+"X-Loco-Version: 2.5.3; wp-5.8.1"
 
-#: build/accordion-item/index.js:1 src/helpers/border.js:23
+#: build/accordion-item/index.js:1 src/helpers/border.js:27
 msgid "-- SELECT --"
 msgstr "-- SELECCIONE --"
 
@@ -43,8 +43,8 @@ msgid "Auto sizing: variable width content"
 msgstr "Tamaño automático: columnas de ancho ajustable al contenido"
 
 #: build/accordion-item/index.js:1 build/instruction/index.js:1
-#: build/separator/index.js:1 src/block-types/accordion-item/edit.js:85
-#: src/block-types/accordion-item/edit.js:99
+#: build/separator/index.js:1 src/block-types/accordion-item/edit.js:92
+#: src/block-types/accordion-item/edit.js:123
 #: src/block-types/instruction/edit.js:128 src/block-types/separator/edit.js:86
 #: src/block-types/separator/edit.js:122
 msgid "Background color"
@@ -201,6 +201,10 @@ msgstr ""
 msgid "Block Level Button?"
 msgstr "¿Botón de nivel bloque?"
 
+#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:288
+msgid "Block level element type"
+msgstr "Elemento de nivel bloque"
+
 #: build/accordion/index.js:1 src/block-types/accordion/index.js:47
 #: src/block-types/accordion/index.js:55
 msgctxt "block title"
@@ -250,7 +254,7 @@ msgid "Container"
 msgstr "Contenedor"
 
 #: build/fa-icon/index.js:1 src/block-types/fa-icon/index.js:47
-#: src/block-types/fa-icon/index.js:65
+#: src/block-types/fa-icon/index.js:64
 msgctxt "block title"
 msgid "Font Awesome Icon"
 msgstr "Icono de Font Awesome"
@@ -315,7 +319,7 @@ msgctxt "block title"
 msgid "Separator Line"
 msgstr "Línea separadora"
 
-#: build/accordion-item/index.js:1 src/block-types/accordion-item/edit.js:96
+#: build/accordion-item/index.js:1 src/block-types/accordion-item/edit.js:103
 msgid "Body"
 msgstr "Cuerpo"
 
@@ -323,13 +327,28 @@ msgstr "Cuerpo"
 msgid "Bootstrap Settings (v4.6.0)"
 msgstr "Ajustes de Bootstrap (v4.6.0)"
 
-#: build/accordion-item/index.js:1 src/helpers/border.js:123
+#: build/accordion-item/index.js:1 src/helpers/border.js:155
 msgid "Border"
 msgstr "Borde"
+
+#: build/accordion-item/index.js:1 src/block-types/accordion-item/edit.js:89
+#: src/block-types/accordion-item/edit.js:120
+msgid "Border color"
+msgstr "Color de borde"
 
 #: build/instruction/index.js:1 src/block-types/instruction/edit.js:182
 msgid "Border Radius (%s)"
 msgstr "Radio del borde (%s)"
+
+#: build/accordion-item/index.js:1 src/block-types/accordion-item/edit.js:87
+#: src/block-types/accordion-item/edit.js:118
+msgid "Border style"
+msgstr "Estilo de borde"
+
+#: build/accordion-item/index.js:1 src/block-types/accordion-item/edit.js:88
+#: src/block-types/accordion-item/edit.js:119
+msgid "Border width"
+msgstr "Ancho de borde"
 
 #: build/button/index.js:1 src/block-types/button/edit.js:78
 msgid "Button settings"
@@ -354,13 +373,13 @@ msgstr "Centrar (center)"
 msgid "Change heading level"
 msgstr "Cambiar nivel del encabezado"
 
-#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:97
+#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:126
 msgid "Choose an Icon"
 msgstr "Seleccione un icono"
 
-#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:155
+#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:206
 msgid "Choose an image"
-msgstr ""
+msgstr "Seleccione una imagen"
 
 #: build/editor.js:1 src/post-settings-panel.js:97
 msgid "Choose one or more font families to load them in the post or page."
@@ -368,7 +387,7 @@ msgstr ""
 "Seleccione una o más familias de fuentes para cargarlas en la publicación o "
 "página."
 
-#: build/info-box/index.js:1 src/block-types/info-box/edit.js:28
+#: build/info-box/index.js:1 src/block-types/info-box/edit.js:27
 msgid "Chose an icon..."
 msgstr "Seleccione un icono..."
 
@@ -377,7 +396,8 @@ msgid "CoDevelopers"
 msgstr "CoDevelopers"
 
 #: build/accordion-item/index.js:1 build/separator/index.js:1
-#: src/block-types/separator/edit.js:73 src/helpers/border.js:82
+#: src/block-types/separator/edit.js:73 src/helpers/border.js:86
+#: src/helpers/border.js:128
 msgid "Color"
 msgstr "Color"
 
@@ -413,6 +433,13 @@ msgstr ""
 msgid "Dimensions"
 msgstr "Dimensiones"
 
+#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:298
+msgid ""
+"Disable this toggle field if you want to display the icon as an inline "
+"element."
+msgstr ""
+"Desactive esta opción si desea mostrar el icono como un elemento en línea."
+
 #: build/button/index.js:1 src/block-types/button/edit.js:132
 msgid "Edit"
 msgstr "Editar"
@@ -444,7 +471,7 @@ msgid "Font Awesome Settings (v5.15.3)"
 msgstr "Ajustes de Font Awesome (v5.15.3)"
 
 #: build/accordion-item/index.js:1 build/instruction/index.js:1
-#: src/block-types/accordion-item/edit.js:75
+#: src/block-types/accordion-item/edit.js:76
 #: src/block-types/instruction/edit.js:138
 msgid "Font color"
 msgstr "Color de fuente"
@@ -486,7 +513,7 @@ msgstr "Clave API de Google Fonts"
 msgid "Google Fonts Settings"
 msgstr "Ajustes de Google Fonts"
 
-#: build/accordion-item/index.js:1 src/block-types/accordion-item/edit.js:71
+#: build/accordion-item/index.js:1 src/block-types/accordion-item/edit.js:72
 msgid "Heading"
 msgstr "Encabezado"
 
@@ -495,7 +522,7 @@ msgid "Height"
 msgstr "Altura"
 
 #: build/fa-icon/index.js:1 build/instruction/index.js:1
-#: src/block-types/fa-icon/edit.js:217 src/block-types/instruction/edit.js:166
+#: src/block-types/fa-icon/edit.js:156 src/block-types/instruction/edit.js:166
 msgid "Height (%s)"
 msgstr "Altura (%s)"
 
@@ -512,17 +539,21 @@ msgstr "Etiqueta HTML"
 msgid "https://codevelopers.tech"
 msgstr "https://codevelopers.tech"
 
-#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:245
+#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:285
 msgid "Icon settings"
 msgstr "Ajustes del icono"
 
-#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:109
+#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:138
 msgid "Icon Size (%s)"
-msgstr ""
+msgstr "Tamaño del icono (%s)"
 
-#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:254
+#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:313
 msgid "If you want to use an image as icon, enable this toggle field."
-msgstr ""
+msgstr "Si desea utilizar una imagen como icono, habilite esta opción."
+
+#: build/info-box/index.js:1 src/block-types/info-box/edit.js:97
+msgid "Inner blocks visibility"
+msgstr "Visibilidad de los bloques interiores"
 
 #: build/instructions/index.js:1 src/block-types/instructions/edit.js:33
 msgid "Instructions settings"
@@ -590,9 +621,13 @@ msgstr "Sin opciones de familia de fuentes"
 msgid "Numeration settings"
 msgstr "Ajustes de numeración"
 
-#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:144
+#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:192
 msgid "Open media library"
-msgstr ""
+msgstr "Abrir bliblioteca de medios"
+
+#: build/accordion-item/index.js:1 src/block-types/accordion-item/edit.js:106
+msgid "Opened"
+msgstr "Abierto"
 
 #: build/button/index.js:1 src/block-types/button/edit.js:114
 msgid "Outline Button?"
@@ -608,12 +643,24 @@ msgstr "¿Botón con contorno?"
 msgid "Padding"
 msgstr "Relleno"
 
-#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:180
+#: build/info-box/index.js:1 src/block-types/info-box/edit.js:119
+msgid "Remove icon description"
+msgstr "Eliminar descripción del icono"
+
+#: build/info-box/index.js:1 src/block-types/info-box/edit.js:99
+msgid "Remove icon prefix"
+msgstr "Eliminar prefijo del icono"
+
+#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:231
 msgid "Remove image"
 msgstr "Eliminar imagen"
 
-#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:164
-#: src/block-types/fa-icon/edit.js:170
+#: build/info-box/index.js:1 src/block-types/info-box/edit.js:109
+msgid "Remove line separator"
+msgstr "Eliminar línea separadora"
+
+#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:215
+#: src/block-types/fa-icon/edit.js:221
 msgid "Replace image"
 msgstr "Reemplazar imagen"
 
@@ -657,11 +704,11 @@ msgstr "Seleccione el valor de la propiedad justify-content de Flexbox."
 msgid "Select..."
 msgstr "Seleccione..."
 
-#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:206
+#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:257
 msgid "Set auto height"
 msgstr "Establecer altura automática"
 
-#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:236
+#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:276
 msgid "Set original size"
 msgstr "Establecer tamaño original"
 
@@ -673,6 +720,10 @@ msgstr "Ajustes aplicados desde la resolución %s en adelante"
 #: inc/helpers/globals.php:236
 msgid "Settings updated successfully!!"
 msgstr "¡¡Los ajustes se actualizaron correctamente!!"
+
+#: build/accordion-item/index.js:1 src/block-types/accordion-item/edit.js:104
+msgid "Shows the content as default"
+msgstr "Mostrar los contenidos de forma predeterminada"
 
 #: build/button/index.js:1 src/block-types/button/edit.js:104
 msgid "Small"
@@ -713,7 +764,8 @@ msgstr "Inicio (start)"
 msgid "Stretch"
 msgstr "Estirar (stretch)"
 
-#: build/accordion-item/index.js:1 src/helpers/border.js:21
+#: build/accordion-item/index.js:1 src/helpers/border.js:16
+#: src/helpers/border.js:126
 msgid "Style"
 msgstr "Estilo"
 
@@ -737,21 +789,22 @@ msgstr "Tipografía"
 msgid "Updating selected fonts..."
 msgstr "Actualizando fuentes seleccionadas..."
 
-#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:247
+#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:306
 msgid "Use an image"
-msgstr ""
+msgstr "Utilizar una imagen"
 
 #: build/instruction/index.js:1 src/block-types/instruction/edit.js:118
 msgid "Vertical alignment"
 msgstr "Alineación vertical"
 
 #: build/accordion-item/index.js:1 build/separator/index.js:1
-#: src/block-types/separator/edit.js:99 src/helpers/border.js:59
+#: src/block-types/separator/edit.js:99 src/helpers/border.js:57
+#: src/helpers/border.js:127
 msgid "Width"
 msgstr "Ancho"
 
 #: build/fa-icon/index.js:1 build/instruction/index.js:1
-#: build/separator/index.js:1 src/block-types/fa-icon/edit.js:188
+#: build/separator/index.js:1 src/block-types/fa-icon/edit.js:239
 #: src/block-types/instruction/edit.js:150
 msgid "Width (%s)"
 msgstr "Ancho (%s)"
@@ -760,15 +813,15 @@ msgstr "Ancho (%s)"
 msgid "Write instructions here..."
 msgstr "Escriba las instrucciones aquí..."
 
-#: build/accordion-item/index.js:1 src/block-types/accordion-item/edit.js:155
+#: build/accordion-item/index.js:1 src/block-types/accordion-item/edit.js:179
 msgid "Write item title here..."
 msgstr "Escriba el título del elemento aquí..."
 
-#: build/info-box/index.js:1 src/block-types/info-box/edit.js:37
+#: build/info-box/index.js:1 src/block-types/info-box/edit.js:39
 msgid "Write prefix here..."
 msgstr "Escriba el prefijo aquí..."
 
-#: build/info-box/index.js:1 src/block-types/info-box/edit.js:63
+#: build/info-box/index.js:1 src/block-types/info-box/edit.js:73
 msgid "Write short description here..."
 msgstr "Escriba aquí una breve descripción..."
 
@@ -778,7 +831,7 @@ msgstr "Escriba el subtítulo aquí..."
 
 #: build/advanced-header/index.js:1 build/info-box/index.js:1
 #: build/instruction/index.js:1 src/block-types/advanced-header/edit.js:20
-#: src/block-types/info-box/edit.js:46 src/block-types/instruction/edit.js:67
+#: src/block-types/info-box/edit.js:50 src/block-types/instruction/edit.js:67
 msgid "Write title here..."
 msgstr "Escriba el título aquí..."
 

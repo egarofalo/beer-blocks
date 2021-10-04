@@ -15,6 +15,7 @@ const edit = (props) => {
 		setAttributes,
 		attributes: { id },
 	} = props;
+
 	const blockProps = useBlockProps();
 	const innerBlocksProps = useInnerBlocksProps(
 		{},

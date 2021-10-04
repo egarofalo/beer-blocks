@@ -77,6 +77,7 @@ registerBlockType("beer-blocks/accordion-item", {
 		headingBackground: {
 			type: "string",
 		},
+		...border.attributes("heading"),
 		headingContent: {
 			type: "html",
 		},
@@ -85,6 +86,7 @@ registerBlockType("beer-blocks/accordion-item", {
 		bodyBackground: {
 			type: "string",
 		},
+		...border.attributes("body"),
 		...spacing.attributes({ margin: false }, "body"),
 		id: {
 			type: "string",

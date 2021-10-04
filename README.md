@@ -13,22 +13,22 @@ Simply select a block within the Beer Blocks category and you will notice that i
 ## Installation
 
 - Upload the plugin files to the `/wp-content/plugins/beer-blocks` directory, or install the plugin through the WordPress plugins screen directly.
-- Activate the plugin through the \'Plugins\' screen in WordPress.
+- Activate the plugin through the **Plugins** screen in WordPress.
 - If you want, enter the [Google Fonts API Key](https://developers.google.com/fonts/docs/developer_api) in the Beer Blocks settings page.
 
 ## Frequently Asked Questions
 
-**Q:** What do you mean with \"implements Bootstrap 4 components\"?
+**Q:** What do you mean with **_implements Bootstrap 4 components_**?
 
 **A:** Beer Blocks come with many blocks that represent the components of Bootstrap 4, such as Alert, Jumbotron, Accordion, Button, etc.
 
-**Q:** What do you mean with \"implements Bootstrap 4 grid system\"?
+**Q:** What do you mean with **_implements Bootstrap 4 grid system_**?
 
 **A:** The Bootstrap 4 framework has a powerful grid system, which allows us to create beautiful responsive websites. Beer Blocks has four types of blocks that perfectly represent Bootstrap\'s grid system: Grid, Container, Row, and Col.
 
 **Q:** Has Beer Blocks a block type that allow us insert some icons in the editor?
 
-**A:** The answer is yes!! It has a block type with all \"Font Awesome 5\" free icons available in Font Awesome web page.
+**A:** The answer is yes!! It has a block type with all **Font Awesome 5** free icons available in Font Awesome web page.
 
 **Q:** Can I change the font family and font weight of blocks that have text?
 

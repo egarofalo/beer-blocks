@@ -37,7 +37,7 @@ const save = (props) => {
 				style={{
 					backgroundColor: headingBackground,
 					padding: 0,
-					borderBottom: "none",
+					...border.styles(props.attributes, "heading"),
 				}}
 			>
 				<HeadingTag style={{ margin: 0, padding: 0 }}>
@@ -46,7 +46,7 @@ const save = (props) => {
 						type="button"
 						data-toggle="collapse"
 						data-target={`#${id}`}
-						aria-expanded="true"
+						aria-expanded={show ? "true" : "false"}
 						aria-controls={id}
 						style={{
 							margin: 0,
@@ -70,7 +70,10 @@ const save = (props) => {
 			>
 				<div
 					className="card-body"
-					style={spacing.styles(props.attributes, "body")}
+					style={{
+						...spacing.styles(props.attributes, "body"),
+						...border.styles(props.attributes, "body"),
+					}}
 				>
 					<InnerBlocks.Content />
 				</div>

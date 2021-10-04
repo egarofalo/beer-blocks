@@ -10,7 +10,11 @@ import { camelCase } from "lodash";
 
 export const borderStyleAttribute = () => ({ type: "string", default: "" });
 
-export const borderStyleControl = (props, attrName = "borderStyle") => {
+export const borderStyleControl = (
+	props,
+	attrName = "borderStyle",
+	label = __("Style", "beer-blocks")
+) => {
 	const {
 		setAttributes,
 		attributes: { [attrName]: borderStyle },
@@ -18,7 +22,7 @@ export const borderStyleControl = (props, attrName = "borderStyle") => {
 
 	return (
 		<SelectControl
-			label={__("Style", "beer-blocks")}
+			label={label}
 			options={[
 				{ label: __("-- SELECT --", "beer-blocks"), value: "" },
 				{ label: "None", value: "none" },
@@ -35,7 +39,7 @@ export const borderStyleControl = (props, attrName = "borderStyle") => {
 			value={borderStyle}
 			onChange={(value) =>
 				setAttributes({
-					borderStyle: value,
+					[attrName]: value,
 				})
 			}
 		/>
@@ -47,7 +51,11 @@ export const borderStyleStyles = (borderStyle) =>
 
 export const borderWidthAttribute = () => ({ type: "string", default: "" });
 
-export const borderWidthControl = (props, attrName = "borderWidth") => {
+export const borderWidthControl = (
+	props,
+	attrName = "borderWidth",
+	label = __("Width", "beer-blocks")
+) => {
 	const {
 		setAttributes,
 		attributes: { [attrName]: borderWidth },
@@ -56,9 +64,9 @@ export const borderWidthControl = (props, attrName = "borderWidth") => {
 	return (
 		<BaseControl>
 			<RangeControl
-				label={__("Width", "beer-blocks")}
+				label={label}
 				value={borderWidth}
-				onChange={(value) => setAttributes({ borderWidth: value })}
+				onChange={(value) => setAttributes({ [attrName]: value })}
 				min={1}
 				step={1}
 				allowReset
@@ -72,17 +80,21 @@ export const borderWidthStyles = (borderWidth) =>
 
 export const borderColorAttribute = () => ({ type: "string", default: "" });
 
-export const borderColorControl = (props, attrName = "borderColor") => {
+export const borderColorControl = (
+	props,
+	attrName = "borderColor",
+	label = __("Color", "beer-blocks")
+) => {
 	const {
 		setAttributes,
 		attributes: { [attrName]: borderColor },
 	} = props;
 
 	return (
-		<BaseControl label={__("Color", "beer-blocks")}>
+		<BaseControl label={label}>
 			<ColorPicker
 				color={borderColor}
-				onChangeComplete={(value) => setAttributes({ borderColor: value.hex })}
+				onChangeComplete={(value) => setAttributes({ [attrName]: value.hex })}
 				disableAlpha
 			/>
 		</BaseControl>
@@ -107,11 +119,31 @@ export const attributes = (attrPrefixName = "") => ({
 	},
 });
 
-export const innerControls = (props, attrPrefixName = "") => (
+export const innerControls = (
+	props,
+	attrPrefixName = "",
+	labels = {
+		style: __("Style", "beer-blocks"),
+		width: __("Width", "beer-blocks"),
+		color: __("Color", "beer-blocks"),
+	}
+) => (
 	<>
-		{borderStyleControl(props, camelCase(`${attrPrefixName}-border-style`))}
-		{borderWidthControl(props, camelCase(`${attrPrefixName}-border-width`))}
-		{borderColorControl(props, camelCase(`${attrPrefixName}-border-color`))}
+		{borderStyleControl(
+			props,
+			camelCase(`${attrPrefixName}-border-style`),
+			labels.style
+		)}
+		{borderWidthControl(
+			props,
+			camelCase(`${attrPrefixName}-border-width`),
+			labels.width
+		)}
+		{borderColorControl(
+			props,
+			camelCase(`${attrPrefixName}-border-color`),
+			labels.color
+		)}
 	</>
 );
 

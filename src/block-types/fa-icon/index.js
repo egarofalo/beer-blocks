@@ -52,7 +52,6 @@ registerBlockType("beer-blocks/fa-icon", {
 		"beer-blocks"
 	),
 	textdomain: "beer-blocks",
-	parent: ["beer-blocks/info-box"],
 	supports: {
 		color: {
 			text: true,
@@ -78,6 +77,10 @@ registerBlockType("beer-blocks/fa-icon", {
 			type: "string",
 			default: "",
 		},
+		showHtmlElementTypeToggleField: {
+			type: "boolean",
+			default: true,
+		},
 		htmlElementType: {
 			type: "number",
 			default: INLINE_ELEMENT,
@@ -99,9 +102,11 @@ registerBlockType("beer-blocks/fa-icon", {
 		},
 		imgNaturalWidth: {
 			type: "number",
+			default: 0,
 		},
 		imgNaturalHeight: {
 			type: "number",
+			default: 0,
 		},
 		imgWidth: {
 			type: "string",

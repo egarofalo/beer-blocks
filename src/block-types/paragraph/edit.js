@@ -12,7 +12,7 @@ const { visualizer } = spacing;
 
 const edit = (props) => {
 	const {
-		attributes: { content, textAlign, placeholder, padding },
+		attributes: { content, textAlign, placeholder },
 		setAttributes,
 	} = props;
 

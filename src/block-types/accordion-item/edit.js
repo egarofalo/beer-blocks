@@ -13,6 +13,7 @@ import {
 	PanelBody,
 	ColorPicker,
 	BaseControl,
+	ToggleControl,
 } from "@wordpress/components";
 import { select } from "@wordpress/data";
 import { headingLevelDropdown } from "./../../helpers/heading";
@@ -68,7 +69,7 @@ const edit = (props) => {
 				{spacing.controls({ props })}
 				{border.controls({ props })}
 
-				<PanelBody title={__("Heading", "beer-blocks")}>
+				<PanelBody title={__("Heading", "beer-blocks")} initialOpen={false}>
 					{spacing.innerControls(props, "heading")}
 					{typography.innerControls(props, "heading")}
 
@@ -82,6 +83,12 @@ const edit = (props) => {
 						/>
 					</BaseControl>
 
+					{border.innerControls(props, "heading", {
+						style: __("Border style", "beer-blocks"),
+						width: __("Border width", "beer-blocks"),
+						color: __("Border color", "beer-blocks"),
+					})}
+
 					<BaseControl label={__("Background color", "beer-blocks")}>
 						<ColorPicker
 							color={headingBackground}
@@ -93,8 +100,25 @@ const edit = (props) => {
 					</BaseControl>
 				</PanelBody>
 
-				<PanelBody title={__("Body", "beer-blocks")}>
+				<PanelBody title={__("Body", "beer-blocks")} initialOpen={false}>
+					<BaseControl help={__("Shows the content as default", "beer-blocks")}>
+						<ToggleControl
+							label={__("Opened", "beer-blocks")}
+							checked={show}
+							onChange={() =>
+								setAttributes({
+									show: !show,
+								})
+							}
+						/>
+					</BaseControl>
+
 					{spacing.innerControls(props, "body")}
+					{border.innerControls(props, "body", {
+						style: __("Border style", "beer-blocks"),
+						width: __("Border width", "beer-blocks"),
+						color: __("Border color", "beer-blocks"),
+					})}
 
 					<BaseControl label={__("Background color", "beer-blocks")}>
 						<ColorPicker
@@ -130,7 +154,7 @@ const edit = (props) => {
 						style={{
 							backgroundColor: headingBackground,
 							padding: 0,
-							borderBottom: "none",
+							...border.styles(props.attributes, "heading"),
 						}}
 					>
 						<HeadingTag style={{ margin: 0, padding: 0 }}>
@@ -141,7 +165,7 @@ const edit = (props) => {
 									type="button"
 									data-toggle="collapse"
 									data-target={`#${collapseId}`}
-									aria-expanded="true"
+									aria-expanded={show ? "true" : "false"}
 									aria-controls={collapseId}
 									style={{
 										margin: 0,
@@ -176,7 +200,13 @@ const edit = (props) => {
 					>
 						{spacing.visualizer(
 							props,
-							<div className="card-body" style={spacing.styles(props, "body")}>
+							<div
+								className="card-body"
+								style={{
+									...spacing.styles(props.attributes, "body"),
+									...border.styles(props.attributes, "body"),
+								}}
+							>
 								<div {...innerBlocksProps} />
 							</div>,
 							"body"

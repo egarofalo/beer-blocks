@@ -61,6 +61,18 @@ registerBlockType("beer-blocks/info-box", {
 	},
 	icon: <img src={icon} alt={_x("Info Box", "block title", "beer-blocks")} />,
 	attributes: {
+		removeIconPrefix: {
+			type: "boolean",
+			default: false,
+		},
+		removeLineSeparator: {
+			type: "boolean",
+			default: false,
+		},
+		removeDescription: {
+			type: "boolean",
+			default: false,
+		},
 		...spacing.attributes(),
 	},
 	edit,

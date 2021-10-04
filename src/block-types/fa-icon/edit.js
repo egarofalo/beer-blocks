@@ -13,7 +13,7 @@ import {
 	BaseControl,
 	ToggleControl,
 	Button,
-	ResponsiveWrapper,
+	Disabled,
 } from "@wordpress/components";
 import FontIconPicker from "@fonticonpicker/react-fonticonpicker";
 import { defaultUnits } from "./../../helpers/typography";
@@ -31,6 +31,7 @@ const edit = (props) => {
 			iconType,
 			icon,
 			iconSize,
+			showHtmlElementTypeToggleField,
 			htmlElementType,
 			textAlign,
 			imgId,
@@ -51,20 +52,23 @@ const edit = (props) => {
 
 	const style = {
 		...(!useAnImage && iconSize ? { fontSize: iconSize } : {}),
-		...(useAnImage ? { width: imgWidth, height: imgHeight } : {}),
+		...(useAnImage
+			? {
+					...(imgWidth ? { width: imgWidth } : {}),
+					...(imgHeight ? { height: imgHeight } : {}),
+			  }
+			: {}),
 	};
 
 	const blockProps = useBlockProps({
 		...(htmlElementType === BLOCK_LEVEL_ELEMENT
 			? {
-					className: `has-text-align-${textAlign}${
-						useAnImage ? " img-fluid" : ""
-					}`,
+					className: `has-text-align-${textAlign}`,
 			  }
 			: {}),
 		...(htmlElementType === INLINE_ELEMENT
 			? {
-					className: icon,
+					className: useAnImage ? "img-fluid" : icon,
 					style,
 			  }
 			: {}),
@@ -72,12 +76,7 @@ const edit = (props) => {
 
 	const imgElem =
 		htmlElementType === BLOCK_LEVEL_ELEMENT ? (
-			<img
-				className="img-fluid"
-				style={{ width: imgWidth, height: imgHeight }}
-				alt={imgAlt}
-				src={imgUrl}
-			/>
+			<img className="img-fluid" style={style} alt={imgAlt} src={imgUrl} />
 		) : (
 			<img alt={imgAlt} src={imgUrl} {...blockProps} />
 		);
@@ -108,18 +107,18 @@ const edit = (props) => {
 			imgId: media.id,
 			imgUrl: media.url,
 			imgAlt: media.alt,
-			imgNaturalWidth: media.width,
+			imgNaturalWidth: media.width === 0 ? 100 : media.width,
 			imgNaturalHeight: media.height,
-			imgWidth: media.width + "px",
-			imgHeight: media.height + "px",
+			imgWidth: `${media.width === 0 ? 100 : media.width}px`,
+			imgHeight: media.height === 0 ? "auto" : `${media.height}px`,
 			imgWidthUnit: "px",
 			imgHeightUnit: "px",
 		});
 
 	const setOriginalImageSize = () =>
 		setAttributes({
-			imgWidth: `${imgNaturalWidth}px`,
-			imgHeight: `${imgNaturalHeight}px`,
+			imgWidth: `${imgNaturalWidth === 0 ? 100 : imgNaturalWidth}px`,
+			imgHeight: imgNaturalHeight === 0 ? "auto" : `${imgNaturalHeight}px`,
 		});
 
 	const iconControls = (
@@ -152,6 +151,25 @@ const edit = (props) => {
 		</>
 	);
 
+	const imgHeightControl = (
+		<UnitControl
+			label={sprintf(__("Height (%s)", "beer-blocks"), imgHeightUnit)}
+			value={imgHeight}
+			onChange={(height) => setAttributes({ imgHeight: height })}
+			onUnitChange={(unit) =>
+				setAttributes({
+					imgHeightUnit: unit,
+				})
+			}
+			units={[
+				{ value: "px", label: "PX" },
+				{ value: "em", label: "EM" },
+				{ value: "rem", label: "REM" },
+				{ value: "%", label: "%" },
+			]}
+		/>
+	);
+
 	const imageControls = (
 		<>
 			<div
@@ -173,12 +191,15 @@ const edit = (props) => {
 								{imgId === 0 ? (
 									__("Open media library", "beer-blocks")
 								) : (
-									<ResponsiveWrapper
-										naturalWidth={imgNaturalWidth}
-										naturalHeight={imgNaturalHeight}
-									>
-										<img src={imgUrl} alt={imgAlt} />
-									</ResponsiveWrapper>
+									<img
+										src={imgUrl}
+										alt={imgAlt}
+										style={{
+											maxWidth: "100%",
+											height: "auto",
+											width: `${imgNaturalWidth}px`,
+										}}
+									/>
 								)}
 							</Button>
 						)}
@@ -243,22 +264,11 @@ const edit = (props) => {
 			/>
 
 			<BaseControl>
-				<UnitControl
-					label={sprintf(__("Height (%s)", "beer-blocks"), imgHeightUnit)}
-					value={imgHeight}
-					onChange={(height) => setAttributes({ imgHeight: height })}
-					onUnitChange={(unit) =>
-						setAttributes({
-							imgHeightUnit: unit,
-						})
-					}
-					units={[
-						{ value: "px", label: "PX" },
-						{ value: "em", label: "EM" },
-						{ value: "rem", label: "REM" },
-						{ value: "%", label: "%" },
-					]}
-				/>
+				{imgHeight === "auto" ? (
+					<Disabled>{imgHeightControl}</Disabled>
+				) : (
+					imgHeightControl
+				)}
 			</BaseControl>
 
 			<BaseControl>
@@ -273,6 +283,25 @@ const edit = (props) => {
 		<>
 			<InspectorControls>
 				<PanelBody title={__("Icon settings", "beer-blocks")}>
+					{showHtmlElementTypeToggleField && (
+						<ToggleControl
+							label={__("Block level element type", "beer-blocks")}
+							checked={htmlElementType === BLOCK_LEVEL_ELEMENT}
+							onChange={() =>
+								setAttributes({
+									htmlElementType:
+										htmlElementType === BLOCK_LEVEL_ELEMENT
+											? INLINE_ELEMENT
+											: BLOCK_LEVEL_ELEMENT,
+								})
+							}
+							help={__(
+								"Disable this toggle field if you want to display the icon as an inline element.",
+								"beer-blocks"
+							)}
+						/>
+					)}
+
 					<ToggleControl
 						label={__("Use an image", "beer-blocks")}
 						checked={useAnImage}
