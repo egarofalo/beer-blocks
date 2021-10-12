@@ -7,6 +7,7 @@ import { dispatch, useSelect } from "@wordpress/data";
 import Select from "react-select";
 import WebFont from "webfontloader";
 import { STORE_NAME } from "./store/constants";
+import icon from "./icons/iso.svg";
 
 const BeerBlocksPluginDocumentSettingPanel = () => {
 	const {
@@ -169,7 +170,13 @@ const BeerBlocksPluginDocumentSettingPanel = () => {
 		<PluginDocumentSettingPanel
 			name="beer-blocks-post-settings-panel"
 			title={__("Beer Blocks - Post Settings", "beer-blocks")}
-			icon="palmtree"
+			icon={
+				<img
+					src={icon}
+					alt="Beer Blocks"
+					style={{ width: "25px", height: "auto" }}
+				/>
+			}
 		>
 			<div className="beer-blocks__notices">{result}</div>
 		</PluginDocumentSettingPanel>

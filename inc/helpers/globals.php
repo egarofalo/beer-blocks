@@ -23,17 +23,44 @@ function create_blocks_category__deprecated($categories, $post)
  */
 function create_blocks_category($block_categories, $editor_context)
 {
-	if (!empty($editor_context->post)) {
-		array_push(
-			$block_categories,
-			[
-				'slug' => BEERB_PLUGIN_SLUG,
-				'title' => BEERB_PLUGIN_NAME,
-			]
-		);
-	}
+	array_push(
+		$block_categories,
+		[
+			'slug' => BEERB_PLUGIN_SLUG,
+			'title' => BEERB_PLUGIN_NAME,
+		]
+	);
 
 	return $block_categories;
+}
+
+/**
+ * Register block types dependencies.
+ */
+function register_shared_dependencies()
+{
+	$asset_file = include BEERB_PLUGIN_DIR_PATH . '/build/editor.asset.php';
+
+	wp_register_script(
+		'beer-blocks-editor',
+		BEERB_PLUGIN_DIR_URL . '/build/editor.js',
+		$asset_file['dependencies'],
+		$asset_file['version'],
+		true
+	);
+
+	wp_set_script_translations(
+		'beer-blocks-editor',
+		'beer-blocks',
+		BEERB_PLUGIN_DIR_PATH . '/languages'
+	);
+
+	wp_register_style(
+		'beer-blocks-editor',
+		BEERB_PLUGIN_DIR_URL . '/build/editor.css',
+		[],
+		filemtime(BEERB_PLUGIN_DIR_PATH . '/build/editor.css')
+	);
 }
 
 /**
@@ -41,6 +68,15 @@ function create_blocks_category($block_categories, $editor_context)
  */
 function register_block_types()
 {
+	global $pagenow;
+
+	// Register block types dependencies
+	register_shared_dependencies();
+
+	// Block Types dependencies
+	$block_types_dependencies = $pagenow !== "widgets.php" ? ['beer-blocks-editor'] : [];
+
+	// Register all block types
 	$manifest = json_decode(file_get_contents(BEERB_PLUGIN_DIR_PATH . '/manifest.json'), true);
 
 	foreach ($manifest['block_types'] as $block_type) {
@@ -62,7 +98,7 @@ function register_block_types()
 		wp_register_script(
 			$editor_script_handle,
 			BEERB_PLUGIN_DIR_URL . "/build/{$block_type}/index.js",
-			$asset_file['dependencies'],
+			array_merge($asset_file['dependencies'], $block_types_dependencies),
 			$asset_file['version'],
 			true
 		);
@@ -70,7 +106,7 @@ function register_block_types()
 		wp_register_style(
 			$editor_style_handle,
 			BEERB_PLUGIN_DIR_URL . "/build/{$block_type}/index.css",
-			[],
+			['beer-blocks-editor'],
 			filemtime(BEERB_PLUGIN_DIR_PATH . "/build/{$block_type}/index.css")
 		);
 
@@ -91,35 +127,6 @@ function register_block_types()
 
 		register_block_type("beer-blocks/{$block_type}", $block_type_params);
 	}
-}
-
-/**
- * Enqueue the editor.js and editor.css files wich include the necessary code for block types customization, styles and others.
- */
-function enqueue_editor_assets()
-{
-	$asset_file = include BEERB_PLUGIN_DIR_PATH . '/build/editor.asset.php';
-
-	wp_enqueue_script(
-		'beer-blocks-editor',
-		BEERB_PLUGIN_DIR_URL . '/build/editor.js',
-		$asset_file['dependencies'],
-		$asset_file['version'],
-		true
-	);
-
-	wp_enqueue_style(
-		'beer-blocks-editor',
-		BEERB_PLUGIN_DIR_URL . '/build/editor.css',
-		[],
-		filemtime(BEERB_PLUGIN_DIR_PATH . '/build/editor.css')
-	);
-
-	wp_set_script_translations(
-		'beer-blocks-editor',
-		'beer-blocks',
-		BEERB_PLUGIN_DIR_PATH . '/languages'
-	);
 }
 
 /**
