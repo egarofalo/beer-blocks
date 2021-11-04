@@ -117,7 +117,7 @@ function enqueue_selected_font_families()
 {
 	global $post;
 
-	if (get_class($post) !== \WP_Post::class) {
+	if (!$post or get_class($post) !== \WP_Post::class) {
 		return;
 	}
 
@@ -145,4 +145,20 @@ function enqueue_selected_font_families()
 	));
 
 	wp_enqueue_style(BEERB_GOOGLE_FONTS_STYLSHEET_NAME, $src);
+}
+
+/**
+ * Add the name attribute to Google Fonts style tags.
+ */
+function add_beer_blocks_name_attr($html, $handler)
+{
+	if ($handler === BEERB_GOOGLE_FONTS_STYLSHEET_NAME) {
+		$html = str_replace(
+			'<link',
+			'<link name="beer-blocks-google-fonts-css"',
+			$html
+		);
+	}
+
+	return $html;
 }

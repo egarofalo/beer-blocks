@@ -4,10 +4,14 @@ import {
 	__experimentalUnitControl as UnitControl,
 	BaseControl,
 	RangeControl,
-	TextControl,
+	Notice,
 } from "@wordpress/components";
-import ReactHtmlParser from "react-html-parser";
+import { dispatch, useSelect, select } from "@wordpress/data";
+import Select from "react-select";
+import fontFamilies from "./fonts.json";
 import { camelCase } from "lodash";
+import { STORE_NAME } from "./../store/constants";
+import { get as loGet } from "lodash";
 
 export const defaultUnits = [
 	{ value: "px", label: "PX" },
@@ -60,28 +64,122 @@ export const fontFamilyAttribute = () => ({
 	default: "",
 });
 
+const setSelectedFonts = (blocks, selectedFonts) => {
+	blocks.forEach((block, index) => {
+		if (block.innerBlocks.length > 0) {
+			setSelectedFonts(block.innerBlocks, selectedFonts);
+		}
+
+		let fontFamily = loGet(block.attributes, "fontFamily");
+
+		if (fontFamily && !selectedFonts.includes(fontFamily)) {
+			selectedFonts.push(fontFamily);
+		}
+	});
+};
+
+const onChangeFontFamilyControl = (
+	props,
+	selectedOption,
+	attrName,
+	selectedFonts
+) => {
+	const { setAttributes } = props;
+
+	setAttributes({
+		[attrName]: selectedOption.value.family,
+	});
+
+	let editorSelectedFonts = [];
+	setSelectedFonts(
+		select("core/block-editor").getBlocks(),
+		editorSelectedFonts
+	);
+	dispatch(STORE_NAME).updateSelectedFonts(editorSelectedFonts);
+};
+
 export const fontFamilyControl = (props, attrName = "fontFamily") => {
 	const {
-		setAttributes,
 		attributes: { [attrName]: fontFamily },
 	} = props;
 
+	const {
+		selectedFonts = [],
+		selectedFontsLoading,
+		selectedFontsError,
+		updateSelectedFontsLoading,
+		updateSelectedFontsError,
+	} = useSelect((select) => {
+		const store = select(STORE_NAME);
+
+		return {
+			selectedFonts: store.selectedFonts(),
+			selectedFontsLoading: store.selectedFontsLoading(),
+			selectedFontsError: store.selectedFontsError(),
+			updateSelectedFontsLoading: store.updateSelectedFontsLoading(),
+			updateSelectedFontsError: store.updateSelectedFontsError(),
+		};
+	}, []);
+
+	console.log(selectedFonts);
+
 	return (
-		<TextControl
-			label={__("Font Family", "beer-blocks")}
-			help={ReactHtmlParser(
-				__(
-					"Type here the css <b><i>font-family</i></b> property value.",
-					"beer-blocks"
-				)
+		<>
+			<BaseControl
+				label={__("Font Families:", "beer-blocks")}
+				help={__("Choose a font family from Google Fonts.", "beer-blocks")}
+			>
+				<Select
+					options={fontFamilies.map(({ family, variants }) => ({
+						value: {
+							family,
+							variants,
+						},
+						label: family,
+					}))}
+					isMulti={false}
+					isLoading={selectedFontsLoading}
+					noOptionsMessage={() => __("No font family options", "beer-blocks")}
+					placeholder={__("Select...", "beer-blocks")}
+					onChange={(selectedOption) =>
+						onChangeFontFamilyControl(
+							props,
+							selectedOption,
+							attrName,
+							selectedFonts
+						)
+					}
+					value={
+						fontFamily
+							? {
+									label: fontFamily,
+									value: fontFamilies.find(
+										(font) => font.family === fontFamily
+									),
+							  }
+							: null
+					}
+				/>
+			</BaseControl>
+
+			{updateSelectedFontsLoading && (
+				<Notice status="info" isDismissible={false}>
+					{__("Updating selected fonts...", "beer-blocks")}
+				</Notice>
 			)}
-			value={fontFamily}
-			onChange={(value) =>
-				setAttributes({
-					[attrName]: value,
-				})
-			}
-		/>
+
+			{selectedFontsError && (
+				<Notice status="error" isDismissible={false}>
+					{selectedFontsError.message}
+				</Notice>
+			)}
+
+			{updateSelectedFontsError && (
+				<Notice status="error" isDismissible={false}>
+					{updateSelectedFontsError.message}
+				</Notice>
+			)}
+		</>
 	);
 };
 

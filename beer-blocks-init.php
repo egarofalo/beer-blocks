@@ -60,7 +60,8 @@ add_action('rest_api_init', BEERB_GF_HELPERS_NS . '\\register_api_key_setting');
 add_action('admin_init', BEERB_GF_HELPERS_NS . '\\add_api_key_setting_field');
 add_action('init', BEERB_GF_HELPERS_NS . '\\register_selected_fonts_setting');
 add_action('rest_api_init', BEERB_GF_HELPERS_NS . '\\register_selected_fonts_setting');
-add_action('wp_enqueue_scripts', BEERB_GF_HELPERS_NS . '\\enqueue_selected_font_families');
+add_action('enqueue_block_assets', BEERB_GF_HELPERS_NS . '\\enqueue_selected_font_families');
+add_filter('style_loader_tag', BEERB_GF_HELPERS_NS . '\\add_beer_blocks_name_attr', 10, 2);
 
 // Register block types
 add_action('init', BEERB_GLOBALS_HELPERS_NS . '\\register_block_types');

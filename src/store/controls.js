@@ -15,12 +15,12 @@ export const fetch = (path, options = {}) => {
 
 export default {
 	FETCH({ path, options }) {
-		return new Promise((resolve, reject) => {
+		return new Promise((resolve, reject) =>
 			window
 				.fetch(path, options)
 				.then((response) => response.json())
 				.then((result) => resolve(result))
-				.catch((error) => reject(error));
-		});
+				.catch((error) => reject(error))
+		);
 	},
 };

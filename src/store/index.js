@@ -1,6 +1,5 @@
 import { registerStore } from "@wordpress/data";
 import { controls as wpControls } from "@wordpress/data-controls";
-
 import * as selectors from "./selectors";
 import * as actions from "./actions";
 import localControls from "./controls";

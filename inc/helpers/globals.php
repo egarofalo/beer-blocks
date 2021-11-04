@@ -74,7 +74,7 @@ function register_block_types()
 	register_shared_dependencies();
 
 	// Block Types dependencies
-	$block_types_dependencies = $pagenow !== "widgets.php" ? ['beer-blocks-editor'] : [];
+	$block_types_dependencies = ['beer-blocks-editor'];
 
 	// Register all block types
 	$manifest = json_decode(file_get_contents(BEERB_PLUGIN_DIR_PATH . '/manifest.json'), true);
