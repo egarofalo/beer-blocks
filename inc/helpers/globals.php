@@ -2,6 +2,8 @@
 
 namespace BeerBlocks\Helpers\Globals;
 
+use function BeerBlocks\Helpers\GoogleFonts\enqueue_selected_font_family;
+
 /**
  * Create Beer Block category (before WordPress 5.8).
  */
@@ -68,8 +70,6 @@ function register_shared_dependencies()
  */
 function register_block_types()
 {
-	global $pagenow;
-
 	// Register block types dependencies
 	register_shared_dependencies();
 
@@ -84,11 +84,19 @@ function register_block_types()
 		$editor_script_handle = "beer-blocks-{$block_type}-editor-script";
 		$editor_style_handle = "beer-blocks-{$block_type}-editor-style";
 		$style_handle = "beer-blocks-{$block_type}-style";
+		$render_callback = function ($attributes, $content) {
+			if (isset($attributes['fontFamily'])) {
+				enqueue_selected_font_family($attributes['fontFamily']);
+			}
+
+			return $content;
+		};
 
 		$block_type_params = [
 			'api_version' => 2,
 			'editor_script' => $editor_script_handle,
 			'editor_style' => $editor_style_handle,
+			'render_callback' => $render_callback,
 		];
 
 		if (file_exists(BEERB_PLUGIN_DIR_PATH . "/build/style-{$block_type}/index.css")) {
@@ -209,7 +217,7 @@ function form_submit()
 	$bootstrap_in_front = filter_input(INPUT_POST, BEERB_BOOTSTRAP_IN_FRONT_SETTING, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
 	$fa_in_editor = filter_input(INPUT_POST, BEERB_FONTAWESOME_IN_EDITOR_SETTING, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
 	$fa_in_front = filter_input(INPUT_POST, BEERB_FONTAWESOME_IN_EDITOR_SETTING, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
-	$google_fonts_api_key = filter_input(INPUT_POST, BEERB_GOOGLE_FONTS_API_KEY, FILTER_SANITIZE_STRING);
+	$load_google_fonts = filter_input(INPUT_POST, BEERB_LOAD_GOOGLE_FONTS_SETTING, FILTER_VALIDATE_BOOLEAN);
 
 	// update data
 	if (is_bool($bootstrap_in_editor)) {
@@ -232,8 +240,8 @@ function form_submit()
 		update_option(BEERB_FONTAWESOME_IN_FRONT_SETTING, ($fa_in_front ? 'yes' : 'no'));
 	}
 
-	if (is_string($google_fonts_api_key)) {
-		update_option(BEERB_GOOGLE_FONTS_API_KEY, $google_fonts_api_key);
+	if (is_bool($load_google_fonts)) {
+		update_option(BEERB_LOAD_GOOGLE_FONTS_SETTING, $load_google_fonts ? 'yes' : 'no');
 	}
 
 	// add success message
@@ -254,5 +262,5 @@ function uninstall()
 	delete_option(BEERB_BOOTSTRAP_IN_FRONT_SETTING);
 	delete_option(BEERB_FONTAWESOME_IN_EDITOR_SETTING);
 	delete_option(BEERB_FONTAWESOME_IN_FRONT_SETTING);
-	delete_option(BEERB_GOOGLE_FONTS_API_KEY);
+	delete_option(BEERB_LOAD_GOOGLE_FONTS_SETTING);
 }

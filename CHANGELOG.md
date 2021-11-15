@@ -1,3 +1,14 @@
+## [1.2.0] - 2021-11-15
+
+- Code improvements
+- Remove **Google Fonts API Key** settings and fields as it is no longer necessary
+- Remove **Beer Blocks Post Settings Panel** in the block editor
+- Replace the **Font Family** text field, used in blocks, with a dropdown wich has font families from Google Fonts and web safe fonts families
+- Add **Load Google Fonts** settings with a checkbox field
+- Fix javascript errors in Widget Admin Area
+- Added new translations in `es_ES` language
+- Update `README.md` file
+
 ## [1.1.1] - 2021-10-11
 
 - Code improvements

@@ -2,10 +2,18 @@
 
 namespace BeerBlocks\Helpers\GoogleFonts;
 
-define('BEERB_GOOGLE_FONTS_API_KEY', 'beer_blocks_google_fonts_api_key');
-define('BEERB_GOOGLE_FONTS_SELECTED_FONTS', '_beer_blocks_selected_fonts');
+define('BEERB_LOAD_GOOGLE_FONTS_SETTING', 'beer_blocks_load_google_fonts');
 define('BEERB_GOOGLE_FONTS_SETTINGS_SECTION', 'beer_blocks_google_fonts_settings_section');
 define('BEERB_GOOGLE_FONTS_STYLSHEET_NAME', 'beer_blocks_google_fonts_stylesheet_name');
+
+$fontFamilies = array_merge(
+	json_decode(
+		file_get_contents(BEERB_PLUGIN_DIR_PATH . '/src/helpers/safe-fonts.json')
+	),
+	json_decode(
+		file_get_contents(BEERB_PLUGIN_DIR_PATH . '/src/helpers/google-fonts.json')
+	)
+);
 
 /**
  * Add Google Fonts settings section.
@@ -21,144 +29,80 @@ function add_settings_section()
 }
 
 /**
- * Register API Key setting.
+ * Register Google Fonts load setting.
  */
-function register_api_key_setting()
+function register_google_fonts_load_setting()
 {
-	register_setting(BEERB_SETTINGS_PAGE_SLUG, BEERB_GOOGLE_FONTS_API_KEY, [
-		'type' => 'string',
+	register_setting(BEERB_SETTINGS_PAGE_SLUG, BEERB_LOAD_GOOGLE_FONTS_SETTING, [
+		'type' => 'boolean',
 		'show_in_rest' => true,
-		'sanitize_callback' => 'sanitize_text_field',
-		'default' => ''
+		'default' => true,
 	]);
 }
 
 /**
- * Add API Key setting field.
+ * Add Google Fonts load setting field.
  */
-function add_api_key_setting_field()
+function add_google_fonts_load_field()
 {
 	add_settings_field(
-		BEERB_GOOGLE_FONTS_API_KEY,
-		__('Google Fonts API Key', 'beer-blocks'),
-		BEERB_GLOBALS_HELPERS_NS . '\\input_text_setting_field',
+		BEERB_LOAD_GOOGLE_FONTS_SETTING,
+		__('Load Google Fonts', 'beer-blocks'),
+		BEERB_GLOBALS_HELPERS_NS . '\\input_checkbox_setting_field',
 		BEERB_SETTINGS_PAGE_SLUG,
 		BEERB_GOOGLE_FONTS_SETTINGS_SECTION,
 		[
-			'label_text' => __('Google Fonts API Key', 'beer-blocks'),
-			'label_for' => BEERB_GOOGLE_FONTS_API_KEY,
-			'description' => __('Copy and paste here the Google Fonts API Key to obtain the full dropdown list of all available fonts.<br>This feature apply only in each blocks that you can change the typography.', 'beer-blocks'),
+			'label_text' => __('Load Google Fonts', 'beer-blocks'),
+			'label_for' => BEERB_LOAD_GOOGLE_FONTS_SETTING,
+			'description' => __('Load Google Fonts in the Editor and Frontend.', 'beer-blocks'),
 		]
 	);
 }
 
 /**
- * Register selected fonts post meta.
+ * Enqueue Google Fonts during the block render callback.
  */
-function register_selected_fonts_setting()
+function enqueue_selected_font_family($selectedFontFamily)
 {
-	$variants = [
-		"regular",
-		"italic",
-		...range(100, 900, 100),
-		...array_map(function ($value) {
-			return "{$value}italic";
-		}, range(100, 900, 100))
-	];
+	global $fontFamilies;
 
-	register_post_meta('', BEERB_GOOGLE_FONTS_SELECTED_FONTS, [
-		'single' => true,
-		'type' => 'array',
-		'default' => [],
-		'auth_callback' => function () {
-			return current_user_can('edit_posts');
-		},
-		'sanitize_callback' => function ($items) use ($variants) {
-			return array_map(
-				function ($item) use ($variants) {
-					return [
-						'family' => sanitize_text_field($item['family']),
-						'variants' => array_filter(
-							$item['variants'],
-							function ($variant) use ($variants) {
-								return in_array($variant, $variants);
-							}
-						),
-					];
-				},
-				$items
-			);
-		},
-		'show_in_rest' => [
-			'schema' => [
-				'items' => [
-					'type' => 'object',
-					'properties' => [
-						'family' => [
-							'type' => 'string',
-						],
-						'variants' => [
-							'type' => 'array',
-							'items' => [
-								'type' => 'string'
-							]
-						]
-					]
-				]
-			]
-		],
-	]);
-}
+	$option = filter_var(
+		get_option(BEERB_LOAD_GOOGLE_FONTS_SETTING),
+		FILTER_VALIDATE_BOOLEAN
+	);
 
-/**
- * Enqueue selected font families.
- */
-function enqueue_selected_font_families()
-{
-	global $post;
-
-	if (!$post or get_class($post) !== \WP_Post::class) {
+	if (!$option) {
 		return;
 	}
 
-	$selected_fonts = get_post_meta($post->ID, BEERB_GOOGLE_FONTS_SELECTED_FONTS, true);
-
-	if (empty($selected_fonts)) {
+	if (empty($selectedFontFamily)) {
 		return;
 	}
 
-	$src = 'https://fonts.googleapis.com/css?family=' . implode('|', array_map(
-		function ($item) {
-			return "{$item['family']}:" . substr(
-				array_reduce(
-					$item['variants'],
-					function ($variants, $variant) {
-						return $variants . $variant . ',';
-					},
-					''
-				),
-				0,
-				-1
-			);
-		},
-		$selected_fonts
-	));
+	foreach ($fontFamilies as $fontFamily) {
+		if ($fontFamily->family === $selectedFontFamily) {
+			if ($fontFamily->is_safe) {
+				return;
+			}
 
-	wp_enqueue_style(BEERB_GOOGLE_FONTS_STYLSHEET_NAME, $src);
-}
+			$qry_args = $fontFamily->family . (property_exists($fontFamily, 'variants') ? ':' . implode(',', $fontFamily->variants) : '');
+			$handle = BEERB_GOOGLE_FONTS_STYLSHEET_NAME . "_" . sanitize_title($fontFamily->family);
 
-/**
- * Add the name attribute to Google Fonts style tags.
- */
-function add_beer_blocks_name_attr($html, $handler)
-{
-	if ($handler === BEERB_GOOGLE_FONTS_STYLSHEET_NAME) {
-		$html = str_replace(
-			'<link',
-			'<link name="beer-blocks-google-fonts-css"',
-			$html
-		);
+			add_action('get_footer', function () use ($handle, $qry_args) {
+				if (!wp_style_is($handle)) {
+					wp_enqueue_style(
+						$handle,
+						add_query_arg(
+							[
+								'family' => $qry_args
+							],
+							'//fonts.googleapis.com/css'
+						)
+					);
+				}
+			});
+
+			return;
+		}
 	}
-
-	return $html;
 }

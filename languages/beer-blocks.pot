@@ -1,15 +1,15 @@
-# Copyright (C) 2021 CoDevelopers
+# Copyright (C) 2021 codevelopers
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Beer Blocks 1.0.1\n"
+"Project-Id-Version: Beer Blocks 1.1.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/beer-blocks\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-10-04T14:42:55+00:00\n"
+"POT-Creation-Date: 2021-11-15T16:53:05+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.5.0\n"
 "X-Domain: beer-blocks\n"
@@ -23,7 +23,7 @@ msgid "Beer Blocks extend the block editor with advanced and powerful blocks tha
 msgstr ""
 
 #. Author of the plugin
-msgid "CoDevelopers"
+msgid "codevelopers"
 msgstr ""
 
 #. Author URI of the plugin
@@ -81,30 +81,30 @@ msgstr ""
 msgid "Enqueue Font Awesome styles in the Frontend."
 msgstr ""
 
-#: inc/helpers/globals.php:131
+#: inc/helpers/globals.php:146
 msgid "Beer Blocks Settings"
 msgstr ""
 
-#: inc/helpers/globals.php:185
-#: inc/helpers/globals.php:195
+#: inc/helpers/globals.php:200
+#: inc/helpers/globals.php:210
 msgid "<p>Security alert: <b>NONCE CHECK FAILED</b></p>"
 msgstr ""
 
-#: inc/helpers/globals.php:236
+#: inc/helpers/globals.php:251
 msgid "Settings updated successfully!!"
 msgstr ""
 
-#: inc/helpers/google-fonts.php:17
+#: inc/helpers/google-fonts.php:25
 msgid "Google Fonts Settings"
 msgstr ""
 
-#: inc/helpers/google-fonts.php:43
-#: inc/helpers/google-fonts.php:48
-msgid "Google Fonts API Key"
+#: inc/helpers/google-fonts.php:50
+#: inc/helpers/google-fonts.php:55
+msgid "Load Google Fonts"
 msgstr ""
 
-#: inc/helpers/google-fonts.php:50
-msgid "Copy and paste here the Google Fonts API Key to obtain the full dropdown list of all available fonts.<br>This feature apply only in each blocks that you can change the typography."
+#: inc/helpers/google-fonts.php:57
+msgid "Load Google Fonts in the Editor and Frontend."
 msgstr ""
 
 #: build/accordion-item/index.js:1
@@ -164,7 +164,7 @@ msgstr ""
 #: build/header/index.js:1
 #: build/instruction/index.js:1
 #: build/paragraph/index.js:1
-#: src/helpers/typography.js:41
+#: src/helpers/typography.js:46
 msgid "Font Size (%s)"
 msgstr ""
 
@@ -173,8 +173,8 @@ msgstr ""
 #: build/header/index.js:1
 #: build/instruction/index.js:1
 #: build/paragraph/index.js:1
-#: src/helpers/typography.js:71
-msgid "Font Family"
+#: src/helpers/typography.js:148
+msgid "Font Families:"
 msgstr ""
 
 #: build/accordion-item/index.js:1
@@ -182,8 +182,8 @@ msgstr ""
 #: build/header/index.js:1
 #: build/instruction/index.js:1
 #: build/paragraph/index.js:1
-#: src/helpers/typography.js:73
-msgid "Type here the css <b><i>font-family</i></b> property value."
+#: src/helpers/typography.js:149
+msgid "Choose a font family."
 msgstr ""
 
 #: build/accordion-item/index.js:1
@@ -191,7 +191,25 @@ msgstr ""
 #: build/header/index.js:1
 #: build/instruction/index.js:1
 #: build/paragraph/index.js:1
-#: src/helpers/typography.js:103
+#: src/helpers/typography.js:160
+msgid "No font family options"
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/fa-icon/index.js:1
+#: build/header/index.js:1
+#: build/instruction/index.js:1
+#: build/paragraph/index.js:1
+#: src/helpers/typography.js:161
+msgid "Select..."
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/fa-icon/index.js:1
+#: build/header/index.js:1
+#: build/instruction/index.js:1
+#: build/paragraph/index.js:1
+#: src/helpers/typography.js:200
 msgid "Font Weight"
 msgstr ""
 
@@ -200,7 +218,7 @@ msgstr ""
 #: build/header/index.js:1
 #: build/instruction/index.js:1
 #: build/paragraph/index.js:1
-#: src/helpers/typography.js:131
+#: src/helpers/typography.js:228
 msgid "Line Height"
 msgstr ""
 
@@ -209,7 +227,7 @@ msgstr ""
 #: build/header/index.js:1
 #: build/instruction/index.js:1
 #: build/paragraph/index.js:1
-#: src/helpers/typography.js:197
+#: src/helpers/typography.js:294
 msgid "Typography"
 msgstr ""
 
@@ -227,6 +245,11 @@ msgid "Style"
 msgstr ""
 
 #: build/accordion-item/index.js:1
+#: src/helpers/border.js:27
+msgid "-- SELECT --"
+msgstr ""
+
+#: build/accordion-item/index.js:1
 #: build/separator/index.js:1
 #: src/block-types/separator/edit.js:99
 #: src/helpers/border.js:57
@@ -240,11 +263,6 @@ msgstr ""
 #: src/helpers/border.js:86
 #: src/helpers/border.js:128
 msgid "Color"
-msgstr ""
-
-#: build/accordion-item/index.js:1
-#: src/helpers/border.js:27
-msgid "-- SELECT --"
 msgstr ""
 
 #: build/accordion-item/index.js:1
@@ -657,48 +675,6 @@ msgstr ""
 msgid "HTML Tag"
 msgstr ""
 
-#: build/editor.js:1
-#: src/post-settings-panel.js:66
-#: src/post-settings-panel.js:82
-#: src/post-settings-panel.js:96
-msgid "Font Families:"
-msgstr ""
-
-#: build/editor.js:1
-#: src/post-settings-panel.js:72
-msgid "Getting Google Fonts API Key from Beer Blocks configuration..."
-msgstr ""
-
-#: build/editor.js:1
-#: src/post-settings-panel.js:97
-msgid "Choose one or more font families to load them in the post or page."
-msgstr ""
-
-#: build/editor.js:1
-#: src/post-settings-panel.js:125
-msgid "No font family options"
-msgstr ""
-
-#: build/editor.js:1
-#: src/post-settings-panel.js:127
-msgid "Select..."
-msgstr ""
-
-#: build/editor.js:1
-#: src/post-settings-panel.js:155
-msgid "Updating selected fonts..."
-msgstr ""
-
-#: build/editor.js:1
-#: src/post-settings-panel.js:85
-msgid "You must enter a Google Fonts Api Key to activate the font families dropdown list."
-msgstr ""
-
-#: build/editor.js:1
-#: src/post-settings-panel.js:171
-msgid "Beer Blocks - Post Settings"
-msgstr ""
-
 #: build/fa-icon/index.js:1
 #: src/block-types/fa-icon/index.js:47
 #: src/block-types/fa-icon/index.js:64
@@ -718,78 +694,83 @@ msgid "Choose an Icon"
 msgstr ""
 
 #: build/fa-icon/index.js:1
-#: src/block-types/fa-icon/edit.js:138
+#: src/block-types/fa-icon/edit.js:140
 msgid "Icon Size (%s)"
 msgstr ""
 
 #: build/fa-icon/index.js:1
+#: src/block-types/fa-icon/edit.js:141
+msgid "Icon Size"
+msgstr ""
+
+#: build/fa-icon/index.js:1
 #: build/instruction/index.js:1
-#: src/block-types/fa-icon/edit.js:156
+#: src/block-types/fa-icon/edit.js:160
 #: src/block-types/instruction/edit.js:166
 msgid "Height (%s)"
 msgstr ""
 
 #: build/fa-icon/index.js:1
-#: src/block-types/fa-icon/edit.js:192
+#: src/block-types/fa-icon/edit.js:196
 msgid "Open media library"
 msgstr ""
 
 #: build/fa-icon/index.js:1
-#: src/block-types/fa-icon/edit.js:206
+#: src/block-types/fa-icon/edit.js:210
 msgid "Choose an image"
 msgstr ""
 
 #: build/fa-icon/index.js:1
-#: src/block-types/fa-icon/edit.js:215
-#: src/block-types/fa-icon/edit.js:221
+#: src/block-types/fa-icon/edit.js:219
+#: src/block-types/fa-icon/edit.js:225
 msgid "Replace image"
 msgstr ""
 
 #: build/fa-icon/index.js:1
-#: src/block-types/fa-icon/edit.js:231
+#: src/block-types/fa-icon/edit.js:235
 msgid "Remove image"
 msgstr ""
 
 #: build/fa-icon/index.js:1
 #: build/instruction/index.js:1
 #: build/separator/index.js:1
-#: src/block-types/fa-icon/edit.js:239
+#: src/block-types/fa-icon/edit.js:243
 #: src/block-types/instruction/edit.js:150
 msgid "Width (%s)"
 msgstr ""
 
 #: build/fa-icon/index.js:1
-#: src/block-types/fa-icon/edit.js:257
+#: src/block-types/fa-icon/edit.js:261
 msgid "Set auto height"
 msgstr ""
 
 #: build/fa-icon/index.js:1
-#: src/block-types/fa-icon/edit.js:276
+#: src/block-types/fa-icon/edit.js:280
 msgid "Set original size"
 msgstr ""
 
 #: build/fa-icon/index.js:1
-#: src/block-types/fa-icon/edit.js:285
+#: src/block-types/fa-icon/edit.js:289
 msgid "Icon settings"
 msgstr ""
 
 #: build/fa-icon/index.js:1
-#: src/block-types/fa-icon/edit.js:288
+#: src/block-types/fa-icon/edit.js:292
 msgid "Block level element type"
 msgstr ""
 
 #: build/fa-icon/index.js:1
-#: src/block-types/fa-icon/edit.js:298
+#: src/block-types/fa-icon/edit.js:302
 msgid "Disable this toggle field if you want to display the icon as an inline element."
 msgstr ""
 
 #: build/fa-icon/index.js:1
-#: src/block-types/fa-icon/edit.js:306
+#: src/block-types/fa-icon/edit.js:310
 msgid "Use an image"
 msgstr ""
 
 #: build/fa-icon/index.js:1
-#: src/block-types/fa-icon/edit.js:313
+#: src/block-types/fa-icon/edit.js:317
 msgid "If you want to use an image as icon, enable this toggle field."
 msgstr ""
 

@@ -6,7 +6,7 @@ Donate link: https://www.paypal.com/donate?hosted_button_id=8XSCNEV5WA5TU
 Requires at least: 5.5.0
 Tested up to: 5.8.1
 Requires PHP: 7.3
-Stable tag: 1.1.1
+Stable tag: 1.2.0
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,7 +26,7 @@ Simply select a block within the Beer Blocks category and you will notice that i
 
 1. Upload the plugin files to the `/wp-content/plugins/beer-blocks` directory, or install the plugin through the WordPress plugins screen directly.
 2. Activate the plugin through the Plugins screen in WordPress.
-3. If you want, enter the [Google Fonts API Key](https://developers.google.com/fonts/docs/developer_api).
+3. And that's all! Enjoy the plugin!
 
 == Frequently Asked Questions ==
 
@@ -66,6 +66,21 @@ Yes, of course! You can choose any of the font families available in Google Font
 * Removed `parent` attribute in `fa-icon` block type
 * Added new translations in `es_ES` language
 * Updated `readme.txt`
+= 1.1.1 =
+* Code improvements
+* Remove `BeerBlocks\Helpers\Globals\enqueue_editor_assets` helper function hooked in `enqueue_block_editor_assets` action
+* Fix `BeerBlocks\Helpers\Globals\create_blocks_category` helper function
+* Add `BeerBlocks\Helpers\Globals\register_shared_dependencies` function used in `BeerBlocks\Helpers\Globals\register_block_types` helper to register `beer-blocks-editor-script` and `beer-blocks-editor-style` dependencies of all block types
+* Add **Beer Blocks** svg icon into the post settings panel
+= 1.2.0 =
+* Code improvements
+* Remove **Google Fonts API Key** settings and fields as it is no longer necessary
+* Remove **Beer Blocks Post Settings Panel** in the block editor
+* Replace the **Font Family** text field, used in blocks, with a dropdown wich has font families from Google Fonts and web safe fonts families
+* Add **Load Google Fonts** settings with a checkbox field
+* Fix javascript errors in Widget Admin Area
+* Added new translations in `es_ES` language
+* Update `README.md` file
 
 == Upgrade Notice ==
 

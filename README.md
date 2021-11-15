@@ -6,7 +6,7 @@ Beer Blocks is a WordPress plugin wich extends the Block Editor functionality.
 
 Power-up the Gutenberg editor with advanced and powerful blocks that help you build websites very fast! Beer blocks is free, and always will be!
 
-Beer Block come with new blocks and features for the Gutenberg block editor. Beer Blocks is compatible with the Bootstrap 4 Framework. It contains blocks that represent the Bootstrap components, and the Bootstrap grid system is implemented through the following blocks: Container, Row, Col, and Grid.
+Beer Block come with new blocks and features for the Gutenberg block editor. Beer Blocks is compatible with the Bootstrap 4 Framework. It contains blocks that represent the Bootstrap components, and the Bootstrap grid system is implemented through the following blocks: Container, Row, Col, and Grid. Besides you can change the font family in some blocks, and choose one from Google Fonts.
 
 Simply select a block within the Beer Blocks category and you will notice that it will allow you customize it very easily.
 
@@ -14,7 +14,7 @@ Simply select a block within the Beer Blocks category and you will notice that i
 
 - Upload the plugin files to the `/wp-content/plugins/beer-blocks` directory, or install the plugin through the WordPress plugins screen directly.
 - Activate the plugin through the **Plugins** screen in WordPress.
-- If you want, enter the [Google Fonts API Key](https://developers.google.com/fonts/docs/developer_api) in the Beer Blocks settings page.
+- And that's all! Enjoy the plugin!
 
 ## Frequently Asked Questions
 
@@ -32,7 +32,7 @@ Simply select a block within the Beer Blocks category and you will notice that i
 
 **Q:** Can I change the font family and font weight of blocks that have text?
 
-**A:** Yes, of course! You can choose any of the font families available in Google Fonts.
+**A:** Yes, of course! You can choose any of the font families available in **Google Fonts**.
 
 ## Help us to skip working in this project
 

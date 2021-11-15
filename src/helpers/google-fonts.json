@@ -1,75 +1,93 @@
 [
 	{
 		"family": "ABeeZee",
-		"variants": ["regular", "italic"]
+		"variants": ["regular", "italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Abel",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Abhaya Libre",
-		"variants": ["regular", "500", "600", "700", "800"]
+		"variants": ["regular", "500", "600", "700", "800"],
+		"is_safe": false
 	},
 	{
 		"family": "Abril Fatface",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Aclonica",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Acme",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Actor",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Adamina",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Advent Pro",
-		"variants": ["100", "200", "300", "regular", "500", "600", "700"]
+		"variants": ["100", "200", "300", "regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Aguafina Script",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Akaya Kanadaka",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Akaya Telivigala",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Akronim",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Aladin",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Alata",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Alatsi",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Aldrich",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Alef",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Alegreya",
@@ -86,7 +104,8 @@
 			"700italic",
 			"800italic",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Alegreya SC",
@@ -101,7 +120,8 @@
 			"800italic",
 			"900",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Alegreya Sans",
@@ -120,7 +140,8 @@
 			"800italic",
 			"900",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Alegreya Sans SC",
@@ -139,67 +160,83 @@
 			"800italic",
 			"900",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Aleo",
-		"variants": ["300", "300italic", "regular", "italic", "700", "700italic"]
+		"variants": ["300", "300italic", "regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Alex Brush",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Alfa Slab One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Alice",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Alike",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Alike Angular",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Allan",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Allerta",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Allerta Stencil",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Allison",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Allura",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Almarai",
-		"variants": ["300", "regular", "700", "800"]
+		"variants": ["300", "regular", "700", "800"],
+		"is_safe": false
 	},
 	{
 		"family": "Almendra",
-		"variants": ["regular", "italic", "700", "700italic"]
+		"variants": ["regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Almendra Display",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Almendra SC",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Alumni Sans",
@@ -222,39 +259,48 @@
 			"700italic",
 			"800italic",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Amarante",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Amaranth",
-		"variants": ["regular", "italic", "700", "700italic"]
+		"variants": ["regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Amatic SC",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Amethysta",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Amiko",
-		"variants": ["regular", "600", "700"]
+		"variants": ["regular", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Amiri",
-		"variants": ["regular", "italic", "700", "700italic"]
+		"variants": ["regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Amita",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Anaheim",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Andada Pro",
@@ -269,63 +315,78 @@
 			"600italic",
 			"700italic",
 			"800italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Andika",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Andika New Basic",
-		"variants": ["regular", "italic", "700", "700italic"]
+		"variants": ["regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Angkor",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Annie Use Your Telescope",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Anonymous Pro",
-		"variants": ["regular", "italic", "700", "700italic"]
+		"variants": ["regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Antic",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Antic Didone",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Antic Slab",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Anton",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Antonio",
-		"variants": ["100", "200", "300", "regular", "500", "600", "700"]
+		"variants": ["100", "200", "300", "regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Arapey",
-		"variants": ["regular", "italic"]
+		"variants": ["regular", "italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Arbutus",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Arbutus Slab",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Architects Daughter",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Archivo",
@@ -348,11 +409,13 @@
 			"700italic",
 			"800italic",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Archivo Black",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Archivo Narrow",
@@ -365,19 +428,23 @@
 			"600italic",
 			"700",
 			"700italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Are You Serious",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Aref Ruqaa",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Arima Madurai",
-		"variants": ["100", "200", "300", "regular", "500", "700", "800", "900"]
+		"variants": ["100", "200", "300", "regular", "500", "700", "800", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Arimo",
@@ -390,31 +457,38 @@
 			"500italic",
 			"600italic",
 			"700italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Arizonia",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Armata",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Arsenal",
-		"variants": ["regular", "italic", "700", "700italic"]
+		"variants": ["regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Artifika",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Arvo",
-		"variants": ["regular", "italic", "700", "700italic"]
+		"variants": ["regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Arya",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Asap",
@@ -427,7 +501,8 @@
 			"500italic",
 			"600italic",
 			"700italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Asap Condensed",
@@ -440,79 +515,98 @@
 			"600italic",
 			"700",
 			"700italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Asar",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Asset",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Assistant",
-		"variants": ["200", "300", "regular", "500", "600", "700", "800"]
+		"variants": ["200", "300", "regular", "500", "600", "700", "800"],
+		"is_safe": false
 	},
 	{
 		"family": "Astloch",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Asul",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Athiti",
-		"variants": ["200", "300", "regular", "500", "600", "700"]
+		"variants": ["200", "300", "regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Atkinson Hyperlegible",
-		"variants": ["regular", "italic", "700", "700italic"]
+		"variants": ["regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Atma",
-		"variants": ["300", "regular", "500", "600", "700"]
+		"variants": ["300", "regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Atomic Age",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Aubrey",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Audiowide",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Autour One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Average",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Average Sans",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Averia Gruesa Libre",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Averia Libre",
-		"variants": ["300", "300italic", "regular", "italic", "700", "700italic"]
+		"variants": ["300", "300italic", "regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Averia Sans Libre",
-		"variants": ["300", "300italic", "regular", "italic", "700", "700italic"]
+		"variants": ["300", "300italic", "regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Averia Serif Libre",
-		"variants": ["300", "300italic", "regular", "italic", "700", "700italic"]
+		"variants": ["300", "300italic", "regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Azeret Mono",
@@ -535,27 +629,33 @@
 			"700italic",
 			"800italic",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "B612",
-		"variants": ["regular", "italic", "700", "700italic"]
+		"variants": ["regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "B612 Mono",
-		"variants": ["regular", "italic", "700", "700italic"]
+		"variants": ["regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Bad Script",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Bahiana",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Bahianita",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Bai Jamjuree",
@@ -572,59 +672,73 @@
 			"600italic",
 			"700",
 			"700italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Ballet",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Baloo 2",
-		"variants": ["regular", "500", "600", "700", "800"]
+		"variants": ["regular", "500", "600", "700", "800"],
+		"is_safe": false
 	},
 	{
 		"family": "Baloo Bhai 2",
-		"variants": ["regular", "500", "600", "700", "800"]
+		"variants": ["regular", "500", "600", "700", "800"],
+		"is_safe": false
 	},
 	{
 		"family": "Baloo Bhaina 2",
-		"variants": ["regular", "500", "600", "700", "800"]
+		"variants": ["regular", "500", "600", "700", "800"],
+		"is_safe": false
 	},
 	{
 		"family": "Baloo Chettan 2",
-		"variants": ["regular", "500", "600", "700", "800"]
+		"variants": ["regular", "500", "600", "700", "800"],
+		"is_safe": false
 	},
 	{
 		"family": "Baloo Da 2",
-		"variants": ["regular", "500", "600", "700", "800"]
+		"variants": ["regular", "500", "600", "700", "800"],
+		"is_safe": false
 	},
 	{
 		"family": "Baloo Paaji 2",
-		"variants": ["regular", "500", "600", "700", "800"]
+		"variants": ["regular", "500", "600", "700", "800"],
+		"is_safe": false
 	},
 	{
 		"family": "Baloo Tamma 2",
-		"variants": ["regular", "500", "600", "700", "800"]
+		"variants": ["regular", "500", "600", "700", "800"],
+		"is_safe": false
 	},
 	{
 		"family": "Baloo Tammudu 2",
-		"variants": ["regular", "500", "600", "700", "800"]
+		"variants": ["regular", "500", "600", "700", "800"],
+		"is_safe": false
 	},
 	{
 		"family": "Baloo Thambi 2",
-		"variants": ["regular", "500", "600", "700", "800"]
+		"variants": ["regular", "500", "600", "700", "800"],
+		"is_safe": false
 	},
 	{
 		"family": "Balsamiq Sans",
-		"variants": ["regular", "italic", "700", "700italic"]
+		"variants": ["regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Balthazar",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Bangers",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Barlow",
@@ -647,7 +761,8 @@
 			"800italic",
 			"900",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Barlow Condensed",
@@ -670,7 +785,8 @@
 			"800italic",
 			"900",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Barlow Semi Condensed",
@@ -693,35 +809,43 @@
 			"800italic",
 			"900",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Barriecito",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Barrio",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Basic",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Baskervville",
-		"variants": ["regular", "italic"]
+		"variants": ["regular", "italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Battambang",
-		"variants": ["100", "300", "regular", "700", "900"]
+		"variants": ["100", "300", "regular", "700", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Baumans",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Bayon",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Be Vietnam",
@@ -740,7 +864,8 @@
 			"700italic",
 			"800",
 			"800italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Be Vietnam Pro",
@@ -763,47 +888,58 @@
 			"800italic",
 			"900",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Bebas Neue",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Belgrano",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Bellefair",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Belleza",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Bellota",
-		"variants": ["300", "300italic", "regular", "italic", "700", "700italic"]
+		"variants": ["300", "300italic", "regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Bellota Text",
-		"variants": ["300", "300italic", "regular", "italic", "700", "700italic"]
+		"variants": ["300", "300italic", "regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "BenchNine",
-		"variants": ["300", "regular", "700"]
+		"variants": ["300", "regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Benne",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Bentham",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Berkshire Swash",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Besley",
@@ -820,15 +956,18 @@
 			"700italic",
 			"800italic",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Beth Ellen",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Bevan",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Big Shoulders Display",
@@ -842,7 +981,8 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Big Shoulders Inline Display",
@@ -856,7 +996,8 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Big Shoulders Inline Text",
@@ -870,7 +1011,8 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Big Shoulders Stencil Display",
@@ -884,7 +1026,8 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Big Shoulders Stencil Text",
@@ -898,7 +1041,8 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Big Shoulders Text",
@@ -912,43 +1056,53 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Bigelow Rules",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Bigshot One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Bilbo",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Bilbo Swash Caps",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "BioRhyme",
-		"variants": ["200", "300", "regular", "700", "800"]
+		"variants": ["200", "300", "regular", "700", "800"],
+		"is_safe": false
 	},
 	{
 		"family": "BioRhyme Expanded",
-		"variants": ["200", "300", "regular", "700", "800"]
+		"variants": ["200", "300", "regular", "700", "800"],
+		"is_safe": false
 	},
 	{
 		"family": "Birthstone",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Birthstone Bounce",
-		"variants": ["regular", "500"]
+		"variants": ["regular", "500"],
+		"is_safe": false
 	},
 	{
 		"family": "Biryani",
-		"variants": ["200", "300", "regular", "600", "700", "800", "900"]
+		"variants": ["200", "300", "regular", "600", "700", "800", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Bitter",
@@ -971,23 +1125,28 @@
 			"700italic",
 			"800italic",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Black And White Picture",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Black Han Sans",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Black Ops One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Blinker",
-		"variants": ["100", "200", "300", "regular", "600", "700", "800", "900"]
+		"variants": ["100", "200", "300", "regular", "600", "700", "800", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Bodoni Moda",
@@ -1004,43 +1163,53 @@
 			"700italic",
 			"800italic",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Bokor",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Bona Nova",
-		"variants": ["regular", "italic", "700"]
+		"variants": ["regular", "italic", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Bonbon",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Bonheur Royale",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Boogaloo",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Bowlby One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Bowlby One SC",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Brawler",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Bree Serif",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Brygada 1918",
@@ -1053,51 +1222,63 @@
 			"500italic",
 			"600italic",
 			"700italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Bubblegum Sans",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Bubbler One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Buda",
-		"variants": ["300"]
+		"variants": ["300"],
+		"is_safe": false
 	},
 	{
 		"family": "Buenard",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Bungee",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Bungee Hairline",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Bungee Inline",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Bungee Outline",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Bungee Shade",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Butcherman",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Butterfly Kids",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Cabin",
@@ -1110,99 +1291,123 @@
 			"500italic",
 			"600italic",
 			"700italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Cabin Condensed",
-		"variants": ["regular", "500", "600", "700"]
+		"variants": ["regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Cabin Sketch",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Caesar Dressing",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Cagliostro",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Cairo",
-		"variants": ["200", "300", "regular", "600", "700", "900"]
+		"variants": ["200", "300", "regular", "600", "700", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Caladea",
-		"variants": ["regular", "italic", "700", "700italic"]
+		"variants": ["regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Calistoga",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Calligraffitti",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Cambay",
-		"variants": ["regular", "italic", "700", "700italic"]
+		"variants": ["regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Cambo",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Candal",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Cantarell",
-		"variants": ["regular", "italic", "700", "700italic"]
+		"variants": ["regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Cantata One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Cantora One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Capriola",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Caramel",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Carattere",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Cardo",
-		"variants": ["regular", "italic", "700"]
+		"variants": ["regular", "italic", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Carme",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Carrois Gothic",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Carrois Gothic SC",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Carter One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Castoro",
-		"variants": ["regular", "italic"]
+		"variants": ["regular", "italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Catamaran",
@@ -1216,27 +1421,33 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Caudex",
-		"variants": ["regular", "italic", "700", "700italic"]
+		"variants": ["regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Caveat",
-		"variants": ["regular", "500", "600", "700"]
+		"variants": ["regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Caveat Brush",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Cedarville Cursive",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Ceviche One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Chakra Petch",
@@ -1251,71 +1462,88 @@
 			"600italic",
 			"700",
 			"700italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Changa",
-		"variants": ["200", "300", "regular", "500", "600", "700", "800"]
+		"variants": ["200", "300", "regular", "500", "600", "700", "800"],
+		"is_safe": false
 	},
 	{
 		"family": "Changa One",
-		"variants": ["regular", "italic"]
+		"variants": ["regular", "italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Chango",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Charm",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Charmonman",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Chathura",
-		"variants": ["100", "300", "regular", "700", "800"]
+		"variants": ["100", "300", "regular", "700", "800"],
+		"is_safe": false
 	},
 	{
 		"family": "Chau Philomene One",
-		"variants": ["regular", "italic"]
+		"variants": ["regular", "italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Chela One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Chelsea Market",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Chenla",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Cherish",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Cherry Cream Soda",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Cherry Swash",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Chewy",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Chicle",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Chilanka",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Chivo",
@@ -1328,55 +1556,68 @@
 			"700italic",
 			"900",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Chonburi",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Cinzel",
-		"variants": ["regular", "500", "600", "700", "800", "900"]
+		"variants": ["regular", "500", "600", "700", "800", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Cinzel Decorative",
-		"variants": ["regular", "700", "900"]
+		"variants": ["regular", "700", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Clicker Script",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Coda",
-		"variants": ["regular", "800"]
+		"variants": ["regular", "800"],
+		"is_safe": false
 	},
 	{
 		"family": "Coda Caption",
-		"variants": ["800"]
+		"variants": ["800"],
+		"is_safe": false
 	},
 	{
 		"family": "Codystar",
-		"variants": ["300", "regular"]
+		"variants": ["300", "regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Coiny",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Combo",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Comfortaa",
-		"variants": ["300", "regular", "500", "600", "700"]
+		"variants": ["300", "regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Comic Neue",
-		"variants": ["300", "300italic", "regular", "italic", "700", "700italic"]
+		"variants": ["300", "300italic", "regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Coming Soon",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Commissioner",
@@ -1390,39 +1631,48 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Concert One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Condiment",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Content",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Contrail One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Convergence",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Cookie",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Copse",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Corben",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Cormorant",
@@ -1437,7 +1687,8 @@
 			"600italic",
 			"700",
 			"700italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Cormorant Garamond",
@@ -1452,7 +1703,8 @@
 			"600italic",
 			"700",
 			"700italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Cormorant Infant",
@@ -1467,51 +1719,63 @@
 			"600italic",
 			"700",
 			"700italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Cormorant SC",
-		"variants": ["300", "regular", "500", "600", "700"]
+		"variants": ["300", "regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Cormorant Unicase",
-		"variants": ["300", "regular", "500", "600", "700"]
+		"variants": ["300", "regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Cormorant Upright",
-		"variants": ["300", "regular", "500", "600", "700"]
+		"variants": ["300", "regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Courgette",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Courier Prime",
-		"variants": ["regular", "italic", "700", "700italic"]
+		"variants": ["regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Cousine",
-		"variants": ["regular", "italic", "700", "700italic"]
+		"variants": ["regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Coustard",
-		"variants": ["regular", "900"]
+		"variants": ["regular", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Covered By Your Grace",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Crafty Girls",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Creepster",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Crete Round",
-		"variants": ["regular", "italic"]
+		"variants": ["regular", "italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Crimson Pro",
@@ -1532,19 +1796,23 @@
 			"700italic",
 			"800italic",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Crimson Text",
-		"variants": ["regular", "italic", "600", "600italic", "700", "700italic"]
+		"variants": ["regular", "italic", "600", "600italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Croissant One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Crushed",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Cuprum",
@@ -1557,155 +1825,193 @@
 			"500italic",
 			"600italic",
 			"700italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Cute Font",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Cutive",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Cutive Mono",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "DM Mono",
-		"variants": ["300", "300italic", "regular", "italic", "500", "500italic"]
+		"variants": ["300", "300italic", "regular", "italic", "500", "500italic"],
+		"is_safe": false
 	},
 	{
 		"family": "DM Sans",
-		"variants": ["regular", "italic", "500", "500italic", "700", "700italic"]
+		"variants": ["regular", "italic", "500", "500italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "DM Serif Display",
-		"variants": ["regular", "italic"]
+		"variants": ["regular", "italic"],
+		"is_safe": false
 	},
 	{
 		"family": "DM Serif Text",
-		"variants": ["regular", "italic"]
+		"variants": ["regular", "italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Damion",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Dancing Script",
-		"variants": ["regular", "500", "600", "700"]
+		"variants": ["regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Dangrek",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Darker Grotesque",
-		"variants": ["300", "regular", "500", "600", "700", "800", "900"]
+		"variants": ["300", "regular", "500", "600", "700", "800", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "David Libre",
-		"variants": ["regular", "500", "700"]
+		"variants": ["regular", "500", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Dawning of a New Day",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Days One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Dekko",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Dela Gothic One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Delius",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Delius Swash Caps",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Delius Unicase",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Della Respira",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Denk One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Devonshire",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Dhurjati",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Didact Gothic",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Diplomata",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Diplomata SC",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Do Hyeon",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Dokdo",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Domine",
-		"variants": ["regular", "500", "600", "700"]
+		"variants": ["regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Donegal One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Doppio One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Dorsa",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Dosis",
-		"variants": ["200", "300", "regular", "500", "600", "700", "800"]
+		"variants": ["200", "300", "regular", "500", "600", "700", "800"],
+		"is_safe": false
 	},
 	{
 		"family": "DotGothic16",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Dr Sugiyama",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Duru Sans",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Dynalight",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "EB Garamond",
@@ -1720,51 +2026,63 @@
 			"600italic",
 			"700italic",
 			"800italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Eagle Lake",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "East Sea Dokdo",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Eater",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Economica",
-		"variants": ["regular", "italic", "700", "700italic"]
+		"variants": ["regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Eczar",
-		"variants": ["regular", "500", "600", "700", "800"]
+		"variants": ["regular", "500", "600", "700", "800"],
+		"is_safe": false
 	},
 	{
 		"family": "El Messiri",
-		"variants": ["regular", "500", "600", "700"]
+		"variants": ["regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Electrolize",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Elsie",
-		"variants": ["regular", "900"]
+		"variants": ["regular", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Elsie Swash Caps",
-		"variants": ["regular", "900"]
+		"variants": ["regular", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Emblema One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Emilys Candy",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Encode Sans",
@@ -1778,7 +2096,8 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Encode Sans Condensed",
@@ -1792,7 +2111,8 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Encode Sans Expanded",
@@ -1806,7 +2126,8 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Encode Sans SC",
@@ -1820,7 +2141,8 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Encode Sans Semi Condensed",
@@ -1834,7 +2156,8 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Encode Sans Semi Expanded",
@@ -1848,23 +2171,28 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Engagement",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Englebert",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Enriqueta",
-		"variants": ["regular", "500", "600", "700"]
+		"variants": ["regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Ephesis",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Epilogue",
@@ -1887,23 +2215,28 @@
 			"700italic",
 			"800italic",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Erica One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Esteban",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Euphoria Script",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Ewert",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Exo",
@@ -1926,7 +2259,8 @@
 			"700italic",
 			"800italic",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Exo 2",
@@ -1949,7 +2283,8 @@
 			"700italic",
 			"800italic",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Expletus Sans",
@@ -1962,11 +2297,13 @@
 			"600italic",
 			"700",
 			"700italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Explora",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Fahkwang",
@@ -1983,39 +2320,48 @@
 			"600italic",
 			"700",
 			"700italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Fanwood Text",
-		"variants": ["regular", "italic"]
+		"variants": ["regular", "italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Farro",
-		"variants": ["300", "regular", "500", "700"]
+		"variants": ["300", "regular", "500", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Farsan",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Fascinate",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Fascinate Inline",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Faster One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Fasthand",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Fauna One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Faustina",
@@ -2028,39 +2374,48 @@
 			"500italic",
 			"600italic",
 			"700italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Federant",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Federo",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Felipa",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Fenix",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Festive",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Finger Paint",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Fira Code",
-		"variants": ["300", "regular", "500", "600", "700"]
+		"variants": ["300", "regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Fira Mono",
-		"variants": ["regular", "500", "700"]
+		"variants": ["regular", "500", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Fira Sans",
@@ -2083,7 +2438,8 @@
 			"800italic",
 			"900",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Fira Sans Condensed",
@@ -2106,7 +2462,8 @@
 			"800italic",
 			"900",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Fira Sans Extra Condensed",
@@ -2129,47 +2486,58 @@
 			"800italic",
 			"900",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Fjalla One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Fjord One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Flamenco",
-		"variants": ["300", "regular"]
+		"variants": ["300", "regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Flavors",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Fleur De Leah",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Fondamento",
-		"variants": ["regular", "italic"]
+		"variants": ["regular", "italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Fontdiner Swanky",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Forum",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Francois One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Frank Ruhl Libre",
-		"variants": ["300", "regular", "500", "700", "900"]
+		"variants": ["300", "regular", "500", "700", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Fraunces",
@@ -2192,83 +2560,103 @@
 			"700italic",
 			"800italic",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Freckle Face",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Fredericka the Great",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Fredoka One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Freehand",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Fresca",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Frijole",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Fruktur",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Fugaz One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Fuggles",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "GFS Didot",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "GFS Neohellenic",
-		"variants": ["regular", "italic", "700", "700italic"]
+		"variants": ["regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Gabriela",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Gaegu",
-		"variants": ["300", "regular", "700"]
+		"variants": ["300", "regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Gafata",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Galada",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Galdeano",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Galindo",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Gamja Flower",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Gayathri",
-		"variants": ["100", "regular", "700"]
+		"variants": ["100", "regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Gelasio",
@@ -2281,23 +2669,28 @@
 			"600italic",
 			"700",
 			"700italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Gemunu Libre",
-		"variants": ["200", "300", "regular", "500", "600", "700", "800"]
+		"variants": ["200", "300", "regular", "500", "600", "700", "800"],
+		"is_safe": false
 	},
 	{
 		"family": "Gentium Basic",
-		"variants": ["regular", "italic", "700", "700italic"]
+		"variants": ["regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Gentium Book Basic",
-		"variants": ["regular", "italic", "700", "700italic"]
+		"variants": ["regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Geo",
-		"variants": ["regular", "italic"]
+		"variants": ["regular", "italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Georama",
@@ -2320,51 +2713,63 @@
 			"700italic",
 			"800italic",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Geostar",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Geostar Fill",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Germania One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Gideon Roman",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Gidugu",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Gilda Display",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Girassol",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Give You Glory",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Glass Antiqua",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Glegoo",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Gloria Hallelujah",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Glory",
@@ -2385,7 +2790,8 @@
 			"600italic",
 			"700italic",
 			"800italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Gluten",
@@ -2399,23 +2805,28 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Goblin One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Gochi Hand",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Goldman",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Gorditas",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Gothic A1",
@@ -2429,31 +2840,38 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Gotu",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Goudy Bookletter 1911",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Gowun Batang",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Gowun Dodum",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Graduate",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Grand Hotel",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Grandstander",
@@ -2476,19 +2894,23 @@
 			"700italic",
 			"800italic",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Gravitas One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Great Vibes",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Grechen Fuemen",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Grenze",
@@ -2511,7 +2933,8 @@
 			"800italic",
 			"900",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Grenze Gotisch",
@@ -2525,43 +2948,53 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Grey Qo",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Griffy",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Gruppo",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Gudea",
-		"variants": ["regular", "italic", "700"]
+		"variants": ["regular", "italic", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Gugi",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Gupter",
-		"variants": ["regular", "500", "700"]
+		"variants": ["regular", "500", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Gurajada",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Habibi",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Hachi Maru Pop",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Hahmlet",
@@ -2575,43 +3008,53 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Halant",
-		"variants": ["300", "regular", "500", "600", "700"]
+		"variants": ["300", "regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Hammersmith One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Hanalei",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Hanalei Fill",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Handlee",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Hanuman",
-		"variants": ["100", "300", "regular", "700", "900"]
+		"variants": ["100", "300", "regular", "700", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Happy Monkey",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Harmattan",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Headland One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Heebo",
@@ -2625,11 +3068,13 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Henny Penny",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Hepta Slab",
@@ -2643,51 +3088,63 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Herr Von Muellerhoff",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Hi Melody",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Hina Mincho",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Hind",
-		"variants": ["300", "regular", "500", "600", "700"]
+		"variants": ["300", "regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Hind Guntur",
-		"variants": ["300", "regular", "500", "600", "700"]
+		"variants": ["300", "regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Hind Madurai",
-		"variants": ["300", "regular", "500", "600", "700"]
+		"variants": ["300", "regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Hind Siliguri",
-		"variants": ["300", "regular", "500", "600", "700"]
+		"variants": ["300", "regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Hind Vadodara",
-		"variants": ["300", "regular", "500", "600", "700"]
+		"variants": ["300", "regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Holtwood One SC",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Homemade Apple",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Homenaje",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "IBM Plex Mono",
@@ -2706,7 +3163,8 @@
 			"600italic",
 			"700",
 			"700italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "IBM Plex Sans",
@@ -2725,11 +3183,13 @@
 			"600italic",
 			"700",
 			"700italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "IBM Plex Sans Arabic",
-		"variants": ["100", "200", "300", "regular", "500", "600", "700"]
+		"variants": ["100", "200", "300", "regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "IBM Plex Sans Condensed",
@@ -2748,27 +3208,33 @@
 			"600italic",
 			"700",
 			"700italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "IBM Plex Sans Devanagari",
-		"variants": ["100", "200", "300", "regular", "500", "600", "700"]
+		"variants": ["100", "200", "300", "regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "IBM Plex Sans Hebrew",
-		"variants": ["100", "200", "300", "regular", "500", "600", "700"]
+		"variants": ["100", "200", "300", "regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "IBM Plex Sans KR",
-		"variants": ["100", "200", "300", "regular", "500", "600", "700"]
+		"variants": ["100", "200", "300", "regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "IBM Plex Sans Thai",
-		"variants": ["100", "200", "300", "regular", "500", "600", "700"]
+		"variants": ["100", "200", "300", "regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "IBM Plex Sans Thai Looped",
-		"variants": ["100", "200", "300", "regular", "500", "600", "700"]
+		"variants": ["100", "200", "300", "regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "IBM Plex Serif",
@@ -2787,47 +3253,58 @@
 			"600italic",
 			"700",
 			"700italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "IM Fell DW Pica",
-		"variants": ["regular", "italic"]
+		"variants": ["regular", "italic"],
+		"is_safe": false
 	},
 	{
 		"family": "IM Fell DW Pica SC",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "IM Fell Double Pica",
-		"variants": ["regular", "italic"]
+		"variants": ["regular", "italic"],
+		"is_safe": false
 	},
 	{
 		"family": "IM Fell Double Pica SC",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "IM Fell English",
-		"variants": ["regular", "italic"]
+		"variants": ["regular", "italic"],
+		"is_safe": false
 	},
 	{
 		"family": "IM Fell English SC",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "IM Fell French Canon",
-		"variants": ["regular", "italic"]
+		"variants": ["regular", "italic"],
+		"is_safe": false
 	},
 	{
 		"family": "IM Fell French Canon SC",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "IM Fell Great Primer",
-		"variants": ["regular", "italic"]
+		"variants": ["regular", "italic"],
+		"is_safe": false
 	},
 	{
 		"family": "IM Fell Great Primer SC",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Ibarra Real Nova",
@@ -2840,15 +3317,18 @@
 			"500italic",
 			"600italic",
 			"700italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Iceberg",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Iceland",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Imbue",
@@ -2862,39 +3342,48 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Imprima",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Inconsolata",
-		"variants": ["200", "300", "regular", "500", "600", "700", "800", "900"]
+		"variants": ["200", "300", "regular", "500", "600", "700", "800", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Inder",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Indie Flower",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Inika",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Inknut Antiqua",
-		"variants": ["300", "regular", "500", "600", "700", "800", "900"]
+		"variants": ["300", "regular", "500", "600", "700", "800", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Inria Sans",
-		"variants": ["300", "300italic", "regular", "italic", "700", "700italic"]
+		"variants": ["300", "300italic", "regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Inria Serif",
-		"variants": ["300", "300italic", "regular", "italic", "700", "700italic"]
+		"variants": ["300", "300italic", "regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Inter",
@@ -2908,39 +3397,48 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Irish Grover",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Istok Web",
-		"variants": ["regular", "italic", "700", "700italic"]
+		"variants": ["regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Italiana",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Italianno",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Itim",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Jacques Francois",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Jacques Francois Shadow",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Jaldi",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "JetBrains Mono",
@@ -2961,27 +3459,33 @@
 			"600italic",
 			"700italic",
 			"800italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Jim Nightshade",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Jockey One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Jolly Lodger",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Jomhuria",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Jomolhari",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Josefin Sans",
@@ -3000,7 +3504,8 @@
 			"500italic",
 			"600italic",
 			"700italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Josefin Slab",
@@ -3019,7 +3524,8 @@
 			"500italic",
 			"600italic",
 			"700italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Jost",
@@ -3042,43 +3548,53 @@
 			"700italic",
 			"800italic",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Joti One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Jua",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Judson",
-		"variants": ["regular", "italic", "700"]
+		"variants": ["regular", "italic", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Julee",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Julius Sans One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Junge",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Jura",
-		"variants": ["300", "regular", "500", "600", "700"]
+		"variants": ["300", "regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Just Another Hand",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Just Me Again Down Here",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "K2D",
@@ -3099,35 +3615,43 @@
 			"700italic",
 			"800",
 			"800italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Kadwa",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Kaisei Decol",
-		"variants": ["regular", "500", "700"]
+		"variants": ["regular", "500", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Kaisei HarunoUmi",
-		"variants": ["regular", "500", "700"]
+		"variants": ["regular", "500", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Kaisei Opti",
-		"variants": ["regular", "500", "700"]
+		"variants": ["regular", "500", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Kaisei Tokumin",
-		"variants": ["regular", "500", "700", "800"]
+		"variants": ["regular", "500", "700", "800"],
+		"is_safe": false
 	},
 	{
 		"family": "Kalam",
-		"variants": ["300", "regular", "700"]
+		"variants": ["300", "regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Kameron",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Kanit",
@@ -3150,15 +3674,18 @@
 			"800italic",
 			"900",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Kantumruy",
-		"variants": ["300", "regular", "700"]
+		"variants": ["300", "regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Karantina",
-		"variants": ["300", "regular", "700"]
+		"variants": ["300", "regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Karla",
@@ -3177,75 +3704,93 @@
 			"600italic",
 			"700italic",
 			"800italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Karma",
-		"variants": ["300", "regular", "500", "600", "700"]
+		"variants": ["300", "regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Katibeh",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Kaushan Script",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Kavivanar",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Kavoon",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Kdam Thmor",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Keania One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Kelly Slab",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Kenia",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Khand",
-		"variants": ["300", "regular", "500", "600", "700"]
+		"variants": ["300", "regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Khmer",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Khula",
-		"variants": ["300", "regular", "600", "700", "800"]
+		"variants": ["300", "regular", "600", "700", "800"],
+		"is_safe": false
 	},
 	{
 		"family": "Kirang Haerang",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Kite One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Kiwi Maru",
-		"variants": ["300", "regular", "500"]
+		"variants": ["300", "regular", "500"],
+		"is_safe": false
 	},
 	{
 		"family": "Klee One",
-		"variants": ["regular", "600"]
+		"variants": ["regular", "600"],
+		"is_safe": false
 	},
 	{
 		"family": "Knewave",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "KoHo",
@@ -3262,7 +3807,8 @@
 			"600italic",
 			"700",
 			"700italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Kodchasan",
@@ -3279,43 +3825,53 @@
 			"600italic",
 			"700",
 			"700italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Koh Santepheap",
-		"variants": ["100", "300", "regular", "700", "900"]
+		"variants": ["100", "300", "regular", "700", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Kosugi",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Kosugi Maru",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Kotta One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Koulen",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Kranky",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Kreon",
-		"variants": ["300", "regular", "500", "600", "700"]
+		"variants": ["300", "regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Kristi",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Krona One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Krub",
@@ -3332,7 +3888,8 @@
 			"600italic",
 			"700",
 			"700italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Kufam",
@@ -3349,7 +3906,8 @@
 			"700italic",
 			"800italic",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Kulim Park",
@@ -3364,15 +3922,18 @@
 			"600italic",
 			"700",
 			"700italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Kumar One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Kumar One Outline",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Kumbh Sans",
@@ -3386,43 +3947,53 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Kurale",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "La Belle Aurore",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Lacquer",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Laila",
-		"variants": ["300", "regular", "500", "600", "700"]
+		"variants": ["300", "regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Lakki Reddy",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Lalezar",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Lancelot",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Langar",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Lateef",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Lato",
@@ -3437,31 +4008,38 @@
 			"700italic",
 			"900",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "League Script",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Leckerli One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Ledger",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Lekton",
-		"variants": ["regular", "italic", "700"]
+		"variants": ["regular", "italic", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Lemon",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Lemonada",
-		"variants": ["300", "regular", "500", "600", "700"]
+		"variants": ["300", "regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Lexend",
@@ -3475,7 +4053,8 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Lexend Deca",
@@ -3489,7 +4068,8 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Lexend Exa",
@@ -3503,7 +4083,8 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Lexend Giga",
@@ -3517,7 +4098,8 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Lexend Mega",
@@ -3531,7 +4113,8 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Lexend Peta",
@@ -3545,7 +4128,8 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Lexend Tera",
@@ -3559,7 +4143,8 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Lexend Zetta",
@@ -3573,47 +4158,58 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Libre Barcode 128",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Libre Barcode 128 Text",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Libre Barcode 39",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Libre Barcode 39 Extended",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Libre Barcode 39 Extended Text",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Libre Barcode 39 Text",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Libre Barcode EAN13 Text",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Libre Baskerville",
-		"variants": ["regular", "italic", "700"]
+		"variants": ["regular", "italic", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Libre Caslon Display",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Libre Caslon Text",
-		"variants": ["regular", "italic", "700"]
+		"variants": ["regular", "italic", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Libre Franklin",
@@ -3636,27 +4232,33 @@
 			"700italic",
 			"800italic",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Life Savers",
-		"variants": ["regular", "700", "800"]
+		"variants": ["regular", "700", "800"],
+		"is_safe": false
 	},
 	{
 		"family": "Lilita One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Lily Script One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Limelight",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Linden Hill",
-		"variants": ["regular", "italic"]
+		"variants": ["regular", "italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Literata",
@@ -3677,11 +4279,13 @@
 			"700italic",
 			"800italic",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Liu Jian Mao Cao",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Livvic",
@@ -3702,35 +4306,43 @@
 			"700italic",
 			"900",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Lobster",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Lobster Two",
-		"variants": ["regular", "italic", "700", "700italic"]
+		"variants": ["regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Londrina Outline",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Londrina Shadow",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Londrina Sketch",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Londrina Solid",
-		"variants": ["100", "300", "regular", "900"]
+		"variants": ["100", "300", "regular", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Long Cang",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Lora",
@@ -3743,75 +4355,93 @@
 			"500italic",
 			"600italic",
 			"700italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Love Ya Like A Sister",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Loved by the King",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Lovers Quarrel",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Luckiest Guy",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Lusitana",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Lustria",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "M PLUS 1p",
-		"variants": ["100", "300", "regular", "500", "700", "800", "900"]
+		"variants": ["100", "300", "regular", "500", "700", "800", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "M PLUS Rounded 1c",
-		"variants": ["100", "300", "regular", "500", "700", "800", "900"]
+		"variants": ["100", "300", "regular", "500", "700", "800", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Ma Shan Zheng",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Macondo",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Macondo Swash Caps",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Mada",
-		"variants": ["200", "300", "regular", "500", "600", "700", "900"]
+		"variants": ["200", "300", "regular", "500", "600", "700", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Magra",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Maiden Orange",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Maitree",
-		"variants": ["200", "300", "regular", "500", "600", "700"]
+		"variants": ["200", "300", "regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Major Mono Display",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Mako",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Mali",
@@ -3828,27 +4458,33 @@
 			"600italic",
 			"700",
 			"700italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Mallanna",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Mandali",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Manjari",
-		"variants": ["100", "regular", "700"]
+		"variants": ["100", "regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Manrope",
-		"variants": ["200", "300", "regular", "500", "600", "700", "800"]
+		"variants": ["200", "300", "regular", "500", "600", "700", "800"],
+		"is_safe": false
 	},
 	{
 		"family": "Mansalva",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Manuale",
@@ -3865,95 +4501,118 @@
 			"600italic",
 			"700italic",
 			"800italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Marcellus",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Marcellus SC",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Marck Script",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Margarine",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Markazi Text",
-		"variants": ["regular", "500", "600", "700"]
+		"variants": ["regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Marko One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Marmelad",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Martel",
-		"variants": ["200", "300", "regular", "600", "700", "800", "900"]
+		"variants": ["200", "300", "regular", "600", "700", "800", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Martel Sans",
-		"variants": ["200", "300", "regular", "600", "700", "800", "900"]
+		"variants": ["200", "300", "regular", "600", "700", "800", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Marvel",
-		"variants": ["regular", "italic", "700", "700italic"]
+		"variants": ["regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Mate",
-		"variants": ["regular", "italic"]
+		"variants": ["regular", "italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Mate SC",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Maven Pro",
-		"variants": ["regular", "500", "600", "700", "800", "900"]
+		"variants": ["regular", "500", "600", "700", "800", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "McLaren",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Meddon",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "MedievalSharp",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Medula One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Meera Inimai",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Megrim",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Meie Script",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Merienda",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Merienda One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Merriweather",
@@ -3966,7 +4625,8 @@
 			"700italic",
 			"900",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Merriweather Sans",
@@ -3983,111 +4643,138 @@
 			"600italic",
 			"700italic",
 			"800italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Metal",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Metal Mania",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Metamorphous",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Metrophobic",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Michroma",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Milonga",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Miltonian",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Miltonian Tattoo",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Mina",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Miniver",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Miriam Libre",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Mirza",
-		"variants": ["regular", "500", "600", "700"]
+		"variants": ["regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Miss Fajardose",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Mitr",
-		"variants": ["200", "300", "regular", "500", "600", "700"]
+		"variants": ["200", "300", "regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Modak",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Modern Antiqua",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Mogra",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Molengo",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Molle",
-		"variants": ["italic"]
+		"variants": ["italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Monda",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Monofett",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Monoton",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Monsieur La Doulaise",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Montaga",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "MonteCarlo",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Montez",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Montserrat",
@@ -4110,7 +4797,8 @@
 			"800italic",
 			"900",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Montserrat Alternates",
@@ -4133,63 +4821,78 @@
 			"800italic",
 			"900",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Montserrat Subrayada",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Moul",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Moulpali",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Mountains of Christmas",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Mouse Memoirs",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Mr Bedfort",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Mr Dafoe",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Mr De Haviland",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Mrs Saint Delafield",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Mrs Sheppards",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Mukta",
-		"variants": ["200", "300", "regular", "500", "600", "700", "800"]
+		"variants": ["200", "300", "regular", "500", "600", "700", "800"],
+		"is_safe": false
 	},
 	{
 		"family": "Mukta Mahee",
-		"variants": ["200", "300", "regular", "500", "600", "700", "800"]
+		"variants": ["200", "300", "regular", "500", "600", "700", "800"],
+		"is_safe": false
 	},
 	{
 		"family": "Mukta Malar",
-		"variants": ["200", "300", "regular", "500", "600", "700", "800"]
+		"variants": ["200", "300", "regular", "500", "600", "700", "800"],
+		"is_safe": false
 	},
 	{
 		"family": "Mukta Vaani",
-		"variants": ["200", "300", "regular", "500", "600", "700", "800"]
+		"variants": ["200", "300", "regular", "500", "600", "700", "800"],
+		"is_safe": false
 	},
 	{
 		"family": "Mulish",
@@ -4210,7 +4913,8 @@
 			"700italic",
 			"800italic",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "MuseoModerno",
@@ -4224,59 +4928,73 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Mystery Quest",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "NTR",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Nanum Brush Script",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Nanum Gothic",
-		"variants": ["regular", "700", "800"]
+		"variants": ["regular", "700", "800"],
+		"is_safe": false
 	},
 	{
 		"family": "Nanum Gothic Coding",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Nanum Myeongjo",
-		"variants": ["regular", "700", "800"]
+		"variants": ["regular", "700", "800"],
+		"is_safe": false
 	},
 	{
 		"family": "Nanum Pen Script",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Nerko One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Neucha",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Neuton",
-		"variants": ["200", "300", "regular", "italic", "700", "800"]
+		"variants": ["200", "300", "regular", "italic", "700", "800"],
+		"is_safe": false
 	},
 	{
 		"family": "New Rocker",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "New Tegomin",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "News Cycle",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Newsreader",
@@ -4295,11 +5013,13 @@
 			"600italic",
 			"700italic",
 			"800italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Niconne",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Niramit",
@@ -4316,39 +5036,48 @@
 			"600italic",
 			"700",
 			"700italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Nixie One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Nobile",
-		"variants": ["regular", "italic", "500", "500italic", "700", "700italic"]
+		"variants": ["regular", "italic", "500", "500italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Nokora",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Norican",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Nosifer",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Notable",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Nothing You Could Do",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noticia Text",
-		"variants": ["regular", "italic", "700", "700italic"]
+		"variants": ["regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Kufi Arabic",
@@ -4362,19 +5091,23 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Music",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Naskh Arabic",
-		"variants": ["regular", "500", "600", "700"]
+		"variants": ["regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Nastaliq Urdu",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Rashi Hebrew",
@@ -4388,23 +5121,28 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans",
-		"variants": ["regular", "italic", "700", "700italic"]
+		"variants": ["regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Adlam",
-		"variants": ["regular", "500", "600", "700"]
+		"variants": ["regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Adlam Unjoined",
-		"variants": ["regular", "500", "600", "700"]
+		"variants": ["regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Anatolian Hieroglyphs",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Arabic",
@@ -4418,7 +5156,8 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Armenian",
@@ -4432,27 +5171,33 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Avestan",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Balinese",
-		"variants": ["regular", "500", "600", "700"]
+		"variants": ["regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Bamum",
-		"variants": ["regular", "500", "600", "700"]
+		"variants": ["regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Bassa Vah",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Batak",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Bengali",
@@ -4466,23 +5211,28 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Bhaiksuki",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Brahmi",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Buginese",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Buhid",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Canadian Aboriginal",
@@ -4496,19 +5246,23 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Carian",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Caucasian Albanian",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Chakma",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Cham",
@@ -4522,7 +5276,8 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Cherokee",
@@ -4536,23 +5291,28 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Coptic",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Cuneiform",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Cypriot",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Deseret",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Devanagari",
@@ -4566,7 +5326,8 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Display",
@@ -4589,23 +5350,28 @@
 			"700italic",
 			"800italic",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Duployan",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Egyptian Hieroglyphs",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Elbasan",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Elymaic",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Georgian",
@@ -4619,19 +5385,23 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Glagolitic",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Gothic",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Grantha",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Gujarati",
@@ -4645,11 +5415,13 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Gunjala Gondi",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Gurmukhi",
@@ -4663,23 +5435,28 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans HK",
-		"variants": ["100", "300", "regular", "500", "700", "900"]
+		"variants": ["100", "300", "regular", "500", "700", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Hanifi Rohingya",
-		"variants": ["regular", "500", "600", "700"]
+		"variants": ["regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Hanunoo",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Hatran",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Hebrew",
@@ -4693,39 +5470,48 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Imperial Aramaic",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Indic Siyaq Numbers",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Inscriptional Pahlavi",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Inscriptional Parthian",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans JP",
-		"variants": ["100", "300", "regular", "500", "700", "900"]
+		"variants": ["100", "300", "regular", "500", "700", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Javanese",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans KR",
-		"variants": ["100", "300", "regular", "500", "700", "900"]
+		"variants": ["100", "300", "regular", "500", "700", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Kaithi",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Kannada",
@@ -4739,15 +5525,18 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Kayah Li",
-		"variants": ["regular", "500", "600", "700"]
+		"variants": ["regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Kharoshthi",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Khmer",
@@ -4761,15 +5550,18 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Khojki",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Khudawadi",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Lao",
@@ -4783,39 +5575,48 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Lepcha",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Limbu",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Linear A",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Linear B",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Lisu",
-		"variants": ["regular", "500", "600", "700"]
+		"variants": ["regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Lycian",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Lydian",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Mahajani",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Malayalam",
@@ -4829,51 +5630,63 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Mandaic",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Manichaean",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Marchen",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Masaram Gondi",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Math",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Mayan Numerals",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Medefaidrin",
-		"variants": ["regular", "500", "600", "700"]
+		"variants": ["regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Meroitic",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Miao",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Modi",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Mongolian",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Mono",
@@ -4887,15 +5700,18 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Mro",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Multani",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Myanmar",
@@ -4909,135 +5725,168 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans N Ko",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Nabataean",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans New Tai Lue",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Newa",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Nushu",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Ogham",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Ol Chiki",
-		"variants": ["regular", "500", "600", "700"]
+		"variants": ["regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Old Hungarian",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Old Italic",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Old North Arabian",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Old Permic",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Old Persian",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Old Sogdian",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Old South Arabian",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Old Turkic",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Oriya",
-		"variants": ["100", "regular", "700", "900"]
+		"variants": ["100", "regular", "700", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Osage",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Osmanya",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Pahawh Hmong",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Palmyrene",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Pau Cin Hau",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Phags Pa",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Phoenician",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Psalter Pahlavi",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Rejang",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Runic",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans SC",
-		"variants": ["100", "300", "regular", "500", "700", "900"]
+		"variants": ["100", "300", "regular", "500", "700", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Samaritan",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Saurashtra",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Sharada",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Shavian",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Siddham",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Sinhala",
@@ -5051,27 +5900,33 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Sogdian",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Sora Sompeng",
-		"variants": ["regular", "500", "600", "700"]
+		"variants": ["regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Soyombo",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Sundanese",
-		"variants": ["regular", "500", "600", "700"]
+		"variants": ["regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Syloti Nagri",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Symbols",
@@ -5085,43 +5940,53 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Symbols 2",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Syriac",
-		"variants": ["100", "regular", "900"]
+		"variants": ["100", "regular", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans TC",
-		"variants": ["100", "300", "regular", "500", "700", "900"]
+		"variants": ["100", "300", "regular", "500", "700", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Tagalog",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Tagbanwa",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Tai Le",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Tai Tham",
-		"variants": ["regular", "500", "600", "700"]
+		"variants": ["regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Tai Viet",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Takri",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Tamil",
@@ -5135,11 +6000,13 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Tamil Supplement",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Telugu",
@@ -5153,7 +6020,8 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Thaana",
@@ -5167,7 +6035,8 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Thai",
@@ -5181,7 +6050,8 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Thai Looped",
@@ -5195,47 +6065,58 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Tifinagh",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Tirhuta",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Ugaritic",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Vai",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Wancho",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Warang Citi",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Yi",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Sans Zanabazar Square",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Serif",
-		"variants": ["regular", "italic", "700", "700italic"]
+		"variants": ["regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Serif Ahom",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Serif Armenian",
@@ -5249,11 +6130,13 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Serif Balinese",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Serif Bengali",
@@ -5267,7 +6150,8 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Serif Devanagari",
@@ -5281,7 +6165,8 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Serif Display",
@@ -5304,11 +6189,13 @@
 			"700italic",
 			"800italic",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Serif Dogra",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Serif Ethiopic",
@@ -5322,7 +6209,8 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Serif Georgian",
@@ -5336,11 +6224,13 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Serif Grantha",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Serif Gujarati",
@@ -5354,7 +6244,8 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Serif Gurmukhi",
@@ -5368,7 +6259,8 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Serif Hebrew",
@@ -5382,15 +6274,18 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Serif JP",
-		"variants": ["200", "300", "regular", "500", "600", "700", "900"]
+		"variants": ["200", "300", "regular", "500", "600", "700", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Serif KR",
-		"variants": ["200", "300", "regular", "500", "600", "700", "900"]
+		"variants": ["200", "300", "regular", "500", "600", "700", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Serif Kannada",
@@ -5404,7 +6299,8 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Serif Khmer",
@@ -5418,7 +6314,8 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Serif Lao",
@@ -5432,7 +6329,8 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Serif Malayalam",
@@ -5446,7 +6344,8 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Serif Myanmar",
@@ -5460,15 +6359,18 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Serif Nyiakeng Puachue Hmong",
-		"variants": ["regular", "500", "600", "700"]
+		"variants": ["regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Serif SC",
-		"variants": ["200", "300", "regular", "500", "600", "700", "900"]
+		"variants": ["200", "300", "regular", "500", "600", "700", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Serif Sinhala",
@@ -5482,11 +6384,13 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Serif TC",
-		"variants": ["200", "300", "regular", "500", "600", "700", "900"]
+		"variants": ["200", "300", "regular", "500", "600", "700", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Serif Tamil",
@@ -5509,11 +6413,13 @@
 			"700italic",
 			"800italic",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Serif Tangut",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Serif Telugu",
@@ -5527,7 +6433,8 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Serif Thai",
@@ -5541,7 +6448,8 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Serif Tibetan",
@@ -5555,51 +6463,63 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Serif Yezidi",
-		"variants": ["regular", "500", "600", "700"]
+		"variants": ["regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Noto Traditional Nushu",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Nova Cut",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Nova Flat",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Nova Mono",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Nova Oval",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Nova Round",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Nova Script",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Nova Slim",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Nova Square",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Numans",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Nunito",
@@ -5618,7 +6538,8 @@
 			"800italic",
 			"900",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Nunito Sans",
@@ -5637,39 +6558,48 @@
 			"800italic",
 			"900",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Odibee Sans",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Odor Mean Chey",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Offside",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Oi",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Old Standard TT",
-		"variants": ["regular", "italic", "700"]
+		"variants": ["regular", "italic", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Oldenburg",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Oleo Script",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Oleo Script Swash Caps",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Open Sans",
@@ -5686,55 +6616,68 @@
 			"600italic",
 			"700italic",
 			"800italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Open Sans Condensed",
-		"variants": ["300", "300italic", "700"]
+		"variants": ["300", "300italic", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Oranienbaum",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Orbitron",
-		"variants": ["regular", "500", "600", "700", "800", "900"]
+		"variants": ["regular", "500", "600", "700", "800", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Oregano",
-		"variants": ["regular", "italic"]
+		"variants": ["regular", "italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Orelega One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Orienta",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Original Surfer",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Oswald",
-		"variants": ["200", "300", "regular", "500", "600", "700"]
+		"variants": ["200", "300", "regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Otomanopee One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Over the Rainbow",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Overlock",
-		"variants": ["regular", "italic", "700", "700italic", "900", "900italic"]
+		"variants": ["regular", "italic", "700", "700italic", "900", "900italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Overlock SC",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Overpass",
@@ -5755,135 +6698,168 @@
 			"800italic",
 			"900",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Overpass Mono",
-		"variants": ["300", "regular", "600", "700"]
+		"variants": ["300", "regular", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Ovo",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Oxanium",
-		"variants": ["200", "300", "regular", "500", "600", "700", "800"]
+		"variants": ["200", "300", "regular", "500", "600", "700", "800"],
+		"is_safe": false
 	},
 	{
 		"family": "Oxygen",
-		"variants": ["300", "regular", "700"]
+		"variants": ["300", "regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Oxygen Mono",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "PT Mono",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "PT Sans",
-		"variants": ["regular", "italic", "700", "700italic"]
+		"variants": ["regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "PT Sans Caption",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "PT Sans Narrow",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "PT Serif",
-		"variants": ["regular", "italic", "700", "700italic"]
+		"variants": ["regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "PT Serif Caption",
-		"variants": ["regular", "italic"]
+		"variants": ["regular", "italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Pacifico",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Padauk",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Palanquin",
-		"variants": ["100", "200", "300", "regular", "500", "600", "700"]
+		"variants": ["100", "200", "300", "regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Palanquin Dark",
-		"variants": ["regular", "500", "600", "700"]
+		"variants": ["regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Palette Mosaic",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Pangolin",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Paprika",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Parisienne",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Passero One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Passion One",
-		"variants": ["regular", "700", "900"]
+		"variants": ["regular", "700", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Pathway Gothic One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Patrick Hand",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Patrick Hand SC",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Pattaya",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Patua One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Pavanam",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Paytone One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Peddana",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Peralta",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Permanent Marker",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Petit Formal Script",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Petrona",
@@ -5906,11 +6882,13 @@
 			"700italic",
 			"800italic",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Philosopher",
-		"variants": ["regular", "italic", "700", "700italic"]
+		"variants": ["regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Piazzolla",
@@ -5933,31 +6911,38 @@
 			"700italic",
 			"800italic",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Piedra",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Pinyon Script",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Pirata One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Plaster",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Play",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Playball",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Playfair Display",
@@ -5974,39 +6959,48 @@
 			"700italic",
 			"800italic",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Playfair Display SC",
-		"variants": ["regular", "italic", "700", "700italic", "900", "900italic"]
+		"variants": ["regular", "italic", "700", "700italic", "900", "900italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Podkova",
-		"variants": ["regular", "500", "600", "700", "800"]
+		"variants": ["regular", "500", "600", "700", "800"],
+		"is_safe": false
 	},
 	{
 		"family": "Poiret One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Poller One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Poly",
-		"variants": ["regular", "italic"]
+		"variants": ["regular", "italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Pompiere",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Pontano Sans",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Poor Story",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Poppins",
@@ -6029,47 +7023,58 @@
 			"800italic",
 			"900",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Port Lligat Sans",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Port Lligat Slab",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Potta One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Pragati Narrow",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Prata",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Preahvihear",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Press Start 2P",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Pridi",
-		"variants": ["200", "300", "regular", "500", "600", "700"]
+		"variants": ["200", "300", "regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Princess Sofia",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Prociono",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Prompt",
@@ -6092,11 +7097,13 @@
 			"800italic",
 			"900",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Prosto One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Proza Libre",
@@ -6111,7 +7118,8 @@
 			"700italic",
 			"800",
 			"800italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Public Sans",
@@ -6134,67 +7142,83 @@
 			"700italic",
 			"800italic",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Puritan",
-		"variants": ["regular", "italic", "700", "700italic"]
+		"variants": ["regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Purple Purse",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Qahiri",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Quando",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Quantico",
-		"variants": ["regular", "italic", "700", "700italic"]
+		"variants": ["regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Quattrocento",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Quattrocento Sans",
-		"variants": ["regular", "italic", "700", "700italic"]
+		"variants": ["regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Questrial",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Quicksand",
-		"variants": ["300", "regular", "500", "600", "700"]
+		"variants": ["300", "regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Quintessential",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Qwigley",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Racing Sans One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Radley",
-		"variants": ["regular", "italic"]
+		"variants": ["regular", "italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Rajdhani",
-		"variants": ["300", "regular", "500", "600", "700"]
+		"variants": ["300", "regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Rakkas",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Raleway",
@@ -6217,43 +7241,53 @@
 			"700italic",
 			"800italic",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Raleway Dots",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Ramabhadra",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Ramaraja",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Rambla",
-		"variants": ["regular", "italic", "700", "700italic"]
+		"variants": ["regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Rammetto One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Rampart One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Ranchers",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Rancho",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Ranga",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Rasa",
@@ -6268,19 +7302,23 @@
 			"500italic",
 			"600italic",
 			"700italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Rationale",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Ravi Prakash",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Recursive",
-		"variants": ["300", "regular", "500", "600", "700", "800", "900"]
+		"variants": ["300", "regular", "500", "600", "700", "800", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Red Hat Display",
@@ -6299,7 +7337,8 @@
 			"700italic",
 			"800italic",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Red Hat Text",
@@ -6314,51 +7353,63 @@
 			"500italic",
 			"600italic",
 			"700italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Red Rose",
-		"variants": ["300", "regular", "500", "600", "700"]
+		"variants": ["300", "regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Redressed",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Reem Kufi",
-		"variants": ["regular", "500", "600", "700"]
+		"variants": ["regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Reenie Beanie",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Reggae One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Revalia",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Rhodium Libre",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Ribeye",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Ribeye Marrow",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Righteous",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Risque",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Roboto",
@@ -6375,11 +7426,13 @@
 			"700italic",
 			"900",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Roboto Condensed",
-		"variants": ["300", "300italic", "regular", "italic", "700", "700italic"]
+		"variants": ["300", "300italic", "regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Roboto Mono",
@@ -6398,7 +7451,8 @@
 			"500italic",
 			"600italic",
 			"700italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Roboto Slab",
@@ -6412,19 +7466,23 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Rochester",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Rock Salt",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "RocknRoll One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Rokkitt",
@@ -6438,15 +7496,18 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Romanesco",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Ropa Sans",
-		"variants": ["regular", "italic"]
+		"variants": ["regular", "italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Rosario",
@@ -6461,23 +7522,28 @@
 			"500italic",
 			"600italic",
 			"700italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Rosarivo",
-		"variants": ["regular", "italic"]
+		"variants": ["regular", "italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Rouge Script",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Rowdies",
-		"variants": ["300", "regular", "700"]
+		"variants": ["300", "regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Rozha One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Rubik",
@@ -6496,51 +7562,63 @@
 			"700italic",
 			"800italic",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Rubik Beastly",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Rubik Mono One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Ruda",
-		"variants": ["regular", "500", "600", "700", "800", "900"]
+		"variants": ["regular", "500", "600", "700", "800", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Rufina",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Ruge Boogie",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Ruluko",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Rum Raisin",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Ruslan Display",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Russo One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Ruthie",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Rye",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "STIX Two Text",
@@ -6553,19 +7631,23 @@
 			"500italic",
 			"600italic",
 			"700italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Sacramento",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Sahitya",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Sail",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Saira",
@@ -6588,7 +7670,8 @@
 			"700italic",
 			"800italic",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Saira Condensed",
@@ -6602,7 +7685,8 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Saira Extra Condensed",
@@ -6616,7 +7700,8 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Saira Semi Condensed",
@@ -6630,23 +7715,28 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Saira Stencil One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Salsa",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Sanchez",
-		"variants": ["regular", "italic"]
+		"variants": ["regular", "italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Sancreek",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Sansita",
@@ -6659,11 +7749,13 @@
 			"800italic",
 			"900",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Sansita Swashed",
-		"variants": ["300", "regular", "500", "600", "700", "800", "900"]
+		"variants": ["300", "regular", "500", "600", "700", "800", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Sarabun",
@@ -6684,223 +7776,278 @@
 			"700italic",
 			"800",
 			"800italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Sarala",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Sarina",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Sarpanch",
-		"variants": ["regular", "500", "600", "700", "800", "900"]
+		"variants": ["regular", "500", "600", "700", "800", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Satisfy",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Sawarabi Gothic",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Sawarabi Mincho",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Scada",
-		"variants": ["regular", "italic", "700", "700italic"]
+		"variants": ["regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Scheherazade",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Scheherazade New",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Schoolbell",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Scope One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Seaweed Script",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Secular One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Sedgwick Ave",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Sedgwick Ave Display",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Sen",
-		"variants": ["regular", "700", "800"]
+		"variants": ["regular", "700", "800"],
+		"is_safe": false
 	},
 	{
 		"family": "Sevillana",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Seymour One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Shadows Into Light",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Shadows Into Light Two",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Shanti",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Share",
-		"variants": ["regular", "italic", "700", "700italic"]
+		"variants": ["regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Share Tech",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Share Tech Mono",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Shippori Mincho",
-		"variants": ["regular", "500", "600", "700", "800"]
+		"variants": ["regular", "500", "600", "700", "800"],
+		"is_safe": false
 	},
 	{
 		"family": "Shippori Mincho B1",
-		"variants": ["regular", "500", "600", "700", "800"]
+		"variants": ["regular", "500", "600", "700", "800"],
+		"is_safe": false
 	},
 	{
 		"family": "Shojumaru",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Short Stack",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Shrikhand",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Siemreap",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Sigmar One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Signika",
-		"variants": ["300", "regular", "500", "600", "700"]
+		"variants": ["300", "regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Signika Negative",
-		"variants": ["300", "regular", "600", "700"]
+		"variants": ["300", "regular", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Simonetta",
-		"variants": ["regular", "italic", "900", "900italic"]
+		"variants": ["regular", "italic", "900", "900italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Single Day",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Sintony",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Sirin Stencil",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Six Caps",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Skranji",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Slabo 13px",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Slabo 27px",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Slackey",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Smokum",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Smythe",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Sniglet",
-		"variants": ["regular", "800"]
+		"variants": ["regular", "800"],
+		"is_safe": false
 	},
 	{
 		"family": "Snippet",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Snowburst One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Sofadi One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Sofia",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Solway",
-		"variants": ["300", "regular", "500", "700", "800"]
+		"variants": ["300", "regular", "500", "700", "800"],
+		"is_safe": false
 	},
 	{
 		"family": "Song Myung",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Sonsie One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Sora",
-		"variants": ["100", "200", "300", "regular", "500", "600", "700", "800"]
+		"variants": ["100", "200", "300", "regular", "500", "600", "700", "800"],
+		"is_safe": false
 	},
 	{
 		"family": "Sorts Mill Goudy",
-		"variants": ["regular", "italic"]
+		"variants": ["regular", "italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Source Code Pro",
@@ -6919,7 +8066,8 @@
 			"700italic",
 			"900",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Source Sans Pro",
@@ -6936,7 +8084,8 @@
 			"700italic",
 			"900",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Source Serif Pro",
@@ -6953,15 +8102,18 @@
 			"700italic",
 			"900",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Space Grotesk",
-		"variants": ["300", "regular", "500", "600", "700"]
+		"variants": ["300", "regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Space Mono",
-		"variants": ["regular", "italic", "700", "700italic"]
+		"variants": ["regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Spartan",
@@ -6975,11 +8127,13 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Special Elite",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Spectral",
@@ -6998,7 +8152,8 @@
 			"700italic",
 			"800",
 			"800italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Spectral SC",
@@ -7017,163 +8172,203 @@
 			"700italic",
 			"800",
 			"800italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Spicy Rice",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Spinnaker",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Spirax",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Squada One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Sree Krushnadevaraya",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Sriracha",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Srisakdi",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Staatliches",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Stalemate",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Stalinist One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Stardos Stencil",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Stick",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Stick No Bills",
-		"variants": ["200", "300", "regular", "500", "600", "700", "800"]
+		"variants": ["200", "300", "regular", "500", "600", "700", "800"],
+		"is_safe": false
 	},
 	{
 		"family": "Stint Ultra Condensed",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Stint Ultra Expanded",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Stoke",
-		"variants": ["300", "regular"]
+		"variants": ["300", "regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Strait",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Style Script",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Stylish",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Sue Ellen Francisco",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Suez One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Sulphur Point",
-		"variants": ["300", "regular", "700"]
+		"variants": ["300", "regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Sumana",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Sunflower",
-		"variants": ["300", "500", "700"]
+		"variants": ["300", "500", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Sunshiney",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Supermercado One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Sura",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Suranna",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Suravaram",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Suwannaphum",
-		"variants": ["100", "300", "regular", "700", "900"]
+		"variants": ["100", "300", "regular", "700", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Swanky and Moo Moo",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Syncopate",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Syne",
-		"variants": ["regular", "500", "600", "700", "800"]
+		"variants": ["regular", "500", "600", "700", "800"],
+		"is_safe": false
 	},
 	{
 		"family": "Syne Mono",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Syne Tactile",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Tajawal",
-		"variants": ["200", "300", "regular", "500", "700", "800", "900"]
+		"variants": ["200", "300", "regular", "500", "700", "800", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Tangerine",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Taprom",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Tauri",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Taviraj",
@@ -7196,27 +8391,33 @@
 			"800italic",
 			"900",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Teko",
-		"variants": ["300", "regular", "500", "600", "700"]
+		"variants": ["300", "regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Telex",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Tenali Ramakrishna",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Tenor Sans",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Text Me One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Texturina",
@@ -7239,35 +8440,43 @@
 			"700italic",
 			"800italic",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Thasadith",
-		"variants": ["regular", "italic", "700", "700italic"]
+		"variants": ["regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "The Girl Next Door",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Tienne",
-		"variants": ["regular", "700", "900"]
+		"variants": ["regular", "700", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Tillana",
-		"variants": ["regular", "500", "600", "700", "800"]
+		"variants": ["regular", "500", "600", "700", "800"],
+		"is_safe": false
 	},
 	{
 		"family": "Timmana",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Tinos",
-		"variants": ["regular", "italic", "700", "700italic"]
+		"variants": ["regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Titan One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Titillium Web",
@@ -7283,7 +8492,8 @@
 			"700",
 			"700italic",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Tomorrow",
@@ -7306,7 +8516,8 @@
 			"800italic",
 			"900",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Tourney",
@@ -7329,15 +8540,18 @@
 			"700italic",
 			"800italic",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Trade Winds",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Train One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Trirong",
@@ -7360,19 +8574,23 @@
 			"800italic",
 			"900",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Trispace",
-		"variants": ["100", "200", "300", "regular", "500", "600", "700", "800"]
+		"variants": ["100", "200", "300", "regular", "500", "600", "700", "800"],
+		"is_safe": false
 	},
 	{
 		"family": "Trocchi",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Trochut",
-		"variants": ["regular", "italic", "700"]
+		"variants": ["regular", "italic", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Truculenta",
@@ -7386,19 +8604,23 @@
 			"700",
 			"800",
 			"900"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Trykker",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Tulpen One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Turret Road",
-		"variants": ["200", "300", "regular", "500", "700", "800"]
+		"variants": ["200", "300", "regular", "500", "700", "800"],
+		"is_safe": false
 	},
 	{
 		"family": "Ubuntu",
@@ -7411,55 +8633,68 @@
 			"500italic",
 			"700",
 			"700italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Ubuntu Condensed",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Ubuntu Mono",
-		"variants": ["regular", "italic", "700", "700italic"]
+		"variants": ["regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Uchen",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Ultra",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Uncial Antiqua",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Underdog",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Unica One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "UnifrakturCook",
-		"variants": ["700"]
+		"variants": ["700"],
+		"is_safe": false
 	},
 	{
 		"family": "UnifrakturMaguntia",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Unkempt",
-		"variants": ["regular", "700"]
+		"variants": ["regular", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Unlock",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Unna",
-		"variants": ["regular", "italic", "700", "700italic"]
+		"variants": ["regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Urbanist",
@@ -7482,63 +8717,78 @@
 			"700italic",
 			"800italic",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "VT323",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Vampiro One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Varela",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Varela Round",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Varta",
-		"variants": ["300", "regular", "500", "600", "700"]
+		"variants": ["300", "regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Vast Shadow",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Vesper Libre",
-		"variants": ["regular", "500", "700", "900"]
+		"variants": ["regular", "500", "700", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Viaoda Libre",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Vibes",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Vibur",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Vidaloka",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Viga",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Voces",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Volkhov",
-		"variants": ["regular", "italic", "700", "700italic"]
+		"variants": ["regular", "italic", "700", "700italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Vollkorn",
@@ -7555,47 +8805,58 @@
 			"700italic",
 			"800italic",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Vollkorn SC",
-		"variants": ["regular", "600", "700", "900"]
+		"variants": ["regular", "600", "700", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Voltaire",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Waiting for the Sunrise",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Wallpoet",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Walter Turncoat",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Warnes",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Wellfleet",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Wendy One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "WindSong",
-		"variants": ["regular", "500"]
+		"variants": ["regular", "500"],
+		"is_safe": false
 	},
 	{
 		"family": "Wire One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Work Sans",
@@ -7618,47 +8879,58 @@
 			"700italic",
 			"800italic",
 			"900italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Xanh Mono",
-		"variants": ["regular", "italic"]
+		"variants": ["regular", "italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Yaldevi",
-		"variants": ["200", "300", "regular", "500", "600", "700"]
+		"variants": ["200", "300", "regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Yanone Kaffeesatz",
-		"variants": ["200", "300", "regular", "500", "600", "700"]
+		"variants": ["200", "300", "regular", "500", "600", "700"],
+		"is_safe": false
 	},
 	{
 		"family": "Yantramanav",
-		"variants": ["100", "300", "regular", "500", "700", "900"]
+		"variants": ["100", "300", "regular", "500", "700", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Yatra One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Yellowtail",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Yeon Sung",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Yeseva One",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Yesteryear",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Yomogi",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Yrsa",
@@ -7673,71 +8945,88 @@
 			"500italic",
 			"600italic",
 			"700italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Yusei Magic",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "ZCOOL KuaiLe",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "ZCOOL QingKe HuangYou",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "ZCOOL XiaoWei",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Zen Antique",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Zen Antique Soft",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Zen Dots",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Zen Kaku Gothic Antique",
-		"variants": ["300", "regular", "500", "700", "900"]
+		"variants": ["300", "regular", "500", "700", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Zen Kaku Gothic New",
-		"variants": ["300", "regular", "500", "700", "900"]
+		"variants": ["300", "regular", "500", "700", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Zen Kurenaido",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Zen Loop",
-		"variants": ["regular", "italic"]
+		"variants": ["regular", "italic"],
+		"is_safe": false
 	},
 	{
 		"family": "Zen Maru Gothic",
-		"variants": ["300", "regular", "500", "700", "900"]
+		"variants": ["300", "regular", "500", "700", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Zen Old Mincho",
-		"variants": ["regular", "700", "900"]
+		"variants": ["regular", "700", "900"],
+		"is_safe": false
 	},
 	{
 		"family": "Zen Tokyo Zoo",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Zeyada",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Zhi Mang Xing",
-		"variants": ["regular"]
+		"variants": ["regular"],
+		"is_safe": false
 	},
 	{
 		"family": "Zilla Slab",
@@ -7752,7 +9041,8 @@
 			"600italic",
 			"700",
 			"700italic"
-		]
+		],
+		"is_safe": false
 	},
 	{
 		"family": "Zilla Slab Highlight",

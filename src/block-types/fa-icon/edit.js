@@ -135,7 +135,11 @@ const edit = (props) => {
 			</BaseControl>
 
 			<BaseControl
-				label={sprintf(__("Icon Size (%s)", "beer-blocks"), iconSize)}
+				label={
+					iconSize
+						? sprintf(__("Icon Size (%s)", "beer-blocks"), iconSize)
+						: __("Icon Size", "beer-blocks")
+				}
 			>
 				<UnitControl
 					value={iconSize}

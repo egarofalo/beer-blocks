@@ -1,0 +1,52 @@
+[
+	{
+		"family": "Arial",
+		"value": "Arial, sans-serif",
+		"is_safe": true
+	},
+	{
+		"family": "Verdana",
+		"value": "Verdana, sans-serif",
+		"is_safe": true
+	},
+	{
+		"family": "Helvetica",
+		"value": "Helvetica, sans-serif",
+		"is_safe": true
+	},
+	{
+		"family": "Tahoma",
+		"value": "Tahoma, sans-serif",
+		"is_safe": true
+	},
+	{
+		"family": "Trebuchet MS",
+		"value": "\"Trebuchet MS\", sans-serif",
+		"is_safe": true
+	},
+	{
+		"family": "Times New Roman",
+		"value": "\"Times New Roman\", serif",
+		"is_safe": true
+	},
+	{
+		"family": "Georgia",
+		"value": "Georgia, serif",
+		"is_safe": true
+	},
+	{
+		"family": "Garamond",
+		"value": "Garamond, serif",
+		"is_safe": true
+	},
+	{
+		"family": "Courier New",
+		"value": "\"Courier New\", monospace",
+		"is_safe": true
+	},
+	{
+		"family": "Brush Script MT",
+		"value": "\"Brush Script MT\", cursive",
+		"is_safe": true
+	}
+]

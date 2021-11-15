@@ -1,17 +1,18 @@
+import { useEffect } from "react";
 import { __, sprintf } from "@wordpress/i18n";
 import {
 	PanelBody,
 	__experimentalUnitControl as UnitControl,
 	BaseControl,
 	RangeControl,
-	Notice,
 } from "@wordpress/components";
-import { dispatch, useSelect, select } from "@wordpress/data";
 import Select from "react-select";
-import fontFamilies from "./fonts.json";
-import { camelCase } from "lodash";
-import { STORE_NAME } from "./../store/constants";
-import { get as loGet } from "lodash";
+import googleFonts from "./google-fonts.json";
+import safeFonts from "./safe-fonts.json";
+import { get as loGet, has as loHas, camelCase, kebabCase } from "lodash";
+import { select } from "@wordpress/data";
+
+export const fontFamilies = [...safeFonts, ...googleFonts];
 
 export const defaultUnits = [
 	{ value: "px", label: "PX" },
@@ -64,7 +65,7 @@ export const fontFamilyAttribute = () => ({
 	default: "",
 });
 
-const setSelectedFonts = (blocks, selectedFonts) => {
+const setSelectedFonts = (blocks, selectedFonts = []) => {
 	blocks.forEach((block, index) => {
 		if (block.innerBlocks.length > 0) {
 			setSelectedFonts(block.innerBlocks, selectedFonts);
@@ -78,56 +79,74 @@ const setSelectedFonts = (blocks, selectedFonts) => {
 	});
 };
 
-const onChangeFontFamilyControl = (
-	props,
-	selectedOption,
-	attrName,
-	selectedFonts
-) => {
-	const { setAttributes } = props;
+const addGoogleFontToHead = (fontFamily) => {
+	if (!fontFamily) {
+		return;
+	}
 
-	setAttributes({
-		[attrName]: selectedOption.value.family,
-	});
-
-	let editorSelectedFonts = [];
-	setSelectedFonts(
-		select("core/block-editor").getBlocks(),
-		editorSelectedFonts
+	const fontFamilyObj = fontFamilies.find(
+		(fontObject) => fontFamily === fontObject.family
 	);
-	dispatch(STORE_NAME).updateSelectedFonts(editorSelectedFonts);
+
+	if (!fontFamilyObj || fontFamilyObj.is_safe) {
+		return;
+	}
+
+	const nameAttr = `beer-blocks-google-fonts-css-${kebabCase(fontFamily)}`;
+	let link = document.querySelector(`link[name=${nameAttr}]`);
+
+	if (link) {
+		return;
+	}
+
+	link = document.createElement("link");
+	link.setAttribute("rel", "stylesheet");
+	link.setAttribute("name", nameAttr);
+	link.setAttribute("media", "all");
+	link.setAttribute(
+		"href",
+		`https://fonts.googleapis.com/css?family=${
+			fontFamily.replace(/\s+/g, "+") +
+			(loHas(fontFamilyObj, "variants")
+				? `:${fontFamilyObj.variants.join(",")}`
+				: "")
+		}`
+	);
+	document.head.appendChild(link);
 };
 
 export const fontFamilyControl = (props, attrName = "fontFamily") => {
 	const {
 		attributes: { [attrName]: fontFamily },
+		setAttributes,
 	} = props;
 
-	const {
-		selectedFonts = [],
-		selectedFontsLoading,
-		selectedFontsError,
-		updateSelectedFontsLoading,
-		updateSelectedFontsError,
-	} = useSelect((select) => {
-		const store = select(STORE_NAME);
-
-		return {
-			selectedFonts: store.selectedFonts(),
-			selectedFontsLoading: store.selectedFontsLoading(),
-			selectedFontsError: store.selectedFontsError(),
-			updateSelectedFontsLoading: store.updateSelectedFontsLoading(),
-			updateSelectedFontsError: store.updateSelectedFontsError(),
-		};
+	useEffect(() => {
+		let selectedFonts = [];
+		const blocks = select("core/block-editor")
+			.getBlocks()
+			.reduce(
+				(previousValue, currentValue) => [
+					...previousValue,
+					...(currentValue.name === "core/widget-area"
+						? wp.data
+								.select("core/block-editor")
+								.getBlocks(currentValue.clientId)
+						: [currentValue]),
+				],
+				[]
+			);
+		setSelectedFonts(blocks, selectedFonts);
+		selectedFonts.forEach((fontFamily) => {
+			addGoogleFontToHead(fontFamily);
+		});
 	}, []);
-
-	console.log(selectedFonts);
 
 	return (
 		<>
 			<BaseControl
 				label={__("Font Families:", "beer-blocks")}
-				help={__("Choose a font family from Google Fonts.", "beer-blocks")}
+				help={__("Choose a font family.", "beer-blocks")}
 			>
 				<Select
 					options={fontFamilies.map(({ family, variants }) => ({
@@ -138,17 +157,15 @@ export const fontFamilyControl = (props, attrName = "fontFamily") => {
 						label: family,
 					}))}
 					isMulti={false}
-					isLoading={selectedFontsLoading}
 					noOptionsMessage={() => __("No font family options", "beer-blocks")}
 					placeholder={__("Select...", "beer-blocks")}
-					onChange={(selectedOption) =>
-						onChangeFontFamilyControl(
-							props,
-							selectedOption,
-							attrName,
-							selectedFonts
-						)
-					}
+					onChange={(selectedOption) => {
+						addGoogleFontToHead(selectedOption.value.family);
+
+						setAttributes({
+							[attrName]: selectedOption.value.family,
+						});
+					}}
 					value={
 						fontFamily
 							? {
@@ -161,24 +178,6 @@ export const fontFamilyControl = (props, attrName = "fontFamily") => {
 					}
 				/>
 			</BaseControl>
-
-			{updateSelectedFontsLoading && (
-				<Notice status="info" isDismissible={false}>
-					{__("Updating selected fonts...", "beer-blocks")}
-				</Notice>
-			)}
-
-			{selectedFontsError && (
-				<Notice status="error" isDismissible={false}>
-					{selectedFontsError.message}
-				</Notice>
-			)}
-
-			{updateSelectedFontsError && (
-				<Notice status="error" isDismissible={false}>
-					{updateSelectedFontsError.message}
-				</Notice>
-			)}
 		</>
 	);
 };
@@ -315,6 +314,7 @@ export const styles = (attributes, attrPrefixName = "") => {
 
 export default {
 	defaultUnits,
+	fontFamilies,
 	fontFamilyAttribute,
 	fontFamilyControl,
 	fontFamilyStyles,

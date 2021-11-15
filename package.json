@@ -1,8 +1,8 @@
 {
 	"name": "beer-blocks",
-	"version": "0.1.0",
-	"description": "Example block written with ESNext standard and JSX support – build step required.",
-	"author": "The WordPress Contributors",
+	"version": "1.2.0",
+	"description": "Beer Blocks plugin.",
+	"author": "Lic. Edgardo Garofalo",
 	"license": "GPL-2.0-or-later",
 	"main": "build/index.js",
 	"scripts": {
@@ -29,8 +29,7 @@
 		"popper.js": "^1.16.1",
 		"react-html-parser": "^2.0.2",
 		"react-select": "^4.3.1",
-		"react-transition-group": "^4.4.1",
-		"webfontloader": "^1.6.28"
+		"react-transition-group": "^4.4.1"
 	},
 	"devDependencies": {
 		"@wordpress/scripts": "^16.1.0",

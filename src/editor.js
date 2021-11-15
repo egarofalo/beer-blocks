@@ -1,5 +1,4 @@
 import "./editor.scss";
-import "./store";
 import icon from "./icons/iso.svg";
 
 (function () {
