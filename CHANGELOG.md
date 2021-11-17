@@ -1,3 +1,8 @@
+## [1.2.1] - 2021-11-16
+
+- Add clear button on font families dropdown
+- Fix controls styles in **Instruction** block type
+
 ## [1.2.0] - 2021-11-15
 
 - Code improvements

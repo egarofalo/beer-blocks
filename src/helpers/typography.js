@@ -156,15 +156,20 @@ export const fontFamilyControl = (props, attrName = "fontFamily") => {
 						},
 						label: family,
 					}))}
+					isClearable={true}
 					isMulti={false}
 					noOptionsMessage={() => __("No font family options", "beer-blocks")}
 					placeholder={__("Select...", "beer-blocks")}
 					onChange={(selectedOption) => {
-						addGoogleFontToHead(selectedOption.value.family);
+						if (selectedOption) {
+							addGoogleFontToHead(selectedOption.value.family);
 
-						setAttributes({
-							[attrName]: selectedOption.value.family,
-						});
+							setAttributes({
+								[attrName]: selectedOption.value.family,
+							});
+						} else {
+							setAttributes({ [attrName]: "" });
+						}
 					}}
 					value={
 						fontFamily

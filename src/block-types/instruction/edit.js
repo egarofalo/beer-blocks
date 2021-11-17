@@ -75,7 +75,10 @@ const edit = (props) => {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title={__("Responsive settings", "beer-blocks")}>
+				<PanelBody
+					title={__("Responsive settings", "beer-blocks")}
+					initialOpen={false}
+				>
 					{grid.getColControls(props, (breakpoint) => (
 						<>
 							<CheckboxControl
@@ -100,7 +103,10 @@ const edit = (props) => {
 					))}
 				</PanelBody>
 
-				<PanelBody title={__("Numeration settings", "beer-blocks")}>
+				<PanelBody
+					title={__("Numeration settings", "beer-blocks")}
+					initialOpen={false}
+				>
 					{typography.innerControls(props, "numeration")}
 
 					<SelectControl
@@ -145,58 +151,69 @@ const edit = (props) => {
 						/>
 					</BaseControl>
 
-					<UnitControl
+					<BaseControl
 						label={sprintf(
 							__("Width (%s)", "beer-blocks"),
 							numerationWidthUnit
 						)}
-						value={numerationWidth}
-						onChange={(numerationWidth) => setAttributes({ numerationWidth })}
-						onUnitChange={(numerationWidthUnit) =>
-							setAttributes({
-								numerationWidthUnit,
-								numerationWidth: "",
-							})
-						}
-						units={typography.defaultUnits}
-					></UnitControl>
+					>
+						<UnitControl
+							value={numerationWidth}
+							onChange={(numerationWidth) => setAttributes({ numerationWidth })}
+							onUnitChange={(numerationWidthUnit) =>
+								setAttributes({
+									numerationWidthUnit,
+									numerationWidth: "",
+								})
+							}
+							units={typography.defaultUnits}
+						></UnitControl>
+					</BaseControl>
 
-					<UnitControl
+					<BaseControl
 						label={sprintf(
 							__("Height (%s)", "beer-blocks"),
 							numerationHeightUnit
 						)}
-						value={numerationHeight}
-						onChange={(numerationHeight) => setAttributes({ numerationHeight })}
-						onUnitChange={(numerationHeightUnit) =>
-							setAttributes({
-								numerationHeightUnit,
-								numerationHeight: "",
-							})
-						}
-						units={typography.defaultUnits}
-					></UnitControl>
+					>
+						<UnitControl
+							value={numerationHeight}
+							onChange={(numerationHeight) =>
+								setAttributes({ numerationHeight })
+							}
+							onUnitChange={(numerationHeightUnit) =>
+								setAttributes({
+									numerationHeightUnit,
+									numerationHeight: "",
+								})
+							}
+							units={typography.defaultUnits}
+						></UnitControl>
+					</BaseControl>
 
-					<UnitControl
+					<BaseControl
 						label={sprintf(
 							__("Border Radius (%s)", "beer-blocks"),
 							numerationBorderRadiusUnit
 						)}
-						value={numerationBorderRadius}
-						onChange={(numerationBorderRadius) =>
-							setAttributes({ numerationBorderRadius })
-						}
-						onUnitChange={(numerationBorderRadiusUnit) =>
-							setAttributes({
-								numerationBorderRadiusUnit,
-								numerationBorderRadius: "",
-							})
-						}
-						units={[...typography.defaultUnits, { value: "%", label: "%" }]}
-					></UnitControl>
+					>
+						<UnitControl
+							value={numerationBorderRadius}
+							onChange={(numerationBorderRadius) =>
+								setAttributes({ numerationBorderRadius })
+							}
+							onUnitChange={(numerationBorderRadiusUnit) =>
+								setAttributes({
+									numerationBorderRadiusUnit,
+									numerationBorderRadius: "",
+								})
+							}
+							units={[...typography.defaultUnits, { value: "%", label: "%" }]}
+						></UnitControl>
+					</BaseControl>
 				</PanelBody>
 
-				<PanelBody title={__("Spacing", "beer-blocks")}>
+				<PanelBody title={__("Spacing", "beer-blocks")} initialOpen={false}>
 					{spacing.paddingControl({ props })}
 				</PanelBody>
 			</InspectorControls>
