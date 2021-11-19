@@ -2,6 +2,9 @@
 
 - Code improvements
 - Fix **Load Google Fonts** checkbox field in plugin page settings
+
+## [1.2.1] - 2021-11-16
+
 - Add clear button on font families dropdown
 - Fix controls styles in **Instruction** block type
 
