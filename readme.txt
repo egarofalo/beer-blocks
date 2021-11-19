@@ -81,6 +81,12 @@ Yes, of course! You can choose any of the font families available in Google Font
 * Fix javascript errors in Widget Admin Area
 * Added new translations in `es_ES` language
 * Update `README.md` file
+= 1.2.1 =
+- Add clear button on font families dropdown
+- Fix controls styles in **Instruction** block type
+= 1.2.2 =
+- Code improvements
+- Fix **Load Google Fonts** checkbox field in plugin page settings
 
 == Upgrade Notice ==
 
