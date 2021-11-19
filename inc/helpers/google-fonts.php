@@ -29,21 +29,17 @@ function add_settings_section()
 }
 
 /**
- * Register Google Fonts load setting.
+ * Register Google Fonts settings.
  */
-function register_google_fonts_load_setting()
+function register_settings()
 {
-	register_setting(BEERB_SETTINGS_PAGE_SLUG, BEERB_LOAD_GOOGLE_FONTS_SETTING, [
-		'type' => 'boolean',
-		'show_in_rest' => true,
-		'default' => true,
-	]);
+	register_setting(BEERB_SETTINGS_PAGE_SLUG, BEERB_LOAD_GOOGLE_FONTS_SETTING);
 }
 
 /**
- * Add Google Fonts load setting field.
+ * Add Google Fonts settings fields in the settings section.
  */
-function add_google_fonts_load_field()
+function add_settings_fields()
 {
 	add_settings_field(
 		BEERB_LOAD_GOOGLE_FONTS_SETTING,

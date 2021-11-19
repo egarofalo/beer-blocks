@@ -217,7 +217,7 @@ function form_submit()
 	$bootstrap_in_front = filter_input(INPUT_POST, BEERB_BOOTSTRAP_IN_FRONT_SETTING, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
 	$fa_in_editor = filter_input(INPUT_POST, BEERB_FONTAWESOME_IN_EDITOR_SETTING, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
 	$fa_in_front = filter_input(INPUT_POST, BEERB_FONTAWESOME_IN_EDITOR_SETTING, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
-	$load_google_fonts = filter_input(INPUT_POST, BEERB_LOAD_GOOGLE_FONTS_SETTING, FILTER_VALIDATE_BOOLEAN);
+	$load_google_fonts = filter_input(INPUT_POST, BEERB_LOAD_GOOGLE_FONTS_SETTING, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
 
 	// update data
 	if (is_bool($bootstrap_in_editor)) {
@@ -241,7 +241,7 @@ function form_submit()
 	}
 
 	if (is_bool($load_google_fonts)) {
-		update_option(BEERB_LOAD_GOOGLE_FONTS_SETTING, $load_google_fonts ? 'yes' : 'no');
+		update_option(BEERB_LOAD_GOOGLE_FONTS_SETTING, ($load_google_fonts ? 'yes' : 'no'));
 	}
 
 	// add success message
