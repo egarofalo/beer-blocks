@@ -1,3 +1,11 @@
+## [1.2.3] - 2021-11-30
+
+- Code improvements
+- Add `inner-border.js` helper wich allows to create an inner border inside blocks in top and bottom sides
+- Add traductions in `es_ES`
+- Add new features in `border.js` helper
+- Add `inner-border.js` controls in `beer-blocks/container` block type for create inner borders
+
 ## [1.2.2] - 2021-11-19
 
 - Code improvements

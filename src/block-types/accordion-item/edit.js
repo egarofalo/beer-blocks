@@ -14,6 +14,7 @@ import {
 	ColorPicker,
 	BaseControl,
 	ToggleControl,
+	CardDivider,
 } from "@wordpress/components";
 import { select } from "@wordpress/data";
 import { headingLevelDropdown } from "./../../helpers/heading";
@@ -71,7 +72,9 @@ const edit = (props) => {
 
 				<PanelBody title={__("Heading", "beer-blocks")} initialOpen={false}>
 					{spacing.innerControls(props, "heading")}
+					<CardDivider />
 					{typography.innerControls(props, "heading")}
+					<CardDivider />
 
 					<BaseControl label={__("Font color", "beer-blocks")}>
 						<ColorPicker
@@ -83,11 +86,31 @@ const edit = (props) => {
 						/>
 					</BaseControl>
 
-					{border.innerControls(props, "heading", {
-						style: __("Border style", "beer-blocks"),
-						width: __("Border width", "beer-blocks"),
-						color: __("Border color", "beer-blocks"),
+					<CardDivider />
+					{border.innerControls({ props, attrPrefixName: "heading" })}
+
+					{border.innerControls({
+						props,
+						attrPrefixName: "heading",
+						side: "top",
 					})}
+					{border.innerControls({
+						props,
+						attrPrefixName: "heading",
+						side: "right",
+					})}
+					{border.innerControls({
+						props,
+						attrPrefixName: "heading",
+						side: "bottom",
+					})}
+					{border.innerControls({
+						props,
+						attrPrefixName: "heading",
+						side: "left",
+					})}
+
+					<CardDivider />
 
 					<BaseControl label={__("Background color", "beer-blocks")}>
 						<ColorPicker
@@ -113,12 +136,11 @@ const edit = (props) => {
 						/>
 					</BaseControl>
 
+					<CardDivider />
 					{spacing.innerControls(props, "body")}
-					{border.innerControls(props, "body", {
-						style: __("Border style", "beer-blocks"),
-						width: __("Border width", "beer-blocks"),
-						color: __("Border color", "beer-blocks"),
-					})}
+					<CardDivider />
+					{border.innerControls({ props, attrPrefixName: "body" })}
+					<CardDivider />
 
 					<BaseControl label={__("Background color", "beer-blocks")}>
 						<ColorPicker

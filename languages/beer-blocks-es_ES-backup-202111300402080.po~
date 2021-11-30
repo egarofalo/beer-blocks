@@ -8,7 +8,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2021-08-17T13:56:20+00:00\n"
-"PO-Revision-Date: 2021-11-30 04:03+0000\n"
+"PO-Revision-Date: 2021-11-30 04:01+0000\n"
 "Language: es_ES\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: beer-blocks\n"
@@ -509,7 +509,7 @@ msgstr "Tipo de contenedor"
 #: build/accordion-item/index.js:1 build/container/index.js:1
 #: src/helpers/border.js:17
 msgid "Dashed"
-msgstr "Guiones cortos"
+msgstr ""
 
 #: build/separator/index.js:1 src/block-types/separator/edit.js:45
 msgid "Dimensions"
@@ -638,15 +638,15 @@ msgstr "Visibilidad de los bloques interiores"
 
 #: build/container/index.js:1 src/helpers/inner-border.js:61
 msgid "Inner Border"
-msgstr "Borde Interior"
+msgstr ""
 
 #: build/container/index.js:1 src/helpers/inner-border.js:23
 msgid "INNER BORDER BOTTOM"
-msgstr "BORDE INTERIOR INFERIOR"
+msgstr ""
 
 #: build/container/index.js:1 src/helpers/inner-border.js:18
 msgid "INNER BORDER TOP"
-msgstr "BORDE INTERIOR SUPERIOR"
+msgstr ""
 
 #: build/accordion-item/index.js:1 build/container/index.js:1
 #: src/helpers/border.js:20
@@ -728,7 +728,7 @@ msgstr "Sin opciones de familia de fuentes"
 #: build/accordion-item/index.js:1 build/container/index.js:1
 #: src/helpers/border.js:15
 msgid "None"
-msgstr "Ninguno"
+msgstr ""
 
 #: build/instruction/index.js:1 src/block-types/instruction/edit.js:107
 msgid "Numeration settings"
@@ -852,7 +852,7 @@ msgstr "Pequeño"
 #: build/accordion-item/index.js:1 build/container/index.js:1
 #: src/helpers/border.js:18
 msgid "Solid"
-msgstr "Sólido"
+msgstr ""
 
 #: build/column/index.js:1 build/instruction/index.js:1
 #: build/instructions/index.js:1 build/row/index.js:1 src/helpers/grid.js:62

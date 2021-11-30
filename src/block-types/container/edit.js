@@ -9,6 +9,7 @@ import { SelectControl, PanelBody } from "@wordpress/components";
 import { useSelect } from "@wordpress/data";
 import spacing from "./../../helpers/spacing";
 import tags from "./../../helpers/sectioning-tags";
+import innerBorder from "../../helpers/inner-border";
 
 const edit = (props) => {
 	const {
@@ -96,11 +97,13 @@ const edit = (props) => {
 				</PanelBody>
 
 				{spacing.controls({ props })}
+				{innerBorder.controls({ props })}
 			</InspectorControls>
 
 			{spacing.visualizer(
 				props,
 				<TagName {...innerBlocksProps}>
+					{innerBorder.borderTopHtml(props.attributes)}
 					{innerBlocksProps.children}
 
 					<div
@@ -110,6 +113,7 @@ const edit = (props) => {
 					>
 						<InnerBlocks.ButtonBlockAppender />
 					</div>
+					{innerBorder.borderBottomHtml(props.attributes)}
 				</TagName>
 			)}
 		</>

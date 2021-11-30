@@ -1,5 +1,6 @@
 import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
-import spacing from "../../helpers/spacing";
+import spacing from "./../../helpers/spacing";
+import innerBorder from "./../../helpers/inner-border";
 
 const save = (props) => {
 	const {
@@ -15,7 +16,9 @@ const save = (props) => {
 
 	return (
 		<TagName {...blockProps}>
+			{innerBorder.borderTopHtml(props.attributes)}
 			<InnerBlocks.Content />
+			{innerBorder.borderBottomHtml(props.attributes)}
 		</TagName>
 	);
 };

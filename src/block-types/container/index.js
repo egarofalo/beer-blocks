@@ -31,6 +31,7 @@ import "./editor.scss";
 import edit from "./edit";
 import save from "./save";
 import spacing from "./../../helpers/spacing";
+import innerBorder from "./../../helpers/inner-border";
 
 /**
  * Block Icon.
@@ -74,6 +75,7 @@ registerBlockType("beer-blocks/container", {
 			default: "div",
 		},
 		...spacing.attributes(),
+		...innerBorder.attributes(),
 	},
 	transforms: {
 		from: [

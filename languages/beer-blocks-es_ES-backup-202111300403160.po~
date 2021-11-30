@@ -728,7 +728,7 @@ msgstr "Sin opciones de familia de fuentes"
 #: build/accordion-item/index.js:1 build/container/index.js:1
 #: src/helpers/border.js:15
 msgid "None"
-msgstr "Ninguno"
+msgstr ""
 
 #: build/instruction/index.js:1 src/block-types/instruction/edit.js:107
 msgid "Numeration settings"
