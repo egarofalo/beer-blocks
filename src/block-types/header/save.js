@@ -8,6 +8,7 @@ const save = (props) => {
 	} = props;
 
 	const blockProps = useBlockProps.save({
+		className: `has-text-align-${textAlign}`,
 		style: {
 			...spacing.styles(props.attributes),
 			...typography.styles(props.attributes),
@@ -19,7 +20,6 @@ const save = (props) => {
 			{...blockProps}
 			tagName={`h${headingLevel}`}
 			value={content}
-			className={`has-text-align-${textAlign}`}
 		/>
 	);
 };

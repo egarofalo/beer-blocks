@@ -3,7 +3,8 @@ import {
 	useBlockProps,
 	InnerBlocks,
 	InspectorControls,
-	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
+	useInnerBlocksProps,
+	__experimentalUseInnerBlocksProps as __useInnerBlocksProps,
 } from "@wordpress/block-editor";
 import { PanelBody } from "@wordpress/components";
 import { useSelect } from "@wordpress/data";
@@ -30,7 +31,7 @@ const edit = (props) => {
 		className: grid.getColClass(sizing),
 	});
 
-	const innerBlocksProps = useInnerBlocksProps(
+	const innerBlocksPropsConfig = [
 		{
 			...blockProps,
 		},
@@ -38,8 +39,12 @@ const edit = (props) => {
 			renderAppender: !hasChildBlocks
 				? InnerBlocks.ButtonBlockAppender
 				: undefined,
-		}
-	);
+		},
+	];
+
+	const innerBlocksProps = useInnerBlocksProps
+		? useInnerBlocksProps(...innerBlocksPropsConfig)
+		: __useInnerBlocksProps(...innerBlocksPropsConfig);
 
 	return (
 		<>

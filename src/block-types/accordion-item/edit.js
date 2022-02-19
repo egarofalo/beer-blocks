@@ -6,7 +6,8 @@ import {
 	RichText,
 	BlockControls,
 	AlignmentToolbar,
-	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
+	useInnerBlocksProps,
+	__experimentalUseInnerBlocksProps as __useInnerBlocksProps,
 } from "@wordpress/block-editor";
 import {
 	ToolbarGroup,
@@ -60,7 +61,10 @@ const edit = (props) => {
 		},
 	});
 
-	const innerBlocksProps = useInnerBlocksProps();
+	const innerBlocksProps = useInnerBlocksProps
+		? useInnerBlocksProps()
+		: __useInnerBlocksProps();
+
 	const HeadingTag = `h${headingLevel}`;
 	const collapseId = id;
 

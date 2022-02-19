@@ -8,7 +8,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2021-08-17T13:56:20+00:00\n"
-"PO-Revision-Date: 2021-11-30 04:03+0000\n"
+"PO-Revision-Date: 2022-02-19 14:28+0000\n"
 "Language: es_ES\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: beer-blocks\n"
@@ -20,7 +20,7 @@ msgstr ""
 msgid "-- SELECT --"
 msgstr "-- SELECCIONE --"
 
-#: inc/helpers/globals.php:200 inc/helpers/globals.php:210
+#: inc/helpers/globals.php:212 inc/helpers/globals.php:222
 msgid "<p>Security alert: <b>NONCE CHECK FAILED</b></p>"
 msgstr "<p>Alerta de seguridad: <b>FALLÓ LA VERIFICACIÓN DEL NONCE</b></p>"
 
@@ -49,8 +49,8 @@ msgid "Auto sizing: variable width content"
 msgstr "Tamaño automático: columnas de ancho ajustable al contenido"
 
 #: build/accordion-item/index.js:1 build/instruction/index.js:1
-#: build/separator/index.js:1 src/block-types/accordion-item/edit.js:115
-#: src/block-types/accordion-item/edit.js:145
+#: build/separator/index.js:1 src/block-types/accordion-item/edit.js:119
+#: src/block-types/accordion-item/edit.js:149
 #: src/block-types/instruction/edit.js:134 src/block-types/separator/edit.js:86
 #: src/block-types/separator/edit.js:122
 msgid "Background color"
@@ -73,7 +73,7 @@ msgstr ""
 "Beer Blocks amplía el editor de WordPress con bloques potentes y avanzados "
 "que te ayudan a crear hermosos sitios web más rápido."
 
-#: inc/helpers/globals.php:146
+#: inc/helpers/globals.php:158
 msgid "Beer Blocks Settings"
 msgstr "Ajustes de Beer Blocks"
 
@@ -321,13 +321,14 @@ msgctxt "block title"
 msgid "Separator Line"
 msgstr "Línea separadora"
 
-#: build/accordion-item/index.js:1 src/block-types/accordion-item/edit.js:126
+#: build/accordion-item/index.js:1 src/block-types/accordion-item/edit.js:130
 msgid "Body"
 msgstr "Cuerpo"
 
-#: inc/helpers/bootstrap.php:74
-msgid "Bootstrap Settings (v4.6.0)"
-msgstr "Ajustes de Bootstrap (v4.6.0)"
+#: inc/helpers/bootstrap.php:78
+#| msgid "Bootstrap Settings (v4.6.0)"
+msgid "Bootstrap Settings (v4.6.1)"
+msgstr "Ajustes de Bootstrap (v4.6.1)"
 
 #: build/accordion-item/index.js:1 build/container/index.js:1
 #: src/helpers/border.js:247
@@ -458,7 +459,7 @@ msgstr "Cambiar nivel del encabezado"
 
 #: build/accordion-item/index.js:1 build/fa-icon/index.js:1
 #: build/header/index.js:1 build/instruction/index.js:1
-#: build/paragraph/index.js:1 src/helpers/typography.js:149
+#: build/paragraph/index.js:1 src/helpers/typography.js:117
 msgid "Choose a font family."
 msgstr "Seleccione una familia de fuentes."
 
@@ -470,7 +471,7 @@ msgstr "Seleccione un icono"
 msgid "Choose an image"
 msgstr "Seleccione una imagen"
 
-#: build/info-box/index.js:1 src/block-types/info-box/edit.js:27
+#: build/info-box/index.js:1 src/block-types/info-box/edit.js:28
 msgid "Chose an icon..."
 msgstr "Seleccione un icono..."
 
@@ -498,11 +499,11 @@ msgstr "Tamaño de columna (%d)"
 msgid "Column sizing type (%s)"
 msgstr "Tipo de tamaño de columna (%s)"
 
-#: build/container/index.js:1 src/block-types/container/edit.js:56
+#: build/container/index.js:1 src/block-types/container/edit.js:61
 msgid "Container settings"
 msgstr "Ajustes del contenedor"
 
-#: build/container/index.js:1 src/block-types/container/edit.js:58
+#: build/container/index.js:1 src/block-types/container/edit.js:63
 msgid "Container type"
 msgstr "Tipo de contenedor"
 
@@ -542,47 +543,47 @@ msgstr "Editar"
 msgid "End"
 msgstr "Final (end)"
 
-#: inc/helpers/bootstrap.php:116
+#: inc/helpers/bootstrap.php:120
 msgid "Enqueue Bootstrap styles and scripts in the Frontend."
 msgstr "Encolar en el Frontend las hojas de estilos y scripts de Bootstrap."
 
-#: inc/helpers/bootstrap.php:104
+#: inc/helpers/bootstrap.php:108
 msgid "Enqueue Bootstrap styles in the Block editor."
 msgstr "Encolar en el Editor las hojas de estilos de Bootstrap."
 
-#: inc/helpers/fontawesome.php:98
+#: inc/helpers/fontawesome.php:102
 msgid "Enqueue Font Awesome styles in the Block editor."
 msgstr "Encolar en el Editor las hojas de estilos de Font Awesome."
 
-#: inc/helpers/fontawesome.php:110
+#: inc/helpers/fontawesome.php:114
 msgid "Enqueue Font Awesome styles in the Frontend."
 msgstr "Encolar en el Frontend las hojas de estilos de Font Awesome."
 
-#: inc/helpers/fontawesome.php:68
+#: inc/helpers/fontawesome.php:72
 msgid "Font Awesome Settings (v5.15.3)"
 msgstr "Ajustes de Font Awesome (v5.15.3)"
 
 #: build/accordion-item/index.js:1 build/instruction/index.js:1
-#: src/block-types/accordion-item/edit.js:79
+#: src/block-types/accordion-item/edit.js:83
 #: src/block-types/instruction/edit.js:144
 msgid "Font color"
 msgstr "Color de fuente"
 
 #: build/accordion-item/index.js:1 build/fa-icon/index.js:1
 #: build/header/index.js:1 build/instruction/index.js:1
-#: build/paragraph/index.js:1 src/helpers/typography.js:148
+#: build/paragraph/index.js:1 src/helpers/typography.js:116
 msgid "Font Families:"
 msgstr "Familias de fuentes:"
 
 #: build/accordion-item/index.js:1 build/fa-icon/index.js:1
 #: build/header/index.js:1 build/instruction/index.js:1
-#: build/paragraph/index.js:1 src/helpers/typography.js:46
+#: build/paragraph/index.js:1 src/helpers/typography.js:45
 msgid "Font Size (%s)"
 msgstr "Tamaño de fuente (%s)"
 
 #: build/accordion-item/index.js:1 build/fa-icon/index.js:1
 #: build/header/index.js:1 build/instruction/index.js:1
-#: build/paragraph/index.js:1 src/helpers/typography.js:205
+#: build/paragraph/index.js:1 src/helpers/typography.js:173
 msgid "Font Weight"
 msgstr "Peso de la fuente"
 
@@ -590,7 +591,7 @@ msgstr "Peso de la fuente"
 msgid "Google Fonts Settings"
 msgstr "Ajustes de Google Fonts"
 
-#: build/accordion-item/index.js:1 src/block-types/accordion-item/edit.js:73
+#: build/accordion-item/index.js:1 src/block-types/accordion-item/edit.js:77
 msgid "Heading"
 msgstr "Encabezado"
 
@@ -608,7 +609,7 @@ msgid "Horizontal alignment"
 msgstr "Alineación horizontal"
 
 #: build/container/index.js:1 build/section/index.js:1
-#: src/block-types/container/edit.js:87 src/block-types/section/edit.js:28
+#: src/block-types/container/edit.js:92 src/block-types/section/edit.js:28
 msgid "HTML Tag"
 msgstr "Etiqueta HTML"
 
@@ -632,7 +633,7 @@ msgstr "Tamaño del icono (%s)"
 msgid "If you want to use an image as icon, enable this toggle field."
 msgstr "Si desea utilizar una imagen como icono, habilite esta opción."
 
-#: build/info-box/index.js:1 src/block-types/info-box/edit.js:97
+#: build/info-box/index.js:1 src/block-types/info-box/edit.js:102
 msgid "Inner blocks visibility"
 msgstr "Visibilidad de los bloques interiores"
 
@@ -668,27 +669,27 @@ msgstr "Grande"
 
 #: build/accordion-item/index.js:1 build/fa-icon/index.js:1
 #: build/header/index.js:1 build/instruction/index.js:1
-#: build/paragraph/index.js:1 src/helpers/typography.js:233
+#: build/paragraph/index.js:1 src/helpers/typography.js:201
 msgid "Line Height"
 msgstr "Altura de la línea"
 
-#: inc/helpers/bootstrap.php:109 inc/helpers/bootstrap.php:114
+#: inc/helpers/bootstrap.php:113 inc/helpers/bootstrap.php:118
 msgid "Load Bootstrap in Front"
 msgstr "Cargar Bootstrap en el Frontend"
 
-#: inc/helpers/bootstrap.php:97 inc/helpers/bootstrap.php:102
+#: inc/helpers/bootstrap.php:101 inc/helpers/bootstrap.php:106
 msgid "Load Bootstrap in the Editor"
 msgstr "Cargar Bootstrap en el Editor"
 
-#: inc/helpers/fontawesome.php:108
+#: inc/helpers/fontawesome.php:112
 msgid "Load Font Awesome in Front"
 msgstr "Cargar Font Awesome en el Frontend"
 
-#: inc/helpers/fontawesome.php:91 inc/helpers/fontawesome.php:96
+#: inc/helpers/fontawesome.php:95 inc/helpers/fontawesome.php:100
 msgid "Load Font Awesome in the Editor"
 msgstr "Cargar Font Awesome en el Editor"
 
-#: inc/helpers/fontawesome.php:103
+#: inc/helpers/fontawesome.php:107
 msgid "Load FontAwesome in Front"
 msgstr "Cargar Font Awesome en el Frontend"
 
@@ -721,7 +722,7 @@ msgstr "Mediano"
 
 #: build/accordion-item/index.js:1 build/fa-icon/index.js:1
 #: build/header/index.js:1 build/instruction/index.js:1
-#: build/paragraph/index.js:1 src/helpers/typography.js:161
+#: build/paragraph/index.js:1 src/helpers/typography.js:129
 msgid "No font family options"
 msgstr "Sin opciones de familia de fuentes"
 
@@ -738,7 +739,7 @@ msgstr "Ajustes de numeración"
 msgid "Open media library"
 msgstr "Abrir bliblioteca de medios"
 
-#: build/accordion-item/index.js:1 src/block-types/accordion-item/edit.js:129
+#: build/accordion-item/index.js:1 src/block-types/accordion-item/edit.js:133
 msgid "Opened"
 msgstr "Abierto"
 
@@ -761,11 +762,11 @@ msgstr ""
 msgid "Padding"
 msgstr "Relleno"
 
-#: build/info-box/index.js:1 src/block-types/info-box/edit.js:119
+#: build/info-box/index.js:1 src/block-types/info-box/edit.js:124
 msgid "Remove icon description"
 msgstr "Eliminar descripción del icono"
 
-#: build/info-box/index.js:1 src/block-types/info-box/edit.js:99
+#: build/info-box/index.js:1 src/block-types/info-box/edit.js:104
 msgid "Remove icon prefix"
 msgstr "Eliminar prefijo del icono"
 
@@ -773,7 +774,7 @@ msgstr "Eliminar prefijo del icono"
 msgid "Remove image"
 msgstr "Eliminar imagen"
 
-#: build/info-box/index.js:1 src/block-types/info-box/edit.js:109
+#: build/info-box/index.js:1 src/block-types/info-box/edit.js:114
 msgid "Remove line separator"
 msgstr "Eliminar línea separadora"
 
@@ -783,11 +784,11 @@ msgid "Replace image"
 msgstr "Reemplazar imagen"
 
 #: build/column/index.js:1 build/instruction/index.js:1
-#: src/block-types/column/edit.js:47 src/block-types/instruction/edit.js:79
+#: src/block-types/column/edit.js:52 src/block-types/instruction/edit.js:79
 msgid "Responsive settings"
 msgstr "Ajustes responsive"
 
-#: build/row/index.js:1 src/block-types/row/edit.js:44
+#: build/row/index.js:1 src/block-types/row/edit.js:49
 msgid "Row settings"
 msgstr "Ajustes de fila"
 
@@ -820,7 +821,7 @@ msgstr "Seleccione el valor de la propiedad justify-content de Flexbox."
 
 #: build/accordion-item/index.js:1 build/fa-icon/index.js:1
 #: build/header/index.js:1 build/instruction/index.js:1
-#: build/paragraph/index.js:1 src/helpers/typography.js:162
+#: build/paragraph/index.js:1 src/helpers/typography.js:130
 msgid "Select..."
 msgstr "Seleccione..."
 
@@ -837,11 +838,11 @@ msgstr "Establecer tamaño original"
 msgid "Settings applied from %s resolution and up"
 msgstr "Ajustes aplicados desde la resolución %s en adelante"
 
-#: inc/helpers/globals.php:251
+#: inc/helpers/globals.php:263
 msgid "Settings updated successfully!!"
 msgstr "¡¡Los ajustes se actualizaron correctamente!!"
 
-#: build/accordion-item/index.js:1 src/block-types/accordion-item/edit.js:127
+#: build/accordion-item/index.js:1 src/block-types/accordion-item/edit.js:131
 msgid "Shows the content as default"
 msgstr "Mostrar los contenidos de forma predeterminada"
 
@@ -895,7 +896,7 @@ msgstr "Triángulo"
 
 #: build/accordion-item/index.js:1 build/fa-icon/index.js:1
 #: build/header/index.js:1 build/instruction/index.js:1
-#: build/paragraph/index.js:1 src/helpers/typography.js:299
+#: build/paragraph/index.js:1 src/helpers/typography.js:267
 msgid "Typography"
 msgstr "Tipografía"
 
@@ -921,15 +922,15 @@ msgstr "Ancho (%s)"
 msgid "Write instructions here..."
 msgstr "Escriba las instrucciones aquí..."
 
-#: build/accordion-item/index.js:1 src/block-types/accordion-item/edit.js:201
+#: build/accordion-item/index.js:1 src/block-types/accordion-item/edit.js:205
 msgid "Write item title here..."
 msgstr "Escriba el título del elemento aquí..."
 
-#: build/info-box/index.js:1 src/block-types/info-box/edit.js:39
+#: build/info-box/index.js:1 src/block-types/info-box/edit.js:40
 msgid "Write prefix here..."
 msgstr "Escriba el prefijo aquí..."
 
-#: build/info-box/index.js:1 src/block-types/info-box/edit.js:73
+#: build/info-box/index.js:1 src/block-types/info-box/edit.js:74
 msgid "Write short description here..."
 msgstr "Escriba aquí una breve descripción..."
 
@@ -939,7 +940,7 @@ msgstr "Escriba el subtítulo aquí..."
 
 #: build/advanced-header/index.js:1 build/info-box/index.js:1
 #: build/instruction/index.js:1 src/block-types/advanced-header/edit.js:20
-#: src/block-types/info-box/edit.js:50 src/block-types/instruction/edit.js:67
+#: src/block-types/info-box/edit.js:51 src/block-types/instruction/edit.js:67
 msgid "Write title here..."
 msgstr "Escriba el título aquí..."
 

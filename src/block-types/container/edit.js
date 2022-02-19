@@ -2,7 +2,8 @@ import { __ } from "@wordpress/i18n";
 import {
 	useBlockProps,
 	InspectorControls,
-	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
+	useInnerBlocksProps,
+	__experimentalUseInnerBlocksProps as __useInnerBlocksProps,
 	InnerBlocks,
 } from "@wordpress/block-editor";
 import { SelectControl, PanelBody } from "@wordpress/components";
@@ -36,7 +37,7 @@ const edit = (props) => {
 		},
 	});
 
-	const innerBlocksProps = useInnerBlocksProps(
+	const innerBlocksPropsConfig = [
 		{
 			...blockProps,
 		},
@@ -47,8 +48,12 @@ const edit = (props) => {
 						allowedBlocks,
 				  }
 				: {}),
-		}
-	);
+		},
+	];
+
+	const innerBlocksProps = useInnerBlocksProps
+		? useInnerBlocksProps(...innerBlocksPropsConfig)
+		: __useInnerBlocksProps(...innerBlocksPropsConfig);
 
 	return (
 		<>

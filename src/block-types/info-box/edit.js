@@ -2,7 +2,8 @@ import { __ } from "@wordpress/i18n";
 import {
 	useBlockProps,
 	InspectorControls,
-	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
+	useInnerBlocksProps,
+	__experimentalUseInnerBlocksProps as __useInnerBlocksProps,
 } from "@wordpress/block-editor";
 import { PanelBody, ToggleControl } from "@wordpress/components";
 import { BLOCK_LEVEL_ELEMENT } from "./../../helpers/fa-icons";
@@ -80,7 +81,7 @@ const edit = (props) => {
 			: []),
 	];
 
-	const innerBlocksProps = useInnerBlocksProps(
+	const innerBlocksPropsConfig = [
 		{
 			...blockProps,
 		},
@@ -88,8 +89,12 @@ const edit = (props) => {
 			renderAppender: false,
 			templateLock: "all",
 			template,
-		}
-	);
+		},
+	];
+
+	const innerBlocksProps = useInnerBlocksProps
+		? useInnerBlocksProps(...innerBlocksPropsConfig)
+		: __useInnerBlocksProps(...innerBlocksPropsConfig);
 
 	return (
 		<>

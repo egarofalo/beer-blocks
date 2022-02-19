@@ -10,7 +10,6 @@ import Select from "react-select";
 import googleFonts from "./google-fonts.json";
 import safeFonts from "./safe-fonts.json";
 import { get as loGet, has as loHas, camelCase, kebabCase } from "lodash";
-import { select } from "@wordpress/data";
 
 export const fontFamilies = [...safeFonts, ...googleFonts];
 
@@ -65,20 +64,6 @@ export const fontFamilyAttribute = () => ({
 	default: "",
 });
 
-const setSelectedFonts = (blocks, selectedFonts = []) => {
-	blocks.forEach((block, index) => {
-		if (block.innerBlocks.length > 0) {
-			setSelectedFonts(block.innerBlocks, selectedFonts);
-		}
-
-		let fontFamily = loGet(block.attributes, "fontFamily");
-
-		if (fontFamily && !selectedFonts.includes(fontFamily)) {
-			selectedFonts.push(fontFamily);
-		}
-	});
-};
-
 const addGoogleFontToHead = (fontFamily) => {
 	if (!fontFamily) {
 		return;
@@ -122,24 +107,7 @@ export const fontFamilyControl = (props, attrName = "fontFamily") => {
 	} = props;
 
 	useEffect(() => {
-		let selectedFonts = [];
-		const blocks = select("core/block-editor")
-			.getBlocks()
-			.reduce(
-				(previousValue, currentValue) => [
-					...previousValue,
-					...(currentValue.name === "core/widget-area"
-						? wp.data
-								.select("core/block-editor")
-								.getBlocks(currentValue.clientId)
-						: [currentValue]),
-				],
-				[]
-			);
-		setSelectedFonts(blocks, selectedFonts);
-		selectedFonts.forEach((fontFamily) => {
-			addGoogleFontToHead(fontFamily);
-		});
+		addGoogleFontToHead(fontFamily);
 	}, []);
 
 	return (

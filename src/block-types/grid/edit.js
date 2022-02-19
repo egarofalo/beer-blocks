@@ -1,6 +1,7 @@
 import {
 	useBlockProps,
-	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
+	useInnerBlocksProps,
+	__experimentalUseInnerBlocksProps as __useInnerBlocksProps,
 	InspectorControls,
 } from "@wordpress/block-editor";
 import spacing from "./../../helpers/spacing";
@@ -12,10 +13,8 @@ const edit = (props) => {
 		},
 	});
 
-	const innerBlocksProps = useInnerBlocksProps(
-		{
-			...blockProps,
-		},
+	const innerBlocksPropsConfig = [
+		{ ...blockProps },
 		{
 			renderAppender: false,
 			template: [
@@ -33,8 +32,12 @@ const edit = (props) => {
 					],
 				],
 			],
-		}
-	);
+		},
+	];
+
+	const innerBlocksProps = useInnerBlocksProps
+		? useInnerBlocksProps(...innerBlocksPropsConfig)
+		: __useInnerBlocksProps(...innerBlocksPropsConfig);
 
 	return (
 		<>

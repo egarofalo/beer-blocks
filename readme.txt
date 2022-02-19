@@ -6,7 +6,7 @@ Donate link: https://www.paypal.com/donate?hosted_button_id=8XSCNEV5WA5TU
 Requires at least: 5.5.0
 Tested up to: 5.8.2
 Requires PHP: 7.3
-Stable tag: 1.2.3
+Stable tag: 1.2.4
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -82,17 +82,24 @@ Yes, of course! You can choose any of the font families available in Google Font
 * Added new translations in `es_ES` language
 * Update `README.md` file
 = 1.2.1 =
-- Add clear button on font families dropdown
-- Fix controls styles in **Instruction** block type
+* Add clear button on font families dropdown
+* Fix controls styles in **Instruction** block type
 = 1.2.2 =
-- Code improvements
-- Fix **Load Google Fonts** checkbox field in plugin page settings
+* Code improvements
+* Fix **Load Google Fonts** checkbox field in plugin page settings
 = 1.2.3 =
-- Code improvements
-- Add `inner-border.js` helper wich allows to create an inner border inside blocks in top and bottom sides
-- Add traductions in `es_ES`
-- Add new features in `border.js` helper
-- Add `inner-border.js` controls in `beer-blocks/container` block type for create inner borders
+* Code improvements
+* Add `inner-border.js` helper wich allows to create an inner border inside blocks in top and bottom sides
+* Add traductions in `es_ES`
+* Add new features in `border.js` helper
+* Add `inner-border.js` controls in `beer-blocks/container` block type for create inner borders
+= 1.2.4 =
+* Code improvements
+* Update Bootstrap version `4.6.0` to `4.6.1`
+* Update translations in `es_ES` language
+* Fix [!issue #1](https://github.com/egarofalo/beer-blocks/issues/1)
+* Fix [!issue #2](https://github.com/egarofalo/beer-blocks/issues/2)
+* Fix [!issue #3](https://github.com/egarofalo/beer-blocks/issues/3)
 
 == Upgrade Notice ==
 

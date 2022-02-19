@@ -1,3 +1,12 @@
+## [1.2.4] - 2022-02-19
+
+- Code improvements
+- Update Bootstrap version `4.6.0` to `4.6.1`
+- Update translations in `es_ES` language
+- Fix [!issue #1](https://github.com/egarofalo/beer-blocks/issues/1)
+- Fix [!issue #2](https://github.com/egarofalo/beer-blocks/issues/2)
+- Fix [!issue #3](https://github.com/egarofalo/beer-blocks/issues/3)
+
 ## [1.2.3] - 2021-11-30
 
 - Code improvements

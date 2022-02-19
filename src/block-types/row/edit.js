@@ -3,7 +3,8 @@ import {
 	useBlockProps,
 	InnerBlocks,
 	InspectorControls,
-	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
+	useInnerBlocksProps,
+	__experimentalUseInnerBlocksProps as __useInnerBlocksProps,
 } from "@wordpress/block-editor";
 import { PanelBody } from "@wordpress/components";
 import { useSelect } from "@wordpress/data";
@@ -28,15 +29,19 @@ const edit = (props) => {
 
 	const blockProps = useBlockProps();
 
-	const innerBlocksProps = useInnerBlocksProps(
+	const innerBlocksPropsConfig = [
 		{
 			className: grid.getRowClass(justifyContent, alignItems),
 		},
 		{
 			allowedBlocks: ["beer-blocks/column"],
 			renderAppender: false,
-		}
-	);
+		},
+	];
+
+	const innerBlocksProps = useInnerBlocksProps
+		? useInnerBlocksProps(...innerBlocksPropsConfig)
+		: __useInnerBlocksProps(...innerBlocksPropsConfig);
 
 	return (
 		<>

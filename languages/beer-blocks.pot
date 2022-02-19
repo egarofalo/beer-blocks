@@ -1,15 +1,15 @@
-# Copyright (C) 2021 codevelopers
+# Copyright (C) 2022 codevelopers
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Beer Blocks 1.2.2\n"
+"Project-Id-Version: Beer Blocks 1.2.4\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/beer-blocks\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-11-30T03:54:51+00:00\n"
+"POT-Creation-Date: 2022-02-19T14:27:04+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.5.0\n"
 "X-Domain: beer-blocks\n"
@@ -34,63 +34,63 @@ msgstr ""
 msgid "Save Settings"
 msgstr ""
 
-#: inc/helpers/bootstrap.php:74
-msgid "Bootstrap Settings (v4.6.0)"
+#: inc/helpers/bootstrap.php:78
+msgid "Bootstrap Settings (v4.6.1)"
 msgstr ""
 
-#: inc/helpers/bootstrap.php:97
-#: inc/helpers/bootstrap.php:102
+#: inc/helpers/bootstrap.php:101
+#: inc/helpers/bootstrap.php:106
 msgid "Load Bootstrap in the Editor"
 msgstr ""
 
-#: inc/helpers/bootstrap.php:104
+#: inc/helpers/bootstrap.php:108
 msgid "Enqueue Bootstrap styles in the Block editor."
 msgstr ""
 
-#: inc/helpers/bootstrap.php:109
-#: inc/helpers/bootstrap.php:114
+#: inc/helpers/bootstrap.php:113
+#: inc/helpers/bootstrap.php:118
 msgid "Load Bootstrap in Front"
 msgstr ""
 
-#: inc/helpers/bootstrap.php:116
+#: inc/helpers/bootstrap.php:120
 msgid "Enqueue Bootstrap styles and scripts in the Frontend."
 msgstr ""
 
-#: inc/helpers/fontawesome.php:68
+#: inc/helpers/fontawesome.php:72
 msgid "Font Awesome Settings (v5.15.3)"
 msgstr ""
 
-#: inc/helpers/fontawesome.php:91
-#: inc/helpers/fontawesome.php:96
+#: inc/helpers/fontawesome.php:95
+#: inc/helpers/fontawesome.php:100
 msgid "Load Font Awesome in the Editor"
 msgstr ""
 
-#: inc/helpers/fontawesome.php:98
+#: inc/helpers/fontawesome.php:102
 msgid "Enqueue Font Awesome styles in the Block editor."
 msgstr ""
 
-#: inc/helpers/fontawesome.php:103
+#: inc/helpers/fontawesome.php:107
 msgid "Load FontAwesome in Front"
 msgstr ""
 
-#: inc/helpers/fontawesome.php:108
+#: inc/helpers/fontawesome.php:112
 msgid "Load Font Awesome in Front"
 msgstr ""
 
-#: inc/helpers/fontawesome.php:110
+#: inc/helpers/fontawesome.php:114
 msgid "Enqueue Font Awesome styles in the Frontend."
 msgstr ""
 
-#: inc/helpers/globals.php:146
+#: inc/helpers/globals.php:158
 msgid "Beer Blocks Settings"
 msgstr ""
 
-#: inc/helpers/globals.php:200
-#: inc/helpers/globals.php:210
+#: inc/helpers/globals.php:212
+#: inc/helpers/globals.php:222
 msgid "<p>Security alert: <b>NONCE CHECK FAILED</b></p>"
 msgstr ""
 
-#: inc/helpers/globals.php:251
+#: inc/helpers/globals.php:263
 msgid "Settings updated successfully!!"
 msgstr ""
 
@@ -347,7 +347,7 @@ msgstr ""
 #: build/header/index.js:1
 #: build/instruction/index.js:1
 #: build/paragraph/index.js:1
-#: src/helpers/typography.js:46
+#: src/helpers/typography.js:45
 msgid "Font Size (%s)"
 msgstr ""
 
@@ -356,7 +356,7 @@ msgstr ""
 #: build/header/index.js:1
 #: build/instruction/index.js:1
 #: build/paragraph/index.js:1
-#: src/helpers/typography.js:148
+#: src/helpers/typography.js:116
 msgid "Font Families:"
 msgstr ""
 
@@ -365,7 +365,7 @@ msgstr ""
 #: build/header/index.js:1
 #: build/instruction/index.js:1
 #: build/paragraph/index.js:1
-#: src/helpers/typography.js:149
+#: src/helpers/typography.js:117
 msgid "Choose a font family."
 msgstr ""
 
@@ -374,7 +374,7 @@ msgstr ""
 #: build/header/index.js:1
 #: build/instruction/index.js:1
 #: build/paragraph/index.js:1
-#: src/helpers/typography.js:161
+#: src/helpers/typography.js:129
 msgid "No font family options"
 msgstr ""
 
@@ -383,7 +383,7 @@ msgstr ""
 #: build/header/index.js:1
 #: build/instruction/index.js:1
 #: build/paragraph/index.js:1
-#: src/helpers/typography.js:162
+#: src/helpers/typography.js:130
 msgid "Select..."
 msgstr ""
 
@@ -392,7 +392,7 @@ msgstr ""
 #: build/header/index.js:1
 #: build/instruction/index.js:1
 #: build/paragraph/index.js:1
-#: src/helpers/typography.js:205
+#: src/helpers/typography.js:173
 msgid "Font Weight"
 msgstr ""
 
@@ -401,7 +401,7 @@ msgstr ""
 #: build/header/index.js:1
 #: build/instruction/index.js:1
 #: build/paragraph/index.js:1
-#: src/helpers/typography.js:233
+#: src/helpers/typography.js:201
 msgid "Line Height"
 msgstr ""
 
@@ -410,7 +410,7 @@ msgstr ""
 #: build/header/index.js:1
 #: build/instruction/index.js:1
 #: build/paragraph/index.js:1
-#: src/helpers/typography.js:299
+#: src/helpers/typography.js:267
 msgid "Typography"
 msgstr ""
 
@@ -435,13 +435,13 @@ msgid "Create an accordion item."
 msgstr ""
 
 #: build/accordion-item/index.js:1
-#: src/block-types/accordion-item/edit.js:73
+#: src/block-types/accordion-item/edit.js:77
 msgid "Heading"
 msgstr ""
 
 #: build/accordion-item/index.js:1
 #: build/instruction/index.js:1
-#: src/block-types/accordion-item/edit.js:79
+#: src/block-types/accordion-item/edit.js:83
 #: src/block-types/instruction/edit.js:144
 msgid "Font color"
 msgstr ""
@@ -449,8 +449,8 @@ msgstr ""
 #: build/accordion-item/index.js:1
 #: build/instruction/index.js:1
 #: build/separator/index.js:1
-#: src/block-types/accordion-item/edit.js:115
-#: src/block-types/accordion-item/edit.js:145
+#: src/block-types/accordion-item/edit.js:119
+#: src/block-types/accordion-item/edit.js:149
 #: src/block-types/instruction/edit.js:134
 #: src/block-types/separator/edit.js:86
 #: src/block-types/separator/edit.js:122
@@ -458,22 +458,22 @@ msgid "Background color"
 msgstr ""
 
 #: build/accordion-item/index.js:1
-#: src/block-types/accordion-item/edit.js:126
+#: src/block-types/accordion-item/edit.js:130
 msgid "Body"
 msgstr ""
 
 #: build/accordion-item/index.js:1
-#: src/block-types/accordion-item/edit.js:127
+#: src/block-types/accordion-item/edit.js:131
 msgid "Shows the content as default"
 msgstr ""
 
 #: build/accordion-item/index.js:1
-#: src/block-types/accordion-item/edit.js:129
+#: src/block-types/accordion-item/edit.js:133
 msgid "Opened"
 msgstr ""
 
 #: build/accordion-item/index.js:1
-#: src/block-types/accordion-item/edit.js:201
+#: src/block-types/accordion-item/edit.js:205
 msgid "Write item title here..."
 msgstr ""
 
@@ -507,7 +507,7 @@ msgstr ""
 #: build/info-box/index.js:1
 #: build/instruction/index.js:1
 #: src/block-types/advanced-header/edit.js:20
-#: src/block-types/info-box/edit.js:50
+#: src/block-types/info-box/edit.js:51
 #: src/block-types/instruction/edit.js:67
 msgid "Write title here..."
 msgstr ""
@@ -609,6 +609,26 @@ msgstr ""
 #: src/block-types/buttons/index.js:48
 msgctxt "block description"
 msgid "Create a block element with one or more buttons."
+msgstr ""
+
+#: build/column/index.js:1
+#: src/block-types/column/index.js:47
+#: src/block-types/column/index.js:63
+msgctxt "block title"
+msgid "Column"
+msgstr ""
+
+#: build/column/index.js:1
+#: src/block-types/column/index.js:49
+msgctxt "block description"
+msgid "Create a Bootstrap column wich is part of the Bootstrap Grid system."
+msgstr ""
+
+#: build/column/index.js:1
+#: build/instruction/index.js:1
+#: src/block-types/column/edit.js:52
+#: src/block-types/instruction/edit.js:79
+msgid "Responsive settings"
 msgstr ""
 
 #: build/column/index.js:1
@@ -758,26 +778,6 @@ msgstr ""
 msgid "Column sizing (%d)"
 msgstr ""
 
-#: build/column/index.js:1
-#: src/block-types/column/index.js:47
-#: src/block-types/column/index.js:63
-msgctxt "block title"
-msgid "Column"
-msgstr ""
-
-#: build/column/index.js:1
-#: src/block-types/column/index.js:49
-msgctxt "block description"
-msgid "Create a Bootstrap column wich is part of the Bootstrap Grid system."
-msgstr ""
-
-#: build/column/index.js:1
-#: build/instruction/index.js:1
-#: src/block-types/column/edit.js:47
-#: src/block-types/instruction/edit.js:79
-msgid "Responsive settings"
-msgstr ""
-
 #: build/container/index.js:1
 #: src/helpers/inner-border.js:18
 msgid "INNER BORDER TOP"
@@ -802,18 +802,18 @@ msgid "Bootstrap Containers wich provide a means to center and horizontally pad 
 msgstr ""
 
 #: build/container/index.js:1
-#: src/block-types/container/edit.js:56
+#: src/block-types/container/edit.js:61
 msgid "Container settings"
 msgstr ""
 
 #: build/container/index.js:1
-#: src/block-types/container/edit.js:58
+#: src/block-types/container/edit.js:63
 msgid "Container type"
 msgstr ""
 
 #: build/container/index.js:1
 #: build/section/index.js:1
-#: src/block-types/container/edit.js:87
+#: src/block-types/container/edit.js:92
 #: src/block-types/section/edit.js:28
 msgid "HTML Tag"
 msgstr ""
@@ -967,37 +967,37 @@ msgid "Create a box with a custom icon, title and a description."
 msgstr ""
 
 #: build/info-box/index.js:1
-#: src/block-types/info-box/edit.js:27
+#: src/block-types/info-box/edit.js:28
 msgid "Chose an icon..."
 msgstr ""
 
 #: build/info-box/index.js:1
-#: src/block-types/info-box/edit.js:39
+#: src/block-types/info-box/edit.js:40
 msgid "Write prefix here..."
 msgstr ""
 
 #: build/info-box/index.js:1
-#: src/block-types/info-box/edit.js:73
+#: src/block-types/info-box/edit.js:74
 msgid "Write short description here..."
 msgstr ""
 
 #: build/info-box/index.js:1
-#: src/block-types/info-box/edit.js:97
+#: src/block-types/info-box/edit.js:102
 msgid "Inner blocks visibility"
 msgstr ""
 
 #: build/info-box/index.js:1
-#: src/block-types/info-box/edit.js:99
+#: src/block-types/info-box/edit.js:104
 msgid "Remove icon prefix"
 msgstr ""
 
 #: build/info-box/index.js:1
-#: src/block-types/info-box/edit.js:109
+#: src/block-types/info-box/edit.js:114
 msgid "Remove line separator"
 msgstr ""
 
 #: build/info-box/index.js:1
-#: src/block-types/info-box/edit.js:119
+#: src/block-types/info-box/edit.js:124
 msgid "Remove icon description"
 msgstr ""
 
@@ -1109,7 +1109,7 @@ msgid "Create a Bootstrap row wich is part of the Bootstrap Grid system."
 msgstr ""
 
 #: build/row/index.js:1
-#: src/block-types/row/edit.js:44
+#: src/block-types/row/edit.js:49
 msgid "Row settings"
 msgstr ""
 

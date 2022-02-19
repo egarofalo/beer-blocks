@@ -4,10 +4,10 @@ import {
 	useBlockProps,
 	InnerBlocks,
 	InspectorControls,
-	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
+	useInnerBlocksProps,
+	__experimentalUseInnerBlocksProps as __useInnerBlocksProps,
 } from "@wordpress/block-editor";
 import spacing from "./../../helpers/spacing";
-import "bootstrap/js/src/collapse";
 
 const edit = (props) => {
 	const {
@@ -17,13 +17,18 @@ const edit = (props) => {
 	} = props;
 
 	const blockProps = useBlockProps();
-	const innerBlocksProps = useInnerBlocksProps(
+
+	const innerBlocksPropsConfig = [
 		{},
 		{
 			allowedBlocks: ["beer-blocks/accordion-item"],
 			renderAppender: false,
-		}
-	);
+		},
+	];
+
+	const innerBlocksProps = useInnerBlocksProps
+		? useInnerBlocksProps(...innerBlocksPropsConfig)
+		: __useInnerBlocksProps(...innerBlocksPropsConfig);
 
 	useEffect(
 		() =>

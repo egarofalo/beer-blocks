@@ -2,6 +2,8 @@
 
 namespace BeerBlocks\Helpers\Globals;
 
+use function BeerBlocks\Helpers\Bootstrap\register_editor_assets as register_bootstrap_editor_assets;
+use function BeerBlocks\Helpers\Fontawesome\register_editor_assets as register_fontawesome_editor_assets;
 use function BeerBlocks\Helpers\GoogleFonts\enqueue_selected_font_family;
 
 /**
@@ -72,9 +74,14 @@ function register_block_types()
 {
 	// Register block types dependencies
 	register_shared_dependencies();
+	$bootstrap_editor_assets = register_bootstrap_editor_assets();
+	$fontawesome_editor_assets = register_fontawesome_editor_assets();
 
 	// Block Types dependencies
-	$block_types_dependencies = ['beer-blocks-editor'];
+	$block_types_dependencies = array_merge(
+		['beer-blocks-editor'],
+		$bootstrap_editor_assets ? [$bootstrap_editor_assets] : []
+	);
 
 	// Register all block types
 	$manifest = json_decode(file_get_contents(BEERB_PLUGIN_DIR_PATH . '/manifest.json'), true);
@@ -85,8 +92,10 @@ function register_block_types()
 		$editor_style_handle = "beer-blocks-{$block_type}-editor-style";
 		$style_handle = "beer-blocks-{$block_type}-style";
 		$render_callback = function ($attributes, $content) {
-			if (isset($attributes['fontFamily'])) {
-				enqueue_selected_font_family($attributes['fontFamily']);
+			foreach ($attributes as $attr => $fontFamily) {
+				if (preg_match('/[fF]ontFamily$/', $attr)) {
+					enqueue_selected_font_family($fontFamily);
+				}
 			}
 
 			return $content;
@@ -114,7 +123,10 @@ function register_block_types()
 		wp_register_style(
 			$editor_style_handle,
 			BEERB_PLUGIN_DIR_URL . "/build/{$block_type}/index.css",
-			['beer-blocks-editor'],
+			array_merge(
+				$block_types_dependencies,
+				$fontawesome_editor_assets ? [$fontawesome_editor_assets] : []
+			),
 			filemtime(BEERB_PLUGIN_DIR_PATH . "/build/{$block_type}/index.css")
 		);
 
