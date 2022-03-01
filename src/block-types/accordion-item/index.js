@@ -112,6 +112,7 @@ registerBlockType("beer-blocks/accordion-item", {
 		...border.attributes({ side: "bottom" }),
 		...border.attributes({ side: "left" }),
 	},
+	usesContext: ["accordionId"],
 	edit,
 	save,
 });

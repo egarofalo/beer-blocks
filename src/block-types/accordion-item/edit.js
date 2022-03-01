@@ -17,7 +17,6 @@ import {
 	ToggleControl,
 	CardDivider,
 } from "@wordpress/components";
-import { select } from "@wordpress/data";
 import { headingLevelDropdown } from "./../../helpers/heading";
 import spacing from "./../../helpers/spacing";
 import typography from "../../helpers/typography";
@@ -39,19 +38,16 @@ const edit = (props) => {
 			headingContent,
 			bodyBackground,
 		},
+		context: { accordionId },
 	} = props;
 
 	useEffect(() => {
-		const blockEditorData = select("core/block-editor");
-		const accordion = blockEditorData.getBlock(
-			blockEditorData.getBlockParents(clientId, true)[0]
-		);
 		setAttributes({
 			id: `collapse-${clientId}`,
 			headingId: `heading-${clientId}`,
-			parentId: `accordion-${accordion.clientId}`,
+			parentId: `accordion-${accordionId}`,
 		});
-	}, []);
+	}, [clientId, accordionId]);
 
 	const blockProps = useBlockProps({
 		className: "card",

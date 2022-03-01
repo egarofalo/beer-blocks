@@ -6,7 +6,7 @@ Donate link: https://www.paypal.com/donate?hosted_button_id=8XSCNEV5WA5TU
 Requires at least: 5.5.0
 Tested up to: 5.8.2
 Requires PHP: 7.3
-Stable tag: 1.2.4
+Stable tag: 1.2.5
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -100,6 +100,11 @@ Yes, of course! You can choose any of the font families available in Google Font
 * Fix [!issue #1](https://github.com/egarofalo/beer-blocks/issues/1)
 * Fix [!issue #2](https://github.com/egarofalo/beer-blocks/issues/2)
 * Fix [!issue #3](https://github.com/egarofalo/beer-blocks/issues/3)
+= 1.2.5 =
+- Code improvements in `beer-blocks/accordion` block type
+- Code improvements in `beer-blocks/instructions` block type
+- Remove extra padding in `beer-blocks/header` when set background color
+- Remove extra padding in `beer-blocks/paragraph` when set background color
 
 == Upgrade Notice ==
 

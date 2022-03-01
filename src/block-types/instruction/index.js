@@ -66,6 +66,9 @@ registerBlockType("beer-blocks/instruction", {
 		<img src={icon} alt={_x("Instruction", "block title", "beer-blocks")} />
 	),
 	attributes: {
+		id: {
+			type: "string",
+		},
 		stackedContents: {
 			type: "object",
 			default: Object.fromEntries(
@@ -136,6 +139,7 @@ registerBlockType("beer-blocks/instruction", {
 		visualizer: spacing.visualizerAttribute(),
 		...typography.attributes("numeration", { fontSize: "18px" }),
 	},
+	usesContext: ["instructionsId"],
 	edit,
 	save,
 });

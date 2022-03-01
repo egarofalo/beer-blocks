@@ -40,19 +40,16 @@ const edit = (props) => {
 		},
 		setAttributes,
 		clientId,
+		context: { instructionsId },
 	} = props;
 
 	useEffect(() => {
 		const blockEditorData = select("core/block-editor");
-		const instructions = blockEditorData.getBlock(
-			blockEditorData.getBlockParents(clientId, true)[0]
-		);
 
 		setAttributes({
-			numeration:
-				blockEditorData.getBlockIndex(clientId, instructions.clientId) + 1,
+			numeration: blockEditorData.getBlockIndex(clientId, instructionsId) + 1,
 		});
-	}, []);
+	}, [instructionsId]);
 
 	const blockProps = useBlockProps({
 		className: grid.getColClass(sizing),

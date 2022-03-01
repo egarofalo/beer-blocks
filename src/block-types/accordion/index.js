@@ -59,6 +59,9 @@ registerBlockType("beer-blocks/accordion", {
 		},
 		...spacing.attributes(),
 	},
+	providesContext: {
+		accordionId: "id",
+	},
 	edit,
 	save,
 });

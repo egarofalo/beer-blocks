@@ -1,15 +1,19 @@
+import { useEffect } from "react";
 import { __ } from "@wordpress/i18n";
 import {
 	useBlockProps,
 	InnerBlocks,
 	InspectorControls,
-	__experimentalUseInnerBlocksProps as useInnerBlocksProps,
+	useInnerBlocksProps,
+	__experimentalUseInnerBlocksProps as __useInnerBlocksProps,
 } from "@wordpress/block-editor";
 import { PanelBody } from "@wordpress/components";
 import grid from "../../helpers/grid";
 
 const edit = (props) => {
 	const {
+		clientId,
+		setAttributes,
 		attributes: { justifyContent, alignItems },
 	} = props;
 
@@ -17,14 +21,26 @@ const edit = (props) => {
 		className: "container-fluid",
 	});
 
-	const innerBlocksProps = useInnerBlocksProps(
+	const innerBlocksPropsConfig = [
 		{
 			className: `p-0 ${grid.getRowClass(justifyContent, alignItems)}`,
 		},
 		{
 			allowedBlocks: ["beer-blocks/instruction"],
 			renderAppender: false,
-		}
+		},
+	];
+
+	const innerBlocksProps = useInnerBlocksProps
+		? useInnerBlocksProps(...innerBlocksPropsConfig)
+		: __useInnerBlocksProps(...innerBlocksPropsConfig);
+
+	useEffect(
+		() =>
+			setAttributes({
+				id: clientId,
+			}),
+		[clientId]
 	);
 
 	return (

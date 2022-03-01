@@ -1,3 +1,10 @@
+## [1.2.5] - 2022-03-01
+
+- Code improvements in `beer-blocks/accordion` block type
+- Code improvements in `beer-blocks/instructions` block type
+- Remove extra padding in `beer-blocks/header` when set background color
+- Remove extra padding in `beer-blocks/paragraph` when set background color
+
 ## [1.2.4] - 2022-02-19
 
 - Code improvements

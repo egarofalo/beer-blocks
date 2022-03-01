@@ -35,7 +35,7 @@ const edit = (props) => {
 			setAttributes({
 				id: clientId,
 			}),
-		[]
+		[clientId]
 	);
 
 	return (

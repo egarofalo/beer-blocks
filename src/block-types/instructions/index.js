@@ -64,6 +64,9 @@ registerBlockType("beer-blocks/instructions", {
 		<img src={icon} alt={_x("Instructions", "block title", "beer-blocks")} />
 	),
 	attributes: {
+		id: {
+			type: "string",
+		},
 		justifyContent: {
 			type: "object",
 			default: grid.getJustifyContentAttributes(),
@@ -73,6 +76,9 @@ registerBlockType("beer-blocks/instructions", {
 			default: grid.getAlignItemsAttributes(),
 		},
 		...spacing.attributes(),
+	},
+	providesContext: {
+		instructionsId: "id",
 	},
 	edit,
 	save,
