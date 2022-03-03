@@ -28,9 +28,6 @@ if (class_exists('\\WP_Block_Editor_Context')) {
 	add_filter('block_categories', BEERB_GLOBALS_HELPERS_NS . '\\create_blocks_category__deprecated', 1, 2);
 }
 
-// Enqueue Bootstrap in the editor
-//add_action('enqueue_block_editor_assets', BEERB_BS_HELPERS_NS . '\\enqueue_editor_assets');
-
 // Enqueue Bootstrap in frontend
 add_action('wp_enqueue_scripts', BEERB_BS_HELPERS_NS . '\\enqueue_front_assets');
 
@@ -38,9 +35,6 @@ add_action('wp_enqueue_scripts', BEERB_BS_HELPERS_NS . '\\enqueue_front_assets')
 add_action('admin_init', BEERB_BS_HELPERS_NS . '\\add_settings_section');
 add_action('admin_init', BEERB_BS_HELPERS_NS . '\\register_settings');
 add_action('admin_init', BEERB_BS_HELPERS_NS . '\\add_settings_fields');
-
-// Enqueue Font Awesome in the editor
-//add_action('enqueue_block_editor_assets', BEERB_FA_HELPERS_NS . '\\enqueue_editor_assets');
 
 // Enqueue Font Awesome in Frontend
 add_action('wp_enqueue_scripts', BEERB_FA_HELPERS_NS . '\\enqueue_front_assets');
@@ -56,7 +50,6 @@ add_filter('style_loader_tag', BEERB_FA_HELPERS_NS . '\\filters_html_link_tags',
 // Register Google Fonts settings
 add_action('admin_init', BEERB_GF_HELPERS_NS . '\\add_settings_section');
 add_action('admin_init', BEERB_GF_HELPERS_NS . '\\register_settings');
-//add_action('rest_api_init', BEERB_GF_HELPERS_NS . '\\register_google_fonts_load_setting');
 add_action('admin_init', BEERB_GF_HELPERS_NS . '\\add_settings_fields');
 
 // Register block types

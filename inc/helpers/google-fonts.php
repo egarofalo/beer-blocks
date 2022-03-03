@@ -50,7 +50,7 @@ function add_settings_fields()
 		[
 			'label_text' => __('Load Google Fonts', 'beer-blocks'),
 			'label_for' => BEERB_LOAD_GOOGLE_FONTS_SETTING,
-			'description' => __('Load Google Fonts in the Editor and Frontend.', 'beer-blocks'),
+			'description' => __('Load Google fonts on the frontend. Uncheck this option if you want to enqueue the selected fonts manually in the active theme.', 'beer-blocks'),
 		]
 	);
 }

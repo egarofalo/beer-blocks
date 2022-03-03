@@ -8,7 +8,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2021-08-17T13:56:20+00:00\n"
-"PO-Revision-Date: 2022-02-19 14:28+0000\n"
+"PO-Revision-Date: 2022-03-03 17:48+0000\n"
 "Language: es_ES\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: beer-blocks\n"
@@ -20,7 +20,7 @@ msgstr ""
 msgid "-- SELECT --"
 msgstr "-- SELECCIONE --"
 
-#: inc/helpers/globals.php:212 inc/helpers/globals.php:222
+#: inc/helpers/globals.php:215 inc/helpers/globals.php:225
 msgid "<p>Security alert: <b>NONCE CHECK FAILED</b></p>"
 msgstr "<p>Alerta de seguridad: <b>FALLÓ LA VERIFICACIÓN DEL NONCE</b></p>"
 
@@ -49,9 +49,9 @@ msgid "Auto sizing: variable width content"
 msgstr "Tamaño automático: columnas de ancho ajustable al contenido"
 
 #: build/accordion-item/index.js:1 build/instruction/index.js:1
-#: build/separator/index.js:1 src/block-types/accordion-item/edit.js:119
-#: src/block-types/accordion-item/edit.js:149
-#: src/block-types/instruction/edit.js:134 src/block-types/separator/edit.js:86
+#: build/separator/index.js:1 src/block-types/accordion-item/edit.js:115
+#: src/block-types/accordion-item/edit.js:145
+#: src/block-types/instruction/edit.js:131 src/block-types/separator/edit.js:86
 #: src/block-types/separator/edit.js:122
 msgid "Background color"
 msgstr "Color de fondo"
@@ -73,7 +73,7 @@ msgstr ""
 "Beer Blocks amplía el editor de WordPress con bloques potentes y avanzados "
 "que te ayudan a crear hermosos sitios web más rápido."
 
-#: inc/helpers/globals.php:158
+#: inc/helpers/globals.php:161
 msgid "Beer Blocks Settings"
 msgstr "Ajustes de Beer Blocks"
 
@@ -171,7 +171,6 @@ msgid "Create paragraph with custom typography, margin and padding."
 msgstr "Cree un párrafo con tipografía, margen y relleno ajustables."
 
 #: build/jumbotron/index.js:1 src/block-types/jumbotron/index.js:49
-#: src/block-types/jumbotron/block.json
 msgctxt "block description"
 msgid ""
 "Lightweight, flexible Bootstrap component for showcasing hero unit style "
@@ -292,7 +291,7 @@ msgid "Instructions"
 msgstr "Instrucciones"
 
 #: build/jumbotron/index.js:1 src/block-types/jumbotron/index.js:47
-#: src/block-types/jumbotron/index.js:62 src/block-types/jumbotron/block.json
+#: src/block-types/jumbotron/index.js:62
 msgctxt "block title"
 msgid "Jumbotron"
 msgstr "Jumbotron"
@@ -321,11 +320,11 @@ msgctxt "block title"
 msgid "Separator Line"
 msgstr "Línea separadora"
 
-#: build/accordion-item/index.js:1 src/block-types/accordion-item/edit.js:130
+#: build/accordion-item/index.js:1 src/block-types/accordion-item/edit.js:126
 msgid "Body"
 msgstr "Cuerpo"
 
-#: inc/helpers/bootstrap.php:78
+#: inc/helpers/bootstrap.php:95
 #| msgid "Bootstrap Settings (v4.6.0)"
 msgid "Bootstrap Settings (v4.6.1)"
 msgstr "Ajustes de Bootstrap (v4.6.1)"
@@ -380,7 +379,7 @@ msgstr "Estilo del borde izquierdo"
 msgid "Border left width"
 msgstr "Ancho del borde izquierdo"
 
-#: build/instruction/index.js:1 src/block-types/instruction/edit.js:196
+#: build/instruction/index.js:1 src/block-types/instruction/edit.js:193
 msgid "Border Radius (%s)"
 msgstr "Radio del borde (%s)"
 
@@ -543,29 +542,57 @@ msgstr "Editar"
 msgid "End"
 msgstr "Final (end)"
 
-#: inc/helpers/bootstrap.php:120
-msgid "Enqueue Bootstrap styles and scripts in the Frontend."
-msgstr "Encolar en el Frontend las hojas de estilos y scripts de Bootstrap."
+#: inc/helpers/bootstrap.php:152
+msgid ""
+"Enqueue Bootstrap assets in the frontend. Uncheck this option if you want to "
+"enqueue Bootstrap scripts and styles manually in frontend."
+msgstr ""
+"Encolar los activos de Bootstrap en el frontend. Desmarque esta opción si "
+"desea encolar manualmente los scripts y estilos de Bootstrap en el tema "
+"activo."
 
-#: inc/helpers/bootstrap.php:108
-msgid "Enqueue Bootstrap styles in the Block editor."
-msgstr "Encolar en el Editor las hojas de estilos de Bootstrap."
+#: inc/helpers/bootstrap.php:139
+msgid ""
+"Enqueue Bootstrap scripts in the Block editor. Uncheck this option if you "
+"want to enqueue Bootstrap scripts manually in the Block editor."
+msgstr ""
+"Encolar los scripts de Bootstrap en el editor de bloques. Desmarque esta "
+"opción si desea encolar manualmente los scripts de Bootstrap en el editor de "
+"bloques."
+
+#: inc/helpers/bootstrap.php:126
+msgid ""
+"Enqueue Bootstrap styles in the Block editor. Uncheck this option if you "
+"want to enqueue Bootstrap styles manually in the Block editor."
+msgstr ""
+"Encolar los estilos de Bootstrap en el editor de bloques. Desmarque esta "
+"opción si desea encolar manualmente los estilos de Bootstrap en el editor de "
+"bloques."
 
 #: inc/helpers/fontawesome.php:102
-msgid "Enqueue Font Awesome styles in the Block editor."
-msgstr "Encolar en el Editor las hojas de estilos de Font Awesome."
+msgid ""
+"Enqueue Font Awesome styles in the Block editor. Uncheck this option if you "
+"want to enqueue Font Awesome styles manually in the Block editor."
+msgstr ""
+"Encolar los estilos de Font Awesome en el editor de bloques. Desmarque esta "
+"opción si desea encolar manualmente los estilos de Font Awesome en el editor "
+"de bloques."
 
 #: inc/helpers/fontawesome.php:114
-msgid "Enqueue Font Awesome styles in the Frontend."
-msgstr "Encolar en el Frontend las hojas de estilos de Font Awesome."
+msgid ""
+"Enqueue Font Awesome styles in the frontend. Uncheck this option if you want "
+"to enqueue Font Awesome styles manually in the active theme."
+msgstr ""
+"Encolar los estilos de Font Awesome en el frontend. Desmarque esta opción si "
+"desea encolar manualmente los estilos de Font Awesome en el tema activo."
 
 #: inc/helpers/fontawesome.php:72
 msgid "Font Awesome Settings (v5.15.3)"
 msgstr "Ajustes de Font Awesome (v5.15.3)"
 
 #: build/accordion-item/index.js:1 build/instruction/index.js:1
-#: src/block-types/accordion-item/edit.js:83
-#: src/block-types/instruction/edit.js:144
+#: src/block-types/accordion-item/edit.js:79
+#: src/block-types/instruction/edit.js:141
 msgid "Font color"
 msgstr "Color de fuente"
 
@@ -591,7 +618,7 @@ msgstr "Peso de la fuente"
 msgid "Google Fonts Settings"
 msgstr "Ajustes de Google Fonts"
 
-#: build/accordion-item/index.js:1 src/block-types/accordion-item/edit.js:77
+#: build/accordion-item/index.js:1 src/block-types/accordion-item/edit.js:73
 msgid "Heading"
 msgstr "Encabezado"
 
@@ -600,11 +627,11 @@ msgid "Height"
 msgstr "Altura"
 
 #: build/fa-icon/index.js:1 build/instruction/index.js:1
-#: src/block-types/fa-icon/edit.js:160 src/block-types/instruction/edit.js:175
+#: src/block-types/fa-icon/edit.js:160 src/block-types/instruction/edit.js:172
 msgid "Height (%s)"
 msgstr "Altura (%s)"
 
-#: build/instruction/index.js:1 src/block-types/instruction/edit.js:113
+#: build/instruction/index.js:1 src/block-types/instruction/edit.js:110
 msgid "Horizontal alignment"
 msgstr "Alineación horizontal"
 
@@ -654,7 +681,7 @@ msgstr "BORDE INTERIOR SUPERIOR"
 msgid "Inset"
 msgstr ""
 
-#: build/instructions/index.js:1 src/block-types/instructions/edit.js:33
+#: build/instructions/index.js:1 src/block-types/instructions/edit.js:49
 msgid "Instructions settings"
 msgstr "Ajustes de instrucciones"
 
@@ -673,13 +700,18 @@ msgstr "Grande"
 msgid "Line Height"
 msgstr "Altura de la línea"
 
-#: inc/helpers/bootstrap.php:113 inc/helpers/bootstrap.php:118
+#: inc/helpers/bootstrap.php:145 inc/helpers/bootstrap.php:150
 msgid "Load Bootstrap in Front"
 msgstr "Cargar Bootstrap en el Frontend"
 
-#: inc/helpers/bootstrap.php:101 inc/helpers/bootstrap.php:106
-msgid "Load Bootstrap in the Editor"
-msgstr "Cargar Bootstrap en el Editor"
+#: inc/helpers/bootstrap.php:132 inc/helpers/bootstrap.php:137
+msgid "Load Bootstrap scripts in the Editor"
+msgstr "Cargar los scripts de Bootstrap en el Editor"
+
+#: inc/helpers/bootstrap.php:119 inc/helpers/bootstrap.php:124
+#| msgid "Load Bootstrap in the Editor"
+msgid "Load Bootstrap styles in the Editor"
+msgstr "Cargar los estilos de Bootstrap en el Editor"
 
 #: inc/helpers/fontawesome.php:112
 msgid "Load Font Awesome in Front"
@@ -698,8 +730,12 @@ msgid "Load Google Fonts"
 msgstr "Cargar Google Fonts"
 
 #: inc/helpers/google-fonts.php:53
-msgid "Load Google Fonts in the Editor and Frontend."
-msgstr "Cargar Google Fonts en el Editor y en el Frontend"
+msgid ""
+"Load Google fonts on the frontend. Uncheck this option if you want to "
+"enqueue the selected fonts manually in the active theme."
+msgstr ""
+"Cargue las fuentes de Google en el frontend. Desmarque esta opción si desea "
+"encolar manualmente las fuentes seleccionadas en el tema activo."
 
 #: build/column/index.js:1 build/instruction/index.js:1
 #: build/instructions/index.js:1 build/row/index.js:1 src/helpers/grid.js:15
@@ -712,7 +748,7 @@ msgstr "Tamaño manual"
 #: build/info-box/index.js:1 build/instruction/index.js:1
 #: build/instructions/index.js:1 build/jumbotron/index.js:1
 #: build/paragraph/index.js:1 build/section/index.js:1
-#: build/separator/index.js:1
+#: build/separator/index.js:1 src/helpers/spacing.js:105
 msgid "Margin"
 msgstr "Margen"
 
@@ -731,7 +767,7 @@ msgstr "Sin opciones de familia de fuentes"
 msgid "None"
 msgstr "Ninguno"
 
-#: build/instruction/index.js:1 src/block-types/instruction/edit.js:107
+#: build/instruction/index.js:1 src/block-types/instruction/edit.js:104
 msgid "Numeration settings"
 msgstr "Ajustes de numeración"
 
@@ -739,7 +775,7 @@ msgstr "Ajustes de numeración"
 msgid "Open media library"
 msgstr "Abrir bliblioteca de medios"
 
-#: build/accordion-item/index.js:1 src/block-types/accordion-item/edit.js:133
+#: build/accordion-item/index.js:1 src/block-types/accordion-item/edit.js:129
 msgid "Opened"
 msgstr "Abierto"
 
@@ -758,7 +794,7 @@ msgstr ""
 #: build/info-box/index.js:1 build/instruction/index.js:1
 #: build/instructions/index.js:1 build/jumbotron/index.js:1
 #: build/paragraph/index.js:1 build/section/index.js:1
-#: build/separator/index.js:1
+#: build/separator/index.js:1 src/helpers/spacing.js:57
 msgid "Padding"
 msgstr "Relleno"
 
@@ -784,7 +820,7 @@ msgid "Replace image"
 msgstr "Reemplazar imagen"
 
 #: build/column/index.js:1 build/instruction/index.js:1
-#: src/block-types/column/edit.js:52 src/block-types/instruction/edit.js:79
+#: src/block-types/column/edit.js:52 src/block-types/instruction/edit.js:76
 msgid "Responsive settings"
 msgstr "Ajustes responsive"
 
@@ -838,11 +874,11 @@ msgstr "Establecer tamaño original"
 msgid "Settings applied from %s resolution and up"
 msgstr "Ajustes aplicados desde la resolución %s en adelante"
 
-#: inc/helpers/globals.php:263
+#: inc/helpers/globals.php:301
 msgid "Settings updated successfully!!"
 msgstr "¡¡Los ajustes se actualizaron correctamente!!"
 
-#: build/accordion-item/index.js:1 src/block-types/accordion-item/edit.js:131
+#: build/accordion-item/index.js:1 src/block-types/accordion-item/edit.js:127
 msgid "Shows the content as default"
 msgstr "Mostrar los contenidos de forma predeterminada"
 
@@ -871,11 +907,12 @@ msgstr "Espacio entre (apace between)"
 #: build/info-box/index.js:1 build/instruction/index.js:1
 #: build/instructions/index.js:1 build/jumbotron/index.js:1
 #: build/paragraph/index.js:1 build/section/index.js:1
-#: build/separator/index.js:1 src/block-types/instruction/edit.js:216
+#: build/separator/index.js:1 src/block-types/instruction/edit.js:213
+#: src/helpers/spacing.js:170
 msgid "Spacing"
 msgstr "Espaciado"
 
-#: build/instruction/index.js:1 src/block-types/instruction/edit.js:86
+#: build/instruction/index.js:1 src/block-types/instruction/edit.js:83
 msgid "Stacked contents? (%s)"
 msgstr "¿Contenidos apilados? (%s)"
 
@@ -904,7 +941,7 @@ msgstr "Tipografía"
 msgid "Use an image"
 msgstr "Utilizar una imagen"
 
-#: build/instruction/index.js:1 src/block-types/instruction/edit.js:124
+#: build/instruction/index.js:1 src/block-types/instruction/edit.js:121
 msgid "Vertical alignment"
 msgstr "Alineación vertical"
 
@@ -914,15 +951,15 @@ msgstr "Ancho"
 
 #: build/fa-icon/index.js:1 build/instruction/index.js:1
 #: build/separator/index.js:1 src/block-types/fa-icon/edit.js:243
-#: src/block-types/instruction/edit.js:156
+#: src/block-types/instruction/edit.js:153 src/block-types/separator/edit.js:59
 msgid "Width (%s)"
 msgstr "Ancho (%s)"
 
-#: build/instruction/index.js:1 src/block-types/instruction/edit.js:71
+#: build/instruction/index.js:1 src/block-types/instruction/edit.js:68
 msgid "Write instructions here..."
 msgstr "Escriba las instrucciones aquí..."
 
-#: build/accordion-item/index.js:1 src/block-types/accordion-item/edit.js:205
+#: build/accordion-item/index.js:1 src/block-types/accordion-item/edit.js:201
 msgid "Write item title here..."
 msgstr "Escriba el título del elemento aquí..."
 
@@ -940,7 +977,7 @@ msgstr "Escriba el subtítulo aquí..."
 
 #: build/advanced-header/index.js:1 build/info-box/index.js:1
 #: build/instruction/index.js:1 src/block-types/advanced-header/edit.js:20
-#: src/block-types/info-box/edit.js:51 src/block-types/instruction/edit.js:67
+#: src/block-types/info-box/edit.js:51 src/block-types/instruction/edit.js:64
 msgid "Write title here..."
 msgstr "Escriba el título aquí..."
 

@@ -99,7 +99,7 @@ function add_settings_fields()
 		[
 			'label_text' => __('Load Font Awesome in the Editor', 'beer-blocks'),
 			'label_for' => BEERB_FONTAWESOME_IN_EDITOR_SETTING,
-			'description' => __('Enqueue Font Awesome styles in the Block editor.', 'beer-blocks'),
+			'description' => __('Enqueue Font Awesome styles in the Block editor. Uncheck this option if you want to enqueue Font Awesome styles manually in the Block editor.', 'beer-blocks'),
 		]
 	);
 	add_settings_field(
@@ -111,7 +111,7 @@ function add_settings_fields()
 		[
 			'label_text' => __('Load Font Awesome in Front', 'beer-blocks'),
 			'label_for' => BEERB_FONTAWESOME_IN_FRONT_SETTING,
-			'description' => __('Enqueue Font Awesome styles in the Frontend.', 'beer-blocks'),
+			'description' => __('Enqueue Font Awesome styles in the frontend. Uncheck this option if you want to enqueue Font Awesome styles manually in the active theme.', 'beer-blocks'),
 		]
 	);
 }

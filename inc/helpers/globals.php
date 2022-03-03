@@ -2,7 +2,8 @@
 
 namespace BeerBlocks\Helpers\Globals;
 
-use function BeerBlocks\Helpers\Bootstrap\register_editor_assets as register_bootstrap_editor_assets;
+use function BeerBlocks\Helpers\Bootstrap\register_editor_styles as register_bootstrap_editor_styles;
+use function BeerBlocks\Helpers\Bootstrap\register_editor_scripts as register_bootstrap_editor_scripts;
 use function BeerBlocks\Helpers\Fontawesome\register_editor_assets as register_fontawesome_editor_assets;
 use function BeerBlocks\Helpers\GoogleFonts\enqueue_selected_font_family;
 
@@ -74,13 +75,14 @@ function register_block_types()
 {
 	// Register block types dependencies
 	register_shared_dependencies();
-	$bootstrap_editor_assets = register_bootstrap_editor_assets();
+	$bootstrap_editor_scripts = register_bootstrap_editor_scripts();
+	$bootstrap_editor_styles = register_bootstrap_editor_styles();
 	$fontawesome_editor_assets = register_fontawesome_editor_assets();
 
 	// Block Types dependencies
 	$block_types_dependencies = array_merge(
 		['beer-blocks-editor'],
-		$bootstrap_editor_assets ? [$bootstrap_editor_assets] : []
+		$bootstrap_editor_scripts ? [$bootstrap_editor_scripts] : []
 	);
 
 	// Register all block types
@@ -125,6 +127,7 @@ function register_block_types()
 			BEERB_PLUGIN_DIR_URL . "/build/{$block_type}/index.css",
 			array_merge(
 				$block_types_dependencies,
+				$bootstrap_editor_styles ? [$bootstrap_editor_styles] : [],
 				$fontawesome_editor_assets ? [$fontawesome_editor_assets] : []
 			),
 			filemtime(BEERB_PLUGIN_DIR_PATH . "/build/{$block_type}/index.css")
@@ -225,15 +228,50 @@ function form_submit()
 	}
 
 	// get submited data
-	$bootstrap_in_editor = filter_input(INPUT_POST, BEERB_BOOTSTRAP_IN_EDITOR_SETTING, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
-	$bootstrap_in_front = filter_input(INPUT_POST, BEERB_BOOTSTRAP_IN_FRONT_SETTING, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
-	$fa_in_editor = filter_input(INPUT_POST, BEERB_FONTAWESOME_IN_EDITOR_SETTING, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
-	$fa_in_front = filter_input(INPUT_POST, BEERB_FONTAWESOME_IN_EDITOR_SETTING, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
-	$load_google_fonts = filter_input(INPUT_POST, BEERB_LOAD_GOOGLE_FONTS_SETTING, FILTER_VALIDATE_BOOLEAN, FILTER_NULL_ON_FAILURE);
+	$bootstrap_in_editor_styles = filter_input(
+		INPUT_POST,
+		BEERB_BOOTSTRAP_IN_EDITOR_SETTING,
+		FILTER_VALIDATE_BOOLEAN,
+		FILTER_NULL_ON_FAILURE
+	);
+	$bootstrap_in_editor_scripts = filter_input(
+		INPUT_POST,
+		BEERB_BOOTSTRAP_SCRIPTS_IN_EDITOR_SETTING,
+		FILTER_VALIDATE_BOOLEAN,
+		FILTER_NULL_ON_FAILURE
+	);
+	$bootstrap_in_front = filter_input(
+		INPUT_POST,
+		BEERB_BOOTSTRAP_IN_FRONT_SETTING,
+		FILTER_VALIDATE_BOOLEAN,
+		FILTER_NULL_ON_FAILURE
+	);
+	$fa_in_editor = filter_input(
+		INPUT_POST,
+		BEERB_FONTAWESOME_IN_EDITOR_SETTING,
+		FILTER_VALIDATE_BOOLEAN,
+		FILTER_NULL_ON_FAILURE
+	);
+	$fa_in_front = filter_input(
+		INPUT_POST,
+		BEERB_FONTAWESOME_IN_EDITOR_SETTING,
+		FILTER_VALIDATE_BOOLEAN,
+		FILTER_NULL_ON_FAILURE
+	);
+	$load_google_fonts = filter_input(
+		INPUT_POST,
+		BEERB_LOAD_GOOGLE_FONTS_SETTING,
+		FILTER_VALIDATE_BOOLEAN,
+		FILTER_NULL_ON_FAILURE
+	);
 
 	// update data
-	if (is_bool($bootstrap_in_editor)) {
-		update_option(BEERB_BOOTSTRAP_IN_EDITOR_SETTING, ($bootstrap_in_editor ? 'yes' : 'no'));
+	if (is_bool($bootstrap_in_editor_styles)) {
+		update_option(BEERB_BOOTSTRAP_IN_EDITOR_SETTING, ($bootstrap_in_editor_styles ? 'yes' : 'no'));
+	}
+
+	if (is_bool($bootstrap_in_editor_scripts)) {
+		update_option(BEERB_BOOTSTRAP_SCRIPTS_IN_EDITOR_SETTING, ($bootstrap_in_editor_scripts ? 'yes' : 'no'));
 	}
 
 	if (is_bool($bootstrap_in_front)) {
@@ -271,6 +309,7 @@ function form_submit()
 function uninstall()
 {
 	delete_option(BEERB_BOOTSTRAP_IN_EDITOR_SETTING);
+	delete_option(BEERB_BOOTSTRAP_SCRIPTS_IN_EDITOR_SETTING);
 	delete_option(BEERB_BOOTSTRAP_IN_FRONT_SETTING);
 	delete_option(BEERB_FONTAWESOME_IN_EDITOR_SETTING);
 	delete_option(BEERB_FONTAWESOME_IN_FRONT_SETTING);
