@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/block-types/jumbotron/editor.scss"],"names":[],"mappings":"AAAA;EACC;AACD,C","file":"jumbotron/index.css","sourcesContent":[".wp-block-beer-blocks-jumbotron.is-selected {\n\tborder: 1px dotted #035cff;\n}\n"],"sourceRoot":""}

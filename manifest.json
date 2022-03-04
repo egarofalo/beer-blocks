@@ -18,7 +18,9 @@
 		"accordion/index": "./src/block-types/accordion/index.js",
 		"accordion-item/index": "./src/block-types/accordion-item/index.js",
 		"instructions/index": "./src/block-types/instructions/index.js",
-		"instruction/index": "./src/block-types/instruction/index.js"
+		"instruction/index": "./src/block-types/instruction/index.js",
+		"tabs/index": "./src/block-types/tabs/index.js",
+		"tab-pane/index": "./src/block-types/tab-pane/index.js"
 	},
 	"block_types": [
 		"header",
@@ -39,6 +41,8 @@
 		"accordion",
 		"accordion-item",
 		"instructions",
-		"instruction"
+		"instruction",
+		"tabs",
+		"tab-pane"
 	]
 }

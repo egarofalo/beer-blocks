@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/block-types/tab-pane/editor.scss"],"names":[],"mappings":"AAAA;EACC;AACD;;AAEA;EACC;AACD,C","file":"tab-pane/index.css","sourcesContent":[".wp-block-beer-blocks-info-box.is-selected {\n\tborder: 1px dotted #035cff;\n}\n\n.wp-block-beer-blocks-info-box.has-child-selected {\n\tborder: 1px dotted #ff9f50;\n}\n"],"sourceRoot":""}

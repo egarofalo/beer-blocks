@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/block-types/section/editor.scss"],"names":[],"mappings":"AAAA;EACC;AACD;;AAEA;EACC;AACD,C","file":"section/index.css","sourcesContent":[".wp-block-beer-blocks-section.is-selected {\n\tborder: 1px dotted #035cff;\n}\n\n.wp-block-beer-blocks-section.has-child-selected {\n\tborder: 1px dotted #ff9f50;\n}\n"],"sourceRoot":""}

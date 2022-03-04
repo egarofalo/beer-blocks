@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/block-types/paragraph/style.scss"],"names":[],"mappings":"AACC;EACC;AAAF,C","file":"style-paragraph/index.css","sourcesContent":[".wp-block-beer-blocks-paragraph {\n\t&.has-background {\n\t\tpadding: initial;\n\t}\n}\n"],"sourceRoot":""}
