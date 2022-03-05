@@ -1,16 +1,19 @@
 import { useEffect } from "react";
-import { __ } from "@wordpress/i18n";
+import { __, sprintf } from "@wordpress/i18n";
 import {
+	InspectorControls,
+	RichText,
 	useBlockProps,
 	useInnerBlocksProps,
 	__experimentalUseInnerBlocksProps as __useInnerBlocksProps,
 } from "@wordpress/block-editor";
+import { RangeControl, PanelBody } from "@wordpress/components";
 
 const edit = (props) => {
 	const {
 		clientId,
 		setAttributes,
-		attributes: { id, tabsContentId },
+		attributes: { id: tabsId, tabsContentId, tabsAmount, labels: tabsLabels },
 	} = props;
 
 	useEffect(
@@ -22,6 +25,21 @@ const edit = (props) => {
 		[clientId]
 	);
 
+	useEffect(
+		() =>
+			setAttributes({
+				labels: [
+					tabsLabels.length > tabsAmount
+						? tabsLabels.slice(-1)
+						: [
+								...tabsLabels,
+								sprintf(__("Tab %d", "beer-blocks"), tabsLabels.length + 1),
+						  ],
+				],
+			}),
+		[tabsAmount]
+	);
+
 	const blockProps = useBlockProps();
 
 	const innerBlocksPropsConfig = [
@@ -30,26 +48,16 @@ const edit = (props) => {
 			className: "tab-content",
 		},
 		{
-			allowedBlocks: ["beer-blocks/tab-pane"],
 			renderAppender: false,
-			templateLock: "all",
 			template: [
-				[
+				tabsLabels.map((item, index) => [
 					"beer-blocks/tab-pane",
 					{
-						placeholder: "Insert here pane contents...",
-						id: "home-pane",
-						tabId: "home-tab",
+						placeholder: __("Insert here pane contents...", "beer-blocks"),
+						id: `${tabsId}-pane-${index}`,
+						tabId: `${tabsId}-tab-${index}`,
 					},
-				],
-				[
-					"beer-blocks/tab-pane",
-					{
-						placeholder: "Insert here pane contents...",
-						id: "profile-pane",
-						tabId: "profile-tab",
-					},
-				],
+				]),
 			],
 		},
 	];
@@ -59,39 +67,56 @@ const edit = (props) => {
 		: __useInnerBlocksProps(...innerBlocksPropsConfig);
 
 	return (
-		<div {...blockProps}>
-			<ul className="nav nav-tabs" id={id} role="tablist">
-				<li className="nav-item" role="presentation">
-					<a
-						className="nav-link"
-						id="home-tab"
-						data-toggle="tab"
-						href="#home-pane"
-						role="tab"
-						aria-controls="#home-pane"
-						aria-selected="false"
-					>
-						HOME
-					</a>
-				</li>
+		<>
+			<InspectorControls>
+				<PanelBody title={__("General settings", "beer-blocks")}>
+					<RangeControl
+						label={__("Tabs amount", "beer-blocks")}
+						onChange={(value) =>
+							setAttributes({
+								tabsAmount: value,
+							})
+						}
+					/>
+				</PanelBody>
+			</InspectorControls>
 
-				<li className="nav-item" role="presentation">
-					<a
-						className="nav-link"
-						id="profile-tab"
-						data-toggle="tab"
-						href="#profile-pane"
-						role="tab"
-						aria-controls="#profile-pane"
-						aria-selected="false"
-					>
-						PROFILE
-					</a>
-				</li>
-			</ul>
+			<div {...blockProps}>
+				<ul className="nav nav-tabs" id={tabsId} role="tablist">
+					{tabsLabels.map((item, index) => (
+						<li
+							className="nav-item"
+							role="presentation"
+							key={`${tabsId}-tab-${index}`}
+						>
+							<RichText
+								tagName="a"
+								className="nav-link"
+								id={`${tabsId}-tab-${index}`}
+								data-toggle="tab"
+								href={`#${tabsId}-pane-${index}`}
+								role="tab"
+								aria-controls={`#${tabsId}-pane-${index}`}
+								aria-selected="false"
+								value={item}
+								allowedFormats={["core/bold", "core/italic"]}
+								onChange={(content) =>
+									setAttributes({
+										tabsLabels: [
+											...tabsLabels.slice(0, index),
+											content,
+											...tabsLabels.slice(index + 1),
+										],
+									})
+								}
+							/>
+						</li>
+					))}
+				</ul>
 
-			<div {...innerBlocksProps} />
-		</div>
+				<div {...innerBlocksProps} />
+			</div>
+		</>
 	);
 };
 

@@ -3,7 +3,7 @@
  *
  * @see https://developer.wordpress.org/block-editor/how-to-guides/internationalization
  */
-import { _x } from "@wordpress/i18n";
+import { _x, __, sprintf } from "@wordpress/i18n";
 
 /**
  * Registers a new block provided a unique name and an object defining its behavior.
@@ -58,6 +58,18 @@ registerBlockType("beer-blocks/tabs", {
 		},
 		tabsContentId: {
 			type: "string",
+		},
+		tabsAmount: {
+			type: "number",
+			default: 3,
+		},
+		labels: {
+			type: "array",
+			default: [
+				sprintf(__("Tab %d", "beer-blocks"), 1),
+				sprintf(__("Tab %d", "beer-blocks"), 2),
+				sprintf(__("Tab %d", "beer-blocks"), 3),
+			],
 		},
 	},
 	edit,

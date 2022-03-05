@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack:///./src/block-types/buttons/editor.scss"],"names":[],"mappings":"AAAA;EACC;AACD;;AAEA;EACC;AACD,C","file":"buttons/index.css","sourcesContent":[".wp-block-beer-blocks-buttons.is-selected {\n\tborder: 1px dotted #035cff;\n}\n\n.wp-block-beer-blocks-buttons.has-child-selected {\n\tborder: 1px dotted #ff9f50;\n}\n"],"sourceRoot":""}

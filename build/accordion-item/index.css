@@ -1,10 +1,1 @@
-.editor-styles-wrapper .block-editor-block-list__layout.is-root-container .wp-block-beer-blocks-accordion-item.card {
-  padding: 0;
-  box-shadow: none;
-  background: transparent;
-}
-.editor-styles-wrapper .block-editor-block-list__layout.is-root-container .wp-block-beer-blocks-accordion-item.card > .card-header {
-  margin-bottom: -1px;
-}
-
-/*# sourceMappingURL=index.css.map*/
+.editor-styles-wrapper .block-editor-block-list__layout.is-root-container .wp-block-beer-blocks-accordion-item.card{padding:0;box-shadow:none;background:transparent}.editor-styles-wrapper .block-editor-block-list__layout.is-root-container .wp-block-beer-blocks-accordion-item.card>.card-header{margin-bottom:-1px}

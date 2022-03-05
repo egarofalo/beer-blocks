@@ -1,15 +1,1 @@
-.wp-block-beer-blocks-instruction {
-  box-sizing: border-box;
-}
-.wp-block-beer-blocks-instruction.wp-block {
-  margin-left: unset;
-  margin-right: unset;
-}
-.wp-block-beer-blocks-instruction.is-selected {
-  border: 1px dotted #035cff;
-}
-.wp-block-beer-blocks-instruction.has-child-selected {
-  border: 1px dotted #ff9f50;
-}
-
-/*# sourceMappingURL=index.css.map*/
+.wp-block-beer-blocks-instruction{box-sizing:border-box}.wp-block-beer-blocks-instruction.wp-block{margin-left:unset;margin-right:unset}.wp-block-beer-blocks-instruction.is-selected{border:1px dotted #035cff}.wp-block-beer-blocks-instruction.has-child-selected{border:1px dotted #ff9f50}

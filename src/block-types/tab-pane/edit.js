@@ -1,5 +1,6 @@
 import { __ } from "@wordpress/i18n";
 import {
+	InnerBlocks,
 	useBlockProps,
 	useInnerBlocksProps,
 	__experimentalUseInnerBlocksProps as __useInnerBlocksProps,
@@ -13,9 +14,11 @@ const edit = (props) => {
 	const blockProps = useBlockProps();
 
 	const innerBlocksPropsConfig = [
-		{},
 		{
-			allowedBlocks: ["*"],
+			...blockProps,
+		},
+		{
+			renderAppender: false,
 		},
 	];
 
@@ -30,8 +33,10 @@ const edit = (props) => {
 			role="tabpanel"
 			aria-labelledby={tabId}
 		>
-			<div {...blockProps}>
-				<div {...innerBlocksProps} />
+			<div {...innerBlocksProps} />
+
+			<div className="button-block-appender__container">
+				<InnerBlocks.ButtonBlockAppender />
 			</div>
 		</div>
 	);
