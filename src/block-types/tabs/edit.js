@@ -20,6 +20,7 @@ import spacing from "./../../helpers/spacing";
 import flexbox from "./../../helpers/flexbox";
 import typography from "./../../helpers/typography";
 import border from "./../../helpers/border";
+import borderRadius from "./../../helpers/border-radius";
 import { variantsColorPallet as variants } from "./../../helpers/bootstrap-variants";
 
 const tabStates = {
@@ -229,16 +230,22 @@ const edit = (props) => {
 					)}
 				</PanelBody>
 
+				{typography.controls({
+					props,
+					title: __("Tabs typography"),
+					attrPrefixName: "tabs",
+				})}
+
 				{border.controls({
 					props,
 					attrPrefixName: "tabs",
 					title: __("Tabs borders", "beer-blocks"),
 				})}
 
-				{typography.controls({
+				{borderRadius.controls({
 					props,
-					title: __("Tabs typography"),
 					attrPrefixName: "tabs",
+					title: __("Tabs border radius", "beer-blocks"),
 				})}
 
 				{spacing.controls({
@@ -320,6 +327,7 @@ const edit = (props) => {
 										...spacing.styles(props.attributes, "tabs"),
 										...typography.styles(props.attributes, "tabs"),
 										...border.styles(props.attributes, "tabs"),
+										...borderRadius.styles(props.attributes, "tabs"),
 									}}
 								/>
 							</li>

@@ -1,10 +1,13 @@
+import { useState } from "react";
 import { __, sprintf } from "@wordpress/i18n";
 import {
 	PanelBody,
 	BaseControl,
 	__experimentalUnitControl as UnitControl,
+	__experimentalRadio as Radio,
+	__experimentalRadioGroup as RadioGroup,
 } from "@wordpress/components";
-import { camelCase, capitalize } from "lodash";
+import { camelCase, upperFirst } from "lodash";
 import {
 	MdNorthWest,
 	MdNorthEast,
@@ -56,7 +59,7 @@ export const borderRadiusControl = ({
 };
 
 export const borderRadiusStyles = (borderRadius, corner = "") =>
-	borderRadius ? { [`border${capitalize(corner)}Radius`]: borderRadius } : {};
+	borderRadius ? { [`border${upperFirst(corner)}Radius`]: borderRadius } : {};
 
 export const attributes = ({ attrPrefixName = "", corner = "" } = {}) => ({
 	[camelCase(
@@ -159,7 +162,9 @@ export const controls = ({
 				</RadioGroup>
 			</BaseControl>
 
-			{innerControls({ props, attrPrefixName, corner })}
+			{corner === "all"
+				? innerControls({ props, attrPrefixName })
+				: innerControls({ props, attrPrefixName, corner })}
 		</>
 	);
 
