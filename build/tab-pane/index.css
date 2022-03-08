@@ -1,1 +1,11 @@
-.wp-block-beer-blocks-tab-pane.is-selected{border:1px dotted #035cff}.wp-block-beer-blocks-tab-pane.has-child-selected{border:1px dotted #ff9f50}
+.wp-block-beer-blocks-tab-pane.is-selected {
+  border: 1px dotted #035cff;
+}
+.wp-block-beer-blocks-tab-pane.has-child-selected {
+  border: 1px dotted #ff9f50;
+}
+.wp-block-beer-blocks-tab-pane > .button-block-appender__container {
+  margin-top: 8px;
+}
+
+/*# sourceMappingURL=index.css.map*/

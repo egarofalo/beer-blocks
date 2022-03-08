@@ -9,7 +9,7 @@ import {
 import Select from "react-select";
 import googleFonts from "./google-fonts.json";
 import safeFonts from "./safe-fonts.json";
-import { get as loGet, has as loHas, camelCase, kebabCase } from "lodash";
+import { has as loHas, camelCase, kebabCase } from "lodash";
 
 export const fontFamilies = [...safeFonts, ...googleFonts];
 
@@ -214,16 +214,14 @@ export const lineHeightControl = (props, attrName = "lineHeight") => {
 export const lineHeightStyles = (lineHeight) =>
 	lineHeight ? { lineHeight } : {};
 
-export const attributes = (
+export const attributes = ({
 	attrPrefixName = "",
-	{
-		fontSizeUnit = "px",
-		fontSize = "",
-		fontFamily = "",
-		fontWeight = "",
-		lineHeight = "",
-	} = {}
-) => ({
+	fontSizeUnit = "px",
+	fontSize = "",
+	fontFamily = "",
+	fontWeight = "",
+	lineHeight = "",
+} = {}) => ({
 	[camelCase(`${attrPrefixName}-font-size-unit`)]: {
 		type: "string",
 		default: fontSizeUnit,
@@ -263,8 +261,9 @@ export const controls = ({
 	props,
 	initialOpen = false,
 	attrPrefixName = "",
+	title = __("Typography", "beer-blocks"),
 }) => (
-	<PanelBody title={__("Typography", "beer-blocks")} initialOpen={initialOpen}>
+	<PanelBody title={title} initialOpen={initialOpen}>
 		{innerControls(props, attrPrefixName)}
 	</PanelBody>
 );

@@ -85,8 +85,8 @@ registerBlockType("beer-blocks/accordion-item", {
 		headingContent: {
 			type: "html",
 		},
-		...spacing.attributes({ margin: false }, "heading"),
-		...typography.attributes("heading"),
+		...spacing.attributes({ attrPrefixName: "heading", margin: false }),
+		...typography.attributes({ attrPrefixName: "heading" }),
 		bodyBackground: {
 			type: "string",
 		},
@@ -95,7 +95,7 @@ registerBlockType("beer-blocks/accordion-item", {
 		...border.attributes({ attrPrefixName: "body", side: "right" }),
 		...border.attributes({ attrPrefixName: "body", side: "bottom" }),
 		...border.attributes({ attrPrefixName: "body", side: "left" }),
-		...spacing.attributes({ margin: false }, "body"),
+		...spacing.attributes({ attrPrefixName: "body", margin: false }),
 		id: {
 			type: "string",
 		},

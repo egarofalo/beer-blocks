@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/block-types/button/editor.scss"],"names":[],"mappings":"AACA;EACC;AAAD,C","file":"button/index.css","sourcesContent":["// Remove underline link decoration on a.btn elements\n.wp-block-beer-blocks-button {\n\ttext-decoration: none;\n}\n"],"sourceRoot":""}

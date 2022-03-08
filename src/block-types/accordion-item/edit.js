@@ -72,8 +72,11 @@ const edit = (props) => {
 
 				<PanelBody title={__("Heading", "beer-blocks")} initialOpen={false}>
 					{spacing.innerControls(props, "heading")}
+
 					<CardDivider />
+
 					{typography.innerControls(props, "heading")}
+
 					<CardDivider />
 
 					<BaseControl label={__("Font color", "beer-blocks")}>
@@ -87,27 +90,11 @@ const edit = (props) => {
 					</BaseControl>
 
 					<CardDivider />
-					{border.innerControls({ props, attrPrefixName: "heading" })}
 
-					{border.innerControls({
+					{border.controls({
 						props,
 						attrPrefixName: "heading",
-						side: "top",
-					})}
-					{border.innerControls({
-						props,
-						attrPrefixName: "heading",
-						side: "right",
-					})}
-					{border.innerControls({
-						props,
-						attrPrefixName: "heading",
-						side: "bottom",
-					})}
-					{border.innerControls({
-						props,
-						attrPrefixName: "heading",
-						side: "left",
+						title: undefined,
 					})}
 
 					<CardDivider />
@@ -137,9 +124,13 @@ const edit = (props) => {
 					</BaseControl>
 
 					<CardDivider />
+
 					{spacing.innerControls(props, "body")}
+
 					<CardDivider />
+
 					{border.innerControls({ props, attrPrefixName: "body" })}
+
 					<CardDivider />
 
 					<BaseControl label={__("Background color", "beer-blocks")}>

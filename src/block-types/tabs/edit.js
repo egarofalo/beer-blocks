@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { __, sprintf } from "@wordpress/i18n";
 import {
 	InspectorControls,
@@ -7,14 +7,42 @@ import {
 	useInnerBlocksProps,
 	__experimentalUseInnerBlocksProps as __useInnerBlocksProps,
 } from "@wordpress/block-editor";
-import { RangeControl, PanelBody } from "@wordpress/components";
+import {
+	RangeControl,
+	PanelBody,
+	RadioControl,
+	ColorPalette,
+	BaseControl,
+	__experimentalRadio as Radio,
+	__experimentalRadioGroup as RadioGroup,
+} from "@wordpress/components";
+import spacing from "./../../helpers/spacing";
+import flexbox from "./../../helpers/flexbox";
+import typography from "./../../helpers/typography";
+import border from "./../../helpers/border";
+import { variantsColorPallet as variants } from "./../../helpers/bootstrap-variants";
 
 const edit = (props) => {
 	const {
 		clientId,
 		setAttributes,
-		attributes: { id: tabsId, tabsContentId, tabsAmount, labels: tabsLabels },
+		attributes: {
+			id: tabsId,
+			tabsContentId,
+			tabsAmount,
+			labels: tabsLabels,
+			horizontalAlignment,
+			fillFreeSpace,
+			tabsColor,
+			tabsMouseOverColor,
+			tabsActiveColor,
+			tabsBackground,
+			tabsMouseOverBackground,
+			tabsActiveBackground,
+		},
 	} = props;
+
+	const [tabsState, setTabsState] = useState("without-state");
 
 	useEffect(
 		() =>
@@ -28,19 +56,24 @@ const edit = (props) => {
 	useEffect(
 		() =>
 			setAttributes({
-				labels: [
+				labels:
 					tabsLabels.length > tabsAmount
 						? tabsLabels.slice(-1)
-						: [
+						: tabsLabels.length < tabsAmount
+						? [
 								...tabsLabels,
 								sprintf(__("Tab %d", "beer-blocks"), tabsLabels.length + 1),
-						  ],
-				],
+						  ]
+						: tabsLabels,
 			}),
 		[tabsAmount]
 	);
 
-	const blockProps = useBlockProps();
+	const blockProps = useBlockProps({
+		style: {
+			...spacing.styles(props.attributes),
+		},
+	});
 
 	const innerBlocksPropsConfig = [
 		{
@@ -49,16 +82,14 @@ const edit = (props) => {
 		},
 		{
 			renderAppender: false,
-			template: [
-				tabsLabels.map((item, index) => [
-					"beer-blocks/tab-pane",
-					{
-						placeholder: __("Insert here pane contents...", "beer-blocks"),
-						id: `${tabsId}-pane-${index}`,
-						tabId: `${tabsId}-tab-${index}`,
-					},
-				]),
-			],
+			templateLock: "all",
+			template: tabsLabels.map((item, index) => [
+				"beer-blocks/tab-pane",
+				{
+					placeholder: __("Insert here pane contents...", "beer-blocks"),
+					index,
+				},
+			]),
 		},
 	];
 
@@ -72,50 +103,221 @@ const edit = (props) => {
 				<PanelBody title={__("General settings", "beer-blocks")}>
 					<RangeControl
 						label={__("Tabs amount", "beer-blocks")}
+						value={tabsAmount}
+						min={1}
+						max={10}
 						onChange={(value) =>
 							setAttributes({
 								tabsAmount: value,
 							})
 						}
 					/>
+
+					{flexbox.justifyContentControl({
+						props,
+						attrName: "horizontalAlignment",
+						label: __("Horizontal alignment", "beer-blocks"),
+					})}
+
+					<RadioControl
+						label={__("Fill free space", "beer-blocks")}
+						selected={fillFreeSpace}
+						options={[
+							{
+								label: __("None", "beer-blocks"),
+								value: "",
+							},
+							{
+								label: __("Tabs with different width", "beer-blocks"),
+								value: "nav-fill",
+							},
+							{
+								label: __("Tabs with same width", "beer-blocks"),
+								value: "nav-justified",
+							},
+						]}
+						onChange={(value) => setAttributes({ fillFreeSpace: value })}
+					/>
 				</PanelBody>
+
+				<PanelBody title={__("Tabs color", "beer-blocks")}>
+					<BaseControl label={__("Select tab status", "beer-blocks")}>
+						<RadioGroup onChange={setTabsState} checked={tabsState}>
+							<Radio value="without-state">Without state</Radio>
+							<Radio value="mouseover-state">Mouse hover</Radio>
+							<Radio value="active-state">Active</Radio>
+						</RadioGroup>
+					</BaseControl>
+
+					{tabsState === "without-state" && (
+						<>
+							<BaseControl label={__("Font color", "beer-blocks")}>
+								<ColorPalette
+									colors={variants}
+									value={tabsColor}
+									onChange={(color) => setAttributes({ tabsColor: color })}
+								/>
+							</BaseControl>
+
+							<BaseControl label={__("Background color", "beer-blocks")}>
+								<ColorPalette
+									colors={variants}
+									value={tabsBackground}
+									onChange={(color) => setAttributes({ tabsBackground: color })}
+								/>
+							</BaseControl>
+						</>
+					)}
+
+					{tabsState === "mouseover-state" && (
+						<>
+							<BaseControl label={__("Font color", "beer-blocks")}>
+								<ColorPalette
+									colors={variants}
+									value={tabsMouseOverColor}
+									onChange={(color) =>
+										setAttributes({ tabsMouseOverColor: color })
+									}
+								/>
+							</BaseControl>
+
+							<BaseControl label={__("Background color", "beer-blocks")}>
+								<ColorPalette
+									colors={variants}
+									value={tabsMouseOverBackground}
+									onChange={(color) =>
+										setAttributes({ tabsMouseOverBackground: color })
+									}
+								/>
+							</BaseControl>
+						</>
+					)}
+
+					{tabsState === "active-state" && (
+						<>
+							<BaseControl label={__("Font color", "beer-blocks")}>
+								<ColorPalette
+									colors={variants}
+									value={tabsActiveColor}
+									onChange={(color) =>
+										setAttributes({ tabsActiveColor: color })
+									}
+								/>
+							</BaseControl>
+
+							<BaseControl label={__("Background color", "beer-blocks")}>
+								<ColorPalette
+									colors={variants}
+									value={tabsActiveBackground}
+									onChange={(color) =>
+										setAttributes({ tabsActiveBackground: color })
+									}
+								/>
+							</BaseControl>
+						</>
+					)}
+				</PanelBody>
+
+				{border.controls({
+					props,
+					attrPrefixName: "tabs",
+					title: __("Tabs borders", "beer-blocks"),
+				})}
+
+				{typography.controls({
+					props,
+					title: __("Tabs typography"),
+					attrPrefixName: "tabs",
+				})}
+
+				{spacing.controls({
+					props,
+					attrPrefixName: "tabs",
+					title: __("Tabs spacing"),
+				})}
+
+				{spacing.controls({ props })}
 			</InspectorControls>
 
-			<div {...blockProps}>
-				<ul className="nav nav-tabs" id={tabsId} role="tablist">
-					{tabsLabels.map((item, index) => (
-						<li
-							className="nav-item"
-							role="presentation"
-							key={`${tabsId}-tab-${index}`}
-						>
-							<RichText
-								tagName="a"
-								className="nav-link"
-								id={`${tabsId}-tab-${index}`}
-								data-toggle="tab"
-								href={`#${tabsId}-pane-${index}`}
-								role="tab"
-								aria-controls={`#${tabsId}-pane-${index}`}
-								aria-selected="false"
-								value={item}
-								allowedFormats={["core/bold", "core/italic"]}
-								onChange={(content) =>
-									setAttributes({
-										tabsLabels: [
-											...tabsLabels.slice(0, index),
-											content,
-											...tabsLabels.slice(index + 1),
-										],
-									})
-								}
-							/>
-						</li>
-					))}
-				</ul>
+			{spacing.visualizer(
+				props,
+				<div {...blockProps}>
+					<ul
+						className={flexbox.justifyContentClass({
+							justifyContent: horizontalAlignment,
+							prefix: "nav nav-pills",
+							suffix: fillFreeSpace,
+						})}
+						id={tabsId}
+						role="tablist"
+					>
+						{tabsLabels.map((item, index) => (
+							<li
+								className="nav-item"
+								role="presentation"
+								key={`${tabsId}-tab-${index}`}
+							>
+								<RichText
+									tagName="a"
+									className="nav-link"
+									id={`${tabsId}-tab-${index}`}
+									data-toggle="tab"
+									href={`#${tabsId}-pane-${index}`}
+									role="tab"
+									aria-controls={`#${tabsId}-pane-${index}`}
+									aria-selected="false"
+									value={item}
+									allowedFormats={["core/bold", "core/italic"]}
+									onChange={(content) =>
+										setAttributes({
+											tabsLabels: [
+												...tabsLabels.slice(0, index),
+												content,
+												...tabsLabels.slice(index + 1),
+											],
+										})
+									}
+									style={{
+										...(tabsColor
+											? { "--beer-blocks-tabs-nav-link-color": tabsColor }
+											: {}),
+										...(tabsMouseOverColor
+											? {
+													"--beer-blocks-tabs-nav-link-hover-color": tabsMouseOverColor,
+											  }
+											: {}),
+										...(tabsActiveColor
+											? {
+													"--beer-blocks-tabs-nav-link-active-color": tabsActiveColor,
+											  }
+											: {}),
+										...(tabsBackground
+											? {
+													"--beer-blocks-tabs-nav-link-background": tabsBackground,
+											  }
+											: {}),
+										...(tabsMouseOverBackground
+											? {
+													"--beer-blocks-tabs-nav-link-hover-background": tabsMouseOverBackground,
+											  }
+											: {}),
+										...(tabsActiveBackground
+											? {
+													"--beer-blocks-tabs-nav-link-active-background": tabsActiveBackground,
+											  }
+											: {}),
+										...spacing.styles(props.attributes, "tabs"),
+										...typography.styles(props.attributes, "tabs"),
+										...border.styles(props.attributes, "tabs"),
+									}}
+								/>
+							</li>
+						))}
+					</ul>
 
-				<div {...innerBlocksProps} />
-			</div>
+					<div {...innerBlocksProps} />
+				</div>
+			)}
 		</>
 	);
 };

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { __ } from "@wordpress/i18n";
 import {
 	InnerBlocks,
@@ -8,8 +9,19 @@ import {
 
 const edit = (props) => {
 	const {
-		attributes: { id, tabId },
+		setAttributes,
+		attributes: { index, id, tabId },
+		context: { tabsId },
 	} = props;
+
+	useEffect(
+		() =>
+			setAttributes({
+				id: `${tabsId}-pane-${index}`,
+				tabId: `${tabsId}-tab-${index}`,
+			}),
+		[tabsId]
+	);
 
 	const blockProps = useBlockProps();
 
@@ -19,6 +31,7 @@ const edit = (props) => {
 		},
 		{
 			renderAppender: false,
+			templateLock: false,
 		},
 	];
 
@@ -33,10 +46,12 @@ const edit = (props) => {
 			role="tabpanel"
 			aria-labelledby={tabId}
 		>
-			<div {...innerBlocksProps} />
+			<div {...innerBlocksProps}>
+				{innerBlocksProps.children}
 
-			<div className="button-block-appender__container">
-				<InnerBlocks.ButtonBlockAppender />
+				<div className="button-block-appender__container">
+					<InnerBlocks.ButtonBlockAppender />
+				</div>
 			</div>
 		</div>
 	);

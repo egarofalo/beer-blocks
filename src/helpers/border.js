@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { __ } from "@wordpress/i18n";
 import {
 	PanelBody,
@@ -5,8 +6,9 @@ import {
 	RangeControl,
 	SelectControl,
 	ColorPicker,
-	__experimentalHeading as Heading,
 	Button,
+	__experimentalRadio as Radio,
+	__experimentalRadioGroup as RadioGroup,
 } from "@wordpress/components";
 import { camelCase, capitalize } from "lodash";
 
@@ -21,59 +23,14 @@ const BORDER_STYLES = [
 	{ label: __("Outset", "beer-blocks"), value: "outset" },
 ];
 
-const label = (type, side) =>
+const sides = (side) =>
 	({
-		style: {
-			all: __("Border style", "beer-blocks"),
-			top: __("Border top style", "beer-blocks"),
-			right: __("Border right style", "beer-blocks"),
-			bottom: __("Border bottom style", "beer-blocks"),
-			left: __("Border left style", "beer-blocks"),
-		},
-		width: {
-			all: __("Border width", "beer-blocks"),
-			top: __("Border top width", "beer-blocks"),
-			right: __("Border right width", "beer-blocks"),
-			bottom: __("Border bottom width", "beer-blocks"),
-			left: __("Border left width", "beer-blocks"),
-		},
-		color: {
-			all: __("Border color", "beer-blocks"),
-			top: __("Border top color", "beer-blocks"),
-			right: __("Border right color", "beer-blocks"),
-			bottom: __("Border bottom color", "beer-blocks"),
-			left: __("Border left color", "beer-blocks"),
-		},
-	}[type][side === "" ? "all" : side]);
-
-const sectionTitle = (side) =>
-	({
-		all: (
-			<Heading align="center" level="3">
-				{__("ALL BORDERS", "beer-blocks")}
-			</Heading>
-		),
-		top: (
-			<Heading align="center" level="3">
-				{__("BORDER TOP", "beer-blocks")}
-			</Heading>
-		),
-		right: (
-			<Heading align="center" level="3">
-				{__("BORDER RIGHT", "beer-blocks")}
-			</Heading>
-		),
-		bottom: (
-			<Heading align="center" level="3">
-				{__("BORDER BOTTOM", "beer-blocks")}
-			</Heading>
-		),
-		left: (
-			<Heading align="center" level="3">
-				{__("BORDER LEFT", "beer-blocks")}
-			</Heading>
-		),
-	}[side === "" ? "all" : side]);
+		all: __("All", "beer-blocks"),
+		left: __("Left", "beer-blocks"),
+		top: __("Top", "beer-blocks"),
+		right: __("Right", "beer-blocks"),
+		bottom: __("Bottom", "beer-blocks"),
+	}[side]);
 
 export const borderStyleAttribute = () => ({ type: "string", default: "" });
 
@@ -181,29 +138,23 @@ export const attributes = ({ attrPrefixName = "", side = "" } = {}) => ({
 	},
 });
 
-export const innerControls = ({
-	props,
-	attrPrefixName = "",
-	side = "",
-	title = undefined,
-}) => (
+export const innerControls = ({ props, attrPrefixName = "", side = "" }) => (
 	<>
-		{title === undefined ? sectionTitle(side) : title}
 		{borderStyleControl({
 			props,
 			attrName: camelCase(`${attrPrefixName}-border-${side}-style`),
-			label: label("style", side),
 		})}
+
 		{borderWidthControl({
 			props,
 			attrName: camelCase(`${attrPrefixName}-border-${side}-width`),
-			label: label("width", side),
 		})}
+
 		{borderColorControl({
 			props,
 			attrName: camelCase(`${attrPrefixName}-border-${side}-color`),
-			label: label("color", side),
 		})}
+
 		<BaseControl>
 			<Button
 				className="is-destructive"
@@ -226,9 +177,13 @@ export const controls = ({
 	props,
 	initialOpen = false,
 	attrPrefixName = "",
+	title = __("Border", "beer-blocks"),
 }) => {
 	const {
 		[camelCase(`${attrPrefixName}-border-style`)]: borderStyle = undefined,
+		[camelCase(
+			`${attrPrefixName}-border-left-style`
+		)]: borderLeftStyle = undefined,
 		[camelCase(
 			`${attrPrefixName}-border-top-style`
 		)]: borderTopStyle = undefined,
@@ -238,23 +193,101 @@ export const controls = ({
 		[camelCase(
 			`${attrPrefixName}-border-bottom-style`
 		)]: borderBottomStyle = undefined,
-		[camelCase(
-			`${attrPrefixName}-border-left-style`
-		)]: borderLeftStyle = undefined,
 	} = props.attributes;
 
-	return (
-		<PanelBody title={__("Border", "beer-blocks")} initialOpen={initialOpen}>
-			{borderStyle !== undefined && innerControls({ props, attrPrefixName })}
+	const selectedSide = () => {
+		if (borderStyle !== undefined) {
+			return "all";
+		}
+
+		if (borderLeftStyle !== undefined) {
+			return "left";
+		}
+
+		if (borderTopStyle !== undefined) {
+			return "top";
+		}
+
+		if (borderRightStyle !== undefined) {
+			return "right";
+		}
+
+		if (borderBottomStyle !== undefined) {
+			return "bottom";
+		}
+	};
+
+	const [side, setSide] = useState(selectedSide());
+
+	const result = (
+		<>
+			<BaseControl
+				label={sprintf(
+					__("Select border side (%s)", "beer-blocks"),
+					sides(side).toUpperCase()
+				)}
+			>
+				<RadioGroup onChange={setSide} checked={side}>
+					{borderStyle !== undefined && (
+						<Radio value="all">
+							<span class="dashicons dashicons-grid-view"></span>
+						</Radio>
+					)}
+
+					{borderLeftStyle !== undefined && (
+						<Radio value="left">
+							<span class="dashicons dashicons-arrow-left-alt2"></span>
+						</Radio>
+					)}
+
+					{borderTopStyle !== undefined && (
+						<Radio value="top">
+							<span class="dashicons dashicons-arrow-up-alt2"></span>
+						</Radio>
+					)}
+
+					{borderRightStyle !== undefined && (
+						<Radio value="right">
+							<span class="dashicons dashicons-arrow-right-alt2"></span>
+						</Radio>
+					)}
+
+					{borderBottomStyle !== undefined && (
+						<Radio value="bottom">
+							<span class="dashicons dashicons-arrow-down-alt2"></span>
+						</Radio>
+					)}
+				</RadioGroup>
+			</BaseControl>
+
+			{borderStyle !== undefined &&
+				side === "all" &&
+				innerControls({ props, attrPrefixName })}
+
 			{borderTopStyle !== undefined &&
+				side === "top" &&
 				innerControls({ props, attrPrefixName, side: "top" })}
+
 			{borderRightStyle !== undefined &&
+				side === "right" &&
 				innerControls({ props, attrPrefixName, side: "right" })}
+
 			{borderBottomStyle !== undefined &&
+				side === "bottom" &&
 				innerControls({ props, attrPrefixName, side: "bottom" })}
+
 			{borderLeftStyle !== undefined &&
+				side === "left" &&
 				innerControls({ props, attrPrefixName, side: "left" })}
+		</>
+	);
+
+	return title ? (
+		<PanelBody title={title} initialOpen={initialOpen}>
+			{result}
 		</PanelBody>
+	) : (
+		result
 	);
 };
 

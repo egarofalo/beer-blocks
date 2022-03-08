@@ -54,6 +54,9 @@ registerBlockType("beer-blocks/tab-pane", {
 	parent: ["beer-blocks/tabs"],
 	icon: <img src={icon} alt={_x("Tab Pane", "block title", "beer-blocks")} />,
 	attributes: {
+		index: {
+			type: "number",
+		},
 		id: {
 			type: "string",
 		},
@@ -61,6 +64,7 @@ registerBlockType("beer-blocks/tab-pane", {
 			type: "string",
 		},
 	},
+	usesContext: ["tabsId"],
 	edit,
 	save,
 });

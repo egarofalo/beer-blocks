@@ -107,7 +107,7 @@ export const marginControl = ({ props, marginAttr = "margin" }) => {
 			resetValues={defaultValues}
 			units={defaultUnits}
 			values={margin}
-			onChange={(nextValues) => setAttributes({ margin: nextValues })}
+			onChange={(nextValues) => setAttributes({ [marginAttr]: nextValues })}
 			sides={sides}
 		/>
 	);
@@ -124,13 +124,11 @@ export const marginStyles = (margin = {}) => {
 	};
 };
 
-export const attributes = (
-	{
-		padding = ["top", "right", "bottom", "left"],
-		margin = ["top", "right", "bottom", "left"],
-	} = {},
-	attrPrefixName = ""
-) => ({
+export const attributes = ({
+	attrPrefixName = "",
+	padding = ["top", "right", "bottom", "left"],
+	margin = ["top", "right", "bottom", "left"],
+} = {}) => ({
 	...(isArray(padding)
 		? { [camelCase(`${attrPrefixName}-padding`)]: paddingAttribute(padding) }
 		: {}),
@@ -165,9 +163,10 @@ export const controls = ({
 	props,
 	initialOpen = false,
 	attrPrefixName = "",
+	title = __("Spacing", "beer-blocks"),
 }) => {
 	return (
-		<PanelBody title={__("Spacing", "beer-blocks")} initialOpen={initialOpen}>
+		<PanelBody title={title} initialOpen={initialOpen}>
 			{innerControls(props, attrPrefixName)}
 		</PanelBody>
 	);

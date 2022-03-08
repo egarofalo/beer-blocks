@@ -137,7 +137,10 @@ registerBlockType("beer-blocks/instruction", {
 		},
 		padding: spacing.paddingAttribute(),
 		visualizer: spacing.visualizerAttribute(),
-		...typography.attributes("numeration", { fontSize: "18px" }),
+		...typography.attributes({
+			fontSize: "18px",
+			attrPrefixName: "numeration",
+		}),
 	},
 	usesContext: ["instructionsId"],
 	edit,
