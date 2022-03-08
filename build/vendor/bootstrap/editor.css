@@ -1,7 +1,4 @@
 @charset "UTF-8";
-/*
- * Override Bootstrap vars in this file
- */
 :root {
   --blue: #007bff;
   --indigo: #6610f2;

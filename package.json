@@ -27,6 +27,7 @@
 		"bootstrap": "4.6.1",
 		"lodash": "^4.17.21",
 		"popper.js": "^1.16.1",
+		"react-icons": "^4.3.1",
 		"react-select": "^4.3.1",
 		"react-transition-group": "^4.4.1"
 	},

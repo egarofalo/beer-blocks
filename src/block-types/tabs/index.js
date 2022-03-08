@@ -33,6 +33,7 @@ import save from "./save";
 import spacing from "./../../helpers/spacing";
 import typography from "./../../helpers/typography";
 import border from "./../../helpers/border";
+import borderRadius from "./../../helpers/border-radius";
 
 /**
  * Block Icon.
@@ -120,6 +121,17 @@ registerBlockType("beer-blocks/tabs", {
 		...border.attributes({ attrPrefixName: "tabsActive", side: "right" }),
 		...border.attributes({ attrPrefixName: "tabsActive", side: "bottom" }),
 		...border.attributes({ attrPrefixName: "tabsActive", side: "left" }),
+		...borderRadius.attributes({ attrPrefixName: "tabs" }),
+		...borderRadius.attributes({ attrPrefixName: "tabs", corner: "topLeft" }),
+		...borderRadius.attributes({ attrPrefixName: "tabs", corner: "topRight" }),
+		...borderRadius.attributes({
+			attrPrefixName: "tabs",
+			corner: "bottomRight",
+		}),
+		...borderRadius.attributes({
+			attrPrefixName: "tabs",
+			corner: "bottomLeft",
+		}),
 		...spacing.attributes({ attrPrefixName: "tabs" }),
 		...spacing.attributes(),
 		...typography.attributes({ attrPrefixName: "tabs" }),

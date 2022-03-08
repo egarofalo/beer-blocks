@@ -11,6 +11,13 @@ import {
 	__experimentalRadioGroup as RadioGroup,
 } from "@wordpress/components";
 import { camelCase, capitalize } from "lodash";
+import {
+	MdBorderOuter,
+	MdBorderLeft,
+	MdBorderTop,
+	MdBorderRight,
+	MdBorderBottom,
+} from "react-icons/md";
 
 const BORDER_STYLES = [
 	{ label: __("-- SELECT --", "beer-blocks"), value: "" },
@@ -23,14 +30,13 @@ const BORDER_STYLES = [
 	{ label: __("Outset", "beer-blocks"), value: "outset" },
 ];
 
-const sides = (side) =>
-	({
-		all: __("All", "beer-blocks"),
-		left: __("Left", "beer-blocks"),
-		top: __("Top", "beer-blocks"),
-		right: __("Right", "beer-blocks"),
-		bottom: __("Bottom", "beer-blocks"),
-	}[side]);
+const sidesLabels = {
+	all: __("All borders", "beer-blocks"),
+	left: __("Left border", "beer-blocks"),
+	top: __("Top border", "beer-blocks"),
+	right: __("Right border", "beer-blocks"),
+	bottom: __("Bottom border", "beer-blocks"),
+};
 
 export const borderStyleAttribute = () => ({ type: "string", default: "" });
 
@@ -77,19 +83,17 @@ export const borderWidthControl = ({
 	} = props;
 
 	return borderWidth !== undefined ? (
-		<BaseControl>
-			<RangeControl
-				label={label}
-				value={borderWidth ? parseInt(borderWidth.replace(/px$/, "")) : ""}
-				onChange={(value) =>
-					setAttributes({ [attrName]: value ? `${value}px` : "" })
-				}
-				min={1}
-				step={1}
-				allowReset
-				resetFallbackValue={""}
-			/>
-		</BaseControl>
+		<RangeControl
+			label={label}
+			value={borderWidth ? parseInt(borderWidth.replace(/px$/, "")) : ""}
+			onChange={(value) =>
+				setAttributes({ [attrName]: value ? `${value}px` : "" })
+			}
+			min={1}
+			step={1}
+			allowReset
+			resetFallbackValue={""}
+		/>
 	) : null;
 };
 
@@ -124,18 +128,9 @@ export const borderColorStyles = (borderColor, side = "") =>
 	borderColor ? { [`border${capitalize(side)}Color`]: borderColor } : {};
 
 export const attributes = ({ attrPrefixName = "", side = "" } = {}) => ({
-	[camelCase(`${attrPrefixName}-border-${side}-style`)]: {
-		type: "string",
-		default: "",
-	},
-	[camelCase(`${attrPrefixName}-border-${side}-width`)]: {
-		type: "string",
-		default: "",
-	},
-	[camelCase(`${attrPrefixName}-border-${side}-color`)]: {
-		type: "string",
-		default: "",
-	},
+	[camelCase(`${attrPrefixName}-border-${side}-style`)]: borderStyleAttribute(),
+	[camelCase(`${attrPrefixName}-border-${side}-width`)]: borderWidthAttribute(),
+	[camelCase(`${attrPrefixName}-border-${side}-color`)]: borderColorAttribute(),
 });
 
 export const innerControls = ({ props, attrPrefixName = "", side = "" }) => (
@@ -155,21 +150,19 @@ export const innerControls = ({ props, attrPrefixName = "", side = "" }) => (
 			attrName: camelCase(`${attrPrefixName}-border-${side}-color`),
 		})}
 
-		<BaseControl>
-			<Button
-				className="is-destructive"
-				style={{ display: "block", textAlign: "center", width: "100%" }}
-				onClick={() =>
-					props.setAttributes({
-						[camelCase(`${attrPrefixName}-border-${side}-style`)]: "",
-						[camelCase(`${attrPrefixName}-border-${side}-width`)]: "",
-						[camelCase(`${attrPrefixName}-border-${side}-color`)]: "",
-					})
-				}
-			>
-				{__("Clear fields", "beer-blocks")}
-			</Button>
-		</BaseControl>
+		<Button
+			className="is-destructive"
+			style={{ display: "block", textAlign: "center", width: "100%" }}
+			onClick={() =>
+				props.setAttributes({
+					[camelCase(`${attrPrefixName}-border-${side}-style`)]: "",
+					[camelCase(`${attrPrefixName}-border-${side}-width`)]: "",
+					[camelCase(`${attrPrefixName}-border-${side}-color`)]: "",
+				})
+			}
+		>
+			{__("Clear fields", "beer-blocks")}
+		</Button>
 	</>
 );
 
@@ -224,61 +217,45 @@ export const controls = ({
 			<BaseControl
 				label={sprintf(
 					__("Select border side (%s)", "beer-blocks"),
-					sides(side).toUpperCase()
+					sidesLabels[side]
 				)}
 			>
 				<RadioGroup onChange={setSide} checked={side}>
 					{borderStyle !== undefined && (
 						<Radio value="all">
-							<span class="dashicons dashicons-grid-view"></span>
+							<MdBorderOuter style={{ fontSize: "1.2rem" }} />
 						</Radio>
 					)}
 
 					{borderLeftStyle !== undefined && (
 						<Radio value="left">
-							<span class="dashicons dashicons-arrow-left-alt2"></span>
+							<MdBorderLeft style={{ fontSize: "1.2rem" }} />
 						</Radio>
 					)}
 
 					{borderTopStyle !== undefined && (
 						<Radio value="top">
-							<span class="dashicons dashicons-arrow-up-alt2"></span>
+							<MdBorderTop style={{ fontSize: "1.2rem" }} />
 						</Radio>
 					)}
 
 					{borderRightStyle !== undefined && (
 						<Radio value="right">
-							<span class="dashicons dashicons-arrow-right-alt2"></span>
+							<MdBorderRight style={{ fontSize: "1.2rem" }} />
 						</Radio>
 					)}
 
 					{borderBottomStyle !== undefined && (
 						<Radio value="bottom">
-							<span class="dashicons dashicons-arrow-down-alt2"></span>
+							<MdBorderBottom style={{ fontSize: "1.2rem" }} />
 						</Radio>
 					)}
 				</RadioGroup>
 			</BaseControl>
 
-			{borderStyle !== undefined &&
-				side === "all" &&
-				innerControls({ props, attrPrefixName })}
-
-			{borderTopStyle !== undefined &&
-				side === "top" &&
-				innerControls({ props, attrPrefixName, side: "top" })}
-
-			{borderRightStyle !== undefined &&
-				side === "right" &&
-				innerControls({ props, attrPrefixName, side: "right" })}
-
-			{borderBottomStyle !== undefined &&
-				side === "bottom" &&
-				innerControls({ props, attrPrefixName, side: "bottom" })}
-
-			{borderLeftStyle !== undefined &&
-				side === "left" &&
-				innerControls({ props, attrPrefixName, side: "left" })}
+			{side === "all"
+				? innerControls({ props, attrPrefixName })
+				: innerControls({ props, attrPrefixName, side })}
 		</>
 	);
 

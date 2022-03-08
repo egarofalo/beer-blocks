@@ -94,7 +94,7 @@ const edit = (props) => {
 					{border.controls({
 						props,
 						attrPrefixName: "heading",
-						title: undefined,
+						title: false,
 					})}
 
 					<CardDivider />
