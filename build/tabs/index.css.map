@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack:///./src/block-types/tabs/editor.scss"],"names":[],"mappings":"AACC;EACC;AAAF,C","file":"tabs/index.css","sourcesContent":[".wp-block-beer-blocks-tabs {\n\t&.is-selected {\n\t\tborder: 1px dotted #035cff;\n\t}\n}\n"],"sourceRoot":""}

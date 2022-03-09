@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack:///./src/block-types/alert/editor.scss"],"names":[],"mappings":"AAAA;EACC;AACD,C","file":"alert/index.css","sourcesContent":[".wp-block-beer-blocks-alert.is-selected {\n\tborder: 1px dotted #035cff !important;\n}\n"],"sourceRoot":""}

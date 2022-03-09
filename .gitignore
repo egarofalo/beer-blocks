@@ -9,7 +9,7 @@ yarn-error.log*
 coverage
 
 # Compiled binary addons (https://nodejs.org/api/addons.html)
-build/Release
+build/
 
 # Dependency directories
 node_modules/
@@ -30,8 +30,8 @@ node_modules/
 #build
 
 # lock files
-yarn.lock
-package-lock.json
+# yarn.lock
+# package-lock.json
 
 # WordPress CLI
 wp-cli.phar
