@@ -1,11 +1,15 @@
 import { useEffect } from "react";
 import { __ } from "@wordpress/i18n";
 import {
+	InspectorControls,
 	InnerBlocks,
 	useBlockProps,
 	useInnerBlocksProps,
 	__experimentalUseInnerBlocksProps as __useInnerBlocksProps,
 } from "@wordpress/block-editor";
+import border from "./../../helpers/border";
+import borderRadius from "./../../helpers/border-radius";
+import spacing from "./../../helpers/spacing";
 
 const edit = (props) => {
 	const {
@@ -23,7 +27,13 @@ const edit = (props) => {
 		[tabsId]
 	);
 
-	const blockProps = useBlockProps();
+	const blockProps = useBlockProps({
+		style: {
+			...border.styles(props.attributes),
+			...borderRadius.styles(props.attributes),
+			...spacing.styles(props.attributes),
+		},
+	});
 
 	const innerBlocksPropsConfig = [
 		{
@@ -40,20 +50,28 @@ const edit = (props) => {
 		: __useInnerBlocksProps(...innerBlocksPropsConfig);
 
 	return (
-		<div
-			id={id}
-			className="tab-pane fade"
-			role="tabpanel"
-			aria-labelledby={tabId}
-		>
-			<div {...innerBlocksProps}>
-				{innerBlocksProps.children}
+		<>
+			<InspectorControls>
+				{border.controls({ props })}
+				{borderRadius.controls({ props })}
+				{spacing.controls({ props })}
+			</InspectorControls>
 
-				<div className="button-block-appender__container">
-					<InnerBlocks.ButtonBlockAppender />
+			<div
+				id={id}
+				className="tab-pane fade"
+				role="tabpanel"
+				aria-labelledby={tabId}
+			>
+				<div {...innerBlocksProps}>
+					{innerBlocksProps.children}
+
+					<div className="button-block-appender__container">
+						<InnerBlocks.ButtonBlockAppender />
+					</div>
 				</div>
 			</div>
-		</div>
+		</>
 	);
 };
 

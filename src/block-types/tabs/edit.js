@@ -46,6 +46,9 @@ const edit = (props) => {
 			tabsBackground,
 			tabsMouseOverBackground,
 			tabsActiveBackground,
+			tabsBorderColor,
+			tabsMouseOverBorderColor,
+			tabsActiveBorderColor,
 		},
 	} = props;
 
@@ -65,7 +68,7 @@ const edit = (props) => {
 			setAttributes({
 				labels:
 					tabsLabels.length > tabsAmount
-						? tabsLabels.slice(-1)
+						? tabsLabels.slice(0, -1)
 						: tabsLabels.length < tabsAmount
 						? [
 								...tabsLabels,
@@ -178,6 +181,16 @@ const edit = (props) => {
 									onChange={(color) => setAttributes({ tabsBackground: color })}
 								/>
 							</BaseControl>
+
+							<BaseControl label={__("Border color", "beer-blocks")}>
+								<ColorPalette
+									colors={variants}
+									value={tabsBorderColor}
+									onChange={(color) =>
+										setAttributes({ tabsBorderColor: color })
+									}
+								/>
+							</BaseControl>
 						</>
 					)}
 
@@ -202,6 +215,16 @@ const edit = (props) => {
 									}
 								/>
 							</BaseControl>
+
+							<BaseControl label={__("Border color", "beer-blocks")}>
+								<ColorPalette
+									colors={variants}
+									value={tabsMouseOverBorderColor}
+									onChange={(color) =>
+										setAttributes({ tabsMouseOverBorderColor: color })
+									}
+								/>
+							</BaseControl>
 						</>
 					)}
 
@@ -223,6 +246,16 @@ const edit = (props) => {
 									value={tabsActiveBackground}
 									onChange={(color) =>
 										setAttributes({ tabsActiveBackground: color })
+									}
+								/>
+							</BaseControl>
+
+							<BaseControl label={__("Border color", "beer-blocks")}>
+								<ColorPalette
+									colors={variants}
+									value={tabsActiveBorderColor}
+									onChange={(color) =>
+										setAttributes({ tabsActiveBorderColor: color })
 									}
 								/>
 							</BaseControl>
@@ -322,6 +355,21 @@ const edit = (props) => {
 										...(tabsActiveBackground
 											? {
 													"--beer-blocks-tabs-nav-link-active-background": tabsActiveBackground,
+											  }
+											: {}),
+										...(tabsBorderColor
+											? {
+													"--beer-blocks-tabs-nav-link-border-color": tabsBorderColor,
+											  }
+											: {}),
+										...(tabsMouseOverBorderColor
+											? {
+													"--beer-blocks-tabs-nav-link-hover-border-color": tabsMouseOverBorderColor,
+											  }
+											: {}),
+										...(tabsActiveBorderColor
+											? {
+													"--beer-blocks-tabs-nav-link-active-border-color": tabsActiveBorderColor,
 											  }
 											: {}),
 										...spacing.styles(props.attributes, "tabs"),

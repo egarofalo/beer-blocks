@@ -1,10 +1,13 @@
 :root {
 	--beer-blocks-tabs-nav-link-color: #007bff;
 	--beer-blocks-tabs-nav-link-background: transparent;
+	--beer-blocks-tabs-nav-link-border-color: transparent;
 	--beer-blocks-tabs-nav-link-active-color: #fff;
 	--beer-blocks-tabs-nav-link-active-background: #007bff;
+	--beer-blocks-tabs-nav-link-active-border-color: transparent;
 	--beer-blocks-tabs-nav-link-hover-color: #0056b3;
 	--beer-blocks-tabs-nav-link-hover-background: transparent;
+	--beer-blocks-tabs-nav-link-hover-border-color: transparent;
 }
 
 .wp-block-beer-blocks-tabs {
@@ -13,15 +16,19 @@
 			& > .nav-link {
 				color: var(--beer-blocks-tabs-nav-link-color);
 				background-color: var(--beer-blocks-tabs-nav-link-background);
+				border-color: var(--beer-blocks-tabs-nav-link-border-color);
+				transition: color ease-in-out 0.5s, background-color ease-in-out 0.5s;
 
 				&:hover {
 					color: var(--beer-blocks-tabs-nav-link-hover-color);
 					background-color: var(--beer-blocks-tabs-nav-link-hover-background);
+					border-color: var(--beer-blocks-tabs-nav-link-hover-border-color);
 				}
 
 				&.active {
 					color: var(--beer-blocks-tabs-nav-link-active-color);
 					background-color: var(--beer-blocks-tabs-nav-link-active-background);
+					border-color: var(--beer-blocks-tabs-nav-link-active-border-color);
 				}
 			}
 		}

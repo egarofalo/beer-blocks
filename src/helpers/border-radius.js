@@ -129,7 +129,11 @@ export const controls = ({
 					cornersLabels[corner]
 				)}
 			>
-				<RadioGroup onChange={setCorner} checked={corner}>
+				<RadioGroup
+					onChange={setCorner}
+					checked={corner}
+					style={{ display: "block", marginTop: "8px" }}
+				>
 					{borderRadius !== undefined && (
 						<Radio value="all">
 							<MdZoomOutMap />

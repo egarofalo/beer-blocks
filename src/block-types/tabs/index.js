@@ -55,13 +55,6 @@ registerBlockType("beer-blocks/tabs", {
 		"beer-blocks"
 	),
 	textdomain: "beer-blocks",
-	supports: {
-		color: {
-			background: true,
-			gradients: true,
-			text: false,
-		},
-	},
 	icon: <img src={icon} alt={_x("Tabs", "block title", "beer-blocks")} />,
 	attributes: {
 		id: {
@@ -106,6 +99,15 @@ registerBlockType("beer-blocks/tabs", {
 			type: "string",
 		},
 		tabsActiveBackground: {
+			type: "string",
+		},
+		tabsBorderColor: {
+			type: "string",
+		},
+		tabsMouseOverBorderColor: {
+			type: "string",
+		},
+		tabsActiveBorderColor: {
 			type: "string",
 		},
 		...border.attributes({ attrPrefixName: "tabs" }),

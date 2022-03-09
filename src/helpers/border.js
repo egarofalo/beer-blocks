@@ -220,7 +220,11 @@ export const controls = ({
 					sidesLabels[side]
 				)}
 			>
-				<RadioGroup onChange={setSide} checked={side}>
+				<RadioGroup
+					onChange={setSide}
+					checked={side}
+					style={{ display: "block", marginTop: "8px" }}
+				>
 					{borderStyle !== undefined && (
 						<Radio value="all">
 							<MdBorderOuter style={{ fontSize: "1.2rem" }} />

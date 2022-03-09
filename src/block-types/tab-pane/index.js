@@ -30,11 +30,14 @@ import "./editor.scss";
  */
 import edit from "./edit";
 import save from "./save";
+import border from "./../../helpers/border";
+import spacing from "./../../helpers/spacing";
 
 /**
  * Block Icon.
  */
 import icon from "../../icons/jumbotron.svg";
+import borderRadius from "../../helpers/border-radius";
 
 /**
  * Every block starts by registering a new block type definition.
@@ -51,6 +54,13 @@ registerBlockType("beer-blocks/tab-pane", {
 		"beer-blocks"
 	),
 	textdomain: "beer-blocks",
+	supports: {
+		color: {
+			background: true,
+			gradients: true,
+			text: false,
+		},
+	},
 	parent: ["beer-blocks/tabs"],
 	icon: <img src={icon} alt={_x("Tab Pane", "block title", "beer-blocks")} />,
 	attributes: {
@@ -63,6 +73,17 @@ registerBlockType("beer-blocks/tab-pane", {
 		tabId: {
 			type: "string",
 		},
+		...border.attributes(),
+		...border.attributes({ side: "top" }),
+		...border.attributes({ side: "right" }),
+		...border.attributes({ side: "bottom" }),
+		...border.attributes({ side: "left" }),
+		...borderRadius.attributes(),
+		...borderRadius.attributes({ corner: "topLeft" }),
+		...borderRadius.attributes({ corner: "topRight" }),
+		...borderRadius.attributes({ corner: "bottomRight" }),
+		...borderRadius.attributes({ corner: "bottomLeft" }),
+		...spacing.attributes(),
 	},
 	usesContext: ["tabsId"],
 	edit,
