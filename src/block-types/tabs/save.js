@@ -11,7 +11,6 @@ const save = (props) => {
 		attributes: {
 			id: tabsId,
 			tabsContentId,
-			tabsAmount,
 			labels: tabsLabels,
 			horizontalAlignment,
 			fillFreeSpace,
@@ -21,6 +20,8 @@ const save = (props) => {
 			tabsBackground,
 			tabsMouseOverBackground,
 			tabsActiveBackground,
+			tabsMouseOverBorderColor,
+			tabsActiveBorderColor,
 		},
 	} = props;
 
@@ -86,6 +87,16 @@ const save = (props) => {
 											"--beer-blocks-tabs-nav-link-active-background": tabsActiveBackground,
 									  }
 									: {}),
+								...(tabsMouseOverBorderColor
+									? {
+											"--beer-blocks-tabs-nav-link-hover-border-color": tabsMouseOverBorderColor,
+									  }
+									: {}),
+								...(tabsActiveBorderColor
+									? {
+											"--beer-blocks-tabs-nav-link-active-border-color": tabsActiveBorderColor,
+									  }
+									: {}),
 								...spacing.styles(props.attributes, "tabs"),
 								...typography.styles(props.attributes, "tabs"),
 								...border.styles(props.attributes, "tabs"),
@@ -96,7 +107,9 @@ const save = (props) => {
 				))}
 			</ul>
 
-			<InnerBlocks.Content />
+			<div className="tab-content" id={tabsContentId}>
+				<InnerBlocks.Content />
+			</div>
 		</div>
 	);
 };

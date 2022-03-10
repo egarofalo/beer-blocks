@@ -101,9 +101,6 @@ registerBlockType("beer-blocks/tabs", {
 		tabsActiveBackground: {
 			type: "string",
 		},
-		tabsBorderColor: {
-			type: "string",
-		},
 		tabsMouseOverBorderColor: {
 			type: "string",
 		},
@@ -115,14 +112,6 @@ registerBlockType("beer-blocks/tabs", {
 		...border.attributes({ attrPrefixName: "tabs", side: "right" }),
 		...border.attributes({ attrPrefixName: "tabs", side: "bottom" }),
 		...border.attributes({ attrPrefixName: "tabs", side: "left" }),
-		...border.attributes({ attrPrefixName: "tabsMouseOver", side: "top" }),
-		...border.attributes({ attrPrefixName: "tabsMouseOver", side: "right" }),
-		...border.attributes({ attrPrefixName: "tabsMouseOver", side: "bottom" }),
-		...border.attributes({ attrPrefixName: "tabsMouseOver", side: "left" }),
-		...border.attributes({ attrPrefixName: "tabsActive", side: "top" }),
-		...border.attributes({ attrPrefixName: "tabsActive", side: "right" }),
-		...border.attributes({ attrPrefixName: "tabsActive", side: "bottom" }),
-		...border.attributes({ attrPrefixName: "tabsActive", side: "left" }),
 		...borderRadius.attributes({ attrPrefixName: "tabs" }),
 		...borderRadius.attributes({ attrPrefixName: "tabs", corner: "topLeft" }),
 		...borderRadius.attributes({ attrPrefixName: "tabs", corner: "topRight" }),

@@ -18,6 +18,7 @@ import {
 	MdBorderRight,
 	MdBorderBottom,
 } from "react-icons/md";
+import { isEmpty as loIsEmpty } from "lodash";
 
 const BORDER_STYLES = [
 	{ label: __("-- SELECT --", "beer-blocks"), value: "" },
@@ -65,7 +66,9 @@ export const borderStyleControl = ({
 };
 
 export const borderStyleStyles = (borderStyle, side = "") =>
-	borderStyle ? { [`border${capitalize(side)}Style`]: borderStyle } : {};
+	!loIsEmpty(borderStyle)
+		? { [`border${capitalize(side)}Style`]: borderStyle }
+		: {};
 
 export const borderWidthAttribute = () => ({
 	type: "string",
@@ -98,7 +101,9 @@ export const borderWidthControl = ({
 };
 
 export const borderWidthStyles = (borderWidth, side = "") =>
-	borderWidth ? { [`border${capitalize(side)}Width`]: borderWidth } : {};
+	!loIsEmpty(borderWidth)
+		? { [`border${capitalize(side)}Width`]: borderWidth }
+		: {};
 
 export const borderColorAttribute = () => ({ type: "string", default: "" });
 
@@ -125,7 +130,9 @@ export const borderColorControl = ({
 };
 
 export const borderColorStyles = (borderColor, side = "") =>
-	borderColor ? { [`border${capitalize(side)}Color`]: borderColor } : {};
+	!loIsEmpty(borderColor)
+		? { [`border${capitalize(side)}Color`]: borderColor }
+		: {};
 
 export const attributes = ({ attrPrefixName = "", side = "" } = {}) => ({
 	[camelCase(`${attrPrefixName}-border-${side}-style`)]: borderStyleAttribute(),

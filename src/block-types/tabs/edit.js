@@ -23,11 +23,26 @@ import border from "./../../helpers/border";
 import borderRadius from "./../../helpers/border-radius";
 import { variantsColorPallet as variants } from "./../../helpers/bootstrap-variants";
 
-const tabStates = {
+const tabStatuses = {
 	normal: __("Normal", "beer-blocks"),
 	mouseover: __("Mouse over", "beer-blocks"),
 	active: __("Active", "beer-blocks"),
 };
+
+const getRadioGroupTabsStatus = (tabStatus, setTabStatus) => (
+	<BaseControl
+		label={sprintf(
+			__("Select tab status (%s)", "beer-blocks"),
+			tabStatuses[tabStatus]
+		)}
+	>
+		<RadioGroup onChange={setTabStatus} checked={tabStatus}>
+			<Radio value="normal">{tabStatuses.normal}</Radio>
+			<Radio value="mouseover">{tabStatuses.mouseover}</Radio>
+			<Radio value="active">{tabStatuses.active}</Radio>
+		</RadioGroup>
+	</BaseControl>
+);
 
 const edit = (props) => {
 	const {
@@ -52,7 +67,7 @@ const edit = (props) => {
 		},
 	} = props;
 
-	const [tabState, setTabState] = useState("normal");
+	const [tabStatus, setTabStatus] = useState("normal");
 
 	useEffect(
 		() =>
@@ -151,20 +166,9 @@ const edit = (props) => {
 				</PanelBody>
 
 				<PanelBody title={__("Tabs color", "beer-blocks")}>
-					<BaseControl
-						label={sprintf(
-							__("Select tab status (%s)", "beer-blocks"),
-							tabStates[tabState]
-						)}
-					>
-						<RadioGroup onChange={setTabState} checked={tabState}>
-							<Radio value="normal">{tabStates.normal}</Radio>
-							<Radio value="mouseover">{tabStates.mouseover}</Radio>
-							<Radio value="active">{tabStates.active}</Radio>
-						</RadioGroup>
-					</BaseControl>
+					{getRadioGroupTabsStatus(tabStatus, setTabStatus)}
 
-					{tabState === "normal" && (
+					{tabStatus === "normal" && (
 						<>
 							<BaseControl label={__("Font color", "beer-blocks")}>
 								<ColorPalette
@@ -194,7 +198,7 @@ const edit = (props) => {
 						</>
 					)}
 
-					{tabState === "mouseover" && (
+					{tabStatus === "mouseover" && (
 						<>
 							<BaseControl label={__("Font color", "beer-blocks")}>
 								<ColorPalette
@@ -228,7 +232,7 @@ const edit = (props) => {
 						</>
 					)}
 
-					{tabState === "active" && (
+					{tabStatus === "active" && (
 						<>
 							<BaseControl label={__("Font color", "beer-blocks")}>
 								<ColorPalette
@@ -355,11 +359,6 @@ const edit = (props) => {
 										...(tabsActiveBackground
 											? {
 													"--beer-blocks-tabs-nav-link-active-background": tabsActiveBackground,
-											  }
-											: {}),
-										...(tabsBorderColor
-											? {
-													"--beer-blocks-tabs-nav-link-border-color": tabsBorderColor,
 											  }
 											: {}),
 										...(tabsMouseOverBorderColor
