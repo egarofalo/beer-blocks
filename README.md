@@ -1,13 +1,19 @@
 <p align="center">
     <a href="https://github.com/egarofalo/beer-blocks.git">
-        <img alt="Markup" src="assets/images/icon-256x256.png" height="256" width="256">
+        <img alt="Beer Blocks" src="assets/icon-256x256.png" height="256" width="256">
     </a>
 </p>
 
 <p align="center">
-![GitHub](https://img.shields.io/github/license/egarofalo/beer-blocks)
-![WordPress Plugin Version](https://img.shields.io/wordpress/plugin/v/beer-blocks)
-![WordPress Plugin: Required WP Version](https://img.shields.io/wordpress/plugin/wp-version/beer-blocks)
+	<a href="LICENSE.txt">
+		<img alt="License" src="https://img.shields.io/github/license/egarofalo/beer-blocks">
+	</a>
+	<a href="https://wordpress.org/plugins/beer-blocks/">
+        <img alt="WordPress Plugin Version" src="https://img.shields.io/wordpress/plugin/v/beer-blocks">
+    </a>
+	<a href="https://wordpress.org/plugins/beer-blocks/">
+        <img alt="WordPress Plugin: Required WP Version" src="https://img.shields.io/wordpress/plugin/wp-version/beer-blocks">
+    </a>
 </p>
 
 ## Project
