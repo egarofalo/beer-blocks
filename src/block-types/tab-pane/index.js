@@ -36,7 +36,7 @@ import spacing from "./../../helpers/spacing";
 /**
  * Block Icon.
  */
-import icon from "../../icons/jumbotron.svg";
+import icon from "../../icons/tab-pane.svg";
 import borderRadius from "../../helpers/border-radius";
 
 /**
@@ -49,7 +49,7 @@ registerBlockType("beer-blocks/tab-pane", {
 	title: _x("Tab Pane", "block title", "beer-blocks"),
 	category: "beer-blocks",
 	description: _x(
-		"Create a Tab pane component.",
+		"Create a tab panel wich is used by Tabs block.",
 		"block description",
 		"beer-blocks"
 	),

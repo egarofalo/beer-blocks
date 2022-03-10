@@ -105,6 +105,17 @@ Yes, of course! You can choose any of the font families available in Google Font
 - Code improvements in `beer-blocks/instructions` block type
 - Remove extra padding in `beer-blocks/header` when set background color
 - Remove extra padding in `beer-blocks/paragraph` when set background color
+= 1.3.0 =
+- Add `beer-blocks/tabs` and `beer-blocks/tab-pane` blocks
+- Add new features in **Borders** panel settings section
+- Add **Load Bootstrap scripts in Editor** settings field
+- Update settings fields labels and descriptions
+- Update translations in `es_ES` language
+- Update README.md
+- Change `beer-blocks/jumbotron` block type icon
+- Code improvements in `border.js` helper
+- Remove unused styles
+- Remove `build` directory from git workflow
 
 == Upgrade Notice ==
 

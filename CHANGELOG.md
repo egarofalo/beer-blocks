@@ -1,3 +1,16 @@
+## [1.3.0] - 2022-03-10
+
+- Add `beer-blocks/tabs` and `beer-blocks/tab-pane` blocks
+- Add new features in **Borders** panel settings section
+- Add **Load Bootstrap scripts in Editor** settings field
+- Update settings fields labels and descriptions
+- Update translations in `es_ES` language
+- Update README.md
+- Change `beer-blocks/jumbotron` block type icon
+- Code improvements in `border.js` helper
+- Remove unused styles
+- Remove `build` directory from git workflow
+
 ## [1.2.5] - 2022-03-01
 
 - Code improvements in `beer-blocks/accordion` block type

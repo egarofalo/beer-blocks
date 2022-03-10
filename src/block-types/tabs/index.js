@@ -38,7 +38,7 @@ import borderRadius from "./../../helpers/border-radius";
 /**
  * Block Icon.
  */
-import icon from "../../icons/jumbotron.svg";
+import icon from "../../icons/tabs.svg";
 
 /**
  * Every block starts by registering a new block type definition.
@@ -50,7 +50,7 @@ registerBlockType("beer-blocks/tabs", {
 	title: _x("Tabs", "block title", "beer-blocks"),
 	category: "beer-blocks",
 	description: _x(
-		"Create a Tabs component.",
+		"Create tabbable panes with custom content.",
 		"block description",
 		"beer-blocks"
 	),
