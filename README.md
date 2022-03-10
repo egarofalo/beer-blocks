@@ -1,3 +1,15 @@
+<p align="center">
+    <a href="https://github.com/egarofalo/beer-blocks.git">
+        <img alt="Markup" src="assets/images/icon-256x256.png" height="256" width="256">
+    </a>
+</p>
+
+<p align="center">
+![GitHub](https://img.shields.io/github/license/egarofalo/beer-blocks)
+![WordPress Plugin Version](https://img.shields.io/wordpress/plugin/v/beer-blocks)
+![WordPress Plugin: Required WP Version](https://img.shields.io/wordpress/plugin/wp-version/beer-blocks)
+</p>
+
 ## Project
 
 Beer Blocks is a WordPress plugin wich extends the Block Editor functionality.
