@@ -1,8 +1,16 @@
 @import "~@fonticonpicker/react-fonticonpicker/dist/fonticonpicker.base-theme.react.css";
 @import "~@fonticonpicker/react-fonticonpicker/dist/fonticonpicker.material-theme.react.css";
+@import "./../../variables.scss";
 
-.wp-block-beer-blocks-fa-icon.is-selected {
-	border: 1px dotted #035cff;
+.wp-block-beer-blocks-fa-icon {
+	.editor-styles-wrapper &.wp-block {
+		margin-top: $default-blocks-vertical-margin;
+		margin-bottom: $default-blocks-vertical-margin;
+	}
+
+	&.is-selected {
+		border: 1px dotted #035cff;
+	}
 }
 
 .rfip {

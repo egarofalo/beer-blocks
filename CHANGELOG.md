@@ -1,3 +1,21 @@
+## [1.3.1] - 2022-MM-DD
+
+- Add default margin-top and margin-bottom (`15px`) to the following blocks for the editor view only:
+  - `beer-blocks/row`
+- Add default margin-top and margin-bottom (`0px`) to the following blocks for the frontend only:
+  - `beer-blocks/row`
+- Add default margin-top and margin-bottom (`15px`) to the following blocks for the editor view and the frontend:
+  - `beer-blocks/tabs`
+  - `beer-blocks/fa-icon`
+  - `beer-blocks/separator`
+  - `beer-blocks/grid`
+  - `beer-blocks/container`
+- Add default margin-top and margin-bottom (`0px`) to the following blocks for the editor view and the frontend:
+  - `beer-blocks/tab-pane`
+  - `beer-blocks/column`
+- Add spacing settings in `beer-blocks/fa-icon` block
+- Remove margin styles in the global `editor.css` stylesheet, which was removing the default extra margins of wordpress blocks
+
 ## [1.3.0] - 2022-03-10
 
 - Add `beer-blocks/tabs` and `beer-blocks/tab-pane` blocks

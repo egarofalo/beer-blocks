@@ -24,6 +24,7 @@ import {
 	BLOCK_LEVEL_ELEMENT,
 	INLINE_ELEMENT,
 } from "./../../helpers/fa-icons";
+import spacing from "./../../helpers/spacing";
 
 const edit = (props) => {
 	const {
@@ -64,26 +65,34 @@ const edit = (props) => {
 		...(htmlElementType === BLOCK_LEVEL_ELEMENT
 			? {
 					className: `has-text-align-${textAlign}`,
+					style: spacing.styles(props.attributes),
 			  }
 			: {}),
 		...(htmlElementType === INLINE_ELEMENT
 			? {
 					className: useAnImage ? "img-fluid" : icon,
-					style,
+					style: {
+						...style,
+						...spacing.styles(props.attributes),
+					},
 			  }
 			: {}),
 	});
 
 	const imgElem =
 		htmlElementType === BLOCK_LEVEL_ELEMENT ? (
-			<img className="img-fluid" style={style} alt={imgAlt} src={imgUrl} />
+			<div {...blockProps}>
+				<img className="img-fluid" style={style} alt={imgAlt} src={imgUrl} />
+			</div>
 		) : (
 			<img alt={imgAlt} src={imgUrl} {...blockProps} />
 		);
 
 	const iconElem =
 		htmlElementType === BLOCK_LEVEL_ELEMENT ? (
-			<i className={icon} style={style}></i>
+			<div {...blockProps}>
+				<i className={icon} style={style}></i>
+			</div>
 		) : (
 			<i {...blockProps}></i>
 		);
@@ -322,6 +331,8 @@ const edit = (props) => {
 
 					{!useAnImage ? iconControls : imageControls}
 				</PanelBody>
+
+				{spacing.controls({ props })}
 			</InspectorControls>
 
 			{htmlElementType === BLOCK_LEVEL_ELEMENT && (
@@ -333,13 +344,7 @@ const edit = (props) => {
 				</BlockControls>
 			)}
 
-			{htmlElementType === BLOCK_LEVEL_ELEMENT ? (
-				<div {...blockProps}>{!useAnImage ? iconElem : imgElem}</div>
-			) : !useAnImage ? (
-				iconElem
-			) : (
-				imgElem
-			)}
+			{!useAnImage ? iconElem : imgElem}
 		</>
 	);
 };

@@ -1,13 +1,20 @@
-.wp-block-beer-blocks-bootstrap-grid {
+@import "./../../variables.scss";
+
+.wp-block-beer-blocks-grid {
+	.editor-styles-wrapper &.wp-block {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+
 	&.is-selected {
 		border: 1px dotted #035cff !important;
 
-		& > .wp-block-beer-blocks-bootstrap-container {
+		& > .wp-block-beer-blocks-container {
 			& > .button-block-appender__container {
 				display: block;
 			}
 
-			& > .wp-block-beer-blocks-bootstrap-row {
+			& > .wp-block-beer-blocks-row {
 				& > .button-block-appender__container {
 					display: block;
 				}

@@ -1,3 +1,5 @@
+@import "./../../variables.scss";
+
 :root {
 	--wp-block-beer-blocks-separator-triangle-translate: 0px;
 	--wp-block-beer-blocks-separator-triangle-color: #000;
@@ -5,6 +7,9 @@
 }
 
 .wp-block-beer-blocks-separator {
+	margin-top: $default-blocks-vertical-margin;
+	margin-bottom: $default-blocks-vertical-margin;
+
 	.wp-beer-blocks-separator-triangle {
 		box-sizing: border-box;
 		border: var(--wp-block-beer-blocks-separator-triangle-border-width) solid

@@ -1,7 +1,9 @@
-.wp-block-beer-blocks-advanced-header.is-selected {
-	border: 1px dotted #035cff;
-}
+.wp-block-beer-blocks-advanced-header {
+	&.is-selected {
+		border: 1px dotted #035cff;
+	}
 
-.wp-block-beer-blocks-advanced-header.has-child-selected {
-	border: 1px dotted #ff9f50;
+	&.has-child-selected {
+		border: 1px dotted #ff9f50;
+	}
 }

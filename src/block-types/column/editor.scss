@@ -1,7 +1,9 @@
 .wp-block-beer-blocks-column {
-	&.wp-block {
+	.editor-styles-wrapper &.wp-block {
 		margin-left: 0;
 		margin-right: 0;
+		margin-top: 0;
+		margin-bottom: 0;
 	}
 
 	&.is-selected {

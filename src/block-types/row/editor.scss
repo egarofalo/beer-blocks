@@ -1,4 +1,11 @@
+@import "./../../variables.scss";
+
 .wp-block-beer-blocks-row {
+	.editor-styles-wrapper &.wp-block {
+		margin-top: $default-blocks-vertical-margin;
+		margin-bottom: $default-blocks-vertical-margin;
+	}
+
 	&.is-selected {
 		border: 1px dotted #035cff;
 
@@ -26,6 +33,7 @@
 			background: black;
 			color: white;
 			opacity: 0.4;
+			margin-top: 5px;
 
 			&:hover {
 				opacity: 1;

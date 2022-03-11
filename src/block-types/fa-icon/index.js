@@ -18,7 +18,7 @@ import { registerBlockType } from "@wordpress/blocks";
  *
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
-// import "./style.scss";
+import "./style.scss";
 
 /**
  * Styles applied only in the editor.
@@ -31,6 +31,7 @@ import "./editor.scss";
 import edit from "./edit";
 import save from "./save";
 import { INLINE_ELEMENT } from "./../../helpers/fa-icons";
+import spacing from "./../../helpers/spacing";
 
 /**
  * Block Icon.
@@ -122,6 +123,7 @@ registerBlockType("beer-blocks/fa-icon", {
 			type: "string",
 			default: "px",
 		},
+		...spacing.attributes({ padding: false }),
 	},
 	edit,
 	save,
