@@ -10,6 +10,7 @@
   - `beer-blocks/separator`
   - `beer-blocks/grid`
   - `beer-blocks/container`
+  - `beer-blocks/advanced-header`
 - Add default margin-top and margin-bottom (`0px`) to the following blocks for the editor view and the frontend:
   - `beer-blocks/tab-pane`
   - `beer-blocks/column`

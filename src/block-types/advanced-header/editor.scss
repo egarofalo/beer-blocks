@@ -1,4 +1,11 @@
+@import "./../../variables.scss";
+
 .wp-block-beer-blocks-advanced-header {
+	.editor-styles-wrapper &.wp-block {
+		margin-top: $default-blocks-vertical-margin;
+		margin-bottom: $default-blocks-vertical-margin;
+	}
+
 	&.is-selected {
 		border: 1px dotted #035cff;
 	}
