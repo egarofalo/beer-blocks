@@ -1,4 +1,5 @@
+@import "./../../mixins.scss";
+
 .wp-block-beer-blocks-tab-pane {
-	margin-top: 0;
-	margin-bottom: 0;
+	@include frontDefaultMargins(0);
 }

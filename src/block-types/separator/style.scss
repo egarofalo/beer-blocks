@@ -1,4 +1,4 @@
-@import "./../../variables.scss";
+@import "./../../mixins.scss";
 
 :root {
 	--wp-block-beer-blocks-separator-triangle-translate: 0px;
@@ -7,8 +7,7 @@
 }
 
 .wp-block-beer-blocks-separator {
-	margin-top: $default-blocks-vertical-margin;
-	margin-bottom: $default-blocks-vertical-margin;
+	@include frontDefaultMargins;
 
 	.wp-beer-blocks-separator-triangle {
 		box-sizing: border-box;

@@ -2,14 +2,14 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Beer Blocks 1.2.5\n"
+"Project-Id-Version: Beer Blocks 1.3.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/beer-blocks\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-03-10T17:38:04+00:00\n"
+"POT-Creation-Date: 2022-03-14T16:18:52+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.6.0\n"
 "X-Domain: beer-blocks\n"
@@ -116,38 +116,315 @@ msgstr ""
 msgid "Load Google fonts on the frontend. Uncheck this option if you want to enqueue the selected fonts manually in the active theme."
 msgstr ""
 
-#: build/accordion-item/index.js:1786
+#: build/accordion-item/index.js:1
+#: build/accordion/index.js:1
+#: build/advanced-header/index.js:1
+#: build/alert/index.js:1
+#: build/container/index.js:1
+#: build/fa-icon/index.js:1
+#: build/grid/index.js:1
+#: build/header/index.js:1
+#: build/info-box/index.js:1
+#: build/instruction/index.js:1
+#: build/jumbotron/index.js:1
+#: build/paragraph/index.js:1
+#: build/section/index.js:1
+#: build/separator/index.js:1
+#: build/tab-pane/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/spacing.js:57
+msgid "Padding"
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/accordion/index.js:1
+#: build/advanced-header/index.js:1
+#: build/alert/index.js:1
+#: build/container/index.js:1
+#: build/fa-icon/index.js:1
+#: build/grid/index.js:1
+#: build/header/index.js:1
+#: build/info-box/index.js:1
+#: build/jumbotron/index.js:1
+#: build/paragraph/index.js:1
+#: build/section/index.js:1
+#: build/separator/index.js:1
+#: build/tab-pane/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/spacing.js:105
+msgid "Margin"
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/header/index.js:1
+#: build/instruction/index.js:1
+#: build/paragraph/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/typography.js:45
+msgid "Font Size (%s)"
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/header/index.js:1
+#: build/instruction/index.js:1
+#: build/paragraph/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/typography.js:116
+msgid "Font Families:"
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/header/index.js:1
+#: build/instruction/index.js:1
+#: build/paragraph/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/typography.js:117
+msgid "Choose a font family."
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/header/index.js:1
+#: build/instruction/index.js:1
+#: build/paragraph/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/typography.js:129
+msgid "No font family options"
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/header/index.js:1
+#: build/instruction/index.js:1
+#: build/paragraph/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/typography.js:130
+msgid "Select..."
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/header/index.js:1
+#: build/instruction/index.js:1
+#: build/paragraph/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/typography.js:173
+msgid "Font Weight"
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/header/index.js:1
+#: build/instruction/index.js:1
+#: build/paragraph/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/typography.js:201
+msgid "Line Height"
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/container/index.js:1
+#: build/tab-pane/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/border.js:24
+msgid "-- SELECT --"
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/container/index.js:1
+#: build/tab-pane/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/border.js:25
+msgid "None"
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/container/index.js:1
+#: build/tab-pane/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/border.js:26
+msgid "Dotted"
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/container/index.js:1
+#: build/tab-pane/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/border.js:27
+msgid "Dashed"
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/container/index.js:1
+#: build/tab-pane/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/border.js:28
+msgid "Solid"
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/container/index.js:1
+#: build/tab-pane/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/border.js:29
+msgid "Double"
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/container/index.js:1
+#: build/tab-pane/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/border.js:30
+msgid "Inset"
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/container/index.js:1
+#: build/tab-pane/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/border.js:31
+msgid "Outset"
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/container/index.js:1
+#: build/tab-pane/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/border.js:35
+msgid "All borders"
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/container/index.js:1
+#: build/tab-pane/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/border.js:36
+msgid "Left border"
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/container/index.js:1
+#: build/tab-pane/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/border.js:37
+msgid "Top border"
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/container/index.js:1
+#: build/tab-pane/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/border.js:38
+msgid "Right border"
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/container/index.js:1
+#: build/tab-pane/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/border.js:39
+msgid "Bottom border"
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/container/index.js:1
+#: build/tab-pane/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/border.js:47
+msgid "Border style"
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/container/index.js:1
+#: build/tab-pane/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/border.js:81
+msgid "Border width"
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/container/index.js:1
+#: build/tab-pane/index.js:1
+#: build/tabs/index.js:1
+#: src/block-types/tabs/edit.js:189
+#: src/block-types/tabs/edit.js:223
+#: src/block-types/tabs/edit.js:257
+#: src/helpers/border.js:113
+msgid "Border color"
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/container/index.js:1
+#: build/tab-pane/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/border.js:171
+msgid "Clear fields"
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/tab-pane/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/border.js:180
+msgid "Border"
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/tab-pane/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/border.js:226
+msgid "Select border side (%s)"
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: src/block-types/accordion-item/index.js:49
+#: src/block-types/accordion-item/index.js:59
+msgctxt "block title"
+msgid "Accordion Item"
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: src/block-types/accordion-item/index.js:51
+msgctxt "block description"
+msgid "Create an accordion item."
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/accordion/index.js:1
+#: build/advanced-header/index.js:1
+#: build/alert/index.js:1
+#: build/container/index.js:1
+#: build/fa-icon/index.js:1
+#: build/grid/index.js:1
+#: build/header/index.js:1
+#: build/info-box/index.js:1
+#: build/instruction/index.js:1
+#: build/jumbotron/index.js:1
+#: build/paragraph/index.js:1
+#: build/section/index.js:1
+#: build/separator/index.js:1
+#: build/tab-pane/index.js:1
+#: build/tabs/index.js:1
+#: src/block-types/instruction/edit.js:213
+#: src/helpers/spacing.js:166
+msgid "Spacing"
+msgstr ""
+
+#: build/accordion-item/index.js:1
 #: src/block-types/accordion-item/edit.js:73
-#: build/accordion-item/index.js:1579
 msgid "Heading"
 msgstr ""
 
-#: build/accordion-item/index.js:1789
-#: build/instruction/index.js:1836
-#: build/tabs/index.js:1844
-#: build/tabs/index.js:1868
-#: build/tabs/index.js:1892
+#: build/accordion-item/index.js:1
+#: build/instruction/index.js:1
+#: build/tabs/index.js:1
 #: src/block-types/accordion-item/edit.js:82
 #: src/block-types/instruction/edit.js:141
 #: src/block-types/tabs/edit.js:173
 #: src/block-types/tabs/edit.js:203
 #: src/block-types/tabs/edit.js:237
-#: build/accordion-item/index.js:1588
-#: build/instruction/index.js:1647
-#: build/tabs/index.js:1677
-#: build/tabs/index.js:1707
-#: build/tabs/index.js:1741
 msgid "Font color"
 msgstr ""
 
-#: build/accordion-item/index.js:1801
-#: build/accordion-item/index.js:1825
-#: build/instruction/index.js:1826
-#: build/separator/index.js:146
-#: build/separator/index.js:182
-#: build/tabs/index.js:1852
-#: build/tabs/index.js:1876
-#: build/tabs/index.js:1900
+#: build/accordion-item/index.js:1
+#: build/instruction/index.js:1
+#: build/separator/index.js:1
+#: build/tabs/index.js:1
 #: src/block-types/accordion-item/edit.js:102
 #: src/block-types/accordion-item/edit.js:136
 #: src/block-types/instruction/edit.js:131
@@ -156,1710 +433,898 @@ msgstr ""
 #: src/block-types/tabs/edit.js:181
 #: src/block-types/tabs/edit.js:213
 #: src/block-types/tabs/edit.js:247
-#: build/accordion-item/index.js:1608
-#: build/accordion-item/index.js:1642
-#: build/instruction/index.js:1637
-#: build/separator/index.js:113
-#: build/separator/index.js:149
-#: build/tabs/index.js:1685
-#: build/tabs/index.js:1717
-#: build/tabs/index.js:1751
 msgid "Background color"
 msgstr ""
 
-#: build/accordion-item/index.js:1811
+#: build/accordion-item/index.js:1
 #: src/block-types/accordion-item/edit.js:113
-#: build/accordion-item/index.js:1619
 msgid "Body"
 msgstr ""
 
-#: build/accordion-item/index.js:1814
+#: build/accordion-item/index.js:1
 #: src/block-types/accordion-item/edit.js:114
-#: build/accordion-item/index.js:1620
 msgid "Shows the content as default"
 msgstr ""
 
-#: build/accordion-item/index.js:1816
+#: build/accordion-item/index.js:1
 #: src/block-types/accordion-item/edit.js:116
-#: build/accordion-item/index.js:1622
 msgid "Opened"
 msgstr ""
 
-#: build/accordion-item/index.js:1867
-#: src/block-types/accordion-item/edit.js:192
-#: build/accordion-item/index.js:1698
-msgid "Write item title here..."
-msgstr ""
-
-#: build/accordion-item/index.js:2030
-#: build/container/index.js:236
-#: build/tab-pane/index.js:419
-#: build/tabs/index.js:2600
-#: src/helpers/border.js:24
-#: build/accordion-item/index.js:1851
-#: build/container/index.js:206
-#: build/tab-pane/index.js:386
-#: build/tabs/index.js:2448
-msgid "-- SELECT --"
-msgstr ""
-
-#: build/accordion-item/index.js:2033
-#: build/container/index.js:239
-#: build/tab-pane/index.js:422
-#: build/tabs/index.js:2603
-#: src/helpers/border.js:25
-#: build/accordion-item/index.js:1852
-#: build/container/index.js:207
-#: build/tab-pane/index.js:387
-#: build/tabs/index.js:2449
-msgid "None"
-msgstr ""
-
-#: build/accordion-item/index.js:2036
-#: build/container/index.js:242
-#: build/tab-pane/index.js:425
-#: build/tabs/index.js:2606
-#: src/helpers/border.js:26
-#: build/accordion-item/index.js:1853
-#: build/container/index.js:208
-#: build/tab-pane/index.js:388
-#: build/tabs/index.js:2450
-msgid "Dotted"
-msgstr ""
-
-#: build/accordion-item/index.js:2039
-#: build/container/index.js:245
-#: build/tab-pane/index.js:428
-#: build/tabs/index.js:2609
-#: src/helpers/border.js:27
-#: build/accordion-item/index.js:1854
-#: build/container/index.js:209
-#: build/tab-pane/index.js:389
-#: build/tabs/index.js:2451
-msgid "Dashed"
-msgstr ""
-
-#: build/accordion-item/index.js:2042
-#: build/container/index.js:248
-#: build/tab-pane/index.js:431
-#: build/tabs/index.js:2612
-#: src/helpers/border.js:28
-#: build/accordion-item/index.js:1855
-#: build/container/index.js:210
-#: build/tab-pane/index.js:390
-#: build/tabs/index.js:2452
-msgid "Solid"
-msgstr ""
-
-#: build/accordion-item/index.js:2045
-#: build/container/index.js:251
-#: build/tab-pane/index.js:434
-#: build/tabs/index.js:2615
-#: src/helpers/border.js:29
-#: build/accordion-item/index.js:1856
-#: build/container/index.js:211
-#: build/tab-pane/index.js:391
-#: build/tabs/index.js:2453
-msgid "Double"
-msgstr ""
-
-#: build/accordion-item/index.js:2048
-#: build/container/index.js:254
-#: build/tab-pane/index.js:437
-#: build/tabs/index.js:2618
-#: src/helpers/border.js:30
-#: build/accordion-item/index.js:1857
-#: build/container/index.js:212
-#: build/tab-pane/index.js:392
-#: build/tabs/index.js:2454
-msgid "Inset"
-msgstr ""
-
-#: build/accordion-item/index.js:2051
-#: build/container/index.js:257
-#: build/tab-pane/index.js:440
-#: build/tabs/index.js:2621
-#: src/helpers/border.js:31
-#: build/accordion-item/index.js:1858
-#: build/container/index.js:213
-#: build/tab-pane/index.js:393
-#: build/tabs/index.js:2455
-msgid "Outset"
-msgstr ""
-
-#: build/accordion-item/index.js:2055
-#: build/container/index.js:261
-#: build/tab-pane/index.js:444
-#: build/tabs/index.js:2625
-#: src/helpers/border.js:35
-#: build/accordion-item/index.js:1862
-#: build/container/index.js:217
-#: build/tab-pane/index.js:397
-#: build/tabs/index.js:2459
-msgid "All borders"
-msgstr ""
-
-#: build/accordion-item/index.js:2056
-#: build/container/index.js:262
-#: build/tab-pane/index.js:445
-#: build/tabs/index.js:2626
-#: src/helpers/border.js:36
-#: build/accordion-item/index.js:1863
-#: build/container/index.js:218
-#: build/tab-pane/index.js:398
-#: build/tabs/index.js:2460
-msgid "Left border"
-msgstr ""
-
-#: build/accordion-item/index.js:2057
-#: build/container/index.js:263
-#: build/tab-pane/index.js:446
-#: build/tabs/index.js:2627
-#: src/helpers/border.js:37
-#: build/accordion-item/index.js:1864
-#: build/container/index.js:219
-#: build/tab-pane/index.js:399
-#: build/tabs/index.js:2461
-msgid "Top border"
-msgstr ""
-
-#: build/accordion-item/index.js:2058
-#: build/container/index.js:264
-#: build/tab-pane/index.js:447
-#: build/tabs/index.js:2628
-#: src/helpers/border.js:38
-#: build/accordion-item/index.js:1865
-#: build/container/index.js:220
-#: build/tab-pane/index.js:400
-#: build/tabs/index.js:2462
-msgid "Right border"
-msgstr ""
-
-#: build/accordion-item/index.js:2059
-#: build/container/index.js:265
-#: build/tab-pane/index.js:448
-#: build/tabs/index.js:2629
-#: src/helpers/border.js:39
-#: build/accordion-item/index.js:1866
-#: build/container/index.js:221
-#: build/tab-pane/index.js:401
-#: build/tabs/index.js:2463
-msgid "Bottom border"
-msgstr ""
-
-#: build/accordion-item/index.js:2069
-#: build/container/index.js:275
-#: build/tab-pane/index.js:458
-#: build/tabs/index.js:2639
-#: src/helpers/border.js:47
-#: build/accordion-item/index.js:1874
-#: build/container/index.js:229
-#: build/tab-pane/index.js:409
-#: build/tabs/index.js:2471
-msgid "Border style"
-msgstr ""
-
-#: build/accordion-item/index.js:2100
-#: build/container/index.js:306
-#: build/tab-pane/index.js:489
-#: build/tabs/index.js:2670
-#: src/helpers/border.js:81
-#: build/accordion-item/index.js:1908
-#: build/container/index.js:263
-#: build/tab-pane/index.js:443
-#: build/tabs/index.js:2505
-msgid "Border width"
-msgstr ""
-
-#: build/accordion-item/index.js:2134
-#: build/container/index.js:340
-#: build/tab-pane/index.js:523
-#: build/tabs/index.js:1860
-#: build/tabs/index.js:1884
-#: build/tabs/index.js:1908
-#: build/tabs/index.js:2704
-#: src/block-types/tabs/edit.js:189
-#: src/block-types/tabs/edit.js:223
-#: src/block-types/tabs/edit.js:257
-#: src/helpers/border.js:113
-#: build/accordion-item/index.js:1940
-#: build/container/index.js:295
-#: build/tab-pane/index.js:475
-#: build/tabs/index.js:1693
-#: build/tabs/index.js:1727
-#: build/tabs/index.js:1761
-#: build/tabs/index.js:2537
-msgid "Border color"
-msgstr ""
-
-#: build/accordion-item/index.js:2197
-#: build/container/index.js:403
-#: build/tab-pane/index.js:586
-#: build/tabs/index.js:2767
-#: src/helpers/border.js:171
-#: build/accordion-item/index.js:1998
-#: build/container/index.js:353
-#: build/tab-pane/index.js:533
-#: build/tabs/index.js:2595
-msgid "Clear fields"
-msgstr ""
-
-#: build/accordion-item/index.js:2204
-#: build/container/index.js:410
-#: build/tab-pane/index.js:593
-#: build/tabs/index.js:2774
-#: src/helpers/border.js:180
-#: build/accordion-item/index.js:2007
-#: build/container/index.js:362
-#: build/tab-pane/index.js:542
-#: build/tabs/index.js:2604
-msgid "Border"
-msgstr ""
-
-#: build/accordion-item/index.js:2238
-#: build/container/index.js:444
-#: build/tab-pane/index.js:627
-#: build/tabs/index.js:2808
-#: src/helpers/border.js:226
-#: build/accordion-item/index.js:2053
-#: build/container/index.js:408
-#: build/tab-pane/index.js:588
-#: build/tabs/index.js:2650
-msgid "Select border side (%s)"
-msgstr ""
-
-#: build/accordion-item/index.js:2402
-#: build/accordion-item/index.js:2409
-#: build/header/index.js:2002
-#: build/header/index.js:2009
+#: build/accordion-item/index.js:1
+#: build/header/index.js:1
 #: src/helpers/heading.js:31
 #: src/helpers/heading.js:39
-#: build/accordion-item/index.js:2217
-#: build/accordion-item/index.js:2225
-#: build/header/index.js:1725
-#: build/header/index.js:1733
 msgid "Change heading level"
 msgstr ""
 
-#: build/accordion-item/index.js:2517
-#: build/accordion/index.js:221
-#: build/advanced-header/index.js:216
-#: build/alert/index.js:295
-#: build/container/index.js:784
-#: build/grid/index.js:204
-#: build/header/index.js:2117
-#: build/info-box/index.js:11683
-#: build/instruction/index.js:2444
-#: build/instructions/index.js:581
-#: build/jumbotron/index.js:193
-#: build/paragraph/index.js:2042
-#: build/section/index.js:234
-#: build/separator/index.js:600
-#: build/tab-pane/index.js:819
-#: build/tabs/index.js:3131
-#: src/helpers/spacing.js:57
-#: build/accordion-item/index.js:2306
-#: build/accordion/index.js:176
-#: build/advanced-header/index.js:166
-#: build/alert/index.js:216
-#: build/container/index.js:731
-#: build/grid/index.js:159
-#: build/header/index.js:1814
-#: build/info-box/index.js:11627
-#: build/instruction/index.js:2307
-#: build/instructions/index.js:576
-#: build/jumbotron/index.js:131
-#: build/paragraph/index.js:1762
-#: build/section/index.js:164
-#: build/separator/index.js:470
-#: build/tab-pane/index.js:778
-#: build/tabs/index.js:2962
-msgid "Padding"
+#: build/accordion-item/index.js:1
+#: src/block-types/accordion-item/edit.js:192
+msgid "Write item title here..."
 msgstr ""
 
-#: build/accordion-item/index.js:2578
-#: build/accordion/index.js:282
-#: build/advanced-header/index.js:277
-#: build/alert/index.js:356
-#: build/container/index.js:845
-#: build/grid/index.js:265
-#: build/header/index.js:2178
-#: build/info-box/index.js:11744
-#: build/instruction/index.js:2505
-#: build/instructions/index.js:642
-#: build/jumbotron/index.js:254
-#: build/paragraph/index.js:2103
-#: build/section/index.js:295
-#: build/separator/index.js:661
-#: build/tab-pane/index.js:880
-#: build/tabs/index.js:3192
-#: src/helpers/spacing.js:105
-#: build/accordion-item/index.js:2354
-#: build/accordion/index.js:224
-#: build/advanced-header/index.js:214
-#: build/alert/index.js:264
-#: build/container/index.js:779
-#: build/grid/index.js:207
-#: build/header/index.js:1862
-#: build/info-box/index.js:11675
-#: build/instruction/index.js:2355
-#: build/instructions/index.js:624
-#: build/jumbotron/index.js:179
-#: build/paragraph/index.js:1810
-#: build/section/index.js:212
-#: build/separator/index.js:518
-#: build/tab-pane/index.js:826
-#: build/tabs/index.js:3010
-msgid "Margin"
-msgstr ""
-
-#: build/accordion-item/index.js:2653
-#: build/accordion/index.js:357
-#: build/advanced-header/index.js:352
-#: build/alert/index.js:431
-#: build/container/index.js:920
-#: build/grid/index.js:340
-#: build/header/index.js:2253
-#: build/info-box/index.js:11819
-#: build/instruction/index.js:1885
-#: build/instruction/index.js:2580
-#: build/instructions/index.js:717
-#: build/jumbotron/index.js:329
-#: build/paragraph/index.js:2178
-#: build/section/index.js:370
-#: build/separator/index.js:736
-#: build/tab-pane/index.js:955
-#: build/tabs/index.js:3267
-#: src/block-types/instruction/edit.js:213
-#: src/helpers/spacing.js:166
-#: build/accordion-item/index.js:2415
-#: build/accordion/index.js:285
-#: build/advanced-header/index.js:275
-#: build/alert/index.js:325
-#: build/container/index.js:840
-#: build/grid/index.js:268
-#: build/header/index.js:1923
-#: build/info-box/index.js:11736
-#: build/instruction/index.js:1719
-#: build/instruction/index.js:2416
-#: build/instructions/index.js:685
-#: build/jumbotron/index.js:240
-#: build/paragraph/index.js:1871
-#: build/section/index.js:273
-#: build/separator/index.js:579
-#: build/tab-pane/index.js:887
-#: build/tabs/index.js:3071
-msgid "Spacing"
-msgstr ""
-
-#: build/accordion-item/index.js:2782
-#: build/fa-icon/index.js:13584
-#: build/header/index.js:2382
-#: build/instruction/index.js:2709
-#: build/paragraph/index.js:2307
-#: build/tabs/index.js:3396
-#: src/helpers/typography.js:45
-#: build/accordion-item/index.js:2512
-#: build/fa-icon/index.js:13369
-#: build/header/index.js:2020
-#: build/instruction/index.js:2513
-#: build/paragraph/index.js:1968
-#: build/tabs/index.js:3168
-msgid "Font Size (%s)"
-msgstr ""
-
-#: build/accordion-item/index.js:2840
-#: build/fa-icon/index.js:13642
-#: build/header/index.js:2440
-#: build/instruction/index.js:2767
-#: build/paragraph/index.js:2365
-#: build/tabs/index.js:3454
-#: src/helpers/typography.js:116
-#: build/accordion-item/index.js:2583
-#: build/fa-icon/index.js:13440
-#: build/header/index.js:2091
-#: build/instruction/index.js:2584
-#: build/paragraph/index.js:2039
-#: build/tabs/index.js:3239
-msgid "Font Families:"
-msgstr ""
-
-#: build/accordion-item/index.js:2841
-#: build/fa-icon/index.js:13643
-#: build/header/index.js:2441
-#: build/instruction/index.js:2768
-#: build/paragraph/index.js:2366
-#: build/tabs/index.js:3455
-#: src/helpers/typography.js:117
-#: build/accordion-item/index.js:2584
-#: build/fa-icon/index.js:13441
-#: build/header/index.js:2092
-#: build/instruction/index.js:2585
-#: build/paragraph/index.js:2040
-#: build/tabs/index.js:3240
-msgid "Choose a font family."
-msgstr ""
-
-#: build/accordion-item/index.js:2858
-#: build/fa-icon/index.js:13660
-#: build/header/index.js:2458
-#: build/instruction/index.js:2785
-#: build/paragraph/index.js:2383
-#: build/tabs/index.js:3472
-#: src/helpers/typography.js:129
-#: build/accordion-item/index.js:2596
-#: build/fa-icon/index.js:13453
-#: build/header/index.js:2104
-#: build/instruction/index.js:2597
-#: build/paragraph/index.js:2052
-#: build/tabs/index.js:3252
-msgid "No font family options"
-msgstr ""
-
-#: build/accordion-item/index.js:2859
-#: build/fa-icon/index.js:13661
-#: build/header/index.js:2459
-#: build/instruction/index.js:2786
-#: build/paragraph/index.js:2384
-#: build/tabs/index.js:3473
-#: src/helpers/typography.js:130
-#: build/accordion-item/index.js:2597
-#: build/fa-icon/index.js:13454
-#: build/header/index.js:2105
-#: build/instruction/index.js:2598
-#: build/paragraph/index.js:2053
-#: build/tabs/index.js:3253
-msgid "Select..."
-msgstr ""
-
-#: build/accordion-item/index.js:2894
-#: build/fa-icon/index.js:13696
-#: build/header/index.js:2494
-#: build/instruction/index.js:2821
-#: build/paragraph/index.js:2419
-#: build/tabs/index.js:3508
-#: src/helpers/typography.js:173
-#: build/accordion-item/index.js:2640
-#: build/fa-icon/index.js:13497
-#: build/header/index.js:2148
-#: build/instruction/index.js:2641
-#: build/paragraph/index.js:2096
-#: build/tabs/index.js:3296
-msgid "Font Weight"
-msgstr ""
-
-#: build/accordion-item/index.js:2922
-#: build/fa-icon/index.js:13724
-#: build/header/index.js:2522
-#: build/instruction/index.js:2849
-#: build/paragraph/index.js:2447
-#: build/tabs/index.js:3536
-#: src/helpers/typography.js:201
-#: build/accordion-item/index.js:2668
-#: build/fa-icon/index.js:13525
-#: build/header/index.js:2176
-#: build/instruction/index.js:2669
-#: build/paragraph/index.js:2124
-#: build/tabs/index.js:3324
-msgid "Line Height"
-msgstr ""
-
-#: build/accordion-item/index.js:2978
-#: build/fa-icon/index.js:13780
-#: build/header/index.js:2578
-#: build/instruction/index.js:2905
-#: build/paragraph/index.js:2503
-#: build/tabs/index.js:3592
-#: src/helpers/typography.js:264
-#: build/accordion-item/index.js:2731
-#: build/fa-icon/index.js:13588
-#: build/header/index.js:2239
-#: build/instruction/index.js:2732
-#: build/paragraph/index.js:2187
-#: build/tabs/index.js:3387
-msgid "Typography"
-msgstr ""
-
-#: build/accordion-item/index.js:26295
-#: build/accordion-item/index.js:26302
-#: src/block-types/accordion-item/index.js:49
-#: src/block-types/accordion-item/index.js:59
-#: build/accordion-item/index.js:21425
-#: build/accordion-item/index.js:21435
-msgctxt "block title"
-msgid "Accordion Item"
-msgstr ""
-
-#: build/accordion-item/index.js:26297
-#: src/block-types/accordion-item/index.js:51
-#: build/accordion-item/index.js:21427
-msgctxt "block description"
-msgid "Create an accordion item."
-msgstr ""
-
-#: build/accordion/index.js:622
-#: build/accordion/index.js:628
+#: build/accordion/index.js:1
 #: src/block-types/accordion/index.js:47
 #: src/block-types/accordion/index.js:55
-#: build/accordion/index.js:442
-#: build/accordion/index.js:450
 msgctxt "block title"
 msgid "Accordion"
 msgstr ""
 
-#: build/accordion/index.js:624
+#: build/accordion/index.js:1
 #: src/block-types/accordion/index.js:49
-#: build/accordion/index.js:444
 msgctxt "block description"
 msgid "Create an accordion for faqs and other purpose."
 msgstr ""
 
-#: build/advanced-header/index.js:78
-#: build/info-box/index.js:11468
-#: build/instruction/index.js:1785
-#: src/block-types/advanced-header/edit.js:20
-#: src/block-types/info-box/edit.js:51
-#: src/block-types/instruction/edit.js:64
-#: build/advanced-header/index.js:53
-#: build/info-box/index.js:11425
-#: build/instruction/index.js:1570
-msgid "Write title here..."
-msgstr ""
-
-#: build/advanced-header/index.js:86
-#: src/block-types/advanced-header/edit.js:36
-#: build/advanced-header/index.js:69
-msgid "Write subtitle here..."
-msgstr ""
-
-#: build/advanced-header/index.js:617
-#: build/advanced-header/index.js:630
+#: build/advanced-header/index.js:1
 #: src/block-types/advanced-header/index.js:47
 #: src/block-types/advanced-header/index.js:63
-#: build/advanced-header/index.js:432
-#: build/advanced-header/index.js:448
 msgctxt "block title"
 msgid "Advanced Header"
 msgstr ""
 
-#: build/advanced-header/index.js:619
+#: build/advanced-header/index.js:1
 #: src/block-types/advanced-header/index.js:49
-#: build/advanced-header/index.js:434
 msgctxt "block description"
 msgid "Create headers with title, line separator and subtitle."
 msgstr ""
 
-#: build/alert/index.js:86
-#: src/block-types/alert/edit.js:27
-#: build/alert/index.js:54
-msgid "Alert settings"
+#: build/advanced-header/index.js:1
+#: build/info-box/index.js:1
+#: build/instruction/index.js:1
+#: src/block-types/advanced-header/edit.js:20
+#: src/block-types/info-box/edit.js:51
+#: src/block-types/instruction/edit.js:64
+msgid "Write title here..."
 msgstr ""
 
-#: build/alert/index.js:88
-#: src/block-types/alert/edit.js:29
-#: build/alert/index.js:56
-msgid "Select an alert type"
+#: build/advanced-header/index.js:1
+#: src/block-types/advanced-header/edit.js:36
+msgid "Write subtitle here..."
 msgstr ""
 
-#: build/alert/index.js:726
-#: build/alert/index.js:732
+#: build/alert/index.js:1
 #: src/block-types/alert/index.js:47
 #: src/block-types/alert/index.js:55
-#: build/alert/index.js:499
-#: build/alert/index.js:507
 msgctxt "block title"
 msgid "Alert"
 msgstr ""
 
-#: build/alert/index.js:728
+#: build/alert/index.js:1
 #: src/block-types/alert/index.js:49
-#: build/alert/index.js:501
 msgctxt "block description"
 msgid "Represents Bootstrap Alerts that provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages."
 msgstr ""
 
-#: build/button/index.js:156
-#: src/block-types/button/edit.js:78
-#: build/button/index.js:123
-msgid "Button settings"
+#: build/alert/index.js:1
+#: src/block-types/alert/edit.js:27
+msgid "Alert settings"
 msgstr ""
 
-#: build/button/index.js:162
-#: src/block-types/button/edit.js:81
-#: build/button/index.js:126
-msgid "Button variant"
+#: build/alert/index.js:1
+#: src/block-types/alert/edit.js:29
+msgid "Select an alert type"
 msgstr ""
 
-#: build/button/index.js:177
-#: src/block-types/button/edit.js:91
-#: build/button/index.js:136
-msgid "Button size"
-msgstr ""
-
-#: build/button/index.js:181
-#: src/block-types/button/edit.js:96
-#: build/button/index.js:141
-msgid "Large"
-msgstr ""
-
-#: build/button/index.js:184
-#: src/block-types/button/edit.js:100
-#: build/button/index.js:145
-msgid "Medium"
-msgstr ""
-
-#: build/button/index.js:187
-#: src/block-types/button/edit.js:104
-#: build/button/index.js:149
-msgid "Small"
-msgstr ""
-
-#: build/button/index.js:201
-#: src/block-types/button/edit.js:114
-#: build/button/index.js:159
-msgid "Outline Button?"
-msgstr ""
-
-#: build/button/index.js:207
-#: src/block-types/button/edit.js:121
-#: build/button/index.js:166
-msgid "Block Level Button?"
-msgstr ""
-
-#: build/button/index.js:214
-#: src/block-types/button/edit.js:132
-#: build/button/index.js:177
-msgid "Edit"
-msgstr ""
-
-#: build/button/index.js:584
-#: build/button/index.js:590
+#: build/button/index.js:1
 #: src/block-types/button/index.js:46
 #: src/block-types/button/index.js:54
-#: build/button/index.js:420
-#: build/button/index.js:428
 msgctxt "block title"
 msgid "Button"
 msgstr ""
 
-#: build/button/index.js:586
+#: build/button/index.js:1
 #: src/block-types/button/index.js:48
-#: build/button/index.js:422
 msgctxt "block description"
 msgid "Create Bootstrap button with support for multiple sizes, states, and more."
 msgstr ""
 
-#: build/buttons/index.js:293
-#: build/buttons/index.js:299
+#: build/button/index.js:1
+#: src/block-types/button/edit.js:78
+msgid "Button settings"
+msgstr ""
+
+#: build/button/index.js:1
+#: src/block-types/button/edit.js:81
+msgid "Button variant"
+msgstr ""
+
+#: build/button/index.js:1
+#: src/block-types/button/edit.js:91
+msgid "Button size"
+msgstr ""
+
+#: build/button/index.js:1
+#: src/block-types/button/edit.js:96
+msgid "Large"
+msgstr ""
+
+#: build/button/index.js:1
+#: src/block-types/button/edit.js:100
+msgid "Medium"
+msgstr ""
+
+#: build/button/index.js:1
+#: src/block-types/button/edit.js:104
+msgid "Small"
+msgstr ""
+
+#: build/button/index.js:1
+#: src/block-types/button/edit.js:114
+msgid "Outline Button?"
+msgstr ""
+
+#: build/button/index.js:1
+#: src/block-types/button/edit.js:121
+msgid "Block Level Button?"
+msgstr ""
+
+#: build/button/index.js:1
+#: src/block-types/button/edit.js:132
+msgid "Edit"
+msgstr ""
+
+#: build/buttons/index.js:1
 #: src/block-types/buttons/index.js:46
 #: src/block-types/buttons/index.js:54
-#: build/buttons/index.js:161
-#: build/buttons/index.js:169
 msgctxt "block title"
 msgid "Buttons"
 msgstr ""
 
-#: build/buttons/index.js:295
+#: build/buttons/index.js:1
 #: src/block-types/buttons/index.js:48
-#: build/buttons/index.js:163
 msgctxt "block description"
 msgid "Create a block element with one or more buttons."
 msgstr ""
 
-#: build/column/index.js:97
-#: build/instruction/index.js:1790
-#: src/block-types/column/edit.js:52
-#: src/block-types/instruction/edit.js:76
-#: build/column/index.js:78
-#: build/instruction/index.js:1582
-msgid "Responsive settings"
-msgstr ""
-
-#: build/column/index.js:178
-#: build/instruction/index.js:2047
-#: build/instructions/index.js:185
-#: build/row/index.js:182
+#: build/column/index.js:1
+#: build/instruction/index.js:1
 #: src/helpers/grid.js:15
-#: build/column/index.js:125
-#: build/instruction/index.js:1866
-#: build/instructions/index.js:135
-#: build/row/index.js:132
 msgid "Manual sizing"
 msgstr ""
 
-#: build/column/index.js:181
-#: build/instruction/index.js:2050
-#: build/instructions/index.js:188
-#: build/row/index.js:185
+#: build/column/index.js:1
+#: build/instruction/index.js:1
 #: src/helpers/grid.js:19
-#: build/column/index.js:129
-#: build/instruction/index.js:1870
-#: build/instructions/index.js:139
-#: build/row/index.js:136
 msgid "Auto sizing: equal width"
 msgstr ""
 
-#: build/column/index.js:184
-#: build/instruction/index.js:2053
-#: build/instructions/index.js:191
-#: build/row/index.js:188
+#: build/column/index.js:1
+#: build/instruction/index.js:1
 #: src/helpers/grid.js:23
-#: build/column/index.js:133
-#: build/instruction/index.js:1874
-#: build/instructions/index.js:143
-#: build/row/index.js:140
 msgid "Auto sizing: variable width content"
 msgstr ""
 
-#: build/column/index.js:187
-#: build/instruction/index.js:2056
-#: build/instructions/index.js:194
-#: build/row/index.js:191
+#: build/column/index.js:1
+#: build/instruction/index.js:1
 #: src/helpers/grid.js:29
-#: build/column/index.js:139
-#: build/instruction/index.js:1880
-#: build/instructions/index.js:149
-#: build/row/index.js:146
 msgid "Same as previous breakpoint"
 msgstr ""
 
-#: build/column/index.js:197
-#: build/column/index.js:242
-#: build/instruction/index.js:2066
-#: build/instruction/index.js:2111
-#: build/instructions/index.js:204
-#: build/instructions/index.js:249
-#: build/row/index.js:201
-#: build/row/index.js:246
-#: build/tabs/index.js:2940
-#: build/tabs/index.js:2987
+#: build/column/index.js:1
+#: build/instruction/index.js:1
+#: build/instructions/index.js:1
+#: build/row/index.js:1
+#: build/tabs/index.js:1
 #: src/helpers/flexbox.js:7
 #: src/helpers/flexbox.js:64
 #: src/helpers/grid.js:46
 #: src/helpers/grid.js:110
-#: build/column/index.js:156
-#: build/column/index.js:220
-#: build/instruction/index.js:1897
-#: build/instruction/index.js:1961
-#: build/instructions/index.js:166
-#: build/instructions/index.js:230
-#: build/row/index.js:163
-#: build/row/index.js:227
-#: build/tabs/index.js:2790
-#: build/tabs/index.js:2847
 msgid "Start"
 msgstr ""
 
-#: build/column/index.js:200
-#: build/column/index.js:245
-#: build/instruction/index.js:2069
-#: build/instruction/index.js:2114
-#: build/instructions/index.js:207
-#: build/instructions/index.js:252
-#: build/row/index.js:204
-#: build/row/index.js:249
-#: build/tabs/index.js:2943
-#: build/tabs/index.js:2990
+#: build/column/index.js:1
+#: build/instruction/index.js:1
+#: build/instructions/index.js:1
+#: build/row/index.js:1
+#: build/tabs/index.js:1
 #: src/helpers/flexbox.js:11
 #: src/helpers/flexbox.js:68
 #: src/helpers/grid.js:50
 #: src/helpers/grid.js:114
-#: build/column/index.js:160
-#: build/column/index.js:224
-#: build/instruction/index.js:1901
-#: build/instruction/index.js:1965
-#: build/instructions/index.js:170
-#: build/instructions/index.js:234
-#: build/row/index.js:167
-#: build/row/index.js:231
-#: build/tabs/index.js:2794
-#: build/tabs/index.js:2851
 msgid "End"
 msgstr ""
 
-#: build/column/index.js:203
-#: build/column/index.js:248
-#: build/instruction/index.js:2072
-#: build/instruction/index.js:2117
-#: build/instructions/index.js:210
-#: build/instructions/index.js:255
-#: build/row/index.js:207
-#: build/row/index.js:252
-#: build/tabs/index.js:2946
-#: build/tabs/index.js:2993
+#: build/column/index.js:1
+#: build/instruction/index.js:1
+#: build/instructions/index.js:1
+#: build/row/index.js:1
+#: build/tabs/index.js:1
 #: src/helpers/flexbox.js:15
 #: src/helpers/flexbox.js:72
 #: src/helpers/grid.js:54
 #: src/helpers/grid.js:118
-#: build/column/index.js:164
-#: build/column/index.js:228
-#: build/instruction/index.js:1905
-#: build/instruction/index.js:1969
-#: build/instructions/index.js:174
-#: build/instructions/index.js:238
-#: build/row/index.js:171
-#: build/row/index.js:235
-#: build/tabs/index.js:2798
-#: build/tabs/index.js:2855
 msgid "Center"
 msgstr ""
 
-#: build/column/index.js:206
-#: build/instruction/index.js:2075
-#: build/instructions/index.js:213
-#: build/row/index.js:210
-#: build/tabs/index.js:2949
+#: build/column/index.js:1
+#: build/instruction/index.js:1
+#: build/instructions/index.js:1
+#: build/row/index.js:1
+#: build/tabs/index.js:1
 #: src/helpers/flexbox.js:19
 #: src/helpers/grid.js:58
-#: build/column/index.js:168
-#: build/instruction/index.js:1909
-#: build/instructions/index.js:178
-#: build/row/index.js:175
-#: build/tabs/index.js:2802
 msgid "Space Between"
 msgstr ""
 
-#: build/column/index.js:209
-#: build/instruction/index.js:2078
-#: build/instructions/index.js:216
-#: build/row/index.js:213
-#: build/tabs/index.js:2952
+#: build/column/index.js:1
+#: build/instruction/index.js:1
+#: build/instructions/index.js:1
+#: build/row/index.js:1
+#: build/tabs/index.js:1
 #: src/helpers/flexbox.js:23
 #: src/helpers/grid.js:62
-#: build/column/index.js:172
-#: build/instruction/index.js:1913
-#: build/instructions/index.js:182
-#: build/row/index.js:179
-#: build/tabs/index.js:2806
 msgid "Space Around"
 msgstr ""
 
-#: build/column/index.js:224
-#: build/instruction/index.js:2093
-#: build/instructions/index.js:231
-#: build/row/index.js:228
-#: src/helpers/grid.js:79
-#: build/column/index.js:189
-#: build/instruction/index.js:1930
-#: build/instructions/index.js:199
-#: build/row/index.js:196
-msgid "Justify content (%s)"
-msgstr ""
-
-#: build/column/index.js:232
-#: build/instruction/index.js:2101
-#: build/instructions/index.js:239
-#: build/row/index.js:236
-#: build/tabs/index.js:2959
-#: src/helpers/flexbox.js:31
-#: src/helpers/grid.js:92
-#: build/column/index.js:202
-#: build/instruction/index.js:1943
-#: build/instructions/index.js:212
-#: build/row/index.js:209
-#: build/tabs/index.js:2814
-msgid "Select the CSS Flexbox justify-content property value."
-msgstr ""
-
-#: build/column/index.js:251
-#: build/instruction/index.js:2120
-#: build/instructions/index.js:258
-#: build/row/index.js:255
-#: build/tabs/index.js:2996
+#: build/column/index.js:1
+#: build/instruction/index.js:1
+#: build/instructions/index.js:1
+#: build/row/index.js:1
+#: build/tabs/index.js:1
 #: src/helpers/flexbox.js:76
 #: src/helpers/grid.js:122
-#: build/column/index.js:232
-#: build/instruction/index.js:1973
-#: build/instructions/index.js:242
-#: build/row/index.js:239
-#: build/tabs/index.js:2859
 msgid "Baseline"
 msgstr ""
 
-#: build/column/index.js:254
-#: build/instruction/index.js:2123
-#: build/instructions/index.js:261
-#: build/row/index.js:258
-#: build/tabs/index.js:2999
+#: build/column/index.js:1
+#: build/instruction/index.js:1
+#: build/instructions/index.js:1
+#: build/row/index.js:1
+#: build/tabs/index.js:1
 #: src/helpers/flexbox.js:80
 #: src/helpers/grid.js:126
-#: build/column/index.js:236
-#: build/instruction/index.js:1977
-#: build/instructions/index.js:246
-#: build/row/index.js:243
-#: build/tabs/index.js:2863
 msgid "Stretch"
 msgstr ""
 
-#: build/column/index.js:269
-#: build/instruction/index.js:2138
-#: build/instructions/index.js:276
-#: build/row/index.js:273
-#: build/tabs/index.js:3005
-#: src/helpers/flexbox.js:87
-#: src/helpers/grid.js:143
-#: build/column/index.js:253
-#: build/instruction/index.js:1994
-#: build/instructions/index.js:263
-#: build/row/index.js:260
-#: build/tabs/index.js:2870
-msgid "Align items (%s)"
-msgstr ""
-
-#: build/column/index.js:277
-#: build/instruction/index.js:2146
-#: build/instructions/index.js:284
-#: build/row/index.js:281
-#: build/tabs/index.js:3006
-#: src/helpers/flexbox.js:88
-#: src/helpers/grid.js:156
-#: build/column/index.js:266
-#: build/instruction/index.js:2007
-#: build/instructions/index.js:276
-#: build/row/index.js:273
-#: build/tabs/index.js:2871
-msgid "Select the CSS Flexbox align-items property value."
-msgstr ""
-
-#: build/column/index.js:357
-#: build/instruction/index.js:2226
-#: build/instructions/index.js:364
-#: build/row/index.js:361
-#: src/helpers/grid.js:239
-#: build/column/index.js:349
-#: build/instruction/index.js:2090
-#: build/instructions/index.js:359
-#: build/row/index.js:356
-msgid "Column sizing type (%s)"
-msgstr ""
-
-#: build/column/index.js:362
-#: build/instruction/index.js:2231
-#: build/instructions/index.js:369
-#: build/row/index.js:366
-#: src/helpers/grid.js:245
-#: build/column/index.js:355
-#: build/instruction/index.js:2096
-#: build/instructions/index.js:365
-#: build/row/index.js:362
-msgid "Settings applied from %s resolution and up"
-msgstr ""
-
-#: build/column/index.js:375
-#: build/instruction/index.js:2244
-#: build/instructions/index.js:382
-#: build/row/index.js:379
-#: src/helpers/grid.js:271
-#: build/column/index.js:381
-#: build/instruction/index.js:2122
-#: build/instructions/index.js:391
-#: build/row/index.js:388
-msgid "Column sizing (%d)"
-msgstr ""
-
-#: build/column/index.js:703
-#: build/column/index.js:717
+#: build/column/index.js:1
 #: src/block-types/column/index.js:47
 #: src/block-types/column/index.js:63
-#: build/column/index.js:614
-#: build/column/index.js:630
 msgctxt "block title"
 msgid "Column"
 msgstr ""
 
-#: build/column/index.js:705
+#: build/column/index.js:1
 #: src/block-types/column/index.js:49
-#: build/column/index.js:616
 msgctxt "block description"
 msgid "Create a Bootstrap column wich is part of the Bootstrap Grid system."
 msgstr ""
 
-#: build/container/index.js:109
-#: src/block-types/container/edit.js:61
-#: build/container/index.js:87
-msgid "Container settings"
+#: build/column/index.js:1
+#: build/instruction/index.js:1
+#: src/block-types/column/edit.js:52
+#: src/block-types/instruction/edit.js:76
+msgid "Responsive settings"
 msgstr ""
 
-#: build/container/index.js:111
-#: src/block-types/container/edit.js:63
-#: build/container/index.js:89
-msgid "Container type"
+#: build/column/index.js:1
+#: build/instruction/index.js:1
+#: src/helpers/grid.js:239
+msgid "Column sizing type (%s)"
 msgstr ""
 
-#: build/container/index.js:136
-#: build/section/index.js:84
-#: src/block-types/container/edit.js:92
-#: src/block-types/section/edit.js:28
-#: build/container/index.js:118
-#: build/section/index.js:54
-msgid "HTML Tag"
+#: build/column/index.js:1
+#: build/instruction/index.js:1
+#: src/helpers/grid.js:245
+msgid "Settings applied from %s resolution and up"
 msgstr ""
 
-#: build/container/index.js:581
+#: build/column/index.js:1
+#: build/instruction/index.js:1
+#: src/helpers/grid.js:271
+msgid "Column sizing (%d)"
+msgstr ""
+
+#: build/container/index.js:1
 #: src/helpers/inner-border.js:18
-#: build/container/index.js:559
 msgid "INNER BORDER TOP"
 msgstr ""
 
-#: build/container/index.js:585
+#: build/container/index.js:1
 #: src/helpers/inner-border.js:23
-#: build/container/index.js:564
 msgid "INNER BORDER BOTTOM"
 msgstr ""
 
-#: build/container/index.js:624
-#: src/helpers/inner-border.js:61
-#: build/container/index.js:602
-msgid "Inner Border"
-msgstr ""
-
-#: build/container/index.js:16111
-#: build/container/index.js:16124
+#: build/container/index.js:1
 #: src/block-types/container/index.js:48
 #: src/block-types/container/index.js:63
-#: build/container/index.js:12184
-#: build/container/index.js:12199
 msgctxt "block title"
 msgid "Container"
 msgstr ""
 
-#: build/container/index.js:16113
+#: build/container/index.js:1
 #: src/block-types/container/index.js:50
-#: build/container/index.js:12186
 msgctxt "block description"
 msgid "Bootstrap Containers wich provide a means to center and horizontally pad your site’s contents."
 msgstr ""
 
-#: build/fa-icon/index.js:13231
-#: src/block-types/fa-icon/edit.js:126
-#: build/fa-icon/index.js:12999
-msgid "Choose an Icon"
+#: build/container/index.js:1
+#: src/block-types/container/edit.js:61
+msgid "Container settings"
 msgstr ""
 
-#: build/fa-icon/index.js:13242
-#: src/block-types/fa-icon/edit.js:140
-#: build/fa-icon/index.js:13013
-msgid "Icon Size (%s)"
+#: build/container/index.js:1
+#: src/block-types/container/edit.js:63
+msgid "Container type"
 msgstr ""
 
-#: build/fa-icon/index.js:13242
-#: src/block-types/fa-icon/edit.js:141
-#: build/fa-icon/index.js:13014
-msgid "Icon Size"
+#: build/container/index.js:1
+#: build/section/index.js:1
+#: src/block-types/container/edit.js:92
+#: src/block-types/section/edit.js:28
+msgid "HTML Tag"
 msgstr ""
 
-#: build/fa-icon/index.js:13254
-#: build/instruction/index.js:1858
-#: src/block-types/fa-icon/edit.js:160
-#: src/block-types/instruction/edit.js:172
-#: build/fa-icon/index.js:13033
-#: build/instruction/index.js:1678
-msgid "Height (%s)"
+#: build/container/index.js:1
+#: src/helpers/inner-border.js:61
+msgid "Inner Border"
 msgstr ""
 
-#: build/fa-icon/index.js:13290
-#: src/block-types/fa-icon/edit.js:196
-#: build/fa-icon/index.js:13069
-msgid "Open media library"
-msgstr ""
-
-#: build/fa-icon/index.js:13300
-#: src/block-types/fa-icon/edit.js:210
-#: build/fa-icon/index.js:13083
-msgid "Choose an image"
-msgstr ""
-
-#: build/fa-icon/index.js:13304
-#: build/fa-icon/index.js:13316
-#: src/block-types/fa-icon/edit.js:219
-#: src/block-types/fa-icon/edit.js:225
-#: build/fa-icon/index.js:13092
-#: build/fa-icon/index.js:13098
-msgid "Replace image"
-msgstr ""
-
-#: build/fa-icon/index.js:13322
-#: src/block-types/fa-icon/edit.js:235
-#: build/fa-icon/index.js:13108
-msgid "Remove image"
-msgstr ""
-
-#: build/fa-icon/index.js:13323
-#: build/instruction/index.js:1846
-#: build/separator/index.js:119
-#: src/block-types/fa-icon/edit.js:243
-#: src/block-types/instruction/edit.js:153
-#: src/block-types/separator/edit.js:59
-#: build/fa-icon/index.js:13116
-#: build/instruction/index.js:1659
-#: build/separator/index.js:86
-msgid "Width (%s)"
-msgstr ""
-
-#: build/fa-icon/index.js:13345
-#: src/block-types/fa-icon/edit.js:261
-#: build/fa-icon/index.js:13134
-msgid "Set auto height"
-msgstr ""
-
-#: build/fa-icon/index.js:13353
-#: src/block-types/fa-icon/edit.js:280
-#: build/fa-icon/index.js:13153
-msgid "Set original size"
-msgstr ""
-
-#: build/fa-icon/index.js:13355
-#: src/block-types/fa-icon/edit.js:289
-#: build/fa-icon/index.js:13162
-msgid "Icon settings"
-msgstr ""
-
-#: build/fa-icon/index.js:13357
-#: src/block-types/fa-icon/edit.js:292
-#: build/fa-icon/index.js:13165
-msgid "Block level element type"
-msgstr ""
-
-#: build/fa-icon/index.js:13362
-#: src/block-types/fa-icon/edit.js:302
-#: build/fa-icon/index.js:13175
-msgid "Disable this toggle field if you want to display the icon as an inline element."
-msgstr ""
-
-#: build/fa-icon/index.js:13364
-#: src/block-types/fa-icon/edit.js:310
-#: build/fa-icon/index.js:13183
-msgid "Use an image"
-msgstr ""
-
-#: build/fa-icon/index.js:13369
-#: src/block-types/fa-icon/edit.js:317
-#: build/fa-icon/index.js:13190
-msgid "If you want to use an image as icon, enable this toggle field."
-msgstr ""
-
-#: build/fa-icon/index.js:25156
-#: build/fa-icon/index.js:25168
-#: src/block-types/fa-icon/index.js:47
-#: src/block-types/fa-icon/index.js:64
-#: build/fa-icon/index.js:23743
-#: build/fa-icon/index.js:23760
+#: build/fa-icon/index.js:1
+#: src/block-types/fa-icon/index.js:48
+#: src/block-types/fa-icon/index.js:65
 msgctxt "block title"
 msgid "Font Awesome Icon"
 msgstr ""
 
-#: build/fa-icon/index.js:25158
-#: src/block-types/fa-icon/index.js:49
-#: build/fa-icon/index.js:23745
+#: build/fa-icon/index.js:1
+#: src/block-types/fa-icon/index.js:50
 msgctxt "block description"
 msgid "Create a Font Awesome icon."
 msgstr ""
 
-#: build/grid/index.js:605
-#: build/grid/index.js:618
+#: build/fa-icon/index.js:1
+#: src/block-types/fa-icon/edit.js:135
+msgid "Choose an Icon"
+msgstr ""
+
+#: build/fa-icon/index.js:1
+#: src/block-types/fa-icon/edit.js:149
+msgid "Icon Size (%s)"
+msgstr ""
+
+#: build/fa-icon/index.js:1
+#: src/block-types/fa-icon/edit.js:150
+msgid "Icon Size"
+msgstr ""
+
+#: build/fa-icon/index.js:1
+#: build/instruction/index.js:1
+#: src/block-types/fa-icon/edit.js:169
+#: src/block-types/instruction/edit.js:172
+msgid "Height (%s)"
+msgstr ""
+
+#: build/fa-icon/index.js:1
+#: src/block-types/fa-icon/edit.js:205
+msgid "Open media library"
+msgstr ""
+
+#: build/fa-icon/index.js:1
+#: src/block-types/fa-icon/edit.js:219
+msgid "Choose an image"
+msgstr ""
+
+#: build/fa-icon/index.js:1
+#: src/block-types/fa-icon/edit.js:228
+#: src/block-types/fa-icon/edit.js:234
+msgid "Replace image"
+msgstr ""
+
+#: build/fa-icon/index.js:1
+#: src/block-types/fa-icon/edit.js:244
+msgid "Remove image"
+msgstr ""
+
+#: build/fa-icon/index.js:1
+#: build/instruction/index.js:1
+#: build/separator/index.js:1
+#: src/block-types/fa-icon/edit.js:252
+#: src/block-types/instruction/edit.js:153
+#: src/block-types/separator/edit.js:59
+msgid "Width (%s)"
+msgstr ""
+
+#: build/fa-icon/index.js:1
+#: src/block-types/fa-icon/edit.js:270
+msgid "Set auto height"
+msgstr ""
+
+#: build/fa-icon/index.js:1
+#: src/block-types/fa-icon/edit.js:289
+msgid "Set original size"
+msgstr ""
+
+#: build/fa-icon/index.js:1
+#: src/block-types/fa-icon/edit.js:298
+msgid "Icon settings"
+msgstr ""
+
+#: build/fa-icon/index.js:1
+#: src/block-types/fa-icon/edit.js:301
+msgid "Block level element type"
+msgstr ""
+
+#: build/fa-icon/index.js:1
+#: src/block-types/fa-icon/edit.js:311
+msgid "Disable this toggle field if you want to display the icon as an inline element."
+msgstr ""
+
+#: build/fa-icon/index.js:1
+#: src/block-types/fa-icon/edit.js:319
+msgid "Use an image"
+msgstr ""
+
+#: build/fa-icon/index.js:1
+#: src/block-types/fa-icon/edit.js:326
+msgid "If you want to use an image as icon, enable this toggle field."
+msgstr ""
+
+#: build/grid/index.js:1
 #: src/block-types/grid/index.js:47
 #: src/block-types/grid/index.js:62
-#: build/grid/index.js:425
-#: build/grid/index.js:440
 msgctxt "block title"
 msgid "Grid"
 msgstr ""
 
-#: build/grid/index.js:607
+#: build/grid/index.js:1
 #: src/block-types/grid/index.js:49
-#: build/grid/index.js:427
 msgctxt "block description"
 msgid "Use the Bootstrap grid system to create a container with rows and columns to layout and align content."
 msgstr ""
 
-#: build/header/index.js:1849
-#: build/header/index.js:1862
+#: build/header/index.js:1
+#: build/instruction/index.js:1
+#: build/paragraph/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/typography.js:264
+msgid "Typography"
+msgstr ""
+
+#: build/header/index.js:1
 #: src/block-types/header/index.js:48
 #: src/block-types/header/index.js:63
-#: build/header/index.js:1615
-#: build/header/index.js:1630
 msgctxt "block title"
 msgid "Header"
 msgstr ""
 
-#: build/header/index.js:1851
+#: build/header/index.js:1
 #: src/block-types/header/index.js:50
-#: build/header/index.js:1617
 msgctxt "block description"
 msgid "Create header with custom typography, margin and padding."
 msgstr ""
 
-#: build/header/index.js:1878
+#: build/header/index.js:1
 #: src/block-types/header/index.js:78
-#: build/header/index.js:1645
 msgid "Write your header here..."
 msgstr ""
 
-#: build/info-box/index.js:11457
-#: src/block-types/info-box/edit.js:28
-#: build/info-box/index.js:11402
-msgid "Chose an icon..."
-msgstr ""
-
-#: build/info-box/index.js:11463
-#: src/block-types/info-box/edit.js:40
-#: build/info-box/index.js:11414
-msgid "Write prefix here..."
-msgstr ""
-
-#: build/info-box/index.js:11477
-#: src/block-types/info-box/edit.js:74
-#: build/info-box/index.js:11448
-msgid "Write short description here..."
-msgstr ""
-
-#: build/info-box/index.js:11490
-#: src/block-types/info-box/edit.js:102
-#: build/info-box/index.js:11476
-msgid "Inner blocks visibility"
-msgstr ""
-
-#: build/info-box/index.js:11492
-#: src/block-types/info-box/edit.js:104
-#: build/info-box/index.js:11478
-msgid "Remove icon prefix"
-msgstr ""
-
-#: build/info-box/index.js:11498
-#: src/block-types/info-box/edit.js:114
-#: build/info-box/index.js:11488
-msgid "Remove line separator"
-msgstr ""
-
-#: build/info-box/index.js:11504
-#: src/block-types/info-box/edit.js:124
-#: build/info-box/index.js:11498
-msgid "Remove icon description"
-msgstr ""
-
-#: build/info-box/index.js:12093
-#: build/info-box/index.js:12106
+#: build/info-box/index.js:1
 #: src/block-types/info-box/index.js:47
 #: src/block-types/info-box/index.js:62
-#: build/info-box/index.js:11893
-#: build/info-box/index.js:11908
 msgctxt "block title"
 msgid "Info Box"
 msgstr ""
 
-#: build/info-box/index.js:12095
+#: build/info-box/index.js:1
 #: src/block-types/info-box/index.js:49
-#: build/info-box/index.js:11895
 msgctxt "block description"
 msgid "Create a box with a custom icon, title and a description."
 msgstr ""
 
-#: build/instruction/index.js:1787
-#: src/block-types/instruction/edit.js:68
-#: build/instruction/index.js:1574
-msgid "Write instructions here..."
+#: build/info-box/index.js:1
+#: src/block-types/info-box/edit.js:28
+msgid "Chose an icon..."
 msgstr ""
 
-#: build/instruction/index.js:1793
-#: src/block-types/instruction/edit.js:83
-#: build/instruction/index.js:1589
-msgid "Stacked contents? (%s)"
+#: build/info-box/index.js:1
+#: src/block-types/info-box/edit.js:40
+msgid "Write prefix here..."
 msgstr ""
 
-#: build/instruction/index.js:1809
-#: src/block-types/instruction/edit.js:104
-#: build/instruction/index.js:1610
-msgid "Numeration settings"
+#: build/info-box/index.js:1
+#: src/block-types/info-box/edit.js:74
+msgid "Write short description here..."
 msgstr ""
 
-#: build/instruction/index.js:1812
-#: build/tabs/index.js:1824
-#: src/block-types/instruction/edit.js:110
-#: src/block-types/tabs/edit.js:144
-#: build/instruction/index.js:1616
-#: build/tabs/index.js:1648
-msgid "Horizontal alignment"
+#: build/info-box/index.js:1
+#: src/block-types/info-box/edit.js:102
+msgid "Inner blocks visibility"
 msgstr ""
 
-#: build/instruction/index.js:1819
-#: src/block-types/instruction/edit.js:121
-#: build/instruction/index.js:1627
-msgid "Vertical alignment"
+#: build/info-box/index.js:1
+#: src/block-types/info-box/edit.js:104
+msgid "Remove icon prefix"
 msgstr ""
 
-#: build/instruction/index.js:1870
-#: src/block-types/instruction/edit.js:193
-#: build/instruction/index.js:1699
-msgid "Border Radius (%s)"
+#: build/info-box/index.js:1
+#: src/block-types/info-box/edit.js:114
+msgid "Remove line separator"
 msgstr ""
 
-#: build/instruction/index.js:11251
-#: build/instruction/index.js:11265
+#: build/info-box/index.js:1
+#: src/block-types/info-box/edit.js:124
+msgid "Remove icon description"
+msgstr ""
+
+#: build/instruction/index.js:1
+#: build/instructions/index.js:1
+#: build/row/index.js:1
+#: src/helpers/grid.js:79
+msgid "Justify content (%s)"
+msgstr ""
+
+#: build/instruction/index.js:1
+#: build/instructions/index.js:1
+#: build/row/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/flexbox.js:31
+#: src/helpers/grid.js:92
+msgid "Select the CSS Flexbox justify-content property value."
+msgstr ""
+
+#: build/instruction/index.js:1
+#: build/instructions/index.js:1
+#: build/row/index.js:1
+#: src/helpers/flexbox.js:87
+#: src/helpers/grid.js:143
+msgid "Align items (%s)"
+msgstr ""
+
+#: build/instruction/index.js:1
+#: build/instructions/index.js:1
+#: build/row/index.js:1
+#: src/helpers/flexbox.js:88
+#: src/helpers/grid.js:156
+msgid "Select the CSS Flexbox align-items property value."
+msgstr ""
+
+#: build/instruction/index.js:1
 #: src/block-types/instruction/index.js:49
 #: src/block-types/instruction/index.js:66
-#: build/instruction/index.js:10209
-#: build/instruction/index.js:10226
 msgctxt "block title"
 msgid "Instruction"
 msgstr ""
 
-#: build/instruction/index.js:11253
+#: build/instruction/index.js:1
 #: src/block-types/instruction/index.js:51
-#: build/instruction/index.js:10211
 msgctxt "block description"
 msgid "Create a list item with a numeration, title and paragraph."
 msgstr ""
 
-#: build/instructions/index.js:99
-#: src/block-types/instructions/edit.js:49
-#: build/instructions/index.js:80
-msgid "Instructions settings"
+#: build/instruction/index.js:1
+#: src/block-types/instruction/edit.js:68
+msgid "Write instructions here..."
 msgstr ""
 
-#: build/instructions/index.js:984
-#: build/instructions/index.js:997
+#: build/instruction/index.js:1
+#: src/block-types/instruction/edit.js:83
+msgid "Stacked contents? (%s)"
+msgstr ""
+
+#: build/instruction/index.js:1
+#: src/block-types/instruction/edit.js:104
+msgid "Numeration settings"
+msgstr ""
+
+#: build/instruction/index.js:1
+#: build/tabs/index.js:1
+#: src/block-types/instruction/edit.js:110
+#: src/block-types/tabs/edit.js:144
+msgid "Horizontal alignment"
+msgstr ""
+
+#: build/instruction/index.js:1
+#: src/block-types/instruction/edit.js:121
+msgid "Vertical alignment"
+msgstr ""
+
+#: build/instruction/index.js:1
+#: src/block-types/instruction/edit.js:193
+msgid "Border Radius (%s)"
+msgstr ""
+
+#: build/instructions/index.js:1
 #: src/block-types/instructions/index.js:48
 #: src/block-types/instructions/index.js:64
-#: build/instructions/index.js:843
-#: build/instructions/index.js:859
 msgctxt "block title"
 msgid "Instructions"
 msgstr ""
 
-#: build/instructions/index.js:986
+#: build/instructions/index.js:1
 #: src/block-types/instructions/index.js:50
-#: build/instructions/index.js:845
 msgctxt "block description"
 msgid "Create an instructions list."
 msgstr ""
 
-#: build/jumbotron/index.js:594
-#: build/jumbotron/index.js:607
+#: build/instructions/index.js:1
+#: src/block-types/instructions/edit.js:49
+msgid "Instructions settings"
+msgstr ""
+
+#: build/jumbotron/index.js:1
 #: src/block-types/jumbotron/index.js:47
 #: src/block-types/jumbotron/index.js:62
-#: build/jumbotron/index.js:397
-#: build/jumbotron/index.js:412
 msgctxt "block title"
 msgid "Jumbotron"
 msgstr ""
 
-#: build/jumbotron/index.js:596
+#: build/jumbotron/index.js:1
 #: src/block-types/jumbotron/index.js:49
-#: build/jumbotron/index.js:399
 msgctxt "block description"
 msgid "Lightweight, flexible Bootstrap component for showcasing hero unit style content."
 msgstr ""
 
-#: build/paragraph/index.js:1866
-#: build/paragraph/index.js:1879
+#: build/paragraph/index.js:1
 #: src/block-types/paragraph/index.js:48
 #: src/block-types/paragraph/index.js:63
-#: build/paragraph/index.js:1637
-#: build/paragraph/index.js:1652
 msgctxt "block title"
 msgid "Paragraph"
 msgstr ""
 
-#: build/paragraph/index.js:1868
+#: build/paragraph/index.js:1
 #: src/block-types/paragraph/index.js:50
-#: build/paragraph/index.js:1639
 msgctxt "block description"
 msgid "Create paragraph with custom typography, margin and padding."
 msgstr ""
 
-#: build/paragraph/index.js:1891
+#: build/paragraph/index.js:1
 #: src/block-types/paragraph/index.js:74
-#: build/paragraph/index.js:1663
 msgid "Write your paragraph here..."
 msgstr ""
 
-#: build/row/index.js:98
-#: src/block-types/row/edit.js:49
-#: build/row/index.js:75
-msgid "Row settings"
-msgstr ""
-
-#: build/row/index.js:707
-#: build/row/index.js:714
+#: build/row/index.js:1
 #: src/block-types/row/index.js:47
 #: src/block-types/row/index.js:56
-#: build/row/index.js:621
-#: build/row/index.js:630
 msgctxt "block title"
 msgid "Row"
 msgstr ""
 
-#: build/row/index.js:709
+#: build/row/index.js:1
 #: src/block-types/row/index.js:49
-#: build/row/index.js:623
 msgctxt "block description"
 msgid "Create a Bootstrap row wich is part of the Bootstrap Grid system."
 msgstr ""
 
-#: build/section/index.js:82
-#: src/block-types/section/edit.js:26
-#: build/section/index.js:52
-msgid "Section settings"
+#: build/row/index.js:1
+#: src/block-types/row/edit.js:49
+msgid "Row settings"
 msgstr ""
 
-#: build/section/index.js:635
-#: build/section/index.js:648
+#: build/section/index.js:1
 #: src/block-types/section/index.js:47
 #: src/block-types/section/index.js:62
-#: build/section/index.js:430
-#: build/section/index.js:445
 msgctxt "block title"
 msgid "Section"
 msgstr ""
 
-#: build/section/index.js:637
+#: build/section/index.js:1
 #: src/block-types/section/index.js:49
-#: build/section/index.js:432
 msgctxt "block description"
 msgid "Create a section element with custom paddings and margins."
 msgstr ""
 
-#: build/separator/index.js:100
-#: src/block-types/separator/edit.js:45
-#: build/separator/index.js:72
-msgid "Dimensions"
+#: build/section/index.js:1
+#: src/block-types/section/edit.js:26
+msgid "Section settings"
 msgstr ""
 
-#: build/separator/index.js:106
-#: src/block-types/separator/edit.js:48
-#: build/separator/index.js:75
-msgid "Height"
-msgstr ""
-
-#: build/separator/index.js:134
-#: src/block-types/separator/edit.js:73
-#: build/separator/index.js:100
-msgid "Color"
-msgstr ""
-
-#: build/separator/index.js:155
-#: src/block-types/separator/edit.js:97
-#: build/separator/index.js:124
-msgid "Triangle"
-msgstr ""
-
-#: build/separator/index.js:157
-#: src/block-types/separator/edit.js:99
-#: build/separator/index.js:126
-msgid "Width"
-msgstr ""
-
-#: build/separator/index.js:314
-#: build/separator/index.js:320
+#: build/separator/index.js:1
 #: src/block-types/separator/index.js:48
 #: src/block-types/separator/index.js:57
-#: build/separator/index.js:257
-#: build/separator/index.js:266
 msgctxt "block title"
 msgid "Separator Line"
 msgstr ""
 
-#: build/separator/index.js:316
+#: build/separator/index.js:1
 #: src/block-types/separator/index.js:50
-#: build/separator/index.js:259
 msgctxt "block description"
 msgid "Create a separator line with custom color, width, height and margins."
 msgstr ""
 
-#: build/tab-pane/index.js:218
-#: build/tabs/index.js:2398
+#: build/separator/index.js:1
+#: src/block-types/separator/edit.js:45
+msgid "Dimensions"
+msgstr ""
+
+#: build/separator/index.js:1
+#: src/block-types/separator/edit.js:48
+msgid "Height"
+msgstr ""
+
+#: build/separator/index.js:1
+#: src/block-types/separator/edit.js:73
+msgid "Color"
+msgstr ""
+
+#: build/separator/index.js:1
+#: src/block-types/separator/edit.js:97
+msgid "Triangle"
+msgstr ""
+
+#: build/separator/index.js:1
+#: src/block-types/separator/edit.js:99
+msgid "Width"
+msgstr ""
+
+#: build/tab-pane/index.js:1
+#: build/tabs/index.js:1
 #: src/helpers/border-radius.js:27
-#: build/tab-pane/index.js:170
-#: build/tabs/index.js:2232
 msgid "All corners"
 msgstr ""
 
-#: build/tab-pane/index.js:219
-#: build/tabs/index.js:2399
+#: build/tab-pane/index.js:1
+#: build/tabs/index.js:1
 #: src/helpers/border-radius.js:28
-#: build/tab-pane/index.js:171
-#: build/tabs/index.js:2233
 msgid "Top left corner"
 msgstr ""
 
-#: build/tab-pane/index.js:220
-#: build/tabs/index.js:2400
+#: build/tab-pane/index.js:1
+#: build/tabs/index.js:1
 #: src/helpers/border-radius.js:29
-#: build/tab-pane/index.js:172
-#: build/tabs/index.js:2234
 msgid "Top right corner"
 msgstr ""
 
-#: build/tab-pane/index.js:221
-#: build/tabs/index.js:2401
+#: build/tab-pane/index.js:1
+#: build/tabs/index.js:1
 #: src/helpers/border-radius.js:30
-#: build/tab-pane/index.js:173
-#: build/tabs/index.js:2235
 msgid "Bottom right corner"
 msgstr ""
 
-#: build/tab-pane/index.js:222
-#: build/tabs/index.js:2402
+#: build/tab-pane/index.js:1
+#: build/tabs/index.js:1
 #: src/helpers/border-radius.js:31
-#: build/tab-pane/index.js:174
-#: build/tabs/index.js:2236
 msgid "Bottom left corner"
 msgstr ""
 
-#: build/tab-pane/index.js:232
-#: build/tab-pane/index.js:283
-#: build/tabs/index.js:2412
-#: build/tabs/index.js:2463
+#: build/tab-pane/index.js:1
+#: build/tabs/index.js:1
 #: src/helpers/border-radius.js:39
 #: src/helpers/border-radius.js:80
-#: build/tab-pane/index.js:182
-#: build/tab-pane/index.js:223
-#: build/tabs/index.js:2244
-#: build/tabs/index.js:2285
 msgid "Border radius"
 msgstr ""
 
-#: build/tab-pane/index.js:319
-#: build/tabs/index.js:2499
-#: src/helpers/border-radius.js:128
-#: build/tab-pane/index.js:271
-#: build/tabs/index.js:2333
-msgid "Select corner (%s)"
-msgstr ""
-
-#: build/tab-pane/index.js:16138
-#: build/tab-pane/index.js:16152
+#: build/tab-pane/index.js:1
 #: src/block-types/tab-pane/index.js:49
 #: src/block-types/tab-pane/index.js:65
-#: build/tab-pane/index.js:12231
-#: build/tab-pane/index.js:12247
 msgctxt "block title"
 msgid "Tab Pane"
 msgstr ""
 
-#: build/tab-pane/index.js:16140
+#: build/tab-pane/index.js:1
 #: src/block-types/tab-pane/index.js:51
-#: build/tab-pane/index.js:12233
 msgctxt "block description"
 msgid "Create a tab panel wich is used by Tabs block."
 msgstr ""
 
-#: build/tabs/index.js:1747
+#: build/tab-pane/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/border-radius.js:128
+msgid "Select corner (%s)"
+msgstr ""
+
+#: build/tabs/index.js:1
 #: src/block-types/tabs/edit.js:27
-#: build/tabs/index.js:1531
 msgid "Normal"
 msgstr ""
 
-#: build/tabs/index.js:1748
+#: build/tabs/index.js:1
 #: src/block-types/tabs/edit.js:28
-#: build/tabs/index.js:1532
 msgid "Mouse over"
 msgstr ""
 
-#: build/tabs/index.js:1749
+#: build/tabs/index.js:1
 #: src/block-types/tabs/edit.js:29
-#: build/tabs/index.js:1533
 msgid "Active"
 msgstr ""
 
-#: build/tabs/index.js:1753
-#: src/block-types/tabs/edit.js:35
-#: build/tabs/index.js:1539
-msgid "Select tab status (%s)"
-msgstr ""
-
-#: build/tabs/index.js:1793
-#: build/tabs/index.js:2090
-#: src/block-types/tabs/edit.js:90
-#: src/block-types/tabs/index.js:73
-#: src/block-types/tabs/index.js:74
-#: src/block-types/tabs/index.js:75
-#: build/tabs/index.js:1594
-#: build/tabs/index.js:1969
-#: build/tabs/index.js:1970
-#: build/tabs/index.js:1971
-msgid "Tab %d"
-msgstr ""
-
-#: build/tabs/index.js:1806
-#: src/block-types/tabs/edit.js:114
-#: build/tabs/index.js:1618
-msgid "Insert here pane contents..."
-msgstr ""
-
-#: build/tabs/index.js:1812
-#: src/block-types/tabs/edit.js:128
-#: build/tabs/index.js:1632
-msgid "General settings"
-msgstr ""
-
-#: build/tabs/index.js:1814
-#: src/block-types/tabs/edit.js:130
-#: build/tabs/index.js:1634
-msgid "Tabs amount"
-msgstr ""
-
-#: build/tabs/index.js:1826
-#: src/block-types/tabs/edit.js:148
-#: build/tabs/index.js:1652
-msgid "Fill free space"
-msgstr ""
-
-#: build/tabs/index.js:1829
-#: src/block-types/tabs/edit.js:152
-#: build/tabs/index.js:1656
-msgid "No"
-msgstr ""
-
-#: build/tabs/index.js:1832
-#: src/block-types/tabs/edit.js:156
-#: build/tabs/index.js:1660
-msgid "Yes"
-msgstr ""
-
-#: build/tabs/index.js:1835
-#: src/block-types/tabs/edit.js:160
-#: build/tabs/index.js:1664
-msgid "Same width tabs"
-msgstr ""
-
-#: build/tabs/index.js:1842
-#: src/block-types/tabs/edit.js:168
-#: build/tabs/index.js:1672
-msgid "Tabs color"
-msgstr ""
-
-#: build/tabs/index.js:1922
-#: src/block-types/tabs/edit.js:279
-#: build/tabs/index.js:1783
-msgid "Tabs borders"
-msgstr ""
-
-#: build/tabs/index.js:1926
-#: src/block-types/tabs/edit.js:285
-#: build/tabs/index.js:1789
-msgid "Tabs border radius"
-msgstr ""
-
-#: build/tabs/index.js:2069
-#: build/tabs/index.js:2075
+#: build/tabs/index.js:1
 #: src/block-types/tabs/index.js:50
 #: src/block-types/tabs/index.js:58
-#: build/tabs/index.js:1946
-#: build/tabs/index.js:1954
 msgctxt "block title"
 msgid "Tabs"
 msgstr ""
 
-#: build/tabs/index.js:2071
+#: build/tabs/index.js:1
 #: src/block-types/tabs/index.js:52
-#: build/tabs/index.js:1948
 msgctxt "block description"
 msgid "Create tabbable panes with custom content."
 msgstr ""
 
-#: build/tabs/index.js:2958
+#: build/tabs/index.js:1
+#: src/block-types/tabs/edit.js:90
+#: src/block-types/tabs/index.js:73
+#: src/block-types/tabs/index.js:74
+#: src/block-types/tabs/index.js:75
+msgid "Tab %d"
+msgstr ""
+
+#: build/tabs/index.js:1
+#: src/block-types/tabs/edit.js:114
+msgid "Insert here pane contents..."
+msgstr ""
+
+#: build/tabs/index.js:1
+#: src/block-types/tabs/edit.js:128
+msgid "General settings"
+msgstr ""
+
+#: build/tabs/index.js:1
+#: src/block-types/tabs/edit.js:130
+msgid "Tabs amount"
+msgstr ""
+
+#: build/tabs/index.js:1
 #: src/helpers/flexbox.js:30
-#: build/tabs/index.js:2813
 msgid "Justify content"
+msgstr ""
+
+#: build/tabs/index.js:1
+#: src/block-types/tabs/edit.js:148
+msgid "Fill free space"
+msgstr ""
+
+#: build/tabs/index.js:1
+#: src/block-types/tabs/edit.js:152
+msgid "No"
+msgstr ""
+
+#: build/tabs/index.js:1
+#: src/block-types/tabs/edit.js:156
+msgid "Yes"
+msgstr ""
+
+#: build/tabs/index.js:1
+#: src/block-types/tabs/edit.js:160
+msgid "Same width tabs"
+msgstr ""
+
+#: build/tabs/index.js:1
+#: src/block-types/tabs/edit.js:168
+msgid "Tabs color"
+msgstr ""
+
+#: build/tabs/index.js:1
+#: src/block-types/tabs/edit.js:35
+msgid "Select tab status (%s)"
+msgstr ""
+
+#: build/tabs/index.js:1
+#: src/block-types/tabs/edit.js:272
+msgid "Tabs typography"
+msgstr ""
+
+#: build/tabs/index.js:1
+#: src/block-types/tabs/edit.js:279
+msgid "Tabs borders"
+msgstr ""
+
+#: build/tabs/index.js:1
+#: src/block-types/tabs/edit.js:285
+msgid "Tabs border radius"
+msgstr ""
+
+#: build/tabs/index.js:1
+#: src/block-types/tabs/edit.js:291
+msgid "Tabs spacing"
 msgstr ""

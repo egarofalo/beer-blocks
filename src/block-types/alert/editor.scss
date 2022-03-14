@@ -1,3 +1,9 @@
-.wp-block-beer-blocks-alert.is-selected {
-	border: 1px dotted #035cff !important;
+@import "./../../mixins.scss";
+
+.wp-block-beer-blocks-alert {
+	@include editorDefaultMargins;
+
+	&.is-selected {
+		border: 1px dotted #035cff !important;
+	}
 }

@@ -1,4 +1,4 @@
-@import "./../../variables.scss";
+@import "./../../mixins.scss";
 
 :root {
 	--beer-blocks-tabs-nav-link-color: #007bff;
@@ -12,8 +12,7 @@
 }
 
 .wp-block-beer-blocks-tabs {
-	margin-top: $default-blocks-vertical-margin;
-	margin-bottom: $default-blocks-vertical-margin;
+	@include frontDefaultMargins;
 
 	.nav.nav-pills {
 		& > .nav-item {

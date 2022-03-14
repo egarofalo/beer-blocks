@@ -1,9 +1,7 @@
+@import "./../../mixins.scss";
+
 // Remove underline link decoration on a.btn elements
 .wp-block-beer-blocks-button {
-	.editor-styles-wrapper &.wp-block {
-		margin-top: 0;
-		margin-bottom: 0;
-	}
-
+	@include editorDefaultMargins(0);
 	text-decoration: none;
 }

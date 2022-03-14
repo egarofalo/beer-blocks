@@ -1,0 +1,5 @@
+@import "./../../mixins.scss";
+
+.wp-block-beer-blocks-info-box {
+	@include frontDefaultMargins;
+}

@@ -1,3 +1,9 @@
-.wp-block-beer-blocks-paragraph.is-selected {
-	border: 1px dotted #035cff;
+@import "./../../mixins.scss";
+
+.wp-block-beer-blocks-paragraph {
+	@include editorDefaultMargins;
+
+	&.is-selected {
+		border: 1px dotted #035cff;
+	}
 }

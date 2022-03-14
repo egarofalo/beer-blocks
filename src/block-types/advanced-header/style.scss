@@ -1,6 +1,5 @@
-@import "./../../variables.scss";
+@import "./../../mixins.scss";
 
 .wp-block-beer-blocks-advanced-header {
-	margin-top: $default-blocks-vertical-margin;
-	margin-bottom: $default-blocks-vertical-margin;
+	@include frontDefaultMargins;
 }

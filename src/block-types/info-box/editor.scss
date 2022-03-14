@@ -1,7 +1,13 @@
-.wp-block-beer-blocks-info-box.is-selected {
-	border: 1px dotted #035cff;
-}
+@import "./../../mixins.scss";
 
-.wp-block-beer-blocks-info-box.has-child-selected {
-	border: 1px dotted #ff9f50;
+.wp-block-beer-blocks-info-box {
+	@include editorDefaultMargins;
+
+	&.is-selected {
+		border: 1px dotted #035cff;
+	}
+
+	&.has-child-selected {
+		border: 1px dotted #ff9f50;
+	}
 }

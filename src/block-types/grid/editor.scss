@@ -1,10 +1,7 @@
-@import "./../../variables.scss";
+@import "./../../mixins.scss";
 
 .wp-block-beer-blocks-grid {
-	.editor-styles-wrapper &.wp-block {
-		margin-top: 0;
-		margin-bottom: 0;
-	}
+	@include editorDefaultMargins;
 
 	&.is-selected {
 		border: 1px dotted #035cff !important;

@@ -269,7 +269,7 @@ const edit = (props) => {
 
 				{typography.controls({
 					props,
-					title: __("Tabs typography"),
+					title: __("Tabs typography", "beer-blocks"),
 					attrPrefixName: "tabs",
 				})}
 
@@ -288,7 +288,7 @@ const edit = (props) => {
 				{spacing.controls({
 					props,
 					attrPrefixName: "tabs",
-					title: __("Tabs spacing"),
+					title: __("Tabs spacing", "beer-blocks"),
 				})}
 
 				{spacing.controls({ props })}

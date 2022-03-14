@@ -1,8 +1,9 @@
-.wp-block-beer-blocks-accordion-item {
-	.editor-styles-wrapper &.wp-block {
-		margin-top: 0;
-		margin-bottom: 0;
+@import "./../../mixins.scss";
 
+.wp-block-beer-blocks-accordion-item {
+	@include editorDefaultMargins(0);
+
+	.editor-styles-wrapper &.wp-block {
 		&.card {
 			padding: 0;
 			box-shadow: none;

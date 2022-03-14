@@ -1,8 +1,5 @@
-@import "./../../variables.scss";
+@import "./../../mixins.scss";
 
 .wp-block-beer-blocks-separator {
-	.editor-styles-wrapper &.wp-block {
-		margin-top: $default-blocks-vertical-margin;
-		margin-bottom: $default-blocks-vertical-margin;
-	}
+	@include editorDefaultMargins;
 }
