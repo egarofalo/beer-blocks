@@ -141,6 +141,7 @@ Yes, of course! You can choose any of the font families available in Google Font
   - `beer-blocks/tab-pane`
   - `beer-blocks/column`
 - Add spacing settings in `beer-blocks/fa-icon` block
+- Add Beer Blocks icon to menu page plugin settings
 - Remove margin styles in the global `editor.css` stylesheet, which was removing the default extra margins of wordpress blocks
 
 == Upgrade Notice ==

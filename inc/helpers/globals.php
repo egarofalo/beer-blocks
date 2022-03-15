@@ -172,7 +172,9 @@ function add_settings_menu_page()
 
 			include BEERB_PLUGIN_DIR_PATH . '/inc/beer-blocks-admin-page.php';
 		},
-		'dashicons-beer'
+		'data:image/svg+xml;base64,' . base64_encode(
+			file_get_contents("{$plugin_path}/assets/iso.svg")
+		)
 	);
 }
 

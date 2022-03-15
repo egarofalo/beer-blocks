@@ -24,6 +24,7 @@
   - `beer-blocks/tab-pane`
   - `beer-blocks/column`
 - Add spacing settings in `beer-blocks/fa-icon` block
+- Add Beer Blocks icon to menu page plugin settings
 - Remove margin styles in the global `editor.css` stylesheet, which was removing the default extra margins of wordpress blocks
 
 ## [1.3.0] - 2022-03-10
