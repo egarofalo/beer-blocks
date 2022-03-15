@@ -1,14 +1,14 @@
-## [1.3.1] - 2022-03-14
+## [1.3.1] - 2022-03-15
 
 - Add default margin-top and margin-bottom (`0px`) to the following blocks for the editor view only:
   - `beer-blocks/button`
-- Add default margin-top and margin-bottom (`15px`) to the following blocks for the editor view only:
+- Add default margin-top and margin-bottom (`20px`) to the following blocks for the editor view only:
   - `beer-blocks/row`
   - `beer-blocks/header`
   - `beer-blocks/paragraph`
 - Add default margin-top and margin-bottom (`0px`) to the following blocks for the frontend only:
   - `beer-blocks/row`
-- Add default margin-top and margin-bottom (`15px`) to the following blocks for the editor view and the frontend:
+- Add default margin-top and margin-bottom (`20px`) to the following blocks for the editor view and the frontend:
   - `beer-blocks/tabs`
   - `beer-blocks/fa-icon`
   - `beer-blocks/separator`

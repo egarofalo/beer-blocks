@@ -6,7 +6,7 @@ Donate link: https://www.paypal.com/donate?hosted_button_id=8XSCNEV5WA5TU
 Requires at least: 5.5.0
 Tested up to: 5.8.2
 Requires PHP: 7.3
-Stable tag: 1.3.0
+Stable tag: 1.3.1
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -119,13 +119,13 @@ Yes, of course! You can choose any of the font families available in Google Font
 = 1.3.1 =
 - Add default margin-top and margin-bottom (`0px`) to the following blocks for the editor view only:
   - `beer-blocks/button`
-- Add default margin-top and margin-bottom (`15px`) to the following blocks for the editor view only:
+- Add default margin-top and margin-bottom (`20px`) to the following blocks for the editor view only:
   - `beer-blocks/row`
   - `beer-blocks/header`
   - `beer-blocks/paragraph`
 - Add default margin-top and margin-bottom (`0px`) to the following blocks for the frontend only:
   - `beer-blocks/row`
-- Add default margin-top and margin-bottom (`15px`) to the following blocks for the editor view and the frontend:
+- Add default margin-top and margin-bottom (`20px`) to the following blocks for the editor view and the frontend:
   - `beer-blocks/tabs`
   - `beer-blocks/fa-icon`
   - `beer-blocks/separator`

@@ -157,6 +157,8 @@ function register_block_types()
  */
 function add_settings_menu_page()
 {
+	$plugin_path = BEERB_PLUGIN_DIR_PATH;
+
 	add_menu_page(
 		__('Beer Blocks Settings', 'beer-blocks'),
 		BEERB_PLUGIN_NAME,
@@ -169,7 +171,8 @@ function add_settings_menu_page()
 			}
 
 			include BEERB_PLUGIN_DIR_PATH . '/inc/beer-blocks-admin-page.php';
-		}
+		},
+		'dashicons-beer'
 	);
 }
 
