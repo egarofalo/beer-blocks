@@ -8,7 +8,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2021-08-17T13:56:20+00:00\n"
-"PO-Revision-Date: 2022-03-14 16:19+0000\n"
+"PO-Revision-Date: 2022-03-17 15:59+0000\n"
 "Language: es_ES\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: beer-blocks\n"
@@ -20,7 +20,7 @@ msgstr ""
 msgid "-- SELECT --"
 msgstr "-- SELECCIONE --"
 
-#: inc/helpers/globals.php:215 inc/helpers/globals.php:225
+#: inc/helpers/globals.php:223 inc/helpers/globals.php:233
 msgid "<p>Security alert: <b>NONCE CHECK FAILED</b></p>"
 msgstr "<p>Alerta de seguridad: <b>FALLÓ LA VERIFICACIÓN DEL NONCE</b></p>"
 
@@ -84,7 +84,7 @@ msgstr ""
 "Beer Blocks amplía el editor de WordPress con bloques potentes y avanzados "
 "que te ayudan a crear hermosos sitios web más rápido."
 
-#: inc/helpers/globals.php:161
+#: inc/helpers/globals.php:166
 msgid "Beer Blocks Settings"
 msgstr "Ajustes de Beer Blocks"
 
@@ -745,7 +745,6 @@ msgstr "Tamaño manual"
 #: build/header/index.js:1 build/info-box/index.js:1 build/jumbotron/index.js:1
 #: build/paragraph/index.js:1 build/section/index.js:1
 #: build/separator/index.js:1 build/tab-pane/index.js:1 build/tabs/index.js:1
-#: src/helpers/spacing.js:105
 msgid "Margin"
 msgstr "Margen"
 
@@ -804,7 +803,6 @@ msgstr ""
 #: build/instruction/index.js:1 build/jumbotron/index.js:1
 #: build/paragraph/index.js:1 build/section/index.js:1
 #: build/separator/index.js:1 build/tab-pane/index.js:1 build/tabs/index.js:1
-#: src/helpers/spacing.js:57
 msgid "Padding"
 msgstr "Relleno"
 
@@ -906,7 +904,7 @@ msgstr "Establecer tamaño original"
 msgid "Settings applied from %s resolution and up"
 msgstr "Ajustes aplicados desde la resolución %s en adelante"
 
-#: inc/helpers/globals.php:301
+#: inc/helpers/globals.php:309
 msgid "Settings updated successfully!!"
 msgstr "¡¡Los ajustes se actualizaron correctamente!!"
 
@@ -942,7 +940,7 @@ msgstr "Espacio entre (apace between)"
 #: build/instruction/index.js:1 build/jumbotron/index.js:1
 #: build/paragraph/index.js:1 build/section/index.js:1
 #: build/separator/index.js:1 build/tab-pane/index.js:1 build/tabs/index.js:1
-#: src/block-types/instruction/edit.js:213 src/helpers/spacing.js:166
+#: src/block-types/instruction/edit.js:213
 msgid "Spacing"
 msgstr "Espaciado"
 
@@ -1032,7 +1030,7 @@ msgstr "Ancho"
 
 #: build/fa-icon/index.js:1 build/instruction/index.js:1
 #: build/separator/index.js:1 src/block-types/fa-icon/edit.js:252
-#: src/block-types/instruction/edit.js:153 src/block-types/separator/edit.js:59
+#: src/block-types/instruction/edit.js:153
 msgid "Width (%s)"
 msgstr "Ancho (%s)"
 

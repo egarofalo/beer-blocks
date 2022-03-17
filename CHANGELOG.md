@@ -1,3 +1,10 @@
+## [1.3.2] - 2022-03-17
+
+- Add frontend styles to `beer-blocks/accordion` block type
+- Add frontend styles to `beer-blocks/tab-pane` block type
+- Add new translations in `es_ES` language
+- Fix block types dependencies array in the `register_block_types` function
+
 ## [1.3.1] - 2022-03-15
 
 - Add default margin-top and margin-bottom (`0px`) to the following blocks for the editor view only:

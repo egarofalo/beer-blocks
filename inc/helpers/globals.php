@@ -79,10 +79,17 @@ function register_block_types()
 	$bootstrap_editor_styles = register_bootstrap_editor_styles();
 	$fontawesome_editor_assets = register_fontawesome_editor_assets();
 
-	// Block Types dependencies
-	$block_types_dependencies = array_merge(
+	// Block Types scripts dependencies
+	$block_types_scripts_dependencies = array_merge(
 		['beer-blocks-editor'],
 		$bootstrap_editor_scripts ? [$bootstrap_editor_scripts] : []
+	);
+
+	// Block Types styles dependencies
+	$block_types_styles_dependencies = array_merge(
+		['beer-blocks-editor'],
+		$bootstrap_editor_styles ? [$bootstrap_editor_styles] : [],
+		$fontawesome_editor_assets ? [$fontawesome_editor_assets] : []
 	);
 
 	// Register all block types
@@ -117,7 +124,7 @@ function register_block_types()
 		wp_register_script(
 			$editor_script_handle,
 			BEERB_PLUGIN_DIR_URL . "/build/{$block_type}/index.js",
-			array_merge($asset_file['dependencies'], $block_types_dependencies),
+			array_merge($asset_file['dependencies'], $block_types_scripts_dependencies),
 			$asset_file['version'],
 			true
 		);
@@ -125,11 +132,7 @@ function register_block_types()
 		wp_register_style(
 			$editor_style_handle,
 			BEERB_PLUGIN_DIR_URL . "/build/{$block_type}/index.css",
-			array_merge(
-				$block_types_dependencies,
-				$bootstrap_editor_styles ? [$bootstrap_editor_styles] : [],
-				$fontawesome_editor_assets ? [$fontawesome_editor_assets] : []
-			),
+			$block_types_styles_dependencies,
 			filemtime(BEERB_PLUGIN_DIR_PATH . "/build/{$block_type}/index.css")
 		);
 

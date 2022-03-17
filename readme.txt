@@ -6,7 +6,7 @@ Donate link: https://www.paypal.com/donate?hosted_button_id=8XSCNEV5WA5TU
 Requires at least: 5.5.0
 Tested up to: 5.8.2
 Requires PHP: 7.3
-Stable tag: 1.3.1
+Stable tag: 1.3.2
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -143,6 +143,11 @@ Yes, of course! You can choose any of the font families available in Google Font
 - Add spacing settings in `beer-blocks/fa-icon` block
 - Add the Beer Blocks icon in the menu item linked to the plugin settings page
 - Remove margin styles in the global `editor.css` stylesheet, which was removing the default extra margins of wordpress blocks
+= 1.3.2 =
+- Add frontend styles to `beer-blocks/accordion` block type
+- Add frontend styles to `beer-blocks/tab-pane` block type
+- Add new translations in `es_ES` language
+- Fix block types dependencies array in the `register_block_types` function
 
 == Upgrade Notice ==
 

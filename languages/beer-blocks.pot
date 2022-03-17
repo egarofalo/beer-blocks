@@ -2,16 +2,16 @@
 # This file is distributed under the GPL-2.0-or-later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Beer Blocks 1.3.0\n"
+"Project-Id-Version: Beer Blocks 1.3.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/beer-blocks\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-03-14T16:18:52+00:00\n"
+"POT-Creation-Date: 2022-03-17T15:52:03+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.6.0\n"
+"X-Generator: WP-CLI 2.5.0\n"
 "X-Domain: beer-blocks\n"
 
 #. Plugin Name of the plugin
@@ -90,16 +90,16 @@ msgstr ""
 msgid "Enqueue Font Awesome styles in the frontend. Uncheck this option if you want to enqueue Font Awesome styles manually in the active theme."
 msgstr ""
 
-#: inc/helpers/globals.php:161
+#: inc/helpers/globals.php:166
 msgid "Beer Blocks Settings"
 msgstr ""
 
-#: inc/helpers/globals.php:215
-#: inc/helpers/globals.php:225
+#: inc/helpers/globals.php:223
+#: inc/helpers/globals.php:233
 msgid "<p>Security alert: <b>NONCE CHECK FAILED</b></p>"
 msgstr ""
 
-#: inc/helpers/globals.php:301
+#: inc/helpers/globals.php:309
 msgid "Settings updated successfully!!"
 msgstr ""
 
@@ -132,7 +132,6 @@ msgstr ""
 #: build/separator/index.js:1
 #: build/tab-pane/index.js:1
 #: build/tabs/index.js:1
-#: src/helpers/spacing.js:57
 msgid "Padding"
 msgstr ""
 
@@ -151,7 +150,6 @@ msgstr ""
 #: build/separator/index.js:1
 #: build/tab-pane/index.js:1
 #: build/tabs/index.js:1
-#: src/helpers/spacing.js:105
 msgid "Margin"
 msgstr ""
 
@@ -401,7 +399,6 @@ msgstr ""
 #: build/tab-pane/index.js:1
 #: build/tabs/index.js:1
 #: src/block-types/instruction/edit.js:213
-#: src/helpers/spacing.js:166
 msgid "Spacing"
 msgstr ""
 
@@ -841,7 +838,6 @@ msgstr ""
 #: build/separator/index.js:1
 #: src/block-types/fa-icon/edit.js:252
 #: src/block-types/instruction/edit.js:153
-#: src/block-types/separator/edit.js:59
 msgid "Width (%s)"
 msgstr ""
 
