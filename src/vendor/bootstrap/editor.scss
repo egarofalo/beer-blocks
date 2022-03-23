@@ -2,14 +2,17 @@
 @import "~bootstrap/scss/mixins";
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/root";
+@import "./../../mixins.scss";
 
 .editor-styles-wrapper {
-	// Normalization of html elements styles, extracted from Normalize.css
-	@import "./reboot.scss";
-
 	// Load Bootstrap styles
 	.block-editor-block-list__layout {
 		&.is-root-container {
+			// Normalization of html elements styles, extracted from Normalize.css
+			@include reboot;
+			//
+			// Bootstrap styles and components
+			//
 			@import "~bootstrap/scss/type";
 			@import "~bootstrap/scss/code";
 			@import "~bootstrap/scss/grid";
