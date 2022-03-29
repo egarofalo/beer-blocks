@@ -14,6 +14,7 @@ const save = (props) => {
 			labels: tabsLabels,
 			horizontalAlignment,
 			fillFreeSpace,
+			selectedTab,
 			tabsColor,
 			tabsMouseOverColor,
 			tabsActiveColor,
@@ -50,13 +51,13 @@ const save = (props) => {
 					>
 						<RichText.Content
 							tagName="a"
-							className="nav-link"
+							className={`nav-link${selectedTab === index ? " active" : ""}`}
 							id={`${tabsId}-tab-${index}`}
 							data-toggle="tab"
 							href={`#${tabsId}-pane-${index}`}
 							role="tab"
 							aria-controls={`#${tabsId}-pane-${index}`}
-							aria-selected="false"
+							aria-selected={selectedTab === index ? "true" : "false"}
 							value={item}
 							style={{
 								...(tabsColor

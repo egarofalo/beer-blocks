@@ -13,6 +13,7 @@ import {
 	RadioControl,
 	ColorPalette,
 	BaseControl,
+	Button,
 	__experimentalRadio as Radio,
 	__experimentalRadioGroup as RadioGroup,
 } from "@wordpress/components";
@@ -44,6 +45,29 @@ const getRadioGroupTabsStatus = (tabStatus, setTabStatus) => (
 	</BaseControl>
 );
 
+const getRadioGroupSelectedTab = (tabs, selectedTab, setAttributes) => (
+	<BaseControl label={__("Default selected tab", "beer-blocks")}>
+		<RadioGroup
+			onChange={(value) => setAttributes({ selectedTab: value })}
+			checked={selectedTab}
+		>
+			{tabs.map((tabLabel, index) => (
+				<Radio value={index}>{tabLabel}</Radio>
+			))}
+		</RadioGroup>
+
+		<div style={{ textAlign: "right", marginTop: "10px" }}>
+			<Button
+				onClick={() => setAttributes({ selectedTab: -1 })}
+				variant="primary"
+				isSmall={true}
+			>
+				{__("Uncheck all", "beer-blocks")}
+			</Button>
+		</div>
+	</BaseControl>
+);
+
 const edit = (props) => {
 	const {
 		clientId,
@@ -55,6 +79,7 @@ const edit = (props) => {
 			labels: tabsLabels,
 			horizontalAlignment,
 			fillFreeSpace,
+			selectedTab,
 			tabsColor,
 			tabsMouseOverColor,
 			tabsActiveColor,
@@ -111,7 +136,6 @@ const edit = (props) => {
 			template: tabsLabels.map((item, index) => [
 				"beer-blocks/tab-pane",
 				{
-					placeholder: __("Insert here pane contents...", "beer-blocks"),
 					index,
 				},
 			]),
@@ -137,6 +161,8 @@ const edit = (props) => {
 							})
 						}
 					/>
+
+					{getRadioGroupSelectedTab(tabsLabels, selectedTab, setAttributes)}
 
 					{flexbox.justifyContentControl({
 						props,
@@ -314,13 +340,15 @@ const edit = (props) => {
 							>
 								<RichText
 									tagName="a"
-									className="nav-link"
+									className={`nav-link${
+										selectedTab === index ? " active" : ""
+									}`}
 									id={`${tabsId}-tab-${index}`}
 									data-toggle="tab"
 									href={`#${tabsId}-pane-${index}`}
 									role="tab"
 									aria-controls={`#${tabsId}-pane-${index}`}
-									aria-selected="false"
+									aria-selected={selectedTab === index ? "true" : "false"}
 									value={item}
 									allowedFormats={["core/bold", "core/italic"]}
 									onChange={(content) =>

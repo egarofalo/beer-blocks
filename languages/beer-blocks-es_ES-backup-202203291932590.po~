@@ -8,7 +8,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2021-08-17T13:56:20+00:00\n"
-"PO-Revision-Date: 2022-03-29 19:33+0000\n"
+"PO-Revision-Date: 2022-03-29 19:32+0000\n"
 "Language: es_ES\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: beer-blocks\n"
@@ -491,7 +491,7 @@ msgstr "Guiones cortos"
 
 #: build/tabs/index.js:1 src/block-types/tabs/edit.js:49
 msgid "Default selected tab"
-msgstr "Pestaña seleccionada por defecto"
+msgstr ""
 
 #: build/separator/index.js:1 src/block-types/separator/edit.js:45
 msgid "Dimensions"
@@ -1024,7 +1024,7 @@ msgstr "Tipografía"
 
 #: build/tabs/index.js:1 src/block-types/tabs/edit.js:65
 msgid "Uncheck all"
-msgstr "Desmarcar todo"
+msgstr ""
 
 #: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:319
 msgid "Use an image"

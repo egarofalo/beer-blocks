@@ -9,12 +9,12 @@ import {
 } from "@wordpress/components";
 import { camelCase, upperFirst } from "lodash";
 import {
-	MdNorthWest,
-	MdNorthEast,
-	MdSouthEast,
-	MdSouthWest,
-	MdZoomOutMap,
-} from "react-icons/md";
+	BsBoxArrowInUpLeft,
+	BsBoxArrowInUpRight,
+	BsBoxArrowInDownRight,
+	BsBoxArrowInDownLeft,
+	BsArrowsFullscreen,
+} from "react-icons/bs";
 
 const defaultUnits = [
 	{ value: "px", label: "PX" },
@@ -136,31 +136,31 @@ export const controls = ({
 				>
 					{borderRadius !== undefined && (
 						<Radio value="all">
-							<MdZoomOutMap />
+							<BsArrowsFullscreen style={{ fontSize: "1.2rem" }} />
 						</Radio>
 					)}
 
 					{borderTopLeftRadius !== undefined && (
 						<Radio value="topLeft">
-							<MdNorthWest />
+							<BsBoxArrowInUpLeft style={{ fontSize: "1.2rem" }} />
 						</Radio>
 					)}
 
 					{borderTopRightRadius !== undefined && (
 						<Radio value="topRight">
-							<MdNorthEast />
+							<BsBoxArrowInUpRight style={{ fontSize: "1.2rem" }} />
 						</Radio>
 					)}
 
 					{borderBottomRightRadius !== undefined && (
 						<Radio value="bottomRight">
-							<MdSouthEast />
+							<BsBoxArrowInDownRight style={{ fontSize: "1.2rem" }} />
 						</Radio>
 					)}
 
 					{borderBottomLeftRadius !== undefined && (
 						<Radio value="bottomLeft">
-							<MdSouthWest />
+							<BsBoxArrowInDownLeft style={{ fontSize: "1.2rem" }} />
 						</Radio>
 					)}
 				</RadioGroup>

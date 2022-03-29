@@ -14,9 +14,17 @@ import spacing from "./../../helpers/spacing";
 const edit = (props) => {
 	const {
 		setAttributes,
-		attributes: { index, id, tabId },
-		context: { tabsId },
+		attributes: { index, id, tabId, selected },
+		context: { tabsId, selectedTab },
 	} = props;
+
+	useEffect(
+		() =>
+			setAttributes({
+				selected: selectedTab === index,
+			}),
+		[selectedTab]
+	);
 
 	useEffect(
 		() =>
@@ -42,6 +50,10 @@ const edit = (props) => {
 		{
 			renderAppender: false,
 			templateLock: false,
+			placeholder: __(
+				"Add blocks by pressing the following button...",
+				"beer-blocks"
+			),
 		},
 	];
 
@@ -59,7 +71,7 @@ const edit = (props) => {
 
 			<div
 				id={id}
-				className="tab-pane fade"
+				className={`tab-pane fade${selected ? " show active" : ""}`}
 				role="tabpanel"
 				aria-labelledby={tabId}
 			>

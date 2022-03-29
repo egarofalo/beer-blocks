@@ -83,6 +83,10 @@ registerBlockType("beer-blocks/tabs", {
 			type: "string",
 			default: "",
 		},
+		selectedTab: {
+			type: "number",
+			default: -1,
+		},
 		tabsColor: {
 			type: "string",
 		},
@@ -129,6 +133,7 @@ registerBlockType("beer-blocks/tabs", {
 	},
 	providesContext: {
 		tabsId: "id",
+		selectedTab: "selectedTab",
 	},
 	edit,
 	save,

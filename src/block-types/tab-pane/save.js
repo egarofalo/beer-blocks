@@ -6,7 +6,7 @@ import spacing from "./../../helpers/spacing";
 
 const save = (props) => {
 	const {
-		attributes: { id, tabId },
+		attributes: { id, tabId, selected },
 	} = props;
 
 	const blockProps = useBlockProps.save({
@@ -20,7 +20,7 @@ const save = (props) => {
 	return (
 		<div
 			id={id}
-			className="tab-pane fade"
+			className={`tab-pane fade${selected ? " show active" : ""}`}
 			role="tabpanel"
 			aria-labelledby={tabId}
 		>

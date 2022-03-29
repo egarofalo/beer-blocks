@@ -9,9 +9,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-03-17T15:52:03+00:00\n"
+"POT-Creation-Date: 2022-03-29T19:31:53+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.5.0\n"
+"X-Generator: WP-CLI 2.6.0\n"
 "X-Domain: beer-blocks\n"
 
 #. Plugin Name of the plugin
@@ -132,6 +132,7 @@ msgstr ""
 #: build/separator/index.js:1
 #: build/tab-pane/index.js:1
 #: build/tabs/index.js:1
+#: src/helpers/spacing.js:57
 msgid "Padding"
 msgstr ""
 
@@ -150,6 +151,7 @@ msgstr ""
 #: build/separator/index.js:1
 #: build/tab-pane/index.js:1
 #: build/tabs/index.js:1
+#: src/helpers/spacing.js:105
 msgid "Margin"
 msgstr ""
 
@@ -340,9 +342,9 @@ msgstr ""
 #: build/container/index.js:1
 #: build/tab-pane/index.js:1
 #: build/tabs/index.js:1
-#: src/block-types/tabs/edit.js:189
-#: src/block-types/tabs/edit.js:223
-#: src/block-types/tabs/edit.js:257
+#: src/block-types/tabs/edit.js:215
+#: src/block-types/tabs/edit.js:249
+#: src/block-types/tabs/edit.js:283
 #: src/helpers/border.js:113
 msgid "Border color"
 msgstr ""
@@ -399,6 +401,7 @@ msgstr ""
 #: build/tab-pane/index.js:1
 #: build/tabs/index.js:1
 #: src/block-types/instruction/edit.js:213
+#: src/helpers/spacing.js:166
 msgid "Spacing"
 msgstr ""
 
@@ -412,9 +415,9 @@ msgstr ""
 #: build/tabs/index.js:1
 #: src/block-types/accordion-item/edit.js:82
 #: src/block-types/instruction/edit.js:141
-#: src/block-types/tabs/edit.js:173
-#: src/block-types/tabs/edit.js:203
-#: src/block-types/tabs/edit.js:237
+#: src/block-types/tabs/edit.js:199
+#: src/block-types/tabs/edit.js:229
+#: src/block-types/tabs/edit.js:263
 msgid "Font color"
 msgstr ""
 
@@ -427,9 +430,9 @@ msgstr ""
 #: src/block-types/instruction/edit.js:131
 #: src/block-types/separator/edit.js:86
 #: src/block-types/separator/edit.js:122
-#: src/block-types/tabs/edit.js:181
-#: src/block-types/tabs/edit.js:213
-#: src/block-types/tabs/edit.js:247
+#: src/block-types/tabs/edit.js:207
+#: src/block-types/tabs/edit.js:239
+#: src/block-types/tabs/edit.js:273
 msgid "Background color"
 msgstr ""
 
@@ -838,6 +841,7 @@ msgstr ""
 #: build/separator/index.js:1
 #: src/block-types/fa-icon/edit.js:252
 #: src/block-types/instruction/edit.js:153
+#: src/block-types/separator/edit.js:59
 msgid "Width (%s)"
 msgstr ""
 
@@ -1026,7 +1030,7 @@ msgstr ""
 #: build/instruction/index.js:1
 #: build/tabs/index.js:1
 #: src/block-types/instruction/edit.js:110
-#: src/block-types/tabs/edit.js:144
+#: src/block-types/tabs/edit.js:170
 msgid "Horizontal alignment"
 msgstr ""
 
@@ -1214,23 +1218,28 @@ msgid "Create a tab panel wich is used by Tabs block."
 msgstr ""
 
 #: build/tab-pane/index.js:1
+#: src/block-types/tab-pane/edit.js:53
+msgid "Add blocks by pressing the following button..."
+msgstr ""
+
+#: build/tab-pane/index.js:1
 #: build/tabs/index.js:1
 #: src/helpers/border-radius.js:128
 msgid "Select corner (%s)"
 msgstr ""
 
 #: build/tabs/index.js:1
-#: src/block-types/tabs/edit.js:27
+#: src/block-types/tabs/edit.js:28
 msgid "Normal"
 msgstr ""
 
 #: build/tabs/index.js:1
-#: src/block-types/tabs/edit.js:28
+#: src/block-types/tabs/edit.js:29
 msgid "Mouse over"
 msgstr ""
 
 #: build/tabs/index.js:1
-#: src/block-types/tabs/edit.js:29
+#: src/block-types/tabs/edit.js:30
 msgid "Active"
 msgstr ""
 
@@ -1248,7 +1257,7 @@ msgid "Create tabbable panes with custom content."
 msgstr ""
 
 #: build/tabs/index.js:1
-#: src/block-types/tabs/edit.js:90
+#: src/block-types/tabs/edit.js:115
 #: src/block-types/tabs/index.js:73
 #: src/block-types/tabs/index.js:74
 #: src/block-types/tabs/index.js:75
@@ -1256,18 +1265,23 @@ msgid "Tab %d"
 msgstr ""
 
 #: build/tabs/index.js:1
-#: src/block-types/tabs/edit.js:114
-msgid "Insert here pane contents..."
-msgstr ""
-
-#: build/tabs/index.js:1
-#: src/block-types/tabs/edit.js:128
+#: src/block-types/tabs/edit.js:152
 msgid "General settings"
 msgstr ""
 
 #: build/tabs/index.js:1
-#: src/block-types/tabs/edit.js:130
+#: src/block-types/tabs/edit.js:154
 msgid "Tabs amount"
+msgstr ""
+
+#: build/tabs/index.js:1
+#: src/block-types/tabs/edit.js:49
+msgid "Default selected tab"
+msgstr ""
+
+#: build/tabs/index.js:1
+#: src/block-types/tabs/edit.js:65
+msgid "Uncheck all"
 msgstr ""
 
 #: build/tabs/index.js:1
@@ -1276,51 +1290,51 @@ msgid "Justify content"
 msgstr ""
 
 #: build/tabs/index.js:1
-#: src/block-types/tabs/edit.js:148
+#: src/block-types/tabs/edit.js:174
 msgid "Fill free space"
 msgstr ""
 
 #: build/tabs/index.js:1
-#: src/block-types/tabs/edit.js:152
+#: src/block-types/tabs/edit.js:178
 msgid "No"
 msgstr ""
 
 #: build/tabs/index.js:1
-#: src/block-types/tabs/edit.js:156
+#: src/block-types/tabs/edit.js:182
 msgid "Yes"
 msgstr ""
 
 #: build/tabs/index.js:1
-#: src/block-types/tabs/edit.js:160
+#: src/block-types/tabs/edit.js:186
 msgid "Same width tabs"
 msgstr ""
 
 #: build/tabs/index.js:1
-#: src/block-types/tabs/edit.js:168
+#: src/block-types/tabs/edit.js:194
 msgid "Tabs color"
 msgstr ""
 
 #: build/tabs/index.js:1
-#: src/block-types/tabs/edit.js:35
+#: src/block-types/tabs/edit.js:36
 msgid "Select tab status (%s)"
 msgstr ""
 
 #: build/tabs/index.js:1
-#: src/block-types/tabs/edit.js:272
+#: src/block-types/tabs/edit.js:298
 msgid "Tabs typography"
 msgstr ""
 
 #: build/tabs/index.js:1
-#: src/block-types/tabs/edit.js:279
+#: src/block-types/tabs/edit.js:305
 msgid "Tabs borders"
 msgstr ""
 
 #: build/tabs/index.js:1
-#: src/block-types/tabs/edit.js:285
+#: src/block-types/tabs/edit.js:311
 msgid "Tabs border radius"
 msgstr ""
 
 #: build/tabs/index.js:1
-#: src/block-types/tabs/edit.js:291
+#: src/block-types/tabs/edit.js:317
 msgid "Tabs spacing"
 msgstr ""

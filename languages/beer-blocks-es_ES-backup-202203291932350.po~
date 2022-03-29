@@ -8,7 +8,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2021-08-17T13:56:20+00:00\n"
-"PO-Revision-Date: 2022-03-29 19:33+0000\n"
+"PO-Revision-Date: 2022-03-17 15:59+0000\n"
 "Language: es_ES\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: beer-blocks\n"
@@ -24,13 +24,9 @@ msgstr "-- SELECCIONE --"
 msgid "<p>Security alert: <b>NONCE CHECK FAILED</b></p>"
 msgstr "<p>Alerta de seguridad: <b>FALLÓ LA VERIFICACIÓN DEL NONCE</b></p>"
 
-#: build/tabs/index.js:1 src/block-types/tabs/edit.js:30
+#: build/tabs/index.js:1 src/block-types/tabs/edit.js:29
 msgid "Active"
 msgstr "Activo"
-
-#: build/tab-pane/index.js:1 src/block-types/tab-pane/edit.js:53
-msgid "Add blocks by pressing the following button..."
-msgstr "Agregue bloques aquí presionando el siguiente botón..."
 
 #: build/alert/index.js:1 src/block-types/alert/edit.js:27
 msgid "Alert settings"
@@ -65,8 +61,8 @@ msgstr "Tamaño automático: columnas de ancho ajustable al contenido"
 #: src/block-types/accordion-item/edit.js:102
 #: src/block-types/accordion-item/edit.js:136
 #: src/block-types/instruction/edit.js:131 src/block-types/separator/edit.js:86
-#: src/block-types/separator/edit.js:122 src/block-types/tabs/edit.js:207
-#: src/block-types/tabs/edit.js:239 src/block-types/tabs/edit.js:273
+#: src/block-types/separator/edit.js:122 src/block-types/tabs/edit.js:181
+#: src/block-types/tabs/edit.js:213 src/block-types/tabs/edit.js:247
 msgid "Background color"
 msgstr "Color de fondo"
 
@@ -373,8 +369,8 @@ msgstr "Borde"
 
 #: build/accordion-item/index.js:1 build/container/index.js:1
 #: build/tab-pane/index.js:1 build/tabs/index.js:1
-#: src/block-types/tabs/edit.js:215 src/block-types/tabs/edit.js:249
-#: src/block-types/tabs/edit.js:283 src/helpers/border.js:113
+#: src/block-types/tabs/edit.js:189 src/block-types/tabs/edit.js:223
+#: src/block-types/tabs/edit.js:257 src/helpers/border.js:113
 msgid "Border color"
 msgstr "Color de borde"
 
@@ -489,10 +485,6 @@ msgstr "Tipo de contenedor"
 msgid "Dashed"
 msgstr "Guiones cortos"
 
-#: build/tabs/index.js:1 src/block-types/tabs/edit.js:49
-msgid "Default selected tab"
-msgstr "Pestaña seleccionada por defecto"
-
 #: build/separator/index.js:1 src/block-types/separator/edit.js:45
 msgid "Dimensions"
 msgstr "Dimensiones"
@@ -569,7 +561,7 @@ msgstr ""
 "Encolar los estilos de Font Awesome en el frontend. Desmarque esta opción si "
 "desea encolar manualmente los estilos de Font Awesome en el tema activo."
 
-#: build/tabs/index.js:1 src/block-types/tabs/edit.js:174
+#: build/tabs/index.js:1 src/block-types/tabs/edit.js:148
 msgid "Fill free space"
 msgstr "Rellenar el espacio libre"
 
@@ -579,8 +571,8 @@ msgstr "Ajustes de Font Awesome (v5.15.3)"
 
 #: build/accordion-item/index.js:1 build/instruction/index.js:1
 #: build/tabs/index.js:1 src/block-types/accordion-item/edit.js:82
-#: src/block-types/instruction/edit.js:141 src/block-types/tabs/edit.js:199
-#: src/block-types/tabs/edit.js:229 src/block-types/tabs/edit.js:263
+#: src/block-types/instruction/edit.js:141 src/block-types/tabs/edit.js:173
+#: src/block-types/tabs/edit.js:203 src/block-types/tabs/edit.js:237
 msgid "Font color"
 msgstr "Color de fuente"
 
@@ -602,7 +594,7 @@ msgstr "Tamaño de fuente (%s)"
 msgid "Font Weight"
 msgstr "Peso de la fuente"
 
-#: build/tabs/index.js:1 src/block-types/tabs/edit.js:152
+#: build/tabs/index.js:1 src/block-types/tabs/edit.js:128
 msgid "General settings"
 msgstr "Ajustes generales"
 
@@ -624,7 +616,7 @@ msgid "Height (%s)"
 msgstr "Altura (%s)"
 
 #: build/instruction/index.js:1 build/tabs/index.js:1
-#: src/block-types/instruction/edit.js:110 src/block-types/tabs/edit.js:170
+#: src/block-types/instruction/edit.js:110 src/block-types/tabs/edit.js:144
 msgid "Horizontal alignment"
 msgstr "Alineación horizontal"
 
@@ -668,6 +660,10 @@ msgstr "BORDE INTERIOR INFERIOR"
 #: build/container/index.js:1 src/helpers/inner-border.js:18
 msgid "INNER BORDER TOP"
 msgstr "BORDE INTERIOR SUPERIOR"
+
+#: build/tabs/index.js:1 src/block-types/tabs/edit.js:114
+msgid "Insert here pane contents..."
+msgstr "Insertar aquí contenidos del panel..."
 
 #: build/accordion-item/index.js:1 build/container/index.js:1
 #: build/tab-pane/index.js:1 build/tabs/index.js:1 src/helpers/border.js:30
@@ -749,7 +745,6 @@ msgstr "Tamaño manual"
 #: build/header/index.js:1 build/info-box/index.js:1 build/jumbotron/index.js:1
 #: build/paragraph/index.js:1 build/section/index.js:1
 #: build/separator/index.js:1 build/tab-pane/index.js:1 build/tabs/index.js:1
-#: src/helpers/spacing.js:105
 msgid "Margin"
 msgstr "Margen"
 
@@ -757,11 +752,11 @@ msgstr "Margen"
 msgid "Medium"
 msgstr "Mediano"
 
-#: build/tabs/index.js:1 src/block-types/tabs/edit.js:29
+#: build/tabs/index.js:1 src/block-types/tabs/edit.js:28
 msgid "Mouse over"
 msgstr "Ratón sobre"
 
-#: build/tabs/index.js:1 src/block-types/tabs/edit.js:178
+#: build/tabs/index.js:1 src/block-types/tabs/edit.js:152
 msgid "No"
 msgstr "No"
 
@@ -776,7 +771,7 @@ msgstr "Sin opciones de familia de fuentes"
 msgid "None"
 msgstr "Ninguno"
 
-#: build/tabs/index.js:1 src/block-types/tabs/edit.js:28
+#: build/tabs/index.js:1 src/block-types/tabs/edit.js:27
 msgid "Normal"
 msgstr "Normal"
 
@@ -808,7 +803,6 @@ msgstr ""
 #: build/instruction/index.js:1 build/jumbotron/index.js:1
 #: build/paragraph/index.js:1 build/section/index.js:1
 #: build/separator/index.js:1 build/tab-pane/index.js:1 build/tabs/index.js:1
-#: src/helpers/spacing.js:57
 msgid "Padding"
 msgstr "Relleno"
 
@@ -851,7 +845,7 @@ msgstr "Ajustes de fila"
 msgid "Same as previous breakpoint"
 msgstr "Igual que el punto de interrupción anterior"
 
-#: build/tabs/index.js:1 src/block-types/tabs/edit.js:186
+#: build/tabs/index.js:1 src/block-types/tabs/edit.js:160
 msgid "Same width tabs"
 msgstr "Pestañas del mismo ancho"
 
@@ -877,7 +871,7 @@ msgstr "Seleccione el lado del borde"
 msgid "Select corner (%s)"
 msgstr "Seleccione una esquina (%s)"
 
-#: build/tabs/index.js:1 src/block-types/tabs/edit.js:36
+#: build/tabs/index.js:1 src/block-types/tabs/edit.js:35
 msgid "Select tab status (%s)"
 msgstr "Seleccione el estado de la pestaña (%s)"
 
@@ -946,7 +940,7 @@ msgstr "Espacio entre (apace between)"
 #: build/instruction/index.js:1 build/jumbotron/index.js:1
 #: build/paragraph/index.js:1 build/section/index.js:1
 #: build/separator/index.js:1 build/tab-pane/index.js:1 build/tabs/index.js:1
-#: src/block-types/instruction/edit.js:213 src/helpers/spacing.js:166
+#: src/block-types/instruction/edit.js:213
 msgid "Spacing"
 msgstr "Espaciado"
 
@@ -967,33 +961,33 @@ msgstr "Inicio (start)"
 msgid "Stretch"
 msgstr "Estirar (stretch)"
 
-#: build/tabs/index.js:1 src/block-types/tabs/edit.js:115
+#: build/tabs/index.js:1 src/block-types/tabs/edit.js:90
 #: src/block-types/tabs/index.js:73 src/block-types/tabs/index.js:74
 #: src/block-types/tabs/index.js:75
 msgid "Tab %d"
 msgstr "Pestaña %d"
 
-#: build/tabs/index.js:1 src/block-types/tabs/edit.js:154
+#: build/tabs/index.js:1 src/block-types/tabs/edit.js:130
 msgid "Tabs amount"
 msgstr "Cantidad de pestañas"
 
-#: build/tabs/index.js:1 src/block-types/tabs/edit.js:311
+#: build/tabs/index.js:1 src/block-types/tabs/edit.js:285
 msgid "Tabs border radius"
 msgstr "Radio de los bordes de pestañas"
 
-#: build/tabs/index.js:1 src/block-types/tabs/edit.js:305
+#: build/tabs/index.js:1 src/block-types/tabs/edit.js:279
 msgid "Tabs borders"
 msgstr "Bordes de pestañas"
 
-#: build/tabs/index.js:1 src/block-types/tabs/edit.js:194
+#: build/tabs/index.js:1 src/block-types/tabs/edit.js:168
 msgid "Tabs color"
 msgstr "Colores de pestañas"
 
-#: build/tabs/index.js:1 src/block-types/tabs/edit.js:317
+#: build/tabs/index.js:1 src/block-types/tabs/edit.js:291
 msgid "Tabs spacing"
 msgstr "Espaciado de pestañas"
 
-#: build/tabs/index.js:1 src/block-types/tabs/edit.js:298
+#: build/tabs/index.js:1 src/block-types/tabs/edit.js:272
 msgid "Tabs typography"
 msgstr "Tipografía de pestañas"
 
@@ -1022,10 +1016,6 @@ msgstr "Triángulo"
 msgid "Typography"
 msgstr "Tipografía"
 
-#: build/tabs/index.js:1 src/block-types/tabs/edit.js:65
-msgid "Uncheck all"
-msgstr "Desmarcar todo"
-
 #: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:319
 msgid "Use an image"
 msgstr "Utilizar una imagen"
@@ -1040,7 +1030,7 @@ msgstr "Ancho"
 
 #: build/fa-icon/index.js:1 build/instruction/index.js:1
 #: build/separator/index.js:1 src/block-types/fa-icon/edit.js:252
-#: src/block-types/instruction/edit.js:153 src/block-types/separator/edit.js:59
+#: src/block-types/instruction/edit.js:153
 msgid "Width (%s)"
 msgstr "Ancho (%s)"
 
@@ -1078,6 +1068,6 @@ msgstr "Escriba aquí un título..."
 msgid "Write your paragraph here..."
 msgstr "Escribe tu párrafo aquí..."
 
-#: build/tabs/index.js:1 src/block-types/tabs/edit.js:182
+#: build/tabs/index.js:1 src/block-types/tabs/edit.js:156
 msgid "Yes"
 msgstr "Si"

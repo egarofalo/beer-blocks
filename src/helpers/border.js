@@ -12,12 +12,12 @@ import {
 } from "@wordpress/components";
 import { camelCase, capitalize } from "lodash";
 import {
-	MdBorderOuter,
-	MdBorderLeft,
-	MdBorderTop,
-	MdBorderRight,
-	MdBorderBottom,
-} from "react-icons/md";
+	BsBorderOuter,
+	BsBorderLeft,
+	BsBorderTop,
+	BsBorderRight,
+	BsBorderBottom,
+} from "react-icons/bs";
 import { isEmpty as loIsEmpty } from "lodash";
 
 const BORDER_STYLES = [
@@ -234,31 +234,31 @@ export const controls = ({
 				>
 					{borderStyle !== undefined && (
 						<Radio value="all">
-							<MdBorderOuter style={{ fontSize: "1.2rem" }} />
+							<BsBorderOuter style={{ fontSize: "1.2rem" }} />
 						</Radio>
 					)}
 
 					{borderLeftStyle !== undefined && (
 						<Radio value="left">
-							<MdBorderLeft style={{ fontSize: "1.2rem" }} />
+							<BsBorderLeft style={{ fontSize: "1.2rem" }} />
 						</Radio>
 					)}
 
 					{borderTopStyle !== undefined && (
 						<Radio value="top">
-							<MdBorderTop style={{ fontSize: "1.2rem" }} />
+							<BsBorderTop style={{ fontSize: "1.2rem" }} />
 						</Radio>
 					)}
 
 					{borderRightStyle !== undefined && (
 						<Radio value="right">
-							<MdBorderRight style={{ fontSize: "1.2rem" }} />
+							<BsBorderRight style={{ fontSize: "1.2rem" }} />
 						</Radio>
 					)}
 
 					{borderBottomStyle !== undefined && (
 						<Radio value="bottom">
-							<MdBorderBottom style={{ fontSize: "1.2rem" }} />
+							<BsBorderBottom style={{ fontSize: "1.2rem" }} />
 						</Radio>
 					)}
 				</RadioGroup>

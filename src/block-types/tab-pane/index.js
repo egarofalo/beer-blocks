@@ -73,6 +73,10 @@ registerBlockType("beer-blocks/tab-pane", {
 		tabId: {
 			type: "string",
 		},
+		selected: {
+			type: "boolean",
+			default: false,
+		},
 		...border.attributes(),
 		...border.attributes({ side: "top" }),
 		...border.attributes({ side: "right" }),
@@ -85,7 +89,7 @@ registerBlockType("beer-blocks/tab-pane", {
 		...borderRadius.attributes({ corner: "bottomLeft" }),
 		...spacing.attributes(),
 	},
-	usesContext: ["tabsId"],
+	usesContext: ["tabsId", "selectedTab"],
 	edit,
 	save,
 });
