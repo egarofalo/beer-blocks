@@ -5,4 +5,9 @@ const units = [
 	{ value: "%", label: "%" },
 ];
 
+const only = (units = ["px"]) =>
+	units.map((unit) => ({ value: unit, label: unit.toUpperCase() }));
+
+export { units, only };
+
 export default units;

@@ -4,3 +4,21 @@
 		max-width: 100%;
 	}
 }
+
+.beer-blocks-tabs-breakpoints {
+	.components-tab-panel__tabs {
+		margin-bottom: 15px;
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+
+		.components-tab-panel__tabs-item {
+			padding-left: 12px;
+			padding-right: 12px;
+
+			.beer-blocks-breakpoint-tab-icon {
+				font-size: 16px;
+			}
+		}
+	}
+}

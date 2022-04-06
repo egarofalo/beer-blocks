@@ -8,7 +8,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2021-08-17T13:56:20+00:00\n"
-"PO-Revision-Date: 2022-04-06 22:15+0000\n"
+"PO-Revision-Date: 2022-03-29 19:33+0000\n"
 "Language: es_ES\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: beer-blocks\n"
@@ -37,8 +37,7 @@ msgid "Alert settings"
 msgstr "Ajustes de la alerta"
 
 #: build/instruction/index.js:1 build/instructions/index.js:1
-#: build/row/index.js:1 build/separator/index.js:1 src/helpers/flexbox.js:87
-#: src/helpers/grid.js:221
+#: build/row/index.js:1 src/helpers/flexbox.js:87 src/helpers/grid.js:143
 msgid "Align items (%s)"
 msgstr "Alinear elementos (%s)"
 
@@ -53,13 +52,11 @@ msgstr "Todos los bordes"
 msgid "All corners"
 msgstr "Todas las esquinas"
 
-#: build/column/index.js:1 build/instruction/index.js:1
-#: build/separator/index.js:1 src/helpers/grid.js:34
+#: build/column/index.js:1 build/instruction/index.js:1 src/helpers/grid.js:19
 msgid "Auto sizing: equal width"
 msgstr "Tamaño automático: columnas de igual ancho"
 
-#: build/column/index.js:1 build/instruction/index.js:1
-#: build/separator/index.js:1 src/helpers/grid.js:38
+#: build/column/index.js:1 build/instruction/index.js:1 src/helpers/grid.js:23
 msgid "Auto sizing: variable width content"
 msgstr "Tamaño automático: columnas de ancho ajustable al contenido"
 
@@ -67,16 +64,15 @@ msgstr "Tamaño automático: columnas de ancho ajustable al contenido"
 #: build/separator/index.js:1 build/tabs/index.js:1
 #: src/block-types/accordion-item/edit.js:102
 #: src/block-types/accordion-item/edit.js:136
-#: src/block-types/instruction/edit.js:131 src/block-types/separator/edit.js:89
-#: src/block-types/separator/edit.js:154 src/block-types/tabs/edit.js:223
-#: src/block-types/tabs/edit.js:255 src/block-types/tabs/edit.js:289
+#: src/block-types/instruction/edit.js:131 src/block-types/separator/edit.js:86
+#: src/block-types/separator/edit.js:122 src/block-types/tabs/edit.js:207
+#: src/block-types/tabs/edit.js:239 src/block-types/tabs/edit.js:273
 msgid "Background color"
 msgstr "Color de fondo"
 
 #: build/column/index.js:1 build/instruction/index.js:1
-#: build/instructions/index.js:1 build/row/index.js:1
-#: build/separator/index.js:1 build/tabs/index.js:1 src/helpers/flexbox.js:76
-#: src/helpers/grid.js:199
+#: build/instructions/index.js:1 build/row/index.js:1 build/tabs/index.js:1
+#: src/helpers/flexbox.js:76 src/helpers/grid.js:122
 msgid "Baseline"
 msgstr "Baseline"
 
@@ -146,7 +142,7 @@ msgctxt "block description"
 msgid "Create a section element with custom paddings and margins."
 msgstr "Crea una sección con relleno y margen ajustables."
 
-#: build/separator/index.js:1 src/block-types/separator/index.js:52
+#: build/separator/index.js:1 src/block-types/separator/index.js:50
 msgctxt "block description"
 msgid "Create a separator line with custom color, width, height and margins."
 msgstr ""
@@ -343,8 +339,8 @@ msgctxt "block title"
 msgid "Section"
 msgstr "Sección"
 
-#: build/separator/index.js:1 src/block-types/separator/index.js:50
-#: src/block-types/separator/index.js:59
+#: build/separator/index.js:1 src/block-types/separator/index.js:48
+#: src/block-types/separator/index.js:57
 msgctxt "block title"
 msgid "Separator Line"
 msgstr "Línea separadora"
@@ -377,8 +373,8 @@ msgstr "Borde"
 
 #: build/accordion-item/index.js:1 build/container/index.js:1
 #: build/tab-pane/index.js:1 build/tabs/index.js:1
-#: src/block-types/tabs/edit.js:231 src/block-types/tabs/edit.js:265
-#: src/block-types/tabs/edit.js:299 src/helpers/border.js:113
+#: src/block-types/tabs/edit.js:215 src/block-types/tabs/edit.js:249
+#: src/block-types/tabs/edit.js:283 src/helpers/border.js:113
 msgid "Border color"
 msgstr "Color de borde"
 
@@ -416,11 +412,6 @@ msgstr "Esquina inferior izquierda"
 msgid "Bottom right corner"
 msgstr "Esquina inferior derecha"
 
-#: build/instruction/index.js:1 build/separator/index.js:1
-#: src/helpers/grid.js:522
-msgid "Breakpoint behavior (%s)"
-msgstr "Comportamiento de los puntos de interrupción (%s)"
-
 #: build/button/index.js:1 src/block-types/button/edit.js:78
 msgid "Button settings"
 msgstr "Ajustes del botón"
@@ -434,9 +425,9 @@ msgid "Button variant"
 msgstr "Variantes del botón"
 
 #: build/column/index.js:1 build/instruction/index.js:1
-#: build/instructions/index.js:1 build/row/index.js:1
-#: build/separator/index.js:1 build/tabs/index.js:1 src/helpers/flexbox.js:15
-#: src/helpers/flexbox.js:72 src/helpers/grid.js:111 src/helpers/grid.js:195
+#: build/instructions/index.js:1 build/row/index.js:1 build/tabs/index.js:1
+#: src/helpers/flexbox.js:15 src/helpers/flexbox.js:72 src/helpers/grid.js:54
+#: src/helpers/grid.js:118
 msgid "Center"
 msgstr "Centrar (center)"
 
@@ -473,17 +464,15 @@ msgstr "Limpiar campos"
 msgid "codevelopers"
 msgstr ""
 
-#: build/separator/index.js:1 src/block-types/separator/edit.js:76
+#: build/separator/index.js:1 src/block-types/separator/edit.js:73
 msgid "Color"
 msgstr "Color"
 
-#: build/column/index.js:1 build/instruction/index.js:1
-#: build/separator/index.js:1 src/helpers/grid.js:383
+#: build/column/index.js:1 build/instruction/index.js:1 src/helpers/grid.js:271
 msgid "Column sizing (%d)"
 msgstr "Tamaño de columna (%d)"
 
-#: build/column/index.js:1 build/instruction/index.js:1
-#: build/separator/index.js:1 src/helpers/grid.js:351
+#: build/column/index.js:1 build/instruction/index.js:1 src/helpers/grid.js:239
 msgid "Column sizing type (%s)"
 msgstr "Tipo de tamaño de columna (%s)"
 
@@ -504,13 +493,9 @@ msgstr "Guiones cortos"
 msgid "Default selected tab"
 msgstr "Pestaña seleccionada por defecto"
 
-#: build/separator/index.js:1 src/block-types/separator/edit.js:48
+#: build/separator/index.js:1 src/block-types/separator/edit.js:45
 msgid "Dimensions"
 msgstr "Dimensiones"
-
-#: build/separator/index.js:1 src/block-types/separator/edit.js:122
-msgid "Direction"
-msgstr "Dirección"
 
 #: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:311
 msgid ""
@@ -529,18 +514,14 @@ msgstr "Punteado"
 msgid "Double"
 msgstr "Doble"
 
-#: build/separator/index.js:1 src/block-types/separator/edit.js:130
-msgid "Down"
-msgstr "Hacia abajo"
-
 #: build/button/index.js:1 src/block-types/button/edit.js:132
 msgid "Edit"
 msgstr "Editar"
 
 #: build/column/index.js:1 build/instruction/index.js:1
-#: build/instructions/index.js:1 build/row/index.js:1
-#: build/separator/index.js:1 build/tabs/index.js:1 src/helpers/flexbox.js:11
-#: src/helpers/flexbox.js:68 src/helpers/grid.js:107 src/helpers/grid.js:191
+#: build/instructions/index.js:1 build/row/index.js:1 build/tabs/index.js:1
+#: src/helpers/flexbox.js:11 src/helpers/flexbox.js:68 src/helpers/grid.js:50
+#: src/helpers/grid.js:114
 msgid "End"
 msgstr "Final (end)"
 
@@ -588,7 +569,7 @@ msgstr ""
 "Encolar los estilos de Font Awesome en el frontend. Desmarque esta opción si "
 "desea encolar manualmente los estilos de Font Awesome en el tema activo."
 
-#: build/tabs/index.js:1 src/block-types/tabs/edit.js:190
+#: build/tabs/index.js:1 src/block-types/tabs/edit.js:174
 msgid "Fill free space"
 msgstr "Rellenar el espacio libre"
 
@@ -598,8 +579,8 @@ msgstr "Ajustes de Font Awesome (v5.15.3)"
 
 #: build/accordion-item/index.js:1 build/instruction/index.js:1
 #: build/tabs/index.js:1 src/block-types/accordion-item/edit.js:82
-#: src/block-types/instruction/edit.js:141 src/block-types/tabs/edit.js:215
-#: src/block-types/tabs/edit.js:245 src/block-types/tabs/edit.js:279
+#: src/block-types/instruction/edit.js:141 src/block-types/tabs/edit.js:199
+#: src/block-types/tabs/edit.js:229 src/block-types/tabs/edit.js:263
 msgid "Font color"
 msgstr "Color de fuente"
 
@@ -621,7 +602,7 @@ msgstr "Tamaño de fuente (%s)"
 msgid "Font Weight"
 msgstr "Peso de la fuente"
 
-#: build/tabs/index.js:1 src/block-types/tabs/edit.js:168
+#: build/tabs/index.js:1 src/block-types/tabs/edit.js:152
 msgid "General settings"
 msgstr "Ajustes generales"
 
@@ -633,18 +614,17 @@ msgstr "Ajustes de Google Fonts"
 msgid "Heading"
 msgstr "Encabezado"
 
-#: src/helpers/dimension.js:229
+#: build/separator/index.js:1 src/block-types/separator/edit.js:48
 msgid "Height"
 msgstr "Altura"
 
 #: build/fa-icon/index.js:1 build/instruction/index.js:1
-#: build/separator/index.js:1 src/block-types/fa-icon/edit.js:169
-#: src/block-types/instruction/edit.js:172 src/helpers/dimension.js:265
+#: src/block-types/fa-icon/edit.js:169 src/block-types/instruction/edit.js:172
 msgid "Height (%s)"
 msgstr "Altura (%s)"
 
 #: build/instruction/index.js:1 build/tabs/index.js:1
-#: src/block-types/instruction/edit.js:110 src/block-types/tabs/edit.js:186
+#: src/block-types/instruction/edit.js:110 src/block-types/tabs/edit.js:170
 msgid "Horizontal alignment"
 msgstr "Alineación horizontal"
 
@@ -703,7 +683,7 @@ msgid "Justify content"
 msgstr "Justificar contenidos"
 
 #: build/instruction/index.js:1 build/instructions/index.js:1
-#: build/row/index.js:1 build/separator/index.js:1 src/helpers/grid.js:137
+#: build/row/index.js:1 src/helpers/grid.js:79
 msgid "Justify content (%s)"
 msgstr "Justificar contenidos (%s)"
 
@@ -759,8 +739,7 @@ msgstr ""
 "Cargue las fuentes de Google en el frontend. Desmarque esta opción si desea "
 "encolar manualmente las fuentes seleccionadas en el tema activo."
 
-#: build/column/index.js:1 build/instruction/index.js:1
-#: build/separator/index.js:1 src/helpers/grid.js:30
+#: build/column/index.js:1 build/instruction/index.js:1 src/helpers/grid.js:15
 msgid "Manual sizing"
 msgstr "Tamaño manual"
 
@@ -770,6 +749,7 @@ msgstr "Tamaño manual"
 #: build/header/index.js:1 build/info-box/index.js:1 build/jumbotron/index.js:1
 #: build/paragraph/index.js:1 build/section/index.js:1
 #: build/separator/index.js:1 build/tab-pane/index.js:1 build/tabs/index.js:1
+#: src/helpers/spacing.js:105
 msgid "Margin"
 msgstr "Margen"
 
@@ -781,7 +761,7 @@ msgstr "Mediano"
 msgid "Mouse over"
 msgstr "Ratón sobre"
 
-#: build/tabs/index.js:1 src/block-types/tabs/edit.js:194
+#: build/tabs/index.js:1 src/block-types/tabs/edit.js:178
 msgid "No"
 msgstr "No"
 
@@ -828,6 +808,7 @@ msgstr ""
 #: build/instruction/index.js:1 build/jumbotron/index.js:1
 #: build/paragraph/index.js:1 build/section/index.js:1
 #: build/separator/index.js:1 build/tab-pane/index.js:1 build/tabs/index.js:1
+#: src/helpers/spacing.js:57
 msgid "Padding"
 msgstr "Relleno"
 
@@ -866,12 +847,11 @@ msgstr "Borde derecho"
 msgid "Row settings"
 msgstr "Ajustes de fila"
 
-#: build/column/index.js:1 build/instruction/index.js:1
-#: build/separator/index.js:1 src/helpers/grid.js:44 src/helpers/grid.js:528
+#: build/column/index.js:1 build/instruction/index.js:1 src/helpers/grid.js:29
 msgid "Same as previous breakpoint"
 msgstr "Igual que el punto de interrupción anterior"
 
-#: build/tabs/index.js:1 src/block-types/tabs/edit.js:202
+#: build/tabs/index.js:1 src/block-types/tabs/edit.js:186
 msgid "Same width tabs"
 msgstr "Pestañas del mismo ancho"
 
@@ -902,14 +882,13 @@ msgid "Select tab status (%s)"
 msgstr "Seleccione el estado de la pestaña (%s)"
 
 #: build/instruction/index.js:1 build/instructions/index.js:1
-#: build/row/index.js:1 build/separator/index.js:1 src/helpers/flexbox.js:88
-#: src/helpers/grid.js:234
+#: build/row/index.js:1 src/helpers/flexbox.js:88 src/helpers/grid.js:156
 msgid "Select the CSS Flexbox align-items property value."
 msgstr "Seleccione el valor de la propiedad align-items de Flexbox."
 
 #: build/instruction/index.js:1 build/instructions/index.js:1
-#: build/row/index.js:1 build/separator/index.js:1 build/tabs/index.js:1
-#: src/helpers/flexbox.js:31 src/helpers/grid.js:150
+#: build/row/index.js:1 build/tabs/index.js:1 src/helpers/flexbox.js:31
+#: src/helpers/grid.js:92
 msgid "Select the CSS Flexbox justify-content property value."
 msgstr "Seleccione el valor de la propiedad justify-content de Flexbox."
 
@@ -923,21 +902,11 @@ msgstr "Seleccione..."
 msgid "Set auto height"
 msgstr "Establecer altura automática"
 
-#: build/instruction/index.js:1 build/separator/index.js:1
-#: src/helpers/grid.js:532
-msgid "Set different value"
-msgstr "Establecer un valor diferente"
-
 #: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:289
 msgid "Set original size"
 msgstr "Establecer tamaño original"
 
-#: build/separator/index.js:1 src/block-types/separator/edit.js:123
-msgid "Set triangle direction (up or down)"
-msgstr "Establecer la dirección del triángulo (hacia arriba o hacia abajo)"
-
-#: build/column/index.js:1 build/instruction/index.js:1
-#: build/separator/index.js:1 src/helpers/grid.js:357
+#: build/column/index.js:1 build/instruction/index.js:1 src/helpers/grid.js:245
 msgid "Settings applied from %s resolution and up"
 msgstr "Ajustes aplicados desde la resolución %s en adelante"
 
@@ -959,16 +928,14 @@ msgid "Solid"
 msgstr "Sólido"
 
 #: build/column/index.js:1 build/instruction/index.js:1
-#: build/instructions/index.js:1 build/row/index.js:1
-#: build/separator/index.js:1 build/tabs/index.js:1 src/helpers/flexbox.js:23
-#: src/helpers/grid.js:119
+#: build/instructions/index.js:1 build/row/index.js:1 build/tabs/index.js:1
+#: src/helpers/flexbox.js:23 src/helpers/grid.js:62
 msgid "Space Around"
 msgstr "Espacio alrededor (space around)"
 
 #: build/column/index.js:1 build/instruction/index.js:1
-#: build/instructions/index.js:1 build/row/index.js:1
-#: build/separator/index.js:1 build/tabs/index.js:1 src/helpers/flexbox.js:19
-#: src/helpers/grid.js:115
+#: build/instructions/index.js:1 build/row/index.js:1 build/tabs/index.js:1
+#: src/helpers/flexbox.js:19 src/helpers/grid.js:58
 msgid "Space Between"
 msgstr "Espacio entre (apace between)"
 
@@ -979,7 +946,7 @@ msgstr "Espacio entre (apace between)"
 #: build/instruction/index.js:1 build/jumbotron/index.js:1
 #: build/paragraph/index.js:1 build/section/index.js:1
 #: build/separator/index.js:1 build/tab-pane/index.js:1 build/tabs/index.js:1
-#: src/block-types/instruction/edit.js:213
+#: src/block-types/instruction/edit.js:213 src/helpers/spacing.js:166
 msgid "Spacing"
 msgstr "Espaciado"
 
@@ -988,16 +955,15 @@ msgid "Stacked contents? (%s)"
 msgstr "¿Contenidos apilados? (%s)"
 
 #: build/column/index.js:1 build/instruction/index.js:1
-#: build/instructions/index.js:1 build/row/index.js:1
-#: build/separator/index.js:1 build/tabs/index.js:1 src/helpers/flexbox.js:7
-#: src/helpers/flexbox.js:64 src/helpers/grid.js:103 src/helpers/grid.js:187
+#: build/instructions/index.js:1 build/row/index.js:1 build/tabs/index.js:1
+#: src/helpers/flexbox.js:7 src/helpers/flexbox.js:64 src/helpers/grid.js:46
+#: src/helpers/grid.js:110
 msgid "Start"
 msgstr "Inicio (start)"
 
 #: build/column/index.js:1 build/instruction/index.js:1
-#: build/instructions/index.js:1 build/row/index.js:1
-#: build/separator/index.js:1 build/tabs/index.js:1 src/helpers/flexbox.js:80
-#: src/helpers/grid.js:203
+#: build/instructions/index.js:1 build/row/index.js:1 build/tabs/index.js:1
+#: src/helpers/flexbox.js:80 src/helpers/grid.js:126
 msgid "Stretch"
 msgstr "Estirar (stretch)"
 
@@ -1007,27 +973,27 @@ msgstr "Estirar (stretch)"
 msgid "Tab %d"
 msgstr "Pestaña %d"
 
-#: build/tabs/index.js:1 src/block-types/tabs/edit.js:170
+#: build/tabs/index.js:1 src/block-types/tabs/edit.js:154
 msgid "Tabs amount"
 msgstr "Cantidad de pestañas"
 
-#: build/tabs/index.js:1 src/block-types/tabs/edit.js:327
+#: build/tabs/index.js:1 src/block-types/tabs/edit.js:311
 msgid "Tabs border radius"
 msgstr "Radio de los bordes de pestañas"
 
-#: build/tabs/index.js:1 src/block-types/tabs/edit.js:321
+#: build/tabs/index.js:1 src/block-types/tabs/edit.js:305
 msgid "Tabs borders"
 msgstr "Bordes de pestañas"
 
-#: build/tabs/index.js:1 src/block-types/tabs/edit.js:210
+#: build/tabs/index.js:1 src/block-types/tabs/edit.js:194
 msgid "Tabs color"
 msgstr "Colores de pestañas"
 
-#: build/tabs/index.js:1 src/block-types/tabs/edit.js:333
+#: build/tabs/index.js:1 src/block-types/tabs/edit.js:317
 msgid "Tabs spacing"
 msgstr "Espaciado de pestañas"
 
-#: build/tabs/index.js:1 src/block-types/tabs/edit.js:314
+#: build/tabs/index.js:1 src/block-types/tabs/edit.js:298
 msgid "Tabs typography"
 msgstr "Tipografía de pestañas"
 
@@ -1046,7 +1012,7 @@ msgstr "Esquina superior izquierda"
 msgid "Top right corner"
 msgstr "Esquina superior derecha"
 
-#: build/separator/index.js:1 src/block-types/separator/edit.js:100
+#: build/separator/index.js:1 src/block-types/separator/edit.js:97
 msgid "Triangle"
 msgstr "Triángulo"
 
@@ -1060,10 +1026,6 @@ msgstr "Tipografía"
 msgid "Uncheck all"
 msgstr "Desmarcar todo"
 
-#: build/separator/index.js:1 src/block-types/separator/edit.js:126
-msgid "Up"
-msgstr "Hacia arriba"
-
 #: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:319
 msgid "Use an image"
 msgstr "Utilizar una imagen"
@@ -1072,13 +1034,13 @@ msgstr "Utilizar una imagen"
 msgid "Vertical alignment"
 msgstr "Alineación vertical"
 
-#: src/helpers/dimension.js:55
+#: build/separator/index.js:1 src/block-types/separator/edit.js:99
 msgid "Width"
 msgstr "Ancho"
 
 #: build/fa-icon/index.js:1 build/instruction/index.js:1
 #: build/separator/index.js:1 src/block-types/fa-icon/edit.js:252
-#: src/block-types/instruction/edit.js:153 src/helpers/dimension.js:105
+#: src/block-types/instruction/edit.js:153 src/block-types/separator/edit.js:59
 msgid "Width (%s)"
 msgstr "Ancho (%s)"
 
@@ -1116,6 +1078,6 @@ msgstr "Escriba aquí un título..."
 msgid "Write your paragraph here..."
 msgstr "Escribe tu párrafo aquí..."
 
-#: build/tabs/index.js:1 src/block-types/tabs/edit.js:198
+#: build/tabs/index.js:1 src/block-types/tabs/edit.js:182
 msgid "Yes"
 msgstr "Si"

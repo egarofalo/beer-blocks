@@ -1,8 +1,13 @@
+// Default variable overrides
+@import "./custom-variables";
+// Required Bootstrap filesfiles
 @import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/mixins";
 @import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+// Optional Bootstrap files
 @import "~bootstrap/scss/root";
-@import "./../../mixins.scss";
+// Plugin mixins
+@import "./../../mixins";
 
 .editor-styles-wrapper {
 	// Load Bootstrap styles
@@ -14,6 +19,7 @@
 			// Bootstrap styles and components
 			//
 			@import "~bootstrap/scss/type";
+			//@import "~bootstrap/scss/images";
 			@import "~bootstrap/scss/code";
 			@import "~bootstrap/scss/grid";
 			//@import "~bootstrap/scss/tables";

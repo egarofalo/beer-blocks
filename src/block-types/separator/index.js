@@ -30,7 +30,9 @@ import "./editor.scss";
  */
 import edit from "./edit";
 import save from "./save";
-import spacing from "./../../helpers/spacing";
+import grid from "../../helpers/grid";
+import dimension from "../../helpers/dimension";
+import spacing from "../../helpers/spacing";
 import { getLineSeparatorDefaultWidth } from "./helpers";
 
 /**
@@ -57,18 +59,15 @@ registerBlockType("beer-blocks/separator", {
 		<img src={icon} alt={_x("Separator Line", "block title", "beer-blocks")} />
 	),
 	attributes: {
-		height: {
-			type: "number",
-			default: 1,
-		},
-		widthUnit: {
-			type: "string",
-			default: "px",
-		},
-		width: {
-			type: "string",
-			default: getLineSeparatorDefaultWidth("px"),
-		},
+		...dimension.widthAttribute({
+			breakpoints: true,
+			defaultValue: getLineSeparatorDefaultWidth("px"),
+		}),
+		...dimension.heightAttribute({
+			breakpoints: true,
+			defaultValue: 1,
+		}),
+		...grid.breakpointsBehaviorAttribute("heightWidth"),
 		color: {
 			type: "string",
 			default: "#000",
@@ -77,12 +76,19 @@ registerBlockType("beer-blocks/separator", {
 			type: "string",
 			default: "left",
 		},
-		arrow: {
-			type: "object",
-			default: {
-				width: 0,
-				background: "#fff",
-			},
+		...dimension.widthAttribute({
+			attrPrefix: "triangle",
+			breakpointsBehavior: true,
+			breakpoints: true,
+			defaultValue: 0,
+		}),
+		triangleBackground: {
+			type: "string",
+			default: "#fff",
+		},
+		triangleDirection: {
+			type: "string",
+			default: "down",
 		},
 		...spacing.attributes({ padding: false }),
 	},

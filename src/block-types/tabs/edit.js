@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useLayoutEffect } from "react";
 import { __, sprintf } from "@wordpress/i18n";
 import {
 	InspectorControls,
@@ -118,6 +118,22 @@ const edit = (props) => {
 			}),
 		[tabsAmount]
 	);
+
+	useEffect(() => {
+		if (selectedTab > -1) {
+			document
+				.querySelectorAll(`#${tabsId} > .nav-item > .nav-link.active`)
+				.forEach((tabLink) => {
+					if (!tabLink.id.endsWith(`tab-${selectedTab}`)) {
+						tabLink.classList.remove("active");
+						tabLink.setAttribute("aria-selected", "false");
+						document
+							.querySelector(tabLink.getAttribute("href"))
+							.classList.remove("active", "show");
+					}
+				});
+		}
+	}, [selectedTab]);
 
 	const blockProps = useBlockProps({
 		style: {
@@ -362,41 +378,41 @@ const edit = (props) => {
 									}
 									style={{
 										...(tabsColor
-											? { "--beer-blocks-tabs-nav-link-color": tabsColor }
+											? { "--wp-beer-blocks-tabs-nav-link-color": tabsColor }
 											: {}),
 										...(tabsMouseOverColor
 											? {
-													"--beer-blocks-tabs-nav-link-hover-color": tabsMouseOverColor,
+													"--wp-beer-blocks-tabs-nav-link-hover-color": tabsMouseOverColor,
 											  }
 											: {}),
 										...(tabsActiveColor
 											? {
-													"--beer-blocks-tabs-nav-link-active-color": tabsActiveColor,
+													"--wp-beer-blocks-tabs-nav-link-active-color": tabsActiveColor,
 											  }
 											: {}),
 										...(tabsBackground
 											? {
-													"--beer-blocks-tabs-nav-link-background": tabsBackground,
+													"--wp-beer-blocks-tabs-nav-link-background": tabsBackground,
 											  }
 											: {}),
 										...(tabsMouseOverBackground
 											? {
-													"--beer-blocks-tabs-nav-link-hover-background": tabsMouseOverBackground,
+													"--wp-beer-blocks-tabs-nav-link-hover-background": tabsMouseOverBackground,
 											  }
 											: {}),
 										...(tabsActiveBackground
 											? {
-													"--beer-blocks-tabs-nav-link-active-background": tabsActiveBackground,
+													"--wp-beer-blocks-tabs-nav-link-active-background": tabsActiveBackground,
 											  }
 											: {}),
 										...(tabsMouseOverBorderColor
 											? {
-													"--beer-blocks-tabs-nav-link-hover-border-color": tabsMouseOverBorderColor,
+													"--wp-beer-blocks-tabs-nav-link-hover-border-color": tabsMouseOverBorderColor,
 											  }
 											: {}),
 										...(tabsActiveBorderColor
 											? {
-													"--beer-blocks-tabs-nav-link-active-border-color": tabsActiveBorderColor,
+													"--wp-beer-blocks-tabs-nav-link-active-border-color": tabsActiveBorderColor,
 											  }
 											: {}),
 										...spacing.styles(props.attributes, "tabs"),

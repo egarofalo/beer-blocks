@@ -1,14 +1,14 @@
 @import "./../../mixins.scss";
 
 :root {
-	--beer-blocks-tabs-nav-link-color: #007bff;
-	--beer-blocks-tabs-nav-link-background: transparent;
-	--beer-blocks-tabs-nav-link-active-color: #fff;
-	--beer-blocks-tabs-nav-link-active-background: #007bff;
-	--beer-blocks-tabs-nav-link-active-border-color: transparent;
-	--beer-blocks-tabs-nav-link-hover-color: #0056b3;
-	--beer-blocks-tabs-nav-link-hover-background: transparent;
-	--beer-blocks-tabs-nav-link-hover-border-color: transparent;
+	--wp-beer-blocks-tabs-nav-link-color: #007bff;
+	--wp-beer-blocks-tabs-nav-link-background: transparent;
+	--wp-beer-blocks-tabs-nav-link-active-color: #fff;
+	--wp-beer-blocks-tabs-nav-link-active-background: #007bff;
+	--wp-beer-blocks-tabs-nav-link-active-border-color: transparent;
+	--wp-beer-blocks-tabs-nav-link-hover-color: #0056b3;
+	--wp-beer-blocks-tabs-nav-link-hover-background: transparent;
+	--wp-beer-blocks-tabs-nav-link-hover-border-color: transparent;
 }
 
 .wp-block-beer-blocks-tabs {
@@ -17,24 +17,28 @@
 	.nav.nav-pills {
 		& > .nav-item {
 			& > .nav-link {
-				color: var(--beer-blocks-tabs-nav-link-color);
-				background-color: var(--beer-blocks-tabs-nav-link-background);
+				color: var(--wp-beer-blocks-tabs-nav-link-color);
+				background-color: var(--wp-beer-blocks-tabs-nav-link-background);
 				transition: color ease-in-out 0.5s, background-color ease-in-out 0.5s,
 					border-color ease-in-out 0.5s;
 
 				&:hover {
-					color: var(--beer-blocks-tabs-nav-link-hover-color);
-					background-color: var(--beer-blocks-tabs-nav-link-hover-background);
+					color: var(--wp-beer-blocks-tabs-nav-link-hover-color);
+					background-color: var(
+						--wp-beer-blocks-tabs-nav-link-hover-background
+					);
 					border-color: var(
-						--beer-blocks-tabs-nav-link-hover-border-color
+						--wp-beer-blocks-tabs-nav-link-hover-border-color
 					) !important;
 				}
 
 				&.active {
-					color: var(--beer-blocks-tabs-nav-link-active-color);
-					background-color: var(--beer-blocks-tabs-nav-link-active-background);
+					color: var(--wp-beer-blocks-tabs-nav-link-active-color);
+					background-color: var(
+						--wp-beer-blocks-tabs-nav-link-active-background
+					);
 					border-color: var(
-						--beer-blocks-tabs-nav-link-active-border-color
+						--wp-beer-blocks-tabs-nav-link-active-border-color
 					) !important;
 				}
 			}

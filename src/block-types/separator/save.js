@@ -1,17 +1,26 @@
 import { useBlockProps } from "@wordpress/block-editor";
+import dimension from "./../../helpers/dimension";
 import spacing from "./../../helpers/spacing";
 import blockAlignment from "./../../helpers/block-alignment";
 
 const save = (props) => {
 	const {
-		attributes: { height, width, color, align, arrow },
+		attributes: { color, align, triangleBackground, triangleDirection },
 	} = props;
 
 	const blockProps = useBlockProps.save({
 		style: {
-			height,
-			width,
-			backgroundColor: color,
+			...dimension.widthCssVars({
+				props,
+				blockName: "separator",
+				breakpoints: true,
+			}),
+			...dimension.heightCssVars({
+				props,
+				blockName: "separator",
+				breakpoints: true,
+			}),
+			"--wp-beer-blocks-separator-border-color": color,
 			...blockAlignment.styles(align),
 			...spacing.styles(props.attributes),
 		},
@@ -19,21 +28,18 @@ const save = (props) => {
 
 	return (
 		<div {...blockProps}>
-			{arrow.width > 0 && (
-				<div
-					className="wp-beer-blocks-separator-triangle"
-					style={{
-						width: `${arrow.width}px`,
-						height: `${arrow.width}px`,
-						backgroundColor: arrow.background,
-						"--wp-block-beer-blocks-separator-triangle-translate": `-${
-							arrow.width / 2
-						}px`,
-						"--wp-block-beer-blocks-separator-triangle-color": color,
-						"--wp-block-beer-blocks-separator-triangle-border-width": `${height}px`,
-					}}
-				></div>
-			)}
+			<div
+				className={`wp-beer-blocks-separator-triangle wp-beer-blocks-separator-triangle-${triangleDirection}`}
+				style={{
+					background: triangleBackground,
+					...dimension.widthCssVars({
+						props,
+						blockName: "separator",
+						attrPrefix: "triangle",
+						breakpoints: true,
+					}),
+				}}
+			></div>
 		</div>
 	);
 };

@@ -1,4 +1,4 @@
-import { sprintf, __ } from "@wordpress/i18n";
+import { __ } from "@wordpress/i18n";
 import {
 	useBlockProps,
 	InspectorControls,
@@ -7,67 +7,70 @@ import {
 } from "@wordpress/block-editor";
 import {
 	PanelBody,
-	RangeControl,
-	__experimentalUnitControl as UnitControl,
 	__experimentalText as Text,
 	ColorPalette,
 	ColorIndicator,
+	RadioControl,
 } from "@wordpress/components";
 import blockAlignment from "./../../helpers/block-alignment";
 import spacing from "./../../helpers/spacing";
-import units from "./../../helpers/units";
 import { variantsColorPallet as variants } from "./../../helpers/bootstrap-variants";
-import { getLineSeparatorDefaultWidth } from "./helpers";
+import dimension from "./../../helpers/dimension";
+import grid from "./../../helpers/grid";
 
 const edit = (props) => {
 	const {
-		attributes: { height, widthUnit, width, color, align, arrow },
+		attributes: { color, align, triangleBackground, triangleDirection },
 		setAttributes,
 	} = props;
 
 	const blockProps = useBlockProps({
 		style: {
-			height,
-			width,
-			backgroundColor: color,
+			...dimension.widthCssVars({
+				props,
+				blockName: "separator",
+				breakpoints: true,
+			}),
+			...dimension.heightCssVars({
+				props,
+				blockName: "separator",
+				breakpoints: true,
+			}),
+			"--wp-beer-blocks-separator-border-color": color,
 			...blockAlignment.styles(align),
 			...spacing.styles(props.attributes),
 		},
 	});
 
-	const triangleHypot = Math.sqrt(
-		Math.pow(parseFloat(width.replace(/px|rem|em|%/, "")), 2) / 2
-	);
-
 	return (
 		<>
 			<InspectorControls>
 				<PanelBody title={__("Dimensions", "beer-blocks")}>
-					<div style={{ paddingBottom: "20px" }}>
-						<RangeControl
-							label={__("Height", "beer-blocks")}
-							value={height}
-							onChange={(height) => setAttributes({ height })}
-							min={1}
-							max={10}
-							step={1}
-							style={{ paddingBottom: 0, marginBottom: 0 }}
-						/>
-					</div>
+					{grid.getBreakpointsTabs((breakpoint) => (
+						<>
+							{grid.getBreakpointsBehaviorControl({
+								props,
+								attrPrefix: "heightWidth",
+								breakpoint,
+								affectedAttrs: ["height", "width"],
+							})}
 
-					<UnitControl
-						label={sprintf(__(`Width (%s)`, "beer-blocks"), widthUnit)}
-						value={width}
-						onChange={(width) => setAttributes({ width })}
-						onUnitChange={(widthUnit) =>
-							setAttributes({
-								widthUnit,
-								width: getLineSeparatorDefaultWidth(widthUnit),
-							})
-						}
-						units={units}
-						style={{ paddingBottom: 0, marginBottom: 0 }}
-					/>
+							{dimension.widthBreakpointsControl({
+								props,
+								breakpoint,
+								attrBreakpointsBehaviorName: "heightWidth",
+								style: { marginBottom: "15px" },
+							})}
+
+							{dimension.heightBreakpointsControl({
+								props,
+								breakpoint,
+								attrBreakpointsBehaviorName: "heightWidth",
+								minHeight: 1,
+								maxHeight: 50,
+							})}
+						</>
+					))}
 				</PanelBody>
 
 				<PanelBody title={__("Color", "beer-blocks")}>
@@ -95,16 +98,45 @@ const edit = (props) => {
 				</PanelBody>
 
 				<PanelBody title={__("Triangle", "beer-blocks")}>
-					<RangeControl
-						label={__("Width", "beer-blocks")}
-						value={arrow.width}
+					{grid.getBreakpointsTabs((breakpoint) => (
+						<>
+							{grid.getBreakpointsBehaviorControl({
+								props,
+								attrPrefix: "triangleWidth",
+								breakpoint,
+								affectedAttrs: ["triangleWidth"],
+							})}
+
+							{dimension.widthBreakpointsControl({
+								props,
+								attrPrefix: "triangle",
+								breakpoint,
+								attrBreakpointsBehaviorName: "triangleWidth",
+								type: "number",
+								maxWidth: 500,
+							})}
+						</>
+					))}
+
+					<RadioControl
+						label={__("Direction", "beer-blocks")}
+						help={__("Set triangle direction (up or down)", "beer-blocks")}
+						options={[
+							{
+								label: __("Up", "beer-blocks"),
+								value: "up",
+							},
+							{
+								label: __("Down", "beer-blocks"),
+								value: "down",
+							},
+						]}
+						selected={triangleDirection}
 						onChange={(value) =>
-							setAttributes({ arrow: { ...arrow, width: value } })
+							setAttributes({
+								triangleDirection: value,
+							})
 						}
-						min={0}
-						max={triangleHypot}
-						step={1}
-						style={{ paddingBottom: 0, marginBottom: 0 }}
 					/>
 
 					<Text
@@ -120,15 +152,13 @@ const edit = (props) => {
 						}}
 					>
 						{__("Background color", "beer-blocks")}{" "}
-						<ColorIndicator colorValue={arrow.background} />
+						<ColorIndicator colorValue={triangleBackground} />
 					</Text>
 
 					<ColorPalette
 						colors={variants}
 						value={color}
-						onChange={(color) =>
-							setAttributes({ arrow: { ...arrow, background: color } })
-						}
+						onChange={(color) => setAttributes({ triangleBackground: color })}
 					/>
 				</PanelBody>
 
@@ -143,21 +173,18 @@ const edit = (props) => {
 			</BlockControls>
 
 			<div {...blockProps}>
-				{arrow.width > 0 && (
-					<div
-						className="wp-beer-blocks-separator-triangle"
-						style={{
-							width: `${arrow.width}px`,
-							height: `${arrow.width}px`,
-							backgroundColor: arrow.background,
-							"--wp-block-beer-blocks-separator-triangle-translate": `-${
-								arrow.width / 2
-							}px`,
-							"--wp-block-beer-blocks-separator-triangle-color": color,
-							"--wp-block-beer-blocks-separator-triangle-border-width": `${height}px`,
-						}}
-					></div>
-				)}
+				<div
+					className={`wp-beer-blocks-separator-triangle wp-beer-blocks-separator-triangle-${triangleDirection}`}
+					style={{
+						background: triangleBackground,
+						...dimension.widthCssVars({
+							props,
+							blockName: "separator",
+							attrPrefix: "triangle",
+							breakpoints: true,
+						}),
+					}}
+				></div>
 			</div>
 		</>
 	);

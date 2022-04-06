@@ -1,4 +1,4 @@
-@import "./variables.scss";
+@import "./variables";
 
 // Default blocks vertical margins for the editor view
 @mixin editorDefaultMargins($margin: $default-blocks-vertical-margin) {
@@ -14,6 +14,17 @@
 @mixin frontDefaultMargins($margin: $default-blocks-vertical-margin) {
 	margin-top: $margin;
 	margin-bottom: $margin;
+}
+
+// Get breakpoints css vars
+@mixin breakpointsCssVars(
+	$varName,
+	$defaultValue,
+	$breakpoints: $grid-breakpoints
+) {
+	@each $breakpointName, $breakpoint in $breakpoints {
+		--wp-beer-blocks-#{$varName}-#{$breakpointName}: $defaultValue;
+	}
 }
 
 // Bootstrap 4 Reboot for editor view
