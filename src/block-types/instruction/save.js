@@ -60,7 +60,8 @@ const save = (props) => {
 						...(numerationBorderRadius
 							? { borderRadius: numerationBorderRadius }
 							: {}),
-						...typography.styles(props.attributes, "numeration"),
+						...typography.fontFamilyStyles(props, "numeration"),
+						...typography.fontWeightStyles(props, "numeration"),
 					}}
 				>
 					{numeration}

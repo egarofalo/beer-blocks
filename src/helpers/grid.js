@@ -351,17 +351,10 @@ export const getColControls = (
 							__("Column sizing type (%s)", "beer-blocks"),
 							tab.name.toUpperCase()
 						)}
-						help={
-							<div style={{ marginTop: "5px" }}>
-								{sprintf(
-									__(
-										"Settings applied from %s resolution and up",
-										"beer-blocks"
-									),
-									tab.name.toUpperCase()
-								)}
-							</div>
-						}
+						help={sprintf(
+							__("Settings applied from %s resolution and up", "beer-blocks"),
+							tab.name.toUpperCase()
+						)}
 						selected={sizing[tab.name].sizingType}
 						options={colSizingTypeOptions(tab.name)}
 						onChange={(option) => {
@@ -398,7 +391,6 @@ export const getColControls = (
 							min={1}
 							max={12}
 							step={1}
-							style={{ paddingBottom: 0, marginBottom: 0 }}
 						/>
 					)}
 

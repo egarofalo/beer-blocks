@@ -1,6 +1,15 @@
-@import "./../../mixins.scss";
+// Default variable overrides
+@import "./../../vendor/bootstrap/custom-variables";
+// Bootstrap variables, functions and mixins
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+// Plugin mixins
+@import "./../../mixins";
 
 :root {
+	@include breakpointsCssVars("tabs-tabFontSize", "");
+	@include breakpointsCssVars("tabs-tabLineHeight", "");
 	--wp-beer-blocks-tabs-nav-link-color: #007bff;
 	--wp-beer-blocks-tabs-nav-link-background: transparent;
 	--wp-beer-blocks-tabs-nav-link-active-color: #fff;
@@ -17,6 +26,36 @@
 	.nav.nav-pills {
 		& > .nav-item {
 			& > .nav-link {
+				// typography
+				font-size: var(--wp-beer-blocks-tabs-tabFontSize-xs);
+				line-height: var(--wp-beer-blocks-tabs-tabLineHeight-xs);
+
+				@include media-breakpoint-up(sm) {
+					font-size: var(--wp-beer-blocks-tabs-tabFontSize-sm);
+					line-height: var(--wp-beer-blocks-tabs-tabLineHeight-sm);
+				}
+
+				@include media-breakpoint-up(md) {
+					font-size: var(--wp-beer-blocks-tabs-tabFontSize-md);
+					line-height: var(--wp-beer-blocks-tabs-tabLineHeight-md);
+				}
+
+				@include media-breakpoint-up(lg) {
+					font-size: var(--wp-beer-blocks-tabs-tabFontSize-lg);
+					line-height: var(--wp-beer-blocks-tabs-tabLineHeight-lg);
+				}
+
+				@include media-breakpoint-up(xl) {
+					font-size: var(--wp-beer-blocks-tabs-tabFontSize-xl);
+					line-height: var(--wp-beer-blocks-tabs-tabLineHeight-xl);
+				}
+
+				@include media-breakpoint-up(xxl) {
+					font-size: var(--wp-beer-blocks-tabs-tabFontSize-xxl);
+					line-height: var(--wp-beer-blocks-tabs-tabLineHeight-xxl);
+				}
+
+				// colors
 				color: var(--wp-beer-blocks-tabs-nav-link-color);
 				background-color: var(--wp-beer-blocks-tabs-nav-link-background);
 				transition: color ease-in-out 0.5s, background-color ease-in-out 0.5s,

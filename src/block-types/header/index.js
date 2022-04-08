@@ -78,7 +78,7 @@ registerBlockType("beer-blocks/header", {
 			default: __("Write your header here...", "beer-blocks"),
 		},
 		...spacing.attributes(),
-		...typography.attributes(),
+		...typography.attributes({ breakpoints: true }),
 	},
 	transforms: {
 		from: [

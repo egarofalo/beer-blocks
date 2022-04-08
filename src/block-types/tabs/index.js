@@ -129,7 +129,11 @@ registerBlockType("beer-blocks/tabs", {
 		}),
 		...spacing.attributes({ attrPrefixName: "tabs" }),
 		...spacing.attributes(),
-		...typography.attributes({ attrPrefixName: "tabs" }),
+		...typography.attributes({
+			attrPrefix: "tab",
+			breakpoints: true,
+			attrBreakpointsBehaviorPrefix: "tab",
+		}),
 	},
 	providesContext: {
 		tabsId: "id",

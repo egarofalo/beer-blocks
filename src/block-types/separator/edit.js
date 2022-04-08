@@ -8,6 +8,7 @@ import {
 import {
 	PanelBody,
 	__experimentalText as Text,
+	__experimentalDivider as Divider,
 	ColorPalette,
 	ColorIndicator,
 	RadioControl,
@@ -117,6 +118,8 @@ const edit = (props) => {
 							})}
 						</>
 					))}
+
+					<Divider />
 
 					<RadioControl
 						label={__("Direction", "beer-blocks")}

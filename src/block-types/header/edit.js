@@ -20,14 +20,29 @@ const edit = (props) => {
 		className: `has-text-align-${textAlign}`,
 		style: {
 			...spacing.styles(props.attributes),
-			...typography.styles(props.attributes),
+			...typography.fontFamilyStyles(props),
+			...typography.fontWeightStyles(props),
+			...typography.fontSizeCssVars({
+				props,
+				blockName: "header",
+				breakpoints: true,
+			}),
+			...typography.lineHeightCssVars({
+				props,
+				blockName: "header",
+				breakpoints: true,
+			}),
 		},
 	});
 
 	return (
 		<>
 			<InspectorControls>
-				{typography.controls({ props })}
+				{typography.breakpointsControls({
+					props,
+					initialOpen: true,
+					breakpoints: true,
+				})}
 				{spacing.controls({ props })}
 			</InspectorControls>
 

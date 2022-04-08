@@ -104,7 +104,11 @@ const edit = (props) => {
 					title={__("Numeration settings", "beer-blocks")}
 					initialOpen={false}
 				>
-					{typography.innerControls(props, "numeration")}
+					{typography.controls({
+						props,
+						attrPrefix: "numeration",
+						panelBody: false,
+					})}
 
 					<SelectControl
 						label={__("Horizontal alignment", "beer-blocks")}
@@ -247,7 +251,8 @@ const edit = (props) => {
 								...(numerationBorderRadius
 									? { borderRadius: numerationBorderRadius }
 									: {}),
-								...typography.styles(props.attributes, "numeration"),
+								...typography.fontFamilyStyles(props, "numeration"),
+								...typography.fontWeightStyles(props, "numeration"),
 							}}
 						>
 							{numeration}

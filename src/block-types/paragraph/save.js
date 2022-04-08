@@ -11,7 +11,18 @@ const save = (props) => {
 		className: `has-text-align-${textAlign}`,
 		style: {
 			...spacing.styles(props.attributes),
-			...typography.styles(props.attributes),
+			...typography.fontFamilyStyles(props),
+			...typography.fontWeightStyles(props),
+			...typography.fontSizeCssVars({
+				props,
+				blockName: "paragraph",
+				breakpoints: true,
+			}),
+			...typography.lineHeightCssVars({
+				props,
+				blockName: "paragraph",
+				breakpoints: true,
+			}),
 		},
 	});
 

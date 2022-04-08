@@ -309,10 +309,12 @@ const edit = (props) => {
 					)}
 				</PanelBody>
 
-				{typography.controls({
+				{typography.breakpointsControls({
 					props,
+					attrPrefix: "tab",
+					breakpoints: true,
+					attrBreakpointsBehaviorPrefix: "tab",
 					title: __("Tabs typography", "beer-blocks"),
-					attrPrefixName: "tabs",
 				})}
 
 				{border.controls({
@@ -416,7 +418,20 @@ const edit = (props) => {
 											  }
 											: {}),
 										...spacing.styles(props.attributes, "tabs"),
-										...typography.styles(props.attributes, "tabs"),
+										...typography.fontFamilyStyles(props, "tab"),
+										...typography.fontWeightStyles(props, "tab"),
+										...typography.fontSizeCssVars({
+											props,
+											blockName: "tabs",
+											attrPrefix: "tab",
+											breakpoints: true,
+										}),
+										...typography.lineHeightCssVars({
+											props,
+											blockName: "tabs",
+											attrPrefix: "tab",
+											breakpoints: true,
+										}),
 										...border.styles(props.attributes, "tabs"),
 										...borderRadius.styles(props.attributes, "tabs"),
 									}}

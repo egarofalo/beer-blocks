@@ -1,1 +1,43 @@
+// Default variable overrides
+@import "./../../vendor/bootstrap/custom-variables";
+// Bootstrap variables, functions and mixins
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+// Plugin mixins
+@import "./../../mixins";
 
+:root {
+	@include breakpointsCssVars("header-fontSize", "");
+	@include breakpointsCssVars("header-lineHeight", "");
+}
+
+.wp-block-beer-blocks-header {
+	font-size: var(--wp-beer-blocks-header-fontSize-xs);
+	line-height: var(--wp-beer-blocks-header-lineHeight-xs);
+
+	@include media-breakpoint-up(sm) {
+		font-size: var(--wp-beer-blocks-header-fontSize-sm);
+		line-height: var(--wp-beer-blocks-header-lineHeight-sm);
+	}
+
+	@include media-breakpoint-up(md) {
+		font-size: var(--wp-beer-blocks-header-fontSize-md);
+		line-height: var(--wp-beer-blocks-header-lineHeight-md);
+	}
+
+	@include media-breakpoint-up(lg) {
+		font-size: var(--wp-beer-blocks-header-fontSize-lg);
+		line-height: var(--wp-beer-blocks-header-lineHeight-lg);
+	}
+
+	@include media-breakpoint-up(xl) {
+		font-size: var(--wp-beer-blocks-header-fontSize-xl);
+		line-height: var(--wp-beer-blocks-header-lineHeight-xl);
+	}
+
+	@include media-breakpoint-up(xxl) {
+		font-size: var(--wp-beer-blocks-header-fontSize-xxl);
+		line-height: var(--wp-beer-blocks-header-lineHeight-xxl);
+	}
+}

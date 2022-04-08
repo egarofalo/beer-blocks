@@ -5,32 +5,8 @@ import {
 } from "@wordpress/components";
 import { camelCase as loCamelCase, get as loGet } from "lodash";
 import grid from "./grid";
+import utils from "./utils";
 import units from "./units";
-
-// return dimensions block attributes
-const attributes = ({
-	attrName,
-	breakpoints,
-	breakpointsBehavior,
-	defaultValue = undefined,
-	type,
-}) =>
-	breakpoints
-		? grid.breakpointsAttribute({
-				attrName,
-				breakpointsBehaviorAttributes: breakpointsBehavior,
-				...(defaultValue !== undefined ? { defaultValue } : {}),
-		  })
-		: {
-				[attrName]: {
-					type,
-					...(defaultValue !== undefined
-						? {
-								default: defaultValue,
-						  }
-						: {}),
-				},
-		  };
 
 // return width block attributes with breakpoints
 export const widthAttribute = ({
@@ -40,7 +16,7 @@ export const widthAttribute = ({
 	defaultValue = undefined,
 	type = "string",
 }) =>
-	attributes({
+	utils.attributes({
 		attrName: loCamelCase(`${attrPrefix}-width`),
 		breakpoints,
 		breakpointsBehavior,
@@ -180,7 +156,7 @@ export const widthBreakpointsControl = ({
 	);
 };
 
-// return width css vars for style attribute
+// return width css vars for style html attribute
 export const widthCssVars = ({
 	props,
 	blockName = "",
@@ -214,7 +190,7 @@ export const heightAttribute = ({
 	breakpointBehavior = false,
 	defaultValue = undefined,
 }) =>
-	attributes({
+	utils.attributes({
 		attrName: loCamelCase(`${attrPrefix}-height`),
 		breakpoints,
 		breakpointBehavior,
@@ -326,7 +302,7 @@ export const heightBreakpointsControl = ({
 	);
 };
 
-// return height css vars for style attribute
+// return height css vars for style html attribute
 export const heightCssVars = ({
 	props,
 	blockName = "",

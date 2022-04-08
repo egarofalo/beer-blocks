@@ -75,7 +75,11 @@ const edit = (props) => {
 
 					<CardDivider />
 
-					{typography.innerControls(props, "heading")}
+					{typography.controls({
+						props,
+						attrPrefis: "numeration",
+						panelBody: false,
+					})}
 
 					<CardDivider />
 
@@ -185,7 +189,8 @@ const edit = (props) => {
 										color: headingColor,
 										textAlign: headingTextAlign,
 										...spacing.styles(props.attributes, "heading"),
-										...typography.styles(props.attributes, "heading"),
+										...typography.fontFamilyStyles(props, "heading"),
+										...typography.fontWeightStyles(props, "heading"),
 									}}
 								>
 									<RichText
