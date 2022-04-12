@@ -8,8 +8,8 @@
 @import "./../../mixins";
 
 :root {
-	@include breakpointsCssVars("header-fontSize", "");
-	@include breakpointsCssVars("header-lineHeight", "");
+	@include headerFontSizeVars("header-fontSize");
+	@include breakpointsCssVars("header-lineHeight", $headings-line-height);
 }
 
 .wp-block-beer-blocks-header {

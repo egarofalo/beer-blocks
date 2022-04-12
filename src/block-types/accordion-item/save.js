@@ -53,8 +53,18 @@ const save = (props) => {
 							color: headingColor,
 							textAlign: headingTextAlign,
 							...spacing.styles(props.attributes, "heading"),
-							...typography.fontFamilyStyles(props, "heading"),
-							...typography.fontWeightStyles(props, "heading"),
+							...typography.fontSizeCssVars({
+								props,
+								blockName: "accordion-item",
+								attrPrefix: "heading",
+								breakpoints: true,
+							}),
+							...typography.lineHeightCssVars({
+								props,
+								blockName: "accordion-item",
+								attrPrefix: "heading",
+								breakpoints: true,
+							}),
 						}}
 					>
 						<RichText.Content tagName="span" value={headingContent} />

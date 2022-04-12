@@ -1,5 +1,44 @@
+// Default variable overrides
+@import "./../../vendor/bootstrap/custom-variables";
+// Bootstrap variables, functions and mixins
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+// PLugin mixins
 @import "./../../mixins.scss";
+
+:root {
+	@include breakpointsCssVars("fa-icon-iconFontSize", $font-size-base);
+	@include breakpointsCssVars("fa-icon-iconLineHeight", $line-height-base);
+}
 
 .wp-block-beer-blocks-fa-icon {
 	@include frontDefaultMargins;
+	font-size: var(--wp-beer-blocks-fa-icon-iconFontSize-xs);
+	line-height: var(--wp-beer-blocks-fa-icon-iconLineHeight-xs);
+
+	@include media-breakpoint-up(sm) {
+		font-size: var(--wp-beer-blocks-fa-icon-iconFontSize-sm);
+		line-height: var(--wp-beer-blocks-fa-icon-iconLineHeight-sm);
+	}
+
+	@include media-breakpoint-up(md) {
+		font-size: var(--wp-beer-blocks-fa-icon-iconFontSize-md);
+		line-height: var(--wp-beer-blocks-fa-icon-iconLineHeight-md);
+	}
+
+	@include media-breakpoint-up(lg) {
+		font-size: var(--wp-beer-blocks-fa-icon-iconFontSize-lg);
+		line-height: var(--wp-beer-blocks-fa-icon-iconLineHeight-lg);
+	}
+
+	@include media-breakpoint-up(xl) {
+		font-size: var(--wp-beer-blocks-fa-icon-iconFontSize-xl);
+		line-height: var(--wp-beer-blocks-fa-icon-iconLineHeight-xl);
+	}
+
+	@include media-breakpoint-up(xxl) {
+		font-size: var(--wp-beer-blocks-fa-icon-iconFontSize-xxl);
+		line-height: var(--wp-beer-blocks-fa-icon-iconLineHeight-xxl);
+	}
 }

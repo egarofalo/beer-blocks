@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2022-04-08T20:12:08+00:00\n"
+"POT-Creation-Date: 2022-04-12T18:06:42+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.5.0\n"
 "X-Domain: beer-blocks\n"
@@ -158,6 +158,55 @@ msgstr ""
 #: build/fa-icon/index.js:1
 #: build/header/index.js:1
 #: build/instruction/index.js:1
+#: build/paragraph/index.js:1
+#: build/separator/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/grid.js:30
+msgid "Manual sizing"
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/column/index.js:1
+#: build/fa-icon/index.js:1
+#: build/header/index.js:1
+#: build/instruction/index.js:1
+#: build/paragraph/index.js:1
+#: build/separator/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/grid.js:34
+msgid "Auto sizing: equal width"
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/column/index.js:1
+#: build/fa-icon/index.js:1
+#: build/header/index.js:1
+#: build/instruction/index.js:1
+#: build/paragraph/index.js:1
+#: build/separator/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/grid.js:38
+msgid "Auto sizing: variable width content"
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/column/index.js:1
+#: build/fa-icon/index.js:1
+#: build/header/index.js:1
+#: build/instruction/index.js:1
+#: build/paragraph/index.js:1
+#: build/separator/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/grid.js:44
+#: src/helpers/grid.js:520
+msgid "Same as previous breakpoint"
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/column/index.js:1
+#: build/fa-icon/index.js:1
+#: build/header/index.js:1
+#: build/instruction/index.js:1
 #: build/instructions/index.js:1
 #: build/paragraph/index.js:1
 #: build/row/index.js:1
@@ -235,6 +284,33 @@ msgid "Space Around"
 msgstr ""
 
 #: build/accordion-item/index.js:1
+#: build/fa-icon/index.js:1
+#: build/header/index.js:1
+#: build/instruction/index.js:1
+#: build/instructions/index.js:1
+#: build/paragraph/index.js:1
+#: build/row/index.js:1
+#: build/separator/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/grid.js:137
+msgid "Justify content (%s)"
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/fa-icon/index.js:1
+#: build/header/index.js:1
+#: build/instruction/index.js:1
+#: build/instructions/index.js:1
+#: build/paragraph/index.js:1
+#: build/row/index.js:1
+#: build/separator/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/flexbox.js:31
+#: src/helpers/grid.js:150
+msgid "Select the CSS Flexbox justify-content property value."
+msgstr ""
+
+#: build/accordion-item/index.js:1
 #: build/column/index.js:1
 #: build/fa-icon/index.js:1
 #: build/header/index.js:1
@@ -265,69 +341,171 @@ msgid "Stretch"
 msgstr ""
 
 #: build/accordion-item/index.js:1
+#: build/fa-icon/index.js:1
+#: build/header/index.js:1
+#: build/instruction/index.js:1
+#: build/instructions/index.js:1
+#: build/paragraph/index.js:1
+#: build/row/index.js:1
+#: build/separator/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/flexbox.js:87
+#: src/helpers/grid.js:221
+msgid "Align items (%s)"
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/fa-icon/index.js:1
+#: build/header/index.js:1
+#: build/instruction/index.js:1
+#: build/instructions/index.js:1
+#: build/paragraph/index.js:1
+#: build/row/index.js:1
+#: build/separator/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/flexbox.js:88
+#: src/helpers/grid.js:234
+msgid "Select the CSS Flexbox align-items property value."
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/column/index.js:1
+#: build/fa-icon/index.js:1
+#: build/header/index.js:1
+#: build/instruction/index.js:1
+#: build/paragraph/index.js:1
+#: build/separator/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/grid.js:351
+msgid "Column sizing type (%s)"
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/column/index.js:1
+#: build/fa-icon/index.js:1
+#: build/header/index.js:1
+#: build/instruction/index.js:1
+#: build/paragraph/index.js:1
+#: build/separator/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/grid.js:355
+msgid "Settings applied from %s resolution and up"
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/column/index.js:1
+#: build/fa-icon/index.js:1
+#: build/header/index.js:1
+#: build/instruction/index.js:1
+#: build/paragraph/index.js:1
+#: build/separator/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/grid.js:376
+msgid "Column sizing (%d)"
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/fa-icon/index.js:1
+#: build/header/index.js:1
+#: build/instruction/index.js:1
+#: build/paragraph/index.js:1
+#: build/separator/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/grid.js:514
+msgid "Breakpoint behavior (%s)"
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/fa-icon/index.js:1
+#: build/header/index.js:1
+#: build/instruction/index.js:1
+#: build/paragraph/index.js:1
+#: build/separator/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/grid.js:524
+msgid "Set different value"
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/fa-icon/index.js:1
 #: build/header/index.js:1
 #: build/instruction/index.js:1
 #: build/paragraph/index.js:1
 #: build/tabs/index.js:1
-#: src/helpers/typography.js:553
-#: src/helpers/typography.js:585
+#: src/helpers/typography.js:591
+#: src/helpers/typography.js:623
 msgid "Typography"
 msgstr ""
 
 #: build/accordion-item/index.js:1
-#: build/instruction/index.js:1
-#: src/helpers/typography.js:59
-msgid "Font Size (%s)"
-msgstr ""
-
-#: build/accordion-item/index.js:1
-#: build/instruction/index.js:1
-#: src/helpers/typography.js:387
-msgid "Line Height"
-msgstr ""
-
-#: build/accordion-item/index.js:1
+#: build/fa-icon/index.js:1
 #: build/header/index.js:1
 #: build/instruction/index.js:1
 #: build/paragraph/index.js:1
 #: build/tabs/index.js:1
-#: src/helpers/typography.js:272
-msgid "Font Families:"
+#: src/helpers/typography.js:80
+#: src/helpers/typography.js:625
+msgid "Font size (%s)"
 msgstr ""
 
 #: build/accordion-item/index.js:1
+#: build/fa-icon/index.js:1
 #: build/header/index.js:1
 #: build/instruction/index.js:1
 #: build/paragraph/index.js:1
 #: build/tabs/index.js:1
-#: src/helpers/typography.js:273
-msgid "Choose a font family."
+#: src/helpers/typography.js:421
+#: src/helpers/typography.js:627
+msgid "Line height (%s)"
 msgstr ""
 
 #: build/accordion-item/index.js:1
-#: build/header/index.js:1
-#: build/instruction/index.js:1
-#: build/paragraph/index.js:1
-#: build/tabs/index.js:1
-#: src/helpers/typography.js:285
-msgid "No font family options"
-msgstr ""
-
-#: build/accordion-item/index.js:1
+#: build/fa-icon/index.js:1
 #: build/header/index.js:1
 #: build/instruction/index.js:1
 #: build/paragraph/index.js:1
 #: build/tabs/index.js:1
 #: src/helpers/typography.js:286
-msgid "Select..."
+msgid "Font Families:"
 msgstr ""
 
 #: build/accordion-item/index.js:1
+#: build/fa-icon/index.js:1
 #: build/header/index.js:1
 #: build/instruction/index.js:1
 #: build/paragraph/index.js:1
 #: build/tabs/index.js:1
-#: src/helpers/typography.js:336
+#: src/helpers/typography.js:287
+msgid "Choose a font family."
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/fa-icon/index.js:1
+#: build/header/index.js:1
+#: build/instruction/index.js:1
+#: build/paragraph/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/typography.js:299
+msgid "No font family options"
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/fa-icon/index.js:1
+#: build/header/index.js:1
+#: build/instruction/index.js:1
+#: build/paragraph/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/typography.js:300
+msgid "Select..."
+msgstr ""
+
+#: build/accordion-item/index.js:1
+#: build/fa-icon/index.js:1
+#: build/header/index.js:1
+#: build/instruction/index.js:1
+#: build/paragraph/index.js:1
+#: build/tabs/index.js:1
+#: src/helpers/typography.js:350
 msgid "Font Weight"
 msgstr ""
 
@@ -525,7 +703,7 @@ msgstr ""
 #: build/accordion-item/index.js:1
 #: build/instruction/index.js:1
 #: build/tabs/index.js:1
-#: src/block-types/accordion-item/edit.js:86
+#: src/block-types/accordion-item/edit.js:87
 #: src/block-types/instruction/edit.js:145
 #: src/block-types/tabs/edit.js:215
 #: src/block-types/tabs/edit.js:245
@@ -537,8 +715,8 @@ msgstr ""
 #: build/instruction/index.js:1
 #: build/separator/index.js:1
 #: build/tabs/index.js:1
-#: src/block-types/accordion-item/edit.js:106
-#: src/block-types/accordion-item/edit.js:140
+#: src/block-types/accordion-item/edit.js:107
+#: src/block-types/accordion-item/edit.js:141
 #: src/block-types/instruction/edit.js:135
 #: src/block-types/separator/edit.js:90
 #: src/block-types/separator/edit.js:157
@@ -549,17 +727,17 @@ msgid "Background color"
 msgstr ""
 
 #: build/accordion-item/index.js:1
-#: src/block-types/accordion-item/edit.js:117
+#: src/block-types/accordion-item/edit.js:118
 msgid "Body"
 msgstr ""
 
 #: build/accordion-item/index.js:1
-#: src/block-types/accordion-item/edit.js:118
+#: src/block-types/accordion-item/edit.js:119
 msgid "Shows the content as default"
 msgstr ""
 
 #: build/accordion-item/index.js:1
-#: src/block-types/accordion-item/edit.js:120
+#: src/block-types/accordion-item/edit.js:121
 msgid "Opened"
 msgstr ""
 
@@ -571,7 +749,7 @@ msgid "Change heading level"
 msgstr ""
 
 #: build/accordion-item/index.js:1
-#: src/block-types/accordion-item/edit.js:197
+#: src/block-types/accordion-item/edit.js:210
 msgid "Write item title here..."
 msgstr ""
 
@@ -710,47 +888,6 @@ msgid "Create a block element with one or more buttons."
 msgstr ""
 
 #: build/column/index.js:1
-#: build/header/index.js:1
-#: build/instruction/index.js:1
-#: build/paragraph/index.js:1
-#: build/separator/index.js:1
-#: build/tabs/index.js:1
-#: src/helpers/grid.js:30
-msgid "Manual sizing"
-msgstr ""
-
-#: build/column/index.js:1
-#: build/header/index.js:1
-#: build/instruction/index.js:1
-#: build/paragraph/index.js:1
-#: build/separator/index.js:1
-#: build/tabs/index.js:1
-#: src/helpers/grid.js:34
-msgid "Auto sizing: equal width"
-msgstr ""
-
-#: build/column/index.js:1
-#: build/header/index.js:1
-#: build/instruction/index.js:1
-#: build/paragraph/index.js:1
-#: build/separator/index.js:1
-#: build/tabs/index.js:1
-#: src/helpers/grid.js:38
-msgid "Auto sizing: variable width content"
-msgstr ""
-
-#: build/column/index.js:1
-#: build/header/index.js:1
-#: build/instruction/index.js:1
-#: build/paragraph/index.js:1
-#: build/separator/index.js:1
-#: build/tabs/index.js:1
-#: src/helpers/grid.js:44
-#: src/helpers/grid.js:520
-msgid "Same as previous breakpoint"
-msgstr ""
-
-#: build/column/index.js:1
 #: src/block-types/column/index.js:47
 #: src/block-types/column/index.js:63
 msgctxt "block title"
@@ -768,36 +905,6 @@ msgstr ""
 #: src/block-types/column/edit.js:52
 #: src/block-types/instruction/edit.js:76
 msgid "Responsive settings"
-msgstr ""
-
-#: build/column/index.js:1
-#: build/header/index.js:1
-#: build/instruction/index.js:1
-#: build/paragraph/index.js:1
-#: build/separator/index.js:1
-#: build/tabs/index.js:1
-#: src/helpers/grid.js:351
-msgid "Column sizing type (%s)"
-msgstr ""
-
-#: build/column/index.js:1
-#: build/header/index.js:1
-#: build/instruction/index.js:1
-#: build/paragraph/index.js:1
-#: build/separator/index.js:1
-#: build/tabs/index.js:1
-#: src/helpers/grid.js:355
-msgid "Settings applied from %s resolution and up"
-msgstr ""
-
-#: build/column/index.js:1
-#: build/header/index.js:1
-#: build/instruction/index.js:1
-#: build/paragraph/index.js:1
-#: build/separator/index.js:1
-#: build/tabs/index.js:1
-#: src/helpers/grid.js:376
-msgid "Column sizing (%d)"
 msgstr ""
 
 #: build/container/index.js:1
@@ -846,104 +953,99 @@ msgid "Inner Border"
 msgstr ""
 
 #: build/fa-icon/index.js:1
-#: src/block-types/fa-icon/index.js:48
-#: src/block-types/fa-icon/index.js:65
+#: src/block-types/fa-icon/index.js:49
+#: src/block-types/fa-icon/index.js:66
 msgctxt "block title"
 msgid "Font Awesome Icon"
 msgstr ""
 
 #: build/fa-icon/index.js:1
-#: src/block-types/fa-icon/index.js:50
+#: src/block-types/fa-icon/index.js:51
 msgctxt "block description"
 msgid "Create a Font Awesome icon."
 msgstr ""
 
 #: build/fa-icon/index.js:1
-#: src/block-types/fa-icon/edit.js:135
+#: src/block-types/fa-icon/edit.js:146
 msgid "Choose an Icon"
 msgstr ""
 
 #: build/fa-icon/index.js:1
-#: src/block-types/fa-icon/edit.js:149
-msgid "Icon Size (%s)"
-msgstr ""
-
-#: build/fa-icon/index.js:1
-#: src/block-types/fa-icon/edit.js:150
-msgid "Icon Size"
+#: src/block-types/fa-icon/edit.js:164
+msgid "Icon size (%s)"
 msgstr ""
 
 #: build/fa-icon/index.js:1
 #: build/instruction/index.js:1
 #: build/separator/index.js:1
-#: src/block-types/fa-icon/edit.js:169
+#: src/block-types/fa-icon/edit.js:175
 #: src/block-types/instruction/edit.js:176
 #: src/helpers/dimension.js:241
 msgid "Height (%s)"
 msgstr ""
 
 #: build/fa-icon/index.js:1
-#: src/block-types/fa-icon/edit.js:205
+#: src/block-types/fa-icon/edit.js:211
 msgid "Open media library"
 msgstr ""
 
 #: build/fa-icon/index.js:1
-#: src/block-types/fa-icon/edit.js:219
+#: src/block-types/fa-icon/edit.js:225
 msgid "Choose an image"
 msgstr ""
 
 #: build/fa-icon/index.js:1
-#: src/block-types/fa-icon/edit.js:228
 #: src/block-types/fa-icon/edit.js:234
+#: src/block-types/fa-icon/edit.js:240
 msgid "Replace image"
 msgstr ""
 
 #: build/fa-icon/index.js:1
-#: src/block-types/fa-icon/edit.js:244
+#: src/block-types/fa-icon/edit.js:250
 msgid "Remove image"
 msgstr ""
 
 #: build/fa-icon/index.js:1
 #: build/instruction/index.js:1
 #: build/separator/index.js:1
-#: src/block-types/fa-icon/edit.js:252
+#: src/block-types/fa-icon/edit.js:258
 #: src/block-types/instruction/edit.js:157
 #: src/helpers/dimension.js:81
 msgid "Width (%s)"
 msgstr ""
 
 #: build/fa-icon/index.js:1
-#: src/block-types/fa-icon/edit.js:270
+#: src/block-types/fa-icon/edit.js:276
 msgid "Set auto height"
 msgstr ""
 
 #: build/fa-icon/index.js:1
-#: src/block-types/fa-icon/edit.js:289
+#: src/block-types/fa-icon/edit.js:295
 msgid "Set original size"
 msgstr ""
 
 #: build/fa-icon/index.js:1
-#: src/block-types/fa-icon/edit.js:298
+#: src/block-types/fa-icon/edit.js:304
 msgid "Icon settings"
 msgstr ""
 
 #: build/fa-icon/index.js:1
-#: src/block-types/fa-icon/edit.js:301
+#: src/block-types/fa-icon/edit.js:307
 msgid "Block level element type"
 msgstr ""
 
 #: build/fa-icon/index.js:1
-#: src/block-types/fa-icon/edit.js:311
+#: src/block-types/fa-icon/edit.js:317
 msgid "Disable this toggle field if you want to display the icon as an inline element."
 msgstr ""
 
 #: build/fa-icon/index.js:1
-#: src/block-types/fa-icon/edit.js:319
+#: src/block-types/fa-icon/edit.js:325
 msgid "Use an image"
 msgstr ""
 
 #: build/fa-icon/index.js:1
-#: src/block-types/fa-icon/edit.js:326
+#: src/block-types/fa-icon/edit.js:332
 msgid "If you want to use an image as icon, enable this toggle field."
 msgstr ""
 
@@ -958,87 +1060,6 @@ msgstr ""
 #: src/block-types/grid/index.js:49
 msgctxt "block description"
 msgid "Use the Bootstrap grid system to create a container with rows and columns to layout and align content."
-msgstr ""
-
-#: build/header/index.js:1
-#: build/instruction/index.js:1
-#: build/instructions/index.js:1
-#: build/paragraph/index.js:1
-#: build/row/index.js:1
-#: build/separator/index.js:1
-#: build/tabs/index.js:1
-#: src/helpers/grid.js:137
-msgid "Justify content (%s)"
-msgstr ""
-
-#: build/header/index.js:1
-#: build/instruction/index.js:1
-#: build/instructions/index.js:1
-#: build/paragraph/index.js:1
-#: build/row/index.js:1
-#: build/separator/index.js:1
-#: build/tabs/index.js:1
-#: src/helpers/flexbox.js:31
-#: src/helpers/grid.js:150
-msgid "Select the CSS Flexbox justify-content property value."
-msgstr ""
-
-#: build/header/index.js:1
-#: build/instruction/index.js:1
-#: build/instructions/index.js:1
-#: build/paragraph/index.js:1
-#: build/row/index.js:1
-#: build/separator/index.js:1
-#: build/tabs/index.js:1
-#: src/helpers/flexbox.js:87
-#: src/helpers/grid.js:221
-msgid "Align items (%s)"
-msgstr ""
-
-#: build/header/index.js:1
-#: build/instruction/index.js:1
-#: build/instructions/index.js:1
-#: build/paragraph/index.js:1
-#: build/row/index.js:1
-#: build/separator/index.js:1
-#: build/tabs/index.js:1
-#: src/helpers/flexbox.js:88
-#: src/helpers/grid.js:234
-msgid "Select the CSS Flexbox align-items property value."
-msgstr ""
-
-#: build/header/index.js:1
-#: build/instruction/index.js:1
-#: build/paragraph/index.js:1
-#: build/separator/index.js:1
-#: build/tabs/index.js:1
-#: src/helpers/grid.js:514
-msgid "Breakpoint behavior (%s)"
-msgstr ""
-
-#: build/header/index.js:1
-#: build/instruction/index.js:1
-#: build/paragraph/index.js:1
-#: build/separator/index.js:1
-#: build/tabs/index.js:1
-#: src/helpers/grid.js:524
-msgid "Set different value"
-msgstr ""
-
-#: build/header/index.js:1
-#: build/instruction/index.js:1
-#: build/paragraph/index.js:1
-#: build/tabs/index.js:1
-#: src/helpers/typography.js:80
-msgid "Font size (%s)"
-msgstr ""
-
-#: build/header/index.js:1
-#: build/instruction/index.js:1
-#: build/paragraph/index.js:1
-#: build/tabs/index.js:1
-#: src/helpers/typography.js:407
-msgid "Line height (%s)"
 msgstr ""
 
 #: build/header/index.js:1
@@ -1105,6 +1126,16 @@ msgstr ""
 #: build/info-box/index.js:1
 #: src/block-types/info-box/edit.js:124
 msgid "Remove icon description"
+msgstr ""
+
+#: build/instruction/index.js:1
+#: src/helpers/typography.js:59
+msgid "Font Size (%s)"
+msgstr ""
+
+#: build/instruction/index.js:1
+#: src/helpers/typography.js:401
+msgid "Line Height"
 msgstr ""
 
 #: build/instruction/index.js:1

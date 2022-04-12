@@ -8,8 +8,8 @@
 @import "./../../mixins";
 
 :root {
-	@include breakpointsCssVars("tabs-tabFontSize", "");
-	@include breakpointsCssVars("tabs-tabLineHeight", "");
+	@include breakpointsCssVars("tabs-tabFontSize", $font-size-base);
+	@include breakpointsCssVars("tabs-tabLineHeight", $line-height-base);
 	--wp-beer-blocks-tabs-nav-link-color: #007bff;
 	--wp-beer-blocks-tabs-nav-link-background: transparent;
 	--wp-beer-blocks-tabs-nav-link-active-color: #fff;

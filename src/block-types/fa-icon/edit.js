@@ -16,7 +16,6 @@ import {
 	Disabled,
 } from "@wordpress/components";
 import FontIconPicker from "@fonticonpicker/react-fonticonpicker";
-import { defaultUnits } from "./../../helpers/typography";
 import {
 	farIconsClasses,
 	fasIconsClasses,
@@ -25,13 +24,13 @@ import {
 	INLINE_ELEMENT,
 } from "./../../helpers/fa-icons";
 import spacing from "./../../helpers/spacing";
+import typography from "./../../helpers/typography";
 
 const edit = (props) => {
 	const {
 		attributes: {
 			iconType,
 			icon,
-			iconSize,
 			showHtmlElementTypeToggleField,
 			htmlElementType,
 			textAlign,
@@ -52,13 +51,25 @@ const edit = (props) => {
 	const useAnImage = iconType === "image";
 
 	const style = {
-		...(!useAnImage && iconSize ? { fontSize: iconSize } : {}),
-		...(useAnImage
+		...(!useAnImage
 			? {
+					...typography.fontSizeCssVars({
+						props,
+						blockName: "fa-icon",
+						attrPrefix: "icon",
+						breakpoints: true,
+					}),
+					...typography.lineHeightCssVars({
+						props,
+						blockName: "fa-icon",
+						attrPrefix: "icon",
+						breakpoints: true,
+					}),
+			  }
+			: {
 					...(imgWidth ? { width: imgWidth } : {}),
 					...(imgHeight ? { height: imgHeight } : {}),
-			  }
-			: {}),
+			  }),
 	};
 
 	const blockProps = useBlockProps({
@@ -143,24 +154,19 @@ const edit = (props) => {
 				/>
 			</BaseControl>
 
-			<BaseControl
-				label={
-					iconSize
-						? sprintf(__("Icon Size (%s)", "beer-blocks"), iconSize)
-						: __("Icon Size", "beer-blocks")
-				}
-			>
-				<UnitControl
-					value={iconSize}
-					onChange={(iconSize) => setAttributes({ iconSize })}
-					onUnitChange={() =>
-						setAttributes({
-							iconSize: "",
-						})
-					}
-					units={defaultUnits}
-				/>
-			</BaseControl>
+			{typography.breakpointsControls({
+				props,
+				attrPrefix: "icon",
+				attrBreakpointsBehaviorPrefix: "icon",
+				panelBody: false,
+				fontSizeControlLabel: (breakpoint) =>
+					sprintf(
+						__("Icon size (%s)", "beer-blocks"),
+						breakpoint.toUpperCase()
+					),
+				includeFontFamilyControl: false,
+				includeFontWeightControl: false,
+			})}
 		</>
 	);
 

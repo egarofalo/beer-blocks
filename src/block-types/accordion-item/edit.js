@@ -75,10 +75,11 @@ const edit = (props) => {
 
 					<CardDivider />
 
-					{typography.controls({
+					{typography.breakpointsControls({
 						props,
-						attrPrefis: "numeration",
-						panelBody: false,
+						attrPrefix: "heading",
+						attrBreakpointsBehaviorPrefix: "heading",
+						initialOpen: true,
 					})}
 
 					<CardDivider />
@@ -191,6 +192,18 @@ const edit = (props) => {
 										...spacing.styles(props.attributes, "heading"),
 										...typography.fontFamilyStyles(props, "heading"),
 										...typography.fontWeightStyles(props, "heading"),
+										...typography.fontSizeCssVars({
+											props,
+											blockName: "accordion-item",
+											attrPrefix: "heading",
+											breakpoints: true,
+										}),
+										...typography.lineHeightCssVars({
+											props,
+											blockName: "accordion-item",
+											attrPrefix: "heading",
+											breakpoints: true,
+										}),
 									}}
 								>
 									<RichText

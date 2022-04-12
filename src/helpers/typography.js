@@ -163,6 +163,7 @@ export const fontSizeBreakpointsControl = ({
 					max={maxFontSize}
 					step={1}
 					style={style}
+					allowReset
 				/>
 			) : (
 				<UnitControl
@@ -200,17 +201,30 @@ export const fontSizeCssVars = ({
 
 	return breakpoints
 		? Object.fromEntries(
-				grid.breakpoints.map((breakpoint) => [
-					`--wp-beer-blocks-${blockName}-${attrName}-${breakpoint}`,
-					typeof fontSize[breakpoint] === "number"
-						? `${fontSize[breakpoint]}px`
-						: fontSize[breakpoint],
-				])
+				grid.breakpoints
+					.map((breakpoint) => {
+						let result = [
+							`--wp-beer-blocks-${blockName}-${attrName}-${breakpoint}`,
+						];
+
+						if (!fontSize[breakpoint]) {
+							result.push(null);
+						} else if (typeof fontSize[breakpoint] === "number") {
+							result.push(`${fontSize[breakpoint]}px`);
+						} else {
+							result.push(fontSize[breakpoint]);
+						}
+
+						return result;
+					})
+					.filter((item) => item[1] !== null)
 		  )
-		: {
+		: fontSize
+		? {
 				[`--wp-beer-blocks-${blockName}-${attrName}`]:
 					typeof fontSize === "number" ? `${fontSize}px` : fontSize,
-		  };
+		  }
+		: {};
 };
 
 // returns font family block attributes
@@ -466,6 +480,7 @@ export const lineHeightBreakpointsControl = ({
 				min={minLineHeight}
 				max={maxLineHeight}
 				step={0.1}
+				allowReset
 			/>
 		</div>
 	);
@@ -494,17 +509,30 @@ export const lineHeightCssVars = ({
 
 	return breakpoints
 		? Object.fromEntries(
-				grid.breakpoints.map((breakpoint) => [
-					`--wp-beer-blocks-${blockName}-${attrName}-${breakpoint}`,
-					typeof lineHeight[breakpoint] === "number"
-						? `${lineHeight[breakpoint] * 100}%`
-						: lineHeight[breakpoint],
-				])
+				grid.breakpoints
+					.map((breakpoint) => {
+						let result = [
+							`--wp-beer-blocks-${blockName}-${attrName}-${breakpoint}`,
+						];
+
+						if (!lineHeight[breakpoint]) {
+							result.push(null);
+						} else if (typeof lineHeight[breakpoint] === "number") {
+							result.push(`${lineHeight[breakpoint] * 100}%`);
+						} else {
+							result.push(lineHeight[breakpoint]);
+						}
+
+						return result;
+					})
+					.filter((item) => item[1] !== null)
 		  )
-		: {
+		: lineHeight
+		? {
 				[`--wp-beer-blocks-${blockName}-${attrName}`]:
 					typeof lineHeight === "number" ? `${lineHeight * 100}%` : lineHeight,
-		  };
+		  }
+		: {};
 };
 
 // returns typography block attributes
@@ -516,6 +544,8 @@ export const attributes = ({
 	lineHeight = "",
 	breakpoints = false,
 	attrBreakpointsBehaviorPrefix = "font",
+	includeFontFamilyAttr = true,
+	includeFontWeightAttr = true,
 } = {}) => ({
 	...utils.attributes({
 		attrName: camelCase(`${attrPrefix}-font-size`),
@@ -534,14 +564,22 @@ export const attributes = ({
 	...(breakpoints
 		? grid.breakpointsBehaviorAttribute(attrBreakpointsBehaviorPrefix)
 		: {}),
-	[camelCase(`${attrPrefix}-font-family`)]: {
-		type: "string",
-		default: fontFamily,
-	},
-	[camelCase(`${attrPrefix}-font-weight`)]: {
-		type: "number",
-		default: fontWeight,
-	},
+	...(includeFontFamilyAttr
+		? {
+				[camelCase(`${attrPrefix}-font-family`)]: {
+					type: "string",
+					default: fontFamily,
+				},
+		  }
+		: {}),
+	...(includeFontWeightAttr
+		? {
+				[camelCase(`${attrPrefix}-font-weight`)]: {
+					type: "number",
+					default: fontWeight,
+				},
+		  }
+		: {}),
 });
 
 // returns typography controls optionally with panel body container
@@ -583,6 +621,12 @@ export const breakpointsControls = ({
 	attrBreakpointsBehaviorPrefix = "font",
 	panelBody = true,
 	title = __("Typography", "beer-blocks"),
+	fontSizeControlLabel = (breakpoint) =>
+		sprintf(__("Font size (%s)", "beer-blocks"), breakpoint.toUpperCase()),
+	lineHeightControlLabel = (breakpoint) =>
+		sprintf(__("Line height (%s)", "beer-blocks"), breakpoint.toUpperCase()),
+	includeFontFamilyControl = true,
+	includeFontWeightControl = true,
 }) => {
 	const attrFontSize = camelCase(`${attrPrefix}-font-size`);
 	const attrLineHeight = camelCase(`${attrPrefix}-line-height`);
@@ -606,6 +650,7 @@ export const breakpointsControls = ({
 						attrPrefix,
 						attrBreakpointsBehaviorPrefix,
 						style: { marginBottom: "15px" },
+						label: fontSizeControlLabel(breakpoint),
 					})}
 
 					{lineHeightBreakpointsControl({
@@ -613,14 +658,17 @@ export const breakpointsControls = ({
 						breakpoint,
 						attrPrefix,
 						attrBreakpointsBehaviorPrefix,
+						label: lineHeightControlLabel(breakpoint),
 					})}
 				</>
 			))}
 
-			<Divider />
+			{includeFontFamilyControl || includeFontWeightControl ? (
+				<Divider />
+			) : null}
 
-			{fontFamilyControl(props, attrFontFamily)}
-			{fontWeightControl(props, attrFontWeight)}
+			{includeFontFamilyControl && fontFamilyControl(props, attrFontFamily)}
+			{includeFontWeightControl && fontWeightControl(props, attrFontWeight)}
 		</>
 	);
 

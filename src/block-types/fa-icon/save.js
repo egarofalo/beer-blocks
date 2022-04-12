@@ -1,13 +1,13 @@
 import { useBlockProps } from "@wordpress/block-editor";
 import { BLOCK_LEVEL_ELEMENT, INLINE_ELEMENT } from "./../../helpers/fa-icons";
 import spacing from "./../../helpers/spacing";
+import typography from "./../../helpers/typography";
 
 const save = (props) => {
 	const {
 		attributes: {
 			iconType,
 			icon,
-			iconSize,
 			htmlElementType,
 			textAlign,
 			imgAlt,
@@ -20,13 +20,25 @@ const save = (props) => {
 	const useAnImage = iconType === "image";
 
 	const style = {
-		...(!useAnImage && iconSize ? { fontSize: iconSize } : {}),
-		...(useAnImage
+		...(!useAnImage
 			? {
+					...typography.fontSizeCssVars({
+						props,
+						blockName: "fa-icon",
+						attrPrefix: "icon",
+						breakpoints: true,
+					}),
+					...typography.lineHeightCssVars({
+						props,
+						blockName: "fa-icon",
+						attrPrefix: "icon",
+						breakpoints: true,
+					}),
+			  }
+			: {
 					...(imgWidth ? { width: imgWidth } : {}),
 					...(imgHeight ? { height: imgHeight } : {}),
-			  }
-			: {}),
+			  }),
 	};
 
 	const blockProps = useBlockProps.save({

@@ -1,17 +1,22 @@
-@import "./../../mixins.scss";
+// Default variable overrides
+@import "./../../vendor/bootstrap/custom-variables";
+// Bootstrap variables, functions and mixins
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+// Plugin mixins
+@import "./../../mixins";
 
 .wp-block-beer-blocks-accordion-item {
 	@include editorDefaultMargins(0);
 
-	.editor-styles-wrapper &.wp-block {
-		&.card {
-			padding: 0;
-			box-shadow: none;
-			background: transparent;
+	.editor-styles-wrapper &.card {
+		padding: 0;
+		box-shadow: none;
+		background: transparent;
 
-			& > .card-header {
-				margin-bottom: -1px;
-			}
+		& > .card-header {
+			margin-bottom: -1px;
 		}
 	}
 }

@@ -18,7 +18,7 @@ import { registerBlockType } from "@wordpress/blocks";
  *
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
-// import "./style.scss";
+import "./style.scss";
 
 /**
  * Styles applied only in the editor.
@@ -86,7 +86,11 @@ registerBlockType("beer-blocks/accordion-item", {
 			type: "html",
 		},
 		...spacing.attributes({ attrPrefixName: "heading", margin: false }),
-		...typography.attributes({ attrPrefixName: "heading" }),
+		...typography.attributes({
+			attrPrefix: "heading",
+			breakpoints: true,
+			attrBreakpointsBehaviorPrefix: "heading",
+		}),
 		bodyBackground: {
 			type: "string",
 		},

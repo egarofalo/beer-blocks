@@ -1,4 +1,15 @@
 @import "./variables";
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+
+$headersFontSize: (
+	"h1": $h1-font-size,
+	"h2": $h2-font-size,
+	"h3": $h3-font-size,
+	"h4": $h4-font-size,
+	"h5": $h5-font-size,
+	"h6": $h6-font-size,
+);
 
 // Default blocks vertical margins for the editor view
 @mixin editorDefaultMargins($margin: $default-blocks-vertical-margin) {
@@ -23,7 +34,18 @@
 	$breakpoints: $grid-breakpoints
 ) {
 	@each $breakpointName, $breakpoint in $breakpoints {
-		--wp-beer-blocks-#{$varName}-#{$breakpointName}: $defaultValue;
+		--wp-beer-blocks-#{$varName}-#{$breakpointName}: #{$defaultValue};
+	}
+}
+
+// Get breakpoints default font-size css vars for H1, H2, ..., H6 tags
+@mixin headerFontSizeVars($varName, $breakpoints: $grid-breakpoints) {
+	@each $breakpointName, $breakpoint in $breakpoints {
+		@each $header, $fontSize in $headersFontSize {
+			#{$header} {
+				--wp-beer-blocks-#{$varName}-#{$breakpointName}: #{$fontSize};
+			}
+		}
 	}
 }
 

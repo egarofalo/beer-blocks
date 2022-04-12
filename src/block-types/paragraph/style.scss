@@ -8,8 +8,8 @@
 @import "./../../mixins";
 
 :root {
-	@include breakpointsCssVars("paragraph-fontSize", "");
-	@include breakpointsCssVars("paragraph-lineHeight", "");
+	@include breakpointsCssVars("paragraph-fontSize", $font-size-base);
+	@include breakpointsCssVars("paragraph-lineHeight", $line-height-base);
 }
 
 .wp-block-beer-blocks-paragraph {
