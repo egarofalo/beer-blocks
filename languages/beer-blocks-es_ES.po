@@ -8,12 +8,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2021-08-17T13:56:20+00:00\n"
-"PO-Revision-Date: 2022-04-12 18:22+0000\n"
+"PO-Revision-Date: 2022-04-13 02:40+0000\n"
 "Language: es_ES\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: beer-blocks\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Loco-Version: 2.5.5; wp-5.8.2"
+"X-Loco-Version: 2.5.8; wp-5.9.3"
 
 #: build/accordion-item/index.js:1 build/container/index.js:1
 #: build/tab-pane/index.js:1 build/tabs/index.js:1 src/helpers/border.js:24
@@ -687,7 +687,6 @@ msgid "Icon settings"
 msgstr "Ajustes del icono"
 
 #: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:164
-#, fuzzy
 #| msgid "Icon Size (%s)"
 msgid "Icon size (%s)"
 msgstr "Tamaño del icono (%s)"

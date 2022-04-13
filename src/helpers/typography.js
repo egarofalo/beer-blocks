@@ -544,6 +544,7 @@ export const attributes = ({
 	lineHeight = "",
 	breakpoints = false,
 	attrBreakpointsBehaviorPrefix = "font",
+	includeLineHeightAttr = true,
 	includeFontFamilyAttr = true,
 	includeFontWeightAttr = true,
 } = {}) => ({
@@ -554,13 +555,15 @@ export const attributes = ({
 		defaultValue: fontSize,
 		type: "string",
 	}),
-	...utils.attributes({
-		attrName: camelCase(`${attrPrefix}-line-height`),
-		breakpoints,
-		breakpointsBehavior: false,
-		defaultValue: lineHeight,
-		type: "number",
-	}),
+	...(includeLineHeightAttr
+		? utils.attributes({
+				attrName: camelCase(`${attrPrefix}-line-height`),
+				breakpoints,
+				breakpointsBehavior: false,
+				defaultValue: lineHeight,
+				type: "number",
+		  })
+		: {}),
 	...(breakpoints
 		? grid.breakpointsBehaviorAttribute(attrBreakpointsBehaviorPrefix)
 		: {}),
@@ -625,6 +628,7 @@ export const breakpointsControls = ({
 		sprintf(__("Font size (%s)", "beer-blocks"), breakpoint.toUpperCase()),
 	lineHeightControlLabel = (breakpoint) =>
 		sprintf(__("Line height (%s)", "beer-blocks"), breakpoint.toUpperCase()),
+	includeLineHeightControl = true,
 	includeFontFamilyControl = true,
 	includeFontWeightControl = true,
 }) => {
@@ -641,7 +645,9 @@ export const breakpointsControls = ({
 						props,
 						attrPrefix: attrBreakpointsBehaviorPrefix,
 						breakpoint,
-						affectedAttrs: [attrFontSize, attrLineHeight],
+						affectedAttrs: includeLineHeightControl
+							? [attrFontSize, attrLineHeight]
+							: [attrFontSize],
 					})}
 
 					{fontSizeBreakpointsControl({
@@ -653,13 +659,14 @@ export const breakpointsControls = ({
 						label: fontSizeControlLabel(breakpoint),
 					})}
 
-					{lineHeightBreakpointsControl({
-						props,
-						breakpoint,
-						attrPrefix,
-						attrBreakpointsBehaviorPrefix,
-						label: lineHeightControlLabel(breakpoint),
-					})}
+					{includeLineHeightControl &&
+						lineHeightBreakpointsControl({
+							props,
+							breakpoint,
+							attrPrefix,
+							attrBreakpointsBehaviorPrefix,
+							label: lineHeightControlLabel(breakpoint),
+						})}
 				</>
 			))}
 

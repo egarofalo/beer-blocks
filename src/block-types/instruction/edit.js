@@ -104,10 +104,12 @@ const edit = (props) => {
 					title={__("Numeration settings", "beer-blocks")}
 					initialOpen={false}
 				>
-					{typography.controls({
+					{typography.breakpointsControls({
 						props,
 						attrPrefix: "numeration",
+						attrBreakpointsBehaviorPrefix: "numeration",
 						panelBody: false,
+						includeLineHeightControl: false,
 					})}
 
 					<SelectControl
@@ -238,7 +240,7 @@ const edit = (props) => {
 						style={spacing.paddingStyles(padding)}
 					>
 						<div
-							className={`d-inline-flex flex-grow-0 justify-content-${numerationHorizontalAlignment} align-items-${numerationVerticalAlignment}`}
+							className={`wp-block-beer-blocks-instruction-numeration d-inline-flex flex-grow-0 justify-content-${numerationHorizontalAlignment} align-items-${numerationVerticalAlignment}`}
 							style={{
 								...(numerationBackground
 									? { backgroundColor: numerationBackground }
@@ -253,6 +255,12 @@ const edit = (props) => {
 									: {}),
 								...typography.fontFamilyStyles(props, "numeration"),
 								...typography.fontWeightStyles(props, "numeration"),
+								...typography.fontSizeCssVars({
+									props,
+									blockName: "instruction",
+									attrPrefix: "numeration",
+									breakpoints: true,
+								}),
 							}}
 						>
 							{numeration}

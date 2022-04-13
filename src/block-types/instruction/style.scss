@@ -1,0 +1,41 @@
+// Default variable overrides
+@import "./../../vendor/bootstrap/custom-variables";
+// Bootstrap variables, functions and mixins
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+// Plugin mixins
+@import "./../../mixins";
+
+:root {
+	@include breakpointsCssVars(
+		"instruction-numerationFontSize",
+		$font-size-base
+	);
+}
+
+.wp-block-beer-blocks-instruction {
+	.wp-block-beer-blocks-instruction-numeration {
+		font-size: var(--wp-beer-blocks-instruction-numerationFontSize-xs);
+
+		@include media-breakpoint-up(sm) {
+			font-size: var(--wp-beer-blocks-instruction-numerationFontSize-sm);
+		}
+
+		@include media-breakpoint-up(md) {
+			font-size: var(--wp-beer-blocks-instruction-numerationFontSize-md);
+		}
+
+		@include media-breakpoint-up(lg) {
+			font-size: var(--wp-beer-blocks-instruction-numerationFontSize-lg);
+		}
+
+		@include media-breakpoint-up(xl) {
+			font-size: var(--wp-beer-blocks-instruction-numerationFontSize-xl);
+		}
+
+		@include media-breakpoint-up(xxl) {
+			font-size: var(--wp-beer-blocks-instruction-numerationFontSize-xxl);
+		}
+	}
+}

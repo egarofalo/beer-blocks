@@ -18,7 +18,7 @@ import { registerBlockType } from "@wordpress/blocks";
  *
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
-// import "./style.scss";
+import "./style.scss";
 
 /**
  * Styles applied only in the editor.
@@ -139,7 +139,10 @@ registerBlockType("beer-blocks/instruction", {
 		visualizer: spacing.visualizerAttribute(),
 		...typography.attributes({
 			fontSize: "18px",
-			attrPrefixName: "numeration",
+			attrPrefix: "numeration",
+			breakpoints: true,
+			attrBreakpointsBehaviorPrefix: "numeration",
+			includeLineHeightAttr: false,
 		}),
 	},
 	usesContext: ["instructionsId"],
