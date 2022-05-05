@@ -10,7 +10,8 @@ const save = (props) => {
 	const blockProps = useBlockProps.save({
 		className: containerType,
 		style: {
-			...spacing.styles(props.attributes),
+			...spacing.paddingCssVars({ props, blockName: "container" }),
+			...spacing.marginCssVars({ props, blockName: "container" }),
 		},
 	});
 

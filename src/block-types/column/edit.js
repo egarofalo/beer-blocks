@@ -9,6 +9,7 @@ import {
 import { PanelBody } from "@wordpress/components";
 import { useSelect } from "@wordpress/data";
 import grid from "./../../helpers/grid";
+import spacing from "../../helpers/spacing";
 
 const edit = (props) => {
 	const {
@@ -29,6 +30,10 @@ const edit = (props) => {
 
 	const blockProps = useBlockProps({
 		className: grid.getColClass(sizing),
+		style: {
+			...spacing.paddingCssVars({ props, blockName: "column" }),
+			...spacing.marginCssVars({ props, blockName: "column" }),
+		},
 	});
 
 	const innerBlocksPropsConfig = [
@@ -52,6 +57,8 @@ const edit = (props) => {
 				<PanelBody title={__("Responsive settings", "beer-blocks")}>
 					{grid.getColControls(props)}
 				</PanelBody>
+
+				{spacing.breakpointsControls({ props })}
 			</InspectorControls>
 
 			<div {...innerBlocksProps} />

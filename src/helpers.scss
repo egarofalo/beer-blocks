@@ -1,15 +1,13 @@
-@import "./variables";
+@use "sass:map";
+// Default variable overrides
+@import "./vendor/bootstrap/custom-variables";
+// Bootstrap variables and mixins
 @import "~bootstrap/scss/functions";
 @import "~bootstrap/scss/variables";
-
-$headersFontSize: (
-	"h1": $h1-font-size,
-	"h2": $h2-font-size,
-	"h3": $h3-font-size,
-	"h4": $h4-font-size,
-	"h5": $h5-font-size,
-	"h6": $h6-font-size,
-);
+@import "~bootstrap/scss/mixins";
+// Plugin custom variables and functions
+@import "./variables";
+@import "./functions";
 
 // Default blocks vertical margins for the editor view
 @mixin editorDefaultMargins($margin: $default-blocks-vertical-margin) {
@@ -27,7 +25,7 @@ $headersFontSize: (
 	margin-bottom: $margin;
 }
 
-// Get breakpoints css vars
+// Get breakpoints css vars with default value
 @mixin breakpointsCssVars(
 	$varName,
 	$defaultValue,
@@ -38,14 +36,215 @@ $headersFontSize: (
 	}
 }
 
-// Get breakpoints default font-size css vars for H1, H2, ..., H6 tags
-@mixin headerFontSizeVars($varName, $breakpoints: $grid-breakpoints) {
-	@each $breakpointName, $breakpoint in $breakpoints {
-		@each $header, $fontSize in $headersFontSize {
-			#{$header} {
-				--wp-beer-blocks-#{$varName}-#{$breakpointName}: #{$fontSize};
+// Get typography rules for custom breakpoint
+@mixin typographyRules(
+	$blockName,
+	$breakpointName: "",
+	$attrPrefix: "",
+	$defaultValues: $defaultTypographyValues
+) {
+	$fontSizeVarName: --wp-beer-blocks-#{$blockName}-#{camelize(
+			"#{$attrPrefix}-font-size"
+		)};
+	$lineHeightVarName: --wp-beer-blocks-#{$blockName}-#{camelize(
+			"#{$attrPrefix}-line-height"
+		)};
+
+	@if $breakpointName == "" or $breakpointName == "xs" {
+		font-size: var(
+			#{$fontSizeVarName},
+			map.get($defaultValues, fontSize)
+		) !important;
+		line-height: var(
+			#{$lineHeightVarName},
+			map.get($defaultValues, lineHeight)
+		) !important;
+	} @else {
+		font-size: var(
+			#{$fontSizeVarName}-#{$breakpointName},
+			map.get($defaultValues, fontSize)
+		) !important;
+		line-height: var(
+			#{$lineHeightVarName}-#{$breakpointName},
+			map.get($defaultValues, lineHeight)
+		) !important;
+	}
+}
+
+// Get headings typography rules for custom breakpoint
+@mixin headersTypographyRules(
+	$blockName,
+	$breakpointName: "",
+	$attrPrefix: "",
+	$defaultValues: $headersDefaultTypographyValues
+) {
+	$fontSizeVarName: --wp-beer-blocks-#{$blockName}-#{camelize(
+			"#{$attrPrefix}-font-size"
+		)};
+	$lineHeightVarName: --wp-beer-blocks-#{$blockName}-#{camelize(
+			"#{$attrPrefix}-line-height"
+		)};
+
+	@each $header, $typographyValues in $defaultValues {
+		#{$header}.wp-block-beer-blocks-#{$blockName} {
+			@if $breakpointName == "" or $breakpointName == "xs" {
+				font-size: var(
+					#{$fontSizeVarName},
+					map.get($typographyValues, fontSize)
+				) !important;
+				line-height: var(
+					#{$lineHeightVarName},
+					map.get($typographyValues, lineHeight)
+				) !important;
+			} @else {
+				font-size: var(
+					#{$fontSizeVarName}-#{$breakpointName},
+					map.get($typographyValues, fontSize)
+				) !important;
+				line-height: var(
+					#{$lineHeightVarName}-#{$breakpointName},
+					map.get($typographyValues, lineHeight)
+				) !important;
 			}
 		}
+	}
+}
+
+// Get headings typography rules for all breakpoints
+@mixin headersTypographyRulesAllBreakpoints(
+	$blockName,
+	$attrPrefix: "",
+	$defaultValues: $headersDefaultTypographyValues,
+	$breakpoints: $grid-breakpoints
+) {
+	@each $breakpointName, $breakpoint in $breakpoints {
+		@if $breakpointName == "xs" {
+			@include headersTypographyRules(
+				$blockName,
+				$breakpointName,
+				$attrPrefix,
+				$defaultValues
+			);
+		} @else {
+			@include media-breakpoint-up($breakpointName) {
+				@include headersTypographyRules(
+					$blockName,
+					$breakpointName,
+					$attrPrefix,
+					$defaultValues
+				);
+			}
+		}
+	}
+}
+
+// Get padding-{side} rules for custom breakpoint
+@mixin paddingRules(
+	$blockName,
+	$breakpointName: "",
+	$attrPrefix: "",
+	$defaultValues: $defaultPaddingValues,
+	$sides: $paddingSides
+) {
+	$varPrefix: --wp-beer-blocks-#{$blockName}-#{camelize(
+			"#{$attrPrefix}-padding"
+		)};
+
+	@each $side in $sides {
+		@if $breakpointName == "" or $breakpointName == "xs" {
+			padding-#{$side}: var(
+				#{$varPrefix + capitalize($side)},
+				map.get($defaultValues, $side)
+			) !important;
+		} @else {
+			padding-#{$side}: var(
+				#{$varPrefix + capitalize($side)}-#{$breakpointName},
+				map.get($defaultValues, $side)
+			) !important;
+		}
+	}
+}
+
+// Get margin-{side} rules for custom breakpoint
+@mixin marginRules(
+	$blockName,
+	$breakpointName: "",
+	$attrPrefix: "",
+	$defaultValues: $defaultMarginValues,
+	$sides: $marginSides
+) {
+	$varPrefix: --wp-beer-blocks-#{$blockName}-#{camelize(
+			"#{$attrPrefix}-margin"
+		)};
+
+	@each $side in $sides {
+		@if $breakpointName == "" or $breakpointName == "xs" {
+			margin-#{$side}: var(
+				#{$varPrefix + capitalize($side)},
+				map.get($defaultValues, $side)
+			) !important;
+		} @else {
+			margin-#{$side}: var(
+				#{$varPrefix + capitalize($side)}-#{$breakpointName},
+				map.get($defaultValues, $side)
+			) !important;
+		}
+	}
+}
+
+// Get vertical paddings rules for custom breakpoint
+@mixin verticalPaddingRules(
+	$blockName,
+	$breakpointName: "",
+	$attrPrefix: "",
+	$defaultValues: $defaultPaddingValues
+) {
+	$varPrefix: --wp-beer-blocks-#{$blockName}-#{camelize(
+			"#{$attrPrefix}-padding"
+		)};
+
+	@each $side in ("top", "bottom") {
+		@if $breakpointName == "" or $breakpointName == "xs" {
+			padding-#{$side}: var(
+				#{$varPrefix + capitalize($side)},
+				map.get($defaultValues, $side)
+			) !important;
+		} @else {
+			padding-#{$side}: var(
+				#{$varPrefix + capitalize($side)}-#{$breakpointName},
+				map.get($defaultValues, $side)
+			) !important;
+		}
+	}
+}
+
+@mixin widthRules(
+	$blockName,
+	$breakpointName: "",
+	$attrPrefix: "",
+	$defaultValue: 100%
+) {
+	$varName: --wp-beer-blocks-#{$blockName}-#{camelize("#{$attrPrefix}-width")};
+
+	@if $breakpointName == "" or $breakpointName == "xs" {
+		width: var(#{$varName}, $defaultValue) !important;
+	} @else {
+		width: var(#{$varName}-#{$breakpointName}, $defaultValue) !important;
+	}
+}
+
+@mixin heightRules(
+	$blockName,
+	$breakpointName: "",
+	$attrPrefix: "",
+	$defaultValue: auto
+) {
+	$varName: --wp-beer-blocks-#{$blockName}-#{camelize("#{$attrPrefix}-height")};
+
+	@if $breakpointName == "" or $breakpointName == "xs" {
+		height: var(#{$varName}, $defaultValue) !important;
+	} @else {
+		height: var(#{$varName}-#{$breakpointName}, $defaultValue) !important;
 	}
 }
 

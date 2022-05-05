@@ -7,18 +7,20 @@ import {
 	useInnerBlocksProps,
 	__experimentalUseInnerBlocksProps as __useInnerBlocksProps,
 } from "@wordpress/block-editor";
-import { PanelBody } from "@wordpress/components";
+import { PanelBody, CardDivider, SelectControl } from "@wordpress/components";
 import grid from "../../helpers/grid";
+import spacing from "../../helpers/spacing";
 
 const edit = (props) => {
 	const {
 		clientId,
 		setAttributes,
-		attributes: { justifyContent, alignItems },
+		attributes: { containerType, justifyContent, alignItems },
 	} = props;
 
 	const blockProps = useBlockProps({
-		className: "container-fluid",
+		className: containerType,
+		style: spacing.marginCssVars({ props, blockName: "instructions" }),
 	});
 
 	const innerBlocksPropsConfig = [
@@ -47,8 +49,19 @@ const edit = (props) => {
 		<>
 			<InspectorControls>
 				<PanelBody title={__("Instructions settings", "beer-blocks")}>
+					<SelectControl
+						label={__("Container type", "beer-blocks")}
+						value={containerType}
+						options={grid.containerTypesOptions}
+						onChange={(value) => setAttributes({ containerType: value })}
+					/>
+
+					<CardDivider />
+
 					{grid.getRowControls(props)}
 				</PanelBody>
+
+				{spacing.breakpointsControls({ props })}
 			</InspectorControls>
 
 			<div {...blockProps}>

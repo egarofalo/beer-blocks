@@ -1,44 +1,56 @@
-// Default variable overrides
-@import "./../../vendor/bootstrap/custom-variables";
-// Bootstrap variables, functions and mixins
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/variables";
-@import "~bootstrap/scss/mixins";
-// PLugin mixins
-@import "./../../mixins.scss";
-
-:root {
-	@include breakpointsCssVars("fa-icon-iconFontSize", $font-size-base);
-	@include breakpointsCssVars("fa-icon-iconLineHeight", $line-height-base);
-}
+@import "./../../helpers";
 
 .wp-block-beer-blocks-fa-icon {
 	@include frontDefaultMargins;
-	font-size: var(--wp-beer-blocks-fa-icon-iconFontSize-xs);
-	line-height: var(--wp-beer-blocks-fa-icon-iconLineHeight-xs);
+	@include typographyRules("fa-icon", "xs", "icon");
 
 	@include media-breakpoint-up(sm) {
-		font-size: var(--wp-beer-blocks-fa-icon-iconFontSize-sm);
-		line-height: var(--wp-beer-blocks-fa-icon-iconLineHeight-sm);
+		@include typographyRules("fa-icon", "sm", "icon");
 	}
 
 	@include media-breakpoint-up(md) {
-		font-size: var(--wp-beer-blocks-fa-icon-iconFontSize-md);
-		line-height: var(--wp-beer-blocks-fa-icon-iconLineHeight-md);
+		@include typographyRules("fa-icon", "md", "icon");
 	}
 
 	@include media-breakpoint-up(lg) {
-		font-size: var(--wp-beer-blocks-fa-icon-iconFontSize-lg);
-		line-height: var(--wp-beer-blocks-fa-icon-iconLineHeight-lg);
+		@include typographyRules("fa-icon", "lg", "icon");
 	}
 
 	@include media-breakpoint-up(xl) {
-		font-size: var(--wp-beer-blocks-fa-icon-iconFontSize-xl);
-		line-height: var(--wp-beer-blocks-fa-icon-iconLineHeight-xl);
+		@include typographyRules("fa-icon", "xl", "icon");
 	}
 
 	@include media-breakpoint-up(xxl) {
-		font-size: var(--wp-beer-blocks-fa-icon-iconFontSize-xxl);
-		line-height: var(--wp-beer-blocks-fa-icon-iconLineHeight-xxl);
+		@include typographyRules("fa-icon", "xxl", "icon");
+	}
+}
+
+.wp-block-beer-blocks-fa-icon-image {
+	@include widthRules("fa-icon", "xs", "img");
+	@include heightRules("fa-icon", "xs", "img");
+
+	@include media-breakpoint-up(sm) {
+		@include widthRules("fa-icon", "sm", "img");
+		@include heightRules("fa-icon", "sm", "img");
+	}
+
+	@include media-breakpoint-up(md) {
+		@include widthRules("fa-icon", "md", "img");
+		@include heightRules("fa-icon", "md", "img");
+	}
+
+	@include media-breakpoint-up(lg) {
+		@include widthRules("fa-icon", "lg", "img");
+		@include heightRules("fa-icon", "lg", "img");
+	}
+
+	@include media-breakpoint-up(xl) {
+		@include widthRules("fa-icon", "xl", "img");
+		@include heightRules("fa-icon", "xl", "img");
+	}
+
+	@include media-breakpoint-up(xxl) {
+		@include widthRules("fa-icon", "xxl", "img");
+		@include heightRules("fa-icon", "xxl", "img");
 	}
 }

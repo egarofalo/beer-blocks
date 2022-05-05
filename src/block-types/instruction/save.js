@@ -10,7 +10,6 @@ const save = (props) => {
 			sizing,
 			justifyContent,
 			alignItems,
-			padding,
 			numeration,
 			numerationBackground,
 			numerationColor,
@@ -26,25 +25,31 @@ const save = (props) => {
 		className: grid.getColClass(sizing),
 		style: {
 			listStyle: "none",
+			...spacing.marginCssVars({
+				props,
+				blockName: "instruction",
+			}),
 		},
 	});
 
 	return (
 		<li {...blockProps}>
 			<div
-				className={`d-flex${Object.entries(stackedContents).reduce(
-					(classes, [key, value]) => {
-						const breakpoint = key !== "xs" ? `-${key}` : "";
+				className={`wp-block-beer-blocks-instruction-contents d-flex${Object.entries(
+					stackedContents
+				).reduce((classes, [key, value]) => {
+					const breakpoint = key !== "xs" ? `-${key}` : "";
 
-						return `${classes} flex${breakpoint}-${
-							value ? "column" : "row"
-						} justify-content${breakpoint}-${
-							justifyContent[key]
-						} align-items${breakpoint}-${alignItems[key]}`;
-					},
-					""
-				)}`}
-				style={spacing.paddingStyles(padding)}
+					return `${classes} flex${breakpoint}-${
+						value ? "column" : "row"
+					} justify-content${breakpoint}-${
+						justifyContent[key]
+					} align-items${breakpoint}-${alignItems[key]}`;
+				}, "")}`}
+				style={spacing.paddingCssVars({
+					props,
+					blockName: "instruction",
+				})}
 			>
 				<div
 					className={`wp-block-beer-blocks-instruction-numeration d-inline-flex flex-grow-0 justify-content-${numerationHorizontalAlignment} align-items-${numerationVerticalAlignment}`}
@@ -66,7 +71,6 @@ const save = (props) => {
 							props,
 							blockName: "instruction",
 							attrPrefix: "numeration",
-							breakpoints: true,
 						}),
 					}}
 				>

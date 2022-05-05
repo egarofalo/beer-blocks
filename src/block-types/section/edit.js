@@ -40,12 +40,14 @@ const edit = (props) => {
 				{spacing.controls({ props })}
 			</InspectorControls>
 
-			{spacing.visualizer(
+			{spacing.visualizer({
 				props,
-				<TagName {...blockProps}>
-					<InnerBlocks />
-				</TagName>
-			)}
+				children: (
+					<TagName {...blockProps}>
+						<InnerBlocks />
+					</TagName>
+				),
+			})}
 		</>
 	);
 };

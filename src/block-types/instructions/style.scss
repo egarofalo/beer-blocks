@@ -1,5 +1,25 @@
-@import "./../../mixins.scss";
+@import "./../../helpers";
 
 .wp-block-beer-blocks-instructions {
-	@include frontDefaultMargins;
+	@include marginRules("instructions");
+
+	@include media-breakpoint-up(sm) {
+		@include marginRules("instructions", "sm");
+	}
+
+	@include media-breakpoint-up(md) {
+		@include marginRules("instructions", "md");
+	}
+
+	@include media-breakpoint-up(lg) {
+		@include marginRules("instructions", "lg");
+	}
+
+	@include media-breakpoint-up(xl) {
+		@include marginRules("instructions", "xl");
+	}
+
+	@include media-breakpoint-up(xxl) {
+		@include marginRules("instructions", "xxl");
+	}
 }

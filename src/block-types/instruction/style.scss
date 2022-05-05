@@ -1,41 +1,80 @@
-// Default variable overrides
-@import "./../../vendor/bootstrap/custom-variables";
-// Bootstrap variables, functions and mixins
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/variables";
-@import "~bootstrap/scss/mixins";
-// Plugin mixins
-@import "./../../mixins";
-
-:root {
-	@include breakpointsCssVars(
-		"instruction-numerationFontSize",
-		$font-size-base
-	);
-}
+@import "./../../helpers";
 
 .wp-block-beer-blocks-instruction {
-	.wp-block-beer-blocks-instruction-numeration {
-		font-size: var(--wp-beer-blocks-instruction-numerationFontSize-xs);
+	$defaultMargins: (
+		top: 0,
+		right: 0,
+		bottom: 0,
+		left: 0,
+	);
+
+	@include marginRules("instruction", "xs", "", $defaultMargins);
+
+	@include media-breakpoint-up(sm) {
+		@include marginRules("instruction", "sm", "", $defaultMargins);
+	}
+
+	@include media-breakpoint-up(md) {
+		@include marginRules("instruction", "md", "", $defaultMargins);
+	}
+
+	@include media-breakpoint-up(lg) {
+		@include marginRules("instruction", "lg", "", $defaultMargins);
+	}
+
+	@include media-breakpoint-up(xl) {
+		@include marginRules("instruction", "xl", "", $defaultMargins);
+	}
+
+	@include media-breakpoint-up(xxl) {
+		@include marginRules("instruction", "xxl", "", $defaultMargins);
+	}
+
+	.wp-block-beer-blocks-instruction-contents {
+		@include paddingRules("instruction");
 
 		@include media-breakpoint-up(sm) {
-			font-size: var(--wp-beer-blocks-instruction-numerationFontSize-sm);
+			@include paddingRules("instruction", "sm");
 		}
 
 		@include media-breakpoint-up(md) {
-			font-size: var(--wp-beer-blocks-instruction-numerationFontSize-md);
+			@include paddingRules("instruction", "md");
 		}
 
 		@include media-breakpoint-up(lg) {
-			font-size: var(--wp-beer-blocks-instruction-numerationFontSize-lg);
+			@include paddingRules("instruction", "lg");
 		}
 
 		@include media-breakpoint-up(xl) {
-			font-size: var(--wp-beer-blocks-instruction-numerationFontSize-xl);
+			@include paddingRules("instruction", "xl");
 		}
 
 		@include media-breakpoint-up(xxl) {
-			font-size: var(--wp-beer-blocks-instruction-numerationFontSize-xxl);
+			@include paddingRules("instruction", "xxl");
+		}
+
+		.wp-block-beer-blocks-instruction-numeration {
+			@include typographyRules("instruction", "xs", "numeration");
+
+			@include media-breakpoint-up(sm) {
+				@include typographyRules("instruction", "sm", "numeration");
+			}
+
+			@include media-breakpoint-up(md) {
+				@include typographyRules("instruction", "md", "numeration");
+			}
+
+			@include media-breakpoint-up(lg) {
+				@include typographyRules("instruction", "lg", "numeration");
+			}
+
+			@include media-breakpoint-up(xl) {
+				@include typographyRules("instruction", "xl", "numeration");
+			}
+
+			@include media-breakpoint-up(xxl) {
+				@include typographyRules("instruction", "xxl", "numeration");
+			}
 		}
 	}
 }

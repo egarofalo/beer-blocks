@@ -1,3 +1,82 @@
-@import "./vendor/bootstrap/custom-variables";
-
+// Default blocks vertical margin in the editor view
 $default-blocks-vertical-margin: 20px;
+
+// Default typography rules values
+$defaultTypographyValues: (
+	fontSize: $font-size-base,
+	lineHeight: $line-height-base,
+);
+
+// Default headers typography rules values
+$headersDefaultTypographyValues: (
+	h1: (
+		fontSize: $h1-font-size,
+		lineHeight: $headings-line-height,
+	),
+	h2: (
+		fontSize: $h2-font-size,
+		lineHeight: $headings-line-height,
+	),
+	h3: (
+		fontSize: $h3-font-size,
+		lineHeight: $headings-line-height,
+	),
+	h4: (
+		fontSize: $h4-font-size,
+		lineHeight: $headings-line-height,
+	),
+	h5: (
+		fontSize: $h5-font-size,
+		lineHeight: $headings-line-height,
+	),
+	h6: (
+		fontSize: $h6-font-size,
+		lineHeight: $headings-line-height,
+	),
+);
+
+// Padding sides fused by spacing helper
+$paddingSides: (top, right, bottom, left);
+
+// Default padding blocks values
+$defaultPaddingValues: (
+	top: 0,
+	right: 0,
+	bottom: 0,
+	left: 0,
+);
+
+// Margins sides used by spacing helper
+$marginSides: (top, right, bottom, left);
+
+// Default margin blocks values
+$defaultMarginValues: (
+	top: $default-blocks-vertical-margin,
+	right: 0,
+	bottom: $default-blocks-vertical-margin,
+	left: 0,
+);
+
+// Default padding for Alert block type
+$alertBlockDefaultPadding: (
+	top: $alert-padding-y,
+	right: $alert-padding-x,
+	bottom: $alert-padding-y,
+	left: $alert-padding-x,
+);
+
+// Default padding for Jumbotron block type
+$jumbotronBlockDefaultPadding: (
+	top: $jumbotron-padding * 2,
+	right: $jumbotron-padding,
+	bottom: $jumbotron-padding * 2,
+	left: $jumbotron-padding,
+);
+
+// Jumbotron default padding for xs resolutions
+$jumbotronBlockDefaultPaddingXs: (
+	top: $jumbotron-padding * 0.5,
+	right: $jumbotron-padding,
+	bottom: $jumbotron-padding * 0.5,
+	left: $jumbotron-padding,
+);

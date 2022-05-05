@@ -73,7 +73,7 @@ registerBlockType("beer-blocks/info-box", {
 			type: "boolean",
 			default: false,
 		},
-		...spacing.attributes(),
+		...spacing.attributes({ breakpoints: true }),
 	},
 	edit,
 	save,

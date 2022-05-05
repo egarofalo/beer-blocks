@@ -3,23 +3,28 @@ import {
 	InnerBlocks,
 	InspectorControls,
 } from "@wordpress/block-editor";
-import spacing from "./../../helpers/spacing";
+import spacing, { PaddingVisualizer } from "./../../helpers/spacing";
 
 const edit = (props) => {
 	const blockProps = useBlockProps({
 		className: "jumbotron",
 		style: {
-			...spacing.styles(props.attributes),
+			...spacing.paddingCssVars({ props, blockName: "jumbotron" }),
+			...spacing.marginCssVars({ props, blockName: "jumbotron" }),
 		},
 	});
 
 	return (
 		<>
-			<InspectorControls>{spacing.controls({ props })}</InspectorControls>
+			<InspectorControls>
+				{spacing.breakpointsControls({ props })}
+			</InspectorControls>
 
-			<div {...blockProps}>
-				<InnerBlocks />
-			</div>
+			<PaddingVisualizer blockProps={props}>
+				<div {...blockProps}>
+					<InnerBlocks />
+				</div>
+			</PaddingVisualizer>
 		</>
 	);
 };

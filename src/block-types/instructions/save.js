@@ -1,13 +1,15 @@
 import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
 import grid from "../../helpers/grid";
+import spacing from "../../helpers/spacing";
 
 const save = (props) => {
 	const {
-		attributes: { justifyContent, alignItems },
+		attributes: { containerType, justifyContent, alignItems },
 	} = props;
 
 	const blockProps = useBlockProps.save({
-		className: "container-fluid",
+		className: containerType,
+		style: spacing.marginCssVars({ props, blockName: "instructions" }),
 	});
 
 	return (

@@ -16,7 +16,7 @@ import {
 import { select } from "@wordpress/data";
 import grid from "./../../helpers/grid";
 import typography from "../../helpers/typography";
-import spacing from "../../helpers/spacing";
+import spacing, { PaddingVisualizer } from "../../helpers/spacing";
 
 const edit = (props) => {
 	const {
@@ -25,7 +25,6 @@ const edit = (props) => {
 			sizing,
 			justifyContent,
 			alignItems,
-			padding,
 			numeration,
 			numerationBackground,
 			numerationColor,
@@ -55,6 +54,10 @@ const edit = (props) => {
 		className: grid.getColClass(sizing),
 		style: {
 			listStyle: "none",
+			...spacing.marginCssVars({
+				props,
+				blockName: "instruction",
+			}),
 		},
 	});
 
@@ -107,7 +110,7 @@ const edit = (props) => {
 					{typography.breakpointsControls({
 						props,
 						attrPrefix: "numeration",
-						attrBreakpointsBehaviorPrefix: "numeration",
+						breakpointsBehaviorAttrPrefix: "numeration",
 						panelBody: false,
 						includeLineHeightControl: false,
 					})}
@@ -216,28 +219,27 @@ const edit = (props) => {
 					</BaseControl>
 				</PanelBody>
 
-				<PanelBody title={__("Spacing", "beer-blocks")} initialOpen={false}>
-					{spacing.paddingControl({ props })}
-				</PanelBody>
+				{spacing.breakpointsControls({ props })}
 			</InspectorControls>
 
 			<li {...blockProps}>
-				{spacing.visualizer(
-					props,
+				<PaddingVisualizer blockProps={props}>
 					<div
-						className={`d-flex${Object.entries(stackedContents).reduce(
-							(classes, [key, value]) => {
-								const breakpoint = key !== "xs" ? `-${key}` : "";
+						className={`wp-block-beer-blocks-instruction-contents d-flex${Object.entries(
+							stackedContents
+						).reduce((classes, [key, value]) => {
+							const breakpoint = key !== "xs" ? `-${key}` : "";
 
-								return `${classes} flex${breakpoint}-${
-									value ? "column" : "row"
-								} justify-content${breakpoint}-${
-									justifyContent[key]
-								} align-items${breakpoint}-${alignItems[key]}`;
-							},
-							""
-						)}`}
-						style={spacing.paddingStyles(padding)}
+							return `${classes} flex${breakpoint}-${
+								value ? "column" : "row"
+							} justify-content${breakpoint}-${
+								justifyContent[key]
+							} align-items${breakpoint}-${alignItems[key]}`;
+						}, "")}`}
+						style={spacing.paddingCssVars({
+							props,
+							blockName: "instruction",
+						})}
 					>
 						<div
 							className={`wp-block-beer-blocks-instruction-numeration d-inline-flex flex-grow-0 justify-content-${numerationHorizontalAlignment} align-items-${numerationVerticalAlignment}`}
@@ -259,7 +261,6 @@ const edit = (props) => {
 									props,
 									blockName: "instruction",
 									attrPrefix: "numeration",
-									breakpoints: true,
 								}),
 							}}
 						>
@@ -270,7 +271,7 @@ const edit = (props) => {
 							<InnerBlocks template={template} templateLock="all" />
 						</div>
 					</div>
-				)}
+				</PaddingVisualizer>
 			</li>
 		</>
 	);

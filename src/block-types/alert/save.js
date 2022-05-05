@@ -9,7 +9,8 @@ const save = (props) => {
 	const blockProps = useBlockProps.save({
 		className: alertType,
 		style: {
-			...spacing.styles(props.attributes),
+			...spacing.paddingCssVars({ props, blockName: "alert" }),
+			...spacing.marginCssVars({ props, blockName: "alert" }),
 		},
 	});
 

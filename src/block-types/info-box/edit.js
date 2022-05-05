@@ -7,7 +7,8 @@ import {
 } from "@wordpress/block-editor";
 import { PanelBody, ToggleControl } from "@wordpress/components";
 import { BLOCK_LEVEL_ELEMENT } from "./../../helpers/fa-icons";
-import spacing from "./../../helpers/spacing";
+import spacing, { PaddingVisualizer } from "./../../helpers/spacing";
+import grid from "./../../helpers/grid";
 
 const edit = (props) => {
 	const {
@@ -17,7 +18,8 @@ const edit = (props) => {
 
 	const blockProps = useBlockProps({
 		style: {
-			...spacing.styles(props.attributes),
+			...spacing.paddingCssVars({ props, blockName: "info-box" }),
+			...spacing.marginCssVars({ props, blockName: "info-box" }),
 		},
 	});
 
@@ -29,7 +31,7 @@ const edit = (props) => {
 				showHtmlElementTypeToggleField: false,
 				htmlElementType: BLOCK_LEVEL_ELEMENT,
 				textAlign: "center",
-				iconSize: "2rem",
+				iconFontSize: grid.breakpointsAttributeValue("2rem"),
 			},
 		],
 		...(!removeIconPrefix
@@ -38,8 +40,7 @@ const edit = (props) => {
 						"beer-blocks/paragraph",
 						{
 							placeholder: __("Write prefix here...", "beer-blocks"),
-							lineHeight: 1.1,
-							marginTop: "0.5rem",
+							lineHeight: grid.breakpointsAttributeValue(1.1),
 							textAlign: "center",
 						},
 					],
@@ -49,8 +50,7 @@ const edit = (props) => {
 			"beer-blocks/header",
 			{
 				placeholder: __("Write title here...", "beer-blocks"),
-				lineHeight: 1.1,
-				marginTop: "0.5rem",
+				lineHeight: grid.breakpointsAttributeValue(1.1),
 				textAlign: "center",
 			},
 		],
@@ -59,9 +59,8 @@ const edit = (props) => {
 					[
 						"beer-blocks/separator",
 						{
-							height: 2,
+							height: grid.breakpointsAttributeValue(2),
 							align: "center",
-							marginTop: "0.5rem",
 						},
 					],
 			  ]
@@ -72,8 +71,7 @@ const edit = (props) => {
 						"beer-blocks/paragraph",
 						{
 							placeholder: __("Write short description here...", "beer-blocks"),
-							lineHeight: 1.1,
-							marginTop: "0.5rem",
+							lineHeight: grid.breakpointsAttributeValue(1.1),
 							textAlign: "center",
 						},
 					],
@@ -131,10 +129,12 @@ const edit = (props) => {
 					/>
 				</PanelBody>
 
-				{spacing.controls({ props })}
+				{spacing.breakpointsControls({ props })}
 			</InspectorControls>
 
-			{spacing.visualizer(props, <div {...innerBlocksProps} />)}
+			<PaddingVisualizer blockProps={props}>
+				<div {...innerBlocksProps} />
+			</PaddingVisualizer>
 		</>
 	);
 };

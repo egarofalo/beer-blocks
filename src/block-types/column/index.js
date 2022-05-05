@@ -31,6 +31,7 @@ import "./editor.scss";
 import edit from "./edit";
 import save from "./save";
 import grid from "./../../helpers/grid";
+import spacing from "./../../helpers/spacing";
 
 /**
  * Block Icon.
@@ -70,6 +71,11 @@ registerBlockType("beer-blocks/column", {
 				}),
 			},
 		},
+		...spacing.attributes({
+			breakpoints: true,
+			paddingSides: ["top", "bottom"],
+			marginSides: ["top", "bottom"],
+		}),
 	},
 	edit,
 	save,

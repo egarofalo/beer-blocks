@@ -1,42 +1,34 @@
-// Default variable overrides
-@import "./../../vendor/bootstrap/custom-variables";
-// Bootstrap variables, functions and mixins
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/variables";
-@import "~bootstrap/scss/mixins";
-// Plugin mixins
-@import "./../../mixins";
-
-:root {
-	@include breakpointsCssVars("separator-height", 1px);
-	@include breakpointsCssVars("separator-width", 100px);
-	@include breakpointsCssVars("separator-triangleWidth", 0);
-	--wp-beer-blocks-separator-border-color: #000;
-}
+@import "./../../helpers";
 
 .wp-block-beer-blocks-separator {
-	@include frontDefaultMargins;
+	@include widthRules("separator");
+	@include marginRules(
+		"separator",
+		"xs",
+		"",
+		$defaultMarginValues,
+		("top", "bottom")
+	);
 	height: 0;
-	width: var(--wp-beer-blocks-separator-width-xs);
 	border-bottom-style: solid;
 	border-bottom-color: var(--wp-beer-blocks-separator-border-color);
-	border-bottom-width: var(--wp-beer-blocks-separator-height-xs);
+	border-bottom-width: var(--wp-beer-blocks-separator-height);
 
 	.wp-beer-blocks-separator-triangle {
+		@include widthRules("separator", "xs", "triangle");
 		box-sizing: border-box;
 		border-style: solid;
-		border-width: var(--wp-beer-blocks-separator-height-xs);
+		height: var(--wp-beer-blocks-separator-triangleWidth);
+		border-width: var(--wp-beer-blocks-separator-height);
 		border-color: var(--wp-beer-blocks-separator-border-color);
 		border-left: none;
 		border-top: none;
 		margin: auto;
-		width: var(--wp-beer-blocks-separator-triangleWidth-xs);
-		height: var(--wp-beer-blocks-separator-triangleWidth-xs);
 		clip-path: polygon(0 100%, 100% 0, 100% 100%);
 
 		&.wp-beer-blocks-separator-triangle-down {
 			transform: translateY(
-					calc(var(--wp-beer-blocks-separator-triangleWidth-xs) / 2 * -1)
+					calc(var(--wp-beer-blocks-separator-triangleWidth) / 2 * -1)
 				)
 				rotate(45deg);
 		}
@@ -45,8 +37,8 @@
 			transform: translateY(
 					calc(
 						(
-								(var(--wp-beer-blocks-separator-triangleWidth-xs) / 2) -
-									var(--wp-beer-blocks-separator-height-xs)
+								(var(--wp-beer-blocks-separator-triangleWidth) / 2) -
+									var(--wp-beer-blocks-separator-height)
 							) * -1
 					)
 				)
@@ -55,13 +47,20 @@
 	}
 
 	@include media-breakpoint-up(sm) {
-		width: var(--wp-beer-blocks-separator-width-sm);
+		@include widthRules("separator", "sm");
+		@include marginRules(
+			"separator",
+			"sm",
+			"",
+			$defaultMarginValues,
+			("top", "bottom")
+		);
 		border-bottom-width: var(--wp-beer-blocks-separator-height-sm);
 
 		.wp-beer-blocks-separator-triangle {
-			border-width: var(--wp-beer-blocks-separator-height-sm);
-			width: var(--wp-beer-blocks-separator-triangleWidth-sm);
+			@include widthRules("separator", "sm", "triangle");
 			height: var(--wp-beer-blocks-separator-triangleWidth-sm);
+			border-width: var(--wp-beer-blocks-separator-height-sm);
 
 			&.wp-beer-blocks-separator-triangle-down {
 				transform: translateY(
@@ -85,13 +84,20 @@
 	}
 
 	@include media-breakpoint-up(md) {
-		width: var(--wp-beer-blocks-separator-width-md);
+		@include widthRules("separator", "md");
+		@include marginRules(
+			"separator",
+			"md",
+			"",
+			$defaultMarginValues,
+			("top", "bottom")
+		);
 		border-bottom-width: var(--wp-beer-blocks-separator-height-md);
 
 		.wp-beer-blocks-separator-triangle {
-			border-width: var(--wp-beer-blocks-separator-height-md);
-			width: var(--wp-beer-blocks-separator-triangleWidth-md);
+			@include widthRules("separator", "md", "triangle");
 			height: var(--wp-beer-blocks-separator-triangleWidth-md);
+			border-width: var(--wp-beer-blocks-separator-height-md);
 
 			&.wp-beer-blocks-separator-triangle-down {
 				transform: translateY(
@@ -103,13 +109,20 @@
 	}
 
 	@include media-breakpoint-up(lg) {
-		width: var(--wp-beer-blocks-separator-width-lg);
+		@include widthRules("separator", "lg");
+		@include marginRules(
+			"separator",
+			"lg",
+			"",
+			$defaultMarginValues,
+			("top", "bottom")
+		);
 		border-bottom-width: var(--wp-beer-blocks-separator-height-lg);
 
 		.wp-beer-blocks-separator-triangle {
-			border-width: var(--wp-beer-blocks-separator-height-lg);
-			width: var(--wp-beer-blocks-separator-triangleWidth-lg);
+			@include widthRules("separator", "lg", "triangle");
 			height: var(--wp-beer-blocks-separator-triangleWidth-lg);
+			border-width: var(--wp-beer-blocks-separator-height-lg);
 
 			&.wp-beer-blocks-separator-triangle-down {
 				transform: translateY(
@@ -121,13 +134,20 @@
 	}
 
 	@include media-breakpoint-up(xl) {
-		width: var(--wp-beer-blocks-separator-width-xl);
+		@include widthRules("separator", "xl");
+		@include marginRules(
+			"separator",
+			"xl",
+			"",
+			$defaultMarginValues,
+			("top", "bottom")
+		);
 		border-bottom-width: var(--wp-beer-blocks-separator-height-xl);
 
 		.wp-beer-blocks-separator-triangle {
-			border-width: var(--wp-beer-blocks-separator-height-xl);
-			width: var(--wp-beer-blocks-separator-triangleWidth-xl);
+			@include widthRules("separator", "xl", "triangle");
 			height: var(--wp-beer-blocks-separator-triangleWidth-xl);
+			border-width: var(--wp-beer-blocks-separator-height-xl);
 
 			&.wp-beer-blocks-separator-triangle-down {
 				transform: translateY(
@@ -151,13 +171,20 @@
 	}
 
 	@include media-breakpoint-up(xxl) {
-		width: var(--wp-beer-blocks-separator-width-xxl);
+		@include widthRules("separator", "xxl");
+		@include marginRules(
+			"separator",
+			"xxl",
+			"",
+			$defaultMarginValues,
+			("top", "bottom")
+		);
 		border-bottom-width: var(--wp-beer-blocks-separator-height-xxl);
 
 		.wp-beer-blocks-separator-triangle {
-			border-width: var(--wp-beer-blocks-separator-height-xxl);
-			width: var(--wp-beer-blocks-separator-triangleWidth-xxl);
+			@include widthRules("separator", "xxl", "triangle");
 			height: var(--wp-beer-blocks-separator-triangleWidth-xxl);
+			border-width: var(--wp-beer-blocks-separator-height-xxl);
 
 			&.wp-beer-blocks-separator-triangle-down {
 				transform: translateY(

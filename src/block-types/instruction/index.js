@@ -71,17 +71,13 @@ registerBlockType("beer-blocks/instruction", {
 		},
 		stackedContents: {
 			type: "object",
-			default: Object.fromEntries(
-				grid.breakpoints.map((key) => [[key], false])
-			),
+			default: grid.breakpointsAttributeValue(false),
 		},
 		sizing: {
 			type: "object",
-			default: {
-				...grid.getColSizingAttributes({
-					xsSizingType: grid.autoSizingEqualWidth,
-				}),
-			},
+			default: grid.getColSizingAttributes({
+				xsSizingType: grid.autoSizingEqualWidth,
+			}),
 		},
 		justifyContent: {
 			type: "object",
@@ -135,13 +131,12 @@ registerBlockType("beer-blocks/instruction", {
 			type: "string",
 			default: "center",
 		},
-		padding: spacing.paddingAttribute(),
-		visualizer: spacing.visualizerAttribute(),
+		...spacing.attributes({ breakpoints: true }),
 		...typography.attributes({
 			fontSize: "18px",
 			attrPrefix: "numeration",
 			breakpoints: true,
-			attrBreakpointsBehaviorPrefix: "numeration",
+			breakpointsBehaviorAttrPrefix: "numeration",
 			includeLineHeightAttr: false,
 		}),
 	},

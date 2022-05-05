@@ -7,7 +7,7 @@ import {
 	useInnerBlocksProps,
 	__experimentalUseInnerBlocksProps as __useInnerBlocksProps,
 } from "@wordpress/block-editor";
-import spacing from "./../../helpers/spacing";
+import spacing, { PaddingVisualizer } from "./../../helpers/spacing";
 
 const edit = (props) => {
 	const {
@@ -16,10 +16,18 @@ const edit = (props) => {
 		attributes: { id },
 	} = props;
 
-	const blockProps = useBlockProps();
+	const blockProps = useBlockProps({
+		style: {
+			...spacing.paddingCssVars({ props, blockName: "accordion" }),
+			...spacing.marginCssVars({ props, blockName: "accordion" }),
+		},
+	});
 
 	const innerBlocksPropsConfig = [
-		{},
+		{
+			id: `accordion-${id}`,
+			className: "accordion",
+		},
 		{
 			allowedBlocks: ["beer-blocks/accordion-item"],
 			renderAppender: false,
@@ -40,24 +48,19 @@ const edit = (props) => {
 
 	return (
 		<>
-			<InspectorControls>{spacing.controls({ props })}</InspectorControls>
+			<InspectorControls>
+				{spacing.breakpointsControls({ props })}
+			</InspectorControls>
 
-			{spacing.visualizer(
-				props,
+			<PaddingVisualizer blockProps={props}>
 				<div {...blockProps}>
-					<div
-						className="accordion"
-						id={`accordion-${id}`}
-						style={spacing.styles(props.attributes)}
-					>
-						<div {...innerBlocksProps} />
-					</div>
+					<div {...innerBlocksProps} />
 
 					<div className="button-block-appender__container">
 						<InnerBlocks.ButtonBlockAppender />
 					</div>
 				</div>
-			)}
+			</PaddingVisualizer>
 		</>
 	);
 };

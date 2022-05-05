@@ -8,9 +8,10 @@ import {
 } from "@wordpress/block-editor";
 import { SelectControl, PanelBody } from "@wordpress/components";
 import { useSelect } from "@wordpress/data";
-import spacing from "./../../helpers/spacing";
+import spacing, { PaddingVisualizer } from "./../../helpers/spacing";
 import tags from "./../../helpers/sectioning-tags";
 import innerBorder from "../../helpers/inner-border";
+import grid from "../../helpers/grid";
 
 const edit = (props) => {
 	const {
@@ -33,7 +34,8 @@ const edit = (props) => {
 	const blockProps = useBlockProps({
 		className: containerType,
 		style: {
-			...spacing.styles(props.attributes),
+			...spacing.paddingCssVars({ props, blockName: "container" }),
+			...spacing.marginCssVars({ props, blockName: "container" }),
 		},
 	});
 
@@ -62,29 +64,7 @@ const edit = (props) => {
 					<SelectControl
 						label={__("Container type", "beer-blocks")}
 						value={containerType}
-						options={[
-							{ value: "container", label: "Container" },
-							{
-								value: "container-fluid",
-								label: "Container Fluid",
-							},
-							{
-								value: "container-sm",
-								label: "Container SM",
-							},
-							{
-								value: "container-md",
-								label: "Container MD",
-							},
-							{
-								value: "container-lg",
-								label: "Container LG",
-							},
-							{
-								value: "container-xl",
-								label: "Container XL",
-							},
-						]}
+						options={grid.containerTypesOptions}
 						onChange={(value) => setAttributes({ containerType: value })}
 					/>
 
@@ -101,12 +81,11 @@ const edit = (props) => {
 					/>
 				</PanelBody>
 
-				{spacing.controls({ props })}
+				{spacing.breakpointsControls({ props })}
 				{innerBorder.controls({ props })}
 			</InspectorControls>
 
-			{spacing.visualizer(
-				props,
+			<PaddingVisualizer blockProps={props}>
 				<TagName {...innerBlocksProps}>
 					{innerBorder.borderTopHtml(props.attributes)}
 					{innerBlocksProps.children}
@@ -120,7 +99,7 @@ const edit = (props) => {
 					</div>
 					{innerBorder.borderBottomHtml(props.attributes)}
 				</TagName>
-			)}
+			</PaddingVisualizer>
 		</>
 	);
 };

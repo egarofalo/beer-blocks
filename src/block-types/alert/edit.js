@@ -6,7 +6,7 @@ import {
 } from "@wordpress/block-editor";
 import { SelectControl, PanelBody } from "@wordpress/components";
 import { options as optionsVariant } from "./../../helpers/bootstrap-variants";
-import spacing from "./../../helpers/spacing";
+import spacing, { PaddingVisualizer } from "./../../helpers/spacing";
 
 const edit = (props) => {
 	const {
@@ -17,7 +17,8 @@ const edit = (props) => {
 	const blockProps = useBlockProps({
 		className: alertType,
 		style: {
-			...spacing.styles(props.attributes),
+			...spacing.paddingCssVars({ props, blockName: "alert" }),
+			...spacing.marginCssVars({ props, blockName: "alert" }),
 		},
 	});
 
@@ -33,18 +34,17 @@ const edit = (props) => {
 							value: `alert alert-${option.value}`,
 						}))}
 						onChange={(value) => setAttributes({ alertType: value })}
-						style={{ paddingBottom: 0, marginBottom: 0 }}
 					/>
 				</PanelBody>
-				{spacing.controls({ props })}
+
+				{spacing.breakpointsControls({ props })}
 			</InspectorControls>
 
-			{spacing.visualizer(
-				props,
+			<PaddingVisualizer blockProps={props}>
 				<div {...blockProps} role="alert">
 					<InnerBlocks />
 				</div>
-			)}
+			</PaddingVisualizer>
 		</>
 	);
 };

@@ -13,16 +13,17 @@ const save = (props) => {
 			...dimension.widthCssVars({
 				props,
 				blockName: "separator",
-				breakpoints: true,
 			}),
 			...dimension.heightCssVars({
 				props,
 				blockName: "separator",
-				breakpoints: true,
+			}),
+			...spacing.marginCssVars({
+				props,
+				blockName: "separator",
 			}),
 			"--wp-beer-blocks-separator-border-color": color,
 			...blockAlignment.styles(align),
-			...spacing.styles(props.attributes),
 		},
 	});
 
@@ -36,7 +37,10 @@ const save = (props) => {
 						props,
 						blockName: "separator",
 						attrPrefix: "triangle",
-						breakpoints: true,
+					}),
+					...dimension.heightCssVars({
+						props,
+						blockName: "separator",
 					}),
 				}}
 			></div>

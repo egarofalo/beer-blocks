@@ -9,7 +9,6 @@ import {
 } from "@wordpress/block-editor";
 import {
 	PanelBody,
-	__experimentalUnitControl as UnitControl,
 	BaseControl,
 	ToggleControl,
 	Button,
@@ -25,6 +24,8 @@ import {
 } from "./../../helpers/fa-icons";
 import spacing from "./../../helpers/spacing";
 import typography from "./../../helpers/typography";
+import dimension from "../../helpers/dimension";
+import grid from "../../helpers/grid";
 
 const edit = (props) => {
 	const {
@@ -39,10 +40,7 @@ const edit = (props) => {
 			imgUrl,
 			imgNaturalWidth,
 			imgNaturalHeight,
-			imgWidth,
 			imgHeight,
-			imgWidthUnit,
-			imgHeightUnit,
 		},
 		setAttributes,
 	} = props;
@@ -50,50 +48,77 @@ const edit = (props) => {
 	const icons = [...farIconsClasses, ...fasIconsClasses, ...fabIconsClasses];
 	const useAnImage = iconType === "image";
 
-	const style = {
-		...(!useAnImage
-			? {
-					...typography.fontSizeCssVars({
-						props,
-						blockName: "fa-icon",
-						attrPrefix: "icon",
-						breakpoints: true,
-					}),
-					...typography.lineHeightCssVars({
-						props,
-						blockName: "fa-icon",
-						attrPrefix: "icon",
-						breakpoints: true,
-					}),
-			  }
-			: {
-					...(imgWidth ? { width: imgWidth } : {}),
-					...(imgHeight ? { height: imgHeight } : {}),
-			  }),
+	let blockPropsParam = { style: spacing.styles(props) };
+	const dimensionCssVars = {
+		...dimension.widthCssVars({
+			props,
+			blockName: "fa-icon",
+			attrPrefix: "img",
+		}),
+		...dimension.heightCssVars({
+			props,
+			blockName: "fa-icon",
+			attrPrefix: "img",
+		}),
 	};
 
-	const blockProps = useBlockProps({
-		...(htmlElementType === BLOCK_LEVEL_ELEMENT
-			? {
-					className: `has-text-align-${textAlign}`,
-					style: spacing.styles(props.attributes),
-			  }
-			: {}),
-		...(htmlElementType === INLINE_ELEMENT
-			? {
-					className: useAnImage ? "img-fluid" : icon,
-					style: {
-						...style,
-						...spacing.styles(props.attributes),
-					},
-			  }
-			: {}),
-	});
+	if (useAnImage) {
+		blockPropsParam = {
+			...blockPropsParam,
+			style: {
+				...blockPropsParam.style,
+				...(htmlElementType === INLINE_ELEMENT ? dimensionCssVars : {}),
+			},
+			className:
+				htmlElementType === BLOCK_LEVEL_ELEMENT
+					? `has-text-align-${textAlign}`
+					: "img-fluid wp-block-beer-blocks-fa-icon-image",
+		};
+	} else {
+		blockPropsParam = {
+			...blockPropsParam,
+			className:
+				htmlElementType === BLOCK_LEVEL_ELEMENT
+					? `has-text-align-${textAlign}`
+					: icon,
+			style: {
+				...blockPropsParam.style,
+				...typography.fontSizeCssVars({
+					props,
+					blockName: "fa-icon",
+					attrPrefix: "icon",
+				}),
+				...typography.lineHeightCssVars({
+					props,
+					blockName: "fa-icon",
+					attrPrefix: "icon",
+				}),
+			},
+		};
+	}
+
+	const blockProps = useBlockProps(blockPropsParam);
 
 	const imgElem =
 		htmlElementType === BLOCK_LEVEL_ELEMENT ? (
 			<div {...blockProps}>
-				<img className="img-fluid" style={style} alt={imgAlt} src={imgUrl} />
+				<img
+					className="img-fluid wp-block-beer-blocks-fa-icon-image"
+					alt={imgAlt}
+					src={imgUrl}
+					style={{
+						...dimension.widthCssVars({
+							props,
+							blockName: "fa-icon",
+							attrPrefix: "img",
+						}),
+						...dimension.heightCssVars({
+							props,
+							blockName: "fa-icon",
+							attrPrefix: "img",
+						}),
+					}}
+				/>
 			</div>
 		) : (
 			<img alt={imgAlt} src={imgUrl} {...blockProps} />
@@ -102,7 +127,7 @@ const edit = (props) => {
 	const iconElem =
 		htmlElementType === BLOCK_LEVEL_ELEMENT ? (
 			<div {...blockProps}>
-				<i className={icon} style={style}></i>
+				<i className={icon}></i>
 			</div>
 		) : (
 			<i {...blockProps}></i>
@@ -115,10 +140,15 @@ const edit = (props) => {
 			imgAlt: "",
 			imgNaturalWidth: 0,
 			imgNaturalHeight: 0,
-			imgWidth: "",
-			imgHeight: "",
-			imgWidthUnit: "px",
-			imgHeightUnit: "px",
+			imgWidth: Object.fromEntries(
+				grid.breakpoints.map((key) => [[key], undefined])
+			),
+			imgHeight: Object.fromEntries(
+				grid.breakpoints.map((key) => [[key], undefined])
+			),
+			imgDimensionBreakpointsBehavior: Object.fromEntries(
+				grid.breakpoints.map((key) => [[key], grid.sameBehavior])
+			),
 		});
 	};
 
@@ -129,16 +159,34 @@ const edit = (props) => {
 			imgAlt: media.alt,
 			imgNaturalWidth: media.width === 0 ? 100 : media.width,
 			imgNaturalHeight: media.height,
-			imgWidth: `${media.width === 0 ? 100 : media.width}px`,
-			imgHeight: media.height === 0 ? "auto" : `${media.height}px`,
-			imgWidthUnit: "px",
-			imgHeightUnit: "px",
+			imgWidth: Object.fromEntries(
+				grid.breakpoints.map((key) => [
+					[key],
+					`${media.width === 0 ? 100 : media.width}px`,
+				])
+			),
+			imgHeight: Object.fromEntries(
+				grid.breakpoints.map((key) => [
+					[key],
+					`${media.height === 0 ? "auto" : media.height}px`,
+				])
+			),
 		});
 
 	const setOriginalImageSize = () =>
 		setAttributes({
-			imgWidth: `${imgNaturalWidth === 0 ? 100 : imgNaturalWidth}px`,
-			imgHeight: imgNaturalHeight === 0 ? "auto" : `${imgNaturalHeight}px`,
+			imgWidth: Object.fromEntries(
+				grid.breakpoints.map((key) => [
+					[key],
+					`${imgNaturalWidth === 0 ? 100 : imgNaturalWidth}px`,
+				])
+			),
+			imgHeight: Object.fromEntries(
+				grid.breakpoints.map((key) => [
+					[key],
+					`${imgNaturalHeight === 0 ? "auto" : imgNaturalHeight}px`,
+				])
+			),
 		});
 
 	const iconControls = (
@@ -157,7 +205,7 @@ const edit = (props) => {
 			{typography.breakpointsControls({
 				props,
 				attrPrefix: "icon",
-				attrBreakpointsBehaviorPrefix: "icon",
+				breakpointsBehaviorAttrPrefix: "icon",
 				panelBody: false,
 				fontSizeControlLabel: (breakpoint) =>
 					sprintf(
@@ -170,30 +218,11 @@ const edit = (props) => {
 		</>
 	);
 
-	const imgHeightControl = (
-		<UnitControl
-			label={sprintf(__("Height (%s)", "beer-blocks"), imgHeightUnit)}
-			value={imgHeight}
-			onChange={(height) => setAttributes({ imgHeight: height })}
-			onUnitChange={(unit) =>
-				setAttributes({
-					imgHeightUnit: unit,
-				})
-			}
-			units={[
-				{ value: "px", label: "PX" },
-				{ value: "em", label: "EM" },
-				{ value: "rem", label: "REM" },
-				{ value: "%", label: "%" },
-			]}
-		/>
-	);
-
 	const imageControls = (
 		<>
 			<div
 				className="editor-post-featured-image"
-				style={{ marginBottom: "24px" }}
+				style={{ marginBottom: "20px" }}
 			>
 				<MediaUploadCheck>
 					<MediaUpload
@@ -229,72 +258,110 @@ const edit = (props) => {
 				</MediaUploadCheck>
 
 				{imgId > 0 && (
-					<MediaUploadCheck>
-						<MediaUpload
-							title={__("Replace image", "beer-blocks")}
-							value={imgId}
-							onSelect={onSelectMedia}
-							allowedTypes={["image"]}
-							render={({ open }) => (
-								<Button onClick={open} isSecondary isLarge>
-									{__("Replace image", "beer-blocks")}
-								</Button>
-							)}
-						/>
-					</MediaUploadCheck>
-				)}
+					<>
+						<MediaUploadCheck>
+							<MediaUpload
+								title={__("Replace image", "beer-blocks")}
+								value={imgId}
+								onSelect={onSelectMedia}
+								allowedTypes={["image"]}
+								render={({ open }) => (
+									<Button onClick={open} isSecondary isLarge>
+										{__("Replace image", "beer-blocks")}
+									</Button>
+								)}
+							/>
+						</MediaUploadCheck>
 
-				{imgId > 0 && (
-					<MediaUploadCheck>
-						<Button onClick={removeMedia} isLink isDestructive>
-							{__("Remove image", "beer-blocks")}
-						</Button>
-					</MediaUploadCheck>
+						<MediaUploadCheck>
+							<Button onClick={removeMedia} isLink isDestructive>
+								{__("Remove image", "beer-blocks")}
+							</Button>
+						</MediaUploadCheck>
+					</>
 				)}
 			</div>
 
-			<BaseControl>
-				<UnitControl
-					label={sprintf(__("Width (%s)", "beer-blocks"), imgWidthUnit)}
-					value={imgWidth}
-					onChange={(width) => setAttributes({ imgWidth: width })}
-					onUnitChange={(unit) =>
-						setAttributes({
-							imgWidthUnit: unit,
-						})
-					}
-					units={[
-						{ value: "px", label: "PX" },
-						{ value: "em", label: "EM" },
-						{ value: "rem", label: "REM" },
-						{ value: "%", label: "%" },
-					]}
-				/>
-			</BaseControl>
+			{grid.getBreakpointsTabs((breakpoint) => {
+				const {
+					attributes: { imgDimensionBreakpointsBehavior: breakpointsBehavior },
+				} = props;
 
-			<ToggleControl
-				label={__("Set auto height", "beer-blocks")}
-				checked={imgHeight === "auto"}
-				onChange={() =>
-					setAttributes({
-						imgHeight: imgHeight === "auto" ? `${imgNaturalHeight}px` : "auto",
-					})
-				}
-			/>
+				const nextBreakpoints = grid.getNextBreakpoints(
+					breakpoint,
+					breakpointsBehavior
+				);
 
-			<BaseControl>
-				{imgHeight === "auto" ? (
-					<Disabled>{imgHeightControl}</Disabled>
-				) : (
-					imgHeightControl
-				)}
-			</BaseControl>
+				const heightControl = dimension.heightBreakpointsControl({
+					props,
+					breakpoint,
+					attrPrefix: "img",
+					breakpointsBehaviorAttrPrefix: "img-dimension",
+					type: "string",
+				});
 
-			<BaseControl>
+				return (
+					<>
+						{grid.getBreakpointsBehaviorControl({
+							props,
+							attrPrefix: "img-dimension",
+							breakpoint,
+							affectedAttrs: ["imgWidth", "imgHeight"],
+						})}
+
+						{breakpointsBehavior[breakpoint] !== grid.sameBehavior && (
+							<>
+								<div style={{ marginBottom: "24px" }}>
+									{dimension.widthBreakpointsControl({
+										props,
+										breakpoint,
+										attrPrefix: "img",
+										breakpointsBehaviorAttrPrefix: "img-dimension",
+									})}
+								</div>
+
+								<ToggleControl
+									label={__("Set auto height", "beer-blocks")}
+									checked={imgHeight[breakpoint] === "auto"}
+									onChange={() => {
+										const newHeight =
+											imgHeight[breakpoint] === "auto"
+												? `${imgNaturalHeight}px`
+												: "auto";
+
+										setAttributes({
+											imgHeight: {
+												...imgHeight,
+												[breakpoint]: newHeight,
+												...(nextBreakpoints.length > 0
+													? Object.fromEntries(
+															nextBreakpoints.map((nextBreakpoint) => [
+																nextBreakpoint,
+																newHeight,
+															])
+													  )
+													: {}),
+											},
+										});
+									}}
+								/>
+
+								{imgHeight[breakpoint] === "auto" ? (
+									<Disabled>{heightControl}</Disabled>
+								) : (
+									heightControl
+								)}
+							</>
+						)}
+					</>
+				);
+			})}
+
+			<div style={{ paddingTop: "24px" }}>
 				<Button onClick={setOriginalImageSize} isPrimary>
 					{__("Set original size", "beer-blocks")}
 				</Button>
-			</BaseControl>
+			</div>
 		</>
 	);
 

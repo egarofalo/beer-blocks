@@ -18,7 +18,7 @@ import { registerBlockType } from "@wordpress/blocks";
  *
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
-// import "./style.scss";
+import "./style.scss";
 
 /**
  * Styles applied only in the editor.
@@ -67,6 +67,10 @@ registerBlockType("beer-blocks/instructions", {
 		id: {
 			type: "string",
 		},
+		containerType: {
+			type: "string",
+			default: "container",
+		},
 		justifyContent: {
 			type: "object",
 			default: grid.getJustifyContentAttributes(),
@@ -75,7 +79,7 @@ registerBlockType("beer-blocks/instructions", {
 			type: "object",
 			default: grid.getAlignItemsAttributes(),
 		},
-		...spacing.attributes(),
+		...spacing.attributes({ breakpoints: true, paddingSides: false }),
 	},
 	providesContext: {
 		instructionsId: "id",

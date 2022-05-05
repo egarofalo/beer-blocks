@@ -75,28 +75,23 @@ export const fontSizeBreakpointsControl = ({
 	props,
 	breakpoint,
 	attrPrefix = "",
-	attrBreakpointsBehaviorPrefix = "",
+	breakpointsBehaviorAttrPrefix = "",
 	label = sprintf(
 		__("Font size (%s)", "beer-blocks"),
 		breakpoint.toUpperCase()
 	),
-	onChange = undefined,
-	onUnitChange = undefined,
-	type = "string",
-	minFontSize = 0,
-	maxFontSize = 100,
 	style = {},
 }) => {
 	const attrName = camelCase(`${attrPrefix}-font-size`);
-	const attrBreakpointsBehaviorName = camelCase(
-		`${attrBreakpointsBehaviorPrefix}-breakpoints-behavior`
+	const breakpointsBehaviorAttrName = camelCase(
+		`${breakpointsBehaviorAttrPrefix}-breakpoints-behavior`
 	);
 
 	const {
 		setAttributes,
 		attributes: {
 			[attrName]: fontSize,
-			[attrBreakpointsBehaviorName]: breakpointsBehavior,
+			[breakpointsBehaviorAttrName]: breakpointsBehavior,
 		},
 	} = props;
 
@@ -104,77 +99,51 @@ export const fontSizeBreakpointsControl = ({
 		return null;
 	}
 
-	let nextBreakpoints = grid.getNextBreakpoints(breakpoint);
-	const differentBehaviorIndex = nextBreakpoints.findIndex(
-		(breakpoint) => breakpointsBehavior[breakpoint] === grid.differentBehavior
+	const nextBreakpoints = grid.getNextBreakpoints(
+		breakpoint,
+		breakpointsBehavior
 	);
 
-	if (differentBehaviorIndex > -1) {
-		nextBreakpoints = nextBreakpoints.slice(0, differentBehaviorIndex);
-	}
+	const change = (newFontSize) =>
+		setAttributes({
+			[attrName]: {
+				...fontSize,
+				[breakpoint]: newFontSize,
+				...(nextBreakpoints.length > 0
+					? Object.fromEntries(
+							nextBreakpoints.map((nextBreakpoint) => [
+								nextBreakpoint,
+								newFontSize,
+							])
+					  )
+					: {}),
+			},
+		});
 
-	const change =
-		typeof onChange === "function"
-			? onChange
-			: (newFontSize) =>
-					setAttributes({
-						[attrName]: {
-							...fontSize,
-							[breakpoint]: newFontSize,
-							...(nextBreakpoints.length > 0
-								? Object.fromEntries(
-										nextBreakpoints.map((nextBreakpoint) => [
-											nextBreakpoint,
-											newFontSize,
-										])
-								  )
-								: {}),
-						},
-					});
-
-	const unitChange =
-		typeof onUnitChange === "function"
-			? onUnitChange
-			: (newUnit) => {
-					setAttributes({
-						[attrName]: {
-							...fontSize,
-							[breakpoint]: "",
-							...(nextBreakpoints.length > 0
-								? Object.fromEntries(
-										nextBreakpoints.map((nextBreakpoint) => [
-											nextBreakpoint,
-											"",
-										])
-								  )
-								: {}),
-						},
-					});
-			  };
+	const unitChange = (newUnit) => {
+		setAttributes({
+			[attrName]: {
+				...fontSize,
+				[breakpoint]: "",
+				...(nextBreakpoints.length > 0
+					? Object.fromEntries(
+							nextBreakpoints.map((nextBreakpoint) => [nextBreakpoint, ""])
+					  )
+					: {}),
+			},
+		});
+	};
 
 	return (
 		<div style={style}>
-			{type === "number" ? (
-				<RangeControl
-					label={label}
-					value={fontSize[breakpoint]}
-					onChange={change}
-					min={minFontSize}
-					max={maxFontSize}
-					step={1}
-					style={style}
-					allowReset
-				/>
-			) : (
-				<UnitControl
-					label={label}
-					value={fontSize[breakpoint]}
-					onChange={change}
-					onUnitChange={unitChange}
-					units={unitsOnly(["px", "rem", "em"])}
-					style={style}
-				/>
-			)}
+			<UnitControl
+				label={label}
+				value={fontSize[breakpoint]}
+				onChange={change}
+				onUnitChange={unitChange}
+				units={unitsOnly(["px", "rem", "em"])}
+				style={style}
+			/>
 		</div>
 	);
 };
@@ -188,43 +157,31 @@ export const fontSizeStyles = (props, attrPrefix = "") => {
 	return fontSize ? { fontSize } : {};
 };
 // returns font size css vars for style html attribute
-export const fontSizeCssVars = ({
-	props,
-	blockName = "",
-	attrPrefix = "",
-	breakpoints = false,
-}) => {
+export const fontSizeCssVars = ({ props, blockName, attrPrefix = "" }) => {
 	const attrName = camelCase(`${attrPrefix}-font-size`);
 	const {
 		attributes: { [attrName]: fontSize },
 	} = props;
 
-	return breakpoints
-		? Object.fromEntries(
-				grid.breakpoints
-					.map((breakpoint) => {
-						let result = [
-							`--wp-beer-blocks-${blockName}-${attrName}-${breakpoint}`,
-						];
+	return Object.fromEntries(
+		grid.breakpoints
+			.map((breakpoint) => {
+				let result = [
+					`--wp-beer-blocks-${blockName}-${attrName}${
+						breakpoint !== "xs" ? `-${breakpoint}` : ""
+					}`,
+				];
 
-						if (!fontSize[breakpoint]) {
-							result.push(null);
-						} else if (typeof fontSize[breakpoint] === "number") {
-							result.push(`${fontSize[breakpoint]}px`);
-						} else {
-							result.push(fontSize[breakpoint]);
-						}
+				if (typeof fontSize[breakpoint] === "number") {
+					result.push(`${fontSize[breakpoint]}px`);
+				} else {
+					result.push(fontSize[breakpoint]);
+				}
 
-						return result;
-					})
-					.filter((item) => item[1] !== null)
-		  )
-		: fontSize
-		? {
-				[`--wp-beer-blocks-${blockName}-${attrName}`]:
-					typeof fontSize === "number" ? `${fontSize}px` : fontSize,
-		  }
-		: {};
+				return result;
+			})
+			.filter((cssVar) => cssVar[1] !== "")
+	);
 };
 
 // returns font family block attributes
@@ -270,7 +227,9 @@ const addGoogleFontToHead = (fontFamily) => {
 };
 
 // returns font family block attributes controls
-export const fontFamilyControl = (props, attrName = "fontFamily") => {
+export const fontFamilyControl = (props, attrPrefix = "") => {
+	const attrName = camelCase(`${attrPrefix}-font-family`);
+
 	const {
 		attributes: { [attrName]: fontFamily },
 		setAttributes,
@@ -340,7 +299,9 @@ export const fontWeightAttribute = () => ({
 });
 
 // returns font weight block attributes
-export const fontWeightControl = (props, attrName = "fontWeight") => {
+export const fontWeightControl = (props, attrPrefix = "") => {
+	const attrName = camelCase(`${attrPrefix}-font-weight`);
+
 	const {
 		setAttributes,
 		attributes: { [attrName]: fontWeight },
@@ -416,26 +377,25 @@ export const lineHeightBreakpointsControl = ({
 	props,
 	breakpoint,
 	attrPrefix = "",
-	attrBreakpointsBehaviorPrefix = "",
+	breakpointsBehaviorAttrPrefix = "",
 	label = sprintf(
 		__("Line height (%s)", "beer-blocks"),
 		breakpoint.toUpperCase()
 	),
-	onChange = undefined,
 	minLineHeight = 1,
 	maxLineHeight = 5,
 	style = {},
 }) => {
 	const attrName = camelCase(`${attrPrefix}-line-height`);
-	const attrBreakpointsBehaviorName = camelCase(
-		`${attrBreakpointsBehaviorPrefix}-breakpoints-behavior`
+	const breakpointsBehaviorAttrName = camelCase(
+		`${breakpointsBehaviorAttrPrefix}-breakpoints-behavior`
 	);
 
 	const {
 		setAttributes,
 		attributes: {
 			[attrName]: lineHeight,
-			[attrBreakpointsBehaviorName]: breakpointsBehavior,
+			[breakpointsBehaviorAttrName]: breakpointsBehavior,
 		},
 	} = props;
 
@@ -443,33 +403,26 @@ export const lineHeightBreakpointsControl = ({
 		return null;
 	}
 
-	let nextBreakpoints = grid.getNextBreakpoints(breakpoint);
-	const differentBehaviorIndex = nextBreakpoints.findIndex(
-		(breakpoint) => breakpointsBehavior[breakpoint] === grid.differentBehavior
+	const nextBreakpoints = grid.getNextBreakpoints(
+		breakpoint,
+		breakpointsBehavior
 	);
 
-	if (differentBehaviorIndex > -1) {
-		nextBreakpoints = nextBreakpoints.slice(0, differentBehaviorIndex);
-	}
-
-	const change =
-		typeof onChange === "function"
-			? onChange
-			: (newLineHeight) =>
-					setAttributes({
-						[attrName]: {
-							...lineHeight,
-							[breakpoint]: newLineHeight,
-							...(nextBreakpoints.length > 0
-								? Object.fromEntries(
-										nextBreakpoints.map((nextBreakpoint) => [
-											nextBreakpoint,
-											newLineHeight,
-										])
-								  )
-								: {}),
-						},
-					});
+	const change = (newLineHeight) =>
+		setAttributes({
+			[attrName]: {
+				...lineHeight,
+				[breakpoint]: newLineHeight,
+				...(nextBreakpoints.length > 0
+					? Object.fromEntries(
+							nextBreakpoints.map((nextBreakpoint) => [
+								nextBreakpoint,
+								newLineHeight,
+							])
+					  )
+					: {}),
+			},
+		});
 
 	return (
 		<div style={style}>
@@ -496,43 +449,31 @@ export const lineHeightStyles = (lineHeight) =>
 		: {};
 
 // returns line height css vars for style html attribute
-export const lineHeightCssVars = ({
-	props,
-	blockName = "",
-	attrPrefix = "",
-	breakpoints = false,
-}) => {
+export const lineHeightCssVars = ({ props, blockName, attrPrefix = "" }) => {
 	const attrName = camelCase(`${attrPrefix}-line-height`);
 	const {
 		attributes: { [attrName]: lineHeight },
 	} = props;
 
-	return breakpoints
-		? Object.fromEntries(
-				grid.breakpoints
-					.map((breakpoint) => {
-						let result = [
-							`--wp-beer-blocks-${blockName}-${attrName}-${breakpoint}`,
-						];
+	return Object.fromEntries(
+		grid.breakpoints
+			.map((breakpoint) => {
+				let result = [
+					`--wp-beer-blocks-${blockName}-${attrName}${
+						breakpoint !== "xs" ? `-${breakpoint}` : ""
+					}`,
+				];
 
-						if (!lineHeight[breakpoint]) {
-							result.push(null);
-						} else if (typeof lineHeight[breakpoint] === "number") {
-							result.push(`${lineHeight[breakpoint] * 100}%`);
-						} else {
-							result.push(lineHeight[breakpoint]);
-						}
+				if (typeof lineHeight[breakpoint] === "number") {
+					result.push(`${lineHeight[breakpoint] * 100}%`);
+				} else {
+					result.push(lineHeight[breakpoint]);
+				}
 
-						return result;
-					})
-					.filter((item) => item[1] !== null)
-		  )
-		: lineHeight
-		? {
-				[`--wp-beer-blocks-${blockName}-${attrName}`]:
-					typeof lineHeight === "number" ? `${lineHeight * 100}%` : lineHeight,
-		  }
-		: {};
+				return result;
+			})
+			.filter((cssVar) => cssVar[1] !== "")
+	);
 };
 
 // returns typography block attributes
@@ -543,7 +484,7 @@ export const attributes = ({
 	fontWeight = "",
 	lineHeight = "",
 	breakpoints = false,
-	attrBreakpointsBehaviorPrefix = "font",
+	breakpointsBehaviorAttrPrefix = "font",
 	includeLineHeightAttr = true,
 	includeFontFamilyAttr = true,
 	includeFontWeightAttr = true,
@@ -565,7 +506,7 @@ export const attributes = ({
 		  })
 		: {}),
 	...(breakpoints
-		? grid.breakpointsBehaviorAttribute(attrBreakpointsBehaviorPrefix)
+		? grid.breakpointsBehaviorAttribute(breakpointsBehaviorAttrPrefix)
 		: {}),
 	...(includeFontFamilyAttr
 		? {
@@ -621,7 +562,7 @@ export const breakpointsControls = ({
 	props,
 	initialOpen = false,
 	attrPrefix = "",
-	attrBreakpointsBehaviorPrefix = "font",
+	breakpointsBehaviorAttrPrefix = "font",
 	panelBody = true,
 	title = __("Typography", "beer-blocks"),
 	fontSizeControlLabel = (breakpoint) =>
@@ -634,8 +575,6 @@ export const breakpointsControls = ({
 }) => {
 	const attrFontSize = camelCase(`${attrPrefix}-font-size`);
 	const attrLineHeight = camelCase(`${attrPrefix}-line-height`);
-	const attrFontFamily = camelCase(`${attrPrefix}-font-family`);
-	const attrFontWeight = camelCase(`${attrPrefix}-font-weight`);
 
 	const result = (
 		<>
@@ -643,7 +582,7 @@ export const breakpointsControls = ({
 				<>
 					{grid.getBreakpointsBehaviorControl({
 						props,
-						attrPrefix: attrBreakpointsBehaviorPrefix,
+						attrPrefix: breakpointsBehaviorAttrPrefix,
 						breakpoint,
 						affectedAttrs: includeLineHeightControl
 							? [attrFontSize, attrLineHeight]
@@ -654,7 +593,7 @@ export const breakpointsControls = ({
 						breakpoint,
 						props,
 						attrPrefix,
-						attrBreakpointsBehaviorPrefix,
+						breakpointsBehaviorAttrPrefix,
 						style: { marginBottom: "15px" },
 						label: fontSizeControlLabel(breakpoint),
 					})}
@@ -664,7 +603,7 @@ export const breakpointsControls = ({
 							props,
 							breakpoint,
 							attrPrefix,
-							attrBreakpointsBehaviorPrefix,
+							breakpointsBehaviorAttrPrefix,
 							label: lineHeightControlLabel(breakpoint),
 						})}
 				</>
@@ -674,8 +613,8 @@ export const breakpointsControls = ({
 				<Divider />
 			) : null}
 
-			{includeFontFamilyControl && fontFamilyControl(props, attrFontFamily)}
-			{includeFontWeightControl && fontWeightControl(props, attrFontWeight)}
+			{includeFontFamilyControl && fontFamilyControl(props, attrPrefix)}
+			{includeFontWeightControl && fontWeightControl(props, attrPrefix)}
 		</>
 	);
 

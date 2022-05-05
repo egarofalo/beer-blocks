@@ -1,6 +1,6 @@
 @import "~@fonticonpicker/react-fonticonpicker/dist/fonticonpicker.base-theme.react.css";
 @import "~@fonticonpicker/react-fonticonpicker/dist/fonticonpicker.material-theme.react.css";
-@import "./../../mixins.scss";
+@import "./../../helpers";
 
 .wp-block-beer-blocks-fa-icon {
 	@include editorDefaultMargins;

@@ -1,51 +1,163 @@
-// Default variable overrides
-@import "./../../vendor/bootstrap/custom-variables";
-// Bootstrap variables, functions and mixins
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/variables";
-@import "~bootstrap/scss/mixins";
-// Plugin mixins
-@import "./../../mixins";
-
-:root {
-	@include breakpointsCssVars(
-		"accordion-item-headingFontSize",
-		$input-btn-font-size
-	);
-	@include breakpointsCssVars(
-		"accordion-item-headingLineHeight",
-		$input-btn-line-height
-	);
-}
+@import "./../../helpers";
 
 .wp-block-beer-blocks-accordion-item {
+	@include paddingRules("accordion-item");
+	@include marginRules(
+		"accordion-item",
+		"xs",
+		"",
+		(
+			top: 0,
+			right: 0,
+			bottom: 0,
+			left: 0,
+		)
+	);
+
+	@include media-breakpoint-up(sm) {
+		@include paddingRules("accordion-item", "sm");
+		@include marginRules(
+			"accordion-item",
+			"sm",
+			"",
+			(
+				top: 0,
+				right: 0,
+				bottom: 0,
+				left: 0,
+			)
+		);
+	}
+
+	@include media-breakpoint-up(md) {
+		@include paddingRules("accordion-item", "md");
+		@include marginRules(
+			"accordion-item",
+			"md",
+			"",
+			(
+				top: 0,
+				right: 0,
+				bottom: 0,
+				left: 0,
+			)
+		);
+	}
+
+	@include media-breakpoint-up(lg) {
+		@include paddingRules("accordion-item", "lg");
+		@include marginRules(
+			"accordion-item",
+			"lg",
+			"",
+			(
+				top: 0,
+				right: 0,
+				bottom: 0,
+				left: 0,
+			)
+		);
+	}
+
+	@include media-breakpoint-up(xl) {
+		@include paddingRules("accordion-item", "xl");
+		@include marginRules(
+			"accordion-item",
+			"xl",
+			"",
+			(
+				top: 0,
+				right: 0,
+				bottom: 0,
+				left: 0,
+			)
+		);
+	}
+
+	@include media-breakpoint-up(xxl) {
+		@include paddingRules("accordion-item", "xxl");
+		@include marginRules(
+			"accordion-item",
+			"xxl",
+			"",
+			(
+				top: 0,
+				right: 0,
+				bottom: 0,
+				left: 0,
+			)
+		);
+	}
+
 	& > .card-header > h2 .btn {
-		font-size: var(--wp-beer-blocks-accordion-item-headingFontSize-xs);
-		line-height: var(--wp-beer-blocks-accordion-item-headingLineHeight-xs);
+		@include typographyRules(
+			"accordion-item",
+			"xs",
+			"heading",
+			(
+				fontSize: $input-btn-font-size,
+				lineHeight: $input-btn-line-height,
+			)
+		);
 
 		@include media-breakpoint-up(sm) {
-			font-size: var(--wp-beer-blocks-accordion-item-headingFontSize-sm);
-			line-height: var(--wp-beer-blocks-accordion-item-headingLineHeight-sm);
+			@include typographyRules(
+				"accordion-item",
+				"sm",
+				"heading",
+				(
+					fontSize: $input-btn-font-size,
+					lineHeight: $input-btn-line-height,
+				)
+			);
 		}
 
 		@include media-breakpoint-up(md) {
-			font-size: var(--wp-beer-blocks-accordion-item-headingFontSize-md);
-			line-height: var(--wp-beer-blocks-accordion-item-headingLineHeight-md);
+			@include typographyRules(
+				"accordion-item",
+				"md",
+				"heading",
+				(
+					fontSize: $input-btn-font-size,
+					lineHeight: $input-btn-line-height,
+				)
+			);
 		}
 
 		@include media-breakpoint-up(lg) {
-			font-size: var(--wp-beer-blocks-accordion-item-headingFontSize-lg);
-			line-height: var(--wp-beer-blocks-accordion-item-headingLineHeight-lg);
+			@include typographyRules(
+				"accordion-item",
+				"lg",
+				"heading",
+				(
+					fontSize: $input-btn-font-size,
+					lineHeight: $input-btn-line-height,
+				)
+			);
 		}
 
 		@include media-breakpoint-up(xl) {
-			font-size: var(--wp-beer-blocks-accordion-item-headingFontSize-xl);
-			line-height: var(--wp-beer-blocks-accordion-item-headingLineHeight-xl);
+			@include typographyRules(
+				"accordion-item",
+				"xl",
+				"heading",
+				(
+					fontSize: $input-btn-font-size,
+					lineHeight: $input-btn-line-height,
+				)
+			);
 		}
 
 		@include media-breakpoint-up(xxl) {
-			font-size: var(--wp-beer-blocks-accordion-item-headingFontSize-xxl);
-			line-height: var(--wp-beer-blocks-accordion-item-headingLineHeight-xxl);
+			@include typographyRules(
+				"accordion-item",
+				"xxl",
+				"heading",
+				(
+					fontSize: $input-btn-font-size,
+					lineHeight: $input-btn-line-height,
+				)
+			);
 		}
 	}
 }

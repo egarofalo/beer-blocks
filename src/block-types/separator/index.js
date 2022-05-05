@@ -59,15 +59,12 @@ registerBlockType("beer-blocks/separator", {
 		<img src={icon} alt={_x("Separator Line", "block title", "beer-blocks")} />
 	),
 	attributes: {
-		...dimension.widthAttribute({
+		...dimension.attributes({
 			breakpoints: true,
-			defaultValue: getLineSeparatorDefaultWidth("px"),
+			heightType: "number",
+			defaultWidth: getLineSeparatorDefaultWidth("px"),
+			defaultHeight: 1,
 		}),
-		...dimension.heightAttribute({
-			breakpoints: true,
-			defaultValue: 1,
-		}),
-		...grid.breakpointsBehaviorAttribute("heightWidth"),
 		color: {
 			type: "string",
 			default: "#000",
@@ -81,6 +78,7 @@ registerBlockType("beer-blocks/separator", {
 			breakpointsBehavior: true,
 			breakpoints: true,
 			defaultValue: 0,
+			type: "number",
 		}),
 		triangleBackground: {
 			type: "string",
@@ -90,7 +88,11 @@ registerBlockType("beer-blocks/separator", {
 			type: "string",
 			default: "down",
 		},
-		...spacing.attributes({ padding: false }),
+		...spacing.attributes({
+			paddingSides: false,
+			marginSides: ["top", "bottom"],
+			breakpoints: true,
+		}),
 	},
 	edit,
 	save,

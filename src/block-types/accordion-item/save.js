@@ -22,7 +22,16 @@ const save = (props) => {
 	const blockProps = useBlockProps.save({
 		className: "card",
 		style: {
-			...spacing.styles(props.attributes),
+			...spacing.paddingCssVars({
+				props,
+				blockName: "accordion-item",
+				breakpoints: true,
+			}),
+			...spacing.marginCssVars({
+				props,
+				blockName: "accordion-item",
+				breakpoints: true,
+			}),
 			...border.styles(props.attributes),
 		},
 	});
@@ -52,18 +61,18 @@ const save = (props) => {
 							margin: 0,
 							color: headingColor,
 							textAlign: headingTextAlign,
-							...spacing.styles(props.attributes, "heading"),
+							...spacing.styles(props, "heading"),
+							...typography.fontFamilyStyles(props, "heading"),
+							...typography.fontWeightStyles(props, "heading"),
 							...typography.fontSizeCssVars({
 								props,
 								blockName: "accordion-item",
 								attrPrefix: "heading",
-								breakpoints: true,
 							}),
 							...typography.lineHeightCssVars({
 								props,
 								blockName: "accordion-item",
 								attrPrefix: "heading",
-								breakpoints: true,
 							}),
 						}}
 					>
@@ -82,7 +91,7 @@ const save = (props) => {
 				<div
 					className="card-body"
 					style={{
-						...spacing.styles(props.attributes, "body"),
+						...spacing.styles(props, "body"),
 						...border.styles(props.attributes, "body"),
 					}}
 				>

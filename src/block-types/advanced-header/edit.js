@@ -4,12 +4,14 @@ import {
 	InnerBlocks,
 	InspectorControls,
 } from "@wordpress/block-editor";
-import spacing from "./../../helpers/spacing";
+import spacing, { PaddingVisualizer } from "./../../helpers/spacing";
+import grid from "./../../helpers/grid";
 
 const edit = (props) => {
 	const blockProps = useBlockProps({
 		style: {
-			...spacing.styles(props.attributes),
+			...spacing.paddingCssVars({ props, blockName: "advanced-header" }),
+			...spacing.marginCssVars({ props, blockName: "advanced-header" }),
 		},
 	});
 
@@ -24,9 +26,7 @@ const edit = (props) => {
 		[
 			"beer-blocks/separator",
 			{
-				height: 2,
-				marginTop: "1rem",
-				marginBottom: "1rem",
+				height: grid.breakpointsAttributeValue(2),
 				align: "center",
 			},
 		],
@@ -41,14 +41,15 @@ const edit = (props) => {
 
 	return (
 		<>
-			<InspectorControls>{spacing.controls({ props })}</InspectorControls>
+			<InspectorControls>
+				{spacing.breakpointsControls({ props })}
+			</InspectorControls>
 
-			{spacing.visualizer(
-				props,
+			<PaddingVisualizer blockProps={props}>
 				<div {...blockProps}>
 					<InnerBlocks template={templates} templateLock="all" />
 				</div>
-			)}
+			</PaddingVisualizer>
 		</>
 	);
 };

@@ -4,7 +4,8 @@ import spacing from "./../../helpers/spacing";
 const save = (props) => {
 	const blockProps = useBlockProps.save({
 		style: {
-			...spacing.styles(props.attributes),
+			...spacing.paddingCssVars({ props, blockName: "advanced-header" }),
+			...spacing.marginCssVars({ props, blockName: "advanced-header" }),
 		},
 	});
 

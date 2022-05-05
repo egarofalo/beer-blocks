@@ -63,7 +63,7 @@ registerBlockType("beer-blocks/advanced-header", {
 		<img src={icon} alt={_x("Advanced Header", "block title", "beer-blocks")} />
 	),
 	attributes: {
-		...spacing.attributes(),
+		...spacing.attributes({ breakpoints: true }),
 	},
 	edit,
 	save,

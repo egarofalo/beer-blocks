@@ -1,5 +1,32 @@
-@import "./../../mixins.scss";
+// Plugin mixins
+@import "./../../helpers";
 
 .wp-block-beer-blocks-accordion {
-	@include frontDefaultMargins;
+	@include paddingRules("accordion");
+	@include marginRules("accordion");
+
+	@include media-breakpoint-up(sm) {
+		@include paddingRules("accordion", "sm");
+		@include marginRules("accordion", "sm");
+	}
+
+	@include media-breakpoint-up(md) {
+		@include paddingRules("accordion", "md");
+		@include marginRules("accordion", "md");
+	}
+
+	@include media-breakpoint-up(lg) {
+		@include paddingRules("accordion", "lg");
+		@include marginRules("accordion", "lg");
+	}
+
+	@include media-breakpoint-up(xl) {
+		@include paddingRules("accordion", "xl");
+		@include marginRules("accordion", "xl");
+	}
+
+	@include media-breakpoint-up(xxl) {
+		@include paddingRules("accordion", "xxl");
+		@include marginRules("accordion", "xxl");
+	}
 }

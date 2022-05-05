@@ -5,7 +5,8 @@ const save = (props) => {
 	const blockProps = useBlockProps.save({
 		className: "jumbotron",
 		style: {
-			...spacing.styles(props.attributes),
+			...spacing.paddingCssVars({ props, blockName: "jumbotron" }),
+			...spacing.marginCssVars({ props, blockName: "jumbotron" }),
 		},
 	});
 

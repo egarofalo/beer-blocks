@@ -1,5 +1,31 @@
-@import "./../../mixins.scss";
+@import "./../../helpers";
 
 .wp-block-beer-blocks-alert {
-	@include frontDefaultMargins;
+	@include paddingRules("alert", "xs", "", $alertBlockDefaultPadding);
+	@include marginRules("alert");
+
+	@include media-breakpoint-up(sm) {
+		@include paddingRules("alert", "sm", "", $alertBlockDefaultPadding);
+		@include marginRules("alert", "sm");
+	}
+
+	@include media-breakpoint-up(md) {
+		@include paddingRules("alert", "md", "", $alertBlockDefaultPadding);
+		@include marginRules("alert", "md");
+	}
+
+	@include media-breakpoint-up(lg) {
+		@include paddingRules("alert", "lg", "", $alertBlockDefaultPadding);
+		@include marginRules("alert", "lg");
+	}
+
+	@include media-breakpoint-up(xl) {
+		@include paddingRules("alert", "xl", "", $alertBlockDefaultPadding);
+		@include marginRules("alert", "xl");
+	}
+
+	@include media-breakpoint-up(xxl) {
+		@include paddingRules("alert", "xxl", "", $alertBlockDefaultPadding);
+		@include marginRules("alert", "xxl");
+	}
 }

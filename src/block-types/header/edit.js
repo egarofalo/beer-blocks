@@ -6,7 +6,7 @@ import {
 	AlignmentToolbar,
 } from "@wordpress/block-editor";
 import { ToolbarGroup } from "@wordpress/components";
-import spacing from "./../../helpers/spacing";
+import spacing, { PaddingVisualizer } from "./../../helpers/spacing";
 import typography from "./../../helpers/typography";
 import { headingLevelDropdown } from "./../../helpers/heading";
 
@@ -19,31 +19,20 @@ const edit = (props) => {
 	const blockProps = useBlockProps({
 		className: `has-text-align-${textAlign}`,
 		style: {
-			...spacing.styles(props.attributes),
+			...spacing.paddingCssVars({ props, blockName: "header" }),
+			...spacing.marginCssVars({ props, blockName: "header" }),
 			...typography.fontFamilyStyles(props),
 			...typography.fontWeightStyles(props),
-			...typography.fontSizeCssVars({
-				props,
-				blockName: "header",
-				breakpoints: true,
-			}),
-			...typography.lineHeightCssVars({
-				props,
-				blockName: "header",
-				breakpoints: true,
-			}),
+			...typography.fontSizeCssVars({ props, blockName: "header" }),
+			...typography.lineHeightCssVars({ props, blockName: "header" }),
 		},
 	});
 
 	return (
 		<>
 			<InspectorControls>
-				{typography.breakpointsControls({
-					props,
-					initialOpen: true,
-					breakpoints: true,
-				})}
-				{spacing.controls({ props })}
+				{typography.breakpointsControls({ props, initialOpen: true })}
+				{spacing.breakpointsControls({ props })}
 			</InspectorControls>
 
 			<BlockControls>
@@ -57,8 +46,7 @@ const edit = (props) => {
 				<ToolbarGroup>{headingLevelDropdown(props)}</ToolbarGroup>
 			</BlockControls>
 
-			{spacing.visualizer(
-				props,
+			<PaddingVisualizer blockProps={props}>
 				<RichText
 					{...blockProps}
 					placeholder={placeholder}
@@ -67,7 +55,7 @@ const edit = (props) => {
 					allowedFormats={["core/bold", "core/italic"]}
 					onChange={(newContent) => setAttributes({ content: newContent })}
 				/>
-			)}
+			</PaddingVisualizer>
 		</>
 	);
 };

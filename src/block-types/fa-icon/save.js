@@ -2,67 +2,87 @@ import { useBlockProps } from "@wordpress/block-editor";
 import { BLOCK_LEVEL_ELEMENT, INLINE_ELEMENT } from "./../../helpers/fa-icons";
 import spacing from "./../../helpers/spacing";
 import typography from "./../../helpers/typography";
+import dimension from "./../../helpers/dimension";
 
 const save = (props) => {
 	const {
-		attributes: {
-			iconType,
-			icon,
-			htmlElementType,
-			textAlign,
-			imgAlt,
-			imgUrl,
-			imgWidth,
-			imgHeight,
-		},
+		attributes: { iconType, icon, htmlElementType, textAlign, imgAlt, imgUrl },
 	} = props;
 
 	const useAnImage = iconType === "image";
 
-	const style = {
-		...(!useAnImage
-			? {
-					...typography.fontSizeCssVars({
-						props,
-						blockName: "fa-icon",
-						attrPrefix: "icon",
-						breakpoints: true,
-					}),
-					...typography.lineHeightCssVars({
-						props,
-						blockName: "fa-icon",
-						attrPrefix: "icon",
-						breakpoints: true,
-					}),
-			  }
-			: {
-					...(imgWidth ? { width: imgWidth } : {}),
-					...(imgHeight ? { height: imgHeight } : {}),
-			  }),
+	let blockPropsParam = { style: spacing.styles(props) };
+
+	const dimensionCssVars = {
+		...dimension.widthCssVars({
+			props,
+			blockName: "fa-icon",
+			attrPrefix: "img",
+		}),
+		...dimension.heightCssVars({
+			props,
+			blockName: "fa-icon",
+			attrPrefix: "img",
+		}),
 	};
 
-	const blockProps = useBlockProps.save({
-		...(htmlElementType === BLOCK_LEVEL_ELEMENT
-			? {
-					className: `has-text-align-${textAlign}`,
-					style: spacing.styles(props.attributes),
-			  }
-			: {}),
-		...(htmlElementType === INLINE_ELEMENT
-			? {
-					className: useAnImage ? "img-fluid" : icon,
-					style: {
-						...style,
-						...spacing.styles(props.attributes),
-					},
-			  }
-			: {}),
-	});
+	if (useAnImage) {
+		blockPropsParam = {
+			...blockPropsParam,
+			style: {
+				...blockPropsParam.style,
+				...(htmlElementType === INLINE_ELEMENT ? dimensionCssVars : {}),
+			},
+			className:
+				htmlElementType === BLOCK_LEVEL_ELEMENT
+					? `has-text-align-${textAlign}`
+					: "img-fluid wp-block-beer-blocks-fa-icon-image",
+		};
+	} else {
+		blockPropsParam = {
+			...blockPropsParam,
+			className:
+				htmlElementType === BLOCK_LEVEL_ELEMENT
+					? `has-text-align-${textAlign}`
+					: icon,
+			style: {
+				...blockPropsParam.style,
+				...typography.fontSizeCssVars({
+					props,
+					blockName: "fa-icon",
+					attrPrefix: "icon",
+				}),
+				...typography.lineHeightCssVars({
+					props,
+					blockName: "fa-icon",
+					attrPrefix: "icon",
+				}),
+			},
+		};
+	}
+
+	const blockProps = useBlockProps.save(blockPropsParam);
 
 	const imgElem =
 		htmlElementType === BLOCK_LEVEL_ELEMENT ? (
 			<div {...blockProps}>
-				<img className="img-fluid" style={style} alt={imgAlt} src={imgUrl} />
+				<img
+					className="img-fluid wp-block-beer-blocks-fa-icon-image"
+					alt={imgAlt}
+					src={imgUrl}
+					style={{
+						...dimension.widthCssVars({
+							props,
+							blockName: "fa-icon",
+							attrPrefix: "img",
+						}),
+						...dimension.heightCssVars({
+							props,
+							blockName: "fa-icon",
+							attrPrefix: "img",
+						}),
+					}}
+				/>
 			</div>
 		) : (
 			<img alt={imgAlt} src={imgUrl} {...blockProps} />
@@ -71,7 +91,7 @@ const save = (props) => {
 	const iconElem =
 		htmlElementType === BLOCK_LEVEL_ELEMENT ? (
 			<div {...blockProps}>
-				<i className={icon} style={style}></i>
+				<i className={icon}></i>
 			</div>
 		) : (
 			<i {...blockProps}></i>

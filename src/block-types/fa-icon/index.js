@@ -33,6 +33,7 @@ import save from "./save";
 import { INLINE_ELEMENT } from "./../../helpers/fa-icons";
 import spacing from "./../../helpers/spacing";
 import typography from "./../../helpers/typography";
+import dimension from "./../../helpers/dimension";
 
 /**
  * Block Icon.
@@ -78,7 +79,7 @@ registerBlockType("beer-blocks/fa-icon", {
 		...typography.attributes({
 			attrPrefix: "icon",
 			breakpoints: true,
-			attrBreakpointsBehaviorPrefix: "icon",
+			breakpointsBehaviorAttrPrefix: "icon",
 			includeFontFamilyAttr: false,
 			includeFontWeightAttr: false,
 		}),
@@ -113,21 +114,12 @@ registerBlockType("beer-blocks/fa-icon", {
 			type: "number",
 			default: 0,
 		},
-		imgWidth: {
-			type: "string",
-		},
-		imgHeight: {
-			type: "string",
-		},
-		imgWidthUnit: {
-			type: "string",
-			default: "px",
-		},
-		imgHeightUnit: {
-			type: "string",
-			default: "px",
-		},
-		...spacing.attributes({ padding: false }),
+		...dimension.attributes({
+			attrPrefix: "img",
+			breakpoints: true,
+			breakpointsBehaviorAttrPrefix: "img-dimension",
+		}),
+		...spacing.attributes({ paddingSides: false }),
 	},
 	edit,
 	save,

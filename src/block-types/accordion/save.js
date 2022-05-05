@@ -6,16 +6,17 @@ const save = (props) => {
 		attributes: { id },
 	} = props;
 
-	const blockProps = useBlockProps.save();
+	const blockProps = useBlockProps.save({
+		style: {
+			...spacing.paddingCssVars({ props, blockName: "accordion" }),
+			...spacing.marginCssVars({ props, blockName: "accordion" }),
+		},
+	});
 
 	return (
 		<>
 			<div {...blockProps}>
-				<div
-					className="accordion"
-					id={`accordion-${id}`}
-					style={spacing.styles(props.attributes)}
-				>
+				<div className="accordion" id={`accordion-${id}`}>
 					<InnerBlocks.Content />
 				</div>
 			</div>

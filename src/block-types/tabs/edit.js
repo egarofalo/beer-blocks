@@ -338,111 +338,113 @@ const edit = (props) => {
 				{spacing.controls({ props })}
 			</InspectorControls>
 
-			{spacing.visualizer(
+			{spacing.visualizer({
 				props,
-				<div {...blockProps}>
-					<ul
-						className={flexbox.justifyContentClass({
-							justifyContent: horizontalAlignment,
-							prefix: "nav nav-pills",
-							suffix: fillFreeSpace,
-						})}
-						id={tabsId}
-						role="tablist"
-					>
-						{tabsLabels.map((item, index) => (
-							<li
-								className="nav-item"
-								role="presentation"
-								key={`${tabsId}-tab-${index}`}
-							>
-								<RichText
-									tagName="a"
-									className={`nav-link${
-										selectedTab === index ? " active" : ""
-									}`}
-									id={`${tabsId}-tab-${index}`}
-									data-toggle="tab"
-									href={`#${tabsId}-pane-${index}`}
-									role="tab"
-									aria-controls={`#${tabsId}-pane-${index}`}
-									aria-selected={selectedTab === index ? "true" : "false"}
-									value={item}
-									allowedFormats={["core/bold", "core/italic"]}
-									onChange={(content) =>
-										setAttributes({
-											tabsLabels: [
-												...tabsLabels.slice(0, index),
-												content,
-												...tabsLabels.slice(index + 1),
-											],
-										})
-									}
-									style={{
-										...(tabsColor
-											? { "--wp-beer-blocks-tabs-nav-link-color": tabsColor }
-											: {}),
-										...(tabsMouseOverColor
-											? {
-													"--wp-beer-blocks-tabs-nav-link-hover-color": tabsMouseOverColor,
-											  }
-											: {}),
-										...(tabsActiveColor
-											? {
-													"--wp-beer-blocks-tabs-nav-link-active-color": tabsActiveColor,
-											  }
-											: {}),
-										...(tabsBackground
-											? {
-													"--wp-beer-blocks-tabs-nav-link-background": tabsBackground,
-											  }
-											: {}),
-										...(tabsMouseOverBackground
-											? {
-													"--wp-beer-blocks-tabs-nav-link-hover-background": tabsMouseOverBackground,
-											  }
-											: {}),
-										...(tabsActiveBackground
-											? {
-													"--wp-beer-blocks-tabs-nav-link-active-background": tabsActiveBackground,
-											  }
-											: {}),
-										...(tabsMouseOverBorderColor
-											? {
-													"--wp-beer-blocks-tabs-nav-link-hover-border-color": tabsMouseOverBorderColor,
-											  }
-											: {}),
-										...(tabsActiveBorderColor
-											? {
-													"--wp-beer-blocks-tabs-nav-link-active-border-color": tabsActiveBorderColor,
-											  }
-											: {}),
-										...spacing.styles(props.attributes, "tabs"),
-										...typography.fontFamilyStyles(props, "tab"),
-										...typography.fontWeightStyles(props, "tab"),
-										...typography.fontSizeCssVars({
-											props,
-											blockName: "tabs",
-											attrPrefix: "tab",
-											breakpoints: true,
-										}),
-										...typography.lineHeightCssVars({
-											props,
-											blockName: "tabs",
-											attrPrefix: "tab",
-											breakpoints: true,
-										}),
-										...border.styles(props.attributes, "tabs"),
-										...borderRadius.styles(props.attributes, "tabs"),
-									}}
-								/>
-							</li>
-						))}
-					</ul>
+				children: (
+					<div {...blockProps}>
+						<ul
+							className={flexbox.justifyContentClass({
+								justifyContent: horizontalAlignment,
+								prefix: "nav nav-pills",
+								suffix: fillFreeSpace,
+							})}
+							id={tabsId}
+							role="tablist"
+						>
+							{tabsLabels.map((item, index) => (
+								<li
+									className="nav-item"
+									role="presentation"
+									key={`${tabsId}-tab-${index}`}
+								>
+									<RichText
+										tagName="a"
+										className={`nav-link${
+											selectedTab === index ? " active" : ""
+										}`}
+										id={`${tabsId}-tab-${index}`}
+										data-toggle="tab"
+										href={`#${tabsId}-pane-${index}`}
+										role="tab"
+										aria-controls={`#${tabsId}-pane-${index}`}
+										aria-selected={selectedTab === index ? "true" : "false"}
+										value={item}
+										allowedFormats={["core/bold", "core/italic"]}
+										onChange={(content) =>
+											setAttributes({
+												tabsLabels: [
+													...tabsLabels.slice(0, index),
+													content,
+													...tabsLabels.slice(index + 1),
+												],
+											})
+										}
+										style={{
+											...(tabsColor
+												? { "--wp-beer-blocks-tabs-nav-link-color": tabsColor }
+												: {}),
+											...(tabsMouseOverColor
+												? {
+														"--wp-beer-blocks-tabs-nav-link-hover-color": tabsMouseOverColor,
+												  }
+												: {}),
+											...(tabsActiveColor
+												? {
+														"--wp-beer-blocks-tabs-nav-link-active-color": tabsActiveColor,
+												  }
+												: {}),
+											...(tabsBackground
+												? {
+														"--wp-beer-blocks-tabs-nav-link-background": tabsBackground,
+												  }
+												: {}),
+											...(tabsMouseOverBackground
+												? {
+														"--wp-beer-blocks-tabs-nav-link-hover-background": tabsMouseOverBackground,
+												  }
+												: {}),
+											...(tabsActiveBackground
+												? {
+														"--wp-beer-blocks-tabs-nav-link-active-background": tabsActiveBackground,
+												  }
+												: {}),
+											...(tabsMouseOverBorderColor
+												? {
+														"--wp-beer-blocks-tabs-nav-link-hover-border-color": tabsMouseOverBorderColor,
+												  }
+												: {}),
+											...(tabsActiveBorderColor
+												? {
+														"--wp-beer-blocks-tabs-nav-link-active-border-color": tabsActiveBorderColor,
+												  }
+												: {}),
+											...spacing.styles(props.attributes, "tabs"),
+											...typography.fontFamilyStyles(props, "tab"),
+											...typography.fontWeightStyles(props, "tab"),
+											...typography.fontSizeCssVars({
+												props,
+												blockName: "tabs",
+												attrPrefix: "tab",
+												breakpoints: true,
+											}),
+											...typography.lineHeightCssVars({
+												props,
+												blockName: "tabs",
+												attrPrefix: "tab",
+												breakpoints: true,
+											}),
+											...border.styles(props.attributes, "tabs"),
+											...borderRadius.styles(props.attributes, "tabs"),
+										}}
+									/>
+								</li>
+							))}
+						</ul>
 
-					<div {...innerBlocksProps} />
-				</div>
-			)}
+						<div {...innerBlocksProps} />
+					</div>
+				),
+			})}
 		</>
 	);
 };

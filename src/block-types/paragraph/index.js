@@ -73,7 +73,7 @@ registerBlockType("beer-blocks/paragraph", {
 			type: "string",
 			default: __("Write your paragraph here...", "beer-blocks"),
 		},
-		...spacing.attributes(),
+		...spacing.attributes({ breakpoints: true }),
 		...typography.attributes({ breakpoints: true }),
 	},
 	transforms: {

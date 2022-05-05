@@ -18,7 +18,7 @@ import { registerBlockType } from "@wordpress/blocks";
  *
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
-// import "./style.scss";
+import "./style.scss";
 
 /**
  * Styles applied only in the editor.
@@ -61,7 +61,7 @@ registerBlockType("beer-blocks/jumbotron", {
 	},
 	icon: <img src={icon} alt={_x("Jumbotron", "block title", "beer-blocks")} />,
 	attributes: {
-		...spacing.attributes({ padding: false }),
+		...spacing.attributes({ breakpoints: true }),
 	},
 	edit,
 	save,

@@ -10,19 +10,12 @@ const save = (props) => {
 	const blockProps = useBlockProps.save({
 		className: `has-text-align-${textAlign}`,
 		style: {
-			...spacing.styles(props.attributes),
+			...spacing.paddingCssVars({ props, blockName: "header" }),
+			...spacing.marginCssVars({ props, blockName: "header" }),
 			...typography.fontFamilyStyles(props),
 			...typography.fontWeightStyles(props),
-			...typography.fontSizeCssVars({
-				props,
-				blockName: "header",
-				breakpoints: true,
-			}),
-			...typography.lineHeightCssVars({
-				props,
-				blockName: "header",
-				breakpoints: true,
-			}),
+			...typography.fontSizeCssVars({ props, blockName: "header" }),
+			...typography.lineHeightCssVars({ props, blockName: "header" }),
 		},
 	});
 

@@ -18,7 +18,7 @@ import {
 	CardDivider,
 } from "@wordpress/components";
 import { headingLevelDropdown } from "./../../helpers/heading";
-import spacing from "./../../helpers/spacing";
+import spacing, { PaddingVisualizer } from "./../../helpers/spacing";
 import typography from "../../helpers/typography";
 import border from "../../helpers/border";
 
@@ -52,7 +52,16 @@ const edit = (props) => {
 	const blockProps = useBlockProps({
 		className: "card",
 		style: {
-			...spacing.styles(props.attributes),
+			...spacing.paddingCssVars({
+				props,
+				blockName: "accordion-item",
+				breakpoints: true,
+			}),
+			...spacing.marginCssVars({
+				props,
+				blockName: "accordion-item",
+				breakpoints: true,
+			}),
 			...border.styles(props.attributes),
 		},
 	});
@@ -67,7 +76,7 @@ const edit = (props) => {
 	return (
 		<>
 			<InspectorControls>
-				{spacing.controls({ props })}
+				{spacing.breakpointsControls({ props })}
 				{border.controls({ props })}
 
 				<PanelBody title={__("Heading", "beer-blocks")} initialOpen={false}>
@@ -78,8 +87,8 @@ const edit = (props) => {
 					{typography.breakpointsControls({
 						props,
 						attrPrefix: "heading",
-						attrBreakpointsBehaviorPrefix: "heading",
-						initialOpen: true,
+						breakpointsBehaviorAttrPrefix: "heading",
+						panelBody: false,
 					})}
 
 					<CardDivider />
@@ -163,88 +172,79 @@ const edit = (props) => {
 				<ToolbarGroup>{headingLevelDropdown(props)}</ToolbarGroup>
 			</BlockControls>
 
-			{spacing.visualizer(
-				props,
-				<div {...blockProps}>
-					<div
-						className="card-header"
-						id={headingId}
-						style={{
-							backgroundColor: headingBackground,
-							padding: 0,
-							...border.styles(props.attributes, "heading"),
-						}}
-					>
-						<HeadingTag style={{ margin: 0, padding: 0 }}>
-							{spacing.visualizer(
-								props,
-								<button
-									class={`btn btn-link btn-block has-text-align-${headingTextAlign}`}
-									type="button"
-									data-toggle="collapse"
-									data-target={`#${collapseId}`}
-									aria-expanded={show ? "true" : "false"}
-									aria-controls={collapseId}
-									style={{
-										margin: 0,
-										color: headingColor,
-										textAlign: headingTextAlign,
-										...spacing.styles(props.attributes, "heading"),
-										...typography.fontFamilyStyles(props, "heading"),
-										...typography.fontWeightStyles(props, "heading"),
-										...typography.fontSizeCssVars({
-											props,
-											blockName: "accordion-item",
-											attrPrefix: "heading",
-											breakpoints: true,
-										}),
-										...typography.lineHeightCssVars({
-											props,
-											blockName: "accordion-item",
-											attrPrefix: "heading",
-											breakpoints: true,
-										}),
-									}}
-								>
-									<RichText
-										placeholder={__("Write item title here...", "beer-blocks")}
-										tagName="span"
-										value={headingContent}
-										allowedFormats={["core/bold", "core/italic"]}
-										onChange={(newContent) =>
-											setAttributes({ headingContent: newContent })
-										}
-										multiline={false}
-									/>
-								</button>,
-								"heading"
-							)}
-						</HeadingTag>
-					</div>
-
-					<div
-						id={collapseId}
-						className={`collapse${show ? " show" : ""}`}
-						aria-labelledby={headingId}
-						data-parent={`#${parentId}`}
-						style={{ backgroundColor: bodyBackground }}
-					>
-						{spacing.visualizer(
-							props,
-							<div
-								className="card-body"
+			<div {...blockProps}>
+				<div
+					className="card-header"
+					id={headingId}
+					style={{
+						backgroundColor: headingBackground,
+						padding: 0,
+						...border.styles(props.attributes, "heading"),
+					}}
+				>
+					<HeadingTag style={{ margin: 0, padding: 0 }}>
+						<PaddingVisualizer blockProps={props} attrPrefix="heading">
+							<button
+								class={`btn btn-link btn-block has-text-align-${headingTextAlign}`}
+								type="button"
+								data-toggle="collapse"
+								data-target={`#${collapseId}`}
+								aria-expanded={show ? "true" : "false"}
+								aria-controls={collapseId}
 								style={{
-									...spacing.styles(props.attributes, "body"),
-									...border.styles(props.attributes, "body"),
+									margin: 0,
+									color: headingColor,
+									textAlign: headingTextAlign,
+									...spacing.styles(props, "heading"),
+									...typography.fontFamilyStyles(props, "heading"),
+									...typography.fontWeightStyles(props, "heading"),
+									...typography.fontSizeCssVars({
+										props,
+										blockName: "accordion-item",
+										attrPrefix: "heading",
+									}),
+									...typography.lineHeightCssVars({
+										props,
+										blockName: "accordion-item",
+										attrPrefix: "heading",
+									}),
 								}}
 							>
-								<div {...innerBlocksProps} />
-							</div>,
-							"body"
-						)}
-					</div>
+								<RichText
+									placeholder={__("Write item title here...", "beer-blocks")}
+									tagName="span"
+									value={headingContent}
+									allowedFormats={["core/bold", "core/italic"]}
+									onChange={(newContent) =>
+										setAttributes({ headingContent: newContent })
+									}
+									multiline={false}
+								/>
+							</button>
+						</PaddingVisualizer>
+					</HeadingTag>
 				</div>
-			)}
+
+				<div
+					id={collapseId}
+					className={`collapse${show ? " show" : ""}`}
+					aria-labelledby={headingId}
+					data-parent={`#${parentId}`}
+					style={{ backgroundColor: bodyBackground }}
+				>
+					<PaddingVisualizer blockProps={props} attrPrefix="body">
+						<div
+							className="card-body"
+							style={{
+								...spacing.styles(props, "body"),
+								...border.styles(props.attributes, "body"),
+							}}
+						>
+							<div {...innerBlocksProps} />
+						</div>
+					</PaddingVisualizer>
+				</div>
+			</div>
 		</>
 	);
 };

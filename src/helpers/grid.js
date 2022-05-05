@@ -13,7 +13,36 @@ import {
 	MdOutlineMonitor as XlBreakpointIcon,
 	MdOutlineTv as XxlBreakpointIcon,
 } from "react-icons/md";
-import { camelCase as loCamelCase } from "lodash";
+import { camelCase, isEmpty } from "lodash";
+
+// Bootstrap containers options for select component
+export const containerTypesOptions = [
+	{ value: "container", label: "Container" },
+	{
+		value: "container-fluid",
+		label: "Container Fluid",
+	},
+	{
+		value: "container-sm",
+		label: "Container SM",
+	},
+	{
+		value: "container-md",
+		label: "Container MD",
+	},
+	{
+		value: "container-lg",
+		label: "Container LG",
+	},
+	{
+		value: "container-xl",
+		label: "Container XL",
+	},
+	{
+		value: "container-xxl",
+		label: "Container XXL",
+	},
+];
 
 // columns sizing type
 export const autoSizingEqualWidth = "auto-sizing-ew";
@@ -51,6 +80,10 @@ export const colSizingTypeOptions = (resolution) => [
 // Bootstrap grid breakpoints
 export const breakpoints = ["xs", "sm", "md", "lg", "xl", "xxl"];
 
+// default value for attributes with breakpoints
+export const breakpointsAttributeValue = (defaultValue) =>
+	Object.fromEntries(breakpoints.map((key) => [[key], defaultValue]));
+
 // block attributes with breakpoints
 export const breakpointsAttribute = ({
 	attrName,
@@ -59,9 +92,7 @@ export const breakpointsAttribute = ({
 }) => ({
 	[attrName]: {
 		type: "object",
-		default: Object.fromEntries(
-			breakpoints.map((key) => [[key], defaultValue])
-		),
+		default: breakpointsAttributeValue(defaultValue),
 	},
 	...(breakpointsBehaviorAttributes
 		? {
@@ -431,7 +462,7 @@ export const getRowControls = (
 
 // breakpoints behavior attribute only
 export const breakpointsBehaviorAttribute = (attrPrefix = "") => ({
-	[loCamelCase(`${attrPrefix}-breakpoints-behavior`)]: {
+	[camelCase(`${attrPrefix}-breakpoints-behavior`)]: {
 		type: "object",
 		default: {
 			sm: sameBehavior,
@@ -455,14 +486,28 @@ export const getPreviousBreakpoint = (breakpoint) =>
 	}[breakpoint]);
 
 // return next breakpoints
-export const getNextBreakpoints = (breakpoint) => {
+export const getNextBreakpoints = (breakpoint, breakpointsBehavior = {}) => {
 	const index = breakpoints.indexOf(breakpoint);
 
 	if (index === -1 || index === breakpoints.length - 1) {
 		return [];
 	}
 
-	return breakpoints.slice(index + 1);
+	let nextBreakpoints = breakpoints.slice(index + 1);
+
+	if (isEmpty(breakpointsBehavior)) {
+		return nextBreakpoints;
+	}
+
+	const differentBehaviorIndex = nextBreakpoints.findIndex(
+		(breakpoint) => breakpointsBehavior[breakpoint] === differentBehavior
+	);
+
+	if (differentBehaviorIndex > -1) {
+		nextBreakpoints = nextBreakpoints.slice(0, differentBehaviorIndex);
+	}
+
+	return nextBreakpoints;
 };
 
 // return breakpoints behavior controls
@@ -473,7 +518,7 @@ export const getBreakpointsBehaviorControl = ({
 	affectedAttrs = [],
 	onChange = undefined,
 }) => {
-	const attrName = loCamelCase(`${attrPrefix}-breakpoints-behavior`);
+	const attrName = camelCase(`${attrPrefix}-breakpoints-behavior`);
 	const {
 		setAttributes,
 		attributes: { [attrName]: breakpointsBehavior },
@@ -484,6 +529,10 @@ export const getBreakpointsBehaviorControl = ({
 			? onChange
 			: (option) => {
 					const prevBreakpoint = getPreviousBreakpoint(breakpoint);
+					const nextBreakpoints = getNextBreakpoints(
+						breakpoint,
+						breakpointsBehavior
+					);
 
 					setAttributes({
 						[attrName]: {
@@ -494,12 +543,21 @@ export const getBreakpointsBehaviorControl = ({
 							? Object.fromEntries(
 									affectedAttrs.map((attr) => {
 										const affectedAttr = props.attributes[attr];
+										const previousValue = affectedAttr[prevBreakpoint];
 
 										return [
 											attr,
 											{
 												...affectedAttr,
-												[breakpoint]: affectedAttr[prevBreakpoint],
+												[breakpoint]: previousValue,
+												...(nextBreakpoints.length > 0
+													? Object.fromEntries(
+															nextBreakpoints.map((nextBreakpoint) => [
+																nextBreakpoint,
+																previousValue,
+															])
+													  )
+													: {}),
 											},
 										];
 									})
@@ -544,6 +602,7 @@ export const getBreakpointsTabs = (content) => {
 };
 
 export default {
+	containerTypesOptions,
 	manualSizing,
 	autoSizingEqualWidth,
 	autoSizingVariableWidthContent,
@@ -551,6 +610,7 @@ export default {
 	differentBehavior,
 	colSizingTypeOptions,
 	breakpoints,
+	breakpointsAttributeValue,
 	breakpointsAttribute,
 	breakpointIcon,
 	breakpointsOptions,

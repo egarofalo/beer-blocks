@@ -1,7 +1,7 @@
-@import "./../../mixins.scss";
+@import "./../../helpers";
 
 .wp-block-beer-blocks-row {
-	@include editorDefaultMargins;
+	@include editorDefaultMargins(0);
 
 	&.is-selected {
 		border: 1px dotted #035cff;

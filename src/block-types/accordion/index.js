@@ -57,7 +57,7 @@ registerBlockType("beer-blocks/accordion", {
 		id: {
 			type: "string",
 		},
-		...spacing.attributes(),
+		...spacing.attributes({ breakpoints: true }),
 	},
 	providesContext: {
 		accordionId: "id",

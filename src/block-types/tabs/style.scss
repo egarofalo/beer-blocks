@@ -1,11 +1,4 @@
-// Default variable overrides
-@import "./../../vendor/bootstrap/custom-variables";
-// Bootstrap variables, functions and mixins
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/variables";
-@import "~bootstrap/scss/mixins";
-// Plugin mixins
-@import "./../../mixins";
+@import "./../../helpers";
 
 :root {
 	@include breakpointsCssVars("tabs-tabFontSize", $font-size-base);

@@ -7,7 +7,7 @@
 // Optional Bootstrap files
 @import "~bootstrap/scss/root";
 // Plugin mixins
-@import "./../../mixins";
+@import "./../../helpers";
 
 .editor-styles-wrapper {
 	// Normalization of html elements styles, extracted from Normalize.css

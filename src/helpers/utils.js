@@ -6,7 +6,7 @@ const attributes = ({
 	breakpoints,
 	breakpointsBehavior,
 	defaultValue = undefined,
-	type,
+	type = "string",
 }) =>
 	breakpoints
 		? grid.breakpointsAttribute({

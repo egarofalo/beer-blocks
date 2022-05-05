@@ -1,0 +1,90 @@
+// Capitalize string
+@function capitalize($string) {
+	@return to-upper-case(str-slice($string, 1, 1)) + str-slice($string, 2);
+}
+
+// Uncapitalize string
+@function uncapitalize($string) {
+	@return to-lower-case(str-slice($string, 1, 1)) + str-slice($string, 2);
+}
+
+// Capitalize each word in string
+@function ucwords($string) {
+	$progress: $string;
+	$result: "";
+
+	$running: true;
+
+	@while $running {
+		$index: str-index($progress, " ");
+		@if $index {
+			$result: $result + capitalize(str-slice($progress, 1, $index));
+			$progress: str-slice($progress, ($index + 1));
+		} @else {
+			$running: false;
+		}
+	}
+
+	@return capitalize($result) + capitalize($progress);
+}
+
+// Return whether `$value` is contained in `$list`
+@function contain($list, $value) {
+	@return not not index($list, $value);
+}
+
+// Trims the start/left of the string
+@function trimLeft($string, $exclude) {
+	@if str-length($string) == 0 {
+		@return $string;
+	}
+
+	$firstChar: str-slice($string, 1, 1);
+
+	@if (contain($exclude, $firstChar)) {
+		@return trimLeft(str-slice($string, 2), $exclude);
+	} @else {
+		@return $string;
+	}
+}
+
+// Trims the end/right of the string
+@function trimRight($string, $exclude) {
+	@if str-length($string) == 0 {
+		@return $string;
+	}
+
+	$lastChar: str-slice($string, str-length($string), -1);
+
+	@if (contain($exclude, $lastChar)) {
+		@return trimRight(str-slice($string, 1, -2), $exclude);
+	} @else {
+		@return $string;
+	}
+}
+
+// Trims the start and end of the string
+@function trim($string, $exclude) {
+	@return trimRight(trimLeft($string, $exclude), $exclude);
+}
+
+// Camelize string
+@function camelize($string) {
+	$exclude: (" ", "-", "_", ",", ";", ":", ".", "+", "*");
+	$result: "";
+	$progress: uncapitalize(trim($string, $exclude));
+
+	@while str-length($progress) > 0 {
+		$char: str-slice($progress, 1, 1);
+
+		@if contain($exclude, $char) {
+			$progress: capitalize(str-slice($progress, 2, 2)) +
+				str-slice($progress, 3);
+		} @else {
+			$result: $result + $char;
+			$progress: str-slice($progress, 2);
+		}
+	}
+
+	@return $result;
+}

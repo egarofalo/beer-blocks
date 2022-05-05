@@ -4,12 +4,13 @@ import {
 	__experimentalUseInnerBlocksProps as __useInnerBlocksProps,
 	InspectorControls,
 } from "@wordpress/block-editor";
-import spacing from "./../../helpers/spacing";
+import spacing, { PaddingVisualizer } from "./../../helpers/spacing";
 
 const edit = (props) => {
 	const blockProps = useBlockProps({
 		style: {
-			...spacing.styles(props.attributes),
+			...spacing.paddingCssVars({ props, blockName: "grid" }),
+			...spacing.marginCssVars({ props, blockName: "grid" }),
 		},
 	});
 
@@ -41,9 +42,13 @@ const edit = (props) => {
 
 	return (
 		<>
-			<InspectorControls>{spacing.controls({ props })}</InspectorControls>
+			<InspectorControls>
+				{spacing.breakpointsControls({ props })}
+			</InspectorControls>
 
-			{spacing.visualizer(props, <div {...innerBlocksProps} />)}
+			<PaddingVisualizer blockProps={props}>
+				<div {...innerBlocksProps} />
+			</PaddingVisualizer>
 		</>
 	);
 };

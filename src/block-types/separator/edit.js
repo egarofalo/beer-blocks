@@ -17,7 +17,6 @@ import blockAlignment from "./../../helpers/block-alignment";
 import spacing from "./../../helpers/spacing";
 import { variantsColorPallet as variants } from "./../../helpers/bootstrap-variants";
 import dimension from "./../../helpers/dimension";
-import grid from "./../../helpers/grid";
 
 const edit = (props) => {
 	const {
@@ -30,16 +29,17 @@ const edit = (props) => {
 			...dimension.widthCssVars({
 				props,
 				blockName: "separator",
-				breakpoints: true,
 			}),
 			...dimension.heightCssVars({
 				props,
 				blockName: "separator",
-				breakpoints: true,
+			}),
+			...spacing.marginCssVars({
+				props,
+				blockName: "separator",
 			}),
 			"--wp-beer-blocks-separator-border-color": color,
 			...blockAlignment.styles(align),
-			...spacing.styles(props.attributes),
 		},
 	});
 
@@ -47,31 +47,12 @@ const edit = (props) => {
 		<>
 			<InspectorControls>
 				<PanelBody title={__("Dimensions", "beer-blocks")}>
-					{grid.getBreakpointsTabs((breakpoint) => (
-						<>
-							{grid.getBreakpointsBehaviorControl({
-								props,
-								attrPrefix: "heightWidth",
-								breakpoint,
-								affectedAttrs: ["height", "width"],
-							})}
-
-							{dimension.widthBreakpointsControl({
-								props,
-								breakpoint,
-								attrBreakpointsBehaviorName: "heightWidth",
-								style: { marginBottom: "15px" },
-							})}
-
-							{dimension.heightBreakpointsControl({
-								props,
-								breakpoint,
-								attrBreakpointsBehaviorName: "heightWidth",
-								minHeight: 1,
-								maxHeight: 50,
-							})}
-						</>
-					))}
+					{dimension.breakpointsControls({
+						props,
+						heightType: "number",
+						minHeight: 1,
+						maxHeight: 50,
+					})}
 				</PanelBody>
 
 				<PanelBody title={__("Color", "beer-blocks")}>
@@ -99,25 +80,13 @@ const edit = (props) => {
 				</PanelBody>
 
 				<PanelBody title={__("Triangle", "beer-blocks")}>
-					{grid.getBreakpointsTabs((breakpoint) => (
-						<>
-							{grid.getBreakpointsBehaviorControl({
-								props,
-								attrPrefix: "triangleWidth",
-								breakpoint,
-								affectedAttrs: ["triangleWidth"],
-							})}
-
-							{dimension.widthBreakpointsControl({
-								props,
-								attrPrefix: "triangle",
-								breakpoint,
-								attrBreakpointsBehaviorName: "triangleWidth",
-								type: "number",
-								maxWidth: 500,
-							})}
-						</>
-					))}
+					{dimension.breakpointsControls({
+						props,
+						attrPrefix: "triangle",
+						breakpointsBehaviorAttrPrefix: "triangleWidth",
+						widthType: "number",
+						maxWidth: 500,
+					})}
 
 					<Divider />
 
@@ -165,7 +134,7 @@ const edit = (props) => {
 					/>
 				</PanelBody>
 
-				{spacing.controls({ props })}
+				{spacing.breakpointsControls({ props })}
 			</InspectorControls>
 
 			<BlockControls>
@@ -184,7 +153,10 @@ const edit = (props) => {
 							props,
 							blockName: "separator",
 							attrPrefix: "triangle",
-							breakpoints: true,
+						}),
+						...dimension.heightCssVars({
+							props,
+							blockName: "separator",
 						}),
 					}}
 				></div>
