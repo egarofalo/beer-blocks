@@ -1,3 +1,18 @@
+## [1.4.0] - 2022-05-05
+
+- Add **Default selected tab** setting in `beer-blocks/tabs` block type
+- Add new grid breakpoint: `XXL` (more than 1400px)
+- Add **Direction** option (up or down) to **Triangle** settings on **Separator** block type
+- Add **Typography** responsive feature to all block types
+- Add **Dimension** responsive feature to all block types
+- Add **Spacing** responsive feature to all block types
+- Add new translations in `es_ES` language
+- Update Bootstrap 4 reboot styles in editor view
+- Change buttons icons in **Border** panel settings
+- Change buttons icons in **Border Radius** panel settings
+- Fix `beer-blocks/separator` styles in frontend and editor view
+- Code improvements
+
 ## [1.3.2] - 2022-03-17
 
 - Add frontend styles to `beer-blocks/accordion` block type

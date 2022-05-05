@@ -6,7 +6,7 @@ Donate link: https://www.paypal.com/donate?hosted_button_id=8XSCNEV5WA5TU
 Requires at least: 5.5.0
 Tested up to: 5.8.2
 Requires PHP: 7.3
-Stable tag: 1.3.2
+Stable tag: 1.4.0
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -148,6 +148,19 @@ Yes, of course! You can choose any of the font families available in Google Font
 - Add frontend styles to `beer-blocks/tab-pane` block type
 - Add new translations in `es_ES` language
 - Fix block types dependencies array in the `register_block_types` function
+= 1.4.0 =
+- Add **Default selected tab** setting in `beer-blocks/tabs` block type
+- Add new grid breakpoint: `XXL` (more than 1400px)
+- Add **Direction** option (up or down) to **Triangle** settings on **Separator** block type
+- Add **Typography** responsive feature to all block types
+- Add **Dimension** responsive feature to all block types
+- Add **Spacing** responsive feature to all block types
+- Add new translations in `es_ES` language
+- Update Bootstrap 4 reboot styles in editor view
+- Change buttons icons in **Border** panel settings
+- Change buttons icons in **Border Radius** panel settings
+- Fix `beer-blocks/separator` styles in frontend and editor view
+- Code improvements
 
 == Upgrade Notice ==
 
