@@ -1,5 +1,31 @@
 @import "./../../helpers";
 
 .wp-block-beer-blocks-section {
-	@include frontDefaultMargins;
+	@include paddingRules("section");
+	@include marginRules("section");
+
+	@include media-breakpoint-up(sm) {
+		@include paddingRules("section", "sm");
+		@include marginRules("section", "sm");
+	}
+
+	@include media-breakpoint-up(md) {
+		@include paddingRules("section", "md");
+		@include marginRules("section", "md");
+	}
+
+	@include media-breakpoint-up(lg) {
+		@include paddingRules("section", "lg");
+		@include marginRules("section", "lg");
+	}
+
+	@include media-breakpoint-up(xl) {
+		@include paddingRules("section", "xl");
+		@include marginRules("section", "xl");
+	}
+
+	@include media-breakpoint-up(xxl) {
+		@include paddingRules("section", "xxl");
+		@include marginRules("section", "xxl");
+	}
 }

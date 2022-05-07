@@ -79,7 +79,11 @@ registerBlockType("beer-blocks/instructions", {
 			type: "object",
 			default: grid.getAlignItemsAttributes(),
 		},
-		...spacing.attributes({ breakpoints: true, paddingSides: false }),
+		...spacing.attributes({
+			breakpoints: true,
+			paddingSides: false,
+			marginSides: ["top", "bottom"],
+		}),
 	},
 	providesContext: {
 		instructionsId: "id",

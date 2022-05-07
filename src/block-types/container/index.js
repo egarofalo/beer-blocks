@@ -77,6 +77,7 @@ registerBlockType("beer-blocks/container", {
 		...spacing.attributes({
 			breakpoints: true,
 			paddingSides: ["top", "bottom"],
+			marginSides: ["top", "bottom"],
 		}),
 		...innerBorder.attributes(),
 	},

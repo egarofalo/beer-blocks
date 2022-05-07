@@ -131,7 +131,10 @@ registerBlockType("beer-blocks/instruction", {
 			type: "string",
 			default: "center",
 		},
-		...spacing.attributes({ breakpoints: true }),
+		...spacing.attributes({
+			breakpoints: true,
+			marginSides: ["top", "bottom"],
+		}),
 		...typography.attributes({
 			fontSize: "18px",
 			attrPrefix: "numeration",

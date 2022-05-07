@@ -127,7 +127,7 @@ registerBlockType("beer-blocks/tabs", {
 			attrPrefixName: "tabs",
 			corner: "bottomLeft",
 		}),
-		...spacing.attributes({ attrPrefixName: "tabs" }),
+		...spacing.attributes({ attrPrefix: "tabs" }),
 		...spacing.attributes(),
 		...typography.attributes({
 			attrPrefix: "tab",

@@ -1,3 +1,14 @@
+## [1.4.1] - 2022-05-07
+
+- Add `verticalMarginRules` mixin in `helpers.scss` file
+- Remove left and right margin settings in `beer-blocks/container` block type
+- Remove left and right margin settings in `beer-blocks/instruction` block type
+- Fix `beer-blocks/section` js error bug
+- Fix `beer-blocks/info-box` spacing settings bug
+- Fix `beer-blocks/separator` bug in `styles.scss`
+- Fix `beer-blocks/tabs` and `beer-blocks/tab-pane` js error bug
+- Code improvements
+
 ## [1.4.0] - 2022-05-05
 
 - Add **Default selected tab** setting in `beer-blocks/tabs` block type

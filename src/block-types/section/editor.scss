@@ -1,8 +1,4 @@
-@import "./../../helpers";
-
 .wp-block-beer-blocks-section {
-	@include editorDefaultMargins;
-
 	&.is-selected {
 		border: 1px dotted #035cff;
 	}

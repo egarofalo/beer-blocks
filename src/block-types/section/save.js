@@ -8,7 +8,8 @@ const save = (props) => {
 
 	const blockProps = useBlockProps.save({
 		style: {
-			...spacing.styles(props.attributes),
+			...spacing.paddingCssVars({ props, blockName: "section" }),
+			...spacing.marginCssVars({ props, blockName: "section" }),
 		},
 	});
 

@@ -1,92 +1,44 @@
 @import "./../../helpers";
 
+$defaultMargins: (
+	top: 0,
+	right: 0,
+	bottom: 0,
+	left: 0,
+);
+
+$defaultTypography: (
+	fontSize: $input-btn-font-size,
+	lineHeight: $input-btn-line-height,
+);
+
 .wp-block-beer-blocks-accordion-item {
 	@include paddingRules("accordion-item");
-	@include marginRules(
-		"accordion-item",
-		"xs",
-		"",
-		(
-			top: 0,
-			right: 0,
-			bottom: 0,
-			left: 0,
-		)
-	);
+	@include marginRules("accordion-item", "xs", "", $defaultMargins);
 
 	@include media-breakpoint-up(sm) {
 		@include paddingRules("accordion-item", "sm");
-		@include marginRules(
-			"accordion-item",
-			"sm",
-			"",
-			(
-				top: 0,
-				right: 0,
-				bottom: 0,
-				left: 0,
-			)
-		);
+		@include marginRules("accordion-item", "sm", "", $defaultMargins);
 	}
 
 	@include media-breakpoint-up(md) {
 		@include paddingRules("accordion-item", "md");
-		@include marginRules(
-			"accordion-item",
-			"md",
-			"",
-			(
-				top: 0,
-				right: 0,
-				bottom: 0,
-				left: 0,
-			)
-		);
+		@include marginRules("accordion-item", "md", "", $defaultMargins);
 	}
 
 	@include media-breakpoint-up(lg) {
 		@include paddingRules("accordion-item", "lg");
-		@include marginRules(
-			"accordion-item",
-			"lg",
-			"",
-			(
-				top: 0,
-				right: 0,
-				bottom: 0,
-				left: 0,
-			)
-		);
+		@include marginRules("accordion-item", "lg", "", $defaultMargins);
 	}
 
 	@include media-breakpoint-up(xl) {
 		@include paddingRules("accordion-item", "xl");
-		@include marginRules(
-			"accordion-item",
-			"xl",
-			"",
-			(
-				top: 0,
-				right: 0,
-				bottom: 0,
-				left: 0,
-			)
-		);
+		@include marginRules("accordion-item", "xl", "", $defaultMargins);
 	}
 
 	@include media-breakpoint-up(xxl) {
 		@include paddingRules("accordion-item", "xxl");
-		@include marginRules(
-			"accordion-item",
-			"xxl",
-			"",
-			(
-				top: 0,
-				right: 0,
-				bottom: 0,
-				left: 0,
-			)
-		);
+		@include marginRules("accordion-item", "xxl", "", $defaultMargins);
 	}
 
 	& > .card-header > h2 .btn {
@@ -94,10 +46,7 @@
 			"accordion-item",
 			"xs",
 			"heading",
-			(
-				fontSize: $input-btn-font-size,
-				lineHeight: $input-btn-line-height,
-			)
+			$defaultTypography
 		);
 
 		@include media-breakpoint-up(sm) {
@@ -105,10 +54,7 @@
 				"accordion-item",
 				"sm",
 				"heading",
-				(
-					fontSize: $input-btn-font-size,
-					lineHeight: $input-btn-line-height,
-				)
+				$defaultTypography
 			);
 		}
 
@@ -117,10 +63,7 @@
 				"accordion-item",
 				"md",
 				"heading",
-				(
-					fontSize: $input-btn-font-size,
-					lineHeight: $input-btn-line-height,
-				)
+				$defaultTypography
 			);
 		}
 
@@ -129,10 +72,7 @@
 				"accordion-item",
 				"lg",
 				"heading",
-				(
-					fontSize: $input-btn-font-size,
-					lineHeight: $input-btn-line-height,
-				)
+				$defaultTypography
 			);
 		}
 
@@ -141,10 +81,7 @@
 				"accordion-item",
 				"xl",
 				"heading",
-				(
-					fontSize: $input-btn-font-size,
-					lineHeight: $input-btn-line-height,
-				)
+				$defaultTypography
 			);
 		}
 
@@ -153,10 +90,7 @@
 				"accordion-item",
 				"xxl",
 				"heading",
-				(
-					fontSize: $input-btn-font-size,
-					lineHeight: $input-btn-line-height,
-				)
+				$defaultTypography
 			);
 		}
 	}

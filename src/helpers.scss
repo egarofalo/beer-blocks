@@ -218,6 +218,33 @@
 	}
 }
 
+// Get vertical margin rules for custom breakpoint
+@mixin verticalMarginRules(
+	$blockName,
+	$breakpointName: "",
+	$attrPrefix: "",
+	$defaultValues: $defaultMarginValues
+) {
+	$varPrefix: --wp-beer-blocks-#{$blockName}-#{camelize(
+			"#{$attrPrefix}-margin"
+		)};
+
+	@each $side in ("top", "bottom") {
+		@if $breakpointName == "" or $breakpointName == "xs" {
+			margin-#{$side}: var(
+				#{$varPrefix + capitalize($side)},
+				map.get($defaultValues, $side)
+			) !important;
+		} @else {
+			margin-#{$side}: var(
+				#{$varPrefix + capitalize($side)}-#{$breakpointName},
+				map.get($defaultValues, $side)
+			) !important;
+		}
+	}
+}
+
+// Get width rules
 @mixin widthRules(
 	$blockName,
 	$breakpointName: "",
@@ -233,6 +260,7 @@
 	}
 }
 
+// Get height rules
 @mixin heightRules(
 	$blockName,
 	$breakpointName: "",

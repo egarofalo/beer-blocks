@@ -1,25 +1,25 @@
 @import "./../../helpers";
 
 .wp-block-beer-blocks-instructions {
-	@include marginRules("instructions");
+	@include verticalMarginRules("instructions");
 
 	@include media-breakpoint-up(sm) {
-		@include marginRules("instructions", "sm");
+		@include verticalMarginRules("instructions", "sm");
 	}
 
 	@include media-breakpoint-up(md) {
-		@include marginRules("instructions", "md");
+		@include verticalMarginRules("instructions", "md");
 	}
 
 	@include media-breakpoint-up(lg) {
-		@include marginRules("instructions", "lg");
+		@include verticalMarginRules("instructions", "lg");
 	}
 
 	@include media-breakpoint-up(xl) {
-		@include marginRules("instructions", "xl");
+		@include verticalMarginRules("instructions", "xl");
 	}
 
 	@include media-breakpoint-up(xxl) {
-		@include marginRules("instructions", "xxl");
+		@include verticalMarginRules("instructions", "xxl");
 	}
 }

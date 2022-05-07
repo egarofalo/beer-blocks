@@ -13,7 +13,7 @@ const save = (props) => {
 		style: {
 			...border.styles(props.attributes),
 			...borderRadius.styles(props.attributes),
-			...spacing.styles(props.attributes),
+			...spacing.styles(props),
 		},
 	});
 

@@ -105,6 +105,18 @@
 					)
 					rotate(45deg);
 			}
+
+			&.wp-beer-blocks-separator-triangle-up {
+				transform: translateY(
+						calc(
+							(
+									(var(--wp-beer-blocks-separator-triangleWidth-md) / 2) -
+										var(--wp-beer-blocks-separator-height-md)
+								) * -1
+						)
+					)
+					rotate(-135deg);
+			}
 		}
 	}
 
@@ -130,6 +142,18 @@
 					)
 					rotate(45deg);
 			}
+		}
+
+		&.wp-beer-blocks-separator-triangle-up {
+			transform: translateY(
+					calc(
+						(
+								(var(--wp-beer-blocks-separator-triangleWidth-lg) / 2) -
+									var(--wp-beer-blocks-separator-height-lg)
+							) * -1
+					)
+				)
+				rotate(-135deg);
 		}
 	}
 

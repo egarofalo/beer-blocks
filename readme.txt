@@ -161,6 +161,15 @@ Yes, of course! You can choose any of the font families available in Google Font
 - Change buttons icons in **Border Radius** panel settings
 - Fix `beer-blocks/separator` styles in frontend and editor view
 - Code improvements
+= 1.4.1 =
+- Add `verticalMarginRules` mixin in `helpers.scss` file
+- Remove left and right margin settings in `beer-blocks/container` block type
+- Remove left and right margin settings in `beer-blocks/instruction` block type
+- Fix `beer-blocks/section` js error bug
+- Fix `beer-blocks/info-box` spacing settings bug
+- Fix `beer-blocks/separator` bug in `styles.scss`
+- Fix `beer-blocks/tabs` and `beer-blocks/tab-pane` js error bug
+- Code improvements
 
 == Upgrade Notice ==
 

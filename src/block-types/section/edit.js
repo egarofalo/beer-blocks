@@ -5,7 +5,7 @@ import {
 	InspectorControls,
 } from "@wordpress/block-editor";
 import { SelectControl, PanelBody } from "@wordpress/components";
-import spacing from "./../../helpers/spacing";
+import spacing, { PaddingVisualizer } from "./../../helpers/spacing";
 import sectioningTags from "./../../helpers/sectioning-tags";
 
 const edit = (props) => {
@@ -16,7 +16,8 @@ const edit = (props) => {
 
 	const blockProps = useBlockProps({
 		style: {
-			...spacing.styles(props.attributes),
+			...spacing.paddingCssVars({ props, blockName: "section" }),
+			...spacing.marginCssVars({ props, blockName: "section" }),
 		},
 	});
 
@@ -37,17 +38,14 @@ const edit = (props) => {
 					/>
 				</PanelBody>
 
-				{spacing.controls({ props })}
+				{spacing.breakpointsControls({ props })}
 			</InspectorControls>
 
-			{spacing.visualizer({
-				props,
-				children: (
-					<TagName {...blockProps}>
-						<InnerBlocks />
-					</TagName>
-				),
-			})}
+			<PaddingVisualizer blockProps={props}>
+				<TagName {...blockProps}>
+					<InnerBlocks />
+				</TagName>
+			</PaddingVisualizer>
 		</>
 	);
 };

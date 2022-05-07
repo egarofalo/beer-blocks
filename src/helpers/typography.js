@@ -444,7 +444,9 @@ export const lineHeightStyles = (lineHeight) =>
 	lineHeight
 		? {
 				lineHeight:
-					typeof lineHeight === "number" ? `${lineHeight * 100}%` : lineHeight,
+					typeof lineHeight === "number"
+						? `${parseInt(lineHeight * 100)}%`
+						: lineHeight,
 		  }
 		: {};
 
@@ -465,7 +467,7 @@ export const lineHeightCssVars = ({ props, blockName, attrPrefix = "" }) => {
 				];
 
 				if (typeof lineHeight[breakpoint] === "number") {
-					result.push(`${lineHeight[breakpoint] * 100}%`);
+					result.push(`${parseInt(lineHeight[breakpoint] * 100)}%`);
 				} else {
 					result.push(lineHeight[breakpoint]);
 				}

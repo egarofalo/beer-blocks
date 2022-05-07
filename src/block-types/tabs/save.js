@@ -27,9 +27,7 @@ const save = (props) => {
 	} = props;
 
 	const blockProps = useBlockProps.save({
-		style: {
-			...spacing.styles(props.attributes),
-		},
+		style: spacing.styles(props),
 	});
 
 	return (
@@ -98,20 +96,18 @@ const save = (props) => {
 											"--wp-beer-blocks-tabs-nav-link-active-border-color": tabsActiveBorderColor,
 									  }
 									: {}),
-								...spacing.styles(props.attributes, "tabs"),
+								...spacing.styles(props, "tabs"),
 								...typography.fontFamilyStyles(props, "tab"),
 								...typography.fontWeightStyles(props, "tab"),
 								...typography.fontSizeCssVars({
 									props,
 									blockName: "tabs",
 									attrPrefix: "tab",
-									breakpoints: true,
 								}),
 								...typography.lineHeightCssVars({
 									props,
 									blockName: "tabs",
 									attrPrefix: "tab",
-									breakpoints: true,
 								}),
 								...border.styles(props.attributes, "tabs"),
 								...borderRadius.styles(props.attributes, "tabs"),

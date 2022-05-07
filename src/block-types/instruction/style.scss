@@ -1,33 +1,31 @@
 @import "./../../helpers";
 
-.wp-block-beer-blocks-instruction {
-	$defaultMargins: (
-		top: 0,
-		right: 0,
-		bottom: 0,
-		left: 0,
-	);
+$defaultMargins: (
+	top: 0,
+	bottom: 0,
+);
 
-	@include marginRules("instruction", "xs", "", $defaultMargins);
+.wp-block-beer-blocks-instruction {
+	@include verticalMarginRules("instruction", "xs", "", $defaultMargins);
 
 	@include media-breakpoint-up(sm) {
-		@include marginRules("instruction", "sm", "", $defaultMargins);
+		@include verticalMarginRules("instruction", "sm", "", $defaultMargins);
 	}
 
 	@include media-breakpoint-up(md) {
-		@include marginRules("instruction", "md", "", $defaultMargins);
+		@include verticalMarginRules("instruction", "md", "", $defaultMargins);
 	}
 
 	@include media-breakpoint-up(lg) {
-		@include marginRules("instruction", "lg", "", $defaultMargins);
+		@include verticalMarginRules("instruction", "lg", "", $defaultMargins);
 	}
 
 	@include media-breakpoint-up(xl) {
-		@include marginRules("instruction", "xl", "", $defaultMargins);
+		@include verticalMarginRules("instruction", "xl", "", $defaultMargins);
 	}
 
 	@include media-breakpoint-up(xxl) {
-		@include marginRules("instruction", "xxl", "", $defaultMargins);
+		@include verticalMarginRules("instruction", "xxl", "", $defaultMargins);
 	}
 
 	.wp-block-beer-blocks-instruction-contents {
