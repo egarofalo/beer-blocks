@@ -84,6 +84,39 @@ export const breakpoints = ["xs", "sm", "md", "lg", "xl", "xxl"];
 export const breakpointsAttributeValue = (defaultValue) =>
 	Object.fromEntries(breakpoints.map((key) => [[key], defaultValue]));
 
+// default value for breakpoints behavior attribute
+export const breakpointsBehaviorAttributeValue = (defaultValue) =>
+	Object.fromEntries(
+		breakpoints
+			.filter((breakpoint) => breakpoint !== "xs")
+			.map((key) => [[key], defaultValue])
+	);
+
+// general attributes optionally with breakpoints
+export const attributes = ({
+	attrName,
+	breakpoints,
+	breakpointsBehavior,
+	defaultValue = undefined,
+	type = "string",
+}) =>
+	breakpoints
+		? breakpointsAttribute({
+				attrName,
+				breakpointsBehaviorAttributes: breakpointsBehavior,
+				...(defaultValue !== undefined ? { defaultValue } : {}),
+		  })
+		: {
+				[attrName]: {
+					type,
+					...(defaultValue !== undefined
+						? {
+								default: defaultValue,
+						  }
+						: {}),
+				},
+		  };
+
 // block attributes with breakpoints
 export const breakpointsAttribute = ({
 	attrName,
@@ -611,6 +644,8 @@ export default {
 	colSizingTypeOptions,
 	breakpoints,
 	breakpointsAttributeValue,
+	breakpointsBehaviorAttributeValue,
+	attributes,
 	breakpointsAttribute,
 	breakpointIcon,
 	breakpointsOptions,

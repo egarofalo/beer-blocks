@@ -1,2 +1,3 @@
-.wp-block-beer-blocks-row {
-}
+@import "./../../mixins/blocks/row";
+
+@include row-block-rules;

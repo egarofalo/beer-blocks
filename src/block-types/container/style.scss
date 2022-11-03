@@ -1,31 +1,3 @@
-@import "./../../helpers";
+@import "./../../mixins/blocks/container";
 
-.wp-block-beer-blocks-container {
-	@include verticalPaddingRules("container");
-	@include verticalMarginRules("container");
-
-	@include media-breakpoint-up(sm) {
-		@include verticalPaddingRules("container", "sm");
-		@include verticalMarginRules("container", "sm");
-	}
-
-	@include media-breakpoint-up(md) {
-		@include verticalPaddingRules("container", "md");
-		@include verticalMarginRules("container", "md");
-	}
-
-	@include media-breakpoint-up(lg) {
-		@include verticalPaddingRules("container", "lg");
-		@include verticalMarginRules("container", "lg");
-	}
-
-	@include media-breakpoint-up(xl) {
-		@include verticalPaddingRules("container", "xl");
-		@include verticalMarginRules("container", "xl");
-	}
-
-	@include media-breakpoint-up(xxl) {
-		@include verticalPaddingRules("container", "xxl");
-		@include verticalMarginRules("container", "xxl");
-	}
-}
+@include container-block-rules;

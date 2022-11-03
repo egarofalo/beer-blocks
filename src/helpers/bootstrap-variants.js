@@ -1,3 +1,5 @@
+import { capitalize } from "lodash";
+
 export const variants = {
 	primary: "#007bff",
 	secondary: "#6c757d",
@@ -11,7 +13,7 @@ export const variants = {
 
 export const variantsColorPallet = [
 	...Object.entries(variants).map((value) => ({
-		name: value[0],
+		name: capitalize(value[0]),
 		color: value[1],
 	})),
 ];

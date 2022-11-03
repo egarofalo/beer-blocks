@@ -1,0 +1,55 @@
+@import "./../helpers/spacing";
+
+@mixin row-block-rules() {
+	.wp-block-beer-blocks-row {
+	}
+}
+
+@mixin row-block-editor-rules() {
+	.wp-block-beer-blocks-row {
+		@include blockDefaultMargins(0);
+
+		&.is-selected {
+			border: 1px dotted #035cff;
+
+			& > .button-block-appender__container {
+				.block-editor-button-block-appender {
+					opacity: 1;
+				}
+
+				&.has-child-blocks {
+					display: block;
+				}
+			}
+		}
+
+		&.has-child-selected {
+			& > .button-block-appender__container {
+				&.has-child-blocks {
+					display: block;
+				}
+			}
+		}
+
+		& > .button-block-appender__container {
+			.block-editor-button-block-appender {
+				background: black;
+				color: white;
+				opacity: 0.4;
+				margin-top: 5px;
+
+				&:hover {
+					opacity: 1;
+				}
+
+				svg {
+					color: white;
+				}
+			}
+
+			&.has-child-blocks {
+				display: none;
+			}
+		}
+	}
+}

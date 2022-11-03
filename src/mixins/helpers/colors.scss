@@ -1,0 +1,84 @@
+@use "sass:map";
+
+// Plugin custom variables and functions
+@import "./../../variables";
+@import "./../../functions";
+
+// Get colors rules
+@mixin colorsRules(
+	$blockName,
+	$attrPrefix: "",
+	$defaultColor: map.get($defaultColors, color),
+	$defaultBackground: map.get($defaultColors, background),
+	$defaultBorderColor: map.get($defaultColors, borderColor),
+	$defaultTransitionDelay: "0s",
+	$defaultTransitionDuration: "0s",
+	$defaultTransitionTimingFunction: "ease",
+	$statuses: ("mouseOver", "active", "focus")
+) {
+	$colorVarName: --wp-beer-blocks-#{$blockName}-#{camelize(
+			"#{$attrPrefix}-color"
+		)};
+	$backgroundVarName: --wp-beer-blocks-#{$blockName}-#{camelize(
+			"#{$attrPrefix}-background"
+		)};
+	$borderColorVarName: --wp-beer-blocks-#{$blockName}-#{camelize(
+			"#{$attrPrefix}-border-color"
+		)};
+
+	color: var(#{$colorVarName}, $defaultColor);
+	background: var(#{$backgroundVarName}, $defaultBackground);
+	border-color: var(#{$borderColorVarName}, $defaultBorderColor);
+
+	@each $status in $statuses {
+		$colorStatusVarName: --wp-beer-blocks-#{$blockName}-#{camelize(
+				"#{$attrPrefix}-#{$status}-color"
+			)};
+		$backgroundStatusVarName: --wp-beer-blocks-#{$blockName}-#{camelize(
+				"#{$attrPrefix}-#{$status}-background"
+			)};
+		$borderColorStatusVarName: --wp-beer-blocks-#{$blockName}-#{camelize(
+				"#{$attrPrefix}-#{$status}-border-color"
+			)};
+
+		@if $status == "mouseOver" {
+			transition-property: color, background, borderColor;
+			transition-delay: var(
+				--wp-beer-blocks-#{$blockName}-#{camelize(
+						"#{$attrPrefix}-colors-transition-delay"
+					)},
+				$defaultTransitionDelay
+			);
+			transition-duration: var(
+				--wp-beer-blocks-#{$blockName}-#{camelize(
+						"#{$attrPrefix}-colors-transition-duration"
+					)},
+				$defaultTransitionDuration
+			);
+			transition-timing-function: var(
+				--wp-beer-blocks-#{$blockName}-#{camelize(
+						"#{$attrPrefix}-colors-transition-timing-function"
+					)},
+				$defaultTransitionTimingFunction
+			);
+
+			&:hover {
+				color: var(#{$colorStatusVarName}, $defaultColor);
+				background: var(#{$backgroundStatusVarName}, $defaultBackground);
+				border-color: var(#{$borderColorStatusVarName}, $defaultBorderColor);
+			}
+		} @else if ($status == "active") {
+			&:active {
+				color: var(#{$colorStatusVarName}, $defaultColor);
+				background: var(#{$backgroundStatusVarName}, $defaultBackground);
+				border-color: var(#{$borderColorStatusVarName}, $defaultBorderColor);
+			}
+		} @else if ($status == "focus") {
+			&:focus {
+				color: var(#{$colorStatusVarName}, $defaultColor);
+				background: var(#{$backgroundStatusVarName}, $defaultBackground);
+				border-color: var(#{$borderColorStatusVarName}, $defaultBorderColor);
+			}
+		}
+	}
+}

@@ -1,0 +1,108 @@
+@use "sass:map";
+
+// Plugin custom variables and functions
+@import "./../../variables";
+@import "./../../functions";
+
+// Get typography rules for custom breakpoint
+@mixin typographyRules(
+	$blockName,
+	$breakpointName: "",
+	$attrPrefix: "",
+	$defaultValues: $defaultTypographyValues
+) {
+	$fontSizeVarName: --wp-beer-blocks-#{$blockName}-#{camelize(
+			"#{$attrPrefix}-font-size"
+		)};
+	$lineHeightVarName: --wp-beer-blocks-#{$blockName}-#{camelize(
+			"#{$attrPrefix}-line-height"
+		)};
+
+	@if $breakpointName == "" or $breakpointName == "xs" {
+		font-size: var(#{$fontSizeVarName}, map.get($defaultValues, fontSize));
+		line-height: var(
+			#{$lineHeightVarName},
+			map.get($defaultValues, lineHeight)
+		);
+	} @else {
+		font-size: var(
+			#{$fontSizeVarName}-#{$breakpointName},
+			map.get($defaultValues, fontSize)
+		);
+		line-height: var(
+			#{$lineHeightVarName}-#{$breakpointName},
+			map.get($defaultValues, lineHeight)
+		);
+	}
+}
+
+// Get headings typography rules for custom breakpoint
+@mixin headersTypographyRules(
+	$blockName,
+	$breakpointName: "",
+	$attrPrefix: "",
+	$defaultValues: $headersDefaultTypographyValues,
+	$prefixRule: ""
+) {
+	$fontSizeVarName: --wp-beer-blocks-#{$blockName}-#{camelize(
+			"#{$attrPrefix}-font-size"
+		)};
+	$lineHeightVarName: --wp-beer-blocks-#{$blockName}-#{camelize(
+			"#{$attrPrefix}-line-height"
+		)};
+
+	@each $header, $typographyValues in $defaultValues {
+		#{$prefixRule}#{$header}.wp-block-beer-blocks-#{$blockName} {
+			@if $breakpointName == "" or $breakpointName == "xs" {
+				font-size: var(
+					#{$fontSizeVarName},
+					map.get($typographyValues, fontSize)
+				);
+				line-height: var(
+					#{$lineHeightVarName},
+					map.get($typographyValues, lineHeight)
+				);
+			} @else {
+				font-size: var(
+					#{$fontSizeVarName}-#{$breakpointName},
+					map.get($typographyValues, fontSize)
+				);
+				line-height: var(
+					#{$lineHeightVarName}-#{$breakpointName},
+					map.get($typographyValues, lineHeight)
+				);
+			}
+		}
+	}
+}
+
+// Get headings typography rules for all breakpoints
+@mixin headersTypographyRulesAllBreakpoints(
+	$blockName,
+	$attrPrefix: "",
+	$defaultValues: $headersDefaultTypographyValues,
+	$breakpoints: $grid-breakpoints,
+	$prefixRule: ""
+) {
+	@each $breakpointName, $breakpoint in $breakpoints {
+		@if $breakpointName == "xs" {
+			@include headersTypographyRules(
+				$blockName,
+				$breakpointName,
+				$attrPrefix,
+				$defaultValues,
+				$prefixRule
+			);
+		} @else {
+			@include media-breakpoint-up($breakpointName) {
+				@include headersTypographyRules(
+					$blockName,
+					$breakpointName,
+					$attrPrefix,
+					$defaultValues,
+					$prefixRule
+				);
+			}
+		}
+	}
+}

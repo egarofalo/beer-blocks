@@ -6,6 +6,7 @@ import {
 	__experimentalUnitControl as UnitControl,
 	__experimentalRadio as Radio,
 	__experimentalRadioGroup as RadioGroup,
+	Disabled,
 } from "@wordpress/components";
 import { camelCase, upperFirst } from "lodash";
 import {
@@ -22,6 +23,8 @@ const defaultUnits = [
 	{ value: "rem", label: "REM" },
 	{ value: "%", label: "%" },
 ];
+
+const corners = ["top-right", "bottom-right", "bottom-left", "top-left"];
 
 const cornersLabels = {
 	all: __("All corners", "beer-blocks"),
@@ -61,11 +64,19 @@ export const borderRadiusControl = ({
 export const borderRadiusStyles = (borderRadius, corner = "") =>
 	borderRadius ? { [`border${upperFirst(corner)}Radius`]: borderRadius } : {};
 
-export const attributes = ({ attrPrefixName = "", corner = "" } = {}) => ({
-	[camelCase(
-		`${attrPrefixName}-border-${corner}-radius`
-	)]: borderRadiusAttribute(),
-});
+export const attributes = ({ attrPrefixName = "", corner = "" } = {}) =>
+	corner === "all"
+		? Object.fromEntries(
+				["", ...corners].map((corner) => [
+					camelCase(`${attrPrefixName}-border-${corner}-radius`),
+					borderRadiusAttribute(),
+				])
+		  )
+		: {
+				[camelCase(
+					`${attrPrefixName}-border-${corner}-radius`
+				)]: borderRadiusAttribute(),
+		  };
 
 export const innerControls = ({ props, attrPrefixName = "", corner = "" }) =>
 	borderRadiusControl({
@@ -78,6 +89,7 @@ export const controls = ({
 	initialOpen = false,
 	attrPrefixName = "",
 	title = __("Border radius", "beer-blocks"),
+	disabled = false,
 }) => {
 	const {
 		[camelCase(`${attrPrefixName}-border-radius`)]: borderRadius = undefined,
@@ -121,7 +133,7 @@ export const controls = ({
 
 	const [corner, setCorner] = useState(selectedCorner());
 
-	const result = (
+	let result = (
 		<>
 			<BaseControl
 				label={sprintf(
@@ -172,6 +184,10 @@ export const controls = ({
 		</>
 	);
 
+	if (disabled) {
+		result = <Disabled>{result}</Disabled>;
+	}
+
 	return title ? (
 		<PanelBody title={title} initialOpen={initialOpen}>
 			{result}
@@ -181,22 +197,22 @@ export const controls = ({
 	);
 };
 
-export const styles = (attributes, attrPrefixName = "") => {
+export const styles = (props, attrPrefix = "") => {
 	const {
-		[camelCase(`${attrPrefixName}-border-radius`)]: borderRadius = undefined,
+		[camelCase(`${attrPrefix}-border-radius`)]: borderRadius = undefined,
 		[camelCase(
-			`${attrPrefixName}-border-top-left-radius`
+			`${attrPrefix}-border-top-left-radius`
 		)]: borderTopLeftRadius = undefined,
 		[camelCase(
-			`${attrPrefixName}-border-top-right-radius`
+			`${attrPrefix}-border-top-right-radius`
 		)]: borderTopRightRadius = undefined,
 		[camelCase(
-			`${attrPrefixName}-border-bottom-right-radius`
+			`${attrPrefix}-border-bottom-right-radius`
 		)]: borderBottomRightRadius = undefined,
 		[camelCase(
-			`${attrPrefixName}-border-bottom-left-radius`
+			`${attrPrefix}-border-bottom-left-radius`
 		)]: borderBottomLeftRadius = undefined,
-	} = attributes;
+	} = props.attributes;
 
 	return {
 		...borderRadiusStyles(borderRadius),

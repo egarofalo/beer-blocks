@@ -1,5 +1,3 @@
-.wp-block-beer-blocks-paragraph {
-	&.is-selected {
-		border: 1px dotted #035cff;
-	}
-}
+@import "./../../mixins/blocks/paragraph";
+
+@include paragraph-block-editor-rules;

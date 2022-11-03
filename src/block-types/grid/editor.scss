@@ -1,17 +1,3 @@
-.wp-block-beer-blocks-grid {
-	&.is-selected {
-		border: 1px dotted #035cff !important;
+@import "./../../mixins/blocks/grid";
 
-		& > .wp-block-beer-blocks-container {
-			& > .button-block-appender__container {
-				display: block;
-			}
-
-			& > .wp-block-beer-blocks-row {
-				& > .button-block-appender__container {
-					display: block;
-				}
-			}
-		}
-	}
-}
+@include grid-block-editor-rules;

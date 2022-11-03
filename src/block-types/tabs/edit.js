@@ -427,8 +427,8 @@ const edit = (props) => {
 											blockName: "tabs",
 											attrPrefix: "tab",
 										}),
-										...border.styles(props.attributes, "tabs"),
-										...borderRadius.styles(props.attributes, "tabs"),
+										...border.styles(props, "tabs"),
+										...borderRadius.styles(props, "tabs"),
 									}}
 								/>
 							</li>

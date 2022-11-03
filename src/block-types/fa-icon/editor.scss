@@ -1,32 +1,5 @@
 @import "~@fonticonpicker/react-fonticonpicker/dist/fonticonpicker.base-theme.react.css";
 @import "~@fonticonpicker/react-fonticonpicker/dist/fonticonpicker.material-theme.react.css";
-@import "./../../helpers";
+@import "./../../mixins/blocks/fa-icon";
 
-.wp-block-beer-blocks-fa-icon {
-	@include editorDefaultMargins;
-
-	&.is-selected {
-		border: 1px dotted #035cff;
-	}
-}
-
-.rfip {
-	&.rfip--beer-blocks {
-		display: block;
-		border: 1px solid #ccc;
-		border-radius: 4px;
-		margin: 0;
-
-		.rfipbtn {
-			width: 100%;
-		}
-	}
-
-	.rfipdropdown {
-		&.rfipdropdown--beer-blocks {
-			right: 0;
-			width: 100%;
-			background: rgb(231, 231, 231);
-		}
-	}
-}
+@include fa-icon-block-editor-rules;

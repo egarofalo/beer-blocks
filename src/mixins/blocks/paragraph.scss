@@ -1,0 +1,72 @@
+@import "./../helpers/typography";
+@import "./../helpers/spacing";
+
+@mixin paragraph-block-rules() {
+	.wp-block-beer-blocks-paragraph {
+		@include typographyRules("paragraph");
+		@include paddingRules("paragraph");
+		@include marginRules("paragraph");
+
+		@include media-breakpoint-up(sm) {
+			@include typographyRules("paragraph", "sm");
+			@include paddingRules("paragraph", "sm");
+			@include marginRules("paragraph", "sm");
+		}
+
+		@include media-breakpoint-up(md) {
+			@include typographyRules("paragraph", "md");
+			@include paddingRules("paragraph", "md");
+			@include marginRules("paragraph", "md");
+		}
+
+		@include media-breakpoint-up(lg) {
+			@include typographyRules("paragraph", "lg");
+			@include paddingRules("paragraph", "lg");
+			@include marginRules("paragraph", "lg");
+		}
+
+		@include media-breakpoint-up(xl) {
+			@include typographyRules("paragraph", "xl");
+			@include paddingRules("paragraph", "xl");
+			@include marginRules("paragraph", "xl");
+		}
+
+		@include media-breakpoint-up(xxl) {
+			@include typographyRules("paragraph", "xxl");
+			@include paddingRules("paragraph", "xxl");
+			@include marginRules("paragraph", "xxl");
+		}
+	}
+}
+
+@mixin paragraph-block-editor-rules() {
+	.wp-block-beer-blocks-paragraph {
+		&.is-selected {
+			border: 1px dotted #035cff;
+		}
+
+		.editor-styles-wrapper &.wp-block {
+			@include marginRules("paragraph");
+
+			@include media-breakpoint-up(sm) {
+				@include marginRules("paragraph", "sm");
+			}
+
+			@include media-breakpoint-up(md) {
+				@include marginRules("paragraph", "md");
+			}
+
+			@include media-breakpoint-up(lg) {
+				@include marginRules("paragraph", "lg");
+			}
+
+			@include media-breakpoint-up(xl) {
+				@include marginRules("paragraph", "xl");
+			}
+
+			@include media-breakpoint-up(xxl) {
+				@include marginRules("paragraph", "xxl");
+			}
+		}
+	}
+}

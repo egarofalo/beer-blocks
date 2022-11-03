@@ -12,7 +12,7 @@ import {
 import {
 	ToolbarGroup,
 	PanelBody,
-	ColorPicker,
+	ColorPalette,
 	BaseControl,
 	ToggleControl,
 	CardDivider,
@@ -21,6 +21,7 @@ import { headingLevelDropdown } from "./../../helpers/heading";
 import spacing, { PaddingVisualizer } from "./../../helpers/spacing";
 import typography from "../../helpers/typography";
 import border from "../../helpers/border";
+import { variantsColorPallet as variants } from "../../helpers/bootstrap-variants";
 
 const edit = (props) => {
 	const {
@@ -62,7 +63,7 @@ const edit = (props) => {
 				blockName: "accordion-item",
 				breakpoints: true,
 			}),
-			...border.styles(props.attributes),
+			...border.cssVars({ props, blockName: "accordion-item" }),
 		},
 	});
 
@@ -80,7 +81,11 @@ const edit = (props) => {
 				{border.controls({ props })}
 
 				<PanelBody title={__("Heading", "beer-blocks")} initialOpen={false}>
-					{spacing.innerControls(props, "heading")}
+					{spacing.controls({
+						props,
+						attrPrefix: "heading",
+						panelBody: false,
+					})}
 
 					<CardDivider />
 
@@ -94,11 +99,10 @@ const edit = (props) => {
 					<CardDivider />
 
 					<BaseControl label={__("Font color", "beer-blocks")}>
-						<ColorPicker
-							color={headingColor}
-							onChangeComplete={(value) =>
-								setAttributes({ headingColor: value.hex })
-							}
+						<ColorPalette
+							colors={variants}
+							value={headingColor}
+							onChange={(value) => setAttributes({ headingColor: value })}
 							disableAlpha
 						/>
 					</BaseControl>
@@ -107,18 +111,17 @@ const edit = (props) => {
 
 					{border.controls({
 						props,
-						attrPrefixName: "heading",
-						title: false,
+						attrPrefix: "heading",
+						panelBody: false,
 					})}
 
 					<CardDivider />
 
 					<BaseControl label={__("Background color", "beer-blocks")}>
-						<ColorPicker
-							color={headingBackground}
-							onChangeComplete={(value) => {
-								setAttributes({ headingBackground: value.hex });
-							}}
+						<ColorPalette
+							colors={variants}
+							value={headingBackground}
+							onChange={(value) => setAttributes({ headingBackground: value })}
 							disableAlpha
 						/>
 					</BaseControl>
@@ -139,20 +142,27 @@ const edit = (props) => {
 
 					<CardDivider />
 
-					{spacing.innerControls(props, "body")}
+					{spacing.controls({
+						props,
+						attrPrefix: "body",
+						panelBody: false,
+					})}
 
 					<CardDivider />
 
-					{border.innerControls({ props, attrPrefixName: "body" })}
+					{border.controls({
+						props,
+						attrPrefix: "body",
+						panelBody: false,
+					})}
 
 					<CardDivider />
 
 					<BaseControl label={__("Background color", "beer-blocks")}>
-						<ColorPicker
-							color={bodyBackground}
-							onChangeComplete={(value) => {
-								setAttributes({ bodyBackground: value.hex });
-							}}
+						<ColorPalette
+							colors={variants}
+							value={bodyBackground}
+							onChange={(value) => setAttributes({ bodyBackground: value })}
 							disableAlpha
 						/>
 					</BaseControl>
@@ -177,9 +187,15 @@ const edit = (props) => {
 					className="card-header"
 					id={headingId}
 					style={{
-						backgroundColor: headingBackground,
 						padding: 0,
-						...border.styles(props.attributes, "heading"),
+						...(headingBackground
+							? { backgroundColor: headingBackground }
+							: {}),
+						...border.cssVars({
+							props,
+							blockName: "accordion-item",
+							attrPrefix: "heading",
+						}),
 					}}
 				>
 					<HeadingTag style={{ margin: 0, padding: 0 }}>
@@ -237,7 +253,11 @@ const edit = (props) => {
 							className="card-body"
 							style={{
 								...spacing.styles(props, "body"),
-								...border.styles(props.attributes, "body"),
+								...border.cssVars({
+									props,
+									attrPrefix: "body",
+									blockName: "accordion-item",
+								}),
 							}}
 						>
 							<div {...innerBlocksProps} />

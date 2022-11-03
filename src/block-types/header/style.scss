@@ -1,33 +1,3 @@
-@import "./../../helpers";
+@import "./../../mixins/blocks/header";
 
-@include headersTypographyRulesAllBreakpoints("header");
-
-.wp-block-beer-blocks-header {
-	@include paddingRules("header");
-	@include marginRules("header");
-
-	@include media-breakpoint-up(sm) {
-		@include paddingRules("header", "sm");
-		@include marginRules("header", "sm");
-	}
-
-	@include media-breakpoint-up(md) {
-		@include paddingRules("header", "md");
-		@include marginRules("header", "md");
-	}
-
-	@include media-breakpoint-up(lg) {
-		@include paddingRules("header", "lg");
-		@include marginRules("header", "lg");
-	}
-
-	@include media-breakpoint-up(xl) {
-		@include paddingRules("header", "xl");
-		@include marginRules("header", "xl");
-	}
-
-	@include media-breakpoint-up(xxl) {
-		@include paddingRules("header", "xxl");
-		@include marginRules("header", "xxl");
-	}
-}
+@include header-block-rules;

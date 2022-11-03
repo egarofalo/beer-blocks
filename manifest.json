@@ -20,7 +20,8 @@
 		"instructions/index": "./src/block-types/instructions/index.js",
 		"instruction/index": "./src/block-types/instruction/index.js",
 		"tabs/index": "./src/block-types/tabs/index.js",
-		"tab-pane/index": "./src/block-types/tab-pane/index.js"
+		"tab-pane/index": "./src/block-types/tab-pane/index.js",
+		"image/index": "./src/block-types/image/index.js"
 	},
 	"block_types": [
 		"header",
@@ -43,6 +44,7 @@
 		"instructions",
 		"instruction",
 		"tabs",
-		"tab-pane"
+		"tab-pane",
+		"image"
 	]
 }

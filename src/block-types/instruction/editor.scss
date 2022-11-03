@@ -1,16 +1,3 @@
-.wp-block-beer-blocks-instruction {
-	box-sizing: border-box;
+@import "./../../mixins/blocks/instruction";
 
-	&.wp-block {
-		margin-left: unset;
-		margin-right: unset;
-	}
-
-	&.is-selected {
-		border: 1px dotted #035cff;
-	}
-
-	&.has-child-selected {
-		border: 1px dotted #ff9f50;
-	}
-}
+@include instruction-block-editor-rules;

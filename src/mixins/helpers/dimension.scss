@@ -1,0 +1,34 @@
+// Plugin custom functions
+@import "./../../functions";
+
+// Get width rules
+@mixin widthRules(
+	$blockName,
+	$breakpointName: "",
+	$attrPrefix: "",
+	$defaultValue: 100%
+) {
+	$varName: --wp-beer-blocks-#{$blockName}-#{camelize("#{$attrPrefix}-width")};
+
+	@if $breakpointName == "" or $breakpointName == "xs" {
+		width: var(#{$varName}, $defaultValue) !important;
+	} @else {
+		width: var(#{$varName}-#{$breakpointName}, $defaultValue) !important;
+	}
+}
+
+// Get height rules
+@mixin heightRules(
+	$blockName,
+	$breakpointName: "",
+	$attrPrefix: "",
+	$defaultValue: auto
+) {
+	$varName: --wp-beer-blocks-#{$blockName}-#{camelize("#{$attrPrefix}-height")};
+
+	@if $breakpointName == "" or $breakpointName == "xs" {
+		height: var(#{$varName}, $defaultValue) !important;
+	} @else {
+		height: var(#{$varName}-#{$breakpointName}, $defaultValue) !important;
+	}
+}

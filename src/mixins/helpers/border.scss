@@ -1,0 +1,38 @@
+@use "sass:map";
+
+// Plugin custom functions
+@import "./../../functions";
+
+// Get border styles rules
+@mixin borderRules($blockName, $attrPrefix: "", $borderDefaults: ()) {
+	$varPrefix: wp-beer-blocks-#{$blockName}-#{camelize("#{$attrPrefix}-border")};
+
+	@each $side in ("top", "right", "bottom", "left") {
+		@if map.has-key($borderDefaults, "style") {
+			border-#{$side}-style: var(
+				--#{$varPrefix + capitalize($side)}Style,
+				map.get($borderDefaults, "style")
+			);
+		} @else {
+			border-#{$side}-style: var(--#{$varPrefix + capitalize($side)}Style);
+		}
+
+		@if map.has-key($borderDefaults, "color") {
+			border-#{$side}-color: var(
+				--#{$varPrefix + capitalize($side)}Color,
+				map.get($borderDefaults, "color")
+			);
+		} @else {
+			border-#{$side}-color: var(--#{$varPrefix + capitalize($side)}Color);
+		}
+
+		@if map.has-key($borderDefaults, "width") {
+			border-#{$side}-width: var(
+				--#{$varPrefix + capitalize($side)}Width,
+				map.get($borderDefaults, "width")
+			);
+		} @else {
+			border-#{$side}-width: var(--#{$varPrefix + capitalize($side)}Width);
+		}
+	}
+}

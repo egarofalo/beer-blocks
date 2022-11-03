@@ -1,13 +1,3 @@
-@import "./../../helpers";
+@import "./../../mixins/blocks/buttons";
 
-.wp-block-beer-blocks-buttons {
-	@include editorDefaultMargins;
-
-	&.is-selected {
-		border: 1px dotted #035cff;
-	}
-
-	&.has-child-selected {
-		border: 1px dotted #ff9f50;
-	}
-}
+@include buttons-block-editor-rules;

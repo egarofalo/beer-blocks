@@ -1,0 +1,56 @@
+@import "./../helpers/spacing";
+@import "./../helpers/typography";
+
+@mixin instructions-block-rules() {
+	.wp-block-beer-blocks-instructions {
+		@include verticalMarginRules("instructions");
+
+		@include media-breakpoint-up(sm) {
+			@include verticalMarginRules("instructions", "sm");
+		}
+
+		@include media-breakpoint-up(md) {
+			@include verticalMarginRules("instructions", "md");
+		}
+
+		@include media-breakpoint-up(lg) {
+			@include verticalMarginRules("instructions", "lg");
+		}
+
+		@include media-breakpoint-up(xl) {
+			@include verticalMarginRules("instructions", "xl");
+		}
+
+		@include media-breakpoint-up(xxl) {
+			@include verticalMarginRules("instructions", "xxl");
+		}
+	}
+}
+
+@mixin instructions-block-editor-rules() {
+	.wp-block-beer-blocks-instructions {
+		box-sizing: border-box;
+
+		&.is-selected {
+			border: 1px dotted #035cff;
+
+			& > .button-block-appender__container {
+				display: block;
+			}
+		}
+
+		&.has-child-selected {
+			border: 1px dotted #ff9f50;
+
+			& > .button-block-appender__container {
+				display: block;
+			}
+		}
+
+		& > .button-block-appender__container {
+			display: none;
+			margin-top: 8px;
+			margin-bottom: 8px;
+		}
+	}
+}

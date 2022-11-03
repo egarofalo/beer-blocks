@@ -30,7 +30,7 @@ import "./editor.scss";
  */
 import edit from "./edit";
 import save from "./save";
-import grid from "../../helpers/grid";
+import blockAlignment from "../../helpers/block-alignment";
 import dimension from "../../helpers/dimension";
 import spacing from "../../helpers/spacing";
 import { getLineSeparatorDefaultWidth } from "./helpers";
@@ -69,10 +69,7 @@ registerBlockType("beer-blocks/separator", {
 			type: "string",
 			default: "#000",
 		},
-		align: {
-			type: "string",
-			default: "left",
-		},
+		...blockAlignment.attribute(),
 		...dimension.widthAttribute({
 			attrPrefix: "triangle",
 			breakpointsBehavior: true,

@@ -11,8 +11,8 @@ const save = (props) => {
 
 	const blockProps = useBlockProps.save({
 		style: {
-			...border.styles(props.attributes),
-			...borderRadius.styles(props.attributes),
+			...border.styles(props),
+			...borderRadius.styles(props),
 			...spacing.styles(props),
 		},
 	});

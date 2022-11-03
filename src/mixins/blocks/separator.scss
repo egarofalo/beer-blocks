@@ -1,0 +1,205 @@
+@import "./../helpers/dimension";
+@import "./../helpers/spacing";
+
+@mixin separator-block-rules() {
+	.wp-block-beer-blocks-separator {
+		@include widthRules("separator");
+		@include verticalMarginRules("separator", "xs");
+		height: 0;
+		border-bottom-style: solid;
+		border-bottom-color: var(--wp-beer-blocks-separator-border-color);
+		border-bottom-width: var(--wp-beer-blocks-separator-height);
+
+		.wp-beer-blocks-separator-triangle {
+			@include widthRules("separator", "xs", "triangle");
+			box-sizing: border-box;
+			border-style: solid;
+			height: var(--wp-beer-blocks-separator-triangleWidth);
+			border-width: var(--wp-beer-blocks-separator-height);
+			border-color: var(--wp-beer-blocks-separator-border-color);
+			border-left: none;
+			border-top: none;
+			margin: auto;
+			clip-path: polygon(0 100%, 100% 0, 100% 100%);
+
+			&.wp-beer-blocks-separator-triangle-down {
+				transform: translateY(
+						calc(var(--wp-beer-blocks-separator-triangleWidth) / 2 * -1)
+					)
+					rotate(45deg);
+			}
+
+			&.wp-beer-blocks-separator-triangle-up {
+				transform: translateY(
+						calc(
+							(
+									(var(--wp-beer-blocks-separator-triangleWidth) / 2) -
+										var(--wp-beer-blocks-separator-height)
+								) * -1
+						)
+					)
+					rotate(-135deg);
+			}
+		}
+
+		@include media-breakpoint-up(sm) {
+			@include widthRules("separator", "sm");
+			@include verticalMarginRules("separator", "sm");
+			border-bottom-width: var(--wp-beer-blocks-separator-height-sm);
+
+			.wp-beer-blocks-separator-triangle {
+				@include widthRules("separator", "sm", "triangle");
+				height: var(--wp-beer-blocks-separator-triangleWidth-sm);
+				border-width: var(--wp-beer-blocks-separator-height-sm);
+
+				&.wp-beer-blocks-separator-triangle-down {
+					transform: translateY(
+							calc(var(--wp-beer-blocks-separator-triangleWidth-sm) / 2 * -1)
+						)
+						rotate(45deg);
+				}
+
+				&.wp-beer-blocks-separator-triangle-up {
+					transform: translateY(
+							calc(
+								(
+										(var(--wp-beer-blocks-separator-triangleWidth-sm) / 2) -
+											var(--wp-beer-blocks-separator-height-sm)
+									) * -1
+							)
+						)
+						rotate(-135deg);
+				}
+			}
+		}
+
+		@include media-breakpoint-up(md) {
+			@include widthRules("separator", "md");
+			@include verticalMarginRules("separator", "md");
+			border-bottom-width: var(--wp-beer-blocks-separator-height-md);
+
+			.wp-beer-blocks-separator-triangle {
+				@include widthRules("separator", "md", "triangle");
+				height: var(--wp-beer-blocks-separator-triangleWidth-md);
+				border-width: var(--wp-beer-blocks-separator-height-md);
+
+				&.wp-beer-blocks-separator-triangle-down {
+					transform: translateY(
+							calc(var(--wp-beer-blocks-separator-triangleWidth-md) / 2 * -1)
+						)
+						rotate(45deg);
+				}
+
+				&.wp-beer-blocks-separator-triangle-up {
+					transform: translateY(
+							calc(
+								(
+										(var(--wp-beer-blocks-separator-triangleWidth-md) / 2) -
+											var(--wp-beer-blocks-separator-height-md)
+									) * -1
+							)
+						)
+						rotate(-135deg);
+				}
+			}
+		}
+
+		@include media-breakpoint-up(lg) {
+			@include widthRules("separator", "lg");
+			@include verticalMarginRules("separator", "lg");
+			border-bottom-width: var(--wp-beer-blocks-separator-height-lg);
+
+			.wp-beer-blocks-separator-triangle {
+				@include widthRules("separator", "lg", "triangle");
+				height: var(--wp-beer-blocks-separator-triangleWidth-lg);
+				border-width: var(--wp-beer-blocks-separator-height-lg);
+
+				&.wp-beer-blocks-separator-triangle-down {
+					transform: translateY(
+							calc(var(--wp-beer-blocks-separator-triangleWidth-lg) / 2 * -1)
+						)
+						rotate(45deg);
+				}
+			}
+
+			&.wp-beer-blocks-separator-triangle-up {
+				transform: translateY(
+						calc(
+							(
+									(var(--wp-beer-blocks-separator-triangleWidth-lg) / 2) -
+										var(--wp-beer-blocks-separator-height-lg)
+								) * -1
+						)
+					)
+					rotate(-135deg);
+			}
+		}
+
+		@include media-breakpoint-up(xl) {
+			@include widthRules("separator", "xl");
+			@include verticalMarginRules("separator", "xl");
+			border-bottom-width: var(--wp-beer-blocks-separator-height-xl);
+
+			.wp-beer-blocks-separator-triangle {
+				@include widthRules("separator", "xl", "triangle");
+				height: var(--wp-beer-blocks-separator-triangleWidth-xl);
+				border-width: var(--wp-beer-blocks-separator-height-xl);
+
+				&.wp-beer-blocks-separator-triangle-down {
+					transform: translateY(
+							calc(var(--wp-beer-blocks-separator-triangleWidth-xl) / 2 * -1)
+						)
+						rotate(45deg);
+				}
+
+				&.wp-beer-blocks-separator-triangle-up {
+					transform: translateY(
+							calc(
+								(
+										(var(--wp-beer-blocks-separator-triangleWidth-xl) / 2) -
+											var(--wp-beer-blocks-separator-height-xl)
+									) * -1
+							)
+						)
+						rotate(-135deg);
+				}
+			}
+		}
+
+		@include media-breakpoint-up(xxl) {
+			@include widthRules("separator", "xxl");
+			@include verticalMarginRules("separator", "xxl");
+			border-bottom-width: var(--wp-beer-blocks-separator-height-xxl);
+
+			.wp-beer-blocks-separator-triangle {
+				@include widthRules("separator", "xxl", "triangle");
+				height: var(--wp-beer-blocks-separator-triangleWidth-xxl);
+				border-width: var(--wp-beer-blocks-separator-height-xxl);
+
+				&.wp-beer-blocks-separator-triangle-down {
+					transform: translateY(
+							calc(var(--wp-beer-blocks-separator-triangleWidth-xxl) / 2 * -1)
+						)
+						rotate(45deg);
+				}
+
+				&.wp-beer-blocks-separator-triangle-up {
+					transform: translateY(
+							calc(
+								(
+										(var(--wp-beer-blocks-separator-triangleWidth-xxl) / 2) -
+											var(--wp-beer-blocks-separator-height-xxl)
+									) * -1
+							)
+						)
+						rotate(-135deg);
+				}
+			}
+		}
+	}
+}
+
+@mixin separator-block-editor-rules() {
+	.wp-block-beer-blocks-separator {
+	}
+}

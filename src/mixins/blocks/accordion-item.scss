@@ -1,0 +1,145 @@
+@import "./../helpers/spacing";
+@import "./../helpers/border";
+@import "./../helpers/typography";
+
+@mixin accordion-item-block-rules() {
+	$defaultMargins: (
+		top: 0,
+		right: 0,
+		bottom: 0,
+		left: 0,
+	);
+
+	$defaultTypography: (
+		fontSize: $input-btn-font-size,
+		lineHeight: $input-btn-line-height,
+	);
+
+	.wp-block-beer-blocks-accordion-item {
+		&.card {
+			@include borderRules(
+				"accordion-item",
+				$borderDefaults: (style: solid, width: 1px, color: #ccc)
+			);
+			@include paddingRules("accordion-item");
+			@include marginRules("accordion-item", $defaultValues: $defaultMargins);
+
+			@include media-breakpoint-up(sm) {
+				@include paddingRules("accordion-item", "sm");
+				@include marginRules(
+					"accordion-item",
+					"sm",
+					$defaultValues: $defaultMargins
+				);
+			}
+
+			@include media-breakpoint-up(md) {
+				@include paddingRules("accordion-item", "md");
+				@include marginRules(
+					"accordion-item",
+					"md",
+					$defaultValues: $defaultMargins
+				);
+			}
+
+			@include media-breakpoint-up(lg) {
+				@include paddingRules("accordion-item", "lg");
+				@include marginRules(
+					"accordion-item",
+					"lg",
+					$defaultValues: $defaultMargins
+				);
+			}
+
+			@include media-breakpoint-up(xl) {
+				@include paddingRules("accordion-item", "xl");
+				@include marginRules(
+					"accordion-item",
+					"xl",
+					$defaultValues: $defaultMargins
+				);
+			}
+
+			@include media-breakpoint-up(xxl) {
+				@include paddingRules("accordion-item", "xxl");
+				@include marginRules(
+					"accordion-item",
+					"xxl",
+					$defaultValues: $defaultMargins
+				);
+			}
+
+			& > .card-header {
+				@include borderRules("accordion-item", "heading");
+
+				& > h2 .btn {
+					@include typographyRules(
+						"accordion-item",
+						"xs",
+						"heading",
+						$defaultTypography
+					);
+
+					@include media-breakpoint-up(sm) {
+						@include typographyRules(
+							"accordion-item",
+							"sm",
+							"heading",
+							$defaultTypography
+						);
+					}
+
+					@include media-breakpoint-up(md) {
+						@include typographyRules(
+							"accordion-item",
+							"md",
+							"heading",
+							$defaultTypography
+						);
+					}
+
+					@include media-breakpoint-up(lg) {
+						@include typographyRules(
+							"accordion-item",
+							"lg",
+							"heading",
+							$defaultTypography
+						);
+					}
+
+					@include media-breakpoint-up(xl) {
+						@include typographyRules(
+							"accordion-item",
+							"xl",
+							"heading",
+							$defaultTypography
+						);
+					}
+
+					@include media-breakpoint-up(xxl) {
+						@include typographyRules(
+							"accordion-item",
+							"xxl",
+							"heading",
+							$defaultTypography
+						);
+					}
+				}
+			}
+
+			& > .collapse > .card-body {
+				@include borderRules("accordion-item", "body");
+			}
+		}
+	}
+}
+
+@mixin accordion-item-block-editor-rules() {
+	.wp-block-beer-blocks-accordion-item {
+		&.card {
+			& > .collapse > div > .card-body {
+				@include borderRules("accordion-item", "body");
+			}
+		}
+	}
+}

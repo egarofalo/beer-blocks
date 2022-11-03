@@ -1,9 +1,3 @@
-.wp-block-beer-blocks-advanced-header {
-	&.is-selected {
-		border: 1px dotted #035cff;
-	}
+@import "./../../mixins/blocks/advanced-header";
 
-	&.has-child-selected {
-		border: 1px dotted #ff9f50;
-	}
-}
+@include advanced-header-block-editor-rules;

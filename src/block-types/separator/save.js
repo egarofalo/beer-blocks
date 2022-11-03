@@ -5,7 +5,7 @@ import blockAlignment from "./../../helpers/block-alignment";
 
 const save = (props) => {
 	const {
-		attributes: { color, align, triangleBackground, triangleDirection },
+		attributes: { color, triangleBackground, triangleDirection },
 	} = props;
 
 	const blockProps = useBlockProps.save({
@@ -23,7 +23,7 @@ const save = (props) => {
 				blockName: "separator",
 			}),
 			"--wp-beer-blocks-separator-border-color": color,
-			...blockAlignment.styles(align),
+			...blockAlignment.styles(props),
 		},
 	});
 

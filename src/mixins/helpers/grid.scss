@@ -1,0 +1,13 @@
+// Default variable overrides
+@import "./../../vendor/bootstrap/custom-variables";
+
+// Get breakpoints css vars with default value
+@mixin breakpointsCssVars(
+	$varName,
+	$defaultValue,
+	$breakpoints: $grid-breakpoints
+) {
+	@each $breakpointName, $breakpoint in $breakpoints {
+		--wp-beer-blocks-#{$varName}-#{$breakpointName}: #{$defaultValue};
+	}
+}

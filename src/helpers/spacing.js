@@ -3,9 +3,8 @@ import {
 	PanelBody,
 	__experimentalBoxControl as BoxControl,
 } from "@wordpress/components";
-import { camelCase, isEmpty, capitalize } from "lodash";
+import { camelCase, isEmpty, capitalize, has, isString } from "lodash";
 import grid from "./grid";
-import utils from "./utils";
 
 const { __Visualizer, Visualizer: _Visualizer } = BoxControl;
 const Visualizer = _Visualizer ? _Visualizer : __Visualizer;
@@ -15,6 +14,18 @@ const defaultUnits = [
 	{ value: "em", label: "EM" },
 	{ value: "rem", label: "REM" },
 ];
+
+const getDefaultValue = (defaultValue, side) => {
+	let spacing = undefined;
+
+	if (has(defaultValue, side)) {
+		spacing = defaultValue[side];
+	} else if (isString(defaultValue)) {
+		spacing = defaultValue;
+	}
+
+	return [side, spacing];
+};
 
 // returns visualizer attribute
 export const visualizerAttribute = ({ attrPrefix = "" } = {}) => {
@@ -30,6 +41,7 @@ export const visualizerAttribute = ({ attrPrefix = "" } = {}) => {
 export const paddingAttribute = ({
 	attrPrefix = "",
 	paddingSides = ["top", "right", "bottom", "left"],
+	defaultPadding = undefined,
 	breakpoints = false,
 	breakpointsBehavior = false,
 } = {}) => {
@@ -38,11 +50,11 @@ export const paddingAttribute = ({
 	}
 
 	const paddingAttribute = Object.fromEntries(
-		paddingSides.map((key) => [key, ""])
+		paddingSides.map((side) => getDefaultValue(defaultPadding, side))
 	);
 
 	return {
-		...utils.attributes({
+		...grid.attributes({
 			attrName: camelCase(`${attrPrefix}-padding`),
 			breakpoints,
 			breakpointsBehavior,
@@ -54,7 +66,11 @@ export const paddingAttribute = ({
 };
 
 // returns padding attributes controls
-export const paddingControl = ({ props, attrPrefix = "" }) => {
+export const paddingControl = ({
+	props,
+	attrPrefix = "",
+	defaultPadding = undefined,
+}) => {
 	const attrName = camelCase(`${attrPrefix}-padding`);
 	const visualizerAttrName = camelCase(`${attrPrefix}-padding-visualizer`);
 
@@ -68,7 +84,9 @@ export const paddingControl = ({ props, attrPrefix = "" }) => {
 	}
 
 	const sides = Object.keys(padding);
-	const defaultValues = Object.fromEntries(sides.map((side) => [side, ""]));
+	const defaultValues = Object.fromEntries(
+		sides.map((side) => getDefaultValue(defaultPadding, side))
+	);
 
 	return (
 		<BoxControl
@@ -98,6 +116,7 @@ export const paddingBreakpointsControl = ({
 	attrPrefix = "",
 	breakpointsBehaviorAttrPrefix = "",
 	label = sprintf(__("Padding (%s)", "beer-blocks"), breakpoint.toUpperCase()),
+	defaultPadding = undefined,
 }) => {
 	const attrName = camelCase(`${attrPrefix}-padding`);
 	const breakpointsBehaviorAttrName = camelCase(
@@ -116,7 +135,9 @@ export const paddingBreakpointsControl = ({
 	const sides = Object.keys(
 		Object.entries(padding).filter((value) => value[0] === breakpoint)[0][1]
 	);
-	const defaultValue = Object.fromEntries(sides.map((side) => [side, ""]));
+	const defaultValue = Object.fromEntries(
+		sides.map((side) => getDefaultValue(defaultPadding, side))
+	);
 
 	if (breakpointsBehavior[breakpoint] === grid.sameBehavior) {
 		return null;
@@ -222,6 +243,7 @@ export const paddingCssVars = ({ props, blockName, attrPrefix = "" }) => {
 export const marginAttribute = ({
 	attrPrefix = "",
 	marginSides = ["top", "right", "bottom", "left"],
+	defaultMargin = undefined,
 	breakpoints = false,
 	breakpointsBehavior = false,
 } = {}) => {
@@ -230,10 +252,10 @@ export const marginAttribute = ({
 	}
 
 	const marginAttribute = Object.fromEntries(
-		marginSides.map((key) => [key, ""])
+		marginSides.map((side) => getDefaultValue(defaultMargin, side))
 	);
 
-	return utils.attributes({
+	return grid.attributes({
 		attrName: camelCase(`${attrPrefix}-margin`),
 		breakpoints,
 		breakpointsBehavior,
@@ -243,7 +265,11 @@ export const marginAttribute = ({
 };
 
 // returns margin attributes controls
-export const marginControl = ({ props, attrPrefix = "" }) => {
+export const marginControl = ({
+	props,
+	attrPrefix = "",
+	defaultMargin = undefined,
+}) => {
 	const attrName = camelCase(`${attrPrefix}-margin`);
 	const {
 		setAttributes,
@@ -255,7 +281,9 @@ export const marginControl = ({ props, attrPrefix = "" }) => {
 	}
 
 	const sides = Object.keys(margin);
-	const defaultValues = Object.fromEntries(sides.map((side) => [side, ""]));
+	const defaultValues = Object.fromEntries(
+		sides.map((side) => getDefaultValue(defaultMargin, side))
+	);
 
 	return (
 		<BoxControl
@@ -277,6 +305,7 @@ export const marginBreakpointsControl = ({
 	attrPrefix = "",
 	breakpointsBehaviorAttrPrefix = "",
 	label = sprintf(__("Margin (%s)", "beer-blocks"), breakpoint.toUpperCase()),
+	defaultMargin = undefined,
 }) => {
 	const attrName = camelCase(`${attrPrefix}-margin`);
 	const breakpointsBehaviorAttrName = camelCase(
@@ -294,7 +323,10 @@ export const marginBreakpointsControl = ({
 	const sides = Object.keys(
 		Object.entries(margin).filter((value) => value[0] === breakpoint)[0][1]
 	);
-	const defaultValue = Object.fromEntries(sides.map((side) => [side, ""]));
+
+	const defaultValue = Object.fromEntries(
+		sides.map((side) => getDefaultValue(defaultMargin, side))
+	);
 
 	if (breakpointsBehavior[breakpoint] === grid.sameBehavior) {
 		return null;
@@ -391,18 +423,22 @@ export const attributes = ({
 	attrPrefix = "",
 	paddingSides = ["top", "right", "bottom", "left"],
 	marginSides = ["top", "right", "bottom", "left"],
+	defaultPadding = undefined,
+	defaultMargin = undefined,
 	breakpoints = false,
 	breakpointsBehaviorAttrPrefix = "spacing",
 } = {}) => ({
 	...paddingAttribute({
 		attrPrefix,
 		paddingSides,
+		defaultPadding,
 		breakpoints,
 		breakpointsBehavior: false,
 	}),
 	...marginAttribute({
 		attrPrefix,
 		marginSides,
+		defaultMargin,
 		breakpoints,
 		breakpointsBehavior: false,
 	}),
@@ -424,14 +460,16 @@ export const controls = ({
 	props,
 	initialOpen = false,
 	attrPrefix = "",
+	panelBody = true,
 	title = __("Spacing", "beer-blocks"),
-}) => {
-	return (
+}) =>
+	panelBody ? (
 		<PanelBody title={title} initialOpen={initialOpen}>
 			{innerControls(props, attrPrefix)}
 		</PanelBody>
+	) : (
+		innerControls(props, attrPrefix)
 	);
-};
 
 // returns controls for margin and padding attributes with breakpoints
 export const breakpointsControls = ({

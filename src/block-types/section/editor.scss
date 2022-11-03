@@ -1,9 +1,3 @@
-.wp-block-beer-blocks-section {
-	&.is-selected {
-		border: 1px dotted #035cff;
-	}
+@import "./../../mixins/blocks/section";
 
-	&.has-child-selected {
-		border: 1px dotted #ff9f50;
-	}
-}
+@include section-block-editor-rules;

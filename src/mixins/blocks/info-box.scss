@@ -1,0 +1,45 @@
+@import "./../helpers/spacing";
+
+@mixin info-box-block-rules() {
+	.wp-block-beer-blocks-info-box {
+		@include paddingRules("info-box");
+		@include marginRules("info-box");
+
+		@include media-breakpoint-up(sm) {
+			@include paddingRules("info-box", "sm");
+			@include marginRules("info-box", "sm");
+		}
+
+		@include media-breakpoint-up(md) {
+			@include paddingRules("info-box", "md");
+			@include marginRules("info-box", "md");
+		}
+
+		@include media-breakpoint-up(lg) {
+			@include paddingRules("info-box", "lg");
+			@include marginRules("info-box", "lg");
+		}
+
+		@include media-breakpoint-up(xl) {
+			@include paddingRules("info-box", "xl");
+			@include marginRules("info-box", "xl");
+		}
+
+		@include media-breakpoint-up(xxl) {
+			@include paddingRules("info-box", "xxl");
+			@include marginRules("info-box", "xxl");
+		}
+	}
+}
+
+@mixin info-box-block-editor-rules() {
+	.wp-block-beer-blocks-info-box {
+		&.is-selected {
+			border: 1px dotted #035cff;
+		}
+
+		&.has-child-selected {
+			border: 1px dotted #ff9f50;
+		}
+	}
+}

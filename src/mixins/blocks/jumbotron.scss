@@ -1,0 +1,64 @@
+@import "./../helpers/spacing";
+
+@mixin jumbotron-block-rules() {
+	.wp-block-beer-blocks-jumbotron {
+		@include paddingRules(
+			"jumbotron",
+			$defaultValues: $jumbotronBlockDefaultPaddingXs
+		);
+		@include marginRules("jumbotron");
+
+		@include media-breakpoint-up(sm) {
+			@include paddingRules(
+				"jumbotron",
+				"sm",
+				$defaultValues: $jumbotronBlockDefaultPadding
+			);
+			@include marginRules("jumbotron", "sm");
+		}
+
+		@include media-breakpoint-up(md) {
+			@include paddingRules(
+				"jumbotron",
+				"md",
+				$defaultValues: $jumbotronBlockDefaultPadding
+			);
+			@include marginRules("jumbotron", "md");
+		}
+
+		@include media-breakpoint-up(lg) {
+			@include paddingRules(
+				"jumbotron",
+				"lg",
+				$defaultValues: $jumbotronBlockDefaultPadding
+			);
+			@include marginRules("jumbotron", "lg");
+		}
+
+		@include media-breakpoint-up(xl) {
+			@include paddingRules(
+				"jumbotron",
+				"xl",
+				$defaultValues: $jumbotronBlockDefaultPadding
+			);
+			@include marginRules("jumbotron", "xl");
+		}
+
+		@include media-breakpoint-up(xxl) {
+			@include paddingRules(
+				"jumbotron",
+				"xxl",
+				$defaultValues: $jumbotronBlockDefaultPadding
+			);
+			@include marginRules("jumbotron", "xxl");
+		}
+	}
+}
+
+@mixin jumbotron-block-editor-rules() {
+	.wp-block-beer-blocks-jumbotron {
+		&.is-selected {
+			border: 1px dotted #035cff;
+		}
+	}
+}

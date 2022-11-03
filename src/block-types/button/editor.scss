@@ -1,7 +1,3 @@
-@import "./../../helpers";
+@import "./../../mixins/blocks/button";
 
-// Remove underline link decoration on a.btn elements
-.wp-block-beer-blocks-button {
-	@include editorDefaultMargins(0);
-	text-decoration: none;
-}
+@include button-block-editor-rules;

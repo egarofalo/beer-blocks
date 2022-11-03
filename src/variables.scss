@@ -1,10 +1,21 @@
+// Bootstrap variables and mixins
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
 // Default blocks vertical margin in the editor view
-$default-blocks-vertical-margin: 20px;
+$defaultBlocksVerticalMargin: 20px;
 
 // Default typography rules values
 $defaultTypographyValues: (
 	fontSize: $font-size-base,
 	lineHeight: $line-height-base,
+);
+
+// Default button typography rules values
+$defaultButtonTypographyValues: (
+	fontSize: $input-btn-font-size,
+	lineHeight: $input-btn-line-height,
 );
 
 // Default headers typography rules values
@@ -35,28 +46,6 @@ $headersDefaultTypographyValues: (
 	),
 );
 
-// Padding sides fused by spacing helper
-$paddingSides: (top, right, bottom, left);
-
-// Default padding blocks values
-$defaultPaddingValues: (
-	top: 0,
-	right: 0,
-	bottom: 0,
-	left: 0,
-);
-
-// Margins sides used by spacing helper
-$marginSides: (top, right, bottom, left);
-
-// Default margin blocks values
-$defaultMarginValues: (
-	top: $default-blocks-vertical-margin,
-	right: 0,
-	bottom: $default-blocks-vertical-margin,
-	left: 0,
-);
-
 // Default padding for Alert block type
 $alertBlockDefaultPadding: (
 	top: $alert-padding-y,
@@ -79,4 +68,26 @@ $jumbotronBlockDefaultPaddingXs: (
 	right: $jumbotron-padding,
 	bottom: $jumbotron-padding * 0.5,
 	left: $jumbotron-padding,
+);
+
+// Button block type default padding
+$buttonDefaultPadding: (
+	top: $btn-padding-y,
+	right: $btn-padding-x,
+	bottom: $btn-padding-y,
+	left: $btn-padding-x,
+);
+
+// Default colors
+$defaultColors: (
+	color: $body-color,
+	background: transparent,
+	borderColor: transparent,
+);
+
+// Default border button
+$defaultBorderButton: (
+	style: "solid",
+	color: $gray-900,
+	width: "2px",
 );

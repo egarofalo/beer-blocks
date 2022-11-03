@@ -1,9 +1,3 @@
-@import "./../../helpers";
+@import "./../../mixins/blocks/tabs";
 
-.wp-block-beer-blocks-tabs {
-	@include editorDefaultMargins;
-
-	&.is-selected {
-		border: 1px dotted #035cff;
-	}
-}
+@include tabs-block-editor-rules;

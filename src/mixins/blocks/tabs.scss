@@ -1,0 +1,49 @@
+@import "./../helpers/typography";
+@import "./../helpers/spacing";
+@import "./../helpers/colors";
+
+@mixin tabs-block-rules() {
+	.wp-block-beer-blocks-tabs {
+		.nav.nav-pills {
+			& > .nav-item {
+				& > .nav-link {
+					@include typographyRules("tabs", $attrPrefix: "tab");
+					@include colorsRules(
+						"tabs",
+						$statuses: ("mouseOver", "active", "focus")
+					);
+
+					@include media-breakpoint-up(sm) {
+						@include typographyRules("paragraph", "sm", "tab");
+					}
+
+					@include media-breakpoint-up(md) {
+						@include typographyRules("paragraph", "md", "tab");
+					}
+
+					@include media-breakpoint-up(lg) {
+						@include typographyRules("paragraph", "lg", "tab");
+					}
+
+					@include media-breakpoint-up(xl) {
+						@include typographyRules("paragraph", "xl", "tab");
+					}
+
+					@include media-breakpoint-up(xxl) {
+						@include typographyRules("paragraph", "xxl", "tab");
+					}
+				}
+			}
+		}
+	}
+}
+
+@mixin tabs-block-editor-rules() {
+	.wp-block-beer-blocks-tabs {
+		@include blockDefaultMargins(0);
+
+		&.is-selected {
+			border: 1px dotted #035cff;
+		}
+	}
+}

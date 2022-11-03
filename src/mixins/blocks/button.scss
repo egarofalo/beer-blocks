@@ -1,0 +1,164 @@
+@import "./../helpers/spacing";
+@import "./../helpers/typography";
+@import "./../helpers/colors";
+@import "./../helpers/border";
+
+@mixin button-block-rules() {
+	.wp-block-beer-blocks-button {
+		@include marginRules("button");
+
+		@include media-breakpoint-up(sm) {
+			@include marginRules("button", "sm");
+		}
+
+		@include media-breakpoint-up(md) {
+			@include marginRules("button", "md");
+		}
+
+		@include media-breakpoint-up(lg) {
+			@include marginRules("button", "lg");
+		}
+
+		@include media-breakpoint-up(xl) {
+			@include marginRules("button", "xl");
+		}
+
+		@include media-breakpoint-up(xxl) {
+			@include marginRules("button", "xxl");
+		}
+
+		& > a {
+			text-decoration: none;
+			@include paddingRules("button", $defaultValues: $buttonDefaultPadding);
+
+			@include media-breakpoint-up(sm) {
+				@include paddingRules(
+					"button",
+					"sm",
+					$defaultValues: $buttonDefaultPadding
+				);
+			}
+
+			@include media-breakpoint-up(md) {
+				@include paddingRules(
+					"button",
+					"md",
+					$defaultValues: $buttonDefaultPadding
+				);
+			}
+
+			@include media-breakpoint-up(lg) {
+				@include paddingRules(
+					"button",
+					"lg",
+					$defaultValues: $buttonDefaultPadding
+				);
+			}
+
+			@include media-breakpoint-up(xl) {
+				@include paddingRules(
+					"button",
+					"xl",
+					$defaultValues: $buttonDefaultPadding
+				);
+			}
+
+			@include media-breakpoint-up(xxl) {
+				@include paddingRules(
+					"button",
+					"xxl",
+					$defaultValues: $buttonDefaultPadding
+				);
+			}
+
+			&.wp-beer-blocks-btn-custom-styles {
+				@include borderRules("button", $borderDefaults: $defaultBorderButton);
+				@include typographyRules(
+					"button",
+					"xs",
+					$defaultValues: $defaultButtonTypographyValues
+				);
+				@include colorsRules(
+					"button",
+					$statuses: ("mouseOver", "active", "focus")
+				);
+
+				@include media-breakpoint-up(sm) {
+					@include typographyRules(
+						"button",
+						"sm",
+						$defaultValues: $defaultButtonTypographyValues
+					);
+				}
+
+				@include media-breakpoint-up(md) {
+					@include typographyRules(
+						"button",
+						"md",
+						$defaultValues: $defaultButtonTypographyValues
+					);
+				}
+
+				@include media-breakpoint-up(lg) {
+					@include typographyRules(
+						"button",
+						"lg",
+						$defaultValues: $defaultButtonTypographyValues
+					);
+				}
+
+				@include media-breakpoint-up(xl) {
+					@include typographyRules(
+						"button",
+						"xl",
+						$defaultValues: $defaultButtonTypographyValues
+					);
+				}
+
+				@include media-breakpoint-up(xxl) {
+					@include typographyRules(
+						"button",
+						"xxl",
+						$defaultValues: $defaultButtonTypographyValues
+					);
+				}
+			}
+		}
+	}
+}
+
+@mixin button-block-editor-rules() {
+	.wp-block-beer-blocks-button {
+		&.is-selected {
+			border: 1px dotted #035cff;
+		}
+
+		& > a {
+			box-sizing: border-box;
+		}
+
+		.editor-styles-wrapper &.wp-block {
+			@include horizontalMarginRules("button");
+
+			@include media-breakpoint-up(sm) {
+				@include horizontalMarginRules("button", "sm");
+			}
+
+			@include media-breakpoint-up(md) {
+				@include horizontalMarginRules("button", "md");
+			}
+
+			@include media-breakpoint-up(lg) {
+				@include horizontalMarginRules("button", "lg");
+			}
+
+			@include media-breakpoint-up(xl) {
+				@include horizontalMarginRules("button", "xl");
+			}
+
+			@include media-breakpoint-up(xxl) {
+				@include horizontalMarginRules("button", "xxl");
+			}
+		}
+	}
+}

@@ -1,31 +1,3 @@
-@import "./../../helpers";
+@import "./../../mixins/blocks/grid";
 
-.wp-block-beer-blocks-grid {
-	@include paddingRules("grid");
-	@include marginRules("grid");
-
-	@include media-breakpoint-up(sm) {
-		@include paddingRules("grid", "sm");
-		@include marginRules("grid", "sm");
-	}
-
-	@include media-breakpoint-up(md) {
-		@include paddingRules("grid", "md");
-		@include marginRules("grid", "md");
-	}
-
-	@include media-breakpoint-up(lg) {
-		@include paddingRules("grid", "lg");
-		@include marginRules("grid", "lg");
-	}
-
-	@include media-breakpoint-up(xl) {
-		@include paddingRules("grid", "xl");
-		@include marginRules("grid", "xl");
-	}
-
-	@include media-breakpoint-up(xxl) {
-		@include paddingRules("grid", "xxl");
-		@include marginRules("grid", "xxl");
-	}
-}
+@include grid-block-rules;

@@ -32,7 +32,7 @@ const save = (props) => {
 				blockName: "accordion-item",
 				breakpoints: true,
 			}),
-			...border.styles(props.attributes),
+			...border.cssVars({ props, blockName: "accordion-item" }),
 		},
 	});
 
@@ -44,9 +44,13 @@ const save = (props) => {
 				className="card-header"
 				id={headingId}
 				style={{
-					backgroundColor: headingBackground,
 					padding: 0,
-					...border.styles(props.attributes, "heading"),
+					...(headingBackground ? { backgroundColor: headingBackground } : {}),
+					...border.cssVars({
+						props,
+						blockName: "accordion-item",
+						attrPrefix: "heading",
+					}),
 				}}
 			>
 				<HeadingTag style={{ margin: 0, padding: 0 }}>
@@ -92,7 +96,11 @@ const save = (props) => {
 					className="card-body"
 					style={{
 						...spacing.styles(props, "body"),
-						...border.styles(props.attributes, "body"),
+						...border.cssVars({
+							props,
+							attrPrefix: "body",
+							blockName: "accordion-item",
+						}),
 					}}
 				>
 					<InnerBlocks.Content />

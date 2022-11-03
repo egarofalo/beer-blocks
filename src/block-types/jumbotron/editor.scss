@@ -1,5 +1,3 @@
-.wp-block-beer-blocks-jumbotron {
-	&.is-selected {
-		border: 1px dotted #035cff;
-	}
-}
+@import "./../../mixins/blocks/jumbotron";
+
+@include jumbotron-block-editor-rules;

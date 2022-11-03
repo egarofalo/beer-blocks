@@ -3,14 +3,12 @@ import {
 	useBlockProps,
 	InspectorControls,
 	BlockControls,
-	BlockAlignmentToolbar,
 } from "@wordpress/block-editor";
 import {
 	PanelBody,
-	__experimentalText as Text,
 	__experimentalDivider as Divider,
 	ColorPalette,
-	ColorIndicator,
+	BaseControl,
 	RadioControl,
 } from "@wordpress/components";
 import blockAlignment from "./../../helpers/block-alignment";
@@ -20,7 +18,7 @@ import dimension from "./../../helpers/dimension";
 
 const edit = (props) => {
 	const {
-		attributes: { color, align, triangleBackground, triangleDirection },
+		attributes: { color, triangleBackground, triangleDirection },
 		setAttributes,
 	} = props;
 
@@ -39,7 +37,7 @@ const edit = (props) => {
 				blockName: "separator",
 			}),
 			"--wp-beer-blocks-separator-border-color": color,
-			...blockAlignment.styles(align),
+			...blockAlignment.styles(props),
 		},
 	});
 
@@ -56,27 +54,13 @@ const edit = (props) => {
 				</PanelBody>
 
 				<PanelBody title={__("Color", "beer-blocks")}>
-					<Text
-						as="label"
-						variant="label"
-						style={{
-							marginBottom: "10px",
-							display: "block",
-							fontSize: "unset",
-							fontWeight: "unset",
-							display: "flex",
-							alignItems: "center",
-						}}
-					>
-						{__("Background color", "beer-blocks")}{" "}
-						<ColorIndicator colorValue={color} />
-					</Text>
-
-					<ColorPalette
-						colors={variants}
-						value={color}
-						onChange={(color) => setAttributes({ color })}
-					/>
+					<BaseControl label={__("Background color", "beer-blocks")}>
+						<ColorPalette
+							colors={variants}
+							value={color}
+							onChange={(color) => setAttributes({ color })}
+						/>
+					</BaseControl>
 				</PanelBody>
 
 				<PanelBody title={__("Triangle", "beer-blocks")}>
@@ -111,38 +95,19 @@ const edit = (props) => {
 						}
 					/>
 
-					<Text
-						as="label"
-						variant="label"
-						style={{
-							marginBottom: "10px",
-							display: "block",
-							fontSize: "unset",
-							fontWeight: "unset",
-							display: "flex",
-							alignItems: "center",
-						}}
-					>
-						{__("Background color", "beer-blocks")}{" "}
-						<ColorIndicator colorValue={triangleBackground} />
-					</Text>
-
-					<ColorPalette
-						colors={variants}
-						value={color}
-						onChange={(color) => setAttributes({ triangleBackground: color })}
-					/>
+					<BaseControl label={__("Background color", "beer-blocks")}>
+						<ColorPalette
+							colors={variants}
+							value={triangleBackground}
+							onChange={(color) => setAttributes({ triangleBackground: color })}
+						/>
+					</BaseControl>
 				</PanelBody>
 
 				{spacing.breakpointsControls({ props })}
 			</InspectorControls>
 
-			<BlockControls>
-				<BlockAlignmentToolbar
-					value={align}
-					onChange={(align) => setAttributes({ align })}
-				/>
-			</BlockControls>
+			<BlockControls>{blockAlignment.toolbar({ props })}</BlockControls>
 
 			<div {...blockProps}>
 				<div

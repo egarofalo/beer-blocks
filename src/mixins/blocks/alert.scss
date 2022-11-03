@@ -1,0 +1,65 @@
+@import "./../helpers/spacing";
+
+@mixin alert-block-rules() {
+	.wp-block-beer-blocks-alert.alert {
+		@include paddingRules(
+			"alert",
+			"xs",
+			$defaultValues: $alertBlockDefaultPadding
+		);
+		@include marginRules("alert");
+
+		@include media-breakpoint-up(sm) {
+			@include paddingRules(
+				"alert",
+				"sm",
+				$defaultValues: $alertBlockDefaultPadding
+			);
+			@include marginRules("alert", "sm");
+		}
+
+		@include media-breakpoint-up(md) {
+			@include paddingRules(
+				"alert",
+				"md",
+				$defaultValues: $alertBlockDefaultPadding
+			);
+			@include marginRules("alert", "md");
+		}
+
+		@include media-breakpoint-up(lg) {
+			@include paddingRules(
+				"alert",
+				"lg",
+				$defaultValues: $alertBlockDefaultPadding
+			);
+			@include marginRules("alert", "lg");
+		}
+
+		@include media-breakpoint-up(xl) {
+			@include paddingRules(
+				"alert",
+				"xl",
+				$defaultValues: $alertBlockDefaultPadding
+			);
+			@include marginRules("alert", "xl");
+		}
+
+		@include media-breakpoint-up(xxl) {
+			@include paddingRules(
+				"alert",
+				"xxl",
+				$defaultValues: $alertBlockDefaultPadding
+			);
+			@include marginRules("alert", "xxl");
+		}
+	}
+}
+
+@mixin alert-block-editor-rules() {
+	.wp-block-beer-blocks-alert.alert {
+		&.is-selected {
+			border: 1px dotted #035cff !important;
+		}
+	}
+}

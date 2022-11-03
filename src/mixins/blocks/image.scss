@@ -1,0 +1,66 @@
+@import "./../helpers/spacing";
+@import "./../helpers/dimension";
+
+@mixin image-block-rules() {
+	.wp-block-beer-blocks-image {
+		@include verticalMarginRules("image");
+
+		@include media-breakpoint-up(sm) {
+			@include verticalMarginRules("image", "sm");
+		}
+
+		@include media-breakpoint-up(md) {
+			@include verticalMarginRules("image", "md");
+		}
+
+		@include media-breakpoint-up(lg) {
+			@include verticalMarginRules("image", "lg");
+		}
+
+		@include media-breakpoint-up(xl) {
+			@include verticalMarginRules("image", "xl");
+		}
+
+		@include media-breakpoint-up(xxl) {
+			@include verticalMarginRules("image", "xxl");
+		}
+
+		& > img {
+			@include widthRules("image");
+			@include heightRules("image");
+
+			@include media-breakpoint-up(sm) {
+				@include widthRules("image", "sm");
+				@include heightRules("image", "sm");
+			}
+
+			@include media-breakpoint-up(md) {
+				@include widthRules("image", "md");
+				@include heightRules("image", "md");
+			}
+
+			@include media-breakpoint-up(lg) {
+				@include widthRules("image", "lg");
+				@include heightRules("image", "lg");
+			}
+
+			@include media-breakpoint-up(xl) {
+				@include widthRules("image", "xl");
+				@include heightRules("image", "xl");
+			}
+
+			@include media-breakpoint-up(xxl) {
+				@include widthRules("image", "xxl");
+				@include heightRules("image", "xxl");
+			}
+		}
+	}
+}
+
+@mixin image-block-editor-rules() {
+	.wp-block-beer-blocks-image {
+		&.is-selected {
+			border: 1px dotted #035cff;
+		}
+	}
+}

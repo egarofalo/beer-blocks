@@ -1,0 +1,88 @@
+@import "./../helpers/spacing";
+
+@mixin container-block-rules() {
+	.wp-block-beer-blocks-container {
+		@include verticalPaddingRules("container");
+		@include verticalMarginRules("container");
+
+		@include media-breakpoint-up(sm) {
+			@include verticalPaddingRules("container", "sm");
+			@include verticalMarginRules("container", "sm");
+		}
+
+		@include media-breakpoint-up(md) {
+			@include verticalPaddingRules("container", "md");
+			@include verticalMarginRules("container", "md");
+		}
+
+		@include media-breakpoint-up(lg) {
+			@include verticalPaddingRules("container", "lg");
+			@include verticalMarginRules("container", "lg");
+		}
+
+		@include media-breakpoint-up(xl) {
+			@include verticalPaddingRules("container", "xl");
+			@include verticalMarginRules("container", "xl");
+		}
+
+		@include media-breakpoint-up(xxl) {
+			@include verticalPaddingRules("container", "xxl");
+			@include verticalMarginRules("container", "xxl");
+		}
+	}
+}
+
+@mixin container-block-editor-rules() {
+	.wp-block-beer-blocks-container {
+		box-sizing: border-box;
+
+		&.is-selected {
+			border: 1px dotted #035cff;
+
+			& > .button-block-appender__container {
+				&.has-child-blocks {
+					display: block;
+				}
+			}
+
+			& > .wp-block-beer-blocks-row {
+				& > .button-block-appender__container {
+					display: block;
+				}
+			}
+		}
+
+		&.has-child-selected {
+			border: 1px dotted #ff9f50;
+
+			& > .button-block-appender__container {
+				&.has-child-blocks {
+					display: block;
+				}
+			}
+
+			& > .wp-block-beer-blocks-row {
+				& > .button-block-appender__container {
+					display: block;
+				}
+			}
+		}
+
+		& > .button-block-appender__container {
+			margin-top: 8px;
+			margin-bottom: 8px;
+			text-align: right;
+
+			&.has-child-blocks {
+				display: none;
+			}
+
+			& > .block-editor-inserter,
+			& > .block-editor-button-block-appender {
+				max-width: 60px;
+				width: 100%;
+				display: inline-block;
+			}
+		}
+	}
+}

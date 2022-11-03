@@ -18,7 +18,7 @@ import { registerBlockType } from "@wordpress/blocks";
  *
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
-// import "./style.scss";
+import "./style.scss";
 
 /**
  * Styles applied only in the editor.
@@ -30,6 +30,11 @@ import "./editor.scss";
  */
 import edit from "./edit";
 import save from "./save";
+import typography from "./../../helpers/typography";
+import border from "./../../helpers/border";
+import borderRadius from "./../../helpers/border-radius";
+import spacing from "./../../helpers/spacing";
+import transition from "./../../helpers/transition";
 
 /**
  * Block Icon.
@@ -69,6 +74,10 @@ registerBlockType("beer-blocks/button", {
 			type: "string",
 			default: "noopener",
 		},
+		align: {
+			type: "string",
+			default: "left",
+		},
 		variant: {
 			type: "string",
 			default: "primary",
@@ -85,6 +94,21 @@ registerBlockType("beer-blocks/button", {
 			type: "boolean",
 			default: false,
 		},
+		...typography.attributes({ breakpoints: true }),
+		...colors.attributes({
+			mouseOverColorAttr: true,
+			activeColorAttr: true,
+			focusColorAttr: true,
+			mouseOverBackgroundAttr: true,
+			activeBackgroundAttr: true,
+			focusBackgroundAttr: true,
+			mouseOverBorderColorAttr: true,
+			activeBorderColorAttr: true,
+			transitionAttr: true,
+		}),
+		...border.attributes(),
+		...borderRadius.attributes({ corner: "all" }),
+		...spacing.attributes({ breakpoints: true }),
 	},
 	edit,
 	save,

@@ -8,12 +8,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2021-08-17T13:56:20+00:00\n"
-"PO-Revision-Date: 2022-05-05 16:28+0000\n"
+"PO-Revision-Date: 2022-08-14 23:58+0000\n"
 "Language: es_ES\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: beer-blocks\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Loco-Version: 2.5.8; wp-5.9.3"
+"X-Loco-Version: 2.5.8; wp-6.0.1"
 
 #: build/accordion-item/index.js:1 build/container/index.js:1
 #: build/tab-pane/index.js:1 build/tabs/index.js:1 src/helpers/border.js:24
@@ -985,7 +985,7 @@ msgstr "Seleccione un tipo de alerta"
 #: build/accordion-item/index.js:1 build/tab-pane/index.js:1
 #: build/tabs/index.js:1 src/helpers/border.js:226
 msgid "Select border side (%s)"
-msgstr "Seleccione el lado del borde"
+msgstr "Seleccione el lado del borde (%s)"
 
 #: build/tab-pane/index.js:1 build/tabs/index.js:1
 #: src/helpers/border-radius.js:128

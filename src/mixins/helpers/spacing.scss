@@ -1,0 +1,174 @@
+@use "sass:map";
+
+// Plugin custom variables and functions
+@import "./../../variables";
+@import "./../../functions";
+
+// Default blocks vertical margins
+@mixin blockDefaultMargins($margin: $defaultBlocksVerticalMargin) {
+	margin-top: $margin;
+	margin-bottom: $margin;
+}
+
+// Get padding-{side} rules for custom breakpoint
+@mixin paddingRules(
+	$blockName,
+	$breakpointName: "",
+	$attrPrefix: "",
+	$defaultValues: (top: 0, right: 0, bottom: 0, left: 0),
+	$sides: (top, right, bottom, left)
+) {
+	$varPrefix: --wp-beer-blocks-#{$blockName}-#{camelize(
+			"#{$attrPrefix}-padding"
+		)};
+
+	@each $side in $sides {
+		@if $breakpointName == "" or $breakpointName == "xs" {
+			padding-#{$side}: var(
+				#{$varPrefix + capitalize($side)},
+				map.get($defaultValues, $side)
+			);
+		} @else {
+			padding-#{$side}: var(
+				#{$varPrefix + capitalize($side)}-#{$breakpointName},
+				map.get($defaultValues, $side)
+			);
+		}
+	}
+}
+
+// Get margin-{side} rules for custom breakpoint
+@mixin marginRules(
+	$blockName,
+	$breakpointName: "",
+	$attrPrefix: "",
+	$defaultValues: (
+		top: $defaultBlocksVerticalMargin,
+		right: 0,
+		bottom: $defaultBlocksVerticalMargin,
+		left: 0
+	),
+	$sides: (top, right, bottom, left)
+) {
+	$varPrefix: --wp-beer-blocks-#{$blockName}-#{camelize(
+			"#{$attrPrefix}-margin"
+		)};
+
+	@each $side in $sides {
+		@if $breakpointName == "" or $breakpointName == "xs" {
+			margin-#{$side}: var(
+				#{$varPrefix + capitalize($side)},
+				map.get($defaultValues, $side)
+			);
+		} @else {
+			margin-#{$side}: var(
+				#{$varPrefix + capitalize($side)}-#{$breakpointName},
+				map.get($defaultValues, $side)
+			);
+		}
+	}
+}
+
+// Get vertical paddings rules for custom breakpoint
+@mixin verticalPaddingRules(
+	$blockName,
+	$breakpointName: "",
+	$attrPrefix: "",
+	$defaultValues: (top: 0, bottom: 0)
+) {
+	$varPrefix: --wp-beer-blocks-#{$blockName}-#{camelize(
+			"#{$attrPrefix}-padding"
+		)};
+
+	@each $side in ("top", "bottom") {
+		@if $breakpointName == "" or $breakpointName == "xs" {
+			padding-#{$side}: var(
+				#{$varPrefix + capitalize($side)},
+				map.get($defaultValues, $side)
+			);
+		} @else {
+			padding-#{$side}: var(
+				#{$varPrefix + capitalize($side)}-#{$breakpointName},
+				map.get($defaultValues, $side)
+			);
+		}
+	}
+}
+
+// Get horizontal paddings rules for custom breakpoint
+@mixin horizontalPaddingRules(
+	$blockName,
+	$breakpointName: "",
+	$attrPrefix: "",
+	$defaultValues: (left: 0, right: 0)
+) {
+	$varPrefix: --wp-beer-blocks-#{$blockName}-#{camelize(
+			"#{$attrPrefix}-padding"
+		)};
+
+	@each $side in ("left", "right") {
+		@if $breakpointName == "" or $breakpointName == "xs" {
+			padding-#{$side}: var(
+				#{$varPrefix + capitalize($side)},
+				map.get($defaultValues, $side)
+			);
+		} @else {
+			padding-#{$side}: var(
+				#{$varPrefix + capitalize($side)}-#{$breakpointName},
+				map.get($defaultValues, $side)
+			);
+		}
+	}
+}
+
+// Get vertical margin rules for custom breakpoint
+@mixin verticalMarginRules(
+	$blockName,
+	$breakpointName: "",
+	$attrPrefix: "",
+	$defaultValues: (top: 20px, bottom: 20px)
+) {
+	$varPrefix: --wp-beer-blocks-#{$blockName}-#{camelize(
+			"#{$attrPrefix}-margin"
+		)};
+
+	@each $side in ("top", "bottom") {
+		@if $breakpointName == "" or $breakpointName == "xs" {
+			margin-#{$side}: var(
+				#{$varPrefix + capitalize($side)},
+				map.get($defaultValues, $side)
+			);
+		} @else {
+			margin-#{$side}: var(
+				#{$varPrefix + capitalize($side)}-#{$breakpointName},
+				map.get($defaultValues, $side)
+			);
+		}
+	}
+}
+
+// Get horizontal margin rules for custom breakpoints
+@mixin horizontalMarginRules(
+	$blockName,
+	$breakpointName: "",
+	$attrPrefix: "",
+	$defaultValues: (left: auto, right: auto)
+) {
+	$varPrefix: --wp-beer-blocks-#{$blockName}-#{camelize(
+			"#{$attrPrefix}-margin"
+		)};
+
+	@each $side in ("left", "right") {
+		@if $breakpointName == "" or $breakpointName == "xs" {
+			margin-#{$side}: var(
+				#{$varPrefix + capitalize($side)},
+				map.get($defaultValues, $side)
+			);
+		} @else {
+			margin-#{$side}: var(
+				#{$varPrefix + capitalize($side)}-#{$breakpointName},
+				map.get($defaultValues, $side)
+			);
+		}
+	}
+}

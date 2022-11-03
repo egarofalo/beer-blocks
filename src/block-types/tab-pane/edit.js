@@ -37,8 +37,8 @@ const edit = (props) => {
 
 	const blockProps = useBlockProps({
 		style: {
-			...border.styles(props.attributes),
-			...borderRadius.styles(props.attributes),
+			...border.styles(props),
+			...borderRadius.styles(props),
 			...spacing.styles(props),
 		},
 	});

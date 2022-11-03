@@ -1,0 +1,73 @@
+@import "./../helpers/spacing";
+@import "./../helpers/typography";
+
+@mixin header-block-rules() {
+	@include headersTypographyRulesAllBreakpoints("header");
+
+	.wp-block-beer-blocks-header {
+		@include paddingRules("header");
+		@include marginRules("header");
+
+		@include media-breakpoint-up(sm) {
+			@include paddingRules("header", "sm");
+			@include marginRules("header", "sm");
+		}
+
+		@include media-breakpoint-up(md) {
+			@include paddingRules("header", "md");
+			@include marginRules("header", "md");
+		}
+
+		@include media-breakpoint-up(lg) {
+			@include paddingRules("header", "lg");
+			@include marginRules("header", "lg");
+		}
+
+		@include media-breakpoint-up(xl) {
+			@include paddingRules("header", "xl");
+			@include marginRules("header", "xl");
+		}
+
+		@include media-breakpoint-up(xxl) {
+			@include paddingRules("header", "xxl");
+			@include marginRules("header", "xxl");
+		}
+	}
+}
+
+@mixin header-block-editor-rules() {
+	@include headersTypographyRulesAllBreakpoints(
+		"header",
+		$prefixRule: ".editor-styles-wrapper "
+	);
+
+	.wp-block-beer-blocks-header {
+		&.is-selected {
+			border: 1px dotted #035cff;
+		}
+
+		.editor-styles-wrapper &.wp-block {
+			@include marginRules("header");
+
+			@include media-breakpoint-up(sm) {
+				@include marginRules("header", "sm");
+			}
+
+			@include media-breakpoint-up(md) {
+				@include marginRules("header", "md");
+			}
+
+			@include media-breakpoint-up(lg) {
+				@include marginRules("header", "lg");
+			}
+
+			@include media-breakpoint-up(xl) {
+				@include marginRules("header", "xl");
+			}
+
+			@include media-breakpoint-up(xxl) {
+				@include marginRules("header", "xxl");
+			}
+		}
+	}
+}

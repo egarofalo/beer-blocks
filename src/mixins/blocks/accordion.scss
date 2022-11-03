@@ -1,0 +1,83 @@
+@import "./../helpers/spacing";
+
+@mixin accordion-block-rules() {
+	.wp-block-beer-blocks-accordion {
+		@include paddingRules("accordion");
+		@include marginRules("accordion");
+
+		@include media-breakpoint-up(sm) {
+			@include paddingRules("accordion", "sm");
+			@include marginRules("accordion", "sm");
+		}
+
+		@include media-breakpoint-up(md) {
+			@include paddingRules("accordion", "md");
+			@include marginRules("accordion", "md");
+		}
+
+		@include media-breakpoint-up(lg) {
+			@include paddingRules("accordion", "lg");
+			@include marginRules("accordion", "lg");
+		}
+
+		@include media-breakpoint-up(xl) {
+			@include paddingRules("accordion", "xl");
+			@include marginRules("accordion", "xl");
+		}
+
+		@include media-breakpoint-up(xxl) {
+			@include paddingRules("accordion", "xxl");
+			@include marginRules("accordion", "xxl");
+		}
+	}
+}
+
+@mixin accordion-block-editor-rules() {
+	.wp-block-beer-blocks-accordion {
+		&.is-selected {
+			border: 1px dotted #035cff !important;
+
+			& > .button-block-appender__container {
+				display: block;
+			}
+		}
+
+		&.has-child-selected {
+			border: 1px dotted #ff9f50 !important;
+
+			& > .button-block-appender__container {
+				display: block;
+			}
+		}
+
+		& > .button-block-appender__container {
+			display: none;
+			margin-top: 8px;
+			margin-bottom: 8px;
+		}
+
+		.editor-styles-wrapper &.wp-block {
+			@include horizontalMarginRules("accordion");
+
+			@include media-breakpoint-up(sm) {
+				@include horizontalMarginRules("accordion", "sm");
+			}
+
+			@include media-breakpoint-up(md) {
+				@include horizontalMarginRules("accordion", "md");
+			}
+
+			@include media-breakpoint-up(lg) {
+				@include horizontalMarginRules("accordion", "lg");
+			}
+
+			@include media-breakpoint-up(xl) {
+				@include horizontalMarginRules("accordion", "xl");
+			}
+
+			@include media-breakpoint-up(xxl) {
+				@include horizontalMarginRules("accordion", "xxl");
+			}
+		}
+	}
+}

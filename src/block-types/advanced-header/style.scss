@@ -1,31 +1,3 @@
-@import "./../../helpers";
+@import "./../../mixins/blocks/advanced-header";
 
-.wp-block-beer-blocks-advanced-header {
-	@include paddingRules("advanced-header");
-	@include marginRules("advanced-header");
-
-	@include media-breakpoint-up(sm) {
-		@include paddingRules("advanced-header", "sm");
-		@include marginRules("advanced-header", "sm");
-	}
-
-	@include media-breakpoint-up(md) {
-		@include paddingRules("advanced-header", "md");
-		@include marginRules("advanced-header", "md");
-	}
-
-	@include media-breakpoint-up(lg) {
-		@include paddingRules("advanced-header", "lg");
-		@include marginRules("advanced-header", "lg");
-	}
-
-	@include media-breakpoint-up(xl) {
-		@include paddingRules("advanced-header", "xl");
-		@include marginRules("advanced-header", "xl");
-	}
-
-	@include media-breakpoint-up(xxl) {
-		@include paddingRules("advanced-header", "xxl");
-		@include marginRules("advanced-header", "xxl");
-	}
-}
+@include advanced-header-block-rules;

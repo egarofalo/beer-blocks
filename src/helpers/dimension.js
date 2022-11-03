@@ -2,10 +2,11 @@ import { sprintf, __ } from "@wordpress/i18n";
 import {
 	RangeControl,
 	__experimentalUnitControl as UnitControl,
+	Disabled,
+	ToggleControl,
 } from "@wordpress/components";
 import { camelCase } from "lodash";
 import grid from "./grid";
-import utils from "./utils";
 import units from "./units";
 
 // return width block attributes with breakpoints
@@ -16,7 +17,7 @@ export const widthAttribute = ({
 	defaultValue = undefined,
 	type = "string",
 }) =>
-	utils.attributes({
+	grid.attributes({
 		attrName: camelCase(`${attrPrefix}-width`),
 		breakpoints,
 		breakpointsBehavior,
@@ -176,7 +177,7 @@ export const heightAttribute = ({
 	defaultValue = undefined,
 	type = "string",
 }) =>
-	utils.attributes({
+	grid.attributes({
 		attrName: camelCase(`${attrPrefix}-height`),
 		breakpoints,
 		breakpointBehavior,
@@ -212,7 +213,7 @@ export const heightControl = ({
 	return type === "number" ? (
 		<RangeControl
 			label={label}
-			value={width}
+			value={height}
 			onChange={change}
 			min={minHeight}
 			max={maxHeight}
@@ -221,7 +222,7 @@ export const heightControl = ({
 	) : (
 		<UnitControl
 			label={label}
-			value={width}
+			value={height}
 			onChange={change}
 			onUnitChange={unitChange}
 			units={units}
@@ -241,6 +242,13 @@ export const heightBreakpointsControl = ({
 	type = "number",
 	onChange = undefined,
 	onUnitChange = undefined,
+	includeAutoHeightControl = false,
+	autoHeightLabel = (breakpoint) =>
+		sprintf(
+			__("Set auto height (%s)", "beer-blocks"),
+			breakpoint.toUpperCase()
+		),
+	defaultHeight = undefined,
 }) => {
 	const attrName = camelCase(`${attrPrefix}-height`);
 	const breakpointsBehaviorAttrName = camelCase(
@@ -286,23 +294,64 @@ export const heightBreakpointsControl = ({
 	const unitChange =
 		onUnitChange === undefined ? (newUnit) => {} : onUnitChange;
 
-	return type === "number" ? (
-		<RangeControl
-			label={label}
-			value={height[breakpoint]}
-			onChange={change}
-			min={minHeight}
-			max={maxHeight}
-			step={1}
-		/>
+	const autoHeightControl = includeAutoHeightControl && (
+		<div style={{ marginTop: "20px" }}>
+			<ToggleControl
+				label={autoHeightLabel(breakpoint)}
+				checked={height[breakpoint] === "auto"}
+				onChange={() => {
+					const newHeight =
+						height[breakpoint] === "auto" ? defaultHeight : "auto";
+
+					setAttributes({
+						height: {
+							...height,
+							[breakpoint]: newHeight,
+							...(nextBreakpoints.length > 0
+								? Object.fromEntries(
+										nextBreakpoints.map((nextBreakpoint) => [
+											nextBreakpoint,
+											newHeight,
+										])
+								  )
+								: {}),
+						},
+					});
+				}}
+			/>
+		</div>
+	);
+
+	const heightControl =
+		type === "number" ? (
+			<RangeControl
+				label={label}
+				value={height[breakpoint]}
+				onChange={change}
+				min={minHeight}
+				max={maxHeight}
+				step={1}
+			/>
+		) : (
+			<UnitControl
+				label={label}
+				value={height[breakpoint]}
+				onChange={change}
+				onUnitChange={unitChange}
+				units={units}
+			/>
+		);
+
+	return height[breakpoint] === "auto" ? (
+		<>
+			<Disabled>{heightControl}</Disabled>
+			{autoHeightControl}
+		</>
 	) : (
-		<UnitControl
-			label={label}
-			value={height[breakpoint]}
-			onChange={change}
-			onUnitChange={unitChange}
-			units={units}
-		/>
+		<>
+			{heightControl}
+			{autoHeightControl}
+		</>
 	);
 };
 
@@ -371,6 +420,13 @@ export const breakpointsControls = ({
 	maxWidth = 500,
 	minHeight = 0,
 	maxHeight = 100,
+	includeAutoHeightControl = false,
+	autoHeightLabel = (breakpoint) =>
+		sprintf(
+			__("Set auto height (%s)", "beer-blocks"),
+			breakpoint.toUpperCase()
+		),
+	defaultHeight = undefined,
 	contentsBeforeWidthControl = (breakpoint) => null,
 	contentsAfterWidthControl = (breakpoint) => null,
 	contentsBeforeHeightControl = (breakpoint) => null,
@@ -420,6 +476,9 @@ export const breakpointsControls = ({
 					type: heightType,
 					minHeight,
 					maxHeight,
+					includeAutoHeightControl,
+					autoHeightLabel,
+					defaultHeight,
 				})}
 			{contentsAfterHeightControl(breakpoint)}
 		</>

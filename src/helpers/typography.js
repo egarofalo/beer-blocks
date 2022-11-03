@@ -6,31 +6,32 @@ import {
 	__experimentalDivider as Divider,
 	BaseControl,
 	RangeControl,
+	Disabled,
 } from "@wordpress/components";
 import Select from "react-select";
 import googleFonts from "./google-fonts.json";
 import safeFonts from "./safe-fonts.json";
 import { has as loHas, camelCase, kebabCase } from "lodash";
-import utils from "./utils";
 import grid from "./grid";
 import { only as unitsOnly } from "./units";
 
 // Font families list
 export const fontFamilies = [...safeFonts, ...googleFonts];
 
+// Default font size units
 export const defaultUnits = [
 	{ value: "px", label: "PX" },
 	{ value: "em", label: "EM" },
 	{ value: "rem", label: "REM" },
 ];
 
-// returns font size block attributes
+// returns font size block's attributes
 export const fontSizeAttribute = () => ({
 	type: "string",
 	default: "",
 });
 
-// returns font size block attribute with breakpoints
+// returns font size block's attribute with breakpoints
 export const fontSizeBreakpointsAttribute = ({
 	attrPrefix = "",
 	breakpoints = false,
@@ -38,7 +39,7 @@ export const fontSizeBreakpointsAttribute = ({
 	defaultValue = undefined,
 	type = "string",
 }) =>
-	utils.attributes({
+	grid.attributes({
 		attrName: camelCase(`${attrPrefix}-font-size`),
 		breakpoints,
 		breakpointsBehavior,
@@ -46,14 +47,14 @@ export const fontSizeBreakpointsAttribute = ({
 		type,
 	});
 
-// returns font size block attribute controls
+// returns font size block's attribute controls
 export const fontSizeControl = (props, fontSizeAttr = "fontSize") => {
 	const {
 		setAttributes,
-		attributes: { [fontSizeAttr]: fontSize },
+		attributes: { [fontSizeAttr]: fontSize = undefined },
 	} = props;
 
-	return (
+	return fontSize !== undefined ? (
 		<BaseControl>
 			<UnitControl
 				label={__("Font Size (%s)", "beer-blocks")}
@@ -67,7 +68,7 @@ export const fontSizeControl = (props, fontSizeAttr = "fontSize") => {
 				units={defaultUnits}
 			/>
 		</BaseControl>
-	);
+	) : null;
 };
 
 // returns controls for font size attribute with breakpoints
@@ -187,7 +188,7 @@ export const fontSizeCssVars = ({ props, blockName, attrPrefix = "" }) => {
 // returns font family block attributes
 export const fontFamilyAttribute = () => ({
 	type: "string",
-	default: "",
+	default: undefined,
 });
 
 const addGoogleFontToHead = (fontFamily) => {
@@ -295,7 +296,7 @@ export const fontFamilyStyles = (props, attrPrefix = "") => {
 
 export const fontWeightAttribute = () => ({
 	type: "number",
-	default: "",
+	default: undefined,
 });
 
 // returns font weight block attributes
@@ -333,7 +334,7 @@ export const fontWeightStyles = (props, attrPrefix = "") => {
 // returns line height block attributes
 export const lineHeightAttribute = () => ({
 	type: "number",
-	default: "",
+	default: undefined,
 });
 
 // returns line height block attribute with breakpoints
@@ -343,7 +344,7 @@ export const lineHeightBreakpointsAttribute = ({
 	breakpointsBehavior = false,
 	defaultValue = undefined,
 }) =>
-	utils.attributes({
+	grid.attributes({
 		attrName: camelCase(`${attrPrefix}-line-height`),
 		breakpoints,
 		breakpointsBehavior,
@@ -491,7 +492,7 @@ export const attributes = ({
 	includeFontFamilyAttr = true,
 	includeFontWeightAttr = true,
 } = {}) => ({
-	...utils.attributes({
+	...grid.attributes({
 		attrName: camelCase(`${attrPrefix}-font-size`),
 		breakpoints,
 		breakpointsBehavior: false,
@@ -499,7 +500,7 @@ export const attributes = ({
 		type: "string",
 	}),
 	...(includeLineHeightAttr
-		? utils.attributes({
+		? grid.attributes({
 				attrName: camelCase(`${attrPrefix}-line-height`),
 				breakpoints,
 				breakpointsBehavior: false,
@@ -535,13 +536,14 @@ export const controls = ({
 	attrPrefix = "",
 	panelBody = true,
 	title = __("Typography", "beer-blocks"),
+	disabled = false,
 }) => {
 	const attrFontSize = camelCase(`${attrPrefix}-font-size`);
 	const attrLineHeight = camelCase(`${attrPrefix}-line-height`);
 	const attrFontFamily = camelCase(`${attrPrefix}-font-family`);
 	const attrFontWeight = camelCase(`${attrPrefix}-font-weight`);
 
-	const result = (
+	let result = (
 		<>
 			{fontSizeControl(props, attrFontSize)}
 			{lineHeightControl(props, attrLineHeight)}
@@ -549,6 +551,10 @@ export const controls = ({
 			{fontWeightControl(props, attrFontWeight)}
 		</>
 	);
+
+	if (disabled) {
+		result = <Disabled>{result}</Disabled>;
+	}
 
 	return panelBody ? (
 		<PanelBody title={title} initialOpen={initialOpen}>
@@ -574,11 +580,12 @@ export const breakpointsControls = ({
 	includeLineHeightControl = true,
 	includeFontFamilyControl = true,
 	includeFontWeightControl = true,
+	disabled = false,
 }) => {
 	const attrFontSize = camelCase(`${attrPrefix}-font-size`);
 	const attrLineHeight = camelCase(`${attrPrefix}-line-height`);
 
-	const result = (
+	let result = (
 		<>
 			{grid.getBreakpointsTabs((breakpoint) => (
 				<>
@@ -619,6 +626,10 @@ export const breakpointsControls = ({
 			{includeFontWeightControl && fontWeightControl(props, attrPrefix)}
 		</>
 	);
+
+	if (disabled) {
+		result = <Disabled>{result}</Disabled>;
+	}
 
 	return panelBody ? (
 		<PanelBody title={title} initialOpen={initialOpen}>

@@ -1,0 +1,25 @@
+@import "./../helpers/spacing";
+
+@mixin tab-pane-block-rules() {
+	.wp-block-beer-blocks-tab-pane {
+		@include blockDefaultMargins(0);
+	}
+}
+
+@mixin tab-pane-block-editor-rules() {
+	.wp-block-beer-blocks-tab-pane {
+		@include blockDefaultMargins(0);
+
+		&.is-selected {
+			border: 1px dotted #035cff;
+		}
+
+		&.has-child-selected {
+			border: 1px dotted #ff9f50;
+		}
+
+		& > .button-block-appender__container {
+			margin-top: 8px;
+		}
+	}
+}

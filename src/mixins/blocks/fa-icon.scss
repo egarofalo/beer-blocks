@@ -1,0 +1,90 @@
+@import "./../helpers/typography";
+@import "./../helpers/dimension";
+@import "./../helpers/spacing";
+
+@mixin fa-icon-block-rules() {
+	.wp-block-beer-blocks-fa-icon {
+		@include typographyRules("fa-icon", "xs", "icon");
+
+		@include media-breakpoint-up(sm) {
+			@include typographyRules("fa-icon", "sm", "icon");
+		}
+
+		@include media-breakpoint-up(md) {
+			@include typographyRules("fa-icon", "md", "icon");
+		}
+
+		@include media-breakpoint-up(lg) {
+			@include typographyRules("fa-icon", "lg", "icon");
+		}
+
+		@include media-breakpoint-up(xl) {
+			@include typographyRules("fa-icon", "xl", "icon");
+		}
+
+		@include media-breakpoint-up(xxl) {
+			@include typographyRules("fa-icon", "xxl", "icon");
+		}
+	}
+
+	.wp-block-beer-blocks-fa-icon-image {
+		@include widthRules("fa-icon", "xs", "img");
+		@include heightRules("fa-icon", "xs", "img");
+
+		@include media-breakpoint-up(sm) {
+			@include widthRules("fa-icon", "sm", "img");
+			@include heightRules("fa-icon", "sm", "img");
+		}
+
+		@include media-breakpoint-up(md) {
+			@include widthRules("fa-icon", "md", "img");
+			@include heightRules("fa-icon", "md", "img");
+		}
+
+		@include media-breakpoint-up(lg) {
+			@include widthRules("fa-icon", "lg", "img");
+			@include heightRules("fa-icon", "lg", "img");
+		}
+
+		@include media-breakpoint-up(xl) {
+			@include widthRules("fa-icon", "xl", "img");
+			@include heightRules("fa-icon", "xl", "img");
+		}
+
+		@include media-breakpoint-up(xxl) {
+			@include widthRules("fa-icon", "xxl", "img");
+			@include heightRules("fa-icon", "xxl", "img");
+		}
+	}
+}
+
+@mixin fa-icon-block-editor-rules() {
+	.wp-block-beer-blocks-fa-icon {
+		@include blockDefaultMargins;
+
+		&.is-selected {
+			border: 1px dotted #035cff;
+		}
+	}
+
+	.rfip {
+		&.rfip--beer-blocks {
+			display: block;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+			margin: 0;
+
+			.rfipbtn {
+				width: 100%;
+			}
+		}
+
+		.rfipdropdown {
+			&.rfipdropdown--beer-blocks {
+				right: 0;
+				width: 100%;
+				background: rgb(231, 231, 231);
+			}
+		}
+	}
+}

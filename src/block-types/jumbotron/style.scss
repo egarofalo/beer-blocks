@@ -1,36 +1,3 @@
-@import "./../../helpers";
+@import "./../../mixins/blocks/jumbotron";
 
-.wp-block-beer-blocks-jumbotron {
-	@include paddingRules("jumbotron", "xs", "", $jumbotronBlockDefaultPaddingXs);
-	@include marginRules("jumbotron");
-
-	@include media-breakpoint-up(sm) {
-		@include paddingRules("jumbotron", "sm", "", $jumbotronBlockDefaultPadding);
-		@include marginRules("jumbotron", "sm");
-	}
-
-	@include media-breakpoint-up(md) {
-		@include paddingRules("jumbotron", "md", "", $jumbotronBlockDefaultPadding);
-		@include marginRules("jumbotron", "md");
-	}
-
-	@include media-breakpoint-up(lg) {
-		@include paddingRules("jumbotron", "lg", "", $jumbotronBlockDefaultPadding);
-		@include marginRules("jumbotron", "lg");
-	}
-
-	@include media-breakpoint-up(xl) {
-		@include paddingRules("jumbotron", "xl", "", $jumbotronBlockDefaultPadding);
-		@include marginRules("jumbotron", "xl");
-	}
-
-	@include media-breakpoint-up(xxl) {
-		@include paddingRules(
-			"jumbotron",
-			"xxl",
-			"",
-			$jumbotronBlockDefaultPadding
-		);
-		@include marginRules("jumbotron", "xxl");
-	}
-}
+@include jumbotron-block-rules;

@@ -1,9 +1,3 @@
-.wp-block-beer-blocks-info-box {
-	&.is-selected {
-		border: 1px dotted #035cff;
-	}
+@import "./../../mixins/blocks/info-box";
 
-	&.has-child-selected {
-		border: 1px dotted #ff9f50;
-	}
-}
+@include info-box-block-editor-rules;

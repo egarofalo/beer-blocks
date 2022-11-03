@@ -1,25 +1,3 @@
-@import "./../../helpers";
+@import "./../../mixins/blocks/instructions";
 
-.wp-block-beer-blocks-instructions {
-	@include verticalMarginRules("instructions");
-
-	@include media-breakpoint-up(sm) {
-		@include verticalMarginRules("instructions", "sm");
-	}
-
-	@include media-breakpoint-up(md) {
-		@include verticalMarginRules("instructions", "md");
-	}
-
-	@include media-breakpoint-up(lg) {
-		@include verticalMarginRules("instructions", "lg");
-	}
-
-	@include media-breakpoint-up(xl) {
-		@include verticalMarginRules("instructions", "xl");
-	}
-
-	@include media-breakpoint-up(xxl) {
-		@include verticalMarginRules("instructions", "xxl");
-	}
-}
+@include instructions-block-rules;
