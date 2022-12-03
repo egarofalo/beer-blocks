@@ -4,7 +4,7 @@ import {
 	InnerBlocks,
 	InspectorControls,
 } from "@wordpress/block-editor";
-import spacing, { PaddingVisualizer } from "./../../helpers/spacing";
+import spacing from "./../../helpers/spacing";
 import grid from "./../../helpers/grid";
 
 const edit = (props) => {
@@ -45,11 +45,9 @@ const edit = (props) => {
 				{spacing.breakpointsControls({ props })}
 			</InspectorControls>
 
-			<PaddingVisualizer blockProps={props}>
-				<div {...blockProps}>
-					<InnerBlocks template={templates} templateLock="all" />
-				</div>
-			</PaddingVisualizer>
+			<div {...blockProps}>
+				<InnerBlocks template={templates} templateLock="all" />
+			</div>
 		</>
 	);
 };

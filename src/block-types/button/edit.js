@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { __ } from "@wordpress/i18n";
 import {
 	useBlockProps,
@@ -15,6 +15,7 @@ import {
 	ToolbarButton,
 	ToggleControl,
 	Popover,
+	Disabled,
 } from "@wordpress/components";
 import { link as linkIcon } from "@wordpress/icons";
 import { options as optionsVariant } from "./../../helpers/bootstrap-variants";
@@ -22,8 +23,8 @@ import typography from "./../../helpers/typography";
 import border from "./../../helpers/border";
 import borderRadius from "./../../helpers/border-radius";
 import spacing from "./../../helpers/spacing";
-import colors from "./../../helpers/colors";
-import transition from "./../../helpers/transition";
+import statuses from "./../../helpers/statuses";
+import colors from "../../helpers/colors";
 
 const linkControl = (
 	isURLPickerOpen,
@@ -68,50 +69,83 @@ const edit = (props) => {
 			outline,
 			size,
 			blockLevel,
+			[colors.attrName({ attr: "color" })]: color,
+			[colors.attrName({ attr: "background" })]: background,
+			[border.attrName()]: borders,
 		},
 		setAttributes,
 	} = props;
 
+	statuses.setAttributesFallbackValues({
+		props,
+		attributesValues: { color, background, border: borders },
+		useEffect,
+	});
+
 	const [isURLPickerOpen, setIsURLPickerOpen] = useState(false);
 
 	const blockStyle = {
-		...spacing.paddingCssVars({ props, blockName: "button" }),
 		...spacing.marginCssVars({ props, blockName: "button" }),
-		...(variant === ""
-			? {
-					...border.cssVars({ props, blockName: "button" }),
-					...borderRadius.styles(props),
-					...colors.cssVars({ props, blockName: "button" }),
-					...typography.fontSizeCssVars({ props, blockName: "button" }),
-					...typography.lineHeightCssVars({ props, blockName: "button" }),
-			  }
-			: {}),
-		...(align ? { textAlign: align } : {}),
+		...(!blockLevel ? { textAlign: align } : {}),
 	};
 
 	const btnStyle = {
-		...typography.fontFamilyStyles(props),
-		...typography.fontWeightStyles(props),
-		...(blockLevel ? { textAlign: "center" } : { display: "inline-block" }),
+		...spacing.paddingCssVars({ props, blockName: "button" }),
+		...(!blockLevel
+			? { display: "inline-block" }
+			: { display: "block", textAlign: "center" }),
+		...(!variant
+			? {
+					...typography.fontSizeCssVars({ props, blockName: "button" }),
+					...typography.lineHeightCssVars({ props, blockName: "button" }),
+					...colors.cssVars({ props, blockName: "button" }),
+					...border.cssVars({ props, blockName: "button" }),
+					...statuses.cssVars({ props, blockName: "button" }),
+					...borderRadius.styles(props),
+					...typography.fontFamilyStyles(props),
+					...typography.fontWeightStyles(props),
+			  }
+			: {}),
 	};
 
-	const className =
-		variant !== ""
-			? `btn btn-${outline ? "outline-" : ""}${variant}${
-					size ? ` ${size}` : ""
-			  }${blockLevel ? " btn-block" : ""}`
-			: "wp-beer-blocks-btn-custom-styles";
+	const className = variant
+		? `btn btn-${outline ? "outline-" : ""}${variant}${size ? ` ${size}` : ""}${
+				blockLevel ? " btn-block" : ""
+		  }`
+		: "wp-beer-blocks-btn-custom-styles";
 
 	const blockProps = useBlockProps({ style: blockStyle });
+
+	let customStylesControls = (
+		<>
+			{typography.breakpointsControls({ props })}
+			{colors.controls({ props })}
+			{border.controls({ props })}
+			{statuses.controls({
+				props,
+				hoverColorDefaultValue: color,
+				activeColorDefaultValue: color,
+				focusColorDefaultValue: color,
+				hoverBackgroundDefaultValue: background,
+				activeBackgroundDefaultValue: background,
+				focusBackgroundDefaultValue: background,
+				hoverBorderDefaultValue: borders,
+				activeBorderDefaultValue: borders,
+				focusBorderDefaultValue: borders,
+			})}
+			{borderRadius.controls({ props })}
+		</>
+	);
+
+	if (variant) {
+		customStylesControls = <Disabled>{customStylesControls}</Disabled>;
+	}
 
 	return (
 		<>
 			<InspectorControls>
 				<PanelBody title={__("Button settings", "beer-blocks")}>
 					<>
-						{transition.statusControls("normal", (status) => {
-							console.log(status);
-						})}
 						<SelectControl
 							label={__("Button variant", "beer-blocks")}
 							value={variant}
@@ -141,7 +175,7 @@ const edit = (props) => {
 							}
 						/>
 
-						{variant !== "" && (
+						{variant && (
 							<>
 								<div style={{ paddingBottom: "20px" }}>
 									<SelectControl
@@ -178,11 +212,8 @@ const edit = (props) => {
 					</>
 				</PanelBody>
 
-				{typography.breakpointsControls({ props, disabled: variant !== "" })}
-				{colors.controls({ props, disabled: variant !== "" })}
-				{border.controls({ props, disabled: variant !== "" })}
-				{borderRadius.controls({ props, disabled: variant !== "" })}
 				{spacing.breakpointsControls({ props })}
+				{customStylesControls}
 			</InspectorControls>
 
 			<BlockControls>

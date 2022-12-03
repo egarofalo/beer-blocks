@@ -6,7 +6,7 @@ import {
 } from "@wordpress/block-editor";
 import { SelectControl, PanelBody } from "@wordpress/components";
 import { options as optionsVariant } from "./../../helpers/bootstrap-variants";
-import spacing, { PaddingVisualizer } from "./../../helpers/spacing";
+import spacing from "./../../helpers/spacing";
 
 const edit = (props) => {
 	const {
@@ -40,11 +40,9 @@ const edit = (props) => {
 				{spacing.breakpointsControls({ props })}
 			</InspectorControls>
 
-			<PaddingVisualizer blockProps={props}>
-				<div {...blockProps} role="alert">
-					<InnerBlocks />
-				</div>
-			</PaddingVisualizer>
+			<div {...blockProps} role="alert">
+				<InnerBlocks />
+			</div>
 		</>
 	);
 };

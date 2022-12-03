@@ -8,9 +8,8 @@ import {
 } from "@wordpress/block-editor";
 import { SelectControl, PanelBody } from "@wordpress/components";
 import { useSelect } from "@wordpress/data";
-import spacing, { PaddingVisualizer } from "./../../helpers/spacing";
+import spacing from "./../../helpers/spacing";
 import tags from "./../../helpers/sectioning-tags";
-import innerBorder from "../../helpers/inner-border";
 import grid from "../../helpers/grid";
 
 const edit = (props) => {
@@ -82,24 +81,19 @@ const edit = (props) => {
 				</PanelBody>
 
 				{spacing.breakpointsControls({ props })}
-				{innerBorder.controls({ props })}
 			</InspectorControls>
 
-			<PaddingVisualizer blockProps={props}>
-				<TagName {...innerBlocksProps}>
-					{innerBorder.borderTopHtml(props.attributes)}
-					{innerBlocksProps.children}
+			<TagName {...innerBlocksProps}>
+				{innerBlocksProps.children}
 
-					<div
-						className={`button-block-appender__container${
-							hasChildBlocks ? " has-child-blocks" : ""
-						}`}
-					>
-						<InnerBlocks.ButtonBlockAppender />
-					</div>
-					{innerBorder.borderBottomHtml(props.attributes)}
-				</TagName>
-			</PaddingVisualizer>
+				<div
+					className={`button-block-appender__container${
+						hasChildBlocks ? " has-child-blocks" : ""
+					}`}
+				>
+					<InnerBlocks.ButtonBlockAppender />
+				</div>
+			</TagName>
 		</>
 	);
 };

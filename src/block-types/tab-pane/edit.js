@@ -9,7 +9,7 @@ import {
 } from "@wordpress/block-editor";
 import border from "./../../helpers/border";
 import borderRadius from "./../../helpers/border-radius";
-import spacing, { PaddingVisualizer } from "./../../helpers/spacing";
+import spacing from "./../../helpers/spacing";
 
 const edit = (props) => {
 	const {
@@ -75,15 +75,13 @@ const edit = (props) => {
 				role="tabpanel"
 				aria-labelledby={tabId}
 			>
-				<PaddingVisualizer blockProps={props}>
-					<div {...innerBlocksProps}>
-						{innerBlocksProps.children}
+				<div {...innerBlocksProps}>
+					{innerBlocksProps.children}
 
-						<div className="button-block-appender__container">
-							<InnerBlocks.ButtonBlockAppender />
-						</div>
+					<div className="button-block-appender__container">
+						<InnerBlocks.ButtonBlockAppender />
 					</div>
-				</PaddingVisualizer>
+				</div>
 			</div>
 		</>
 	);

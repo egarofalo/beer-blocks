@@ -117,7 +117,7 @@ function register_block_types()
 			'render_callback' => $render_callback,
 		];
 
-		if (file_exists(BEERB_PLUGIN_DIR_PATH . "/build/style-{$block_type}/index.css")) {
+		if (file_exists(BEERB_PLUGIN_DIR_PATH . "/build/{$block_type}/style-index.css")) {
 			$block_type_params['style'] = $style_handle;
 		}
 
@@ -139,9 +139,9 @@ function register_block_types()
 		if (isset($block_type_params['style'])) {
 			wp_register_style(
 				$style_handle,
-				BEERB_PLUGIN_DIR_URL . "/build/style-{$block_type}/index.css",
+				BEERB_PLUGIN_DIR_URL . "/build/{$block_type}/style-index.css",
 				[],
-				filemtime(BEERB_PLUGIN_DIR_PATH . "/build/style-{$block_type}/index.css")
+				filemtime(BEERB_PLUGIN_DIR_PATH . "/build/{$block_type}/style-index.css")
 			);
 		}
 

@@ -1,6 +1,7 @@
 @import "./../helpers/spacing";
 @import "./../helpers/typography";
 @import "./../helpers/colors";
+@import "./../helpers/statuses";
 @import "./../helpers/border";
 
 @mixin button-block-rules() {
@@ -72,15 +73,25 @@
 			}
 
 			&.wp-beer-blocks-btn-custom-styles {
+				@include colorsRules("button");
 				@include borderRules("button", $borderDefaults: $defaultBorderButton);
 				@include typographyRules(
 					"button",
 					"xs",
 					$defaultValues: $defaultButtonTypographyValues
 				);
-				@include colorsRules(
+				@include statusesRules(
 					"button",
-					$statuses: ("mouseOver", "active", "focus")
+					$hoverColor: true,
+					$activeColor: true,
+					$focusColor: true,
+					$hoverBackground: true,
+					$activeBackground: true,
+					$focusBackground: true,
+					$hoverBorder: true,
+					$activeBorder: true,
+					$focusBorder: true,
+					$transition: true
 				);
 
 				@include media-breakpoint-up(sm) {

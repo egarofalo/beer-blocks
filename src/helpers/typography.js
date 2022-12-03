@@ -6,7 +6,6 @@ import {
 	__experimentalDivider as Divider,
 	BaseControl,
 	RangeControl,
-	Disabled,
 } from "@wordpress/components";
 import Select from "react-select";
 import googleFonts from "./google-fonts.json";
@@ -536,7 +535,6 @@ export const controls = ({
 	attrPrefix = "",
 	panelBody = true,
 	title = __("Typography", "beer-blocks"),
-	disabled = false,
 }) => {
 	const attrFontSize = camelCase(`${attrPrefix}-font-size`);
 	const attrLineHeight = camelCase(`${attrPrefix}-line-height`);
@@ -551,10 +549,6 @@ export const controls = ({
 			{fontWeightControl(props, attrFontWeight)}
 		</>
 	);
-
-	if (disabled) {
-		result = <Disabled>{result}</Disabled>;
-	}
 
 	return panelBody ? (
 		<PanelBody title={title} initialOpen={initialOpen}>
@@ -580,7 +574,6 @@ export const breakpointsControls = ({
 	includeLineHeightControl = true,
 	includeFontFamilyControl = true,
 	includeFontWeightControl = true,
-	disabled = false,
 }) => {
 	const attrFontSize = camelCase(`${attrPrefix}-font-size`);
 	const attrLineHeight = camelCase(`${attrPrefix}-line-height`);
@@ -626,10 +619,6 @@ export const breakpointsControls = ({
 			{includeFontWeightControl && fontWeightControl(props, attrPrefix)}
 		</>
 	);
-
-	if (disabled) {
-		result = <Disabled>{result}</Disabled>;
-	}
 
 	return panelBody ? (
 		<PanelBody title={title} initialOpen={initialOpen}>

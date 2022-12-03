@@ -6,21 +6,6 @@
 @import "~bootstrap/scss/variables";
 @import "~bootstrap/scss/mixins";
 
-// Colors helpers
-@import "./helpers/grid";
-
-// Dimension helpers
-@import "./helpers/dimension";
-
-// Spacing helpers
-@import "./helpers/spacing";
-
-// Typography helpers
-@import "./helpers/typography";
-
-// Colors helpers
-@import "./helpers/colors";
-
 // Bootstrap 4 Reboot for editor view
 @mixin reboot() {
 	// Shim for "new" HTML5 structural elements to display correctly (IE10, older browsers)

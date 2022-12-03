@@ -82,7 +82,13 @@ $buttonDefaultPadding: (
 $defaultColors: (
 	color: $body-color,
 	background: transparent,
-	borderColor: transparent,
+);
+
+// Default border
+$defaultBorder: (
+	style: "none",
+	color: transparent,
+	width: "0px",
 );
 
 // Default border button
@@ -90,4 +96,10 @@ $defaultBorderButton: (
 	style: "solid",
 	color: $gray-900,
 	width: "2px",
+);
+
+// Default border for statuses helper
+$defaultStatusesHelperBorder: (
+	color: transparent,
+	width: "0px",
 );

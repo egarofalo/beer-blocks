@@ -7,7 +7,7 @@ import {
 } from "@wordpress/block-editor";
 import { PanelBody, ToggleControl } from "@wordpress/components";
 import { BLOCK_LEVEL_ELEMENT } from "./../../helpers/fa-icons";
-import spacing, { PaddingVisualizer } from "./../../helpers/spacing";
+import spacing from "./../../helpers/spacing";
 import grid from "./../../helpers/grid";
 
 const edit = (props) => {
@@ -132,9 +132,7 @@ const edit = (props) => {
 				{spacing.breakpointsControls({ props })}
 			</InspectorControls>
 
-			<PaddingVisualizer blockProps={props}>
-				<div {...innerBlocksProps} />
-			</PaddingVisualizer>
+			<div {...innerBlocksProps} />
 		</>
 	);
 };

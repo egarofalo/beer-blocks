@@ -16,7 +16,7 @@ import {
 import { select } from "@wordpress/data";
 import grid from "./../../helpers/grid";
 import typography from "../../helpers/typography";
-import spacing, { PaddingVisualizer } from "../../helpers/spacing";
+import spacing from "../../helpers/spacing";
 
 const edit = (props) => {
 	const {
@@ -223,55 +223,53 @@ const edit = (props) => {
 			</InspectorControls>
 
 			<li {...blockProps}>
-				<PaddingVisualizer blockProps={props}>
+				<div
+					className={`wp-block-beer-blocks-instruction-contents d-flex${Object.entries(
+						stackedContents
+					).reduce((classes, [key, value]) => {
+						const breakpoint = key !== "xs" ? `-${key}` : "";
+
+						return `${classes} flex${breakpoint}-${
+							value ? "column" : "row"
+						} justify-content${breakpoint}-${
+							justifyContent[key]
+						} align-items${breakpoint}-${alignItems[key]}`;
+					}, "")}`}
+					style={spacing.paddingCssVars({
+						props,
+						blockName: "instruction",
+					})}
+				>
 					<div
-						className={`wp-block-beer-blocks-instruction-contents d-flex${Object.entries(
-							stackedContents
-						).reduce((classes, [key, value]) => {
-							const breakpoint = key !== "xs" ? `-${key}` : "";
-
-							return `${classes} flex${breakpoint}-${
-								value ? "column" : "row"
-							} justify-content${breakpoint}-${
-								justifyContent[key]
-							} align-items${breakpoint}-${alignItems[key]}`;
-						}, "")}`}
-						style={spacing.paddingCssVars({
-							props,
-							blockName: "instruction",
-						})}
+						className={`wp-block-beer-blocks-instruction-numeration d-inline-flex flex-grow-0 justify-content-${numerationHorizontalAlignment} align-items-${numerationVerticalAlignment}`}
+						style={{
+							...(numerationBackground
+								? { backgroundColor: numerationBackground }
+								: {}),
+							...(numerationColor ? { color: numerationColor } : {}),
+							...(numerationWidth
+								? { width: numerationWidth, minWidth: numerationWidth }
+								: {}),
+							...(numerationHeight ? { height: numerationHeight } : {}),
+							...(numerationBorderRadius
+								? { borderRadius: numerationBorderRadius }
+								: {}),
+							...typography.fontFamilyStyles(props, "numeration"),
+							...typography.fontWeightStyles(props, "numeration"),
+							...typography.fontSizeCssVars({
+								props,
+								blockName: "instruction",
+								attrPrefix: "numeration",
+							}),
+						}}
 					>
-						<div
-							className={`wp-block-beer-blocks-instruction-numeration d-inline-flex flex-grow-0 justify-content-${numerationHorizontalAlignment} align-items-${numerationVerticalAlignment}`}
-							style={{
-								...(numerationBackground
-									? { backgroundColor: numerationBackground }
-									: {}),
-								...(numerationColor ? { color: numerationColor } : {}),
-								...(numerationWidth
-									? { width: numerationWidth, minWidth: numerationWidth }
-									: {}),
-								...(numerationHeight ? { height: numerationHeight } : {}),
-								...(numerationBorderRadius
-									? { borderRadius: numerationBorderRadius }
-									: {}),
-								...typography.fontFamilyStyles(props, "numeration"),
-								...typography.fontWeightStyles(props, "numeration"),
-								...typography.fontSizeCssVars({
-									props,
-									blockName: "instruction",
-									attrPrefix: "numeration",
-								}),
-							}}
-						>
-							{numeration}
-						</div>
-
-						<div>
-							<InnerBlocks template={template} templateLock="all" />
-						</div>
+						{numeration}
 					</div>
-				</PaddingVisualizer>
+
+					<div>
+						<InnerBlocks template={template} templateLock="all" />
+					</div>
+				</div>
 			</li>
 		</>
 	);

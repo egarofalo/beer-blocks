@@ -1,6 +1,6 @@
 @import "./../helpers/typography";
 @import "./../helpers/spacing";
-@import "./../helpers/colors";
+@import "./../helpers/statuses";
 
 @mixin tabs-block-rules() {
 	.wp-block-beer-blocks-tabs {
@@ -8,10 +8,12 @@
 			& > .nav-item {
 				& > .nav-link {
 					@include typographyRules("tabs", $attrPrefix: "tab");
+					/*
 					@include colorsRules(
 						"tabs",
 						$statuses: ("mouseOver", "active", "focus")
 					);
+					*/
 
 					@include media-breakpoint-up(sm) {
 						@include typographyRules("paragraph", "sm", "tab");

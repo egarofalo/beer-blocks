@@ -4,35 +4,29 @@
 @import "./../../functions";
 
 // Get border styles rules
-@mixin borderRules($blockName, $attrPrefix: "", $borderDefaults: ()) {
+@mixin borderRules(
+	$blockName,
+	$attrPrefix: "",
+	$borderDefaults: $defaultBorder
+) {
 	$varPrefix: wp-beer-blocks-#{$blockName}-#{camelize("#{$attrPrefix}-border")};
 
 	@each $side in ("top", "right", "bottom", "left") {
-		@if map.has-key($borderDefaults, "style") {
+		@if map.has-key($borderDefaults, style) {
 			border-#{$side}-style: var(
 				--#{$varPrefix + capitalize($side)}Style,
 				map.get($borderDefaults, "style")
 			);
-		} @else {
-			border-#{$side}-style: var(--#{$varPrefix + capitalize($side)}Style);
 		}
 
-		@if map.has-key($borderDefaults, "color") {
-			border-#{$side}-color: var(
-				--#{$varPrefix + capitalize($side)}Color,
-				map.get($borderDefaults, "color")
-			);
-		} @else {
-			border-#{$side}-color: var(--#{$varPrefix + capitalize($side)}Color);
-		}
+		border-#{$side}-color: var(
+			--#{$varPrefix + capitalize($side)}Color,
+			map.get($borderDefaults, "color")
+		);
 
-		@if map.has-key($borderDefaults, "width") {
-			border-#{$side}-width: var(
-				--#{$varPrefix + capitalize($side)}Width,
-				map.get($borderDefaults, "width")
-			);
-		} @else {
-			border-#{$side}-width: var(--#{$varPrefix + capitalize($side)}Width);
-		}
+		border-#{$side}-width: var(
+			--#{$varPrefix + capitalize($side)}Width,
+			map.get($borderDefaults, "width")
+		);
 	}
 }

@@ -8,8 +8,6 @@ import {
 import spacing from "./../../helpers/spacing";
 import typography from "./../../helpers/typography";
 
-const { PaddingVisualizer } = spacing;
-
 const edit = (props) => {
 	const {
 		attributes: { content, textAlign, placeholder },
@@ -42,23 +40,21 @@ const edit = (props) => {
 				/>
 			</BlockControls>
 
-			<PaddingVisualizer blockProps={props}>
-				<RichText
-					{...blockProps}
-					placeholder={placeholder}
-					tagName="p"
-					value={content}
-					allowedFormats={[
-						"core/bold",
-						"core/italic",
-						"core/link",
-						"core/code",
-						"core/mark",
-						"core/strikethrough",
-					]}
-					onChange={(newContent) => setAttributes({ content: newContent })}
-				/>
-			</PaddingVisualizer>
+			<RichText
+				{...blockProps}
+				placeholder={placeholder}
+				tagName="p"
+				value={content}
+				allowedFormats={[
+					"core/bold",
+					"core/italic",
+					"core/link",
+					"core/code",
+					"core/mark",
+					"core/strikethrough",
+				]}
+				onChange={(newContent) => setAttributes({ content: newContent })}
+			/>
 		</>
 	);
 };

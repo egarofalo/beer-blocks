@@ -6,9 +6,6 @@ import {
 import { camelCase, isEmpty, capitalize, has, isString } from "lodash";
 import grid from "./grid";
 
-const { __Visualizer, Visualizer: _Visualizer } = BoxControl;
-const Visualizer = _Visualizer ? _Visualizer : __Visualizer;
-
 const defaultUnits = [
 	{ value: "px", label: "PX" },
 	{ value: "em", label: "EM" },
@@ -27,16 +24,6 @@ const getDefaultValue = (defaultValue, side) => {
 	return [side, spacing];
 };
 
-// returns visualizer attribute
-export const visualizerAttribute = ({ attrPrefix = "" } = {}) => {
-	const attrName = camelCase(`${attrPrefix}-visualizer`);
-	const sides = ["top", "right", "bottom", "left"];
-	const values = Object.fromEntries(sides.map((key) => [key, ""]));
-	const showValues = Object.fromEntries(sides.map((key) => [key, false]));
-
-	return { [attrName]: { type: "object", default: { values, showValues } } };
-};
-
 // returns block padding attributes
 export const paddingAttribute = ({
 	attrPrefix = "",
@@ -53,16 +40,13 @@ export const paddingAttribute = ({
 		paddingSides.map((side) => getDefaultValue(defaultPadding, side))
 	);
 
-	return {
-		...grid.attributes({
-			attrName: camelCase(`${attrPrefix}-padding`),
-			breakpoints,
-			breakpointsBehavior,
-			defaultValue: paddingAttribute,
-			type: "object",
-		}),
-		...visualizerAttribute({ attrPrefix: `${attrPrefix}-padding` }),
-	};
+	return grid.attributes({
+		attrName: camelCase(`${attrPrefix}-padding`),
+		breakpoints,
+		breakpointsBehavior,
+		defaultValue: paddingAttribute,
+		type: "object",
+	});
 };
 
 // returns padding attributes controls
@@ -72,7 +56,6 @@ export const paddingControl = ({
 	defaultPadding = undefined,
 }) => {
 	const attrName = camelCase(`${attrPrefix}-padding`);
-	const visualizerAttrName = camelCase(`${attrPrefix}-padding-visualizer`);
 
 	const {
 		setAttributes,
@@ -96,14 +79,6 @@ export const paddingControl = ({
 			units={defaultUnits}
 			values={padding}
 			onChange={(nextValues) => setAttributes({ [attrName]: nextValues })}
-			onChangeShowVisualizer={(showValues) =>
-				setAttributes({
-					[visualizerAttrName]: {
-						values: padding,
-						showValues,
-					},
-				})
-			}
 			sides={sides}
 		/>
 	);
@@ -122,7 +97,6 @@ export const paddingBreakpointsControl = ({
 	const breakpointsBehaviorAttrName = camelCase(
 		`${breakpointsBehaviorAttrPrefix}-breakpoints-behavior`
 	);
-	const visualizerAttrName = camelCase(`${attrPrefix}-padding-visualizer`);
 
 	const {
 		setAttributes,
@@ -164,15 +138,6 @@ export const paddingBreakpointsControl = ({
 			},
 		});
 
-	const changeShowVisualizer = (showValues) => {
-		setAttributes({
-			[visualizerAttrName]: {
-				values: padding[breakpoint],
-				showValues,
-			},
-		});
-	};
-
 	return (
 		<BoxControl
 			label={label}
@@ -181,7 +146,6 @@ export const paddingBreakpointsControl = ({
 			units={defaultUnits}
 			values={padding[breakpoint]}
 			onChange={change}
-			onChangeShowVisualizer={changeShowVisualizer}
 			sides={sides}
 		/>
 	);
@@ -539,33 +503,7 @@ export const styles = (props, attrPrefix = "") => ({
 	...marginStyles(props, attrPrefix),
 });
 
-// returns visualizer component for showing padding
-export const PaddingVisualizer = ({
-	blockProps,
-	children,
-	attrPrefix = "",
-}) => {
-	const {
-		attributes: {
-			[camelCase(`${attrPrefix}-padding-visualizer`)]: {
-				values: paddingVisualizerValues = {},
-				showValues: paddingVisualizerShowValues = {},
-			},
-		},
-	} = blockProps;
-
-	return (
-		<Visualizer
-			showValues={paddingVisualizerShowValues}
-			values={paddingVisualizerValues}
-		>
-			{children}
-		</Visualizer>
-	);
-};
-
 export default {
-	visualizerAttribute,
 	paddingAttribute,
 	paddingControl,
 	paddingBreakpointsControl,
@@ -581,5 +519,4 @@ export default {
 	controls,
 	breakpointsControls,
 	styles,
-	PaddingVisualizer,
 };

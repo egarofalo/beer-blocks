@@ -6,7 +6,7 @@ import {
 	AlignmentToolbar,
 } from "@wordpress/block-editor";
 import { ToolbarGroup } from "@wordpress/components";
-import spacing, { PaddingVisualizer } from "./../../helpers/spacing";
+import spacing from "./../../helpers/spacing";
 import typography from "./../../helpers/typography";
 import { headingLevelDropdown } from "./../../helpers/heading";
 
@@ -46,16 +46,14 @@ const edit = (props) => {
 				<ToolbarGroup>{headingLevelDropdown(props)}</ToolbarGroup>
 			</BlockControls>
 
-			<PaddingVisualizer blockProps={props}>
-				<RichText
-					{...blockProps}
-					placeholder={placeholder}
-					tagName={`h${headingLevel}`}
-					value={content}
-					allowedFormats={["core/bold", "core/italic"]}
-					onChange={(newContent) => setAttributes({ content: newContent })}
-				/>
-			</PaddingVisualizer>
+			<RichText
+				{...blockProps}
+				placeholder={placeholder}
+				tagName={`h${headingLevel}`}
+				value={content}
+				allowedFormats={["core/bold", "core/italic"]}
+				onChange={(newContent) => setAttributes({ content: newContent })}
+			/>
 		</>
 	);
 };

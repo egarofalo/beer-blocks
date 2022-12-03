@@ -7,7 +7,7 @@ import {
 	useInnerBlocksProps,
 	__experimentalUseInnerBlocksProps as __useInnerBlocksProps,
 } from "@wordpress/block-editor";
-import spacing, { PaddingVisualizer } from "./../../helpers/spacing";
+import spacing from "./../../helpers/spacing";
 
 const edit = (props) => {
 	const {
@@ -52,15 +52,13 @@ const edit = (props) => {
 				{spacing.breakpointsControls({ props })}
 			</InspectorControls>
 
-			<PaddingVisualizer blockProps={props}>
-				<div {...blockProps}>
-					<div {...innerBlocksProps} />
+			<div {...blockProps}>
+				<div {...innerBlocksProps} />
 
-					<div className="button-block-appender__container">
-						<InnerBlocks.ButtonBlockAppender />
-					</div>
+				<div className="button-block-appender__container">
+					<InnerBlocks.ButtonBlockAppender />
 				</div>
-			</PaddingVisualizer>
+			</div>
 		</>
 	);
 };
