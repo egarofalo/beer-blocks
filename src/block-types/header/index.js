@@ -32,6 +32,7 @@ import edit from "./edit";
 import save from "./save";
 import spacing from "./../../helpers/spacing";
 import typography from "./../../helpers/typography";
+import colors from "./../../helpers/colors";
 
 /**
  * Block Icon.
@@ -53,13 +54,6 @@ registerBlockType("beer-blocks/header", {
 		"beer-blocks"
 	),
 	textdomain: "beer-blocks",
-	supports: {
-		color: {
-			background: true,
-			gradients: true,
-			text: true,
-		},
-	},
 	icon: <img src={icon} alt={_x("Header", "block title", "beer-blocks")} />,
 	attributes: {
 		headingLevel: {
@@ -79,6 +73,7 @@ registerBlockType("beer-blocks/header", {
 		},
 		...spacing.attributes({ breakpoints: true }),
 		...typography.attributes({ breakpoints: true }),
+		...colors.attributes(),
 	},
 	transforms: {
 		from: [

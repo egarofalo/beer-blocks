@@ -86,20 +86,82 @@ $defaultColors: (
 
 // Default border
 $defaultBorder: (
-	style: "none",
+	style: none,
 	color: transparent,
-	width: "0px",
+	width: 0px,
 );
 
-// Default border button
-$defaultBorderButton: (
-	style: "solid",
-	color: $gray-900,
-	width: "2px",
+// Default border radius
+$defaultBorderRadius: (
+	top-left: 0px,
+	top-right: 0px,
+	bottom-right: 0px,
+	bottom-left: 0px,
 );
+
+// Default border for button block type
+$defaultBorderButton: (
+	style: solid,
+	color: $gray-900,
+	width: 2px,
+);
+
+// Default border for accordion-item block type
+$defaultAccordionItemBorder: (
+	style: solid,
+	color: $card-border-color,
+	width: 1px,
+);
+
+// Default margins for accordion-item block type
+$defaultAccordionItemMargin: (
+	top: 0,
+	right: 0,
+	bottom: 0,
+	left: 0,
+);
+
+// Default typography for accordion-item block type heading
+$defaultAccordionItemHeadingTypography: (
+	fontSize: $input-btn-font-size,
+	lineHeight: $input-btn-line-height,
+);
+
+// Default background for accordion-item block type heading
+$defaultAccordionItemHeadingBackground: $card-cap-bg;
+
+// Default color for accordion-item block type heading
+$defaultAccordionItemHeadingColor: $link-color;
+
+// Default background for accordion-item block type body
+$defaultAccordionItemBodyBackground: $card-bg;
 
 // Default border for statuses helper
 $defaultStatusesHelperBorder: (
 	color: transparent,
-	width: "0px",
+	width: 0px,
+);
+
+// Default border button for statuses helper
+$defaultStatusesHelperBorderButton: (
+	color: $gray-900,
+	width: 2px,
+);
+
+// Default paragraph block type colors
+$defaultParagraphColors: (
+	color: $body-color,
+	background: transparent,
+);
+
+// Default header block type colors
+$defaultHeaderColors: (
+	color: if($headings-color, $headings-color, $body-color),
+	background: transparent,
+);
+
+// Default figcaption typography used in image block
+$defaultFigcaptionTypography: (
+	fontSize: $figure-caption-font-size,
+	lineHeight: $line-height-base,
 );

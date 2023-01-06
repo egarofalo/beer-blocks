@@ -50,16 +50,8 @@ const edit = (props) => {
 
 	let blockPropsParam = { style: spacing.styles(props) };
 	const dimensionCssVars = {
-		...dimension.widthCssVars({
-			props,
-			blockName: "fa-icon",
-			attrPrefix: "img",
-		}),
-		...dimension.heightCssVars({
-			props,
-			blockName: "fa-icon",
-			attrPrefix: "img",
-		}),
+		...dimension.widthCssVars(props, "fa-icon", "img"),
+		...dimension.heightCssVars(props, "fa-icon", "img"),
 	};
 
 	if (useAnImage) {
@@ -83,16 +75,8 @@ const edit = (props) => {
 					: icon,
 			style: {
 				...blockPropsParam.style,
-				...typography.fontSizeCssVars({
-					props,
-					blockName: "fa-icon",
-					attrPrefix: "icon",
-				}),
-				...typography.lineHeightCssVars({
-					props,
-					blockName: "fa-icon",
-					attrPrefix: "icon",
-				}),
+				...typography.fontSizeCssVars(props, "fa-icon", "icon"),
+				...typography.lineHeightCssVars(props, "fa-icon", "icon"),
 			},
 		};
 	}
@@ -107,16 +91,8 @@ const edit = (props) => {
 					alt={imgAlt}
 					src={imgUrl}
 					style={{
-						...dimension.widthCssVars({
-							props,
-							blockName: "fa-icon",
-							attrPrefix: "img",
-						}),
-						...dimension.heightCssVars({
-							props,
-							blockName: "fa-icon",
-							attrPrefix: "img",
-						}),
+						...dimension.widthCssVars(props, "fa-icon", "img"),
+						...dimension.heightCssVars(props, "fa-icon", "img"),
 					}}
 				/>
 			</div>

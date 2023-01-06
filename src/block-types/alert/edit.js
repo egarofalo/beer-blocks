@@ -17,8 +17,8 @@ const edit = (props) => {
 	const blockProps = useBlockProps({
 		className: alertType,
 		style: {
-			...spacing.paddingCssVars({ props, blockName: "alert" }),
-			...spacing.marginCssVars({ props, blockName: "alert" }),
+			...spacing.paddingCssVars(props, "alert"),
+			...spacing.marginCssVars(props, "alert"),
 		},
 	});
 

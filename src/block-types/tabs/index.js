@@ -30,10 +30,10 @@ import "./editor.scss";
  */
 import edit from "./edit";
 import save from "./save";
+import colors from "./../../helpers/colors";
 import spacing from "./../../helpers/spacing";
 import typography from "./../../helpers/typography";
 import border from "./../../helpers/border";
-import borderRadius from "./../../helpers/border-radius";
 
 /**
  * Block Icon.
@@ -87,48 +87,10 @@ registerBlockType("beer-blocks/tabs", {
 			type: "number",
 			default: -1,
 		},
-		tabsColor: {
-			type: "string",
-		},
-		tabsMouseoverColor: {
-			type: "string",
-		},
-		tabsActiveColor: {
-			type: "string",
-		},
-		tabsBackground: {
-			type: "string",
-		},
-		tabsMouseOverBackground: {
-			type: "string",
-		},
-		tabsActiveBackground: {
-			type: "string",
-		},
-		tabsMouseOverBorderColor: {
-			type: "string",
-		},
-		tabsActiveBorderColor: {
-			type: "string",
-		},
-		...border.attributes({ attrPrefixName: "tabs" }),
-		...border.attributes({ attrPrefixName: "tabs", side: "top" }),
-		...border.attributes({ attrPrefixName: "tabs", side: "right" }),
-		...border.attributes({ attrPrefixName: "tabs", side: "bottom" }),
-		...border.attributes({ attrPrefixName: "tabs", side: "left" }),
-		...borderRadius.attributes({ attrPrefixName: "tabs" }),
-		...borderRadius.attributes({ attrPrefixName: "tabs", corner: "topLeft" }),
-		...borderRadius.attributes({ attrPrefixName: "tabs", corner: "topRight" }),
-		...borderRadius.attributes({
-			attrPrefixName: "tabs",
-			corner: "bottomRight",
-		}),
-		...borderRadius.attributes({
-			attrPrefixName: "tabs",
-			corner: "bottomLeft",
-		}),
-		...spacing.attributes({ attrPrefix: "tabs" }),
-		...spacing.attributes(),
+		...colors.attributes({ attrPrefix: "tab" }),
+		...border.attributes({ attrPrefix: "tab", borderRadius: true }),
+		...spacing.attributes({ attrPrefix: "tab", breakpoints: true }),
+		...spacing.attributes({ breakpoints: true }),
 		...typography.attributes({
 			attrPrefix: "tab",
 			breakpoints: true,

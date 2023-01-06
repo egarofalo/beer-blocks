@@ -2,8 +2,10 @@
 
 @mixin accordion-block-rules() {
 	.wp-block-beer-blocks-accordion {
-		@include paddingRules("accordion");
-		@include marginRules("accordion");
+		@include media-breakpoint-down(xs) {
+			@include paddingRules("accordion");
+			@include marginRules("accordion");
+		}
 
 		@include media-breakpoint-up(sm) {
 			@include paddingRules("accordion", "sm");
@@ -57,7 +59,9 @@
 		}
 
 		.editor-styles-wrapper &.wp-block {
-			@include horizontalMarginRules("accordion");
+			@include media-breakpoint-down(xs) {
+				@include horizontalMarginRules("accordion");
+			}
 
 			@include media-breakpoint-up(sm) {
 				@include horizontalMarginRules("accordion", "sm");

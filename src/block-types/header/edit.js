@@ -8,6 +8,7 @@ import {
 import { ToolbarGroup } from "@wordpress/components";
 import spacing from "./../../helpers/spacing";
 import typography from "./../../helpers/typography";
+import colors from "./../../helpers/colors";
 import { headingLevelDropdown } from "./../../helpers/heading";
 
 const edit = (props) => {
@@ -19,12 +20,13 @@ const edit = (props) => {
 	const blockProps = useBlockProps({
 		className: `has-text-align-${textAlign}`,
 		style: {
-			...spacing.paddingCssVars({ props, blockName: "header" }),
-			...spacing.marginCssVars({ props, blockName: "header" }),
+			...spacing.paddingCssVars(props, "header"),
+			...spacing.marginCssVars(props, "header"),
 			...typography.fontFamilyStyles(props),
 			...typography.fontWeightStyles(props),
-			...typography.fontSizeCssVars({ props, blockName: "header" }),
-			...typography.lineHeightCssVars({ props, blockName: "header" }),
+			...typography.fontSizeCssVars(props, "header"),
+			...typography.lineHeightCssVars(props, "header"),
+			...colors.cssVars(props, "header"),
 		},
 	});
 
@@ -32,6 +34,7 @@ const edit = (props) => {
 		<>
 			<InspectorControls>
 				{typography.breakpointsControls({ props, initialOpen: true })}
+				{colors.controls({ props })}
 				{spacing.breakpointsControls({ props })}
 			</InspectorControls>
 

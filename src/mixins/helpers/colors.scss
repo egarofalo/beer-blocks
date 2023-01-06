@@ -32,9 +32,12 @@
 @mixin colorsRules(
 	$blockName,
 	$attrPrefix: "",
-	$defaultColor: map.get($defaultColors, color),
-	$defaultBackground: map.get($defaultColors, background)
+	$defaultColors: $defaultColors
 ) {
-	@include backgroundRule($blockName, $attrPrefix, $defaultBackground);
-	@include colorRule($blockName, $attrPrefix, $defaultColor);
+	@include backgroundRule(
+		$blockName,
+		$attrPrefix,
+		map.get($defaultColors, "background")
+	);
+	@include colorRule($blockName, $attrPrefix, map.get($defaultColors, "color"));
 }

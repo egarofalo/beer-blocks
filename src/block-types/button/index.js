@@ -33,7 +33,6 @@ import save from "./save";
 import typography from "./../../helpers/typography";
 import colors from "./../../helpers/colors";
 import border from "./../../helpers/border";
-import borderRadius from "./../../helpers/border-radius";
 import spacing from "./../../helpers/spacing";
 import statuses from "./../../helpers/statuses";
 
@@ -96,17 +95,13 @@ registerBlockType("beer-blocks/button", {
 			default: false,
 		},
 		...typography.attributes({ breakpoints: true }),
-		...border.attributes(),
-		...borderRadius.attributes({ corner: "all" }),
+		...border.attributes({ borderRadius: true }),
 		...spacing.attributes({ breakpoints: true }),
 		...colors.attributes(),
 		...statuses.attributes({
 			hoverColorAttr: true,
 			hoverBackgroundAttr: true,
 			hoverBorderAttr: true,
-			activeColorAttr: true,
-			activeBackgroundAttr: true,
-			activeBorderAttr: true,
 			focusColorAttr: true,
 			focusBackgroundAttr: true,
 			focusBorderAttr: true,

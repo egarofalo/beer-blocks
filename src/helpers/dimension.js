@@ -16,7 +16,7 @@ export const widthAttribute = ({
 	breakpointsBehavior = false,
 	defaultValue = undefined,
 	type = "string",
-}) =>
+} = {}) =>
 	grid.attributes({
 		attrName: camelCase(`${attrPrefix}-width`),
 		breakpoints,
@@ -148,7 +148,7 @@ export const widthBreakpointsControl = ({
 };
 
 // return width css vars for style html attribute
-export const widthCssVars = ({ props, blockName = "", attrPrefix = "" }) => {
+export const widthCssVars = (props, blockName, attrPrefix = "") => {
 	const attrName = camelCase(`${attrPrefix}-width`);
 
 	const {
@@ -176,7 +176,7 @@ export const heightAttribute = ({
 	breakpointBehavior = false,
 	defaultValue = undefined,
 	type = "string",
-}) =>
+} = {}) =>
 	grid.attributes({
 		attrName: camelCase(`${attrPrefix}-height`),
 		breakpoints,
@@ -356,7 +356,7 @@ export const heightBreakpointsControl = ({
 };
 
 // return height css vars for style html attribute
-export const heightCssVars = ({ props, blockName = "", attrPrefix = "" }) => {
+export const heightCssVars = (props, blockName, attrPrefix = "") => {
 	const attrName = camelCase(`${attrPrefix}-height`);
 	const {
 		attributes: { [attrName]: height },

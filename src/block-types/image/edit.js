@@ -6,12 +6,19 @@ import {
 	MediaUploadCheck,
 	BlockControls,
 	RichText,
+	AlignmentToolbar,
 } from "@wordpress/block-editor";
-import { PanelBody, Button } from "@wordpress/components";
+import {
+	PanelBody,
+	Button,
+	ToggleControl,
+	Disabled,
+} from "@wordpress/components";
 import grid from "./../../helpers/grid";
 import spacing from "./../../helpers/spacing";
 import dimension from "../../helpers/dimension";
 import blockAlignment from "../../helpers/block-alignment";
+import typography from "../../helpers/typography";
 import placeholder from "./../../images/placeholder-image.svg";
 
 const edit = (props) => {
@@ -22,6 +29,7 @@ const edit = (props) => {
 			imgUrl,
 			figcaption,
 			removeFigcaption,
+			figcaptionTextAlign,
 			imgNaturalWidth,
 			imgNaturalHeight,
 		},
@@ -29,7 +37,7 @@ const edit = (props) => {
 	} = props;
 
 	const blockProps = useBlockProps({
-		style: spacing.marginCssVars({ props, blockName: "image" }),
+		style: spacing.marginCssVars(props, "image"),
 	});
 
 	const removeMedia = () => {
@@ -84,6 +92,20 @@ const edit = (props) => {
 				className="editor-post-featured-image"
 				style={{ marginBottom: "20px" }}
 			>
+				<ToggleControl
+					label={__("Remove legend", "beer-blocks")}
+					checked={removeFigcaption}
+					onChange={() =>
+						setAttributes({
+							removeFigcaption: !removeFigcaption,
+						})
+					}
+					help={__(
+						"Enable this toggle field if you want to remove the image legend.",
+						"beer-blocks"
+					)}
+				/>
+
 				<MediaUploadCheck>
 					<MediaUpload
 						render={({ open }) => (
@@ -160,6 +182,22 @@ const edit = (props) => {
 		</>
 	);
 
+	let figcaptionControls = (
+		<>
+			{typography.breakpointsControls({
+				props,
+				attrPrefix: "figcaption",
+				breakpointsBehaviorAttrPrefix: "figcaption-font",
+			})}
+		</>
+	);
+
+	figcaptionControls = removeFigcaption ? (
+		<Disabled>{figcaptionControls}</Disabled>
+	) : (
+		figcaptionControls
+	);
+
 	return (
 		<>
 			<InspectorControls>
@@ -168,42 +206,61 @@ const edit = (props) => {
 				</PanelBody>
 
 				{spacing.breakpointsControls({ props })}
+				{figcaptionControls}
 			</InspectorControls>
 
-			<BlockControls>{blockAlignment.toolbar({ props })}</BlockControls>
+			<BlockControls>
+				{blockAlignment.toolbar({ props })}
+
+				{!removeFigcaption && (
+					<AlignmentToolbar
+						value={figcaptionTextAlign}
+						onChange={(textAlign) =>
+							setAttributes({ figcaptionTextAlign: textAlign })
+						}
+					/>
+				)}
+			</BlockControls>
 
 			<figure {...blockProps}>
 				<img
 					className="img-fluid d-block"
 					style={{
 						...blockAlignment.styles(props),
-						...dimension.widthCssVars({
-							props,
-							blockName: "image",
-						}),
-						...dimension.heightCssVars({
-							props,
-							blockName: "image",
-						}),
+						...dimension.widthCssVars(props, "image"),
+						...dimension.heightCssVars(props, "image"),
 					}}
 					alt={imgId > 0 ? imgAlt : __("Placeholder image", "beer-blocks")}
 					src={imgId > 0 ? imgUrl : placeholder}
 				/>
 
-				<RichText
-					placeholder={__("Add a legend", "beer-blocks")}
-					tagName="figacaption"
-					value={figcaption}
-					allowedFormats={[
-						"core/bold",
-						"core/italic",
-						"core/link",
-						"core/code",
-						"core/mark",
-						"core/strikethrough",
-					]}
-					onChange={(content) => setAttributes({ figcaption: content })}
-				/>
+				{!removeFigcaption && (
+					<RichText
+						className={`d-block${
+							figcaptionTextAlign !== undefined
+								? ` text-${figcaptionTextAlign}`
+								: ""
+						}`}
+						style={{
+							...typography.fontFamilyStyles(props, "figcaption"),
+							...typography.fontWeightStyles(props, "figcaption"),
+							...typography.fontSizeCssVars(props, "image", "figcaption"),
+							...typography.lineHeightCssVars(props, "image", "figcaption"),
+						}}
+						placeholder={__("Add a legend", "beer-blocks")}
+						tagName="figcaption"
+						value={figcaption}
+						allowedFormats={[
+							"core/bold",
+							"core/italic",
+							"core/link",
+							"core/code",
+							"core/mark",
+							"core/strikethrough",
+						]}
+						onChange={(content) => setAttributes({ figcaption: content })}
+					/>
+				)}
 			</figure>
 		</>
 	);

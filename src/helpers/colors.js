@@ -1,5 +1,12 @@
 import { __ } from "@wordpress/i18n";
-import { BaseControl, ColorPalette, PanelBody } from "@wordpress/components";
+import {
+	BaseControl,
+	ColorPalette,
+	PanelBody,
+	GradientPicker,
+	TabPanel,
+	__experimentalHeading as Heading,
+} from "@wordpress/components";
 import { variantsColorPallet as variants } from "./bootstrap-variants";
 import { camelCase, has } from "lodash";
 
@@ -10,15 +17,15 @@ const DEFAULTS = {
 };
 
 // returns attribute name
-export const attrName = ({ attr, attrPrefix = "" }) =>
+export const attrName = (attr, attrPrefix = "") =>
 	camelCase(`${attrPrefix}-${attr}`);
 
 // returns block's color attribute
 export const colorAttribute = ({
 	attrPrefix = "",
 	defaultValue = DEFAULTS.color,
-}) => ({
-	[attrName({ attr: "color", attrPrefix })]: {
+} = {}) => ({
+	[attrName("color", attrPrefix)]: {
 		type: "string",
 		default: defaultValue,
 	},
@@ -28,8 +35,8 @@ export const colorAttribute = ({
 export const backgroundAttribute = ({
 	attrPrefix = "",
 	defaultValue = DEFAULTS.background,
-}) => ({
-	[attrName({ attr: "background", attrPrefix })]: {
+} = {}) => ({
+	[attrName("background", attrPrefix)]: {
 		type: "string",
 		default: defaultValue,
 	},
@@ -40,27 +47,33 @@ export const attributes = ({
 	attrPrefix = "",
 	defaultColor = DEFAULTS.color,
 	defaultBackground = DEFAULTS.background,
+	colorAttr = true,
+	backgroundAttr = true,
 } = {}) => ({
-	...colorAttribute({
-		attrPrefix,
-		defaultValue: defaultColor,
-	}),
-	...backgroundAttribute({
-		attrPrefix,
-		defaultValue: defaultBackground,
-	}),
+	...(colorAttr
+		? colorAttribute({
+				attrPrefix,
+				defaultValue: defaultColor,
+		  })
+		: {}),
+	...(backgroundAttr
+		? backgroundAttribute({
+				attrPrefix,
+				defaultValue: defaultBackground,
+		  })
+		: {}),
 });
 
-// returns color atrribute's controls
+// returns color attribute's controls
 export const colorControl = ({
 	props,
 	attrPrefix = "",
 	label = __("Font color", "beer-blocks"),
 }) => {
-	const attrName = camelCase(`${attrPrefix}-color`);
+	const attr = attrName("color", attrPrefix);
 	const { setAttributes, attributes } = props;
 
-	if (!has(attributes, attrName)) {
+	if (!has(attributes, attr)) {
 		return null;
 	}
 
@@ -68,8 +81,8 @@ export const colorControl = ({
 		<BaseControl label={label}>
 			<ColorPalette
 				colors={variants}
-				value={attributes[attrName]}
-				onChange={(color) => setAttributes({ [attrName]: color })}
+				value={attributes[attr]}
+				onChange={(color) => setAttributes({ [attr]: color })}
 				enableAlpha={false}
 			/>
 		</BaseControl>
@@ -82,22 +95,52 @@ export const backgroundControl = ({
 	attrPrefix = "",
 	label = __("Background", "beer-blocks"),
 }) => {
-	const attrName = camelCase(`${attrPrefix}-background`);
+	const attr = attrName("background", attrPrefix);
 	const { setAttributes, attributes } = props;
 
-	if (!has(attributes, attrName)) {
+	if (!has(attributes, attr)) {
 		return null;
 	}
 
+	const solidColor = attributes[attr]
+		? attributes[attr].search(/(linear|radial)-gradient/) > -1
+			? undefined
+			: attributes[attr]
+		: undefined;
+
+	const gradientColor = solidColor ? undefined : attributes[attr];
+
 	return (
-		<BaseControl label={label}>
-			<ColorPalette
-				colors={variants}
-				value={attributes[attrName]}
-				onChange={(background) => setAttributes({ [attrName]: background })}
-				enableAlpha={true}
-			/>
-		</BaseControl>
+		<>
+			<Heading level="3" style={{ marginBottom: "5px" }}>
+				{label}
+			</Heading>
+
+			<TabPanel
+				initialTabName="solid"
+				tabs={[
+					{ name: "solid", title: __("Solid", "beer-blocks") },
+					{ name: "gradient", title: __("Gradient", "beer-blocks") },
+				]}
+				className="beer-blocks-tabs"
+			>
+				{(tab) =>
+					tab.name === "solid" ? (
+						<ColorPalette
+							colors={variants}
+							value={solidColor}
+							onChange={(background) => setAttributes({ [attr]: background })}
+							enableAlpha={true}
+						/>
+					) : (
+						<GradientPicker
+							value={gradientColor}
+							onChange={(background) => setAttributes({ [attr]: background })}
+						/>
+					)
+				}
+			</TabPanel>
+		</>
 	);
 };
 
@@ -136,39 +179,39 @@ export const controls = ({
 };
 
 // returns css vars for color attribute
-export const colorCssVars = ({ props, blockName, attrPrefix = "" }) => {
-	const attrName = camelCase(`${attrPrefix}-color`);
+export const colorCssVars = (props, blockName, attrPrefix = "") => {
+	const attr = attrName("color", attrPrefix);
 
 	const {
-		attributes: { [attrName]: color = undefined },
+		attributes: { [attr]: color = undefined },
 	} = props;
 
 	return color
 		? {
-				[`--wp-beer-blocks-${blockName}-${attrName}`]: color,
+				[`--wp-beer-blocks-${blockName}-${attr}`]: color,
 		  }
 		: {};
 };
 
 // returns css vars for background attribute
-export const backgroundCssVars = ({ props, blockName, attrPrefix = "" }) => {
-	const attrName = camelCase(`${attrPrefix}-background`);
+export const backgroundCssVars = (props, blockName, attrPrefix = "") => {
+	const attr = attrName("background", attrPrefix);
 
 	const {
-		attributes: { [attrName]: background = undefined },
+		attributes: { [attr]: background = undefined },
 	} = props;
 
 	return background
 		? {
-				[`--wp-beer-blocks-${blockName}-${attrName}`]: background,
+				[`--wp-beer-blocks-${blockName}-${attr}`]: background,
 		  }
 		: {};
 };
 
 // returns css vars for all colors attributes
-export const cssVars = ({ props, blockName, attrPrefix = "" }) => ({
-	...colorCssVars({ props, blockName, attrPrefix }),
-	...backgroundCssVars({ props, blockName, attrPrefix }),
+export const cssVars = (props, blockName, attrPrefix = "") => ({
+	...colorCssVars(props, blockName, attrPrefix),
+	...backgroundCssVars(props, blockName, attrPrefix),
 });
 
 export default {

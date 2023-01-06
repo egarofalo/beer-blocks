@@ -33,12 +33,13 @@ import save from "./save";
 import blockAlignment from "./../../helpers/block-alignment";
 import dimension from "./../../helpers/dimension";
 import spacing from "./../../helpers/spacing";
-import borderRadius from "./../../helpers/border-radius";
+import typography from "./../../helpers/typography";
+import colors from "./../../helpers/colors";
 
 /**
  * Block Icon.
  */
-import icon from "./../../icons/fa-icon.svg";
+import icon from "./../../icons/image.svg";
 
 /**
  * Every block starts by registering a new block type definition.
@@ -76,12 +77,16 @@ registerBlockType("beer-blocks/image", {
 			type: "number",
 			default: 0,
 		},
-		figacption: {
+		figcaption: {
 			type: "html",
 		},
 		removeFigcaption: {
 			type: "boolean",
 			default: false,
+		},
+		figcaptionTextAlign: {
+			type: "string",
+			default: undefined,
 		},
 		...blockAlignment.attribute(),
 		...dimension.attributes({
@@ -91,6 +96,19 @@ registerBlockType("beer-blocks/image", {
 		}),
 		...spacing.attributes({
 			breakpoints: true,
+			paddingSides: false,
+		}),
+		...typography.attributes({
+			attrPrefix: "figcaption",
+			breakpoints: true,
+			breakpointsBehaviorAttrPrefix: "figcaption-font",
+		}),
+		...colors.attributes({
+			attrPrefix: "figcaption",
+			backgroundAttr: false,
+		}),
+		...spacing.attributes({
+			attrPrefix: "figcaption",
 			paddingSides: false,
 			marginSides: ["top", "bottom"],
 		}),

@@ -7,6 +7,7 @@ import {
 } from "@wordpress/block-editor";
 import spacing from "./../../helpers/spacing";
 import typography from "./../../helpers/typography";
+import colors from "./../../helpers/colors";
 
 const edit = (props) => {
 	const {
@@ -17,12 +18,13 @@ const edit = (props) => {
 	const blockProps = useBlockProps({
 		className: `has-text-align-${textAlign}`,
 		style: {
-			...spacing.paddingCssVars({ props, blockName: "paragraph" }),
-			...spacing.marginCssVars({ props, blockName: "paragraph" }),
+			...spacing.paddingCssVars(props, "paragraph"),
+			...spacing.marginCssVars(props, "paragraph"),
 			...typography.fontFamilyStyles(props),
 			...typography.fontWeightStyles(props),
-			...typography.fontSizeCssVars({ props, blockName: "paragraph" }),
-			...typography.lineHeightCssVars({ props, blockName: "paragraph" }),
+			...typography.fontSizeCssVars(props, "paragraph"),
+			...typography.lineHeightCssVars(props, "paragraph"),
+			...colors.cssVars(props, "paragraph"),
 		},
 	});
 
@@ -30,6 +32,7 @@ const edit = (props) => {
 		<>
 			<InspectorControls>
 				{typography.breakpointsControls({ props, initialOpen: true })}
+				{colors.controls({ props })}
 				{spacing.breakpointsControls({ props })}
 			</InspectorControls>
 

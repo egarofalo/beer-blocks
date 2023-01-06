@@ -30,6 +30,7 @@ import "./editor.scss";
  */
 import edit from "./edit";
 import save from "./save";
+import colors from "./../../helpers/colors";
 import spacing from "./../../helpers/spacing";
 import typography from "./../../helpers/typography";
 import border from "./../../helpers/border";
@@ -71,30 +72,20 @@ registerBlockType("beer-blocks/accordion-item", {
 			type: "string",
 			default: "left",
 		},
-		headingColor: {
-			type: "string",
-			default: undefined,
-		},
-		headingBackground: {
-			type: "string",
-			default: undefined,
-		},
-		...border.attributes({ attrPrefix: "heading" }),
 		headingContent: {
 			type: "html",
 			default: "",
 		},
+		...colors.attributes({ attrPrefix: "heading" }),
+		...border.attributes({ attrPrefix: "heading", borderRadius: true }),
 		...spacing.attributes({ attrPrefix: "heading", marginSides: false }),
 		...typography.attributes({
 			attrPrefix: "heading",
 			breakpoints: true,
 			breakpointsBehaviorAttrPrefix: "heading",
 		}),
-		bodyBackground: {
-			type: "string",
-			default: undefined,
-		},
-		...border.attributes({ attrPrefix: "body" }),
+		...colors.attributes({ attrPrefix: "body", colorAttr: false }),
+		...border.attributes({ attrPrefix: "body", borderRadius: true }),
 		...spacing.attributes({ attrPrefix: "body", marginSides: false }),
 		id: {
 			type: "string",
@@ -109,7 +100,7 @@ registerBlockType("beer-blocks/accordion-item", {
 			default: undefined,
 		},
 		...spacing.attributes({ breakpoints: true }),
-		...border.attributes(),
+		...border.attributes({ borderRadius: true }),
 	},
 	usesContext: ["accordionId"],
 	edit,

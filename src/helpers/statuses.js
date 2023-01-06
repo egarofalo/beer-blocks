@@ -1,29 +1,32 @@
-import { __ } from "@wordpress/i18n";
+import { __, sprintf } from "@wordpress/i18n";
 import {
 	RangeControl,
 	BaseControl,
 	ColorPalette,
 	SelectControl,
-	__experimentalToolsPanel as ToolsPanel,
-	__experimentalToolsPanelItem as ToolsPanelItem,
-	__experimentalDivider as Divider,
+	Panel,
+	PanelBody,
+	ToggleControl,
+	Disabled,
+	TabPanel,
+	GradientPicker,
 	__experimentalHeading as Heading,
 } from "@wordpress/components";
 import { variantsColorPallet as variants } from "./bootstrap-variants";
 import { camelCase, has } from "lodash";
+import { MdAdsClick } from "react-icons/md";
 import {
-	controls as nativeBorderControl,
-	cssVars as nativeBorderCssVars,
-	isSplitBorders,
+	borderControl as nativeBorderControl,
+	borderCssVars as nativeBorderCssVars,
 } from "./border";
 import { controlWrapperStyle } from "./inline-styles";
 import { reset as resetButton } from "./buttons";
 
 // default transition attribute values
 const TRANSITION_DEFAULTS = {
-	delay: 0,
-	duration: 0,
-	timingFunction: "ease",
+	delay: undefined,
+	duration: undefined,
+	timingFunction: undefined,
 };
 
 // elements statuses
@@ -33,115 +36,48 @@ const statuses = {
 	focus: __("Focus", "beer-blocks"),
 };
 
-// check if transition value is falsy
-const isFalsyTransition = (transition) =>
-	!transition.delay && !transition.duration && !transition.timingFunction;
-
 // returns attribute name by prefix and status
-const attrNameByStatus = ({ attr, attrPrefix = "", status }) =>
+const attrNameByStatus = (attr, status, attrPrefix) =>
 	camelCase(`${attrPrefix}-${status}-${attr}`);
 
-// transition timing functions
-const transitionTimingFunctions = {
-	ease: __("Ease", "beer-blocks"),
-	linear: __("Linear", "beer-blocks"),
-	"ease-in": __("Ease In", "beer-blocks"),
-	"ease-out": __("Ease Out", "beer-blocks"),
-	"ease-in-out": __("Ease In Out", "beer-blocks"),
-};
-
-// on deselect handle function for each panel item by status
-const onDeselectPanelItem = ({
-	status = "hover",
-	attrPrefix = "",
-	props,
-	defaultColor = undefined,
-	defaultBackground = undefined,
-	defaultBorder = undefined,
-}) => {
-	const { attributes, setAttributes } = props;
-	const colorAttrName = attrNameByStatus({
-		attr: "color",
-		attrPrefix,
-		status,
-	});
-	const backgroundAttrName = attrNameByStatus({
-		attr: "background",
-		attrPrefix,
-		status,
-	});
-	const borderAttrName = attrNameByStatus({
-		attr: "border",
-		attrPrefix,
-		status,
-	});
-
-	if (defaultBorder) {
-		defaultBorder = isSplitBorders(defaultBorder)
-			? {
-					top: {
-						color: defaultBorder.top.color,
-						width: defaultBorder.top.width,
-					},
-					right: {
-						color: defaultBorder.right.color,
-						width: defaultBorder.right.width,
-					},
-					bottom: {
-						color: defaultBorder.bottom.color,
-						width: defaultBorder.bottom.width,
-					},
-					left: {
-						color: defaultBorder.left.color,
-						width: defaultBorder.left.width,
-					},
-			  }
-			: {
-					color: defaultBorder.color,
-					width: defaultBorder.width,
-			  };
-	}
-
-	setAttributes({
-		...(has(attributes, colorAttrName)
-			? { [colorAttrName]: defaultColor }
-			: {}),
-		...(has(attributes, backgroundAttrName)
-			? { [backgroundAttrName]: defaultBackground }
-			: {}),
-		...(has(attributes, borderAttrName)
-			? { [borderAttrName]: defaultBorder }
-			: {}),
-	});
-};
-
-// check if panel item by status has a truly value
-const panelItemHasValue = ({ props, attrPrefix, status = "hover" }) => {
-	const { attributes } = props;
-	const colorAttrName = attrNameByStatus({ attr: "color", attrPrefix, status });
-	const backgroundAttrName = attrNameByStatus({
-		attr: "background",
-		attrPrefix,
-		status,
-	});
-	const borderAttrName = attrNameByStatus({
-		attr: "border",
-		attrPrefix,
-		status,
-	});
-
-	return (
-		attributes[colorAttrName] ||
-		attributes[backgroundAttrName] ||
-		attributes[borderAttrName]
+// returns attribute name used in toggle controls for enable status controls
+const toggleAttrName = (status, attrPrefix) =>
+	camelCase(
+		`${attrPrefix}-${
+			status === "transition" ? status : `${status}-status`
+		}-enabled`
 	);
-};
+
+// transition timing functions
+const transitionTimingFunctions = [
+	{
+		label: __("-- SELECT --", "beer-blocks"),
+		value: undefined,
+	},
+	{
+		label: __("Ease", "beer-blocks"),
+		value: "ease",
+	},
+	{
+		label: __("Linear", "beer-blocks"),
+		value: "linear",
+	},
+	{
+		label: __("Ease In", "beer-blocks"),
+		value: "ease-in",
+	},
+	{
+		label: __("Ease Out", "beer-blocks"),
+		value: "ease-out",
+	},
+	{
+		label: __("Ease In Out", "beer-blocks"),
+		value: "ease-in-out",
+	},
+];
 
 // returns transition block attribute
-const transitionAttributes = ({
-	attrPrefix = "",
-	defaultValue = TRANSITION_DEFAULTS,
-}) => ({
+const transitionAttributes = (attrPrefix, defaultValue) => ({
 	[camelCase(`${attrPrefix}-transition`)]: {
 		type: "object",
 		default: defaultValue,
@@ -149,7 +85,7 @@ const transitionAttributes = ({
 });
 
 // returns controls for transition effects
-const transitionControls = ({ props, attrPrefix = "" }) => {
+const transitionControls = (props, attrPrefix) => {
 	const transitionAttr = camelCase(`${attrPrefix}-transition`);
 	const {
 		setAttributes,
@@ -161,14 +97,7 @@ const transitionControls = ({ props, attrPrefix = "" }) => {
 			<div style={controlWrapperStyle}>
 				<SelectControl
 					label={__("Transition timing function", "beer-blocks")}
-					options={[
-						...Object.entries(transitionTimingFunctions).map(
-							([value, label]) => ({
-								label,
-								value,
-							})
-						),
-					]}
+					options={transitionTimingFunctions}
 					value={transition.timingFunction}
 					onChange={(value) =>
 						setAttributes({
@@ -219,7 +148,7 @@ const transitionControls = ({ props, attrPrefix = "" }) => {
 };
 
 // returns css vars for transition attributes
-const transitionCssVars = ({ props, blockName, attrPrefix = "" }) => {
+const transitionCssVars = (props, blockName, attrPrefix) => {
 	const transitionAttr = camelCase(`${attrPrefix}-transition`);
 	const {
 		attributes: { [transitionAttr]: transition = undefined },
@@ -248,34 +177,21 @@ const transitionCssVars = ({ props, blockName, attrPrefix = "" }) => {
 };
 
 // returns color attribute by status
-const colorAttribute = ({
-	status,
-	attrPrefix = "",
-	defaultValue = undefined,
-}) => ({
-	[attrNameByStatus({ attr: "color", status, attrPrefix })]: {
+const colorAttribute = (status, attrPrefix, defaultValue) => ({
+	[attrNameByStatus("color", status, attrPrefix)]: {
 		type: "string",
 		default: defaultValue,
 	},
 });
 
 // returns color atrribute's controls
-const colorControl = ({
-	props,
-	attrPrefix = "",
-	label = __("Font color", "beer-blocks"),
-	status,
-}) => {
+const colorControl = (props, attrPrefix, status) => {
 	const { setAttributes, attributes } = props;
-	const attrName = attrNameByStatus({
-		attr: "color",
-		attrPrefix,
-		status,
-	});
+	const attrName = attrNameByStatus("color", attrPrefix, status);
 
 	return (
 		<div style={controlWrapperStyle}>
-			<BaseControl label={label}>
+			<BaseControl label={__("Font color", "beer-blocks")}>
 				<ColorPalette
 					colors={variants}
 					value={attributes[attrName]}
@@ -289,22 +205,10 @@ const colorControl = ({
 };
 
 // returns css vars for color attribute
-const colorCssVars = ({ props, blockName, attrPrefix = "" }) => {
-	const hoverAttrName = attrNameByStatus({
-		attr: "color",
-		attrPrefix,
-		status: "hover",
-	});
-	const activeAttrName = attrNameByStatus({
-		attr: "color",
-		attrPrefix,
-		status: "active",
-	});
-	const focusAttrName = attrNameByStatus({
-		attr: "color",
-		attrPrefix,
-		status: "focus",
-	});
+const colorCssVars = (props, blockName, attrPrefix) => {
+	const hoverAttrName = attrNameByStatus("color", attrPrefix, "hover");
+	const activeAttrName = attrNameByStatus("color", attrPrefix, "active");
+	const focusAttrName = attrNameByStatus("color", attrPrefix, "focus");
 
 	const {
 		attributes: {
@@ -334,63 +238,71 @@ const colorCssVars = ({ props, blockName, attrPrefix = "" }) => {
 };
 
 // returns background attribute by status
-const backgroundAttribute = ({
-	status,
-	attrPrefix = "",
-	defaultValue = undefined,
-}) => ({
-	[attrNameByStatus({ attr: "background", status, attrPrefix })]: {
+const backgroundAttribute = (status, attrPrefix, defaultValue) => ({
+	[attrNameByStatus("background", status, attrPrefix)]: {
 		type: "string",
 		default: defaultValue,
 	},
 });
 
 // returns background attribute's controls
-const backgroundControl = ({
-	props,
-	attrPrefix = "",
-	label = __("Background", "beer-blocks"),
-	status,
-}) => {
+const backgroundControl = (props, attrPrefix, status) => {
 	const { setAttributes, attributes } = props;
-	const attrName = attrNameByStatus({
-		attr: "background",
-		attrPrefix,
-		status,
-	});
+	const attrName = attrNameByStatus("background", attrPrefix, status);
+
+	const solidColor = attributes[attrName]
+		? attributes[attrName].search(/(linear|radial)-gradient/) > -1
+			? undefined
+			: attributes[attrName]
+		: undefined;
+
+	const gradientColor = solidColor ? undefined : attributes[attrName];
 
 	return (
 		<div style={controlWrapperStyle}>
-			<BaseControl label={label}>
-				<ColorPalette
-					colors={variants}
-					value={attributes[attrName]}
-					onChange={(background) => setAttributes({ [attrName]: background })}
-					disableAlpha
-					clearable={false}
-				/>
-			</BaseControl>
+			<Heading level="3" style={{ marginBottom: "5px" }}>
+				{__("Background", "beer-blocks")}
+			</Heading>
+
+			<TabPanel
+				initialTabName="solid"
+				tabs={[
+					{ name: "solid", title: __("Solid", "beer-blocks") },
+					{ name: "gradient", title: __("Gradient", "beer-blocks") },
+				]}
+				className="beer-blocks-tabs"
+			>
+				{(tab) =>
+					tab.name === "solid" ? (
+						<ColorPalette
+							colors={variants}
+							value={solidColor}
+							onChange={(background) =>
+								setAttributes({ [attrName]: background })
+							}
+							enableAlpha={true}
+							clearable={false}
+						/>
+					) : (
+						<GradientPicker
+							value={gradientColor}
+							onChange={(background) =>
+								setAttributes({ [attrName]: background })
+							}
+							clearable={false}
+						/>
+					)
+				}
+			</TabPanel>
 		</div>
 	);
 };
 
 // returns css vars for background attribute
-const backgroundCssVars = ({ props, blockName, attrPrefix = "" }) => {
-	const hoverAttrName = attrNameByStatus({
-		attr: "background",
-		attrPrefix,
-		status: "hover",
-	});
-	const activeAttrName = attrNameByStatus({
-		attr: "background",
-		attrPrefix,
-		status: "active",
-	});
-	const focusAttrName = attrNameByStatus({
-		attr: "background",
-		attrPrefix,
-		status: "focus",
-	});
+const backgroundCssVars = (props, blockName, attrPrefix) => {
+	const hoverAttrName = attrNameByStatus("background", attrPrefix, "hover");
+	const activeAttrName = attrNameByStatus("background", attrPrefix, "active");
+	const focusAttrName = attrNameByStatus("background", attrPrefix, "focus");
 
 	const {
 		attributes: {
@@ -420,54 +332,53 @@ const backgroundCssVars = ({ props, blockName, attrPrefix = "" }) => {
 };
 
 // returns border attribute by status
-const borderAttribute = ({
-	status,
-	attrPrefix = "",
-	defaultValue = undefined,
-}) => ({
-	[attrNameByStatus({ attr: "border", status, attrPrefix })]: {
+const borderAttribute = (status, attrPrefix, defaultValue) => ({
+	[attrNameByStatus("border", status, attrPrefix)]: {
 		type: "object",
 		default: defaultValue,
 	},
 });
 
 // returns border attribute's controls
-const borderControl = ({
-	props,
-	attrPrefix = "",
-	label = __("Border styles", "beer-blocks"),
-	status,
-}) =>
+const borderControl = (props, attrPrefix, status) =>
 	nativeBorderControl({
 		props,
 		attrPrefix: `${attrPrefix}-${status}`,
 		enableStyle: false,
-		panelBody: false,
-		label,
-		reset: false,
 	});
 
 // returns css vars for border attribute
-const borderCssVars = ({ props, blockName, attrPrefix = "" }) => ({
-	...nativeBorderCssVars({
-		props,
-		blockName,
-		attrPrefix: camelCase(`${attrPrefix}-hover`),
-		enableStyle: false,
-	}),
-	...nativeBorderCssVars({
-		props,
-		blockName,
-		attrPrefix: camelCase(`${attrPrefix}-active`),
-		enableStyle: false,
-	}),
-	...nativeBorderCssVars({
-		props,
-		blockName,
-		attrPrefix: camelCase(`${attrPrefix}-focus`),
-		enableStyle: false,
-	}),
+const borderCssVars = (props, blockName, attrPrefix) => ({
+	...nativeBorderCssVars(props, blockName, camelCase(`${attrPrefix}-hover`)),
+	...nativeBorderCssVars(props, blockName, camelCase(`${attrPrefix}-active`)),
+	...nativeBorderCssVars(props, blockName, camelCase(`${attrPrefix}-focus`)),
 });
+
+// Toggle control for enable hover, active, focus status or transition controls
+const statusToggleControl = (props, attrPrefix, status, defaultValues) => {
+	const attrStatusName = toggleAttrName(status, attrPrefix);
+
+	const {
+		attributes: { [attrStatusName]: statusEnabled = undefined },
+		setAttributes,
+	} = props;
+
+	return statusEnabled !== undefined ? (
+		<ToggleControl
+			label={sprintf(
+				__("Enable %s"),
+				status === "transition" ? "transition effects" : `${status} status`
+			)}
+			checked={statusEnabled}
+			onChange={() =>
+				setAttributes({
+					[attrStatusName]: !statusEnabled,
+					...defaultValues,
+				})
+			}
+		/>
+	) : null;
+};
 
 // returns block attributes
 export const attributes = ({
@@ -493,72 +404,66 @@ export const attributes = ({
 	transitionAttr = false,
 	transitionDefaultValue = TRANSITION_DEFAULTS,
 }) => ({
+	...(hoverColorAttr || hoverBackgroundAttr || hoverBorderAttr
+		? {
+				[toggleAttrName("hover", attrPrefix)]: {
+					type: "boolean",
+					default: false,
+				},
+		  }
+		: {}),
+	...(activeColorAttr || activeBackgroundAttr || activeBorderAttr
+		? {
+				[toggleAttrName("active", attrPrefix)]: {
+					type: "boolean",
+					default: false,
+				},
+		  }
+		: {}),
+	...(focusColorAttr || focusBackgroundAttr || focusBorderAttr
+		? {
+				[toggleAttrName("focus", attrPrefix)]: {
+					type: "boolean",
+					default: false,
+				},
+		  }
+		: {}),
 	...(hoverColorAttr
-		? colorAttribute({
-				status: "hover",
-				attrPrefix,
-				defaultValue: hoverColorDefaultValue,
-		  })
+		? colorAttribute("hover", attrPrefix, hoverColorDefaultValue)
 		: {}),
 	...(activeColorAttr
-		? colorAttribute({
-				status: "active",
-				attrPrefix,
-				defaultValue: activeColorDefaultValue,
-		  })
+		? colorAttribute("active", attrPrefix, activeColorDefaultValue)
 		: {}),
 	...(focusColorAttr
-		? colorAttribute({
-				status: "focus",
-				attrPrefix,
-				defaultValue: focusColorDefaultValue,
-		  })
+		? colorAttribute("focus", attrPrefix, focusColorDefaultValue)
 		: {}),
 	...(hoverBackgroundAttr
-		? backgroundAttribute({
-				status: "hover",
-				attrPrefix,
-				defaultValue: hoverBackgroundDefaultValue,
-		  })
+		? backgroundAttribute("hover", attrPrefix, hoverBackgroundDefaultValue)
 		: {}),
 	...(activeBackgroundAttr
-		? backgroundAttribute({
-				status: "active",
-				attrPrefix,
-				defaultValue: activeBackgroundDefaultValue,
-		  })
+		? backgroundAttribute("active", attrPrefix, activeBackgroundDefaultValue)
 		: {}),
 	...(focusBackgroundAttr
-		? backgroundAttribute({
-				status: "focus",
-				attrPrefix,
-				defaultValue: focusBackgroundDefaultValue,
-		  })
+		? backgroundAttribute("focus", attrPrefix, focusBackgroundDefaultValue)
 		: {}),
 
 	...(hoverBorderAttr
-		? borderAttribute({
-				status: "hover",
-				attrPrefix,
-				defaultValue: hoverBorderDefaultValue,
-		  })
+		? borderAttribute("hover", attrPrefix, hoverBorderDefaultValue)
 		: {}),
 	...(activeBorderAttr
-		? borderAttribute({
-				status: "active",
-				attrPrefix,
-				defaultValue: activeBorderDefaultValue,
-		  })
+		? borderAttribute("active", attrPrefix, activeBorderDefaultValue)
 		: {}),
 	...(focusBorderAttr
-		? borderAttribute({
-				status: "focus",
-				attrPrefix,
-				defaultValue: focusBorderDefaultValue,
-		  })
+		? borderAttribute("focus", attrPrefix, focusBorderDefaultValue)
 		: {}),
 	...(transitionAttr
-		? transitionAttributes({ attrPrefix, defaultValue: transitionDefaultValue })
+		? {
+				[toggleAttrName("transition", attrPrefix)]: {
+					type: "boolean",
+					default: false,
+				},
+				...transitionAttributes(attrPrefix, transitionDefaultValue),
+		  }
 		: {}),
 });
 
@@ -566,7 +471,12 @@ export const attributes = ({
 export const controls = ({
 	props,
 	attrPrefix = "",
-	title = __("Element statuses", "beer-blocks"),
+	title = (
+		<>
+			<MdAdsClick className="components-panel__header-icon" />{" "}
+			{__("Element statuses", "beer-blocks")}
+		</>
+	),
 	hoverColorDefaultValue = undefined,
 	activeColorDefaultValue = undefined,
 	focusColorDefaultValue = undefined,
@@ -579,366 +489,259 @@ export const controls = ({
 	transitionDefaultValue = TRANSITION_DEFAULTS,
 }) => {
 	const { attributes, setAttributes } = props;
-	// attributes names
-	const hoverColorAttrName = attrNameByStatus({
-		attr: "color",
+
+	// hover attributes names
+	const hoverToggleAttrName = toggleAttrName("hover", attrPrefix);
+	const hoverColorAttrName = attrNameByStatus("color", attrPrefix, "hover");
+	const hoverBackgroundAttrName = attrNameByStatus(
+		"background",
 		attrPrefix,
-		status: "hover",
-	});
-	const hoverBackgroundAttrName = attrNameByStatus({
-		attr: "background",
+		"hover"
+	);
+	const hoverBorderAttrName = attrNameByStatus("border", attrPrefix, "hover");
+
+	// active attributes names
+	const activeToggleAttrName = toggleAttrName("active", attrPrefix);
+	const activeColorAttrName = attrNameByStatus("color", attrPrefix, "active");
+	const activeBackgroundAttrName = attrNameByStatus(
+		"background",
 		attrPrefix,
-		status: "hover",
-	});
-	const hoverBorderAttrName = attrNameByStatus({
-		attr: "border",
+		"active"
+	);
+	const activeBorderAttrName = attrNameByStatus("border", attrPrefix, "active");
+
+	// focus attributes names
+	const focusToggleAttrName = toggleAttrName("focus", attrPrefix);
+	const focusColorAttrName = attrNameByStatus("color", attrPrefix, "focus");
+	const focusBackgroundAttrName = attrNameByStatus(
+		"background",
 		attrPrefix,
-		status: "hover",
-	});
-	const activeColorAttrName = attrNameByStatus({
-		attr: "color",
-		attrPrefix,
-		status: "active",
-	});
-	const activeBackgroundAttrName = attrNameByStatus({
-		attr: "background",
-		attrPrefix,
-		status: "active",
-	});
-	const activeBorderAttrName = attrNameByStatus({
-		attr: "border",
-		attrPrefix,
-		status: "active",
-	});
-	const focusColorAttrName = attrNameByStatus({
-		attr: "color",
-		attrPrefix,
-		status: "focus",
-	});
-	const focusBackgroundAttrName = attrNameByStatus({
-		attr: "background",
-		attrPrefix,
-		status: "focus",
-	});
-	const focusBorderAttrName = attrNameByStatus({
-		attr: "border",
-		attrPrefix,
-		status: "focus",
-	});
-	const transitionAttrName = camelCase(`${attrPrefix}-transition`);
-	// attributes flags
+		"focus"
+	);
+	const focusBorderAttrName = attrNameByStatus("border", attrPrefix, "focus");
+
+	// hover attributes flags
 	const hoverColorAttr = has(attributes, hoverColorAttrName);
 	const hoverBackgroundAttr = has(attributes, hoverBackgroundAttrName);
 	const hoverBorderAttr = has(attributes, hoverBorderAttrName);
+	const hoverStatus = hoverColorAttr || hoverBackgroundAttr || hoverBorderAttr;
+
+	// active attributes flags
 	const activeColorAttr = has(attributes, activeColorAttrName);
 	const activeBackgroundAttr = has(attributes, activeBackgroundAttrName);
 	const activeBorderAttr = has(attributes, activeBorderAttrName);
+	const activeStatus =
+		activeColorAttr || activeBackgroundAttr || activeBorderAttr;
+
+	// focus attributes flags
 	const focusColorAttr = has(attributes, focusColorAttrName);
 	const focusBackgroundAttr = has(attributes, focusBackgroundAttrName);
 	const focusBorderAttr = has(attributes, focusBorderAttrName);
-	const transitionAttr = has(attributes, transitionAttrName);
-	const hoverStatus = hoverColorAttr || hoverBackgroundAttr || hoverBorderAttr;
-	const activeStatus =
-		activeColorAttr || activeBackgroundAttr || activeBorderAttr;
 	const focusStatus = focusColorAttr || focusBackgroundAttr || focusBorderAttr;
 
-	const panelItemHeadingStyles = {
-		textAlign: "center",
-		textTransform: "uppercase",
+	// transition attribute name and flag
+	const transitionToggleAttrName = toggleAttrName("transition", attrPrefix);
+	const transitionAttrName = camelCase(`${attrPrefix}-transition`);
+	const transitionAttr = has(attributes, transitionAttrName);
+
+	// hover status default values
+	const hoverStatusDefaultValues = {
+		...(hoverColorAttr ? { [hoverColorAttrName]: hoverColorDefaultValue } : {}),
+		...(hoverBackgroundAttr
+			? { [hoverBackgroundAttrName]: hoverBackgroundDefaultValue }
+			: {}),
+		...(hoverBorderAttr
+			? { [hoverBorderAttrName]: hoverBorderDefaultValue }
+			: {}),
 	};
 
+	// active status default values
+	const activeStatusDefaultValues = {
+		...(activeColorAttr
+			? { [activeColorAttrName]: activeColorDefaultValue }
+			: {}),
+		...(activeBackgroundAttr
+			? { [activeBackgroundAttrName]: activeBackgroundDefaultValue }
+			: {}),
+		...(activeBorderAttr
+			? { [activeBorderAttrName]: activeBorderDefaultValue }
+			: {}),
+	};
+
+	// focus status default values
+	const focusStatusDefaultValues = {
+		...(focusColorAttr ? { [focusColorAttrName]: focusColorDefaultValue } : {}),
+		...(focusBackgroundAttr
+			? { [focusBackgroundAttrName]: focusBackgroundDefaultValue }
+			: {}),
+		...(focusBorderAttr
+			? { [focusBorderAttrName]: focusBorderDefaultValue }
+			: {}),
+	};
+
+	// hover status controls
+	const hoverInnerControls = hoverStatus ? (
+		<>
+			{hoverColorAttr && colorControl(props, attrPrefix, "hover")}
+			{hoverBackgroundAttr && backgroundControl(props, attrPrefix, "hover")}
+			{hoverBorderAttr && borderControl(props, attrPrefix, "hover")}
+
+			{resetButton({
+				onClick: () => setAttributes(hoverStatusDefaultValues),
+			})}
+		</>
+	) : null;
+
+	// active status controls
+	const activeInnerControls = activeStatus ? (
+		<>
+			{activeColorAttr && colorControl(props, attrPrefix, "active")}
+			{activeBackgroundAttr && backgroundControl(props, attrPrefix, "active")}
+			{activeBorderAttr && borderControl(props, attrPrefix, "active")}
+
+			{resetButton({
+				onClick: () => setAttributes(activeStatusDefaultValues),
+			})}
+		</>
+	) : null;
+
+	// focus status controls
+	const focusInnerControls = focusStatus ? (
+		<>
+			{focusColorAttr && colorControl(props, attrPrefix, "focus")}
+			{focusBackgroundAttr && backgroundControl(props, attrPrefix, "focus")}
+			{focusBorderAttr && borderControl(props, attrPrefix, "focus")}
+
+			{resetButton({
+				onClick: () => setAttributes(focusStatusDefaultValues),
+			})}
+		</>
+	) : null;
+
+	// transition constrols
+	const transitionInnerControls = transitionAttr ? (
+		<>
+			{transitionControls(props, attrPrefix)}
+
+			{resetButton({
+				onClick: () =>
+					setAttributes({
+						[transitionAttrName]: transitionDefaultValue,
+					}),
+			})}
+		</>
+	) : null;
+
 	return (
-		<ToolsPanel label={title}>
-			{hoverStatus && (
-				<ToolsPanelItem
-					label={__(statuses.hover, "beer-blocks")}
-					hasValue={() =>
-						panelItemHasValue({ props, attrPrefix, status: "hover" })
-					}
-					onDeselect={() =>
-						onDeselectPanelItem({
-							props,
-							attrPrefix,
-							status: "hover",
-							defaultColor: hoverColorDefaultValue,
-							defaultBackground: hoverBackgroundDefaultValue,
-							defaultBorder: hoverBorderDefaultValue,
-							defaultTransition: transitionDefaultValue,
-						})
-					}
+		<Panel header={title} className="components-panel__with-subpanels">
+			{hoverInnerControls && (
+				<PanelBody
+					title={__(statuses.hover, "beer-blocks")}
+					initialOpen={false}
 				>
-					<Heading style={panelItemHeadingStyles}>
-						{__(statuses.hover, "beer-blocks")}
-					</Heading>
-
-					{hoverColorAttr &&
-						colorControl({ props, attrPrefix, status: "hover" })}
-					{hoverBackgroundAttr &&
-						backgroundControl({ props, attrPrefix, status: "hover" })}
-					{hoverBorderAttr &&
-						borderControl({ props, attrPrefix, status: "hover" })}
-
-					{resetButton({
-						onClick: setAttributes({
-							...(hoverColorAttr
-								? { [hoverColorAttrName]: hoverColorDefaultValue }
-								: {}),
-							...(hoverBackgroundAttr
-								? { [hoverBackgroundAttrName]: hoverBackgroundDefaultValue }
-								: {}),
-							...(hoverBorderAttr
-								? { [hoverBorderAttrName]: hoverBorderDefaultValue }
-								: {}),
-						}),
-					})}
-
-					{(activeStatus || focusStatus || transitionAttr) && <Divider />}
-				</ToolsPanelItem>
+					{statusToggleControl(
+						props,
+						attrPrefix,
+						"hover",
+						hoverStatusDefaultValues
+					)}
+					{attributes[hoverToggleAttrName] ? (
+						hoverInnerControls
+					) : (
+						<Disabled>{hoverInnerControls}</Disabled>
+					)}
+				</PanelBody>
 			)}
 
-			{activeStatus && (
-				<ToolsPanelItem
-					label={__(statuses.active, "beer-blocks")}
-					hasValue={() =>
-						panelItemHasValue({ props, attrPrefix, status: "active" })
-					}
-					onDeselect={() =>
-						onDeselectPanelItem({
-							props,
-							attrPrefix,
-							status: "active",
-							defaultColor: activeColorDefaultValue,
-							defaultBackground: activeBackgroundDefaultValue,
-							defaultBorder: activeBorderDefaultValue,
-							defaultTransition: transitionDefaultValue,
-						})
-					}
+			{activeInnerControls && (
+				<PanelBody
+					title={__(statuses.active, "beer-blocks")}
+					initialOpen={false}
 				>
-					<Heading style={panelItemHeadingStyles}>
-						{__(statuses.active, "beer-blocks")}
-					</Heading>
-
-					{activeColorAttr &&
-						colorControl({ props, attrPrefix, status: "active" })}
-					{activeBackgroundAttr &&
-						backgroundControl({ props, attrPrefix, status: "active" })}
-					{activeBorderAttr &&
-						borderControl({ props, attrPrefix, status: "active" })}
-
-					{resetButton({
-						onClick: setAttributes({
-							...(activeColorAttr
-								? { [activeColorAttrName]: activeColorDefaultValue }
-								: {}),
-							...(activeBackgroundAttr
-								? { [activeBackgroundAttrName]: activeBackgroundDefaultValue }
-								: {}),
-							...(activeBorderAttr
-								? { [activeBorderAttrName]: activeBorderDefaultValue }
-								: {}),
-						}),
-					})}
-
-					{(focusStatus || transitionAttr) && <Divider />}
-				</ToolsPanelItem>
+					{statusToggleControl(
+						props,
+						attrPrefix,
+						"active",
+						activeStatusDefaultValues
+					)}
+					{attributes[activeToggleAttrName] ? (
+						activeInnerControls
+					) : (
+						<Disabled>{activeInnerControls}</Disabled>
+					)}
+				</PanelBody>
 			)}
 
 			{focusStatus && (
-				<ToolsPanelItem
-					label={__(statuses.focus, "beer-blocks")}
-					hasValue={() =>
-						panelItemHasValue({ props, attrPrefix, status: "focus" })
-					}
-					onDeselect={() =>
-						onDeselectPanelItem({
-							props,
-							attrPrefix,
-							status: "focus",
-							defaultColor: focusColorDefaultValue,
-							defaultBackground: focusBackgroundDefaultValue,
-							defaultBorder: focusBorderDefaultValue,
-							defaultTransition: transitionDefaultValue,
-						})
-					}
+				<PanelBody
+					title={__(statuses.focus, "beer-blocks")}
+					initialOpen={false}
 				>
-					<Heading style={panelItemHeadingStyles}>
-						{__(statuses.focus, "beer-blocks")}
-					</Heading>
-
-					{focusColorAttr &&
-						colorControl({ props, attrPrefix, status: "focus" })}
-					{focusBackgroundAttr &&
-						backgroundControl({ props, attrPrefix, status: "focus" })}
-					{focusBorderAttr &&
-						borderControl({ props, attrPrefix, status: "focus" })}
-
-					{resetButton({
-						onClick: setAttributes({
-							...(focusColorAttr
-								? { [focusColorAttrName]: focusColorDefaultValue }
-								: {}),
-							...(focusBackgroundAttr
-								? { [focusBackgroundAttrName]: focusBackgroundDefaultValue }
-								: {}),
-							...(focusBorderAttr
-								? { [focusBorderAttrName]: focusBorderDefaultValue }
-								: {}),
-						}),
-					})}
-
-					{transitionAttr && <Divider />}
-				</ToolsPanelItem>
+					{statusToggleControl(
+						props,
+						attrPrefix,
+						"focus",
+						focusStatusDefaultValues
+					)}
+					{attributes[focusToggleAttrName] ? (
+						focusInnerControls
+					) : (
+						<Disabled>{focusInnerControls}</Disabled>
+					)}
+				</PanelBody>
 			)}
 
 			{transitionAttr && (
-				<ToolsPanelItem
-					label={__("Transition Effects", "beer-blocks")}
-					hasValue={() =>
-						!isFalsyTransition(
-							attributes[camelCase(`${attrPrefix}-transition`)]
-						)
-					}
-					onDeselect={() =>
-						setAttributes({
-							[camelCase(`${attrPrefix}-transition`)]: transitionDefaultValue,
-						})
-					}
+				<PanelBody
+					title={__("Transition Effects", "beer-blocks")}
+					initialOpen={false}
 				>
-					<Heading style={panelItemHeadingStyles}>
-						{__("Transitions", "beer-blocks")}
-					</Heading>
-
-					{transitionControls({ props, attrPrefix })}
-
-					{resetButton({
-						onClick: setAttributes({
-							[transitionAttrName]: transitionDefaultValue,
-						}),
+					{statusToggleControl(props, attrPrefix, "transition", {
+						[transitionAttrName]: transitionDefaultValue,
 					})}
-				</ToolsPanelItem>
+					{attributes[transitionToggleAttrName] ? (
+						transitionInnerControls
+					) : (
+						<Disabled>{transitionInnerControls}</Disabled>
+					)}
+				</PanelBody>
 			)}
-		</ToolsPanel>
+		</Panel>
 	);
 };
 
 // returns css vars for transition and colors attributes
-export const cssVars = ({ props, blockName, attrPrefix = "" }) => ({
-	...colorCssVars({ props, blockName, attrPrefix }),
-	...backgroundCssVars({ props, blockName, attrPrefix }),
-	...borderCssVars({ props, blockName, attrPrefix }),
-	...transitionCssVars({ props, blockName, attrPrefix }),
+export const cssVars = (props, blockName, attrPrefix = "") => ({
+	...colorCssVars(props, blockName, attrPrefix),
+	...backgroundCssVars(props, blockName, attrPrefix),
+	...borderCssVars(props, blockName, attrPrefix),
+	...transitionCssVars(props, blockName, attrPrefix),
 });
 
-// set fallback values for color, background or border attributes if they are undefined
-export const setAttributesFallbackValues = ({
-	props,
-	attrPrefix = "",
-	useEffect,
-	attributesValues = {},
-}) => {
-	const useEffectFunc = () => {
-		const { setAttributes, attributes } = props;
-		const hoverColorAttrName = attrNameByStatus({
-			attr: "color",
-			attrPrefix,
-			status: "hover",
-		});
-		const activeColorAttrName = attrNameByStatus({
-			attr: "color",
-			attrPrefix,
-			status: "active",
-		});
-		const focusColorAttrName = attrNameByStatus({
-			attr: "color",
-			attrPrefix,
-			status: "focus",
-		});
-		const hoverBackgroundAttrName = attrNameByStatus({
-			attr: "background",
-			attrPrefix,
-			status: "hover",
-		});
-		const activeBackgroundAttrName = attrNameByStatus({
-			attr: "background",
-			attrPrefix,
-			status: "active",
-		});
-		const focusBackgroundAttrName = attrNameByStatus({
-			attr: "background",
-			attrPrefix,
-			status: "focus",
-		});
-		const hoverBorderAttrName = attrNameByStatus({
-			attr: "border",
-			attrPrefix,
-			status: "hover",
-		});
-		const activeBorderAttrName = attrNameByStatus({
-			attr: "border",
-			attrPrefix,
-			status: "active",
-		});
-		const focusBorderAttrName = attrNameByStatus({
-			attr: "border",
-			attrPrefix,
-			status: "focus",
-		});
+// returns CSS classes depending on attribute values
+export const cssClasses = (props, attrPrefix = "") => {
+	const {
+		attributes: {
+			[toggleAttrName("hover", attrPrefix)]: toggleHoverStatus = undefined,
+			[toggleAttrName("active", attrPrefix)]: toggleActiveStatus = undefined,
+			[toggleAttrName("focus", attrPrefix)]: toggleFocusStatus = undefined,
+			[toggleAttrName("transition", attrPrefix)]: toggleTransition = undefined,
+		},
+	} = props;
 
-		setAttributes({
-			...(has(attributes, hoverColorAttrName) &&
-			has(attributesValues, "color") &&
-			attributes[hoverColorAttrName] === undefined
-				? { [hoverColorAttrName]: attributesValues.color }
-				: {}),
-			...(has(attributes, activeColorAttrName) &&
-			has(attributesValues, "color") &&
-			attributes[activeColorAttrName] === undefined
-				? { [activeColorAttrName]: attributesValues.color }
-				: {}),
-			...(has(attributes, focusColorAttrName) &&
-			has(attributesValues, "color") &&
-			attributes[focusColorAttrName] === undefined
-				? { [focusColorAttrName]: attributesValues.color }
-				: {}),
-			...(has(attributes, hoverBackgroundAttrName) &&
-			has(attributesValues, "background") &&
-			attributes[hoverBackgroundAttrName] === undefined
-				? { [hoverBackgroundAttrName]: attributesValues.background }
-				: {}),
-			...(has(attributes, activeBackgroundAttrName) &&
-			has(attributesValues, "background") &&
-			attributes[activeBackgroundAttrName] === undefined
-				? { [activeBackgroundAttrName]: attributesValues.background }
-				: {}),
-			...(has(attributes, focusBackgroundAttrName) &&
-			has(attributesValues, "background") &&
-			attributes[focusBackgroundAttrName] === undefined
-				? { [focusBackgroundAttrName]: attributesValues.background }
-				: {}),
-			...(has(attributes, hoverBorderAttrName) &&
-			has(attributesValues, "border") &&
-			attributes[hoverBorderAttrName] === undefined
-				? { [hoverBorderAttrName]: attributesValues.border }
-				: {}),
-			...(has(attributes, activeBorderAttrName) &&
-			has(attributesValues, "border") &&
-			attributes[activeBorderAttrName] === undefined
-				? { [activeBorderAttrName]: attributesValues.border }
-				: {}),
-			...(has(attributes, focusBorderAttrName) &&
-			has(attributesValues, "border") &&
-			attributes[focusBorderAttrName] === undefined
-				? { [focusBorderAttrName]: attributesValues.border }
-				: {}),
-		});
-	};
+	const classes = [
+		...(toggleHoverStatus ? ["wp-beer-blocks-hover-statuses-helper"] : []),
+		...(toggleActiveStatus ? ["wp-beer-blocks-active-statuses-helper"] : []),
+		...(toggleFocusStatus ? ["wp-beer-blocks-focus-statuses-helper"] : []),
+		...(toggleTransition ? ["wp-beer-blocks-transition-statuses-helper"] : []),
+	];
 
-	useEffect(() => useEffectFunc(), []);
+	return classes.length > 0 ? classes.join(" ") : "";
 };
 
 export default {
 	attributes,
 	controls,
 	cssVars,
-	setAttributesFallbackValues,
+	cssClasses,
 };

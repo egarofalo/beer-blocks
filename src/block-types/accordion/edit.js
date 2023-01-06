@@ -18,8 +18,8 @@ const edit = (props) => {
 
 	const blockProps = useBlockProps({
 		style: {
-			...spacing.paddingCssVars({ props, blockName: "accordion" }),
-			...spacing.marginCssVars({ props, blockName: "accordion" }),
+			...spacing.paddingCssVars(props, "accordion"),
+			...spacing.marginCssVars(props, "accordion"),
 		},
 	});
 

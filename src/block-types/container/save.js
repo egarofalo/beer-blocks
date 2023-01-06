@@ -1,5 +1,6 @@
 import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
 import spacing from "./../../helpers/spacing";
+import colors from "../../helpers/colors";
 
 const save = (props) => {
 	const {
@@ -9,8 +10,9 @@ const save = (props) => {
 	const blockProps = useBlockProps.save({
 		className: containerType,
 		style: {
-			...spacing.paddingCssVars({ props, blockName: "container" }),
-			...spacing.marginCssVars({ props, blockName: "container" }),
+			...spacing.paddingCssVars(props, "container"),
+			...spacing.marginCssVars(props, "container"),
+			...colors.cssVars(props, "container"),
 		},
 	});
 

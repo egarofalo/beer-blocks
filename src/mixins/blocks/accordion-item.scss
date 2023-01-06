@@ -1,35 +1,31 @@
 @import "./../helpers/spacing";
 @import "./../helpers/border";
 @import "./../helpers/typography";
+@import "./../helpers/colors";
 
 @mixin accordion-item-block-rules() {
-	$defaultMargins: (
-		top: 0,
-		right: 0,
-		bottom: 0,
-		left: 0,
-	);
-
-	$defaultTypography: (
-		fontSize: $input-btn-font-size,
-		lineHeight: $input-btn-line-height,
-	);
-
 	.wp-block-beer-blocks-accordion-item {
 		&.card {
 			@include borderRules(
 				"accordion-item",
-				$borderDefaults: (style: solid, width: 1px, color: #ccc)
+				$borderDefaults: $defaultAccordionItemBorder,
+				$borderRadius: true
 			);
-			@include paddingRules("accordion-item");
-			@include marginRules("accordion-item", $defaultValues: $defaultMargins);
+
+			@include media-breakpoint-down(xs) {
+				@include paddingRules("accordion-item");
+				@include marginRules(
+					"accordion-item",
+					$defaultValues: $defaultAccordionItemMargin
+				);
+			}
 
 			@include media-breakpoint-up(sm) {
 				@include paddingRules("accordion-item", "sm");
 				@include marginRules(
 					"accordion-item",
 					"sm",
-					$defaultValues: $defaultMargins
+					$defaultValues: $defaultAccordionItemMargin
 				);
 			}
 
@@ -38,7 +34,7 @@
 				@include marginRules(
 					"accordion-item",
 					"md",
-					$defaultValues: $defaultMargins
+					$defaultValues: $defaultAccordionItemMargin
 				);
 			}
 
@@ -47,7 +43,7 @@
 				@include marginRules(
 					"accordion-item",
 					"lg",
-					$defaultValues: $defaultMargins
+					$defaultValues: $defaultAccordionItemMargin
 				);
 			}
 
@@ -56,7 +52,7 @@
 				@include marginRules(
 					"accordion-item",
 					"xl",
-					$defaultValues: $defaultMargins
+					$defaultValues: $defaultAccordionItemMargin
 				);
 			}
 
@@ -65,27 +61,46 @@
 				@include marginRules(
 					"accordion-item",
 					"xxl",
-					$defaultValues: $defaultMargins
+					$defaultValues: $defaultAccordionItemMargin
 				);
 			}
 
 			& > .card-header {
-				@include borderRules("accordion-item", "heading");
+				.accordion & {
+					@include backgroundRule(
+						"accordion-item",
+						"heading",
+						$defaultAccordionItemHeadingBackground
+					);
+					@include borderRules(
+						"accordion-item",
+						"heading",
+						$borderRadius: true
+					);
+				}
 
 				& > h2 .btn {
-					@include typographyRules(
+					@include colorRule(
 						"accordion-item",
-						"xs",
 						"heading",
-						$defaultTypography
+						$defaultAccordionItemHeadingColor
 					);
+
+					@include media-breakpoint-down(xs) {
+						@include typographyRules(
+							"accordion-item",
+							"xs",
+							"heading",
+							$defaultAccordionItemHeadingTypography
+						);
+					}
 
 					@include media-breakpoint-up(sm) {
 						@include typographyRules(
 							"accordion-item",
 							"sm",
 							"heading",
-							$defaultTypography
+							$defaultAccordionItemHeadingTypography
 						);
 					}
 
@@ -94,7 +109,7 @@
 							"accordion-item",
 							"md",
 							"heading",
-							$defaultTypography
+							$defaultAccordionItemHeadingTypography
 						);
 					}
 
@@ -103,7 +118,7 @@
 							"accordion-item",
 							"lg",
 							"heading",
-							$defaultTypography
+							$defaultAccordionItemHeadingTypography
 						);
 					}
 
@@ -112,7 +127,7 @@
 							"accordion-item",
 							"xl",
 							"heading",
-							$defaultTypography
+							$defaultAccordionItemHeadingTypography
 						);
 					}
 
@@ -121,25 +136,23 @@
 							"accordion-item",
 							"xxl",
 							"heading",
-							$defaultTypography
+							$defaultAccordionItemHeadingTypography
 						);
 					}
 				}
 			}
 
 			& > .collapse > .card-body {
-				@include borderRules("accordion-item", "body");
+				@include backgroundRule(
+					"accordion-item",
+					"body",
+					$defaultAccordionItemBodyBackground
+				);
+				@include borderRules("accordion-item", "body", $borderRadius: true);
 			}
 		}
 	}
 }
 
 @mixin accordion-item-block-editor-rules() {
-	.wp-block-beer-blocks-accordion-item {
-		&.card {
-			& > .collapse > div > .card-body {
-				@include borderRules("accordion-item", "body");
-			}
-		}
-	}
 }

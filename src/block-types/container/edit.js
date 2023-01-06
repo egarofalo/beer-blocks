@@ -11,6 +11,7 @@ import { useSelect } from "@wordpress/data";
 import spacing from "./../../helpers/spacing";
 import tags from "./../../helpers/sectioning-tags";
 import grid from "../../helpers/grid";
+import colors from "../../helpers/colors";
 
 const edit = (props) => {
 	const {
@@ -33,8 +34,9 @@ const edit = (props) => {
 	const blockProps = useBlockProps({
 		className: containerType,
 		style: {
-			...spacing.paddingCssVars({ props, blockName: "container" }),
-			...spacing.marginCssVars({ props, blockName: "container" }),
+			...spacing.paddingCssVars(props, "container"),
+			...spacing.marginCssVars(props, "container"),
+			...colors.cssVars(props, "container"),
 		},
 	});
 
@@ -80,6 +82,7 @@ const edit = (props) => {
 					/>
 				</PanelBody>
 
+				{colors.controls({ props })}
 				{spacing.breakpointsControls({ props })}
 			</InspectorControls>
 

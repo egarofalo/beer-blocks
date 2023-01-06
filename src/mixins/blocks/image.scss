@@ -1,33 +1,38 @@
 @import "./../helpers/spacing";
 @import "./../helpers/dimension";
+@import "./../helpers/typography";
 
 @mixin image-block-rules() {
 	.wp-block-beer-blocks-image {
-		@include verticalMarginRules("image");
+		@include media-breakpoint-down(xs) {
+			@include marginRules("image");
+		}
 
 		@include media-breakpoint-up(sm) {
-			@include verticalMarginRules("image", "sm");
+			@include marginRules("image", "sm");
 		}
 
 		@include media-breakpoint-up(md) {
-			@include verticalMarginRules("image", "md");
+			@include marginRules("image", "md");
 		}
 
 		@include media-breakpoint-up(lg) {
-			@include verticalMarginRules("image", "lg");
+			@include marginRules("image", "lg");
 		}
 
 		@include media-breakpoint-up(xl) {
-			@include verticalMarginRules("image", "xl");
+			@include marginRules("image", "xl");
 		}
 
 		@include media-breakpoint-up(xxl) {
-			@include verticalMarginRules("image", "xxl");
+			@include marginRules("image", "xxl");
 		}
 
 		& > img {
-			@include widthRules("image");
-			@include heightRules("image");
+			@include media-breakpoint-down(xs) {
+				@include widthRules("image");
+				@include heightRules("image");
+			}
 
 			@include media-breakpoint-up(sm) {
 				@include widthRules("image", "sm");
@@ -54,6 +59,62 @@
 				@include heightRules("image", "xxl");
 			}
 		}
+
+		& > figcaption {
+			@include media-breakpoint-down(xs) {
+				@include typographyRules(
+					"image",
+					"xs",
+					"figcaption",
+					$defaultFigcaptionTypography
+				);
+			}
+
+			@include media-breakpoint-up(sm) {
+				@include typographyRules(
+					"image",
+					"sm",
+					"figcaption",
+					$defaultFigcaptionTypography
+				);
+			}
+
+			@include media-breakpoint-up(md) {
+				@include typographyRules(
+					"image",
+					"md",
+					"figcaption",
+					$defaultFigcaptionTypography
+				);
+			}
+
+			@include media-breakpoint-up(lg) {
+				@include typographyRules(
+					"image",
+					"lg",
+					"figcaption",
+					$defaultFigcaptionTypography
+				);
+			}
+
+			@include media-breakpoint-up(xl) {
+				@include typographyRules(
+					"image",
+					"xl",
+					"figcaption",
+					$defaultFigcaptionTypography
+				);
+			}
+
+			@include media-breakpoint-up(xxl) {
+				@include typographyRules(
+					"image",
+					"xxl",
+					"figcaption",
+					$defaultFigcaptionTypography
+				);
+			}
+		}
 	}
 }
 
@@ -61,6 +122,32 @@
 	.wp-block-beer-blocks-image {
 		&.is-selected {
 			border: 1px dotted #035cff;
+		}
+
+		.editor-styles-wrapper &.wp-block {
+			@include media-breakpoint-down(xs) {
+				@include marginRules("image");
+			}
+
+			@include media-breakpoint-up(sm) {
+				@include marginRules("image", "sm");
+			}
+
+			@include media-breakpoint-up(md) {
+				@include marginRules("image", "md");
+			}
+
+			@include media-breakpoint-up(lg) {
+				@include marginRules("image", "lg");
+			}
+
+			@include media-breakpoint-up(xl) {
+				@include marginRules("image", "xl");
+			}
+
+			@include media-breakpoint-up(xxl) {
+				@include marginRules("image", "xxl");
+			}
 		}
 	}
 }

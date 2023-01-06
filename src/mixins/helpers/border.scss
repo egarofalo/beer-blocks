@@ -7,7 +7,9 @@
 @mixin borderRules(
 	$blockName,
 	$attrPrefix: "",
-	$borderDefaults: $defaultBorder
+	$borderDefaults: $defaultBorder,
+	$borderRadius: false,
+	$borderRadiusDefaults: $defaultBorderRadius
 ) {
 	$varPrefix: wp-beer-blocks-#{$blockName}-#{camelize("#{$attrPrefix}-border")};
 
@@ -27,6 +29,25 @@
 		border-#{$side}-width: var(
 			--#{$varPrefix + capitalize($side)}Width,
 			map.get($borderDefaults, "width")
+		);
+	}
+
+	@if $borderRadius {
+		border-top-left-radius: var(
+			--#{$varPrefix}RadiusTopLeft,
+			map.get($borderRadiusDefaults, "top-left")
+		);
+		border-top-right-radius: var(
+			--#{$varPrefix}RadiusTopRight,
+			map.get($borderRadiusDefaults, "top-right")
+		);
+		border-bottom-right-radius: var(
+			--#{$varPrefix}RadiusBottomRight,
+			map.get($borderRadiusDefaults, "bottom-right")
+		);
+		border-bottom-left-radius: var(
+			--#{$varPrefix}RadiusBottomLeft,
+			map.get($borderRadiusDefaults, "bottom-left")
 		);
 	}
 }

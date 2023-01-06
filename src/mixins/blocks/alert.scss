@@ -2,12 +2,14 @@
 
 @mixin alert-block-rules() {
 	.wp-block-beer-blocks-alert.alert {
-		@include paddingRules(
-			"alert",
-			"xs",
-			$defaultValues: $alertBlockDefaultPadding
-		);
-		@include marginRules("alert");
+		@include media-breakpoint-down(xs) {
+			@include paddingRules(
+				"alert",
+				"xs",
+				$defaultValues: $alertBlockDefaultPadding
+			);
+			@include marginRules("alert");
+		}
 
 		@include media-breakpoint-up(sm) {
 			@include paddingRules(

@@ -406,7 +406,7 @@ export const getColControls = (
 		<TabPanel
 			initialTabName="xs"
 			tabs={breakpointsOptions}
-			className="beer-blocks-tabs-breakpoints"
+			className="beer-blocks-tabs"
 		>
 			{(tab) => (
 				<>
@@ -627,7 +627,7 @@ export const getBreakpointsTabs = (content) => {
 		<TabPanel
 			initialTabName="xs"
 			tabs={breakpointsOptions}
-			className="beer-blocks-tabs-breakpoints"
+			className="beer-blocks-tabs"
 		>
 			{(tab) => content(tab.name)}
 		</TabPanel>

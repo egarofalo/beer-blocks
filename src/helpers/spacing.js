@@ -177,7 +177,7 @@ export const paddingStyles = (props, attrPrefix = "") => {
 };
 
 // returns padding css vars for style html attribute
-export const paddingCssVars = ({ props, blockName, attrPrefix = "" }) => {
+export const paddingCssVars = (props, blockName, attrPrefix = "") => {
 	const attrName = camelCase(`${attrPrefix}-padding`);
 	const {
 		attributes: { [attrName]: padding },
@@ -356,7 +356,7 @@ export const marginStyles = (props, attrPrefix = "") => {
 };
 
 // returns margin css vars for style html attribute
-export const marginCssVars = ({ props, blockName, attrPrefix = "" }) => {
+export const marginCssVars = (props, blockName, attrPrefix = "") => {
 	const attrName = camelCase(`${attrPrefix}-margin`);
 	const {
 		attributes: { [attrName]: margin },

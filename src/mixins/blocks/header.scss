@@ -1,12 +1,17 @@
 @import "./../helpers/spacing";
 @import "./../helpers/typography";
+@import "./../helpers/colors";
 
 @mixin header-block-rules() {
 	@include headersTypographyRulesAllBreakpoints("header");
 
 	.wp-block-beer-blocks-header {
-		@include paddingRules("header");
-		@include marginRules("header");
+		@include colorsRules("header", $defaultColors: $defaultHeaderColors);
+
+		@include media-breakpoint-down(xs) {
+			@include paddingRules("header");
+			@include marginRules("header");
+		}
 
 		@include media-breakpoint-up(sm) {
 			@include paddingRules("header", "sm");
@@ -47,7 +52,9 @@
 		}
 
 		.editor-styles-wrapper &.wp-block {
-			@include marginRules("header");
+			@include media-breakpoint-down(xs) {
+				@include marginRules("header");
+			}
 
 			@include media-breakpoint-up(sm) {
 				@include marginRules("header", "sm");

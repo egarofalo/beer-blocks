@@ -36,132 +36,140 @@
 ) {
 	// hover status
 	@if $hoverColor or $hoverBackground or $hoverBorder {
-		&:hover {
-			@if $hoverColor {
-				color: var(
-					--wp-beer-blocks-#{$blockName}-#{camelize(
-							#{$attrPrefix}-hover-color
-						)},
-					$hoverColorDefault
-				);
-			}
+		&.wp-beer-blocks-hover-statuses-helper {
+			&:hover {
+				@if $hoverColor {
+					color: var(
+						--wp-beer-blocks-#{$blockName}-#{camelize(
+								#{$attrPrefix}-hover-color
+							)},
+						$hoverColorDefault
+					);
+				}
 
-			@if $hoverBackground {
-				background: var(
-					--wp-beer-blocks-#{$blockName}-#{camelize(
-							#{$attrPrefix}-hover-background
-						)},
-					$hoverBackgroundDefault
-				);
-			}
+				@if $hoverBackground {
+					background: var(
+						--wp-beer-blocks-#{$blockName}-#{camelize(
+								#{$attrPrefix}-hover-background
+							)},
+						$hoverBackgroundDefault
+					);
+				}
 
-			@if $hoverBorder {
-				@include borderRules(
-					$blockName,
-					$attrPrefix: "#{$attrPrefix}-hover",
-					$borderDefaults: $hoverBorderDefault
-				);
+				@if $hoverBorder {
+					@include borderRules(
+						$blockName,
+						$attrPrefix: "#{$attrPrefix}-hover",
+						$borderDefaults: $hoverBorderDefault
+					);
+				}
 			}
 		}
 	}
 
 	// active status
 	@if $activeColor or $activeBackground or $activeBorder {
-		&:active {
-			@if $activeColor {
-				color: var(
-					--wp-beer-blocks-#{$blockName}-#{camelize(
-							#{$attrPrefix}-active-color
-						)},
-					$activeColorDefault
-				);
-			}
+		&.wp-beer-blocks-active-statuses-helper {
+			&:active {
+				@if $activeColor {
+					color: var(
+						--wp-beer-blocks-#{$blockName}-#{camelize(
+								#{$attrPrefix}-active-color
+							)},
+						$activeColorDefault
+					);
+				}
 
-			@if $activeBackground {
-				background: var(
-					--wp-beer-blocks-#{$blockName}-#{camelize(
-							#{$attrPrefix}-active-background
-						)},
-					$activeBackgroundDefault
-				);
-			}
+				@if $activeBackground {
+					background: var(
+						--wp-beer-blocks-#{$blockName}-#{camelize(
+								#{$attrPrefix}-active-background
+							)},
+						$activeBackgroundDefault
+					);
+				}
 
-			@if $activeBorder {
-				@include borderRules(
-					$blockName,
-					$attrPrefix: "#{$attrPrefix}-active",
-					$borderDefaults: $activeBorderDefault
-				);
+				@if $activeBorder {
+					@include borderRules(
+						$blockName,
+						$attrPrefix: "#{$attrPrefix}-active",
+						$borderDefaults: $activeBorderDefault
+					);
+				}
 			}
 		}
 	}
 
 	// focus status
 	@if $focusColor or $focusBackground or $focusBorder {
-		&:focus {
-			@if $focusColor {
-				color: var(
-					--wp-beer-blocks-#{$blockName}-#{camelize(
-							#{$attrPrefix}-focus-color
-						)},
-					$focusColorDefault
-				);
-			}
+		&.wp-beer-blocks-focus-statuses-helper {
+			&:focus {
+				@if $focusColor {
+					color: var(
+						--wp-beer-blocks-#{$blockName}-#{camelize(
+								#{$attrPrefix}-focus-color
+							)},
+						$focusColorDefault
+					);
+				}
 
-			@if $focusBackground {
-				background: var(
-					--wp-beer-blocks-#{$blockName}-#{camelize(
-							#{$attrPrefix}-focus-background
-						)},
-					$focusBackgroundDefault
-				);
-			}
+				@if $focusBackground {
+					background: var(
+						--wp-beer-blocks-#{$blockName}-#{camelize(
+								#{$attrPrefix}-focus-background
+							)},
+						$focusBackgroundDefault
+					);
+				}
 
-			@if $focusBorder {
-				@include borderRules(
-					$blockName,
-					$attrPrefix: "#{$attrPrefix}-focus",
-					$borderDefaults: $focusBorderDefault
-				);
+				@if $focusBorder {
+					@include borderRules(
+						$blockName,
+						$attrPrefix: "#{$attrPrefix}-focus",
+						$borderDefaults: $focusBorderDefault
+					);
+				}
 			}
 		}
 	}
 
 	// transition rules
 	@if $transition {
-		$transitionProperty: ();
+		&.wp-beer-blocks-transition-statuses-helper {
+			$transitionProperty: ();
 
-		@if $hoverColor or $activeColor or $focusColor {
-			$transitionProperty: list.append($transitionProperty, color);
+			@if $hoverColor or $activeColor or $focusColor {
+				$transitionProperty: list.append($transitionProperty, color);
+			}
+
+			@if $hoverBackground or $activeBackground or $focusBackground {
+				$transitionProperty: list.append($transitionProperty, background);
+			}
+
+			@if $hoverBorder or $activeBorder or $focusBorder {
+				$transitionProperty: list.append($transitionProperty, border-color);
+				$transitionProperty: list.append($transitionProperty, border-width);
+			}
+
+			transition-property: implode($transitionProperty, ", ");
+			transition-delay: var(
+				--wp-beer-blocks-#{$blockName}-#{camelize(
+						#{$attrPrefix}-transition-delay
+					)},
+				$defaultTransitionDelay
+			);
+			transition-duration: var(
+				--wp-beer-blocks-#{$blockName}-#{camelize(
+						#{$attrPrefix}-transition-duration
+					)},
+				$defaultTransitionDuration
+			);
+			transition-timing-function: var(
+				--wp-beer-blocks-#{$blockName}-#{camelize(
+						#{$attrPrefix}-transition-timing-function
+					)},
+				$defaultTransitionTimingFunction
+			);
 		}
-
-		@if $hoverBackground or $activeBackground or $focusBackground {
-			$transitionProperty: list.append($transitionProperty, background);
-		}
-
-		@if $hoverBorder or $activeBorder or $focusBorder {
-			$transitionProperty: list.append($transitionProperty, border-color);
-			$transitionProperty: list.append($transitionProperty, border-width);
-		}
-
-		transition-property: implode($transitionProperty, ", ");
-		transition-delay: var(
-			--wp-beer-blocks-#{$blockName}-#{camelize(
-					#{$attrPrefix}-transition-delay
-				)},
-			$defaultTransitionDelay
-		);
-		transition-duration: var(
-			--wp-beer-blocks-#{$blockName}-#{camelize(
-					#{$attrPrefix}-transition-duration
-				)},
-			$defaultTransitionDuration
-		);
-		transition-timing-function: var(
-			--wp-beer-blocks-#{$blockName}-#{camelize(
-					#{$attrPrefix}-transition-timing-function
-				)},
-			$defaultTransitionTimingFunction
-		);
 	}
 }

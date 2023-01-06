@@ -44,9 +44,9 @@
 	$attrPrefix: "",
 	$defaultValues: (
 		top: $defaultBlocksVerticalMargin,
-		right: 0,
+		right: auto,
 		bottom: $defaultBlocksVerticalMargin,
-		left: 0
+		left: auto
 	),
 	$sides: (top, right, bottom, left)
 ) {

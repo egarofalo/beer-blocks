@@ -2,6 +2,7 @@ import { useBlockProps, InnerBlocks, RichText } from "@wordpress/block-editor";
 import spacing from "./../../helpers/spacing";
 import typography from "./../../helpers/typography";
 import border from "./../../helpers/border";
+import colors from "./../../helpers/colors";
 
 const save = (props) => {
 	const {
@@ -12,27 +13,16 @@ const save = (props) => {
 			show,
 			headingLevel,
 			headingTextAlign,
-			headingColor,
-			headingBackground,
 			headingContent,
-			bodyBackground,
 		},
 	} = props;
 
 	const blockProps = useBlockProps.save({
 		className: "card",
 		style: {
-			...spacing.paddingCssVars({
-				props,
-				blockName: "accordion-item",
-				breakpoints: true,
-			}),
-			...spacing.marginCssVars({
-				props,
-				blockName: "accordion-item",
-				breakpoints: true,
-			}),
-			...border.cssVars({ props, blockName: "accordion-item" }),
+			...spacing.paddingCssVars(props, "accordion-item"),
+			...spacing.marginCssVars(props, "accordion-item"),
+			...border.cssVars(props, "accordion-item"),
 		},
 	});
 
@@ -45,12 +35,8 @@ const save = (props) => {
 				id={headingId}
 				style={{
 					padding: 0,
-					...(headingBackground ? { backgroundColor: headingBackground } : {}),
-					...border.cssVars({
-						props,
-						blockName: "accordion-item",
-						attrPrefix: "heading",
-					}),
+					...colors.backgroundCssVars(props, "accordion-item", "heading"),
+					...border.cssVars(props, "accordion-item", "heading"),
 				}}
 			>
 				<HeadingTag style={{ margin: 0, padding: 0 }}>
@@ -63,21 +49,17 @@ const save = (props) => {
 						aria-controls={id}
 						style={{
 							margin: 0,
-							color: headingColor,
 							textAlign: headingTextAlign,
 							...spacing.styles(props, "heading"),
 							...typography.fontFamilyStyles(props, "heading"),
 							...typography.fontWeightStyles(props, "heading"),
-							...typography.fontSizeCssVars({
+							...typography.fontSizeCssVars(props, "accordion-item", "heading"),
+							...typography.lineHeightCssVars(
 								props,
-								blockName: "accordion-item",
-								attrPrefix: "heading",
-							}),
-							...typography.lineHeightCssVars({
-								props,
-								blockName: "accordion-item",
-								attrPrefix: "heading",
-							}),
+								"accordion-item",
+								"heading"
+							),
+							...colors.colorCssVars(props, "accordion-item", "heading"),
 						}}
 					>
 						<RichText.Content tagName="span" value={headingContent} />
@@ -90,17 +72,13 @@ const save = (props) => {
 				className={`collapse${show ? " show" : ""}`}
 				aria-labelledby={headingId}
 				data-parent={`#${parentId}`}
-				style={{ backgroundColor: bodyBackground }}
 			>
 				<div
 					className="card-body"
 					style={{
 						...spacing.styles(props, "body"),
-						...border.cssVars({
-							props,
-							attrPrefix: "body",
-							blockName: "accordion-item",
-						}),
+						...border.cssVars(props, "accordion-item", "body"),
+						...colors.backgroundCssVars(props, "accordion-item", "body"),
 					}}
 				>
 					<InnerBlocks.Content />

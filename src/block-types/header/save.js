@@ -1,6 +1,7 @@
 import { useBlockProps, RichText } from "@wordpress/block-editor";
 import spacing from "./../../helpers/spacing";
 import typography from "./../../helpers/typography";
+import colors from "./../../helpers/colors";
 
 const save = (props) => {
 	const {
@@ -10,12 +11,13 @@ const save = (props) => {
 	const blockProps = useBlockProps.save({
 		className: `has-text-align-${textAlign}`,
 		style: {
-			...spacing.paddingCssVars({ props, blockName: "header" }),
-			...spacing.marginCssVars({ props, blockName: "header" }),
+			...spacing.paddingCssVars(props, "header"),
+			...spacing.marginCssVars(props, "header"),
 			...typography.fontFamilyStyles(props),
 			...typography.fontWeightStyles(props),
-			...typography.fontSizeCssVars({ props, blockName: "header" }),
-			...typography.lineHeightCssVars({ props, blockName: "header" }),
+			...typography.fontSizeCssVars(props, "header"),
+			...typography.lineHeightCssVars(props, "header"),
+			...colors.cssVars(props, "header"),
 		},
 	});
 

@@ -11,7 +11,6 @@ import {
 	RangeControl,
 	PanelBody,
 	RadioControl,
-	ColorPalette,
 	BaseControl,
 	Button,
 	__experimentalRadio as Radio,
@@ -21,29 +20,7 @@ import spacing from "./../../helpers/spacing";
 import flexbox from "./../../helpers/flexbox";
 import typography from "./../../helpers/typography";
 import border from "./../../helpers/border";
-import borderRadius from "./../../helpers/border-radius";
-import { variantsColorPallet as variants } from "./../../helpers/bootstrap-variants";
-
-const tabStatuses = {
-	normal: __("Normal", "beer-blocks"),
-	mouseover: __("Mouse over", "beer-blocks"),
-	active: __("Active", "beer-blocks"),
-};
-
-const getRadioGroupTabsStatus = (tabStatus, setTabStatus) => (
-	<BaseControl
-		label={sprintf(
-			__("Select tab status (%s)", "beer-blocks"),
-			tabStatuses[tabStatus]
-		)}
-	>
-		<RadioGroup onChange={setTabStatus} checked={tabStatus}>
-			<Radio value="normal">{tabStatuses.normal}</Radio>
-			<Radio value="mouseover">{tabStatuses.mouseover}</Radio>
-			<Radio value="active">{tabStatuses.active}</Radio>
-		</RadioGroup>
-	</BaseControl>
-);
+import colors from "../../helpers/colors";
 
 const getRadioGroupSelectedTab = (tabs, selectedTab, setAttributes) => (
 	<BaseControl label={__("Default selected tab", "beer-blocks")}>
@@ -80,15 +57,6 @@ const edit = (props) => {
 			horizontalAlignment,
 			fillFreeSpace,
 			selectedTab,
-			tabsColor,
-			tabsMouseOverColor,
-			tabsActiveColor,
-			tabsBackground,
-			tabsMouseOverBackground,
-			tabsActiveBackground,
-			tabsBorderColor,
-			tabsMouseOverBorderColor,
-			tabsActiveBorderColor,
 		},
 	} = props;
 
@@ -136,7 +104,10 @@ const edit = (props) => {
 	}, [selectedTab]);
 
 	const blockProps = useBlockProps({
-		style: spacing.styles(props),
+		style: {
+			...spacing.marginCssVars({ props, blockName: "tabs" }),
+			...spacing.paddingCssVars({ props, blockName: "tabs" }),
+		},
 	});
 
 	const innerBlocksPropsConfig = [
@@ -205,107 +176,7 @@ const edit = (props) => {
 					/>
 				</PanelBody>
 
-				<PanelBody title={__("Tabs color", "beer-blocks")}>
-					{getRadioGroupTabsStatus(tabStatus, setTabStatus)}
-
-					{tabStatus === "normal" && (
-						<>
-							<BaseControl label={__("Font color", "beer-blocks")}>
-								<ColorPalette
-									colors={variants}
-									value={tabsColor}
-									onChange={(color) => setAttributes({ tabsColor: color })}
-								/>
-							</BaseControl>
-
-							<BaseControl label={__("Background color", "beer-blocks")}>
-								<ColorPalette
-									colors={variants}
-									value={tabsBackground}
-									onChange={(color) => setAttributes({ tabsBackground: color })}
-								/>
-							</BaseControl>
-
-							<BaseControl label={__("Border color", "beer-blocks")}>
-								<ColorPalette
-									colors={variants}
-									value={tabsBorderColor}
-									onChange={(color) =>
-										setAttributes({ tabsBorderColor: color })
-									}
-								/>
-							</BaseControl>
-						</>
-					)}
-
-					{tabStatus === "mouseover" && (
-						<>
-							<BaseControl label={__("Font color", "beer-blocks")}>
-								<ColorPalette
-									colors={variants}
-									value={tabsMouseOverColor}
-									onChange={(color) =>
-										setAttributes({ tabsMouseOverColor: color })
-									}
-								/>
-							</BaseControl>
-
-							<BaseControl label={__("Background color", "beer-blocks")}>
-								<ColorPalette
-									colors={variants}
-									value={tabsMouseOverBackground}
-									onChange={(color) =>
-										setAttributes({ tabsMouseOverBackground: color })
-									}
-								/>
-							</BaseControl>
-
-							<BaseControl label={__("Border color", "beer-blocks")}>
-								<ColorPalette
-									colors={variants}
-									value={tabsMouseOverBorderColor}
-									onChange={(color) =>
-										setAttributes({ tabsMouseOverBorderColor: color })
-									}
-								/>
-							</BaseControl>
-						</>
-					)}
-
-					{tabStatus === "active" && (
-						<>
-							<BaseControl label={__("Font color", "beer-blocks")}>
-								<ColorPalette
-									colors={variants}
-									value={tabsActiveColor}
-									onChange={(color) =>
-										setAttributes({ tabsActiveColor: color })
-									}
-								/>
-							</BaseControl>
-
-							<BaseControl label={__("Background color", "beer-blocks")}>
-								<ColorPalette
-									colors={variants}
-									value={tabsActiveBackground}
-									onChange={(color) =>
-										setAttributes({ tabsActiveBackground: color })
-									}
-								/>
-							</BaseControl>
-
-							<BaseControl label={__("Border color", "beer-blocks")}>
-								<ColorPalette
-									colors={variants}
-									value={tabsActiveBorderColor}
-									onChange={(color) =>
-										setAttributes({ tabsActiveBorderColor: color })
-									}
-								/>
-							</BaseControl>
-						</>
-					)}
-				</PanelBody>
+				{colors.controls({ props, attrPrefix: "tab", title: "Tabs colors" })}
 
 				{typography.breakpointsControls({
 					props,
@@ -317,19 +188,13 @@ const edit = (props) => {
 
 				{border.controls({
 					props,
-					attrPrefixName: "tabs",
+					attrPrefix: "tab",
 					title: __("Tabs borders", "beer-blocks"),
-				})}
-
-				{borderRadius.controls({
-					props,
-					attrPrefixName: "tabs",
-					title: __("Tabs border radius", "beer-blocks"),
 				})}
 
 				{spacing.controls({
 					props,
-					attrPrefix: "tabs",
+					attrPrefix: "tab",
 					title: __("Tabs spacing", "beer-blocks"),
 				})}
 
@@ -373,52 +238,6 @@ const edit = (props) => {
 									})
 								}
 								style={{
-									...(tabsColor
-										? { "--wp-beer-blocks-tabs-nav-link-color": tabsColor }
-										: {}),
-									...(tabsMouseOverColor
-										? {
-												"--wp-beer-blocks-tabs-nav-link-hover-color":
-													tabsMouseOverColor,
-										  }
-										: {}),
-									...(tabsActiveColor
-										? {
-												"--wp-beer-blocks-tabs-nav-link-active-color":
-													tabsActiveColor,
-										  }
-										: {}),
-									...(tabsBackground
-										? {
-												"--wp-beer-blocks-tabs-nav-link-background":
-													tabsBackground,
-										  }
-										: {}),
-									...(tabsMouseOverBackground
-										? {
-												"--wp-beer-blocks-tabs-nav-link-hover-background":
-													tabsMouseOverBackground,
-										  }
-										: {}),
-									...(tabsActiveBackground
-										? {
-												"--wp-beer-blocks-tabs-nav-link-active-background":
-													tabsActiveBackground,
-										  }
-										: {}),
-									...(tabsMouseOverBorderColor
-										? {
-												"--wp-beer-blocks-tabs-nav-link-hover-border-color":
-													tabsMouseOverBorderColor,
-										  }
-										: {}),
-									...(tabsActiveBorderColor
-										? {
-												"--wp-beer-blocks-tabs-nav-link-active-border-color":
-													tabsActiveBorderColor,
-										  }
-										: {}),
-									...spacing.styles(props, "tabs"),
 									...typography.fontFamilyStyles(props, "tab"),
 									...typography.fontWeightStyles(props, "tab"),
 									...typography.fontSizeCssVars({
@@ -431,8 +250,31 @@ const edit = (props) => {
 										blockName: "tabs",
 										attrPrefix: "tab",
 									}),
-									...border.styles(props, "tabs"),
-									...borderRadius.styles(props, "tabs"),
+									...spacing.paddingCssVars({
+										props,
+										blockName: "tabs",
+										attrPrefix: "tab",
+									}),
+									...spacing.marginCssVars({
+										props,
+										blockName: "tabs",
+										attrPrefix: "tab",
+									}),
+									...colors.cssVars({
+										props,
+										blockName: "tabs",
+										attrPrefix: "tab",
+									}),
+									...border.cssVars({
+										props,
+										blockName: "tabs",
+										attrPrefix: "tab",
+									}),
+									...borderRadius.cssVars({
+										props,
+										blockName: "tabs",
+										attrPrefix: "tab",
+									}),
 								}}
 							/>
 						</li>

@@ -157,7 +157,7 @@ export const fontSizeStyles = (props, attrPrefix = "") => {
 	return fontSize ? { fontSize } : {};
 };
 // returns font size css vars for style html attribute
-export const fontSizeCssVars = ({ props, blockName, attrPrefix = "" }) => {
+export const fontSizeCssVars = (props, blockName, attrPrefix = "") => {
 	const attrName = camelCase(`${attrPrefix}-font-size`);
 	const {
 		attributes: { [attrName]: fontSize },
@@ -451,7 +451,7 @@ export const lineHeightStyles = (lineHeight) =>
 		: {};
 
 // returns line height css vars for style html attribute
-export const lineHeightCssVars = ({ props, blockName, attrPrefix = "" }) => {
+export const lineHeightCssVars = (props, blockName, attrPrefix = "") => {
 	const attrName = camelCase(`${attrPrefix}-line-height`);
 	const {
 		attributes: { [attrName]: lineHeight },

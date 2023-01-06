@@ -4,7 +4,6 @@ import spacing from "./../../helpers/spacing";
 import flexbox from "./../../helpers/flexbox";
 import typography from "./../../helpers/typography";
 import border from "./../../helpers/border";
-import borderRadius from "./../../helpers/border-radius";
 
 const save = (props) => {
 	const {
@@ -63,37 +62,44 @@ const save = (props) => {
 									: {}),
 								...(tabsMouseOverColor
 									? {
-											"--wp-beer-blocks-tabs-nav-link-hover-color": tabsMouseOverColor,
+											"--wp-beer-blocks-tabs-nav-link-hover-color":
+												tabsMouseOverColor,
 									  }
 									: {}),
 								...(tabsActiveColor
 									? {
-											"--wp-beer-blocks-tabs-nav-link-active-color": tabsActiveColor,
+											"--wp-beer-blocks-tabs-nav-link-active-color":
+												tabsActiveColor,
 									  }
 									: {}),
 								...(tabsBackground
 									? {
-											"--wp-beer-blocks-tabs-nav-link-background": tabsBackground,
+											"--wp-beer-blocks-tabs-nav-link-background":
+												tabsBackground,
 									  }
 									: {}),
 								...(tabsMouseOverBackground
 									? {
-											"--wp-beer-blocks-tabs-nav-link-hover-background": tabsMouseOverBackground,
+											"--wp-beer-blocks-tabs-nav-link-hover-background":
+												tabsMouseOverBackground,
 									  }
 									: {}),
 								...(tabsActiveBackground
 									? {
-											"--wp-beer-blocks-tabs-nav-link-active-background": tabsActiveBackground,
+											"--wp-beer-blocks-tabs-nav-link-active-background":
+												tabsActiveBackground,
 									  }
 									: {}),
 								...(tabsMouseOverBorderColor
 									? {
-											"--wp-beer-blocks-tabs-nav-link-hover-border-color": tabsMouseOverBorderColor,
+											"--wp-beer-blocks-tabs-nav-link-hover-border-color":
+												tabsMouseOverBorderColor,
 									  }
 									: {}),
 								...(tabsActiveBorderColor
 									? {
-											"--wp-beer-blocks-tabs-nav-link-active-border-color": tabsActiveBorderColor,
+											"--wp-beer-blocks-tabs-nav-link-active-border-color":
+												tabsActiveBorderColor,
 									  }
 									: {}),
 								...spacing.styles(props, "tabs"),
@@ -110,7 +116,6 @@ const save = (props) => {
 									attrPrefix: "tab",
 								}),
 								...border.styles(props, "tabs"),
-								...borderRadius.styles(props, "tabs"),
 							}}
 						/>
 					</li>

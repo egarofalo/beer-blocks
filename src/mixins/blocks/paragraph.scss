@@ -1,11 +1,16 @@
 @import "./../helpers/typography";
 @import "./../helpers/spacing";
+@import "./../helpers/colors";
 
 @mixin paragraph-block-rules() {
 	.wp-block-beer-blocks-paragraph {
-		@include typographyRules("paragraph");
-		@include paddingRules("paragraph");
-		@include marginRules("paragraph");
+		@include colorsRules("paragraph", $defaultColors: $defaultParagraphColors);
+
+		@include media-breakpoint-down(xs) {
+			@include typographyRules("paragraph");
+			@include paddingRules("paragraph");
+			@include marginRules("paragraph");
+		}
 
 		@include media-breakpoint-up(sm) {
 			@include typographyRules("paragraph", "sm");
@@ -46,7 +51,9 @@
 		}
 
 		.editor-styles-wrapper &.wp-block {
-			@include marginRules("paragraph");
+			@include media-breakpoint-down(xs) {
+				@include marginRules("paragraph");
+			}
 
 			@include media-breakpoint-up(sm) {
 				@include marginRules("paragraph", "sm");

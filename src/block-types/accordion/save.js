@@ -8,8 +8,8 @@ const save = (props) => {
 
 	const blockProps = useBlockProps.save({
 		style: {
-			...spacing.paddingCssVars({ props, blockName: "accordion" }),
-			...spacing.marginCssVars({ props, blockName: "accordion" }),
+			...spacing.paddingCssVars(props, "accordion"),
+			...spacing.marginCssVars(props, "accordion"),
 		},
 	});
 

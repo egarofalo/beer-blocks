@@ -1,9 +1,14 @@
 @import "./../helpers/spacing";
+@import "./../helpers/colors";
 
 @mixin container-block-rules() {
 	.wp-block-beer-blocks-container {
-		@include verticalPaddingRules("container");
-		@include verticalMarginRules("container");
+		@include backgroundRule("container");
+
+		@include media-breakpoint-down(xs) {
+			@include verticalPaddingRules("container");
+			@include verticalMarginRules("container");
+		}
 
 		@include media-breakpoint-up(sm) {
 			@include verticalPaddingRules("container", "sm");

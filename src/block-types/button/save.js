@@ -2,7 +2,6 @@ import { __ } from "@wordpress/i18n";
 import { useBlockProps, RichText } from "@wordpress/block-editor";
 import typography from "./../../helpers/typography";
 import border from "./../../helpers/border";
-import borderRadius from "./../../helpers/border-radius";
 import spacing from "./../../helpers/spacing";
 import statuses from "./../../helpers/statuses";
 import colors from "./../../helpers/colors";
@@ -23,23 +22,22 @@ const save = (props) => {
 	} = props;
 
 	const blockStyle = {
-		...spacing.marginCssVars({ props, blockName: "button" }),
+		...spacing.marginCssVars(props, "button"),
 		...(!blockLevel ? { textAlign: align } : {}),
 	};
 
 	const btnStyle = {
-		...spacing.paddingCssVars({ props, blockName: "button" }),
+		...spacing.paddingCssVars(props, "button"),
 		...(!blockLevel
 			? { display: "inline-block" }
 			: { display: "block", textAlign: "center" }),
 		...(!variant
 			? {
-					...typography.fontSizeCssVars({ props, blockName: "button" }),
-					...typography.lineHeightCssVars({ props, blockName: "button" }),
-					...colors.cssVars({ props, blockName: "button" }),
-					...border.cssVars({ props, blockName: "button" }),
-					...statuses.cssVars({ props, blockName: "button" }),
-					...borderRadius.styles(props),
+					...typography.fontSizeCssVars(props, "button"),
+					...typography.lineHeightCssVars(props, "button"),
+					...colors.cssVars(props, "button"),
+					...border.cssVars(props, "button"),
+					...statuses.cssVars(props, "button"),
 					...typography.fontFamilyStyles(props),
 					...typography.fontWeightStyles(props),
 			  }
@@ -50,7 +48,9 @@ const save = (props) => {
 		? `btn btn-${outline ? "outline-" : ""}${variant}${size ? ` ${size}` : ""}${
 				blockLevel ? " btn-block" : ""
 		  }`
-		: "wp-beer-blocks-btn-custom-styles";
+		: `wp-beer-blocks-btn-custom-styles ${statuses.cssClasses(
+				props
+		  )}`.trimEnd();
 
 	const blockProps = useBlockProps.save({ style: blockStyle });
 

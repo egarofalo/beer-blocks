@@ -37,7 +37,6 @@ import spacing from "./../../helpers/spacing";
  * Block Icon.
  */
 import icon from "../../icons/tab-pane.svg";
-import borderRadius from "../../helpers/border-radius";
 
 /**
  * Every block starts by registering a new block type definition.
@@ -77,16 +76,7 @@ registerBlockType("beer-blocks/tab-pane", {
 			type: "boolean",
 			default: false,
 		},
-		...border.attributes(),
-		...border.attributes({ side: "top" }),
-		...border.attributes({ side: "right" }),
-		...border.attributes({ side: "bottom" }),
-		...border.attributes({ side: "left" }),
-		...borderRadius.attributes(),
-		...borderRadius.attributes({ corner: "topLeft" }),
-		...borderRadius.attributes({ corner: "topRight" }),
-		...borderRadius.attributes({ corner: "bottomRight" }),
-		...borderRadius.attributes({ corner: "bottomLeft" }),
+		...border.attributes({ borderRadius: true }),
 		...spacing.attributes(),
 	},
 	usesContext: ["tabsId", "selectedTab"],

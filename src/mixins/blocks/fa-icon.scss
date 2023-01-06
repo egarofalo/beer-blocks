@@ -4,7 +4,9 @@
 
 @mixin fa-icon-block-rules() {
 	.wp-block-beer-blocks-fa-icon {
-		@include typographyRules("fa-icon", "xs", "icon");
+		@include media-breakpoint-down(xs) {
+			@include typographyRules("fa-icon", "xs", "icon");
+		}
 
 		@include media-breakpoint-up(sm) {
 			@include typographyRules("fa-icon", "sm", "icon");
@@ -28,8 +30,10 @@
 	}
 
 	.wp-block-beer-blocks-fa-icon-image {
-		@include widthRules("fa-icon", "xs", "img");
-		@include heightRules("fa-icon", "xs", "img");
+		@include media-breakpoint-down(xs) {
+			@include widthRules("fa-icon", "xs", "img");
+			@include heightRules("fa-icon", "xs", "img");
+		}
 
 		@include media-breakpoint-up(sm) {
 			@include widthRules("fa-icon", "sm", "img");

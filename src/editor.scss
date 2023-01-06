@@ -5,7 +5,8 @@
 	}
 }
 
-.beer-blocks-tabs-breakpoints {
+// tabs breakpoints styles
+.beer-blocks-tabs {
 	.components-tab-panel__tabs {
 		margin-bottom: 15px;
 		display: flex;
@@ -15,9 +16,43 @@
 		.components-tab-panel__tabs-item {
 			padding-left: 10px;
 			padding-right: 10px;
+			flex-grow: 1;
+			justify-content: center;
 
 			.beer-blocks-breakpoint-tab-icon {
 				font-size: 16px;
+			}
+		}
+	}
+
+	&.border-helper {
+		.components-tab-panel__tabs {
+			.components-tab-panel__tabs-item {
+				.beer-blocks-breakpoint-tab-icon {
+					font-size: 20px;
+				}
+			}
+		}
+	}
+}
+
+// components panel custom styles
+.components-panel__with-subpanels {
+	background-color: #ccc;
+	border-top: 1px solid #b0b0b0 !important;
+	border-bottom: 1px solid #b0b0b0 !important;
+
+	.components-panel__header {
+		h2 {
+			text-transform: uppercase;
+			margin: 0;
+			padding: 15px 0;
+			display: flex;
+			align-items: center;
+
+			.components-panel__header-icon {
+				font-size: 18px;
+				margin-right: 5px;
 			}
 		}
 	}

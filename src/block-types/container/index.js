@@ -31,6 +31,7 @@ import "./editor.scss";
 import edit from "./edit";
 import save from "./save";
 import spacing from "./../../helpers/spacing";
+import colors from "./../../helpers/colors";
 
 /**
  * Block Icon.
@@ -52,13 +53,6 @@ registerBlockType("beer-blocks/container", {
 		"beer-blocks"
 	),
 	textdomain: "beer-blocks",
-	supports: {
-		color: {
-			background: true,
-			gradients: true,
-			text: false,
-		},
-	},
 	icon: <img src={icon} alt={_x("Container", "block title", "beer-blocks")} />,
 	attributes: {
 		allowedBlocks: {
@@ -78,6 +72,7 @@ registerBlockType("beer-blocks/container", {
 			paddingSides: ["top", "bottom"],
 			marginSides: ["top", "bottom"],
 		}),
+		...colors.attributes({ colorAttr: false }),
 	},
 	transforms: {
 		from: [
