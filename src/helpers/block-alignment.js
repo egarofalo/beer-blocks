@@ -1,8 +1,10 @@
 import { BlockAlignmentToolbar } from "@wordpress/block-editor";
 import { camelCase } from "lodash";
 
+// Posible values
 export const values = ["left", "center", "right"];
 
+// Returns block alignment attribute
 export const attribute = ({
 	attrPrefix = "",
 	defaultValue = "center",
@@ -13,6 +15,7 @@ export const attribute = ({
 	},
 });
 
+// Returns block alignment toolbar
 export const toolbar = ({ props, attrPrefix = "" }) => {
 	const attrName = camelCase(`${attrPrefix}-alignment`);
 
@@ -33,6 +36,7 @@ export const toolbar = ({ props, attrPrefix = "" }) => {
 	);
 };
 
+// Returns styles
 export const styles = (props, attrPrefix = "") => {
 	const {
 		attributes: { [camelCase(`${attrPrefix}-alignment`)]: alignment },
@@ -49,4 +53,21 @@ export const styles = (props, attrPrefix = "") => {
 	}
 };
 
-export default { values, attribute, toolbar, styles };
+// Returns block alignment css class
+export const cssClass = (props, attrPrefix) => {
+	const {
+		attributes: { [camelCase(`${attrPrefix}-alignment`)]: alignment },
+	} = props;
+
+	switch (alignment) {
+		case "left":
+			return "mr-auto";
+		case "right":
+			return "ml-auto";
+		case "center":
+		default:
+			return "mx-auto";
+	}
+};
+
+export default { values, attribute, toolbar, styles, cssClass };

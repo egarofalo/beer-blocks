@@ -30,6 +30,7 @@ import "./editor.scss";
  */
 import edit from "./edit";
 import save from "./save";
+import colors from "./../../helpers/colors";
 import spacing from "./../../helpers/spacing";
 
 /**
@@ -52,17 +53,11 @@ registerBlockType("beer-blocks/advanced-header", {
 		"beer-blocks"
 	),
 	textdomain: "beer-blocks",
-	supports: {
-		color: {
-			background: true,
-			gradients: true,
-			text: false,
-		},
-	},
 	icon: (
 		<img src={icon} alt={_x("Advanced Header", "block title", "beer-blocks")} />
 	),
 	attributes: {
+		...colors.attributes({ colorAttr: false }),
 		...spacing.attributes({ breakpoints: true }),
 	},
 	edit,

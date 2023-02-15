@@ -1,9 +1,7 @@
 // Default variable overrides
 @import "./custom-variables";
-// Required Bootstrap filesfiles
-@import "~bootstrap/scss/functions";
-@import "~bootstrap/scss/variables";
-@import "~bootstrap/scss/mixins";
+// Required Bootstrap files (variables, functions and mixins)
+@import "./bootstrap-variables";
 // Optional Bootstrap files
 @import "~bootstrap/scss/root";
 // Plugin mixins

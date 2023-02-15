@@ -1,9 +1,14 @@
+@import "./../helpers/colors";
 @import "./../helpers/spacing";
 
 @mixin section-block-rules() {
 	.wp-block-beer-blocks-section {
-		@include paddingRules("section");
-		@include marginRules("section");
+		@include backgroundRule("section");
+
+		@include media-breakpoint-down(xs) {
+			@include paddingRules("section");
+			@include marginRules("section");
+		}
 
 		@include media-breakpoint-up(sm) {
 			@include paddingRules("section", "sm");
@@ -35,11 +40,37 @@
 @mixin section-block-editor-rules() {
 	.wp-block-beer-blocks-section {
 		&.is-selected {
-			border: 1px dotted #035cff;
+			outline: 1px dotted #035cff;
 		}
 
 		&.has-child-selected {
-			border: 1px dotted #ff9f50;
+			outline: 1px dotted #ff9f50;
+		}
+
+		.editor-styles-wrapper &.wp-block {
+			@include media-breakpoint-down(xs) {
+				@include horizontalMarginRules("section");
+			}
+
+			@include media-breakpoint-up(sm) {
+				@include horizontalMarginRules("section", "sm");
+			}
+
+			@include media-breakpoint-up(md) {
+				@include horizontalMarginRules("section", "md");
+			}
+
+			@include media-breakpoint-up(lg) {
+				@include horizontalMarginRules("section", "lg");
+			}
+
+			@include media-breakpoint-up(xl) {
+				@include horizontalMarginRules("section", "xl");
+			}
+
+			@include media-breakpoint-up(xxl) {
+				@include horizontalMarginRules("section", "xxl");
+			}
 		}
 	}
 }

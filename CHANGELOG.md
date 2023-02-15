@@ -1,3 +1,13 @@
+## [1.5.0] - 2023-02-15
+
+- Fix sass files
+- Add new block `beer-blocks/image`
+- Add new translations in `es_ES` language
+- Add new features and helpers in all blocks
+- Update Bootstrap version `4.6.1` to `4.6.2`
+- Major changes
+- Code improvements
+
 ## [1.4.1] - 2022-05-07
 
 - Add `verticalMarginRules` mixin in `helpers.scss` file

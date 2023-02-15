@@ -76,16 +76,11 @@ registerBlockType("beer-blocks/accordion-item", {
 			type: "html",
 			default: "",
 		},
+		...colors.attributes({ colorAttr: false }),
 		...colors.attributes({ attrPrefix: "heading" }),
 		...border.attributes({ attrPrefix: "heading", borderRadius: true }),
 		...spacing.attributes({ attrPrefix: "heading", marginSides: false }),
-		...typography.attributes({
-			attrPrefix: "heading",
-			breakpoints: true,
-			breakpointsBehaviorAttrPrefix: "heading",
-		}),
-		...colors.attributes({ attrPrefix: "body", colorAttr: false }),
-		...border.attributes({ attrPrefix: "body", borderRadius: true }),
+		...typography.attributes({ attrPrefix: "heading", breakpoints: true }),
 		...spacing.attributes({ attrPrefix: "body", marginSides: false }),
 		id: {
 			type: "string",

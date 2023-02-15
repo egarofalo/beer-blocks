@@ -1,20 +1,24 @@
 import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
-import grid from "../../helpers/grid";
 import spacing from "../../helpers/spacing";
+import colors from "../../helpers/colors";
+import flexbox from "../../helpers/flexbox";
 
 const save = (props) => {
 	const {
-		attributes: { containerType, justifyContent, alignItems },
+		attributes: { containerType },
 	} = props;
 
 	const blockProps = useBlockProps.save({
 		className: containerType,
-		style: spacing.marginCssVars({ props, blockName: "instructions" }),
+		style: {
+			...colors.cssVars(props, "instructions"),
+			...spacing.marginCssVars(props, "instructions"),
+		},
 	});
 
 	return (
 		<div {...blockProps}>
-			<ul className={`p-0 ${grid.getRowClass(justifyContent, alignItems)}`}>
+			<ul className={`p-0 row ${flexbox.cssClasses({ props })}`.trimEnd()}>
 				<InnerBlocks.Content />
 			</ul>
 		</div>

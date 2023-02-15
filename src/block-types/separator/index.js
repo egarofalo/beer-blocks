@@ -31,9 +31,8 @@ import "./editor.scss";
 import edit from "./edit";
 import save from "./save";
 import blockAlignment from "../../helpers/block-alignment";
-import dimension from "../../helpers/dimension";
+import size from "../../helpers/size";
 import spacing from "../../helpers/spacing";
-import { getLineSeparatorDefaultWidth } from "./helpers";
 
 /**
  * Block Icon.
@@ -59,27 +58,28 @@ registerBlockType("beer-blocks/separator", {
 		<img src={icon} alt={_x("Separator Line", "block title", "beer-blocks")} />
 	),
 	attributes: {
-		...dimension.attributes({
+		...size.attributes({
 			breakpoints: true,
 			heightType: "number",
-			defaultWidth: getLineSeparatorDefaultWidth("px"),
-			defaultHeight: 1,
+			autoHeightAttr: false,
 		}),
+		style: {
+			type: "string",
+		},
 		color: {
 			type: "string",
-			default: "#000",
 		},
 		...blockAlignment.attribute(),
-		...dimension.widthAttribute({
+		...size.attributes({
 			attrPrefix: "triangle",
-			breakpointsBehavior: true,
+			breakpointsBehaviorAttrPrefix: "triangleWidth",
 			breakpoints: true,
-			defaultValue: 0,
-			type: "number",
+			widthType: "number",
+			heightAttr: false,
+			autoHeightAttr: false,
 		}),
 		triangleBackground: {
 			type: "string",
-			default: "#fff",
 		},
 		triangleDirection: {
 			type: "string",

@@ -1,17 +1,70 @@
+@import "./../../variables.scss";
 @import "./../helpers/spacing";
 @import "./../helpers/border";
 @import "./../helpers/typography";
 @import "./../helpers/colors";
 
+// Default border
+$defaultAccordionItemBorder: (
+	style: solid,
+	color: $card-border-color,
+	width: $card-border-width,
+);
+
+// Default border radius
+$defaultAccordionItemBorderRadius: (
+	top-left: $card-border-radius,
+	top-right: $card-border-radius,
+	bottom-right: $card-border-radius,
+	bottom-left: $card-border-radius,
+);
+
+// Default margins
+$defaultAccordionItemMargin: (
+	top: 0,
+	right: 0,
+	bottom: 0,
+	left: 0,
+);
+
+// Default typography for heading
+$defaultAccordionItemHeadingTypography: (
+	fontSize: $input-btn-font-size,
+	lineHeight: $input-btn-line-height,
+);
+
+// Default heading background
+$defaultAccordionItemHeadingBackground: $card-cap-bg;
+
+// Default heading border
+$defaultAccordionItemHeadingBorder: (
+	top: $defaultBorder,
+	right: $defaultBorder,
+	bottom: (
+		style: solid,
+		color: $card-border-color,
+		width: $card-border-width,
+	),
+	left: $defaultBorder,
+);
+
+// Default heading color
+$defaultAccordionItemHeadingColor: $link-color;
+
+// Default heading border radius
+$defaultAccordionItemHeadingBorderRadius: (
+	top-left: $card-inner-border-radius,
+	top-right: $card-inner-border-radius,
+	bottom-right: 0,
+	bottom-left: 0,
+);
+
+// Default body background
+$defaultAccordionItemBodyBackground: $card-bg;
+
 @mixin accordion-item-block-rules() {
 	.wp-block-beer-blocks-accordion-item {
 		&.card {
-			@include borderRules(
-				"accordion-item",
-				$borderDefaults: $defaultAccordionItemBorder,
-				$borderRadius: true
-			);
-
 			@include media-breakpoint-down(xs) {
 				@include paddingRules("accordion-item");
 				@include marginRules(
@@ -65,90 +118,93 @@
 				);
 			}
 
-			& > .card-header {
-				.accordion & {
+			.accordion > & {
+				@include accordionItemBorderRules(
+					$borderDefaults: $defaultAccordionItemBorder,
+					$borderRadius: true,
+					$borderRadiusDefaults: $defaultAccordionItemBorderRadius
+				);
+				@include backgroundRule("accordion-item");
+
+				& > .card-header {
+					margin-bottom: 0;
+
 					@include backgroundRule(
 						"accordion-item",
 						"heading",
 						$defaultAccordionItemHeadingBackground
 					);
+
 					@include borderRules(
 						"accordion-item",
 						"heading",
-						$borderRadius: true
-					);
-				}
-
-				& > h2 .btn {
-					@include colorRule(
-						"accordion-item",
-						"heading",
-						$defaultAccordionItemHeadingColor
+						$defaultAccordionItemHeadingBorder,
+						true,
+						$defaultAccordionItemHeadingBorderRadius
 					);
 
-					@include media-breakpoint-down(xs) {
-						@include typographyRules(
+					& > h2 .btn {
+						@include colorRule(
 							"accordion-item",
-							"xs",
 							"heading",
-							$defaultAccordionItemHeadingTypography
+							$defaultAccordionItemHeadingColor
 						);
-					}
 
-					@include media-breakpoint-up(sm) {
-						@include typographyRules(
-							"accordion-item",
-							"sm",
-							"heading",
-							$defaultAccordionItemHeadingTypography
-						);
-					}
+						@include media-breakpoint-down(xs) {
+							@include typographyRules(
+								"accordion-item",
+								"xs",
+								"heading",
+								$defaultAccordionItemHeadingTypography
+							);
+						}
 
-					@include media-breakpoint-up(md) {
-						@include typographyRules(
-							"accordion-item",
-							"md",
-							"heading",
-							$defaultAccordionItemHeadingTypography
-						);
-					}
+						@include media-breakpoint-up(sm) {
+							@include typographyRules(
+								"accordion-item",
+								"sm",
+								"heading",
+								$defaultAccordionItemHeadingTypography
+							);
+						}
 
-					@include media-breakpoint-up(lg) {
-						@include typographyRules(
-							"accordion-item",
-							"lg",
-							"heading",
-							$defaultAccordionItemHeadingTypography
-						);
-					}
+						@include media-breakpoint-up(md) {
+							@include typographyRules(
+								"accordion-item",
+								"md",
+								"heading",
+								$defaultAccordionItemHeadingTypography
+							);
+						}
 
-					@include media-breakpoint-up(xl) {
-						@include typographyRules(
-							"accordion-item",
-							"xl",
-							"heading",
-							$defaultAccordionItemHeadingTypography
-						);
-					}
+						@include media-breakpoint-up(lg) {
+							@include typographyRules(
+								"accordion-item",
+								"lg",
+								"heading",
+								$defaultAccordionItemHeadingTypography
+							);
+						}
 
-					@include media-breakpoint-up(xxl) {
-						@include typographyRules(
-							"accordion-item",
-							"xxl",
-							"heading",
-							$defaultAccordionItemHeadingTypography
-						);
+						@include media-breakpoint-up(xl) {
+							@include typographyRules(
+								"accordion-item",
+								"xl",
+								"heading",
+								$defaultAccordionItemHeadingTypography
+							);
+						}
+
+						@include media-breakpoint-up(xxl) {
+							@include typographyRules(
+								"accordion-item",
+								"xxl",
+								"heading",
+								$defaultAccordionItemHeadingTypography
+							);
+						}
 					}
 				}
-			}
-
-			& > .collapse > .card-body {
-				@include backgroundRule(
-					"accordion-item",
-					"body",
-					$defaultAccordionItemBodyBackground
-				);
-				@include borderRules("accordion-item", "body", $borderRadius: true);
 			}
 		}
 	}

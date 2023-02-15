@@ -25,7 +25,7 @@ const getDefaultValue = (defaultValue, side) => {
 };
 
 // returns block padding attributes
-export const paddingAttribute = ({
+const paddingAttribute = ({
 	attrPrefix = "",
 	paddingSides = ["top", "right", "bottom", "left"],
 	defaultPadding = undefined,
@@ -50,7 +50,7 @@ export const paddingAttribute = ({
 };
 
 // returns padding attributes controls
-export const paddingControl = ({
+const paddingControl = ({
 	props,
 	attrPrefix = "",
 	defaultPadding = undefined,
@@ -85,7 +85,7 @@ export const paddingControl = ({
 };
 
 // returns controls for padding attributes with breakpoints
-export const paddingBreakpointsControl = ({
+const paddingBreakpointsControl = ({
 	props,
 	breakpoint,
 	attrPrefix = "",
@@ -152,7 +152,7 @@ export const paddingBreakpointsControl = ({
 };
 
 // return padding inline styles
-export const paddingStyles = (props, attrPrefix = "") => {
+const paddingStyles = (props, attrPrefix = "") => {
 	const attrName = camelCase(`${attrPrefix}-padding`);
 
 	const {
@@ -204,7 +204,7 @@ export const paddingCssVars = (props, blockName, attrPrefix = "") => {
 };
 
 // returns block margin attributes
-export const marginAttribute = ({
+const marginAttribute = ({
 	attrPrefix = "",
 	marginSides = ["top", "right", "bottom", "left"],
 	defaultMargin = undefined,
@@ -229,7 +229,7 @@ export const marginAttribute = ({
 };
 
 // returns margin attributes controls
-export const marginControl = ({
+const marginControl = ({
 	props,
 	attrPrefix = "",
 	defaultMargin = undefined,
@@ -263,7 +263,7 @@ export const marginControl = ({
 };
 
 // returns controls for margin attributes with breakpoints
-export const marginBreakpointsControl = ({
+const marginBreakpointsControl = ({
 	props,
 	breakpoint,
 	attrPrefix = "",
@@ -331,7 +331,7 @@ export const marginBreakpointsControl = ({
 };
 
 // returns margin inline styles
-export const marginStyles = (props, attrPrefix = "") => {
+const marginStyles = (props, attrPrefix = "") => {
 	const attrName = camelCase(`${attrPrefix}-margin`);
 
 	const {
@@ -390,7 +390,6 @@ export const attributes = ({
 	defaultPadding = undefined,
 	defaultMargin = undefined,
 	breakpoints = false,
-	breakpointsBehaviorAttrPrefix = "spacing",
 } = {}) => ({
 	...paddingAttribute({
 		attrPrefix,
@@ -407,12 +406,12 @@ export const attributes = ({
 		breakpointsBehavior: false,
 	}),
 	...(breakpoints
-		? grid.breakpointsBehaviorAttribute(breakpointsBehaviorAttrPrefix)
+		? grid.breakpointsBehaviorAttribute(`${attrPrefix}-spacing`)
 		: {}),
 });
 
 // returns margin and padding controls
-export const innerControls = (props, attrPrefix = "") => (
+const innerControls = (props, attrPrefix = "") => (
 	<>
 		{paddingControl({ props, attrPrefix })}
 		{marginControl({ props, attrPrefix })}
@@ -440,7 +439,6 @@ export const breakpointsControls = ({
 	props,
 	initialOpen = false,
 	attrPrefix = "",
-	breakpointsBehaviorAttrPrefix = "spacing",
 	panelBody = true,
 	title = __("Spacing", "beer-blocks"),
 	paddingControlLabel = (breakpoint) =>
@@ -454,6 +452,7 @@ export const breakpointsControls = ({
 		(attr) => typeof props.attributes[attr] !== "undefined"
 	);
 	const { [attrPadding]: padding, [attrMargin]: margin } = props.attributes;
+	const breakpointsBehaviorAttrPrefix = `${attrPrefix}-spacing`;
 
 	const result = (
 		<>
@@ -504,18 +503,9 @@ export const styles = (props, attrPrefix = "") => ({
 });
 
 export default {
-	paddingAttribute,
-	paddingControl,
-	paddingBreakpointsControl,
-	paddingStyles,
 	paddingCssVars,
-	marginAttribute,
-	marginControl,
-	marginBreakpointsControl,
-	marginStyles,
 	marginCssVars,
 	attributes,
-	innerControls,
 	controls,
 	breakpointsControls,
 	styles,

@@ -187,7 +187,7 @@ const colorAttribute = (status, attrPrefix, defaultValue) => ({
 // returns color atrribute's controls
 const colorControl = (props, attrPrefix, status) => {
 	const { setAttributes, attributes } = props;
-	const attrName = attrNameByStatus("color", attrPrefix, status);
+	const attrName = attrNameByStatus("color", status, attrPrefix);
 
 	return (
 		<div style={controlWrapperStyle}>
@@ -206,9 +206,9 @@ const colorControl = (props, attrPrefix, status) => {
 
 // returns css vars for color attribute
 const colorCssVars = (props, blockName, attrPrefix) => {
-	const hoverAttrName = attrNameByStatus("color", attrPrefix, "hover");
-	const activeAttrName = attrNameByStatus("color", attrPrefix, "active");
-	const focusAttrName = attrNameByStatus("color", attrPrefix, "focus");
+	const hoverAttrName = attrNameByStatus("color", "hover", attrPrefix);
+	const activeAttrName = attrNameByStatus("color", "active", attrPrefix);
+	const focusAttrName = attrNameByStatus("color", "focus", attrPrefix);
 
 	const {
 		attributes: {
@@ -248,7 +248,7 @@ const backgroundAttribute = (status, attrPrefix, defaultValue) => ({
 // returns background attribute's controls
 const backgroundControl = (props, attrPrefix, status) => {
 	const { setAttributes, attributes } = props;
-	const attrName = attrNameByStatus("background", attrPrefix, status);
+	const attrName = attrNameByStatus("background", status, attrPrefix);
 
 	const solidColor = attributes[attrName]
 		? attributes[attrName].search(/(linear|radial)-gradient/) > -1
@@ -300,9 +300,9 @@ const backgroundControl = (props, attrPrefix, status) => {
 
 // returns css vars for background attribute
 const backgroundCssVars = (props, blockName, attrPrefix) => {
-	const hoverAttrName = attrNameByStatus("background", attrPrefix, "hover");
-	const activeAttrName = attrNameByStatus("background", attrPrefix, "active");
-	const focusAttrName = attrNameByStatus("background", attrPrefix, "focus");
+	const hoverAttrName = attrNameByStatus("background", "hover", attrPrefix);
+	const activeAttrName = attrNameByStatus("background", "active", attrPrefix);
+	const focusAttrName = attrNameByStatus("background", "focus", attrPrefix);
 
 	const {
 		attributes: {
@@ -492,33 +492,33 @@ export const controls = ({
 
 	// hover attributes names
 	const hoverToggleAttrName = toggleAttrName("hover", attrPrefix);
-	const hoverColorAttrName = attrNameByStatus("color", attrPrefix, "hover");
+	const hoverColorAttrName = attrNameByStatus("color", "hover", attrPrefix);
 	const hoverBackgroundAttrName = attrNameByStatus(
 		"background",
 		attrPrefix,
 		"hover"
 	);
-	const hoverBorderAttrName = attrNameByStatus("border", attrPrefix, "hover");
+	const hoverBorderAttrName = attrNameByStatus("border", "hover", attrPrefix);
 
 	// active attributes names
 	const activeToggleAttrName = toggleAttrName("active", attrPrefix);
-	const activeColorAttrName = attrNameByStatus("color", attrPrefix, "active");
+	const activeColorAttrName = attrNameByStatus("color", "active", attrPrefix);
 	const activeBackgroundAttrName = attrNameByStatus(
 		"background",
-		attrPrefix,
-		"active"
+		"active",
+		attrPrefix
 	);
-	const activeBorderAttrName = attrNameByStatus("border", attrPrefix, "active");
+	const activeBorderAttrName = attrNameByStatus("border", "active", attrPrefix);
 
 	// focus attributes names
 	const focusToggleAttrName = toggleAttrName("focus", attrPrefix);
-	const focusColorAttrName = attrNameByStatus("color", attrPrefix, "focus");
+	const focusColorAttrName = attrNameByStatus("color", "focus", attrPrefix);
 	const focusBackgroundAttrName = attrNameByStatus(
 		"background",
-		attrPrefix,
-		"focus"
+		"focus",
+		attrPrefix
 	);
-	const focusBorderAttrName = attrNameByStatus("border", attrPrefix, "focus");
+	const focusBorderAttrName = attrNameByStatus("border", "focus", attrPrefix);
 
 	// hover attributes flags
 	const hoverColorAttr = has(attributes, hoverColorAttrName);

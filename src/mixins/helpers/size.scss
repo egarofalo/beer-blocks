@@ -11,9 +11,9 @@
 	$varName: --wp-beer-blocks-#{$blockName}-#{camelize("#{$attrPrefix}-width")};
 
 	@if $breakpointName == "" or $breakpointName == "xs" {
-		width: var(#{$varName}, $defaultValue) !important;
+		width: var(#{$varName}, $defaultValue);
 	} @else {
-		width: var(#{$varName}-#{$breakpointName}, $defaultValue) !important;
+		width: var(#{$varName}-#{$breakpointName}, $defaultValue);
 	}
 }
 
@@ -27,8 +27,8 @@
 	$varName: --wp-beer-blocks-#{$blockName}-#{camelize("#{$attrPrefix}-height")};
 
 	@if $breakpointName == "" or $breakpointName == "xs" {
-		height: var(#{$varName}, $defaultValue) !important;
+		height: var(#{$varName}, $defaultValue);
 	} @else {
-		height: var(#{$varName}-#{$breakpointName}, $defaultValue) !important;
+		height: var(#{$varName}-#{$breakpointName}, $defaultValue);
 	}
 }

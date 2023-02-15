@@ -1,9 +1,14 @@
 @import "./../helpers/spacing";
+@import "./../helpers/colors";
 
 @mixin advanced-header-block-rules() {
 	.wp-block-beer-blocks-advanced-header {
-		@include paddingRules("advanced-header");
-		@include marginRules("advanced-header");
+		@include backgroundRule("advanced-header");
+
+		@include media-breakpoint-down(xs) {
+			@include paddingRules("advanced-header");
+			@include marginRules("advanced-header");
+		}
 
 		@include media-breakpoint-up(sm) {
 			@include paddingRules("advanced-header", "sm");
@@ -35,11 +40,37 @@
 @mixin advanced-header-block-editor-rules() {
 	.wp-block-beer-blocks-advanced-header {
 		&.is-selected {
-			border: 1px dotted #035cff;
+			outline: 1px dotted #035cff;
 		}
 
 		&.has-child-selected {
-			border: 1px dotted #ff9f50;
+			outline: 1px dotted #ff9f50;
+		}
+
+		.editor-styles-wrapper &.wp-block {
+			@include media-breakpoint-down(xs) {
+				@include horizontalMarginRules("advanced-header");
+			}
+
+			@include media-breakpoint-up(sm) {
+				@include horizontalMarginRules("advanced-header", "sm");
+			}
+
+			@include media-breakpoint-up(md) {
+				@include horizontalMarginRules("advanced-header", "md");
+			}
+
+			@include media-breakpoint-up(lg) {
+				@include horizontalMarginRules("advanced-header", "lg");
+			}
+
+			@include media-breakpoint-up(xl) {
+				@include horizontalMarginRules("advanced-header", "xl");
+			}
+
+			@include media-breakpoint-up(xxl) {
+				@include horizontalMarginRules("advanced-header", "xxl");
+			}
 		}
 	}
 }

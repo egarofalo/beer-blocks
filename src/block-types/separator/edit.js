@@ -8,35 +8,30 @@ import {
 	PanelBody,
 	__experimentalDivider as Divider,
 	ColorPalette,
+	SelectControl,
 	BaseControl,
 	RadioControl,
 } from "@wordpress/components";
 import blockAlignment from "./../../helpers/block-alignment";
 import spacing from "./../../helpers/spacing";
 import { variantsColorPallet as variants } from "./../../helpers/bootstrap-variants";
-import dimension from "./../../helpers/dimension";
+import size from "./../../helpers/size";
+import { borderStyles } from "../../helpers/border";
+import { reset } from "../../helpers/buttons";
+import grid from "../../helpers/grid";
 
 const edit = (props) => {
 	const {
-		attributes: { color, triangleBackground, triangleDirection },
+		attributes: { style, color, triangleBackground, triangleDirection },
 		setAttributes,
 	} = props;
 
 	const blockProps = useBlockProps({
 		style: {
-			...dimension.widthCssVars({
-				props,
-				blockName: "separator",
-			}),
-			...dimension.heightCssVars({
-				props,
-				blockName: "separator",
-			}),
-			...spacing.marginCssVars({
-				props,
-				blockName: "separator",
-			}),
-			"--wp-beer-blocks-separator-border-color": color,
+			...size.cssVars(props, "separator"),
+			...spacing.marginCssVars(props, "separator"),
+			...(style ? { "--wp-beer-blocks-separator-style": style } : {}),
+			...(color ? { "--wp-beer-blocks-separator-color": color } : {}),
 			...blockAlignment.styles(props),
 		},
 	});
@@ -44,32 +39,60 @@ const edit = (props) => {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title={__("Dimensions", "beer-blocks")}>
-					{dimension.breakpointsControls({
+				<PanelBody title={__("Line settings", "beer-blocks")}>
+					{size.controls({
 						props,
-						heightType: "number",
+						breakpoints: true,
 						minHeight: 1,
 						maxHeight: 50,
+						panelBody: false,
 					})}
-				</PanelBody>
 
-				<PanelBody title={__("Color", "beer-blocks")}>
-					<BaseControl label={__("Background color", "beer-blocks")}>
+					<Divider />
+
+					<BaseControl label={__("Line style", "beer-blocks")}>
+						<SelectControl
+							value={style}
+							options={Object.entries(borderStyles).map((borderStyle) => ({
+								label: borderStyle[1],
+								value: borderStyle[0],
+							}))}
+							onChange={(color) => setAttributes({ color })}
+						></SelectControl>
+					</BaseControl>
+
+					<BaseControl label={__("Line color", "beer-blocks")}>
 						<ColorPalette
 							colors={variants}
 							value={color}
 							onChange={(color) => setAttributes({ color })}
+							clearable={false}
 						/>
 					</BaseControl>
+
+					{reset({
+						onClick: () =>
+							setAttributes({
+								style: undefined,
+								color: undefined,
+								width: grid.breakpointsAttributeValue(undefined),
+								height: grid.breakpointsAttributeValue(undefined),
+								sizeBreakpointsBehavior: grid.breakpointsAttributeValue(
+									grid.sameBehavior
+								),
+							}),
+					})}
 				</PanelBody>
 
 				<PanelBody title={__("Triangle", "beer-blocks")}>
-					{dimension.breakpointsControls({
+					{size.controls({
 						props,
-						attrPrefix: "triangle",
+						breakpoints: true,
 						breakpointsBehaviorAttrPrefix: "triangleWidth",
+						attrPrefix: "triangle",
 						widthType: "number",
 						maxWidth: 500,
+						panelBody: false,
 					})}
 
 					<Divider />
@@ -100,8 +123,20 @@ const edit = (props) => {
 							colors={variants}
 							value={triangleBackground}
 							onChange={(color) => setAttributes({ triangleBackground: color })}
+							clearable={false}
 						/>
 					</BaseControl>
+
+					{reset({
+						onClick: () =>
+							setAttributes({
+								triangleWidth: grid.breakpointsAttributeValue(undefined),
+								triangleWidthBreakpointsBehavior:
+									grid.breakpointsAttributeValue(grid.sameBehavior),
+								triangleDirection: "down",
+								triangleBackground: undefined,
+							}),
+					})}
 				</PanelBody>
 
 				{spacing.breakpointsControls({ props })}
@@ -114,15 +149,7 @@ const edit = (props) => {
 					className={`wp-beer-blocks-separator-triangle wp-beer-blocks-separator-triangle-${triangleDirection}`}
 					style={{
 						background: triangleBackground,
-						...dimension.widthCssVars({
-							props,
-							blockName: "separator",
-							attrPrefix: "triangle",
-						}),
-						...dimension.heightCssVars({
-							props,
-							blockName: "separator",
-						}),
+						...size.cssVars(props, "separator", "triangle"),
 					}}
 				></div>
 			</div>

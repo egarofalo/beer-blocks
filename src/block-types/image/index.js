@@ -31,7 +31,7 @@ import "./editor.scss";
 import edit from "./edit";
 import save from "./save";
 import blockAlignment from "./../../helpers/block-alignment";
-import dimension from "./../../helpers/dimension";
+import size from "../../helpers/size";
 import spacing from "./../../helpers/spacing";
 import typography from "./../../helpers/typography";
 import colors from "./../../helpers/colors";
@@ -68,14 +68,19 @@ registerBlockType("beer-blocks/image", {
 		},
 		imgUrl: {
 			type: "string",
+			default: "",
 		},
 		imgNaturalWidth: {
 			type: "number",
-			default: 0,
+			default: 200,
 		},
 		imgNaturalHeight: {
 			type: "number",
 			default: 0,
+		},
+		showRemoveFigcaptionToggleField: {
+			type: "boolean",
+			default: true,
 		},
 		figcaption: {
 			type: "html",
@@ -86,13 +91,14 @@ registerBlockType("beer-blocks/image", {
 		},
 		figcaptionTextAlign: {
 			type: "string",
-			default: undefined,
+			default: "center",
 		},
 		...blockAlignment.attribute(),
-		...dimension.attributes({
+		...size.attributes({
 			breakpoints: true,
-			defaultWidth: "200px",
-			defaultHeight: "auto",
+			widthDefaultValue: "200px",
+			heightDefaultValue: "0px",
+			autoHeightDefaultValue: true,
 		}),
 		...spacing.attributes({
 			breakpoints: true,
@@ -101,13 +107,13 @@ registerBlockType("beer-blocks/image", {
 		...typography.attributes({
 			attrPrefix: "figcaption",
 			breakpoints: true,
-			breakpointsBehaviorAttrPrefix: "figcaption-font",
 		}),
 		...colors.attributes({
 			attrPrefix: "figcaption",
 			backgroundAttr: false,
 		}),
 		...spacing.attributes({
+			breakpoints: true,
 			attrPrefix: "figcaption",
 			paddingSides: false,
 			marginSides: ["top", "bottom"],

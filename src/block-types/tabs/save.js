@@ -4,6 +4,8 @@ import spacing from "./../../helpers/spacing";
 import flexbox from "./../../helpers/flexbox";
 import typography from "./../../helpers/typography";
 import border from "./../../helpers/border";
+import colors from "../../helpers/colors";
+import statuses from "./../../helpers/statuses";
 
 const save = (props) => {
 	const {
@@ -11,32 +13,24 @@ const save = (props) => {
 			id: tabsId,
 			tabsContentId,
 			labels: tabsLabels,
-			horizontalAlignment,
 			fillFreeSpace,
 			selectedTab,
-			tabsColor,
-			tabsMouseOverColor,
-			tabsActiveColor,
-			tabsBackground,
-			tabsMouseOverBackground,
-			tabsActiveBackground,
-			tabsMouseOverBorderColor,
-			tabsActiveBorderColor,
 		},
 	} = props;
 
 	const blockProps = useBlockProps.save({
-		style: spacing.styles(props),
+		style: {
+			...spacing.marginCssVars(props, "tabs"),
+			...spacing.paddingCssVars(props, "tabs"),
+		},
 	});
 
 	return (
 		<div {...blockProps}>
 			<ul
-				className={flexbox.justifyContentClass({
-					justifyContent: horizontalAlignment,
-					prefix: "nav nav-pills",
-					suffix: fillFreeSpace,
-				})}
+				className={`nav nav-pills${
+					fillFreeSpace ? ` ${fillFreeSpace}` : ""
+				} ${flexbox.cssClasses({ props, attrPrefix: "tab" })}`.trimEnd()}
 				id={tabsId}
 				role="tablist"
 			>
@@ -48,74 +42,26 @@ const save = (props) => {
 					>
 						<RichText.Content
 							tagName="a"
-							className={`nav-link${selectedTab === index ? " active" : ""}`}
+							className={`nav-link${
+								selectedTab === index ? " active" : ""
+							} ${statuses.cssClasses(props, "tab")}`}
 							id={`${tabsId}-tab-${index}`}
-							data-toggle="tab"
+							data-toggle="pill"
 							href={`#${tabsId}-pane-${index}`}
 							role="tab"
 							aria-controls={`#${tabsId}-pane-${index}`}
 							aria-selected={selectedTab === index ? "true" : "false"}
 							value={item}
 							style={{
-								...(tabsColor
-									? { "--wp-beer-blocks-tabs-nav-link-color": tabsColor }
-									: {}),
-								...(tabsMouseOverColor
-									? {
-											"--wp-beer-blocks-tabs-nav-link-hover-color":
-												tabsMouseOverColor,
-									  }
-									: {}),
-								...(tabsActiveColor
-									? {
-											"--wp-beer-blocks-tabs-nav-link-active-color":
-												tabsActiveColor,
-									  }
-									: {}),
-								...(tabsBackground
-									? {
-											"--wp-beer-blocks-tabs-nav-link-background":
-												tabsBackground,
-									  }
-									: {}),
-								...(tabsMouseOverBackground
-									? {
-											"--wp-beer-blocks-tabs-nav-link-hover-background":
-												tabsMouseOverBackground,
-									  }
-									: {}),
-								...(tabsActiveBackground
-									? {
-											"--wp-beer-blocks-tabs-nav-link-active-background":
-												tabsActiveBackground,
-									  }
-									: {}),
-								...(tabsMouseOverBorderColor
-									? {
-											"--wp-beer-blocks-tabs-nav-link-hover-border-color":
-												tabsMouseOverBorderColor,
-									  }
-									: {}),
-								...(tabsActiveBorderColor
-									? {
-											"--wp-beer-blocks-tabs-nav-link-active-border-color":
-												tabsActiveBorderColor,
-									  }
-									: {}),
-								...spacing.styles(props, "tabs"),
 								...typography.fontFamilyStyles(props, "tab"),
 								...typography.fontWeightStyles(props, "tab"),
-								...typography.fontSizeCssVars({
-									props,
-									blockName: "tabs",
-									attrPrefix: "tab",
-								}),
-								...typography.lineHeightCssVars({
-									props,
-									blockName: "tabs",
-									attrPrefix: "tab",
-								}),
-								...border.styles(props, "tabs"),
+								...typography.fontSizeCssVars(props, "tabs", "tab"),
+								...typography.lineHeightCssVars(props, "tabs", "tab"),
+								...spacing.paddingCssVars(props, "tabs", "tab"),
+								...spacing.marginCssVars(props, "tabs", "tab"),
+								...colors.cssVars(props, "tabs", "tab"),
+								...border.cssVars(props, "tabs", "tab"),
+								...statuses.cssVars(props, "tabs", "tab"),
 							}}
 						/>
 					</li>

@@ -4,7 +4,7 @@
 
 @mixin paragraph-block-rules() {
 	.wp-block-beer-blocks-paragraph {
-		@include colorsRules("paragraph", $defaultColors: $defaultParagraphColors);
+		@include colorsRules("paragraph");
 
 		@include media-breakpoint-down(xs) {
 			@include typographyRules("paragraph");
@@ -47,7 +47,7 @@
 @mixin paragraph-block-editor-rules() {
 	.wp-block-beer-blocks-paragraph {
 		&.is-selected {
-			border: 1px dotted #035cff;
+			outline: 1px dotted #035cff;
 		}
 
 		.editor-styles-wrapper &.wp-block {

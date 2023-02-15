@@ -4,11 +4,17 @@
 @import "./../../variables";
 @import "./../../functions";
 
+// Default colors
+$colorsHelperDefaults: (
+	color: $body-color,
+	background: transparent,
+);
+
 // Get background rule
 @mixin backgroundRule(
 	$blockName,
 	$attrPrefix: "",
-	$defaultValue: map.get($defaultColors, background)
+	$defaultValue: map.get($colorsHelperDefaults, background)
 ) {
 	background: var(
 		--wp-beer-blocks-#{$blockName}-#{camelize(#{$attrPrefix}-background)},
@@ -20,7 +26,7 @@
 @mixin colorRule(
 	$blockName,
 	$attrPrefix: "",
-	$defaultValue: map.get($defaultColors, color)
+	$defaultValue: map.get($colorsHelperDefaults, color)
 ) {
 	color: var(
 		--wp-beer-blocks-#{$blockName}-#{camelize(#{$attrPrefix}-color)},
@@ -32,12 +38,12 @@
 @mixin colorsRules(
 	$blockName,
 	$attrPrefix: "",
-	$defaultColors: $defaultColors
+	$defaultColors: $colorsHelperDefaults
 ) {
 	@include backgroundRule(
 		$blockName,
 		$attrPrefix,
-		map.get($defaultColors, "background")
+		map.get($defaultColors, background)
 	);
-	@include colorRule($blockName, $attrPrefix, map.get($defaultColors, "color"));
+	@include colorRule($blockName, $attrPrefix, map.get($defaultColors, color));
 }

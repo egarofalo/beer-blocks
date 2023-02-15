@@ -16,7 +16,7 @@ import {
 } from "@wordpress/components";
 import grid from "./../../helpers/grid";
 import spacing from "./../../helpers/spacing";
-import dimension from "../../helpers/dimension";
+import size from "../../helpers/size";
 import blockAlignment from "../../helpers/block-alignment";
 import typography from "../../helpers/typography";
 import placeholder from "./../../images/placeholder-image.svg";
@@ -27,6 +27,7 @@ const edit = (props) => {
 			imgId,
 			imgAlt,
 			imgUrl,
+			showRemoveFigcaptionToggleField,
 			figcaption,
 			removeFigcaption,
 			figcaptionTextAlign,
@@ -40,21 +41,27 @@ const edit = (props) => {
 		style: spacing.marginCssVars(props, "image"),
 	});
 
+	const getOriginalImgSizeAttrs = (width, height) => ({
+		width: grid.breakpointsAttributeValue(`${width === 0 ? 200 : width}px`),
+		height: grid.breakpointsAttributeValue(`${height}px`),
+		autoHeight: grid.breakpointsAttributeValue(height === 0),
+		sizeBreakpointsBehavior: grid.breakpointsBehaviorAttributeValue(
+			grid.sameBehavior
+		),
+	});
+
 	const removeMedia = () => {
 		setAttributes({
 			imgId: 0,
 			imgUrl: "",
 			imgAlt: "",
-			imgNaturalWidth: 0,
+			imgNaturalWidth: 200,
 			imgNaturalHeight: 0,
-			width: Object.fromEntries(
-				grid.breakpoints.map((key) => [[key], "200px"])
-			),
-			height: Object.fromEntries(
-				grid.breakpoints.map((key) => [[key], "auto"])
-			),
-			dimensionBreakpointsBehavior: Object.fromEntries(
-				grid.breakpoints.map((key) => [[key], grid.sameBehavior])
+			width: grid.breakpointsAttributeValue("200px"),
+			height: grid.breakpointsAttributeValue("0px"),
+			autoHeight: true,
+			sizeBreakpointsBehavior: grid.breakpointsBehaviorAttributeValue(
+				grid.sameBehavior
 			),
 		});
 	};
@@ -66,24 +73,12 @@ const edit = (props) => {
 			imgAlt: media.alt,
 			imgNaturalWidth: media.width === 0 ? 200 : media.width,
 			imgNaturalHeight: media.height,
-			width: grid.breakpointsAttributeValue(
-				`${media.width === 0 ? 200 : media.width}px`
-			),
-			height: grid.breakpointsAttributeValue("auto"),
-			dimensionBreakpointsBehavior: grid.breakpointsBehaviorAttributeValue(
-				grid.sameBehavior
-			),
+			...getOriginalImgSizeAttrs(media.width, media.height),
 		});
 
 	const setOriginalImageSize = () =>
 		setAttributes({
-			width: grid.breakpointsAttributeValue(
-				`${imgNaturalWidth === 0 ? 200 : imgNaturalWidth}px`
-			),
-			height: grid.breakpointsAttributeValue("auto"),
-			dimensionBreakpointsBehavior: grid.breakpointsBehaviorAttributeValue(
-				grid.sameBehavior
-			),
+			...getOriginalImgSizeAttrs(imgNaturalWidth, imgNaturalHeight),
 		});
 
 	const imageControls = (
@@ -92,19 +87,21 @@ const edit = (props) => {
 				className="editor-post-featured-image"
 				style={{ marginBottom: "20px" }}
 			>
-				<ToggleControl
-					label={__("Remove legend", "beer-blocks")}
-					checked={removeFigcaption}
-					onChange={() =>
-						setAttributes({
-							removeFigcaption: !removeFigcaption,
-						})
-					}
-					help={__(
-						"Enable this toggle field if you want to remove the image legend.",
-						"beer-blocks"
-					)}
-				/>
+				{showRemoveFigcaptionToggleField && (
+					<ToggleControl
+						label={__("Remove legend", "beer-blocks")}
+						checked={removeFigcaption}
+						onChange={() =>
+							setAttributes({
+								removeFigcaption: !removeFigcaption,
+							})
+						}
+						help={__(
+							"Enable this toggle field if you want to remove the image legend.",
+							"beer-blocks"
+						)}
+					/>
+				)}
 
 				<MediaUploadCheck>
 					<MediaUpload
@@ -148,7 +145,7 @@ const edit = (props) => {
 								onSelect={onSelectMedia}
 								allowedTypes={["image"]}
 								render={({ open }) => (
-									<Button onClick={open} isSecondary isLarge>
+									<Button onClick={open} isLarge variant="primary">
 										{__("Replace image", "beer-blocks")}
 									</Button>
 								)}
@@ -156,7 +153,7 @@ const edit = (props) => {
 						</MediaUploadCheck>
 
 						<MediaUploadCheck>
-							<Button onClick={removeMedia} isLink isDestructive>
+							<Button onClick={removeMedia} isDestructive>
 								{__("Remove image", "beer-blocks")}
 							</Button>
 						</MediaUploadCheck>
@@ -166,14 +163,14 @@ const edit = (props) => {
 
 			{imgId > 0 && (
 				<>
-					{dimension.breakpointsControls({
+					{size.controls({
 						props,
-						includeAutoHeightControl: true,
-						defaultHeight: imgNaturalHeight,
+						breakpoints: true,
+						panelBody: false,
 					})}
 
 					<div style={{ paddingTop: "20px" }}>
-						<Button onClick={setOriginalImageSize} isPrimary>
+						<Button onClick={setOriginalImageSize} variant="primary">
 							{__("Set original size", "beer-blocks")}
 						</Button>
 					</div>
@@ -188,6 +185,13 @@ const edit = (props) => {
 				props,
 				attrPrefix: "figcaption",
 				breakpointsBehaviorAttrPrefix: "figcaption-font",
+				title: __("Legend typography", "beer-blocks"),
+			})}
+
+			{spacing.breakpointsControls({
+				props,
+				attrPrefix: "figcaption",
+				title: __("Legend spacing", "beer-blocks"),
 			})}
 		</>
 	);
@@ -206,7 +210,7 @@ const edit = (props) => {
 				</PanelBody>
 
 				{spacing.breakpointsControls({ props })}
-				{figcaptionControls}
+				{showRemoveFigcaptionToggleField && figcaptionControls}
 			</InspectorControls>
 
 			<BlockControls>
@@ -227,8 +231,7 @@ const edit = (props) => {
 					className="img-fluid d-block"
 					style={{
 						...blockAlignment.styles(props),
-						...dimension.widthCssVars(props, "image"),
-						...dimension.heightCssVars(props, "image"),
+						...size.cssVars(props, "image"),
 					}}
 					alt={imgId > 0 ? imgAlt : __("Placeholder image", "beer-blocks")}
 					src={imgId > 0 ? imgUrl : placeholder}
@@ -246,6 +249,7 @@ const edit = (props) => {
 							...typography.fontWeightStyles(props, "figcaption"),
 							...typography.fontSizeCssVars(props, "image", "figcaption"),
 							...typography.lineHeightCssVars(props, "image", "figcaption"),
+							...spacing.marginCssVars(props, "image", "figcaption"),
 						}}
 						placeholder={__("Add a legend", "beer-blocks")}
 						tagName="figcaption"

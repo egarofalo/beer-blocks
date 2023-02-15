@@ -1,5 +1,13 @@
 @import "./../helpers/spacing";
 
+// Default padding for Alert block type
+$alertBlockDefaultPadding: (
+	top: $alert-padding-y,
+	right: $alert-padding-x,
+	bottom: $alert-padding-y,
+	left: $alert-padding-x,
+);
+
 @mixin alert-block-rules() {
 	.wp-block-beer-blocks-alert.alert {
 		@include media-breakpoint-down(xs) {
@@ -61,7 +69,7 @@
 @mixin alert-block-editor-rules() {
 	.wp-block-beer-blocks-alert.alert {
 		&.is-selected {
-			border: 1px dotted #035cff !important;
+			outline: 1px dotted #035cff;
 		}
 	}
 }

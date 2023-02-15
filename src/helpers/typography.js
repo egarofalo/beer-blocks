@@ -27,7 +27,7 @@ export const defaultUnits = [
 // returns font size block's attributes
 export const fontSizeAttribute = () => ({
 	type: "string",
-	default: "",
+	default: undefined,
 });
 
 // returns font size block's attribute with breakpoints
@@ -486,7 +486,6 @@ export const attributes = ({
 	fontWeight = "",
 	lineHeight = "",
 	breakpoints = false,
-	breakpointsBehaviorAttrPrefix = "font",
 	includeLineHeightAttr = true,
 	includeFontFamilyAttr = true,
 	includeFontWeightAttr = true,
@@ -508,7 +507,7 @@ export const attributes = ({
 		  })
 		: {}),
 	...(breakpoints
-		? grid.breakpointsBehaviorAttribute(breakpointsBehaviorAttrPrefix)
+		? grid.breakpointsBehaviorAttribute(`${attrPrefix}-font`)
 		: {}),
 	...(includeFontFamilyAttr
 		? {
@@ -564,7 +563,6 @@ export const breakpointsControls = ({
 	props,
 	initialOpen = false,
 	attrPrefix = "",
-	breakpointsBehaviorAttrPrefix = "font",
 	panelBody = true,
 	title = __("Typography", "beer-blocks"),
 	fontSizeControlLabel = (breakpoint) =>
@@ -577,6 +575,7 @@ export const breakpointsControls = ({
 }) => {
 	const attrFontSize = camelCase(`${attrPrefix}-font-size`);
 	const attrLineHeight = camelCase(`${attrPrefix}-line-height`);
+	const breakpointsBehaviorAttrPrefix = `${attrPrefix}-font`;
 
 	let result = (
 		<>

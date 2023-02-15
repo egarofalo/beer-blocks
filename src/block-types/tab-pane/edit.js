@@ -7,6 +7,7 @@ import {
 	useInnerBlocksProps,
 	__experimentalUseInnerBlocksProps as __useInnerBlocksProps,
 } from "@wordpress/block-editor";
+import colors from "./../../helpers/colors";
 import border from "./../../helpers/border";
 import spacing from "./../../helpers/spacing";
 
@@ -36,8 +37,10 @@ const edit = (props) => {
 
 	const blockProps = useBlockProps({
 		style: {
-			...border.cssVars({ props, blockName: "tab-pane" }),
-			...spacing.styles(props),
+			...colors.cssVars(props, "tab-pane"),
+			...border.cssVars(props, "tab-pane"),
+			...spacing.paddingCssVars(props, "tab-pane"),
+			...spacing.marginCssVars(props, "tab-pane"),
 		},
 	});
 
@@ -62,8 +65,9 @@ const edit = (props) => {
 	return (
 		<>
 			<InspectorControls>
+				{colors.controls({ props })}
 				{border.controls({ props })}
-				{spacing.controls({ props })}
+				{spacing.breakpointsControls({ props })}
 			</InspectorControls>
 
 			<div

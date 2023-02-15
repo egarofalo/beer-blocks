@@ -3,10 +3,10 @@
 Contributors: egarofalo
 Tags: block, design, blocks, gutenberg, blockeditor
 Donate link: https://www.paypal.com/donate?hosted_button_id=8XSCNEV5WA5TU
-Requires at least: 5.5.0
-Tested up to: 5.8.2
+Requires at least: 5.6
+Tested up to: 6.1
 Requires PHP: 7.3
-Stable tag: 1.4.1
+Stable tag: 1.5.0
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -169,6 +169,14 @@ Yes, of course! You can choose any of the font families available in Google Font
 - Fix `beer-blocks/info-box` spacing settings bug
 - Fix `beer-blocks/separator` bug in `styles.scss`
 - Fix `beer-blocks/tabs` and `beer-blocks/tab-pane` js error bug
+- Code improvements
+= 1.5.0 =
+- Fix sass files
+- Add new block `beer-blocks/image`
+- Add new translations in `es_ES` language
+- Add new features and helpers in all blocks
+- Update Bootstrap version `4.6.1` to `4.6.2`
+- Major changes
 - Code improvements
 
 == Upgrade Notice ==

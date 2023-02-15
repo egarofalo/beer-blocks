@@ -1,9 +1,14 @@
 @import "./../helpers/spacing";
+@import "./../helpers/colors";
 
 @mixin grid-block-rules() {
 	.wp-block-beer-blocks-grid {
-		@include paddingRules("grid");
-		@include marginRules("grid");
+		@include backgroundRule("grid");
+
+		@include media-breakpoint-down(xs) {
+			@include paddingRules("grid");
+			@include marginRules("grid");
+		}
 
 		@include media-breakpoint-up(sm) {
 			@include paddingRules("grid", "sm");
@@ -35,7 +40,7 @@
 @mixin grid-block-editor-rules() {
 	.wp-block-beer-blocks-grid {
 		&.is-selected {
-			border: 1px dotted #035cff !important;
+			outline: 1px dotted #035cff;
 
 			& > .wp-block-beer-blocks-container {
 				& > .button-block-appender__container {
@@ -47,6 +52,32 @@
 						display: block;
 					}
 				}
+			}
+		}
+
+		.editor-styles-wrapper &.wp-block {
+			@include media-breakpoint-down(xs) {
+				@include horizontalMarginRules("grid");
+			}
+
+			@include media-breakpoint-up(sm) {
+				@include horizontalMarginRules("grid", "sm");
+			}
+
+			@include media-breakpoint-up(md) {
+				@include horizontalMarginRules("grid", "md");
+			}
+
+			@include media-breakpoint-up(lg) {
+				@include horizontalMarginRules("grid", "lg");
+			}
+
+			@include media-breakpoint-up(xl) {
+				@include horizontalMarginRules("grid", "xl");
+			}
+
+			@include media-breakpoint-up(xxl) {
+				@include horizontalMarginRules("grid", "xxl");
 			}
 		}
 	}

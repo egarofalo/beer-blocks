@@ -22,6 +22,7 @@ const save = (props) => {
 		style: {
 			...spacing.paddingCssVars(props, "accordion-item"),
 			...spacing.marginCssVars(props, "accordion-item"),
+			...colors.backgroundCssVars(props, "accordion-item"),
 			...border.cssVars(props, "accordion-item"),
 		},
 	});
@@ -73,14 +74,7 @@ const save = (props) => {
 				aria-labelledby={headingId}
 				data-parent={`#${parentId}`}
 			>
-				<div
-					className="card-body"
-					style={{
-						...spacing.styles(props, "body"),
-						...border.cssVars(props, "accordion-item", "body"),
-						...colors.backgroundCssVars(props, "accordion-item", "body"),
-					}}
-				>
+				<div className="card-body" style={spacing.styles(props, "body")}>
 					<InnerBlocks.Content />
 				</div>
 			</div>

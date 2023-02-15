@@ -1,8 +1,11 @@
 @use "sass:map";
 
 // Plugin custom variables and functions
-@import "./../../variables";
+@import "./../../variables.scss";
 @import "./../../functions";
+
+// Default blocks vertical margin
+$defaultBlocksVerticalMargin: 20px;
 
 // Default blocks vertical margins
 @mixin blockDefaultMargins($margin: $defaultBlocksVerticalMargin) {

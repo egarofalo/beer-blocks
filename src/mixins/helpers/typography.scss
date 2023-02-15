@@ -4,12 +4,19 @@
 @import "./../../variables";
 @import "./../../functions";
 
+// Default typography rules values
+$defaultTypographyValues: (
+	fontSize: $font-size-base,
+	lineHeight: $line-height-base,
+);
+
 // Get typography rules for custom breakpoint
 @mixin typographyRules(
 	$blockName,
 	$breakpointName: "",
 	$attrPrefix: "",
-	$defaultValues: $defaultTypographyValues
+	$defaultValues: $defaultTypographyValues,
+	$lineHeightRule: true
 ) {
 	$fontSizeVarName: --wp-beer-blocks-#{$blockName}-#{camelize(
 			"#{$attrPrefix}-font-size"
@@ -20,19 +27,25 @@
 
 	@if $breakpointName == "" or $breakpointName == "xs" {
 		font-size: var(#{$fontSizeVarName}, map.get($defaultValues, fontSize));
-		line-height: var(
-			#{$lineHeightVarName},
-			map.get($defaultValues, lineHeight)
-		);
+
+		@if $lineHeightRule {
+			line-height: var(
+				#{$lineHeightVarName},
+				map.get($defaultValues, lineHeight)
+			);
+		}
 	} @else {
 		font-size: var(
 			#{$fontSizeVarName}-#{$breakpointName},
 			map.get($defaultValues, fontSize)
 		);
-		line-height: var(
-			#{$lineHeightVarName}-#{$breakpointName},
-			map.get($defaultValues, lineHeight)
-		);
+
+		@if $lineHeightRule {
+			line-height: var(
+				#{$lineHeightVarName}-#{$breakpointName},
+				map.get($defaultValues, lineHeight)
+			);
+		}
 	}
 }
 
@@ -86,13 +99,15 @@
 ) {
 	@each $breakpointName, $breakpoint in $breakpoints {
 		@if $breakpointName == "xs" {
-			@include headersTypographyRules(
-				$blockName,
-				$breakpointName,
-				$attrPrefix,
-				$defaultValues,
-				$prefixRule
-			);
+			@include media-breakpoint-down(xs) {
+				@include headersTypographyRules(
+					$blockName,
+					$breakpointName,
+					$attrPrefix,
+					$defaultValues,
+					$prefixRule
+				);
+			}
 		} @else {
 			@include media-breakpoint-up($breakpointName) {
 				@include headersTypographyRules(

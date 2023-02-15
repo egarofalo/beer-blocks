@@ -30,13 +30,14 @@ import "./editor.scss";
  */
 import edit from "./edit";
 import save from "./save";
+import flexbox from "../../helpers/flexbox";
+import colors from "../../helpers/colors";
 import spacing from "../../helpers/spacing";
 
 /**
  * Block Icon.
  */
 import icon from "../../icons/instructions.svg";
-import grid from "../../helpers/grid";
 
 /**
  * Every block starts by registering a new block type definition.
@@ -53,13 +54,6 @@ registerBlockType("beer-blocks/instructions", {
 		"beer-blocks"
 	),
 	textdomain: "beer-blocks",
-	supports: {
-		color: {
-			background: true,
-			gradients: false,
-			text: false,
-		},
-	},
 	icon: (
 		<img src={icon} alt={_x("Instructions", "block title", "beer-blocks")} />
 	),
@@ -71,14 +65,8 @@ registerBlockType("beer-blocks/instructions", {
 			type: "string",
 			default: "container",
 		},
-		justifyContent: {
-			type: "object",
-			default: grid.getJustifyContentAttributes(),
-		},
-		alignItems: {
-			type: "object",
-			default: grid.getAlignItemsAttributes(),
-		},
+		...flexbox.attributes({ flexDirectionAttr: false }),
+		...colors.attributes({ colorAttr: false }),
 		...spacing.attributes({
 			breakpoints: true,
 			paddingSides: false,

@@ -224,7 +224,7 @@ export const getJustifyContentClass = (justifyContent) =>
 	Object.entries(justifyContent).reduce((classes, [key, value]) => {
 		const breakpoint = key !== "xs" ? `-${key}` : "";
 
-		return `${classes} justify-content${breakpoint}-${value}`;
+		return `${classes} justify-content${breakpoint}-${value}`.trim();
 	}, "");
 
 // return justify-content attributes
@@ -308,7 +308,7 @@ export const getAlignItemsClass = (alignItems) =>
 	Object.entries(alignItems).reduce((classes, [key, value]) => {
 		const breakpoint = key !== "xs" ? `-${key}` : "";
 
-		return `${classes} align-items${breakpoint}-${value}`;
+		return `${classes} align-items${breakpoint}-${value}`.trim();
 	}, "");
 
 // return align-items attributes
@@ -389,7 +389,7 @@ export const getColClass = (sizing) => {
 	)} ${getBreakpointColClass(sizing["xl"], "xl")} ${getBreakpointColClass(
 		sizing["xxl"],
 		"xxl"
-	)}`;
+	)}`.trim();
 };
 
 // return bootstrap column controls settings
@@ -480,7 +480,7 @@ export const getRowControls = (
 		<TabPanel
 			initialTabName="xs"
 			tabs={breakpointsOptions}
-			className="beer-blocks-tabs-breakpoints"
+			className="beer-blocks-tabs"
 		>
 			{(tab) => (
 				<>

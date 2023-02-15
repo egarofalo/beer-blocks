@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { sprintf, __ } from "@wordpress/i18n";
+import { __ } from "@wordpress/i18n";
 import {
 	useBlockProps,
 	InnerBlocks,
@@ -7,33 +7,29 @@ import {
 } from "@wordpress/block-editor";
 import {
 	PanelBody,
-	CheckboxControl,
-	ColorPicker,
 	BaseControl,
 	SelectControl,
+	CardDivider,
 	__experimentalUnitControl as UnitControl,
+	__experimentalHeading as Heading,
 } from "@wordpress/components";
 import { select } from "@wordpress/data";
 import grid from "./../../helpers/grid";
 import typography from "../../helpers/typography";
 import spacing from "../../helpers/spacing";
+import colors from "../../helpers/colors";
+import size from "../../helpers/size";
+import flexbox from "../../helpers/flexbox";
+import { units } from "../../helpers/units";
+import { reset as resetButton } from "../../helpers/buttons";
+import { camelCase } from "lodash";
 
 const edit = (props) => {
 	const {
 		attributes: {
-			stackedContents,
 			sizing,
-			justifyContent,
-			alignItems,
 			numeration,
-			numerationBackground,
-			numerationColor,
-			numerationWidth,
-			numerationWidthUnit,
-			numerationHeight,
-			numerationHeightUnit,
 			numerationBorderRadius,
-			numerationBorderRadiusUnit,
 			numerationHorizontalAlignment,
 			numerationVerticalAlignment,
 		},
@@ -54,10 +50,8 @@ const edit = (props) => {
 		className: grid.getColClass(sizing),
 		style: {
 			listStyle: "none",
-			...spacing.marginCssVars({
-				props,
-				blockName: "instruction",
-			}),
+			...colors.cssVars(props, "instruction"),
+			...spacing.marginCssVars(props, "instruction"),
 		},
 	});
 
@@ -79,41 +73,95 @@ const edit = (props) => {
 					title={__("Responsive settings", "beer-blocks")}
 					initialOpen={false}
 				>
-					{grid.getColControls(props, (breakpoint) => (
-						<>
-							<CheckboxControl
-								label={sprintf(
-									__("Stacked contents? (%s)", "beer-blocks"),
-									breakpoint.toUpperCase()
-								)}
-								checked={stackedContents[breakpoint]}
-								onChange={(checked) => {
-									setAttributes({
-										stackedContents: {
-											...stackedContents,
-											[breakpoint]: checked,
-										},
-									});
-								}}
-							/>
-
-							{grid.justifyContentControl({ props, breakpoint })}
-							{grid.alignItemsControl({ props, breakpoint })}
-						</>
-					))}
+					{grid.getColControls(props)}
+					{flexbox.controls({ props, panelBody: false })}
 				</PanelBody>
 
 				<PanelBody
 					title={__("Numeration settings", "beer-blocks")}
 					initialOpen={false}
 				>
+					<Heading
+						level="3"
+						upperCase={true}
+						className="wp-beer-blocks__text-center"
+					>
+						{__("Typography", "beer-blocks")}
+					</Heading>
+
 					{typography.breakpointsControls({
 						props,
 						attrPrefix: "numeration",
-						breakpointsBehaviorAttrPrefix: "numeration",
 						panelBody: false,
 						includeLineHeightControl: false,
 					})}
+
+					{resetButton({
+						onClick: () =>
+							setAttributes({
+								[camelCase("numeration-font-size")]:
+									grid.breakpointsAttributeValue(undefined),
+								[camelCase("numeration-font-breakpoints-behavior")]:
+									grid.breakpointsBehaviorAttributeValue(grid.sameBehavior),
+								[camelCase("numeration-font-family")]: undefined,
+								[camelCase("numeration-font-weight")]: undefined,
+							}),
+					})}
+
+					<CardDivider />
+
+					<Heading
+						level="3"
+						upperCase={true}
+						className="wp-beer-blocks__text-center"
+					>
+						{__("Colors", "beer-blocks")}
+					</Heading>
+
+					{colors.controls({
+						props,
+						attrPrefix: "numeration",
+						panelBody: false,
+					})}
+
+					<CardDivider />
+
+					<Heading
+						level="3"
+						upperCase={true}
+						className="wp-beer-blocks__text-center"
+					>
+						{__("Size", "beer-blocks")}
+					</Heading>
+
+					{size.controls({
+						props,
+						attrPrefix: "numeration",
+						breakpoints: true,
+						panelBody: false,
+					})}
+
+					{resetButton({
+						onClick: () =>
+							setAttributes({
+								[camelCase("numeration-width")]:
+									grid.breakpointsAttributeValue(undefined),
+								[camelCase("numeration-height")]:
+									grid.breakpointsAttributeValue(undefined),
+								[camelCase("numeration-size-breakpoints-behavior")]:
+									grid.breakpointsBehaviorAttributeValue(grid.sameBehavior),
+							}),
+					})}
+
+					<CardDivider />
+
+					<Heading
+						level="3"
+						upperCase={true}
+						className="wp-beer-blocks__text-center"
+					>
+						{__("Alignment", "beer-blocks")}
+					</Heading>
 
 					<SelectControl
 						label={__("Horizontal alignment", "beer-blocks")}
@@ -137,130 +185,66 @@ const edit = (props) => {
 						}
 					/>
 
-					<BaseControl label={__("Background color", "beer-blocks")}>
-						<ColorPicker
-							color={numerationBackground}
-							onChangeComplete={(value) => {
-								setAttributes({ numerationBackground: value.hex });
-							}}
-							disableAlpha
-						/>
-					</BaseControl>
+					{resetButton({
+						onClick: () =>
+							setAttributes({
+								numerationHorizontalAlignment: "center",
+								numerationVerticalAlignment: "center",
+							}),
+					})}
 
-					<BaseControl label={__("Font color", "beer-blocks")}>
-						<ColorPicker
-							color={numerationColor}
-							onChangeComplete={(value) => {
-								setAttributes({ numerationColor: value.hex });
-							}}
-							disableAlpha
-						/>
-					</BaseControl>
+					<CardDivider />
 
-					<BaseControl
-						label={sprintf(
-							__("Width (%s)", "beer-blocks"),
-							numerationWidthUnit
-						)}
+					<Heading
+						level="3"
+						upperCase={true}
+						className="wp-beer-blocks__text-center"
 					>
-						<UnitControl
-							value={numerationWidth}
-							onChange={(numerationWidth) => setAttributes({ numerationWidth })}
-							onUnitChange={(numerationWidthUnit) =>
-								setAttributes({
-									numerationWidthUnit,
-									numerationWidth: "",
-								})
-							}
-							units={typography.defaultUnits}
-						></UnitControl>
-					</BaseControl>
+						{__("Border", "beer-blocks")}
+					</Heading>
 
-					<BaseControl
-						label={sprintf(
-							__("Height (%s)", "beer-blocks"),
-							numerationHeightUnit
-						)}
-					>
-						<UnitControl
-							value={numerationHeight}
-							onChange={(numerationHeight) =>
-								setAttributes({ numerationHeight })
-							}
-							onUnitChange={(numerationHeightUnit) =>
-								setAttributes({
-									numerationHeightUnit,
-									numerationHeight: "",
-								})
-							}
-							units={typography.defaultUnits}
-						></UnitControl>
-					</BaseControl>
-
-					<BaseControl
-						label={sprintf(
-							__("Border Radius (%s)", "beer-blocks"),
-							numerationBorderRadiusUnit
-						)}
-					>
+					<BaseControl label={__("Border Radius", "beer-blocks")}>
 						<UnitControl
 							value={numerationBorderRadius}
 							onChange={(numerationBorderRadius) =>
 								setAttributes({ numerationBorderRadius })
 							}
-							onUnitChange={(numerationBorderRadiusUnit) =>
-								setAttributes({
-									numerationBorderRadiusUnit,
-									numerationBorderRadius: "",
-								})
+							onUnitChange={() =>
+								setAttributes({ numerationBorderRadius: undefined })
 							}
-							units={[...typography.defaultUnits, { value: "%", label: "%" }]}
+							units={[...units, { value: "%", label: "%" }]}
 						></UnitControl>
 					</BaseControl>
+
+					{resetButton({
+						onClick: () => setAttributes({ numerationBorderRadius: "50%" }),
+					})}
 				</PanelBody>
 
+				{colors.controls({ props })}
 				{spacing.breakpointsControls({ props })}
 			</InspectorControls>
 
 			<li {...blockProps}>
 				<div
-					className={`wp-block-beer-blocks-instruction-contents d-flex${Object.entries(
-						stackedContents
-					).reduce((classes, [key, value]) => {
-						const breakpoint = key !== "xs" ? `-${key}` : "";
-
-						return `${classes} flex${breakpoint}-${
-							value ? "column" : "row"
-						} justify-content${breakpoint}-${
-							justifyContent[key]
-						} align-items${breakpoint}-${alignItems[key]}`;
-					}, "")}`}
-					style={spacing.paddingCssVars({
-						props,
-						blockName: "instruction",
-					})}
+					className={`wp-block-beer-blocks-instruction-contents d-flex h-100 ${flexbox.cssClasses(
+						{
+							props,
+						}
+					)}`.trimEnd()}
+					style={spacing.paddingCssVars(props, "instruction")}
 				>
 					<div
 						className={`wp-block-beer-blocks-instruction-numeration d-inline-flex flex-grow-0 justify-content-${numerationHorizontalAlignment} align-items-${numerationVerticalAlignment}`}
 						style={{
-							...(numerationBackground
-								? { backgroundColor: numerationBackground }
-								: {}),
-							...(numerationColor ? { color: numerationColor } : {}),
-							...(numerationWidth
-								? { width: numerationWidth, minWidth: numerationWidth }
-								: {}),
-							...(numerationHeight ? { height: numerationHeight } : {}),
+							...colors.cssVars(props, "instruction", "numeration"),
+							...size.cssVars(props, "instruction", "numeration"),
+							...typography.fontFamilyStyles(props, "numeration"),
+							...typography.fontWeightStyles(props, "numeration"),
+							...typography.fontSizeCssVars(props, "instruction", "numeration"),
 							...(numerationBorderRadius
 								? { borderRadius: numerationBorderRadius }
 								: {}),
-							...typography.fontFamilyStyles(props, "numeration"),
-							...typography.fontWeightStyles(props, "numeration"),
-							...typography.fontSizeCssVars({
-								props,
-								blockName: "instruction",
-								attrPrefix: "numeration",
-							}),
 						}}
 					>
 						{numeration}

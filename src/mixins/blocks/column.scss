@@ -1,89 +1,66 @@
 @import "./../helpers/spacing";
+@import "./../helpers/colors";
+
+// Default margins
+$defaultColumMargin: (
+	top: 0,
+	bottom: 0,
+);
 
 @mixin column-block-rules() {
-	$defaultPadding: (
-		top: 0,
-		bottom: 0,
-	);
-
-	$defaultMargin: (
-		top: 0,
-		bottom: 0,
-	);
-
-	$marginSides: ("top", "bottom");
-
 	.wp-block-beer-blocks-column {
-		@include verticalPaddingRules("column", $defaultValues: $defaultPadding);
-		@include verticalMarginRules("column", $defaultValues: $defaultMargin);
+		@include backgroundRule("column");
+
+		@include media-breakpoint-down(xs) {
+			@include verticalPaddingRules("column");
+			@include verticalMarginRules(
+				"column",
+				$defaultValues: $defaultColumMargin
+			);
+		}
 
 		@include media-breakpoint-up(sm) {
-			@include verticalPaddingRules(
-				"column",
-				"sm",
-				$defaultValues: $defaultPadding
-			);
-
+			@include verticalPaddingRules("column", "sm");
 			@include verticalMarginRules(
 				"column",
 				"sm",
-				$defaultValues: $defaultMargin
+				$defaultValues: $defaultColumMargin
 			);
 		}
 
 		@include media-breakpoint-up(md) {
-			@include verticalPaddingRules(
-				"column",
-				"md",
-				$defaultValues: $defaultPadding
-			);
-
+			@include verticalPaddingRules("column", "md");
 			@include verticalMarginRules(
 				"column",
 				"md",
-				$defaultValues: $defaultMargin
+				$defaultValues: $defaultColumMargin
 			);
 		}
 
 		@include media-breakpoint-up(lg) {
-			@include verticalPaddingRules(
-				"column",
-				"lg",
-				$defaultValues: $defaultPadding
-			);
-
+			@include verticalPaddingRules("column", "lg");
 			@include verticalMarginRules(
 				"column",
 				"lg",
-				$defaultValues: $defaultMargin
+				$defaultValues: $defaultColumMargin
 			);
 		}
 
 		@include media-breakpoint-up(xl) {
-			@include verticalPaddingRules(
-				"column",
-				"xl",
-				$defaultValues: $defaultPadding
-			);
-
+			@include verticalPaddingRules("column", "xl");
 			@include verticalMarginRules(
 				"column",
 				"xl",
-				$defaultValues: $defaultMargin
+				$defaultValues: $defaultColumMargin
 			);
 		}
 
 		@include media-breakpoint-up(xxl) {
-			@include verticalPaddingRules(
-				"column",
-				"xxl",
-				$defaultValues: $defaultPadding
-			);
-
+			@include verticalPaddingRules("column", "xxl");
 			@include verticalMarginRules(
 				"column",
 				"xxl",
-				$defaultValues: $defaultMargin
+				$defaultValues: $defaultColumMargin
 			);
 		}
 	}
@@ -91,19 +68,64 @@
 
 @mixin column-block-editor-rules() {
 	.wp-block-beer-blocks-column {
-		.editor-styles-wrapper &.wp-block {
-			margin-left: 0;
-			margin-right: 0;
-			margin-top: 0;
-			margin-bottom: 0;
-		}
-
 		&.is-selected {
-			border: 1px dotted #035cff;
+			outline: 1px dotted #035cff;
 		}
 
 		&.has-child-selected {
-			border: 1px dotted #20c997;
+			outline: 1px dotted #ff9f50;
+		}
+
+		.editor-styles-wrapper &.wp-block {
+			margin-left: 0;
+			margin-right: 0;
+
+			@include media-breakpoint-down(xs) {
+				@include verticalMarginRules(
+					"column",
+					$defaultValues: $defaultColumMargin
+				);
+			}
+
+			@include media-breakpoint-up(sm) {
+				@include verticalMarginRules(
+					"column",
+					"sm",
+					$defaultValues: $defaultColumMargin
+				);
+			}
+
+			@include media-breakpoint-up(md) {
+				@include verticalMarginRules(
+					"column",
+					"md",
+					$defaultValues: $defaultColumMargin
+				);
+			}
+
+			@include media-breakpoint-up(lg) {
+				@include verticalMarginRules(
+					"column",
+					"lg",
+					$defaultValues: $defaultColumMargin
+				);
+			}
+
+			@include media-breakpoint-up(xl) {
+				@include verticalMarginRules(
+					"column",
+					"xl",
+					$defaultValues: $defaultColumMargin
+				);
+			}
+
+			@include media-breakpoint-up(xxl) {
+				@include verticalMarginRules(
+					"column",
+					"xxl",
+					$defaultValues: $defaultColumMargin
+				);
+			}
 		}
 	}
 }

@@ -10,7 +10,7 @@
 		@include blockDefaultMargins(0);
 
 		&.is-selected {
-			border: 1px dotted #035cff;
+			outline: 1px dotted #035cff;
 
 			& > .button-block-appender__container {
 				.block-editor-button-block-appender {

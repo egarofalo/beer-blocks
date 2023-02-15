@@ -32,6 +32,7 @@ import edit from "./edit";
 import save from "./save";
 import grid from "./../../helpers/grid";
 import spacing from "./../../helpers/spacing";
+import colors from "./../../helpers/colors";
 
 /**
  * Block Icon.
@@ -53,13 +54,6 @@ registerBlockType("beer-blocks/column", {
 		"beer-blocks"
 	),
 	textdomain: "beer-blocks",
-	supports: {
-		color: {
-			background: true,
-			gradients: true,
-			text: false,
-		},
-	},
 	parent: ["beer-blocks/row"],
 	icon: <img src={icon} alt={_x("Column", "block title", "beer-blocks")} />,
 	attributes: {
@@ -76,6 +70,7 @@ registerBlockType("beer-blocks/column", {
 			paddingSides: ["top", "bottom"],
 			marginSides: ["top", "bottom"],
 		}),
+		...colors.attributes({ colorAttr: false }),
 	},
 	edit,
 	save,

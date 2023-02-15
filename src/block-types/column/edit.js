@@ -10,6 +10,7 @@ import { PanelBody } from "@wordpress/components";
 import { useSelect } from "@wordpress/data";
 import grid from "./../../helpers/grid";
 import spacing from "../../helpers/spacing";
+import colors from "../../helpers/colors";
 
 const edit = (props) => {
 	const {
@@ -31,8 +32,9 @@ const edit = (props) => {
 	const blockProps = useBlockProps({
 		className: grid.getColClass(sizing),
 		style: {
-			...spacing.paddingCssVars({ props, blockName: "column" }),
-			...spacing.marginCssVars({ props, blockName: "column" }),
+			...spacing.paddingCssVars(props, "column"),
+			...spacing.marginCssVars(props, "column"),
+			...colors.cssVars(props, "column"),
 		},
 	});
 
@@ -58,6 +60,7 @@ const edit = (props) => {
 					{grid.getColControls(props)}
 				</PanelBody>
 
+				{colors.controls({ props })}
 				{spacing.breakpointsControls({ props })}
 			</InspectorControls>
 

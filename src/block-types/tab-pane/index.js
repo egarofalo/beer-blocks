@@ -30,6 +30,7 @@ import "./editor.scss";
  */
 import edit from "./edit";
 import save from "./save";
+import colors from "./../../helpers/colors";
 import border from "./../../helpers/border";
 import spacing from "./../../helpers/spacing";
 
@@ -53,13 +54,6 @@ registerBlockType("beer-blocks/tab-pane", {
 		"beer-blocks"
 	),
 	textdomain: "beer-blocks",
-	supports: {
-		color: {
-			background: true,
-			gradients: true,
-			text: false,
-		},
-	},
 	parent: ["beer-blocks/tabs"],
 	icon: <img src={icon} alt={_x("Tab Pane", "block title", "beer-blocks")} />,
 	attributes: {
@@ -76,8 +70,9 @@ registerBlockType("beer-blocks/tab-pane", {
 			type: "boolean",
 			default: false,
 		},
+		...colors.attributes({ colorAttr: false }),
 		...border.attributes({ borderRadius: true }),
-		...spacing.attributes(),
+		...spacing.attributes({ breakpoints: true }),
 	},
 	usesContext: ["tabsId", "selectedTab"],
 	edit,

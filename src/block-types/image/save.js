@@ -1,7 +1,7 @@
 import { __ } from "@wordpress/i18n";
 import { useBlockProps, RichText } from "@wordpress/block-editor";
 import spacing from "./../../helpers/spacing";
-import dimension from "../../helpers/dimension";
+import size from "../../helpers/size";
 import blockAlignment from "../../helpers/block-alignment";
 import typography from "../../helpers/typography";
 import placeholder from "./../../images/placeholder-image.svg";
@@ -28,8 +28,7 @@ const save = (props) => {
 				className="img-fluid d-block"
 				style={{
 					...blockAlignment.styles(props),
-					...dimension.widthCssVars(props, "image"),
-					...dimension.heightCssVars(props, "image"),
+					...size.cssVars(props, "image"),
 				}}
 				alt={imgId > 0 ? imgAlt : __("Placeholder image", "beer-blocks")}
 				src={imgId > 0 ? imgUrl : placeholder}
@@ -47,6 +46,7 @@ const save = (props) => {
 						...typography.fontWeightStyles(props, "figcaption"),
 						...typography.fontSizeCssVars(props, "image", "figcaption"),
 						...typography.lineHeightCssVars(props, "image", "figcaption"),
+						...spacing.marginCssVars(props, "image", "figcaption"),
 					}}
 					tagName="figcaption"
 					value={figcaption}

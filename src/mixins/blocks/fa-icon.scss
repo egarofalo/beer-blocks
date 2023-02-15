@@ -1,73 +1,93 @@
 @import "./../helpers/typography";
-@import "./../helpers/dimension";
+@import "./../helpers/colors";
 @import "./../helpers/spacing";
 
 @mixin fa-icon-block-rules() {
 	.wp-block-beer-blocks-fa-icon {
+		& > i {
+			@include colorRule("fa-icon");
+		}
+
 		@include media-breakpoint-down(xs) {
-			@include typographyRules("fa-icon", "xs", "icon");
+			@include marginRules("fa-icon");
+
+			& > i {
+				@include typographyRules("fa-icon");
+			}
 		}
 
 		@include media-breakpoint-up(sm) {
-			@include typographyRules("fa-icon", "sm", "icon");
+			@include marginRules("fa-icon", "sm");
+
+			& > i {
+				@include typographyRules("fa-icon", "sm");
+			}
 		}
 
 		@include media-breakpoint-up(md) {
-			@include typographyRules("fa-icon", "md", "icon");
+			@include marginRules("fa-icon", "md");
+
+			& > i {
+				@include typographyRules("fa-icon", "md");
+			}
 		}
 
 		@include media-breakpoint-up(lg) {
-			@include typographyRules("fa-icon", "lg", "icon");
+			@include marginRules("fa-icon", "lg");
+
+			& > i {
+				@include typographyRules("fa-icon", "lg");
+			}
 		}
 
 		@include media-breakpoint-up(xl) {
-			@include typographyRules("fa-icon", "xl", "icon");
+			@include marginRules("fa-icon", "xl");
+
+			& > i {
+				@include typographyRules("fa-icon", "xl");
+			}
 		}
 
 		@include media-breakpoint-up(xxl) {
-			@include typographyRules("fa-icon", "xxl", "icon");
-		}
-	}
+			@include marginRules("fa-icon", "xxl");
 
-	.wp-block-beer-blocks-fa-icon-image {
-		@include media-breakpoint-down(xs) {
-			@include widthRules("fa-icon", "xs", "img");
-			@include heightRules("fa-icon", "xs", "img");
-		}
-
-		@include media-breakpoint-up(sm) {
-			@include widthRules("fa-icon", "sm", "img");
-			@include heightRules("fa-icon", "sm", "img");
-		}
-
-		@include media-breakpoint-up(md) {
-			@include widthRules("fa-icon", "md", "img");
-			@include heightRules("fa-icon", "md", "img");
-		}
-
-		@include media-breakpoint-up(lg) {
-			@include widthRules("fa-icon", "lg", "img");
-			@include heightRules("fa-icon", "lg", "img");
-		}
-
-		@include media-breakpoint-up(xl) {
-			@include widthRules("fa-icon", "xl", "img");
-			@include heightRules("fa-icon", "xl", "img");
-		}
-
-		@include media-breakpoint-up(xxl) {
-			@include widthRules("fa-icon", "xxl", "img");
-			@include heightRules("fa-icon", "xxl", "img");
+			& > i {
+				@include typographyRules("fa-icon", "xxl");
+			}
 		}
 	}
 }
 
 @mixin fa-icon-block-editor-rules() {
 	.wp-block-beer-blocks-fa-icon {
-		@include blockDefaultMargins;
-
 		&.is-selected {
-			border: 1px dotted #035cff;
+			outline: 1px dotted #035cff;
+		}
+
+		.editor-styles-wrapper &.wp-block {
+			@include media-breakpoint-down(xs) {
+				@include horizontalMarginRules("fa-icon");
+			}
+
+			@include media-breakpoint-up(sm) {
+				@include horizontalMarginRules("fa-icon", "sm");
+			}
+
+			@include media-breakpoint-up(md) {
+				@include horizontalMarginRules("fa-icon", "md");
+			}
+
+			@include media-breakpoint-up(lg) {
+				@include horizontalMarginRules("fa-icon", "lg");
+			}
+
+			@include media-breakpoint-up(xl) {
+				@include horizontalMarginRules("fa-icon", "xl");
+			}
+
+			@include media-breakpoint-up(xxl) {
+				@include horizontalMarginRules("fa-icon", "xxl");
+			}
 		}
 	}
 

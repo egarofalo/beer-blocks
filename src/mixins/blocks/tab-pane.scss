@@ -1,25 +1,140 @@
 @import "./../helpers/spacing";
+@import "./../helpers/colors";
+@import "./../helpers/border";
+
+// Default margin
+$defaultTabPaneMargin: (
+	top: 0,
+	right: 0,
+	bottom: 0,
+	left: 0,
+);
+
+// Default horizontal margin
+$defaultTabPaneHorizontalMargin: (
+	right: 0,
+	left: 0,
+);
 
 @mixin tab-pane-block-rules() {
 	.wp-block-beer-blocks-tab-pane {
-		@include blockDefaultMargins(0);
+		@include backgroundRule("tab-pane");
+		@include borderRules("tab-pane", $borderRadius: true);
+
+		@include media-breakpoint-down(xs) {
+			@include paddingRules("tab-pane");
+			@include marginRules("tab-pane", $defaultValues: $defaultTabPaneMargin);
+		}
+
+		@include media-breakpoint-up(sm) {
+			@include paddingRules("tab-pane", "sm");
+			@include marginRules(
+				"tab-pane",
+				"sm",
+				$defaultValues: $defaultTabPaneMargin
+			);
+		}
+
+		@include media-breakpoint-up(md) {
+			@include paddingRules("tab-pane", "md");
+			@include marginRules(
+				"tab-pane",
+				"md",
+				$defaultValues: $defaultTabPaneMargin
+			);
+		}
+
+		@include media-breakpoint-up(lg) {
+			@include paddingRules("tab-pane", "lg");
+			@include marginRules(
+				"tab-pane",
+				"lg",
+				$defaultValues: $defaultTabPaneMargin
+			);
+		}
+
+		@include media-breakpoint-up(xl) {
+			@include paddingRules("tab-pane", "xl");
+			@include marginRules(
+				"tab-pane",
+				"xl",
+				$defaultValues: $defaultTabPaneMargin
+			);
+		}
+
+		@include media-breakpoint-up(xxl) {
+			@include paddingRules("tab-pane", "xxl");
+			@include marginRules(
+				"tab-pane",
+				"xxl",
+				$defaultValues: $defaultTabPaneMargin
+			);
+		}
 	}
 }
 
 @mixin tab-pane-block-editor-rules() {
 	.wp-block-beer-blocks-tab-pane {
-		@include blockDefaultMargins(0);
-
 		&.is-selected {
-			border: 1px dotted #035cff;
+			outline: 1px dotted #035cff;
 		}
 
 		&.has-child-selected {
-			border: 1px dotted #ff9f50;
+			outline: 1px dotted #ff9f50;
 		}
 
 		& > .button-block-appender__container {
 			margin-top: 8px;
+			text-align: right;
+		}
+
+		.editor-styles-wrapper &.wp-block {
+			@include media-breakpoint-down(xs) {
+				@include horizontalMarginRules(
+					"tab-pane",
+					$defaultValues: $defaultTabPaneHorizontalMargin
+				);
+			}
+
+			@include media-breakpoint-up(sm) {
+				@include horizontalMarginRules(
+					"tab-pane",
+					"sm",
+					$defaultValues: $defaultTabPaneHorizontalMargin
+				);
+			}
+
+			@include media-breakpoint-up(md) {
+				@include horizontalMarginRules(
+					"tab-pane",
+					"md",
+					$defaultValues: $defaultTabPaneHorizontalMargin
+				);
+			}
+
+			@include media-breakpoint-up(lg) {
+				@include horizontalMarginRules(
+					"tab-pane",
+					"lg",
+					$defaultValues: $defaultTabPaneHorizontalMargin
+				);
+			}
+
+			@include media-breakpoint-up(xl) {
+				@include horizontalMarginRules(
+					"tab-pane",
+					"xl",
+					$defaultValues: $defaultTabPaneHorizontalMargin
+				);
+			}
+
+			@include media-breakpoint-up(xxl) {
+				@include horizontalMarginRules(
+					"tab-pane",
+					"xxl",
+					$defaultValues: $defaultTabPaneHorizontalMargin
+				);
+			}
 		}
 	}
 }

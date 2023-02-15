@@ -39,10 +39,8 @@
 
 @mixin container-block-editor-rules() {
 	.wp-block-beer-blocks-container {
-		box-sizing: border-box;
-
 		&.is-selected {
-			border: 1px dotted #035cff;
+			outline: 1px dotted #035cff;
 
 			& > .button-block-appender__container {
 				&.has-child-blocks {
@@ -58,7 +56,7 @@
 		}
 
 		&.has-child-selected {
-			border: 1px dotted #ff9f50;
+			outline: 1px dotted #ff9f50;
 
 			& > .button-block-appender__container {
 				&.has-child-blocks {

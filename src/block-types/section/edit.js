@@ -5,6 +5,7 @@ import {
 	InspectorControls,
 } from "@wordpress/block-editor";
 import { SelectControl, PanelBody } from "@wordpress/components";
+import colors from "./../../helpers/colors";
 import spacing from "./../../helpers/spacing";
 import sectioningTags from "./../../helpers/sectioning-tags";
 
@@ -16,8 +17,9 @@ const edit = (props) => {
 
 	const blockProps = useBlockProps({
 		style: {
-			...spacing.paddingCssVars({ props, blockName: "section" }),
-			...spacing.marginCssVars({ props, blockName: "section" }),
+			...colors.backgroundCssVars(props, "section"),
+			...spacing.paddingCssVars(props, "section"),
+			...spacing.marginCssVars(props, "section"),
 		},
 	});
 
@@ -38,6 +40,7 @@ const edit = (props) => {
 					/>
 				</PanelBody>
 
+				{colors.controls({ props })}
 				{spacing.breakpointsControls({ props })}
 			</InspectorControls>
 

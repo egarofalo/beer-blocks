@@ -1,8 +1,47 @@
+@import "./../../variables.scss";
 @import "./../helpers/spacing";
 @import "./../helpers/typography";
 @import "./../helpers/colors";
 @import "./../helpers/statuses";
 @import "./../helpers/border";
+
+// Default padding styles
+$defaultButtonPadding: (
+	top: $btn-padding-y,
+	right: $btn-padding-x,
+	bottom: $btn-padding-y,
+	left: $btn-padding-x,
+);
+
+// Default border styles
+$defaultButtonBorder: (
+	style: solid,
+	color: $gray-900,
+	width: 2px,
+);
+
+// Default border radius styles
+$defaultButtonBorderRadius: (
+	top-right: $btn-border-radius,
+	bottom-right: $btn-border-radius,
+	bottom-left: $btn-border-radius,
+	top-left: $btn-border-radius,
+);
+
+// Default border styles for statuses helper
+$defaultButtonStatusesBorder: (
+	color: $gray-900,
+	width: 2px,
+);
+
+// Default typography styles
+$defaultButtonTypography: (
+	fontSize: $input-btn-font-size,
+	lineHeight: $input-btn-line-height,
+);
+
+// Button cursor
+$defaultButtonCursor: if($enable-pointer-cursor-for-buttons, pointer, auto);
 
 @mixin button-block-rules() {
 	.wp-block-beer-blocks-button {
@@ -34,14 +73,14 @@
 			text-decoration: none;
 
 			@include media-breakpoint-down(xs) {
-				@include paddingRules("button", $defaultValues: $buttonDefaultPadding);
+				@include paddingRules("button", $defaultValues: $defaultButtonPadding);
 			}
 
 			@include media-breakpoint-up(sm) {
 				@include paddingRules(
 					"button",
 					"sm",
-					$defaultValues: $buttonDefaultPadding
+					$defaultValues: $defaultButtonPadding
 				);
 			}
 
@@ -49,7 +88,7 @@
 				@include paddingRules(
 					"button",
 					"md",
-					$defaultValues: $buttonDefaultPadding
+					$defaultValues: $defaultButtonPadding
 				);
 			}
 
@@ -57,7 +96,7 @@
 				@include paddingRules(
 					"button",
 					"lg",
-					$defaultValues: $buttonDefaultPadding
+					$defaultValues: $defaultButtonPadding
 				);
 			}
 
@@ -65,7 +104,7 @@
 				@include paddingRules(
 					"button",
 					"xl",
-					$defaultValues: $buttonDefaultPadding
+					$defaultValues: $defaultButtonPadding
 				);
 			}
 
@@ -73,7 +112,7 @@
 				@include paddingRules(
 					"button",
 					"xxl",
-					$defaultValues: $buttonDefaultPadding
+					$defaultValues: $defaultButtonPadding
 				);
 			}
 
@@ -81,8 +120,9 @@
 				@include colorsRules("button");
 				@include borderRules(
 					"button",
-					$borderDefaults: $defaultBorderButton,
-					$borderRadius: true
+					$borderDefaults: $defaultButtonBorder,
+					$borderRadius: true,
+					$borderRadiusDefaults: $defaultButtonBorderRadius
 				);
 				@include statusesRules(
 					"button",
@@ -93,11 +133,11 @@
 					$activeBackground: true,
 					$focusBackground: true,
 					$hoverBorder: true,
-					$hoverBorderDefault: $defaultStatusesHelperBorderButton,
+					$hoverBorderDefault: $defaultButtonStatusesBorder,
 					$activeBorder: true,
-					$activeBorderDefault: $defaultStatusesHelperBorderButton,
+					$activeBorderDefault: $defaultButtonStatusesBorder,
 					$focusBorder: true,
-					$focusBorderDefault: $defaultStatusesHelperBorderButton,
+					$focusBorderDefault: $defaultButtonStatusesBorder,
 					$transition: true
 				);
 
@@ -105,7 +145,7 @@
 					@include typographyRules(
 						"button",
 						"xs",
-						$defaultValues: $defaultButtonTypographyValues
+						$defaultValues: $defaultButtonTypography
 					);
 				}
 
@@ -113,7 +153,7 @@
 					@include typographyRules(
 						"button",
 						"sm",
-						$defaultValues: $defaultButtonTypographyValues
+						$defaultValues: $defaultButtonTypography
 					);
 				}
 
@@ -121,7 +161,7 @@
 					@include typographyRules(
 						"button",
 						"md",
-						$defaultValues: $defaultButtonTypographyValues
+						$defaultValues: $defaultButtonTypography
 					);
 				}
 
@@ -129,7 +169,7 @@
 					@include typographyRules(
 						"button",
 						"lg",
-						$defaultValues: $defaultButtonTypographyValues
+						$defaultValues: $defaultButtonTypography
 					);
 				}
 
@@ -137,7 +177,7 @@
 					@include typographyRules(
 						"button",
 						"xl",
-						$defaultValues: $defaultButtonTypographyValues
+						$defaultValues: $defaultButtonTypography
 					);
 				}
 
@@ -145,7 +185,7 @@
 					@include typographyRules(
 						"button",
 						"xxl",
-						$defaultValues: $defaultButtonTypographyValues
+						$defaultValues: $defaultButtonTypography
 					);
 				}
 			}
@@ -155,19 +195,7 @@
 
 @mixin button-block-editor-rules() {
 	.wp-block-beer-blocks-button {
-		&.is-selected {
-			border: 1px dotted #035cff;
-		}
-
-		& > a {
-			box-sizing: border-box;
-		}
-
 		.editor-styles-wrapper &.wp-block {
-			& > a {
-				text-decoration: none;
-			}
-
 			@include media-breakpoint-down(xs) {
 				@include horizontalMarginRules("button");
 			}
@@ -194,11 +222,12 @@
 
 			& > a {
 				text-decoration: none;
+				cursor: $defaultButtonCursor;
 
 				@include media-breakpoint-down(xs) {
 					@include paddingRules(
 						"button",
-						$defaultValues: $buttonDefaultPadding
+						$defaultValues: $defaultButtonPadding
 					);
 				}
 
@@ -206,7 +235,7 @@
 					@include paddingRules(
 						"button",
 						"sm",
-						$defaultValues: $buttonDefaultPadding
+						$defaultValues: $defaultButtonPadding
 					);
 				}
 
@@ -214,7 +243,7 @@
 					@include paddingRules(
 						"button",
 						"md",
-						$defaultValues: $buttonDefaultPadding
+						$defaultValues: $defaultButtonPadding
 					);
 				}
 
@@ -222,7 +251,7 @@
 					@include paddingRules(
 						"button",
 						"lg",
-						$defaultValues: $buttonDefaultPadding
+						$defaultValues: $defaultButtonPadding
 					);
 				}
 
@@ -230,7 +259,7 @@
 					@include paddingRules(
 						"button",
 						"xl",
-						$defaultValues: $buttonDefaultPadding
+						$defaultValues: $defaultButtonPadding
 					);
 				}
 
@@ -238,7 +267,7 @@
 					@include paddingRules(
 						"button",
 						"xxl",
-						$defaultValues: $buttonDefaultPadding
+						$defaultValues: $defaultButtonPadding
 					);
 				}
 			}

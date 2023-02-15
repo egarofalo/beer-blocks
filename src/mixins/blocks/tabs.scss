@@ -1,38 +1,143 @@
 @import "./../helpers/typography";
 @import "./../helpers/spacing";
+@import "./../helpers/colors";
+@import "./../helpers/border";
 @import "./../helpers/statuses";
+
+// Default padding for each tab
+$defaultTabsTabPadding: (
+	top: $nav-link-padding-y,
+	right: $nav-link-padding-x,
+	bottom: $nav-link-padding-y,
+	left: $nav-link-padding-x,
+);
+
+// Default margin for each tab
+$defaultTabsTabMargin: (
+	top: 0,
+	right: 0,
+	bottom: 0,
+	left: 0,
+);
+
+// Default color for each active tab
+$defaultTabsTabActiveColor: $nav-pills-link-active-color;
+
+// Default background for each active tab
+$defaultTabsTabActiveBackground: $nav-pills-link-active-bg;
+
+// Default border radius for each tab
+$defaultTabsTabBorderRadius: (
+	top-left: $nav-pills-border-radius,
+	top-right: $nav-pills-border-radius,
+	bottom-right: $nav-pills-border-radius,
+	bottom-left: $nav-pills-border-radius,
+);
 
 @mixin tabs-block-rules() {
 	.wp-block-beer-blocks-tabs {
+		@include media-breakpoint-down(xs) {
+			@include paddingRules("tabs");
+			@include marginRules("tabs");
+		}
+
+		@include media-breakpoint-up(sm) {
+			@include paddingRules("tabs", "sm");
+			@include marginRules("tabs", "sm");
+		}
+
+		@include media-breakpoint-up(md) {
+			@include paddingRules("tabs", "md");
+			@include marginRules("tabs", "md");
+		}
+
+		@include media-breakpoint-up(lg) {
+			@include paddingRules("tabs", "lg");
+			@include marginRules("tabs", "lg");
+		}
+
+		@include media-breakpoint-up(xl) {
+			@include paddingRules("tabs", "xl");
+			@include marginRules("tabs", "xl");
+		}
+
+		@include media-breakpoint-up(xxl) {
+			@include paddingRules("tabs", "xxl");
+			@include marginRules("tabs", "xxl");
+		}
+
 		.nav.nav-pills {
 			& > .nav-item {
 				& > .nav-link {
-					@include typographyRules("tabs", $attrPrefix: "tab");
-					/*
-					@include colorsRules(
+					&.active {
+						color: $defaultTabsTabActiveColor;
+						background-color: $defaultTabsTabActiveBackground;
+					}
+
+					@include colorsRules("tabs", "tab");
+					@include borderRules(
 						"tabs",
-						$statuses: ("mouseOver", "active", "focus")
+						"tab",
+						$borderRadius: true,
+						$borderRadiusDefaults: $defaultTabsTabBorderRadius
 					);
-					*/
+					@include statusesRules(
+						"tabs",
+						"tab",
+						$hoverColor: true,
+						$activeColor: true,
+						$activeColorDefault: $defaultTabsTabActiveColor,
+						$hoverBackground: true,
+						$activeBackground: true,
+						$activeBackgroundDefault: $defaultTabsTabActiveBackground,
+						$hoverBorder: true,
+						$activeBorder: true,
+						$transition: true,
+						$activeClass: active
+					);
+
+					@include media-breakpoint-down(xs) {
+						@include typographyRules("tabs", $attrPrefix: "tab");
+						@include paddingRules(
+							"tabs",
+							$attrPrefix: "tab",
+							$defaultValues: $defaultTabsTabPadding
+						);
+						@include marginRules(
+							"tabs",
+							$attrPrefix: "tab",
+							$defaultValues: $defaultTabsTabMargin
+						);
+					}
 
 					@include media-breakpoint-up(sm) {
-						@include typographyRules("paragraph", "sm", "tab");
+						@include typographyRules("tabs", "sm", "tab");
+						@include paddingRules("tabs", "sm", "tab", $defaultTabsTabPadding);
+						@include marginRules("tabs", "sm", "tab", $defaultTabsTabMargin);
 					}
 
 					@include media-breakpoint-up(md) {
-						@include typographyRules("paragraph", "md", "tab");
+						@include typographyRules("tabs", "md", "tab");
+						@include paddingRules("tabs", "md", "tab", $defaultTabsTabPadding);
+						@include marginRules("tabs", "md", "tab", $defaultTabsTabMargin);
 					}
 
 					@include media-breakpoint-up(lg) {
-						@include typographyRules("paragraph", "lg", "tab");
+						@include typographyRules("tabs", "lg", "tab");
+						@include paddingRules("tabs", "lg", "tab", $defaultTabsTabPadding);
+						@include marginRules("tabs", "lg", "tab", $defaultTabsTabMargin);
 					}
 
 					@include media-breakpoint-up(xl) {
-						@include typographyRules("paragraph", "xl", "tab");
+						@include typographyRules("tabs", "xl", "tab");
+						@include paddingRules("tabs", "xl", "tab", $defaultTabsTabPadding);
+						@include marginRules("tabs", "xl", "tab", $defaultTabsTabMargin);
 					}
 
 					@include media-breakpoint-up(xxl) {
-						@include typographyRules("paragraph", "xxl", "tab");
+						@include typographyRules("tabs", "xxl", "tab");
+						@include paddingRules("tabs", "xxl", "tab", $defaultTabsTabPadding);
+						@include marginRules("tabs", "xxl", "tab", $defaultTabsTabMargin);
 					}
 				}
 			}
@@ -42,10 +147,34 @@
 
 @mixin tabs-block-editor-rules() {
 	.wp-block-beer-blocks-tabs {
-		@include blockDefaultMargins(0);
-
 		&.is-selected {
-			border: 1px dotted #035cff;
+			outline: 1px dotted #035cff;
+		}
+
+		.editor-styles-wrapper &.wp-block {
+			@include media-breakpoint-down(xs) {
+				@include horizontalMarginRules("tabs");
+			}
+
+			@include media-breakpoint-up(sm) {
+				@include horizontalMarginRules("tabs", "sm");
+			}
+
+			@include media-breakpoint-up(md) {
+				@include horizontalMarginRules("tabs", "md");
+			}
+
+			@include media-breakpoint-up(lg) {
+				@include horizontalMarginRules("tabs", "lg");
+			}
+
+			@include media-breakpoint-up(xl) {
+				@include horizontalMarginRules("tabs", "xl");
+			}
+
+			@include media-breakpoint-up(xxl) {
+				@include horizontalMarginRules("tabs", "xxl");
+			}
 		}
 	}
 }

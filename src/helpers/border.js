@@ -15,8 +15,19 @@ import {
 import { variantsColorPallet as variants } from "./bootstrap-variants";
 import { controlWrapperStyle } from "./inline-styles";
 import { reset as resetButton } from "./buttons";
-import { lowerCase, camelCase, upperFirst, has } from "lodash";
-import { get } from "lodash";
+import { lowerCase, camelCase, upperFirst, has, get } from "lodash";
+
+// border styles
+export const borderStyles = {
+	dotted: __("Dotted border", "beer-blocks"),
+	dashed: __("Dashed border", "beer-blocks"),
+	solid: __("Solid border", "beer-blocks"),
+	double: __("Double border", "beer-blocks"),
+	groove: __("3D grooved border", "beer-blocks"),
+	ridge: __("3D ridged border", "beer-blocks"),
+	inset: __("3D inset border", "beer-blocks"),
+	outset: __("3D outset border", "beer-blocks"),
+};
 
 // default units used in UnitControl component
 const defaultUnits = [
@@ -68,9 +79,9 @@ const borderSides = ["top", "right", "bottom", "left"];
 
 // checks if the  attribute value has each side of borders
 export const isSplitBorders = (borders) =>
-	has(borders, "top") &&
-	has(borders, "right") &&
-	has(borders, "bottom") &&
+	has(borders, "top") ||
+	has(borders, "right") ||
+	has(borders, "bottom") ||
 	has(borders, "left");
 
 // returns attribute name
@@ -321,6 +332,7 @@ export const cssVars = (props, blockName, attrPrefix = "") => ({
 });
 
 export default {
+	borderStyles,
 	isSplitBorders,
 	attrName,
 	attributes,

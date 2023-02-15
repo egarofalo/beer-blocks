@@ -31,9 +31,9 @@ import "./editor.scss";
 import edit from "./edit";
 import save from "./save";
 import { INLINE_ELEMENT } from "./../../helpers/fa-icons";
+import colors from "./../../helpers/colors";
 import spacing from "./../../helpers/spacing";
 import typography from "./../../helpers/typography";
-import dimension from "./../../helpers/dimension";
 
 /**
  * Block Icon.
@@ -55,12 +55,6 @@ registerBlockType("beer-blocks/fa-icon", {
 		"beer-blocks"
 	),
 	textdomain: "beer-blocks",
-	supports: {
-		color: {
-			text: true,
-			background: false,
-		},
-	},
 	icon: (
 		<img
 			src={icon}
@@ -68,21 +62,10 @@ registerBlockType("beer-blocks/fa-icon", {
 		/>
 	),
 	attributes: {
-		iconType: {
-			type: "string",
-			default: "fa",
-		},
 		icon: {
 			type: "string",
 			default: "fa fa-star",
 		},
-		...typography.attributes({
-			attrPrefix: "icon",
-			breakpoints: true,
-			breakpointsBehaviorAttrPrefix: "icon",
-			includeFontFamilyAttr: false,
-			includeFontWeightAttr: false,
-		}),
 		showHtmlElementTypeToggleField: {
 			type: "boolean",
 			default: true,
@@ -95,31 +78,13 @@ registerBlockType("beer-blocks/fa-icon", {
 			type: "string",
 			default: "left",
 		},
-		imgId: {
-			type: "number",
-			default: 0,
-		},
-		imgAlt: {
-			type: "string",
-			default: "",
-		},
-		imgUrl: {
-			type: "string",
-		},
-		imgNaturalWidth: {
-			type: "number",
-			default: 0,
-		},
-		imgNaturalHeight: {
-			type: "number",
-			default: 0,
-		},
-		...dimension.attributes({
-			attrPrefix: "img",
+		...colors.attributes({ backgroundAttr: false }),
+		...typography.attributes({
 			breakpoints: true,
-			breakpointsBehaviorAttrPrefix: "img-dimension",
+			includeFontFamilyAttr: false,
+			includeFontWeightAttr: false,
 		}),
-		...spacing.attributes({ paddingSides: false }),
+		...spacing.attributes({ breakpoints: true, paddingSides: false }),
 	},
 	edit,
 	save,

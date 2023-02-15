@@ -32,12 +32,15 @@ import edit from "./edit";
 import save from "./save";
 import grid from "./../../helpers/grid";
 import spacing from "./../../helpers/spacing";
+import typography from "../../helpers/typography";
+import colors from "../../helpers/colors";
+import size from "../../helpers/size";
+import flexbox from "../../helpers/flexbox";
 
 /**
  * Block Icon.
  */
 import icon from "../../icons/instruction.svg";
-import typography from "../../helpers/typography";
 
 /**
  * Every block starts by registering a new block type definition.
@@ -55,13 +58,6 @@ registerBlockType("beer-blocks/instruction", {
 	),
 	textdomain: "beer-blocks",
 	parent: ["beer-blocks/instructions"],
-	supports: {
-		color: {
-			background: true,
-			gradients: false,
-			text: false,
-		},
-	},
 	icon: (
 		<img src={icon} alt={_x("Instruction", "block title", "beer-blocks")} />
 	),
@@ -69,59 +65,26 @@ registerBlockType("beer-blocks/instruction", {
 		id: {
 			type: "string",
 		},
-		stackedContents: {
-			type: "object",
-			default: grid.breakpointsAttributeValue(false),
-		},
 		sizing: {
 			type: "object",
 			default: grid.getColSizingAttributes({
 				xsSizingType: grid.autoSizingEqualWidth,
 			}),
 		},
-		justifyContent: {
-			type: "object",
-			default: grid.getJustifyContentAttributes(),
-		},
-		alignItems: {
-			type: "object",
-			default: grid.getAlignItemsAttributes(),
-		},
+		...flexbox.attributes(),
 		numeration: {
 			type: "number",
 			default: 1,
 		},
-		numerationBackground: {
-			type: "string",
-			default: "#eaeaea",
-		},
-		numerationColor: {
-			type: "string",
-			default: "",
-		},
-		numerationWidth: {
-			type: "string",
-			default: "50px",
-		},
-		numerationWidthUnit: {
-			type: "string",
-			default: "px",
-		},
-		numerationHeight: {
-			type: "string",
-			default: "50px",
-		},
-		numerationHeightUnit: {
-			type: "string",
-			default: "px",
-		},
+		...colors.attributes({ attrPrefix: "numeration" }),
+		...size.attributes({
+			attrPrefix: "numeration",
+			breakpoints: true,
+			autoHeightAttr: false,
+		}),
 		numerationBorderRadius: {
 			type: "string",
 			default: "50%",
-		},
-		numerationBorderRadiusUnit: {
-			type: "string",
-			default: "%",
 		},
 		numerationHorizontalAlignment: {
 			type: "string",
@@ -131,15 +94,14 @@ registerBlockType("beer-blocks/instruction", {
 			type: "string",
 			default: "center",
 		},
+		...colors.attributes({ colorAttr: false }),
 		...spacing.attributes({
 			breakpoints: true,
 			marginSides: ["top", "bottom"],
 		}),
 		...typography.attributes({
-			fontSize: "18px",
 			attrPrefix: "numeration",
 			breakpoints: true,
-			breakpointsBehaviorAttrPrefix: "numeration",
 			includeLineHeightAttr: false,
 		}),
 	},

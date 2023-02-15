@@ -1,23 +1,41 @@
 @import "./../helpers/spacing";
 @import "./../helpers/typography";
+@import "./../helpers/colors";
+@import "./../helpers/size";
 
-$defaultMargins: (
+// Default margins
+$defaultInstructionMargin: (
 	top: 0,
 	bottom: 0,
 );
 
+// Default numeration typography
+$defaultInstructionNumerationTypography: (
+	fontSize: 18px,
+);
+
+// Default numeration width
+$defaultInstructionNumerationWidth: 60px;
+
+// Default numeration height
+$defaultInstructionNumerationHeight: 60px;
+
 @mixin instruction-block-rules() {
 	.wp-block-beer-blocks-instruction {
-		@include verticalMarginRules(
-			"instruction",
-			$defaultValues: $defaultMargins
-		);
+		@include backgroundRule("instruction");
+
+		@include media-breakpoint-down(xs) {
+			@include verticalMarginRules(
+				"instruction",
+				$defaultValues: $defaultInstructionMargin
+			);
+		}
 
 		@include media-breakpoint-up(sm) {
 			@include verticalMarginRules(
 				"instruction",
 				"sm",
-				$defaultValues: $defaultMargins
+				$defaultValues: $defaultInstructionMargin
 			);
 		}
 
@@ -25,7 +43,7 @@ $defaultMargins: (
 			@include verticalMarginRules(
 				"instruction",
 				"md",
-				$defaultValues: $defaultMargins
+				$defaultValues: $defaultInstructionMargin
 			);
 		}
 
@@ -33,7 +51,7 @@ $defaultMargins: (
 			@include verticalMarginRules(
 				"instruction",
 				"lg",
-				$defaultValues: $defaultMargins
+				$defaultValues: $defaultInstructionMargin
 			);
 		}
 
@@ -41,7 +59,7 @@ $defaultMargins: (
 			@include verticalMarginRules(
 				"instruction",
 				"xl",
-				$defaultValues: $defaultMargins
+				$defaultValues: $defaultInstructionMargin
 			);
 		}
 
@@ -49,12 +67,14 @@ $defaultMargins: (
 			@include verticalMarginRules(
 				"instruction",
 				"xxl",
-				$defaultValues: $defaultMargins
+				$defaultValues: $defaultInstructionMargin
 			);
 		}
 
 		.wp-block-beer-blocks-instruction-contents {
-			@include paddingRules("instruction");
+			@include media-breakpoint-down(xs) {
+				@include paddingRules("instruction");
+			}
 
 			@include media-breakpoint-up(sm) {
 				@include paddingRules("instruction", "sm");
@@ -77,26 +97,138 @@ $defaultMargins: (
 			}
 
 			.wp-block-beer-blocks-instruction-numeration {
-				@include typographyRules("instruction", "xs", "numeration");
+				@include colorsRules("instruction", "numeration");
+
+				@include media-breakpoint-down(xs) {
+					@include typographyRules(
+						"instruction",
+						"xs",
+						"numeration",
+						$defaultInstructionNumerationTypography,
+						false
+					);
+					@include widthRules(
+						"instruction",
+						"xs",
+						"numeration",
+						$defaultInstructionNumerationWidth
+					);
+					@include heightRules(
+						"instruction",
+						"xs",
+						"numeration",
+						$defaultInstructionNumerationHeight
+					);
+				}
 
 				@include media-breakpoint-up(sm) {
-					@include typographyRules("instruction", "sm", "numeration");
+					@include typographyRules(
+						"instruction",
+						"sm",
+						"numeration",
+						$defaultInstructionNumerationTypography,
+						false
+					);
+					@include widthRules(
+						"instruction",
+						"sm",
+						"numeration",
+						$defaultInstructionNumerationWidth
+					);
+					@include heightRules(
+						"instruction",
+						"sm",
+						"numeration",
+						$defaultInstructionNumerationHeight
+					);
 				}
 
 				@include media-breakpoint-up(md) {
-					@include typographyRules("instruction", "md", "numeration");
+					@include typographyRules(
+						"instruction",
+						"md",
+						"numeration",
+						$defaultInstructionNumerationTypography,
+						false
+					);
+					@include widthRules(
+						"instruction",
+						"md",
+						"numeration",
+						$defaultInstructionNumerationWidth
+					);
+					@include heightRules(
+						"instruction",
+						"md",
+						"numeration",
+						$defaultInstructionNumerationHeight
+					);
 				}
 
 				@include media-breakpoint-up(lg) {
-					@include typographyRules("instruction", "lg", "numeration");
+					@include typographyRules(
+						"instruction",
+						"lg",
+						"numeration",
+						$defaultInstructionNumerationTypography,
+						false
+					);
+					@include widthRules(
+						"instruction",
+						"lg",
+						"numeration",
+						$defaultInstructionNumerationWidth
+					);
+					@include heightRules(
+						"instruction",
+						"lg",
+						"numeration",
+						$defaultInstructionNumerationHeight
+					);
 				}
 
 				@include media-breakpoint-up(xl) {
-					@include typographyRules("instruction", "xl", "numeration");
+					@include typographyRules(
+						"instruction",
+						"xl",
+						"numeration",
+						$defaultInstructionNumerationTypography,
+						false
+					);
+					@include widthRules(
+						"instruction",
+						"xl",
+						"numeration",
+						$defaultInstructionNumerationWidth
+					);
+					@include heightRules(
+						"instruction",
+						"xl",
+						"numeration",
+						$defaultInstructionNumerationHeight
+					);
 				}
 
 				@include media-breakpoint-up(xxl) {
-					@include typographyRules("instruction", "xxl", "numeration");
+					@include typographyRules(
+						"instruction",
+						"xxl",
+						"numeration",
+						$defaultInstructionNumerationTypography,
+						false
+					);
+					@include widthRules(
+						"instruction",
+						"xxl",
+						"numeration",
+						$defaultInstructionNumerationWidth
+					);
+					@include heightRules(
+						"instruction",
+						"xxl",
+						"numeration",
+						$defaultInstructionNumerationHeight
+					);
 				}
 			}
 		}
@@ -105,19 +237,17 @@ $defaultMargins: (
 
 @mixin instruction-block-editor-rules() {
 	.wp-block-beer-blocks-instruction {
-		box-sizing: border-box;
-
 		&.wp-block {
-			margin-left: unset;
-			margin-right: unset;
+			margin-left: 0;
+			margin-right: 0;
 		}
 
 		&.is-selected {
-			border: 1px dotted #035cff;
+			outline: 1px dotted #035cff;
 		}
 
 		&.has-child-selected {
-			border: 1px dotted #ff9f50;
+			outline: 1px dotted #ff9f50;
 		}
 	}
 }

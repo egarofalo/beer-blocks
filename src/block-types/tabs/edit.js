@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { __, sprintf } from "@wordpress/i18n";
 import {
 	InspectorControls,
@@ -11,39 +11,16 @@ import {
 	RangeControl,
 	PanelBody,
 	RadioControl,
-	BaseControl,
-	Button,
-	__experimentalRadio as Radio,
-	__experimentalRadioGroup as RadioGroup,
+	SelectControl,
+	__experimentalDivider as Divider,
 } from "@wordpress/components";
+import { MdAdsClick } from "react-icons/md";
 import spacing from "./../../helpers/spacing";
 import flexbox from "./../../helpers/flexbox";
 import typography from "./../../helpers/typography";
 import border from "./../../helpers/border";
 import colors from "../../helpers/colors";
-
-const getRadioGroupSelectedTab = (tabs, selectedTab, setAttributes) => (
-	<BaseControl label={__("Default selected tab", "beer-blocks")}>
-		<RadioGroup
-			onChange={(value) => setAttributes({ selectedTab: value })}
-			checked={selectedTab}
-		>
-			{tabs.map((tabLabel, index) => (
-				<Radio value={index}>{tabLabel}</Radio>
-			))}
-		</RadioGroup>
-
-		<div style={{ textAlign: "right", marginTop: "10px" }}>
-			<Button
-				onClick={() => setAttributes({ selectedTab: -1 })}
-				variant="primary"
-				isSmall={true}
-			>
-				{__("Uncheck all", "beer-blocks")}
-			</Button>
-		</div>
-	</BaseControl>
-);
+import statuses from "./../../helpers/statuses";
 
 const edit = (props) => {
 	const {
@@ -54,13 +31,10 @@ const edit = (props) => {
 			tabsContentId,
 			tabsAmount,
 			labels: tabsLabels,
-			horizontalAlignment,
 			fillFreeSpace,
 			selectedTab,
 		},
 	} = props;
-
-	const [tabStatus, setTabStatus] = useState("normal");
 
 	useEffect(
 		() =>
@@ -105,8 +79,8 @@ const edit = (props) => {
 
 	const blockProps = useBlockProps({
 		style: {
-			...spacing.marginCssVars({ props, blockName: "tabs" }),
-			...spacing.paddingCssVars({ props, blockName: "tabs" }),
+			...spacing.marginCssVars(props, "tabs"),
+			...spacing.paddingCssVars(props, "tabs"),
 		},
 	});
 
@@ -147,13 +121,17 @@ const edit = (props) => {
 						}
 					/>
 
-					{getRadioGroupSelectedTab(tabsLabels, selectedTab, setAttributes)}
-
-					{flexbox.justifyContentControl({
-						props,
-						attrName: "horizontalAlignment",
-						label: __("Horizontal alignment", "beer-blocks"),
-					})}
+					<SelectControl
+						label={__("Default selected tab", "beer-blocks")}
+						onChange={(value) =>
+							setAttributes({ selectedTab: parseInt(value) })
+						}
+						value={selectedTab}
+						options={[
+							{ label: __("Unselected", "beer-blocks"), value: -1 },
+							...tabsLabels.map((label, value) => ({ label, value })),
+						]}
+					/>
 
 					<RadioControl
 						label={__("Fill free space", "beer-blocks")}
@@ -174,9 +152,21 @@ const edit = (props) => {
 						]}
 						onChange={(value) => setAttributes({ fillFreeSpace: value })}
 					/>
+
+					<Divider />
+
+					{flexbox.controls({
+						props,
+						attrPrefix: "tab",
+						panelBody: false,
+					})}
 				</PanelBody>
 
-				{colors.controls({ props, attrPrefix: "tab", title: "Tabs colors" })}
+				{colors.controls({
+					props,
+					attrPrefix: "tab",
+					title: __("Tabs colors", "beer-blocks"),
+				})}
 
 				{typography.breakpointsControls({
 					props,
@@ -192,22 +182,31 @@ const edit = (props) => {
 					title: __("Tabs borders", "beer-blocks"),
 				})}
 
-				{spacing.controls({
+				{statuses.controls({
+					props,
+					attrPrefix: "tab",
+					title: (
+						<>
+							<MdAdsClick className="components-panel__header-icon" />{" "}
+							{__("Tabs statuses", "beer-blocks")}
+						</>
+					),
+				})}
+
+				{spacing.breakpointsControls({
 					props,
 					attrPrefix: "tab",
 					title: __("Tabs spacing", "beer-blocks"),
 				})}
 
-				{spacing.controls({ props })}
+				{spacing.breakpointsControls({ props })}
 			</InspectorControls>
 
 			<div {...blockProps}>
 				<ul
-					className={flexbox.justifyContentClass({
-						justifyContent: horizontalAlignment,
-						prefix: "nav nav-pills",
-						suffix: fillFreeSpace,
-					})}
+					className={`nav nav-pills${
+						fillFreeSpace ? ` ${fillFreeSpace}` : ""
+					} ${flexbox.cssClasses({ props, attrPrefix: "tab" })}`.trimEnd()}
 					id={tabsId}
 					role="tablist"
 				>
@@ -219,9 +218,11 @@ const edit = (props) => {
 						>
 							<RichText
 								tagName="a"
-								className={`nav-link${selectedTab === index ? " active" : ""}`}
+								className={`nav-link${
+									selectedTab === index ? " active" : ""
+								} ${statuses.cssClasses(props, "tab")}`}
 								id={`${tabsId}-tab-${index}`}
-								data-toggle="tab"
+								data-toggle="pill"
 								href={`#${tabsId}-pane-${index}`}
 								role="tab"
 								aria-controls={`#${tabsId}-pane-${index}`}
@@ -240,41 +241,13 @@ const edit = (props) => {
 								style={{
 									...typography.fontFamilyStyles(props, "tab"),
 									...typography.fontWeightStyles(props, "tab"),
-									...typography.fontSizeCssVars({
-										props,
-										blockName: "tabs",
-										attrPrefix: "tab",
-									}),
-									...typography.lineHeightCssVars({
-										props,
-										blockName: "tabs",
-										attrPrefix: "tab",
-									}),
-									...spacing.paddingCssVars({
-										props,
-										blockName: "tabs",
-										attrPrefix: "tab",
-									}),
-									...spacing.marginCssVars({
-										props,
-										blockName: "tabs",
-										attrPrefix: "tab",
-									}),
-									...colors.cssVars({
-										props,
-										blockName: "tabs",
-										attrPrefix: "tab",
-									}),
-									...border.cssVars({
-										props,
-										blockName: "tabs",
-										attrPrefix: "tab",
-									}),
-									...borderRadius.cssVars({
-										props,
-										blockName: "tabs",
-										attrPrefix: "tab",
-									}),
+									...typography.fontSizeCssVars(props, "tabs", "tab"),
+									...typography.lineHeightCssVars(props, "tabs", "tab"),
+									...spacing.paddingCssVars(props, "tabs", "tab"),
+									...spacing.marginCssVars(props, "tabs", "tab"),
+									...colors.cssVars(props, "tabs", "tab"),
+									...border.cssVars(props, "tabs", "tab"),
+									...statuses.cssVars(props, "tabs", "tab"),
 								}}
 							/>
 						</li>

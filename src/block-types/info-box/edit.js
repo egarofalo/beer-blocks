@@ -7,33 +7,49 @@ import {
 } from "@wordpress/block-editor";
 import { PanelBody, ToggleControl } from "@wordpress/components";
 import { BLOCK_LEVEL_ELEMENT } from "./../../helpers/fa-icons";
+import colors from "./../../helpers/colors";
 import spacing from "./../../helpers/spacing";
 import grid from "./../../helpers/grid";
 
 const edit = (props) => {
 	const {
-		attributes: { removeIconPrefix, removeLineSeparator, removeDescription },
+		attributes: {
+			useAnImage,
+			removeIconPrefix,
+			removeLineSeparator,
+			removeDescription,
+		},
 		setAttributes,
 	} = props;
 
 	const blockProps = useBlockProps({
 		style: {
-			...spacing.paddingCssVars({ props, blockName: "info-box" }),
-			...spacing.marginCssVars({ props, blockName: "info-box" }),
+			...colors.cssVars(props, "info-box"),
+			...spacing.paddingCssVars(props, "info-box"),
+			...spacing.marginCssVars(props, "info-box"),
 		},
 	});
 
 	let template = [
-		[
-			"beer-blocks/fa-icon",
-			{
-				placeholder: __("Chose an icon...", "beer-blocks"),
-				showHtmlElementTypeToggleField: false,
-				htmlElementType: BLOCK_LEVEL_ELEMENT,
-				textAlign: "center",
-				iconFontSize: grid.breakpointsAttributeValue("2rem"),
-			},
-		],
+		!useAnImage
+			? [
+					"beer-blocks/fa-icon",
+					{
+						placeholder: __("Chose an icon...", "beer-blocks"),
+						showHtmlElementTypeToggleField: false,
+						htmlElementType: BLOCK_LEVEL_ELEMENT,
+						textAlign: "center",
+						fontSize: grid.breakpointsAttributeValue("2rem"),
+					},
+			  ]
+			: [
+					"beer-blocks/image",
+					{
+						placeholder: __("Chose an image...", "beer-blocks"),
+						showRemoveFigcaptionToggleField: false,
+						removeFigcaption: true,
+					},
+			  ],
 		...(!removeIconPrefix
 			? [
 					[
@@ -99,12 +115,16 @@ const edit = (props) => {
 			<InspectorControls>
 				<PanelBody title={__("Inner blocks visibility", "beer-blocks")}>
 					<ToggleControl
+						label={__("Use an image", "beer-blocks")}
+						checked={useAnImage}
+						onChange={() => setAttributes({ useAnImage: !useAnImage })}
+					/>
+
+					<ToggleControl
 						label={__("Remove icon prefix", "beer-blocks")}
 						checked={removeIconPrefix}
 						onChange={() =>
-							setAttributes({
-								removeIconPrefix: !removeIconPrefix,
-							})
+							setAttributes({ removeIconPrefix: !removeIconPrefix })
 						}
 					/>
 
@@ -112,9 +132,7 @@ const edit = (props) => {
 						label={__("Remove line separator", "beer-blocks")}
 						checked={removeLineSeparator}
 						onChange={() =>
-							setAttributes({
-								removeLineSeparator: !removeLineSeparator,
-							})
+							setAttributes({ removeLineSeparator: !removeLineSeparator })
 						}
 					/>
 
@@ -122,13 +140,12 @@ const edit = (props) => {
 						label={__("Remove icon description", "beer-blocks")}
 						checked={removeDescription}
 						onChange={() =>
-							setAttributes({
-								removeDescription: !removeDescription,
-							})
+							setAttributes({ removeDescription: !removeDescription })
 						}
 					/>
 				</PanelBody>
 
+				{colors.controls({ props })}
 				{spacing.breakpointsControls({ props })}
 			</InspectorControls>
 

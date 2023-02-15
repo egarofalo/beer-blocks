@@ -37,7 +37,7 @@
 @mixin accordion-block-editor-rules() {
 	.wp-block-beer-blocks-accordion {
 		&.is-selected {
-			border: 1px dotted #035cff !important;
+			outline: 1px dotted #035cff !important;
 
 			& > .button-block-appender__container {
 				display: block;
@@ -45,7 +45,7 @@
 		}
 
 		&.has-child-selected {
-			border: 1px dotted #ff9f50 !important;
+			outline: 1px dotted #ff9f50 !important;
 
 			& > .button-block-appender__container {
 				display: block;

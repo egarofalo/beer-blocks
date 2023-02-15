@@ -8,24 +8,29 @@ import {
 	__experimentalUseInnerBlocksProps as __useInnerBlocksProps,
 } from "@wordpress/block-editor";
 import { PanelBody, CardDivider, SelectControl } from "@wordpress/components";
-import grid from "../../helpers/grid";
+import flexbox from "../../helpers/flexbox";
+import colors from "../../helpers/colors";
 import spacing from "../../helpers/spacing";
+import grid from "../../helpers/grid";
 
 const edit = (props) => {
 	const {
 		clientId,
 		setAttributes,
-		attributes: { containerType, justifyContent, alignItems },
+		attributes: { containerType },
 	} = props;
 
 	const blockProps = useBlockProps({
 		className: containerType,
-		style: spacing.marginCssVars({ props, blockName: "instructions" }),
+		style: {
+			...colors.cssVars(props, "instructions"),
+			...spacing.marginCssVars(props, "instructions"),
+		},
 	});
 
 	const innerBlocksPropsConfig = [
 		{
-			className: `p-0 ${grid.getRowClass(justifyContent, alignItems)}`,
+			className: `p-0 row ${flexbox.cssClasses({ props })}`.trimEnd(),
 		},
 		{
 			allowedBlocks: ["beer-blocks/instruction"],
@@ -58,9 +63,10 @@ const edit = (props) => {
 
 					<CardDivider />
 
-					{grid.getRowControls(props)}
+					{flexbox.controls({ props, panelBody: false })}
 				</PanelBody>
 
+				{colors.controls({ props })}
 				{spacing.breakpointsControls({ props })}
 			</InspectorControls>
 

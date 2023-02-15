@@ -4,13 +4,15 @@ import {
 	__experimentalUseInnerBlocksProps as __useInnerBlocksProps,
 	InspectorControls,
 } from "@wordpress/block-editor";
+import colors from "../../helpers/colors";
 import spacing from "./../../helpers/spacing";
 
 const edit = (props) => {
 	const blockProps = useBlockProps({
 		style: {
-			...spacing.paddingCssVars({ props, blockName: "grid" }),
-			...spacing.marginCssVars({ props, blockName: "grid" }),
+			...colors.cssVars(props, "grid"),
+			...spacing.paddingCssVars(props, "grid"),
+			...spacing.marginCssVars(props, "grid"),
 		},
 	});
 
@@ -43,6 +45,7 @@ const edit = (props) => {
 	return (
 		<>
 			<InspectorControls>
+				{colors.controls({ props })}
 				{spacing.breakpointsControls({ props })}
 			</InspectorControls>
 

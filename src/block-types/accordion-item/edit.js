@@ -51,6 +51,7 @@ const edit = (props) => {
 		style: {
 			...spacing.paddingCssVars(props, "accordion-item"),
 			...spacing.marginCssVars(props, "accordion-item"),
+			...colors.backgroundCssVars(props, "accordion-item"),
 			...border.cssVars(props, "accordion-item"),
 		},
 	});
@@ -66,6 +67,7 @@ const edit = (props) => {
 		<>
 			<InspectorControls>
 				{spacing.breakpointsControls({ props })}
+				{colors.controls({ props })}
 				{border.controls({ props })}
 
 				<PanelBody title={__("Heading", "beer-blocks")} initialOpen={false}>
@@ -113,22 +115,6 @@ const edit = (props) => {
 							}
 						/>
 					</BaseControl>
-
-					<CardDivider />
-
-					{colors.controls({
-						props,
-						attrPrefix: "body",
-						panelBody: false,
-					})}
-
-					<CardDivider />
-
-					{border.controls({
-						props,
-						attrPrefix: "body",
-						panelBody: false,
-					})}
 
 					<CardDivider />
 
@@ -210,14 +196,7 @@ const edit = (props) => {
 					aria-labelledby={headingId}
 					data-parent={`#${parentId}`}
 				>
-					<div
-						className="card-body"
-						style={{
-							...spacing.styles(props, "body"),
-							...border.cssVars(props, "accordion-item", "body"),
-							...colors.backgroundCssVars(props, "accordion-item", "body"),
-						}}
-					>
+					<div className="card-body" style={spacing.styles(props, "body")}>
 						<div {...innerBlocksProps} />
 					</div>
 				</div>

@@ -4,14 +4,16 @@ import {
 	InnerBlocks,
 	InspectorControls,
 } from "@wordpress/block-editor";
+import colors from "./../../helpers/colors";
 import spacing from "./../../helpers/spacing";
 import grid from "./../../helpers/grid";
 
 const edit = (props) => {
 	const blockProps = useBlockProps({
 		style: {
-			...spacing.paddingCssVars({ props, blockName: "advanced-header" }),
-			...spacing.marginCssVars({ props, blockName: "advanced-header" }),
+			...colors.backgroundCssVars(props, "advanced-header"),
+			...spacing.paddingCssVars(props, "advanced-header"),
+			...spacing.marginCssVars(props, "advanced-header"),
 		},
 	});
 
@@ -42,6 +44,7 @@ const edit = (props) => {
 	return (
 		<>
 			<InspectorControls>
+				{colors.controls({ props })}
 				{spacing.breakpointsControls({ props })}
 			</InspectorControls>
 

@@ -1,5 +1,6 @@
 import { __ } from "@wordpress/i18n";
 import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
+import colors from "./../../helpers/colors";
 import border from "./../../helpers/border";
 import spacing from "./../../helpers/spacing";
 
@@ -10,8 +11,10 @@ const save = (props) => {
 
 	const blockProps = useBlockProps.save({
 		style: {
-			...border.styles(props),
-			...spacing.styles(props),
+			...colors.cssVars(props, "tab-pane"),
+			...border.cssVars(props, "tab-pane"),
+			...spacing.paddingCssVars(props, "tab-pane"),
+			...spacing.marginCssVars(props, "tab-pane"),
 		},
 	});
 

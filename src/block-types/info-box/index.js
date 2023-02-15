@@ -36,6 +36,7 @@ import spacing from "./../../helpers/spacing";
  * Block Icon.
  */
 import icon from "../../icons/info-box.svg";
+import colors from "../../helpers/colors";
 
 /**
  * Every block starts by registering a new block type definition.
@@ -52,15 +53,12 @@ registerBlockType("beer-blocks/info-box", {
 		"beer-blocks"
 	),
 	textdomain: "beer-blocks",
-	supports: {
-		color: {
-			background: true,
-			gradients: true,
-			text: false,
-		},
-	},
 	icon: <img src={icon} alt={_x("Info Box", "block title", "beer-blocks")} />,
 	attributes: {
+		useAnImage: {
+			type: "boolean",
+			default: false,
+		},
 		removeIconPrefix: {
 			type: "boolean",
 			default: false,
@@ -73,6 +71,7 @@ registerBlockType("beer-blocks/info-box", {
 			type: "boolean",
 			default: false,
 		},
+		...colors.attributes({ colorAttr: false }),
 		...spacing.attributes({ breakpoints: true }),
 	},
 	edit,

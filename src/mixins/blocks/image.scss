@@ -1,6 +1,18 @@
 @import "./../helpers/spacing";
-@import "./../helpers/dimension";
+@import "./../helpers/size";
 @import "./../helpers/typography";
+
+// Default figcaption typography
+$defaultImageFigcaptionTypography: (
+	fontSize: $figure-caption-font-size,
+	lineHeight: $line-height-base,
+);
+
+// Default figcaption margin
+$defaultImageFigcaptionMargin: (
+	top: 10px,
+	bottom: 0,
+);
 
 @mixin image-block-rules() {
 	.wp-block-beer-blocks-image {
@@ -66,7 +78,13 @@
 					"image",
 					"xs",
 					"figcaption",
-					$defaultFigcaptionTypography
+					$defaultImageFigcaptionTypography
+				);
+				@include marginRules(
+					"image",
+					"xs",
+					"figcaption",
+					$defaultImageFigcaptionMargin
 				);
 			}
 
@@ -75,7 +93,13 @@
 					"image",
 					"sm",
 					"figcaption",
-					$defaultFigcaptionTypography
+					$defaultImageFigcaptionTypography
+				);
+				@include marginRules(
+					"image",
+					"sm",
+					"figcaption",
+					$defaultImageFigcaptionMargin
 				);
 			}
 
@@ -84,7 +108,13 @@
 					"image",
 					"md",
 					"figcaption",
-					$defaultFigcaptionTypography
+					$defaultImageFigcaptionTypography
+				);
+				@include marginRules(
+					"image",
+					"md",
+					"figcaption",
+					$defaultImageFigcaptionMargin
 				);
 			}
 
@@ -93,7 +123,13 @@
 					"image",
 					"lg",
 					"figcaption",
-					$defaultFigcaptionTypography
+					$defaultImageFigcaptionTypography
+				);
+				@include marginRules(
+					"image",
+					"lg",
+					"figcaption",
+					$defaultImageFigcaptionMargin
 				);
 			}
 
@@ -102,7 +138,13 @@
 					"image",
 					"xl",
 					"figcaption",
-					$defaultFigcaptionTypography
+					$defaultImageFigcaptionTypography
+				);
+				@include marginRules(
+					"image",
+					"xl",
+					"figcaption",
+					$defaultImageFigcaptionMargin
 				);
 			}
 
@@ -111,7 +153,13 @@
 					"image",
 					"xxl",
 					"figcaption",
-					$defaultFigcaptionTypography
+					$defaultImageFigcaptionTypography
+				);
+				@include marginRules(
+					"image",
+					"xxl",
+					"figcaption",
+					$defaultImageFigcaptionMargin
 				);
 			}
 		}
@@ -121,7 +169,7 @@
 @mixin image-block-editor-rules() {
 	.wp-block-beer-blocks-image {
 		&.is-selected {
-			border: 1px dotted #035cff;
+			outline: 1px dotted #035cff;
 		}
 
 		.editor-styles-wrapper &.wp-block {

@@ -30,6 +30,7 @@ import "./editor.scss";
  */
 import edit from "./edit";
 import save from "./save";
+import colors from "./../../helpers/colors";
 import spacing from "./../../helpers/spacing";
 
 /**
@@ -52,19 +53,13 @@ registerBlockType("beer-blocks/section", {
 		"beer-blocks"
 	),
 	textdomain: "beer-blocks",
-	supports: {
-		color: {
-			background: true,
-			gradients: true,
-			text: false,
-		},
-	},
 	icon: <img src={icon} alt={_x("Section", "block title", "beer-blocks")} />,
 	attributes: {
 		tagName: {
 			type: "string",
 			default: "section",
 		},
+		...colors.attributes({ colorAttr: false }),
 		...spacing.attributes({ breakpoints: true }),
 	},
 	transforms: {

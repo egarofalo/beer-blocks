@@ -4,35 +4,77 @@
 // Import other helpers
 @import "./border";
 // Plugin custom variables and functions
-@import "./../../variables";
 @import "./../../functions";
+
+// Default border
+$statusesHelperDefaultBorder: (
+	color: transparent,
+	width: 0px,
+);
+
+// Get active status rules
+@mixin activeRules(
+	$blockName,
+	$attrPrefix,
+	$activeColor,
+	$activeColorDefault,
+	$activeBackground,
+	$activeBackgroundDefault,
+	$activeBorder,
+	$activeBorderDefault
+) {
+	@if $activeColor {
+		color: var(
+			--wp-beer-blocks-#{$blockName}-#{camelize(#{$attrPrefix}-active-color)},
+			$activeColorDefault
+		);
+	}
+
+	@if $activeBackground {
+		background: var(
+			--wp-beer-blocks-#{$blockName}-#{camelize(
+					#{$attrPrefix}-active-background
+				)},
+			$activeBackgroundDefault
+		);
+	}
+
+	@if $activeBorder {
+		@include borderRules(
+			$blockName,
+			$attrPrefix: "#{$attrPrefix}-active",
+			$borderDefaults: $activeBorderDefault
+		);
+	}
+}
 
 // Get statuses rules
 @mixin statusesRules(
 	$blockName,
 	$attrPrefix: "",
 	$hoverColor: false,
-	$hoverColorDefault: map.get($defaultColors, color),
+	$hoverColorDefault: map.get($statusesHelperDefaultBorder, color),
 	$activeColor: false,
-	$activeColorDefault: map.get($defaultColors, color),
+	$activeColorDefault: map.get($statusesHelperDefaultBorder, color),
 	$focusColor: false,
-	$focusColorDefault: map.get($defaultColors, color),
+	$focusColorDefault: map.get($statusesHelperDefaultBorder, color),
 	$hoverBackground: false,
-	$hoverBackgroundDefault: map.get($defaultColors, background),
+	$hoverBackgroundDefault: map.get($statusesHelperDefaultBorder, background),
 	$activeBackground: false,
-	$activeBackgroundDefault: map.get($defaultColors, background),
+	$activeBackgroundDefault: map.get($statusesHelperDefaultBorder, background),
 	$focusBackground: false,
-	$focusBackgroundDefault: map.get($defaultColors, background),
+	$focusBackgroundDefault: map.get($statusesHelperDefaultBorder, background),
 	$hoverBorder: false,
-	$hoverBorderDefault: $defaultStatusesHelperBorder,
+	$hoverBorderDefault: $statusesHelperDefaultBorder,
 	$activeBorder: false,
-	$activeBorderDefault: $defaultStatusesHelperBorder,
+	$activeBorderDefault: $statusesHelperDefaultBorder,
 	$focusBorder: false,
-	$focusBorderDefault: $defaultStatusesHelperBorder,
+	$focusBorderDefault: $statusesHelperDefaultBorder,
 	$transition: false,
 	$defaultTransitionDelay: "0s",
 	$defaultTransitionDuration: "0s",
-	$defaultTransitionTimingFunction: "ease"
+	$defaultTransitionTimingFunction: "ease",
+	$activeClass: false
 ) {
 	// hover status
 	@if $hoverColor or $hoverBackground or $hoverBorder {
@@ -71,29 +113,29 @@
 	@if $activeColor or $activeBackground or $activeBorder {
 		&.wp-beer-blocks-active-statuses-helper {
 			&:active {
-				@if $activeColor {
-					color: var(
-						--wp-beer-blocks-#{$blockName}-#{camelize(
-								#{$attrPrefix}-active-color
-							)},
-						$activeColorDefault
-					);
-				}
+				@include activeRules(
+					$blockName,
+					$attrPrefix,
+					$activeColor,
+					$activeColorDefault,
+					$activeBackground,
+					$activeBackgroundDefault,
+					$activeBorder,
+					$activeBorderDefault
+				);
+			}
 
-				@if $activeBackground {
-					background: var(
-						--wp-beer-blocks-#{$blockName}-#{camelize(
-								#{$attrPrefix}-active-background
-							)},
-						$activeBackgroundDefault
-					);
-				}
-
-				@if $activeBorder {
-					@include borderRules(
+			@if $activeClass {
+				&.#{$activeClass} {
+					@include activeRules(
 						$blockName,
-						$attrPrefix: "#{$attrPrefix}-active",
-						$borderDefaults: $activeBorderDefault
+						$attrPrefix,
+						$activeColor,
+						$activeColorDefault,
+						$activeBackground,
+						$activeBackgroundDefault,
+						$activeBorder,
+						$activeBorderDefault
 					);
 				}
 			}

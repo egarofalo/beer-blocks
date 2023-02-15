@@ -1,12 +1,41 @@
+@import "./../helpers/colors";
 @import "./../helpers/spacing";
+
+// Default background
+$jumbotronBlockDefaultBackground: $jumbotron-bg;
+
+// Default padding for Jumbotron block type
+$jumbotronBlockDefaultPadding: (
+	top: $jumbotron-padding * 2,
+	right: $jumbotron-padding,
+	bottom: $jumbotron-padding * 2,
+	left: $jumbotron-padding,
+);
+
+// Jumbotron default padding for xs resolutions
+$jumbotronBlockDefaultPaddingXs: (
+	top: $jumbotron-padding * 0.5,
+	right: $jumbotron-padding,
+	bottom: $jumbotron-padding * 0.5,
+	left: $jumbotron-padding,
+);
 
 @mixin jumbotron-block-rules() {
 	.wp-block-beer-blocks-jumbotron {
-		@include paddingRules(
-			"jumbotron",
-			$defaultValues: $jumbotronBlockDefaultPaddingXs
-		);
-		@include marginRules("jumbotron");
+		&.jumbotron {
+			@include backgroundRule(
+				"jumbotron",
+				$defaultValue: $jumbotronBlockDefaultBackground
+			);
+		}
+
+		@include media-breakpoint-down(xs) {
+			@include paddingRules(
+				"jumbotron",
+				$defaultValues: $jumbotronBlockDefaultPaddingXs
+			);
+			@include marginRules("jumbotron");
+		}
 
 		@include media-breakpoint-up(sm) {
 			@include paddingRules(
@@ -58,7 +87,11 @@
 @mixin jumbotron-block-editor-rules() {
 	.wp-block-beer-blocks-jumbotron {
 		&.is-selected {
-			border: 1px dotted #035cff;
+			outline: 1px dotted #035cff;
+		}
+
+		.editor-styles-wrapper &.wp-block {
+			@include backgroundRule("jumbotron");
 		}
 	}
 }

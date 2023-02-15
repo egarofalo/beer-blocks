@@ -2,6 +2,12 @@
 @import "./../helpers/typography";
 @import "./../helpers/colors";
 
+// Default colors styles
+$defaultHeaderColors: (
+	color: if($headings-color, $headings-color, $body-color),
+	background: transparent,
+);
+
 @mixin header-block-rules() {
 	@include headersTypographyRulesAllBreakpoints("header");
 
@@ -48,7 +54,7 @@
 
 	.wp-block-beer-blocks-header {
 		&.is-selected {
-			border: 1px dotted #035cff;
+			outline: 1px dotted #035cff;
 		}
 
 		.editor-styles-wrapper &.wp-block {

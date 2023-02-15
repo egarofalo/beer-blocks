@@ -30,10 +30,12 @@ import "./editor.scss";
  */
 import edit from "./edit";
 import save from "./save";
+import flexbox from "../../helpers/flexbox";
 import colors from "./../../helpers/colors";
 import spacing from "./../../helpers/spacing";
 import typography from "./../../helpers/typography";
 import border from "./../../helpers/border";
+import statuses from "./../../helpers/statuses";
 
 /**
  * Block Icon.
@@ -75,10 +77,6 @@ registerBlockType("beer-blocks/tabs", {
 				sprintf(__("Tab %d", "beer-blocks"), 3),
 			],
 		},
-		horizontalAlignment: {
-			type: "string",
-			default: "start",
-		},
 		fillFreeSpace: {
 			type: "string",
 			default: "",
@@ -87,14 +85,21 @@ registerBlockType("beer-blocks/tabs", {
 			type: "number",
 			default: -1,
 		},
+		...flexbox.attributes({ alignItemsAttr: false, attrPrefix: "tab" }),
 		...colors.attributes({ attrPrefix: "tab" }),
 		...border.attributes({ attrPrefix: "tab", borderRadius: true }),
 		...spacing.attributes({ attrPrefix: "tab", breakpoints: true }),
 		...spacing.attributes({ breakpoints: true }),
-		...typography.attributes({
+		...typography.attributes({ attrPrefix: "tab", breakpoints: true }),
+		...statuses.attributes({
 			attrPrefix: "tab",
-			breakpoints: true,
-			attrBreakpointsBehaviorPrefix: "tab",
+			hoverColorAttr: true,
+			hoverBackgroundAttr: true,
+			hoverBorderAttr: true,
+			activeColorAttr: true,
+			activeBackgroundAttr: true,
+			activeBorderAttr: true,
+			transitionAttr: true,
 		}),
 	},
 	providesContext: {

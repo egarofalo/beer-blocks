@@ -1,11 +1,13 @@
 import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
 import spacing from "../../helpers/spacing";
+import colors from "../../helpers/colors";
 
 const save = (props) => {
 	const blockProps = useBlockProps.save({
 		style: {
-			...spacing.paddingCssVars({ props, blockName: "grid" }),
-			...spacing.marginCssVars({ props, blockName: "grid" }),
+			...colors.cssVars(props, "grid"),
+			...spacing.paddingCssVars(props, "grid"),
+			...spacing.marginCssVars(props, "grid"),
 		},
 	});
 
