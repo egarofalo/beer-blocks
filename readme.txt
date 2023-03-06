@@ -185,6 +185,8 @@ Yes, of course! You can choose any of the font families available in Google Font
 - Code improves in `flexbox` helper
 - Code improves in `grid` helper
 - Apply changes and improves in row and column block types
+= 1.6.1 =
+- Fix [!issue #5](https://github.com/egarofalo/beer-blocks/issues/5)
 
 == Upgrade Notice ==
 

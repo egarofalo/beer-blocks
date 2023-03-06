@@ -50,7 +50,7 @@ function filters_html_link_tags($html, $handle, $href, $media)
 	switch ($handle) {
 		case BEERB_FONTAWESOME_IN_EDITOR_ASSET:
 		case BEERB_FONTAWESOME_IN_FRONT_ASSET:
-			$integrity = 'sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==';
+			$integrity = 'sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==';
 			$html = preg_replace(
 				"/(>| \/>)$/",
 				" integrity=\"{$integrity}\" crossorigin=\"anonymous\" referrerpolicy=\"no-referrer\"$1",

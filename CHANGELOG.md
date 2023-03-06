@@ -1,3 +1,7 @@
+## [1.6.1] - 2023-03-06
+
+- Fix [!issue #5](https://github.com/egarofalo/beer-blocks/issues/5)
+
 ## [1.6.0] - 2023-03-06
 
 - Update Fontawesome version `5.15.3` to `5.15.4`
