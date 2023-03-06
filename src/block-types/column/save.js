@@ -4,12 +4,8 @@ import grid from "../../helpers/grid";
 import spacing from "../../helpers/spacing";
 
 const save = (props) => {
-	const {
-		attributes: { sizing },
-	} = props;
-
 	const blockProps = useBlockProps.save({
-		className: grid.getColClass(sizing),
+		className: grid.getColSizingClasses({ props }),
 		style: {
 			...spacing.paddingCssVars(props, "column"),
 			...spacing.marginCssVars(props, "column"),

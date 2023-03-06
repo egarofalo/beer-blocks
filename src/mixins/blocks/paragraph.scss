@@ -53,26 +53,32 @@
 		.editor-styles-wrapper &.wp-block {
 			@include media-breakpoint-down(xs) {
 				@include marginRules("paragraph");
+				@include lineHeightRules("paragraph");
 			}
 
 			@include media-breakpoint-up(sm) {
 				@include marginRules("paragraph", "sm");
+				@include lineHeightRules("paragraph", "sm");
 			}
 
 			@include media-breakpoint-up(md) {
 				@include marginRules("paragraph", "md");
+				@include lineHeightRules("paragraph", "md");
 			}
 
 			@include media-breakpoint-up(lg) {
 				@include marginRules("paragraph", "lg");
+				@include lineHeightRules("paragraph", "lg");
 			}
 
 			@include media-breakpoint-up(xl) {
 				@include marginRules("paragraph", "xl");
+				@include lineHeightRules("paragraph", "xl");
 			}
 
 			@include media-breakpoint-up(xxl) {
 				@include marginRules("paragraph", "xxl");
+				@include lineHeightRules("paragraph", "xxl");
 			}
 		}
 	}

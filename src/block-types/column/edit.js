@@ -13,10 +13,7 @@ import spacing from "../../helpers/spacing";
 import colors from "../../helpers/colors";
 
 const edit = (props) => {
-	const {
-		attributes: { sizing },
-		clientId,
-	} = props;
+	const { clientId } = props;
 
 	const { hasChildBlocks } = useSelect(
 		(select) => {
@@ -30,7 +27,7 @@ const edit = (props) => {
 	);
 
 	const blockProps = useBlockProps({
-		className: grid.getColClass(sizing),
+		className: grid.getColSizingClasses({ props }),
 		style: {
 			...spacing.paddingCssVars(props, "column"),
 			...spacing.marginCssVars(props, "column"),
@@ -57,7 +54,7 @@ const edit = (props) => {
 		<>
 			<InspectorControls>
 				<PanelBody title={__("Responsive settings", "beer-blocks")}>
-					{grid.getColControls(props)}
+					{grid.getColSizingControls({ props })}
 				</PanelBody>
 
 				{colors.controls({ props })}

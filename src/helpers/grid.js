@@ -1,10 +1,5 @@
 import { __ } from "@wordpress/i18n";
-import {
-	TabPanel,
-	RadioControl,
-	RangeControl,
-	SelectControl,
-} from "@wordpress/components";
+import { TabPanel, RadioControl, RangeControl } from "@wordpress/components";
 import {
 	MdOutlinePhoneAndroid as XsBreakpointIcon,
 	MdOutlineTabletAndroid as SmBreakpointIcon,
@@ -92,30 +87,19 @@ export const breakpointsBehaviorAttributeValue = (defaultValue) =>
 			.map((key) => [[key], defaultValue])
 	);
 
-// general attributes optionally with breakpoints
-export const attributes = ({
-	attrName,
-	breakpoints,
-	breakpointsBehavior,
-	defaultValue = undefined,
-	type = "string",
-}) =>
-	breakpoints
-		? breakpointsAttribute({
-				attrName,
-				breakpointsBehaviorAttributes: breakpointsBehavior,
-				...(defaultValue !== undefined ? { defaultValue } : {}),
-		  })
-		: {
-				[attrName]: {
-					type,
-					...(defaultValue !== undefined
-						? {
-								default: defaultValue,
-						  }
-						: {}),
-				},
-		  };
+// breakpoints behavior attribute only
+export const breakpointsBehaviorAttribute = (attrPrefix = "") => ({
+	[camelCase(`${attrPrefix}-breakpoints-behavior`)]: {
+		type: "object",
+		default: {
+			sm: sameBehavior,
+			md: sameBehavior,
+			lg: sameBehavior,
+			xl: sameBehavior,
+			xxl: sameBehavior,
+		},
+	},
+});
 
 // block attributes with breakpoints
 export const breakpointsAttribute = ({
@@ -143,6 +127,31 @@ export const breakpointsAttribute = ({
 		: {}),
 });
 
+// general attributes optionally with breakpoints
+export const attributes = ({
+	attrName,
+	breakpoints,
+	breakpointsBehavior,
+	defaultValue = undefined,
+	type = "string",
+}) =>
+	breakpoints
+		? breakpointsAttribute({
+				attrName,
+				breakpointsBehaviorAttributes: breakpointsBehavior,
+				...(defaultValue !== undefined ? { defaultValue } : {}),
+		  })
+		: {
+				[attrName]: {
+					type,
+					...(defaultValue !== undefined
+						? {
+								default: defaultValue,
+						  }
+						: {}),
+				},
+		  };
+
 // breakpoints icons for tabs panel
 export const breakpointIcon = (breakpoint) =>
 	({
@@ -160,352 +169,204 @@ export const breakpointsOptions = breakpoints.map((breakpoint) => ({
 	title: breakpointIcon(breakpoint),
 }));
 
-// justify-content css flexbox options
-export const justifyContentOptions = [
-	{
-		value: "start",
-		label: __("Start", "beer-blocks"),
-	},
-	{
-		value: "end",
-		label: __("End", "beer-blocks"),
-	},
-	{
-		value: "center",
-		label: __("Center", "beer-blocks"),
-	},
-	{
-		value: "between",
-		label: __("Space Between", "beer-blocks"),
-	},
-	{
-		value: "around",
-		label: __("Space Around", "beer-blocks"),
-	},
-];
-
-// select control for justify-content css flexbox options
-export const justifyContentControl = ({
-	props,
-	attrName = "justifyContent",
-	breakpoint = "xs",
-}) => {
-	const {
-		attributes: { [attrName]: justifyContent },
-		setAttributes,
-	} = props;
-
-	return (
-		<SelectControl
-			label={sprintf(
-				__("Justify content (%s)", "beer-blocks"),
-				breakpoint.toUpperCase()
-			)}
-			value={justifyContent[breakpoint]}
-			options={justifyContentOptions}
-			onChange={(value) =>
-				setAttributes({
-					justifyContent: {
-						...justifyContent,
-						[breakpoint]: value,
-					},
-				})
-			}
-			help={__(
-				"Select the CSS Flexbox justify-content property value.",
-				"beer-blocks"
-			)}
-		/>
-	);
-};
-
-// return justify-content bootstrap class
-export const getJustifyContentClass = (justifyContent) =>
-	Object.entries(justifyContent).reduce((classes, [key, value]) => {
-		const breakpoint = key !== "xs" ? `-${key}` : "";
-
-		return `${classes} justify-content${breakpoint}-${value}`.trim();
-	}, "");
-
-// return justify-content attributes
-export const getJustifyContentAttributes = ({
-	xs = "start",
-	sm = "start",
-	md = "start",
-	lg = "start",
-	xl = "start",
-	xxl = "start",
-} = {}) => ({
-	xs,
-	sm,
-	md,
-	lg,
-	xl,
-	xxl,
-});
-
-// align-items css flexbox options
-export const alignItemsOptions = [
-	{
-		value: "start",
-		label: __("Start", "beer-blocks"),
-	},
-	{
-		value: "end",
-		label: __("End", "beer-blocks"),
-	},
-	{
-		value: "center",
-		label: __("Center", "beer-blocks"),
-	},
-	{
-		value: "baseline",
-		label: __("Baseline", "beer-blocks"),
-	},
-	{
-		value: "stretch",
-		label: __("Stretch", "beer-blocks"),
-	},
-];
-
-// select control for align-items css flexbox options
-export const alignItemsControl = ({
-	props,
-	attrName = "alignItems",
-	breakpoint = "xs",
-}) => {
-	const {
-		attributes: { [attrName]: alignItems },
-		setAttributes,
-	} = props;
-
-	return (
-		<SelectControl
-			label={sprintf(
-				__("Align items (%s)", "beer-blocks"),
-				breakpoint.toUpperCase()
-			)}
-			value={alignItems[breakpoint]}
-			options={alignItemsOptions}
-			onChange={(value) =>
-				setAttributes({
-					alignItems: {
-						...alignItems,
-						[breakpoint]: value,
-					},
-				})
-			}
-			help={__(
-				"Select the CSS Flexbox align-items property value.",
-				"beer-blocks"
-			)}
-		/>
-	);
-};
-
-// return align-items bootstrap class
-export const getAlignItemsClass = (alignItems) =>
-	Object.entries(alignItems).reduce((classes, [key, value]) => {
-		const breakpoint = key !== "xs" ? `-${key}` : "";
-
-		return `${classes} align-items${breakpoint}-${value}`.trim();
-	}, "");
-
-// return align-items attributes
-export const getAlignItemsAttributes = ({
-	xs = "start",
-	sm = "start",
-	md = "start",
-	lg = "start",
-	xl = "start",
-	xxl = "start",
-} = {}) => ({
-	xs,
-	sm,
-	md,
-	lg,
-	xl,
-	xxl,
-});
-
 // return column sizing type attributes for each breakpoint
-export const getColSizingAttributes = ({
-	xsSizingType = manualSizing,
-	xsSize = 12,
-	smSizingType = "",
-	smSize = 12,
-	mdSizingType = "",
-	mdSize = 12,
-	lgSizingType = "",
-	lgSize = 12,
-	xlSizingType = "",
-	xlSize = 12,
-	xxlSizingType = "",
-	xxlSize = 12,
-}) => ({
-	xs: { sizingType: xsSizingType, size: xsSize },
-	sm: { sizingType: smSizingType, size: smSize },
-	md: { sizingType: mdSizingType, size: mdSize },
-	lg: { sizingType: lgSizingType, size: lgSize },
-	xl: { sizingType: xlSizingType, size: xlSize },
-	xxl: { sizingType: xxlSizingType, size: xxlSize },
+export const getColSizingAttribute = ({
+	attrPrefix = "",
+	breakpointsBehaviorAttrPrefix = undefined,
+	defaultSizingType = autoSizingEqualWidth,
+	defaultSize = 12,
+} = {}) => ({
+	...attributes({
+		attrName: camelCase(`${attrPrefix}-col-sizing`),
+		breakpoints: true,
+		breakpointsBehavior: false,
+		defaultValue: { sizingType: defaultSizingType, size: defaultSize },
+	}),
+	...breakpointsBehaviorAttribute(
+		breakpointsBehaviorAttrPrefix
+			? breakpointsBehaviorAttrPrefix
+			: `${attrPrefix}-col-sizing`
+	),
 });
 
-// return bootstrap column classes
-export const getColClass = (sizing) => {
-	const getBreakpointColClass = (breakpoint, resolution) => {
-		if (breakpoint === undefined) {
-			return "";
-		}
+// return bootstrap column sizing classes
+export const getColSizingClasses = ({
+	props,
+	attrPrefix = "",
+	breakpointsBehaviorAttrPrefix = undefined,
+}) => {
+	const colSizingAttrName = camelCase(`${attrPrefix}-col-sizing`);
+	const breakpointsBehaviorAttrName = camelCase(
+		`${
+			breakpointsBehaviorAttrPrefix
+				? breakpointsBehaviorAttrPrefix
+				: `${attrPrefix}-col-sizing`
+		}-breakpoints-behavior`
+	);
 
-		if (resolution === "xs") {
+	const {
+		attributes: {
+			[colSizingAttrName]: colSizing,
+			[breakpointsBehaviorAttrName]: breakpointsBehavior,
+		},
+	} = props;
+
+	const getBreakpointColClass = (value, breakpoint) => {
+		if (breakpoint === "xs") {
 			return `col${
-				breakpoint["sizingType"] === autoSizingVariableWidthContent
+				value["sizingType"] === autoSizingVariableWidthContent
 					? "-auto"
-					: breakpoint["sizingType"] === manualSizing
-					? `-${breakpoint["size"]}`
+					: value["sizingType"] === manualSizing
+					? `-${value["size"]}`
 					: ""
 			}`;
 		}
 
-		switch (breakpoint["sizingType"]) {
+		switch (value["sizingType"]) {
 			case autoSizingEqualWidth:
-				return `col-${resolution}`;
+				return `col-${breakpoint}`;
 			case autoSizingVariableWidthContent:
-				return `col-${resolution}-auto`;
+				return `col-${breakpoint}-auto`;
 			case manualSizing:
-				return `col-${resolution}-${breakpoint["size"]}`;
+				return `col-${breakpoint}-${value["size"]}`;
 			default:
 				return "";
 		}
 	};
 
-	return `${getBreakpointColClass(sizing["xs"], "xs")} ${getBreakpointColClass(
-		sizing["sm"],
-		"sm"
-	)} ${getBreakpointColClass(sizing["md"], "md")} ${getBreakpointColClass(
-		sizing["lg"],
-		"lg"
-	)} ${getBreakpointColClass(sizing["xl"], "xl")} ${getBreakpointColClass(
-		sizing["xxl"],
-		"xxl"
-	)}`.trim();
+	const classes = Object.entries(colSizing).reduce((prevValue, currValue) => {
+		const breakpoint = currValue[0];
+		const value = currValue[1];
+
+		return breakpointsBehavior[breakpoint] !== sameBehavior
+			? `${prevValue + getBreakpointColClass(value, breakpoint)} `
+			: prevValue;
+	}, "");
+
+	return classes.trim();
 };
 
-// return bootstrap column controls settings
-export const getColControls = (
+// return bootstrap column sizing controls settings
+export const getColSizingControls = ({
 	props,
-	customControls = (breakpoint) => null
-) => {
+	attrPrefix = "",
+	breakpointsBehaviorAttrPrefix = undefined,
+}) => {
+	const attrName = camelCase(`${attrPrefix}-col-sizing`);
+	const breakpointsBehaviorAttrName = camelCase(
+		`${
+			breakpointsBehaviorAttrPrefix
+				? breakpointsBehaviorAttrPrefix
+				: `${attrPrefix}-col-sizing`
+		}-breakpoints-behavior`
+	);
+	const affectedAttrs = [attrName];
+
 	const {
-		attributes: { sizing },
+		attributes: {
+			[attrName]: colSizing,
+			[breakpointsBehaviorAttrName]: breakpointsBehavior,
+		},
 		setAttributes,
 	} = props;
 
-	return (
-		<TabPanel
-			initialTabName="xs"
-			tabs={breakpointsOptions}
-			className="beer-blocks-tabs"
-		>
-			{(tab) => (
-				<>
-					<RadioControl
-						label={sprintf(
-							__("Column sizing type (%s)", "beer-blocks"),
-							tab.name.toUpperCase()
-						)}
-						help={sprintf(
-							__("Settings applied from %s resolution and up", "beer-blocks"),
-							tab.name.toUpperCase()
-						)}
-						selected={sizing[tab.name].sizingType}
-						options={colSizingTypeOptions(tab.name)}
-						onChange={(option) => {
-							setAttributes({
-								sizing: {
-									...sizing,
-									[tab.name]: {
-										...sizing[tab.name],
-										sizingType: option,
-									},
-								},
-							});
-						}}
-					/>
+	const getInnerControl = (breakpoint) => {
+		if (breakpointsBehavior[breakpoint] === sameBehavior) {
+			return null;
+		}
 
-					{sizing[tab.name].sizingType === manualSizing && (
-						<RangeControl
-							label={sprintf(
-								__("Column sizing (%d)", "beer-blocks"),
-								sizing[tab.name].size
-							)}
-							value={sizing[tab.name].size}
-							onChange={(width) => {
-								setAttributes({
-									sizing: {
-										...sizing,
-										[tab.name]: {
-											...sizing[tab.name],
-											size: width,
-										},
-									},
-								});
-							}}
-							min={1}
-							max={12}
-							step={1}
-						/>
+		const nextBreakpoints = getNextBreakpoints(breakpoint, breakpointsBehavior);
+
+		const changeColumnSizingType = (option) => {
+			const newColSizingType = {
+				...colSizing[breakpoint],
+				sizingType: option,
+			};
+
+			setAttributes({
+				[attrName]: {
+					...colSizing,
+					[breakpoint]: newColSizingType,
+					...(nextBreakpoints.length > 0
+						? Object.fromEntries(
+								nextBreakpoints.map((nextBreakpoint) => [
+									nextBreakpoint,
+									newColSizingType,
+								])
+						  )
+						: {}),
+				},
+			});
+		};
+
+		const changeColumnSizing = (width) => {
+			const newColSizing = {
+				...colSizing[breakpoint],
+				size: width,
+			};
+
+			setAttributes({
+				[attrName]: {
+					...colSizing,
+					[breakpoint]: newColSizing,
+					...(nextBreakpoints.length > 0
+						? Object.fromEntries(
+								nextBreakpoints.map((nextBreakpoint) => [
+									nextBreakpoint,
+									newColSizing,
+								])
+						  )
+						: {}),
+				},
+			});
+		};
+
+		return (
+			<>
+				<RadioControl
+					label={sprintf(
+						__("Column sizing type (%s)", "beer-blocks"),
+						breakpoint.toUpperCase()
 					)}
+					help={sprintf(
+						__("Settings applied from %s resolution and up", "beer-blocks"),
+						breakpoint.toUpperCase()
+					)}
+					selected={colSizing[breakpoint].sizingType}
+					options={colSizingTypeOptions(breakpoint)}
+					onChange={changeColumnSizingType}
+				/>
 
-					{customControls(tab.name)}
-				</>
-			)}
-		</TabPanel>
-	);
+				{colSizing[breakpoint].sizingType === manualSizing && (
+					<RangeControl
+						label={sprintf(
+							__("Column sizing (%d)", "beer-blocks"),
+							colSizing[breakpoint].size
+						)}
+						value={colSizing[breakpoint].size}
+						onChange={changeColumnSizing}
+						min={1}
+						max={12}
+						step={1}
+					/>
+				)}
+			</>
+		);
+	};
+
+	return getBreakpointsTabs((breakpoint) => (
+		<>
+			{getBreakpointsBehaviorControl({
+				props,
+				attrPrefix: `${attrPrefix}-col-sizing`,
+				breakpoint,
+				affectedAttrs,
+			})}
+
+			{getInnerControl(breakpoint)}
+		</>
+	));
 };
-
-// return bootstrap row classes
-export const getRowClass = (justifyContent, alignItems) =>
-	`row ${getJustifyContentClass(justifyContent)} ${getAlignItemsClass(
-		alignItems
-	)}`;
-
-// return bootstrap row controls settings
-export const getRowControls = (
-	props,
-	customControls = (breakpoint) => null
-) => {
-	return (
-		<TabPanel
-			initialTabName="xs"
-			tabs={breakpointsOptions}
-			className="beer-blocks-tabs"
-		>
-			{(tab) => (
-				<>
-					{justifyContentControl({ props, breakpoint: tab.name })}
-					{alignItemsControl({ props, breakpoint: tab.name })}
-					{customControls(tab.name)}
-				</>
-			)}
-		</TabPanel>
-	);
-};
-
-// breakpoints behavior attribute only
-export const breakpointsBehaviorAttribute = (attrPrefix = "") => ({
-	[camelCase(`${attrPrefix}-breakpoints-behavior`)]: {
-		type: "object",
-		default: {
-			sm: sameBehavior,
-			md: sameBehavior,
-			lg: sameBehavior,
-			xl: sameBehavior,
-			xxl: sameBehavior,
-		},
-	},
-});
 
 // return previous breakpoint
 export const getPreviousBreakpoint = (breakpoint) =>
@@ -649,19 +510,9 @@ export default {
 	breakpointsAttribute,
 	breakpointIcon,
 	breakpointsOptions,
-	justifyContentOptions,
-	justifyContentControl,
-	getJustifyContentClass,
-	alignItemsOptions,
-	alignItemsControl,
-	getAlignItemsClass,
-	getColSizingAttributes,
-	getColClass,
-	getColControls,
-	getJustifyContentAttributes,
-	getAlignItemsAttributes,
-	getRowClass,
-	getRowControls,
+	getColSizingAttribute,
+	getColSizingClasses,
+	getColSizingControls,
 	breakpointsBehaviorAttribute,
 	getPreviousBreakpoint,
 	getNextBreakpoints,

@@ -6,7 +6,7 @@ Donate link: https://www.paypal.com/donate?hosted_button_id=8XSCNEV5WA5TU
 Requires at least: 5.6
 Tested up to: 6.1
 Requires PHP: 7.3
-Stable tag: 1.5.0
+Stable tag: 1.6.0
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -178,6 +178,13 @@ Yes, of course! You can choose any of the font families available in Google Font
 - Update Bootstrap version `4.6.1` to `4.6.2`
 - Major changes
 - Code improvements
+= 1.6.0 =
+- Update Fontawesome version `5.15.3` to `5.15.4`
+- Fix editor styles in `paragraph` block type when using line height control
+- Fix [!issue #4](https://github.com/egarofalo/beer-blocks/issues/4)
+- Code improves in `flexbox` helper
+- Code improves in `grid` helper
+- Apply changes and improves in row and column block types
 
 == Upgrade Notice ==
 

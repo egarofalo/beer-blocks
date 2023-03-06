@@ -18,7 +18,7 @@ function register_editor_assets()
 	if ($option) {
 		wp_register_style(
 			BEERB_FONTAWESOME_IN_EDITOR_ASSET,
-			'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'
+			'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css'
 		);
 
 		return BEERB_FONTAWESOME_IN_EDITOR_ASSET;
@@ -37,7 +37,7 @@ function enqueue_front_assets()
 	if ($option) {
 		wp_enqueue_style(
 			BEERB_FONTAWESOME_IN_FRONT_ASSET,
-			'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css'
+			'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css'
 		);
 	}
 }
@@ -69,7 +69,7 @@ function add_settings_section()
 {
 	\add_settings_section(
 		BEERB_FONTAWESOME_SETTINGS_SECTION,
-		__('Font Awesome Settings (v5.15.3)', 'beer-blocks'),
+		__('Font Awesome Settings (v5.15.4)', 'beer-blocks'),
 		null,
 		BEERB_SETTINGS_PAGE_SLUG
 	);

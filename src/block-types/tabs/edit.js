@@ -172,7 +172,6 @@ const edit = (props) => {
 					props,
 					attrPrefix: "tab",
 					breakpoints: true,
-					attrBreakpointsBehaviorPrefix: "tab",
 					title: __("Tabs typography", "beer-blocks"),
 				})}
 

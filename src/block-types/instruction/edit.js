@@ -8,7 +8,6 @@ import {
 import {
 	PanelBody,
 	BaseControl,
-	SelectControl,
 	CardDivider,
 	__experimentalUnitControl as UnitControl,
 	__experimentalHeading as Heading,
@@ -26,13 +25,7 @@ import { camelCase } from "lodash";
 
 const edit = (props) => {
 	const {
-		attributes: {
-			sizing,
-			numeration,
-			numerationBorderRadius,
-			numerationHorizontalAlignment,
-			numerationVerticalAlignment,
-		},
+		attributes: { numeration, numerationBorderRadius },
 		setAttributes,
 		clientId,
 		context: { instructionsId },
@@ -47,7 +40,7 @@ const edit = (props) => {
 	}, [instructionsId]);
 
 	const blockProps = useBlockProps({
-		className: grid.getColClass(sizing),
+		className: grid.getColSizingClasses({ props }),
 		style: {
 			listStyle: "none",
 			...colors.cssVars(props, "instruction"),
@@ -73,9 +66,10 @@ const edit = (props) => {
 					title={__("Responsive settings", "beer-blocks")}
 					initialOpen={false}
 				>
-					{grid.getColControls(props)}
-					{flexbox.controls({ props, panelBody: false })}
+					{grid.getColSizingControls({ props })}
 				</PanelBody>
+
+				{flexbox.controls({ props })}
 
 				<PanelBody
 					title={__("Numeration settings", "beer-blocks")}
@@ -163,33 +157,27 @@ const edit = (props) => {
 						{__("Alignment", "beer-blocks")}
 					</Heading>
 
-					<SelectControl
-						label={__("Horizontal alignment", "beer-blocks")}
-						value={numerationHorizontalAlignment}
-						options={grid.justifyContentOptions.filter((element) =>
-							["start", "end", "center"].includes(element.value)
-						)}
-						onChange={(value) =>
-							setAttributes({ numerationHorizontalAlignment: value })
-						}
-					/>
-
-					<SelectControl
-						label={__("Vertical alignment", "beer-blocks")}
-						value={numerationVerticalAlignment}
-						options={grid.alignItemsOptions.filter((element) =>
-							["start", "end", "center"].includes(element.value)
-						)}
-						onChange={(value) =>
-							setAttributes({ numerationVerticalAlignment: value })
-						}
-					/>
+					{flexbox.controls({
+						props,
+						attrPrefix: "numeration",
+						panelBody: false,
+						justifyContentControlOptions: flexbox.justifyContentOptions.filter(
+							(option) => ["", "start", "center", "end"].includes(option.value)
+						),
+						alignItemsControlOption: flexbox.alignItemsOptions.filter(
+							(option) => ["", "start", "center", "end"].includes(option.value)
+						),
+					})}
 
 					{resetButton({
 						onClick: () =>
 							setAttributes({
-								numerationHorizontalAlignment: "center",
-								numerationVerticalAlignment: "center",
+								[camelCase("numeration-justify-content")]:
+									grid.breakpointsAttributeValue(""),
+								[camelCase("numeration-align-items")]:
+									grid.breakpointsAttributeValue(""),
+								[camelCase("numeration-flexbox")]:
+									grid.breakpointsBehaviorAttributeValue(grid.sameBehavior),
 							}),
 					})}
 
@@ -235,7 +223,9 @@ const edit = (props) => {
 					style={spacing.paddingCssVars(props, "instruction")}
 				>
 					<div
-						className={`wp-block-beer-blocks-instruction-numeration d-inline-flex flex-grow-0 justify-content-${numerationHorizontalAlignment} align-items-${numerationVerticalAlignment}`}
+						className={`wp-block-beer-blocks-instruction-numeration d-inline-flex ${flexbox.cssClasses(
+							{ props, attrPrefix: "numeration" }
+						)}`.trimEnd()}
 						style={{
 							...colors.cssVars(props, "instruction", "numeration"),
 							...size.cssVars(props, "instruction", "numeration"),

@@ -12,6 +12,7 @@ const defaultUnits = [
 	{ value: "rem", label: "REM" },
 ];
 
+// for internal use
 const getDefaultValue = (defaultValue, side) => {
 	let spacing = undefined;
 
@@ -23,6 +24,12 @@ const getDefaultValue = (defaultValue, side) => {
 
 	return [side, spacing];
 };
+
+// check if value is a valid padding
+const validPadding = (value) => value !== undefined && value !== "";
+
+// check if value is a valid margin
+const validMargin = (value) => value !== undefined && value !== "";
 
 // returns block padding attributes
 const paddingAttribute = ({
@@ -192,7 +199,7 @@ export const paddingCssVars = (props, blockName, attrPrefix = "") => {
 					}`,
 					padding[breakpoint][side],
 				])
-				.filter((cssVar) => cssVar[1] !== "")
+				.filter((cssVar) => validPadding(cssVar[1]))
 		);
 
 	return {
@@ -371,7 +378,7 @@ export const marginCssVars = (props, blockName, attrPrefix = "") => {
 					}`,
 					margin[breakpoint][side],
 				])
-				.filter((cssVar) => cssVar[1] !== "")
+				.filter((cssVar) => validMargin(cssVar[1]))
 		);
 
 	return {

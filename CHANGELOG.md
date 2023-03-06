@@ -1,3 +1,12 @@
+## [1.6.0] - 2023-03-06
+
+- Update Fontawesome version `5.15.3` to `5.15.4`
+- Fix editor styles in `paragraph` block type when using line height control
+- Fix [!issue #4](https://github.com/egarofalo/beer-blocks/issues/4)
+- Code improves in `flexbox` helper
+- Code improves in `grid` helper
+- Apply changes and improves in row and column block types
+
 ## [1.5.0] - 2023-02-15
 
 - Fix sass files

@@ -8,14 +8,13 @@ const flexDirectionAttribute = ({
 	attrPrefix = "",
 	breakpoints = true,
 	defaultValue = "row",
-} = {}) => ({
-	...grid.attributes({
+} = {}) =>
+	grid.attributes({
 		attrName: camelCase(`${attrPrefix}-flex-direction`),
 		breakpoints,
 		breakpointsBehavior: false,
 		defaultValue,
-	}),
-});
+	});
 
 // Returns justify-content flexbox attribute
 const justifyContentAttribute = ({
@@ -245,7 +244,7 @@ const flexDirectionClasses = ({
 };
 
 // justify-content dropdown options
-const justifyContentOptions = [
+export const justifyContentOptions = [
 	{
 		value: "",
 		label: __("-- SELECT OPTION --", "beer-blocks"),
@@ -283,6 +282,7 @@ const justifyContentControl = ({
 		"Select the CSS Flexbox justify-content property value.",
 		"beer-blocks"
 	),
+	controlOptions = justifyContentOptions,
 }) => {
 	const attrName = camelCase(`${attrPrefix}-justify-content`);
 	const breakpointsBehaviorAttrName = camelCase(
@@ -339,7 +339,7 @@ const justifyContentControl = ({
 					? justifyContent[breakpoint]
 					: justifyContent
 			}
-			options={justifyContentOptions}
+			options={controlOptions}
 			onChange={change}
 			help={help}
 		/>
@@ -386,7 +386,7 @@ const justifyContentClasses = ({
 };
 
 // align-items dropdown options
-const alignItemsOptions = [
+export const alignItemsOptions = [
 	{
 		value: "",
 		label: __("-- SELECT OPTION --", "beer-blocks"),
@@ -424,6 +424,7 @@ const alignItemsControl = ({
 		"Select the CSS Flexbox align-items property value.",
 		"beer-blocks"
 	),
+	controlOptions = alignItemsOptions,
 }) => {
 	const attrName = camelCase(`${attrPrefix}-align-items`);
 	const breakpointsBehaviorAttrName = camelCase(
@@ -478,7 +479,7 @@ const alignItemsControl = ({
 			value={
 				breakpointsBehavior !== undefined ? alignItems[breakpoint] : alignItems
 			}
-			options={alignItemsOptions}
+			options={controlOptions}
 			onChange={change}
 			help={help}
 		/>
@@ -533,6 +534,8 @@ export const controls = ({
 	panelBody = true,
 	title = __("Flexbox styles", "beer-blocks"),
 	initialOpen = false,
+	justifyContentControlOptions = justifyContentOptions,
+	alignItemsControlOption = alignItemsOptions,
 }) => {
 	const { attributes } = props;
 	const flexDirectionAttr = camelCase(`${attrPrefix}-flex-direction`);
@@ -552,6 +555,7 @@ export const controls = ({
 					breakpoint,
 					breakpointsBehaviorAttrPrefix,
 					attrPrefix,
+					controlOptions: justifyContentControlOptions,
 				})}
 
 			{has(attributes, alignItemsAttr) &&
@@ -560,6 +564,7 @@ export const controls = ({
 					breakpoint,
 					breakpointsBehaviorAttrPrefix,
 					attrPrefix,
+					controlOptions: alignItemsControlOption,
 				})}
 
 			{has(attributes, flexDirectionAttr) &&
@@ -606,7 +611,7 @@ export const controls = ({
 	return null;
 };
 
-// Returns align-items and justify-content properties classes
+// Returns flex-direction, align-items and justify-content properties classes
 export const cssClasses = ({
 	props,
 	attrPrefix = "",
@@ -648,4 +653,6 @@ export default {
 	attributes,
 	controls,
 	cssClasses,
+	justifyContentOptions,
+	alignItemsOptions,
 };

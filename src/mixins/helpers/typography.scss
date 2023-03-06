@@ -10,6 +10,42 @@ $defaultTypographyValues: (
 	lineHeight: $line-height-base,
 );
 
+// Line height rules for custom breakpoint
+@mixin lineHeightRules(
+	$blockName,
+	$breakpointName: "",
+	$attrPrefix: "",
+	$defaultValue: map.get($defaultTypographyValues, lineHeight)
+) {
+	$lineHeightVarName: --wp-beer-blocks-#{$blockName}-#{camelize(
+			"#{$attrPrefix}-line-height"
+		)};
+
+	@if $breakpointName == "" or $breakpointName == "xs" {
+		line-height: var(#{$lineHeightVarName}, $defaultValue);
+	} @else {
+		line-height: var(#{$lineHeightVarName}-#{$breakpointName}, $defaultValue);
+	}
+}
+
+// Font size rules for custom breakpoints
+@mixin fontSizeRules(
+	$blockName,
+	$breakpointName: "",
+	$attrPrefix: "",
+	$defaultValue: map.get($defaultTypographyValues, fontSize)
+) {
+	$fontSizeVarName: --wp-beer-blocks-#{$blockName}-#{camelize(
+			"#{$attrPrefix}-font-size"
+		)};
+
+	@if $breakpointName == "" or $breakpointName == "xs" {
+		font-size: var(#{$fontSizeVarName}, $defaultValue);
+	} @else {
+		font-size: var(#{$fontSizeVarName}-#{$breakpointName}, $defaultValue);
+	}
+}
+
 // Get typography rules for custom breakpoint
 @mixin typographyRules(
 	$blockName,
@@ -18,34 +54,20 @@ $defaultTypographyValues: (
 	$defaultValues: $defaultTypographyValues,
 	$lineHeightRule: true
 ) {
-	$fontSizeVarName: --wp-beer-blocks-#{$blockName}-#{camelize(
-			"#{$attrPrefix}-font-size"
-		)};
-	$lineHeightVarName: --wp-beer-blocks-#{$blockName}-#{camelize(
-			"#{$attrPrefix}-line-height"
-		)};
+	@include fontSizeRules(
+		$blockName,
+		$breakpointName,
+		$attrPrefix,
+		map.get($defaultValues, fontSize)
+	);
 
-	@if $breakpointName == "" or $breakpointName == "xs" {
-		font-size: var(#{$fontSizeVarName}, map.get($defaultValues, fontSize));
-
-		@if $lineHeightRule {
-			line-height: var(
-				#{$lineHeightVarName},
-				map.get($defaultValues, lineHeight)
-			);
-		}
-	} @else {
-		font-size: var(
-			#{$fontSizeVarName}-#{$breakpointName},
-			map.get($defaultValues, fontSize)
+	@if $lineHeightRule {
+		@include lineHeightRules(
+			$blockName,
+			$breakpointName,
+			$attrPrefix,
+			map.get($defaultValues, lineHeight)
 		);
-
-		@if $lineHeightRule {
-			line-height: var(
-				#{$lineHeightVarName}-#{$breakpointName},
-				map.get($defaultValues, lineHeight)
-			);
-		}
 	}
 }
 

@@ -65,12 +65,7 @@ registerBlockType("beer-blocks/instruction", {
 		id: {
 			type: "string",
 		},
-		sizing: {
-			type: "object",
-			default: grid.getColSizingAttributes({
-				xsSizingType: grid.autoSizingEqualWidth,
-			}),
-		},
+		...grid.getColSizingAttribute(),
 		...flexbox.attributes(),
 		numeration: {
 			type: "number",
@@ -86,14 +81,10 @@ registerBlockType("beer-blocks/instruction", {
 			type: "string",
 			default: "50%",
 		},
-		numerationHorizontalAlignment: {
-			type: "string",
-			default: "center",
-		},
-		numerationVerticalAlignment: {
-			type: "string",
-			default: "center",
-		},
+		...flexbox.attributes({
+			attrPrefix: "numeration",
+			flexDirectionAttr: false,
+		}),
 		...colors.attributes({ colorAttr: false }),
 		...spacing.attributes({
 			breakpoints: true,

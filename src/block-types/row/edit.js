@@ -8,13 +8,10 @@ import {
 } from "@wordpress/block-editor";
 import { PanelBody } from "@wordpress/components";
 import { useSelect } from "@wordpress/data";
-import grid from "../../helpers/grid";
+import flexbox from "../../helpers/flexbox";
 
 const edit = (props) => {
-	const {
-		attributes: { justifyContent, alignItems },
-		clientId,
-	} = props;
+	const { clientId } = props;
 
 	const { hasChildBlocks } = useSelect(
 		(select) => {
@@ -31,7 +28,7 @@ const edit = (props) => {
 
 	const innerBlocksPropsConfig = [
 		{
-			className: grid.getRowClass(justifyContent, alignItems),
+			className: `row ${flexbox.cssClasses({ props })}`.trimEnd(),
 		},
 		{
 			allowedBlocks: ["beer-blocks/column"],
@@ -47,7 +44,7 @@ const edit = (props) => {
 		<>
 			<InspectorControls>
 				<PanelBody title={__("Row settings", "beer-blocks")}>
-					{grid.getRowControls(props)}
+					{flexbox.controls({ props, panelBody: false })}
 				</PanelBody>
 			</InspectorControls>
 

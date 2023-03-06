@@ -30,7 +30,7 @@ import "./editor.scss";
  */
 import edit from "./edit";
 import save from "./save";
-import grid from "../../helpers/grid";
+import flexbox from "../../helpers/flexbox";
 
 /**
  * Block Icon.
@@ -54,16 +54,7 @@ registerBlockType("beer-blocks/row", {
 	textdomain: "beer-blocks",
 	parent: ["beer-blocks/container"],
 	icon: <img src={icon} alt={_x("Row", "block title", "beer-blocks")} />,
-	attributes: {
-		justifyContent: {
-			type: "object",
-			default: grid.getJustifyContentAttributes(),
-		},
-		alignItems: {
-			type: "object",
-			default: grid.getAlignItemsAttributes(),
-		},
-	},
+	attributes: flexbox.attributes({ flexDirectionAttr: false }),
 	edit,
 	save,
 });

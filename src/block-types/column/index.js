@@ -57,14 +57,7 @@ registerBlockType("beer-blocks/column", {
 	parent: ["beer-blocks/row"],
 	icon: <img src={icon} alt={_x("Column", "block title", "beer-blocks")} />,
 	attributes: {
-		sizing: {
-			type: "object",
-			default: {
-				...grid.getColSizingAttributes({
-					xsSizingType: grid.autoSizingEqualWidth,
-				}),
-			},
-		},
+		...grid.getColSizingAttribute(),
 		...spacing.attributes({
 			breakpoints: true,
 			paddingSides: ["top", "bottom"],

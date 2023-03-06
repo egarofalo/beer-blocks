@@ -8,17 +8,11 @@ import flexbox from "../../helpers/flexbox";
 
 const save = (props) => {
 	const {
-		attributes: {
-			sizing,
-			numeration,
-			numerationBorderRadius,
-			numerationHorizontalAlignment,
-			numerationVerticalAlignment,
-		},
+		attributes: { numeration, numerationBorderRadius },
 	} = props;
 
 	const blockProps = useBlockProps.save({
-		className: grid.getColClass(sizing),
+		className: grid.getColSizingClasses({ props }),
 		style: {
 			listStyle: "none",
 			...colors.cssVars(props, "instruction"),
@@ -37,7 +31,9 @@ const save = (props) => {
 				style={spacing.paddingCssVars(props, "instruction")}
 			>
 				<div
-					className={`wp-block-beer-blocks-instruction-numeration d-inline-flex flex-grow-0 justify-content-${numerationHorizontalAlignment} align-items-${numerationVerticalAlignment}`}
+					className={`wp-block-beer-blocks-instruction-numeration d-inline-flex ${flexbox.cssClasses(
+						{ props, attrPrefix: "numeration" }
+					)}`.trimEnd()}
 					style={{
 						...colors.cssVars(props, "instruction", "numeration"),
 						...size.cssVars(props, "instruction", "numeration"),

@@ -1,13 +1,9 @@
 import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
-import grid from "../../helpers/grid";
+import flexbox from "../../helpers/flexbox";
 
 const save = (props) => {
-	const {
-		attributes: { justifyContent, alignItems },
-	} = props;
-
 	const blockProps = useBlockProps.save({
-		className: grid.getRowClass(justifyContent, alignItems),
+		className: `row ${flexbox.cssClasses({ props })}`.trimEnd(),
 	});
 
 	return (

@@ -184,7 +184,6 @@ const edit = (props) => {
 			{typography.breakpointsControls({
 				props,
 				attrPrefix: "figcaption",
-				breakpointsBehaviorAttrPrefix: "figcaption-font",
 				title: __("Legend typography", "beer-blocks"),
 			})}
 

@@ -92,7 +92,7 @@ function add_settings_section()
 {
 	\add_settings_section(
 		BEERB_BOOTSTRAP_SETTINGS_SECTION,
-		__('Bootstrap Settings (v4.6.1)', 'beer-blocks'),
+		__('Bootstrap Settings (v4.6.2)', 'beer-blocks'),
 		null,
 		BEERB_SETTINGS_PAGE_SLUG
 	);

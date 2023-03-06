@@ -24,26 +24,24 @@ export const defaultUnits = [
 	{ value: "rem", label: "REM" },
 ];
 
-// returns font size block's attributes
-export const fontSizeAttribute = () => ({
-	type: "string",
-	default: undefined,
-});
+// check if value is a valid font size
+const validFontSize = (value) => value !== undefined && value !== "";
+
+// check if value is a valid line height
+const validLineHeight = (value) => value !== undefined && value !== "";
 
 // returns font size block's attribute with breakpoints
-export const fontSizeBreakpointsAttribute = ({
+export const fontSizeAttribute = ({
 	attrPrefix = "",
 	breakpoints = false,
 	breakpointsBehavior = false,
 	defaultValue = undefined,
-	type = "string",
 }) =>
 	grid.attributes({
 		attrName: camelCase(`${attrPrefix}-font-size`),
 		breakpoints,
 		breakpointsBehavior,
 		defaultValue,
-		type,
 	});
 
 // returns font size block's attribute controls
@@ -154,7 +152,7 @@ export const fontSizeStyles = (props, attrPrefix = "") => {
 		attributes: { [camelCase(`${attrPrefix}-font-size`)]: fontSize },
 	} = props;
 
-	return fontSize ? { fontSize } : {};
+	return validFontSize(fontSize) ? { fontSize } : {};
 };
 // returns font size css vars for style html attribute
 export const fontSizeCssVars = (props, blockName, attrPrefix = "") => {
@@ -180,14 +178,19 @@ export const fontSizeCssVars = (props, blockName, attrPrefix = "") => {
 
 				return result;
 			})
-			.filter((cssVar) => cssVar[1] !== "")
+			.filter((cssVar) => validFontSize(cssVar[1]))
 	);
 };
 
 // returns font family block attributes
-export const fontFamilyAttribute = () => ({
-	type: "string",
-	default: undefined,
+export const fontFamilyAttribute = ({
+	attrPrefix = "",
+	defaultValue = undefined,
+} = {}) => ({
+	[camelCase(`${attrPrefix}-font-family`)]: {
+		type: "string",
+		default: defaultValue,
+	},
 });
 
 const addGoogleFontToHead = (fontFamily) => {
@@ -293,12 +296,18 @@ export const fontFamilyStyles = (props, attrPrefix = "") => {
 	return fontFamily ? { fontFamily } : {};
 };
 
-export const fontWeightAttribute = () => ({
-	type: "number",
-	default: undefined,
+// returns font weight block attributes
+export const fontWeightAttribute = ({
+	attrPrefix = "",
+	defaultValue = undefined,
+} = {}) => ({
+	[camelCase(`${attrPrefix}-font-weight`)]: {
+		type: "number",
+		default: defaultValue,
+	},
 });
 
-// returns font weight block attributes
+// returns font weight block controls
 export const fontWeightControl = (props, attrPrefix = "") => {
 	const attrName = camelCase(`${attrPrefix}-font-weight`);
 
@@ -330,14 +339,8 @@ export const fontWeightStyles = (props, attrPrefix = "") => {
 	return fontWeight ? { fontWeight } : {};
 };
 
-// returns line height block attributes
-export const lineHeightAttribute = () => ({
-	type: "number",
-	default: undefined,
-});
-
 // returns line height block attribute with breakpoints
-export const lineHeightBreakpointsAttribute = ({
+export const lineHeightAttribute = ({
 	attrPrefix = "",
 	breakpoints = false,
 	breakpointsBehavior = false,
@@ -441,14 +444,7 @@ export const lineHeightBreakpointsControl = ({
 
 // returns line height inline styles
 export const lineHeightStyles = (lineHeight) =>
-	lineHeight
-		? {
-				lineHeight:
-					typeof lineHeight === "number"
-						? `${parseInt(lineHeight * 100)}%`
-						: lineHeight,
-		  }
-		: {};
+	validLineHeight(lineHeight) ? { lineHeight } : {};
 
 // returns line height css vars for style html attribute
 export const lineHeightCssVars = (props, blockName, attrPrefix = "") => {
@@ -464,99 +460,43 @@ export const lineHeightCssVars = (props, blockName, attrPrefix = "") => {
 					`--wp-beer-blocks-${blockName}-${attrName}${
 						breakpoint !== "xs" ? `-${breakpoint}` : ""
 					}`,
+					!isNaN(lineHeight[breakpoint])
+						? lineHeight[breakpoint].toString()
+						: lineHeight[breakpoint],
 				];
-
-				if (typeof lineHeight[breakpoint] === "number") {
-					result.push(`${parseInt(lineHeight[breakpoint] * 100)}%`);
-				} else {
-					result.push(lineHeight[breakpoint]);
-				}
 
 				return result;
 			})
-			.filter((cssVar) => cssVar[1] !== "")
+			.filter((cssVar) => validLineHeight(cssVar[1]))
 	);
 };
 
 // returns typography block attributes
 export const attributes = ({
 	attrPrefix = "",
-	fontSize = "",
-	fontFamily = "",
-	fontWeight = "",
-	lineHeight = "",
+	fontSize = undefined,
+	fontFamily = undefined,
+	fontWeight = undefined,
+	lineHeight = undefined,
 	breakpoints = false,
 	includeLineHeightAttr = true,
 	includeFontFamilyAttr = true,
 	includeFontWeightAttr = true,
 } = {}) => ({
-	...grid.attributes({
-		attrName: camelCase(`${attrPrefix}-font-size`),
-		breakpoints,
-		breakpointsBehavior: false,
-		defaultValue: fontSize,
-		type: "string",
-	}),
+	...fontSizeAttribute({ attrPrefix, breakpoints, defaultValue: fontSize }),
 	...(includeLineHeightAttr
-		? grid.attributes({
-				attrName: camelCase(`${attrPrefix}-line-height`),
-				breakpoints,
-				breakpointsBehavior: false,
-				defaultValue: lineHeight,
-				type: "number",
-		  })
+		? lineHeightAttribute({ attrPrefix, breakpoints, defaultValue: lineHeight })
 		: {}),
 	...(breakpoints
 		? grid.breakpointsBehaviorAttribute(`${attrPrefix}-font`)
 		: {}),
 	...(includeFontFamilyAttr
-		? {
-				[camelCase(`${attrPrefix}-font-family`)]: {
-					type: "string",
-					default: fontFamily,
-				},
-		  }
+		? fontFamilyAttribute({ attrPrefix, defaultValue: fontFamily })
 		: {}),
 	...(includeFontWeightAttr
-		? {
-				[camelCase(`${attrPrefix}-font-weight`)]: {
-					type: "number",
-					default: fontWeight,
-				},
-		  }
+		? fontWeightAttribute({ attrPrefix, defaultValue: fontWeight })
 		: {}),
 });
-
-// returns typography controls optionally with panel body container
-export const controls = ({
-	props,
-	initialOpen = false,
-	attrPrefix = "",
-	panelBody = true,
-	title = __("Typography", "beer-blocks"),
-}) => {
-	const attrFontSize = camelCase(`${attrPrefix}-font-size`);
-	const attrLineHeight = camelCase(`${attrPrefix}-line-height`);
-	const attrFontFamily = camelCase(`${attrPrefix}-font-family`);
-	const attrFontWeight = camelCase(`${attrPrefix}-font-weight`);
-
-	let result = (
-		<>
-			{fontSizeControl(props, attrFontSize)}
-			{lineHeightControl(props, attrLineHeight)}
-			{fontFamilyControl(props, attrFontFamily)}
-			{fontWeightControl(props, attrFontWeight)}
-		</>
-	);
-
-	return panelBody ? (
-		<PanelBody title={title} initialOpen={initialOpen}>
-			{result}
-		</PanelBody>
-	) : (
-		result
-	);
-};
 
 // returns controls for typography attributes with breakpoints
 export const breakpointsControls = ({
@@ -635,7 +575,6 @@ export default {
 	fontFamilyControl,
 	fontFamilyStyles,
 	fontSizeAttribute,
-	fontSizeBreakpointsAttribute,
 	fontSizeControl,
 	fontSizeBreakpointsControl,
 	fontSizeStyles,
@@ -644,12 +583,10 @@ export default {
 	fontWeightControl,
 	fontWeightStyles,
 	lineHeightAttribute,
-	lineHeightBreakpointsAttribute,
 	lineHeightControl,
 	lineHeightBreakpointsControl,
 	lineHeightStyles,
 	lineHeightCssVars,
 	attributes,
-	controls,
 	breakpointsControls,
 };
