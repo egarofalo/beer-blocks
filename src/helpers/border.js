@@ -7,27 +7,16 @@ import {
 	__experimentalUnitControl as UnitControl,
 } from "@wordpress/components";
 import {
-	BsBoxArrowInUpLeft,
-	BsBoxArrowInUpRight,
-	BsBoxArrowInDownRight,
-	BsBoxArrowInDownLeft,
-} from "react-icons/bs";
+	RxCorners,
+	RxCornerBottomLeft,
+	RxCornerBottomRight,
+	RxCornerTopLeft,
+	RxCornerTopRight,
+} from "react-icons/rx";
 import { variantsColorPallet as variants } from "./bootstrap-variants";
 import { controlWrapperStyle } from "./inline-styles";
 import { reset as resetButton } from "./buttons";
 import { lowerCase, camelCase, upperFirst, has, get } from "lodash";
-
-// border styles
-export const borderStyles = {
-	dotted: __("Dotted border", "beer-blocks"),
-	dashed: __("Dashed border", "beer-blocks"),
-	solid: __("Solid border", "beer-blocks"),
-	double: __("Double border", "beer-blocks"),
-	groove: __("3D grooved border", "beer-blocks"),
-	ridge: __("3D ridged border", "beer-blocks"),
-	inset: __("3D inset border", "beer-blocks"),
-	outset: __("3D outset border", "beer-blocks"),
-};
 
 // default units used in UnitControl component
 const defaultUnits = [
@@ -39,13 +28,14 @@ const defaultUnits = [
 
 // border radius corners
 const borderRadiusCorners = [
+	"all",
 	"top-right",
 	"bottom-right",
 	"bottom-left",
 	"top-left",
 ];
 
-// returns border radius value
+// returns border radius value for all corners
 const getBorderRadiusValue = (value) =>
 	Object.fromEntries(
 		borderRadiusCorners.map((corner) => [camelCase(corner), value])
@@ -54,22 +44,23 @@ const getBorderRadiusValue = (value) =>
 // border radius icons for tabs panel
 const borderRadiusIcons = (corner) =>
 	({
+		all: <RxCorners className="beer-blocks-border-radius-tab-icon" />,
 		"top-right": (
-			<BsBoxArrowInUpRight className="beer-blocks-border-radius-tab-icon" />
+			<RxCornerTopRight className="beer-blocks-border-radius-tab-icon" />
 		),
 		"bottom-right": (
-			<BsBoxArrowInDownRight className="beer-blocks-border-radius-tab-icon" />
+			<RxCornerBottomRight className="beer-blocks-border-radius-tab-icon" />
 		),
 		"bottom-left": (
-			<BsBoxArrowInDownLeft className="beer-blocks-border-radius-tab-icon" />
+			<RxCornerBottomLeft className="beer-blocks-border-radius-tab-icon" />
 		),
 		"top-left": (
-			<BsBoxArrowInUpLeft className="beer-blocks-border-radius-tab-icon" />
+			<RxCornerTopLeft className="beer-blocks-border-radius-tab-icon" />
 		),
 	}[corner]);
 
 // border radius tabs panel options
-const borderRadiusOptions = borderRadiusCorners.map((corner) => ({
+const borderRadiusOptions = [borderRadiusCorners].map((corner) => ({
 	name: camelCase(corner),
 	title: borderRadiusIcons(corner),
 }));
@@ -77,40 +68,41 @@ const borderRadiusOptions = borderRadiusCorners.map((corner) => ({
 // border sides
 const borderSides = ["top", "right", "bottom", "left"];
 
-// checks if the  attribute value has each side of borders
-export const isSplitBorders = (borders) =>
+// checks if the attribute value has each side of borders
+const isSplitBorders = (borders) =>
 	has(borders, "top") ||
 	has(borders, "right") ||
 	has(borders, "bottom") ||
 	has(borders, "left");
 
 // returns attribute name
-export const attrName = (attrPrefix = "", borderRadius = false) =>
+const attrName = (attrPrefix = "", borderRadius = false) =>
 	camelCase(`${attrPrefix}-border${borderRadius ? "-radius" : ""}`);
 
-// returns border block's attribute
-export const attributes = ({
-	attrPrefix = "",
-	defaultValue = undefined,
-	borderRadius = false,
-	defaultBorderRadiusValue = undefined,
-} = {}) => ({
+// returns block's border attribute
+const borderAttribute = (attrPrefix = "") => ({
 	[attrName(attrPrefix)]: {
 		type: "object",
-		default: defaultValue,
+		default: undefined,
 	},
-	...(borderRadius
-		? {
-				[attrName(attrPrefix, true)]: {
-					type: "object",
-					default: getBorderRadiusValue(defaultBorderRadiusValue),
-				},
-		  }
-		: {}),
+});
+
+// returns block's border radius attribute
+const borderRadiusAttribute = (attrPrefix = "") => ({
+	[attrName(attrPrefix, true)]: {
+		type: "object",
+		default: getBorderRadiusValue(undefined),
+	},
+});
+
+// returns border block's attribute
+export const attributes = ({ attrPrefix = "", borderRadius = false } = {}) => ({
+	...borderAttribute(attrPrefix),
+	...(borderRadius ? borderRadiusAttribute(attrPrefix) : {}),
 });
 
 // returns border control
-export const borderControl = ({
+const borderControl = ({
 	props,
 	attrPrefix = "",
 	label = __("Border styles", "beer-blocks"),
@@ -134,11 +126,10 @@ export const borderControl = ({
 };
 
 // returns border radius control
-export const borderRadiusControl = ({
+const borderRadiusControl = ({
 	props,
 	attrPrefix = "",
 	label = __("Rounded borders", "beer-blocks"),
-	defaultValue = undefined,
 }) => {
 	const attr = attrName(attrPrefix, true);
 	const {
@@ -151,8 +142,9 @@ export const borderRadiusControl = ({
 			<Heading level="3" style={{ marginBottom: "5px" }}>
 				{label}
 			</Heading>
+
 			<TabPanel
-				initialTabName="topRight"
+				initialTabName="all"
 				tabs={borderRadiusOptions}
 				className="beer-blocks-tabs border-helper"
 			>
@@ -173,8 +165,10 @@ export const borderRadiusControl = ({
 						}
 						onUnitChange={() =>
 							setAttributes({
-								...borderRadius,
-								[camelCase(tab.name)]: defaultValue,
+								[attr]: {
+									...borderRadius,
+									[camelCase(tab.name)]: undefined,
+								},
 							})
 						}
 						units={defaultUnits}
@@ -194,8 +188,6 @@ export const controls = ({
 	title = __("Borders", "beer-blocks"),
 	enableStyle = true,
 	reset = true,
-	defaultValue = undefined,
-	defaultBorderRadiusValue = undefined,
 }) => {
 	const { attributes, setAttributes } = props;
 	const borderAttr = attrName(attrPrefix);
@@ -208,23 +200,17 @@ export const controls = ({
 			</div>
 
 			{has(attributes, borderRadiusAttr)
-				? borderRadiusControl({
-						props,
-						attrPrefix,
-						defaultValue: defaultBorderRadiusValue,
-				  })
+				? borderRadiusControl({ props, attrPrefix })
 				: null}
 
 			{reset &&
 				resetButton({
 					onClick: () =>
 						setAttributes({
-							[borderAttr]: defaultValue,
+							[borderAttr]: undefined,
 							...(has(attributes, borderRadiusAttr)
 								? {
-										[borderRadiusAttr]: getBorderRadiusValue(
-											defaultBorderRadiusValue
-										),
+										[borderRadiusAttr]: getBorderRadiusValue(undefined),
 								  }
 								: {}),
 						}),
@@ -252,11 +238,11 @@ export const borderCssVars = (props, blockName, attrPrefix = "") => {
 		attributes: { [attr]: borders = undefined },
 	} = props;
 
-	if (borders !== undefined) {
+	if (borders) {
 		return isSplitBorders(borders)
 			? Object.fromEntries([
 					...Object.entries(borders)
-						.filter((border) => border[1] !== undefined)
+						.filter((border) => border[1])
 						.map((border) => [
 							`--wp-beer-blocks-${blockName}-${
 								attr + upperFirst(border[0])
@@ -264,7 +250,7 @@ export const borderCssVars = (props, blockName, attrPrefix = "") => {
 							border[1].width,
 						]),
 					...Object.entries(borders)
-						.filter((border) => border[1] !== undefined)
+						.filter((border) => border[1])
 						.map((border) => [
 							`--wp-beer-blocks-${blockName}-${
 								attr + upperFirst(border[0])
@@ -272,10 +258,7 @@ export const borderCssVars = (props, blockName, attrPrefix = "") => {
 							border[1].color,
 						]),
 					...Object.entries(borders)
-						.filter(
-							(border) =>
-								border[1] !== undefined && get(border[1], "style") !== undefined
-						)
+						.filter((border) => border[1] && get(border[1], "style"))
 						.map((border) => [
 							`--wp-beer-blocks-${blockName}-${
 								attr + upperFirst(border[0])
@@ -315,14 +298,20 @@ export const borderRadiusCssVars = (props, blockName, attrPrefix = "") => {
 		attributes: { [attr]: borderRadius = undefined },
 	} = props;
 
-	return borderRadius !== undefined || borderRadius !== ""
-		? Object.fromEntries(
-				Object.entries(borderRadius).map((corner) => [
-					`--wp-beer-blocks-${blockName}-${attr + upperFirst(corner[0])}`,
-					corner[1],
-				])
-		  )
-		: {};
+	if (borderRadius) {
+		return borderRadius.all
+			? { [`--wp-beer-blocks-${blockName}-${attr}`]: borderRadius.all }
+			: Object.fromEntries(
+					Object.entries(borderRadius)
+						.filter((corner) => corner[1])
+						.map((corner) => [
+							`--wp-beer-blocks-${blockName}-${attr + upperFirst(corner[0])}`,
+							corner[1],
+						])
+			  );
+	}
+
+	return {};
 };
 
 // returns css vars for border styles
@@ -331,10 +320,83 @@ export const cssVars = (props, blockName, attrPrefix = "") => ({
 	...borderRadiusCssVars(props, blockName, attrPrefix),
 });
 
+// returns css classes that enable border rules
+const borderCssClass = (props, attrPrefix = "", addWhitespaceBefore = true) => {
+	const attr = attrName(attrPrefix);
+
+	const {
+		attributes: { [attr]: border = undefined },
+	} = props;
+
+	if (border) {
+		const classes = isSplitBorders(border)
+			? Object.entries(border)
+					.map((borderSide) => [
+						...(borderSide[1].color
+							? [`wp-beer-blocks-has-border-${borderSide[0]}-color-rule`]
+							: []),
+						...(borderSide[1].width
+							? [`wp-beer-blocks-has-border-${borderSide[0]}-width-rule`]
+							: []),
+						...(get(borderSide[1], "style")
+							? [`wp-beer-blocks-has-border-${borderSide[0]}-style-rule`]
+							: []),
+					])
+					.join(" ")
+			: Object.entries(border)
+					.filter((borderRule) => borderRule[1])
+					.map(
+						(borderRule) => `wp-beer-blocks-has-border-${borderRule[0]}-rule`
+					)
+					.join(" ");
+
+		return classes ? `${addWhitespaceBefore ? " " : ""}${classes}` : "";
+	}
+
+	return "";
+};
+
+// returns css classes that enable border radius rules
+const borderRadiusCssClass = (
+	props,
+	attrPrefix = "",
+	addWhitespaceBefore = true
+) => {
+	const attr = attrName(attrPrefix);
+
+	const {
+		attributes: { [attr]: borderRadius = undefined },
+	} = props;
+
+	if (borderRadius) {
+		const classes = borderRadius.all
+			? "wp-beer-blocks-has-border-radius"
+			: Object.entries(borderRadius)
+					.filter((corner) => corner[1])
+					.map((corner) => `wp-beer-blocks-has-border-${corner}-radius`)
+					.join(" ");
+
+		return classes ? `${addWhitespaceBefore ? " " : ""}${classes}` : "";
+	}
+
+	return "";
+};
+
+// returns css classes that enable the rules used in this helper
+export const cssClasses = (
+	props,
+	attrPrefix = "",
+	addWhitespaceBefore = true
+) => {
+	let classes = `${borderCssClass(props, attrPrefix)}${borderRadiusCssClass(
+		props,
+		attrPrefix
+	)}`.trimStart();
+
+	return `${addWhitespaceBefore ? " " : ""}${classes}`.trimEnd();
+};
+
 export default {
-	borderStyles,
-	isSplitBorders,
-	attrName,
 	attributes,
 	borderControl,
 	borderRadiusControl,
@@ -342,4 +404,7 @@ export default {
 	borderCssVars,
 	borderRadiusCssVars,
 	cssVars,
+	borderCssClass,
+	borderRadiusCssClass,
+	cssClasses,
 };

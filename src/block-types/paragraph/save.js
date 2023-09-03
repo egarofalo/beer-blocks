@@ -2,6 +2,7 @@ import { useBlockProps, RichText } from "@wordpress/block-editor";
 import spacing from "./../../helpers/spacing";
 import typography from "./../../helpers/typography";
 import colors from "./../../helpers/colors";
+import htmlAttrs from "./../../helpers/html-attrs";
 
 const save = (props) => {
 	const {
@@ -9,16 +10,16 @@ const save = (props) => {
 	} = props;
 
 	const blockProps = useBlockProps.save({
-		className: `has-text-align-${textAlign}`,
+		className: `has-text-align-${textAlign}${spacing.cssClasses(
+			props
+		)}${typography.cssClasses(props)}${colors.cssClasses(props)}`,
 		style: {
-			...spacing.paddingCssVars(props, "paragraph"),
-			...spacing.marginCssVars(props, "paragraph"),
-			...typography.fontFamilyStyles(props),
-			...typography.fontWeightStyles(props),
-			...typography.fontSizeCssVars(props, "paragraph"),
-			...typography.lineHeightCssVars(props, "paragraph"),
+			...spacing.cssVars(props, "paragraph"),
+			...typography.styles(props),
+			...typography.cssVars(props, "paragraph"),
 			...colors.cssVars(props, "paragraph"),
 		},
+		...htmlAttrs.blockProps(props),
 	});
 
 	return <RichText.Content {...blockProps} tagName="p" value={content} />;

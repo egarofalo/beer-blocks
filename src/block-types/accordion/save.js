@@ -1,5 +1,6 @@
 import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
 import spacing from "./../../helpers/spacing";
+import htmlAttrs from "./../../helpers/html-attrs";
 
 const save = (props) => {
 	const {
@@ -7,20 +8,17 @@ const save = (props) => {
 	} = props;
 
 	const blockProps = useBlockProps.save({
-		style: {
-			...spacing.paddingCssVars(props, "accordion"),
-			...spacing.marginCssVars(props, "accordion"),
-		},
+		className: spacing.cssClasses(props).trimStart(),
+		style: spacing.cssVars(props, "accordion"),
+		...htmlAttrs.blockProps(props),
 	});
 
 	return (
-		<>
-			<div {...blockProps}>
-				<div className="accordion" id={`accordion-${id}`}>
-					<InnerBlocks.Content />
-				</div>
+		<div {...blockProps}>
+			<div className="accordion" id={`accordion-${id}`}>
+				<InnerBlocks.Content />
 			</div>
-		</>
+		</div>
 	);
 };
 

@@ -2,44 +2,33 @@
 @import "./../helpers/typography";
 @import "./../helpers/colors";
 
-// Default colors styles
-$defaultHeaderColors: (
-	color: if($headings-color, $headings-color, $body-color),
-	background: transparent,
-);
-
 @mixin header-block-rules() {
-	@include headersTypographyRulesAllBreakpoints("header");
-
 	.wp-block-beer-blocks-header {
-		@include colorsRules("header", $defaultColors: $defaultHeaderColors);
-
-		@include media-breakpoint-down(xs) {
-			@include paddingRules("header");
-			@include marginRules("header");
-		}
-
-		@include media-breakpoint-up(sm) {
-			@include paddingRules("header", "sm");
-			@include marginRules("header", "sm");
-		}
+		@include colorsRules("header");
+		@include typographyRules("header");
+		@include paddingRules("header");
+		@include marginRules("header");
 
 		@include media-breakpoint-up(md) {
+			@include typographyRules("header", "sm");
 			@include paddingRules("header", "md");
 			@include marginRules("header", "md");
 		}
 
 		@include media-breakpoint-up(lg) {
+			@include typographyRules("header", "lg");
 			@include paddingRules("header", "lg");
 			@include marginRules("header", "lg");
 		}
 
 		@include media-breakpoint-up(xl) {
+			@include typographyRules("header", "xl");
 			@include paddingRules("header", "xl");
 			@include marginRules("header", "xl");
 		}
 
 		@include media-breakpoint-up(xxl) {
+			@include typographyRules("header", "xxl");
 			@include paddingRules("header", "xxl");
 			@include marginRules("header", "xxl");
 		}
@@ -47,39 +36,32 @@ $defaultHeaderColors: (
 }
 
 @mixin header-block-editor-rules() {
-	@include headersTypographyRulesAllBreakpoints(
-		"header",
-		$prefixRule: ".editor-styles-wrapper "
-	);
-
 	.wp-block-beer-blocks-header {
 		&.is-selected {
 			outline: 1px dotted #035cff;
 		}
 
 		.editor-styles-wrapper &.wp-block {
-			@include media-breakpoint-down(xs) {
-				@include marginRules("header");
-			}
+			@include horizontalMarginRules("header");
 
 			@include media-breakpoint-up(sm) {
-				@include marginRules("header", "sm");
+				@include horizontalMarginRules("header", "sm");
 			}
 
 			@include media-breakpoint-up(md) {
-				@include marginRules("header", "md");
+				@include horizontalMarginRules("header", "md");
 			}
 
 			@include media-breakpoint-up(lg) {
-				@include marginRules("header", "lg");
+				@include horizontalMarginRules("header", "lg");
 			}
 
 			@include media-breakpoint-up(xl) {
-				@include marginRules("header", "xl");
+				@include horizontalMarginRules("header", "xl");
 			}
 
 			@include media-breakpoint-up(xxl) {
-				@include marginRules("header", "xxl");
+				@include horizontalMarginRules("header", "xxl");
 			}
 		}
 	}

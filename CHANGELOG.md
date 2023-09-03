@@ -1,3 +1,30 @@
+## [1.7.0] - 2023-09-XX
+
+- Add new helper features using the new `html-attrs` helper
+- Update `react-icons` package from `4.6.0` to `4.10.1`
+- Improves in `colors` helper wich allows remove default background and color values in block styles
+- Improves in `spacing` helper
+  - Remove default margin and padding in block styles
+  - Remove unused functions
+  - Change functions signature
+- Improves in `typography` helper
+  - Remove default fontSize and lineHeight in block styles
+  - Remove unused functions
+  - Change functions signature
+- Improves in `size` helper
+  - Remove default width and height in block styles
+  - Remove unused functions
+  - Change functions signature
+- Improves in `border` helper
+  - Remove default border block styles
+  - Remove unused functions
+  - Change functions signature
+- Improves in `flexbox` helper
+- Fix all blocks styles due to helpers improves
+- Fixes in `button` block
+- Set `margin-top: revert` and `margin-bottom: revert` to all blocks in the editor view
+- Remove `buttons` block
+
 ## [1.6.1] - 2023-03-06
 
 - Fix [!issue #5](https://github.com/egarofalo/beer-blocks/issues/5)

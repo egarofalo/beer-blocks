@@ -4,16 +4,11 @@
 
 @mixin fa-icon-block-rules() {
 	.wp-block-beer-blocks-fa-icon {
+		@include marginRules("fa-icon");
+
 		& > i {
+			@include typographyRules("fa-icon");
 			@include colorRule("fa-icon");
-		}
-
-		@include media-breakpoint-down(xs) {
-			@include marginRules("fa-icon");
-
-			& > i {
-				@include typographyRules("fa-icon");
-			}
 		}
 
 		@include media-breakpoint-up(sm) {
@@ -65,28 +60,28 @@
 		}
 
 		.editor-styles-wrapper &.wp-block {
-			@include media-breakpoint-down(xs) {
-				@include horizontalMarginRules("fa-icon");
-			}
+			margin-top: revert;
+			margin-bottom: revert;
+			@include verticalMarginRules("fa-icon");
 
 			@include media-breakpoint-up(sm) {
-				@include horizontalMarginRules("fa-icon", "sm");
+				@include verticalMarginRules("fa-icon", "sm");
 			}
 
 			@include media-breakpoint-up(md) {
-				@include horizontalMarginRules("fa-icon", "md");
+				@include verticalMarginRules("fa-icon", "md");
 			}
 
 			@include media-breakpoint-up(lg) {
-				@include horizontalMarginRules("fa-icon", "lg");
+				@include verticalMarginRules("fa-icon", "lg");
 			}
 
 			@include media-breakpoint-up(xl) {
-				@include horizontalMarginRules("fa-icon", "xl");
+				@include verticalMarginRules("fa-icon", "xl");
 			}
 
 			@include media-breakpoint-up(xxl) {
-				@include horizontalMarginRules("fa-icon", "xxl");
+				@include verticalMarginRules("fa-icon", "xxl");
 			}
 		}
 	}

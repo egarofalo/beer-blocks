@@ -47,11 +47,12 @@ const edit = (props) => {
 	}, [clientId, accordionId]);
 
 	const blockProps = useBlockProps({
-		className: "card",
+		className: `card${spacing.cssClasses(props)}${colors.cssClasses(
+			props
+		)}${border.cssClasses(props)}`,
 		style: {
-			...spacing.paddingCssVars(props, "accordion-item"),
-			...spacing.marginCssVars(props, "accordion-item"),
-			...colors.backgroundCssVars(props, "accordion-item"),
+			...spacing.cssVars(props, "accordion-item"),
+			...colors.cssVars(props, "accordion-item"),
 			...border.cssVars(props, "accordion-item"),
 		},
 	});
@@ -66,15 +67,14 @@ const edit = (props) => {
 	return (
 		<>
 			<InspectorControls>
-				{spacing.breakpointsControls({ props })}
+				{spacing.controls({ props })}
 				{colors.controls({ props })}
 				{border.controls({ props })}
 
 				<PanelBody title={__("Heading", "beer-blocks")} initialOpen={false}>
-					{typography.breakpointsControls({
+					{typography.controls({
 						props,
 						attrPrefix: "heading",
-						breakpointsBehaviorAttrPrefix: "heading",
 						panelBody: false,
 					})}
 
@@ -100,6 +100,7 @@ const edit = (props) => {
 						props,
 						attrPrefix: "heading",
 						panelBody: false,
+						marginSides: false,
 					})}
 				</PanelBody>
 
@@ -122,6 +123,7 @@ const edit = (props) => {
 						props,
 						attrPrefix: "body",
 						panelBody: false,
+						marginSides: false,
 					})}
 				</PanelBody>
 			</InspectorControls>
@@ -141,39 +143,35 @@ const edit = (props) => {
 
 			<div {...blockProps}>
 				<div
-					className="card-header"
+					className={`card-header p-0${colors.cssClasses(
+						props,
+						"heading"
+					)}${border.cssClasses(props, "heading")}`}
 					id={headingId}
 					style={{
-						padding: 0,
-						...colors.backgroundCssVars(props, "accordion-item", "heading"),
+						...colors.cssVars(props, "accordion-item", "heading"),
 						...border.cssVars(props, "accordion-item", "heading"),
 					}}
 				>
-					<HeadingTag style={{ margin: 0, padding: 0 }}>
+					<HeadingTag className="p-0 m-0">
 						<button
-							class={`btn btn-link btn-block has-text-align-${headingTextAlign}`}
+							className={`btn btn-link btn-block m-0 has-text-align-${headingTextAlign}${colors.cssClasses(
+								props,
+								"heading"
+							)}${spacing.cssClasses(props, "heading")}${typography.cssClasses(
+								props,
+								"heading"
+							)}`}
 							type="button"
 							data-toggle="collapse"
 							data-target={`#${collapseId}`}
 							aria-expanded={show ? "true" : "false"}
 							aria-controls={collapseId}
 							style={{
-								margin: 0,
-								textAlign: headingTextAlign,
-								...spacing.styles(props, "heading"),
-								...typography.fontFamilyStyles(props, "heading"),
-								...typography.fontWeightStyles(props, "heading"),
-								...typography.fontSizeCssVars(
-									props,
-									"accordion-item",
-									"heading"
-								),
-								...typography.lineHeightCssVars(
-									props,
-									"accordion-item",
-									"heading"
-								),
-								...colors.colorCssVars(props, "accordion-item", "heading"),
+								...spacing.cssVars(props, "accordion-item", "heading"),
+								...typography.styles(props, "heading"),
+								...typography.cssVars(props, "accordion-item", "heading"),
+								...colors.cssVars(props, "accordion-item", "heading"),
 							}}
 						>
 							<RichText
@@ -196,7 +194,10 @@ const edit = (props) => {
 					aria-labelledby={headingId}
 					data-parent={`#${parentId}`}
 				>
-					<div className="card-body" style={spacing.styles(props, "body")}>
+					<div
+						className={`card-body${spacing.cssClasses(props, "body")}`}
+						style={spacing.cssVars(props, "accordion-item", "body")}
+					>
 						<div {...innerBlocksProps} />
 					</div>
 				</div>

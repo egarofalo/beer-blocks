@@ -4,10 +4,12 @@ import colors from "../../helpers/colors";
 
 const save = (props) => {
 	const blockProps = useBlockProps.save({
+		className: `${colors.cssClasses(props)}${spacing.cssClasses(
+			props
+		)}`.trimStart(),
 		style: {
 			...colors.cssVars(props, "grid"),
-			...spacing.paddingCssVars(props, "grid"),
-			...spacing.marginCssVars(props, "grid"),
+			...spacing.cssVars(props, "grid"),
 		},
 	});
 

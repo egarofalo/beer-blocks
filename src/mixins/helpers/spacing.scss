@@ -1,14 +1,21 @@
 @use "sass:map";
 
-// Plugin custom variables and functions
-@import "./../../variables.scss";
+// Plugin custom functions
+@import "./../../variables";
 @import "./../../functions";
 
-// Default blocks vertical margin
-$defaultBlocksVerticalMargin: 20px;
+// Default blocks vertical margins in editor view
+@mixin defaultEditorBlocksVerticalMargins(
+	$margin: $defaultBlocksVerticalMargin
+) {
+	.editor-styles-wrapper & {
+		margin-top: $margin;
+		margin-bottom: $margin;
+	}
+}
 
-// Default blocks vertical margins
-@mixin blockDefaultMargins($margin: $defaultBlocksVerticalMargin) {
+// Default blocks vertical margins in editor and theme view
+@mixin defaultBlocksVerticalMargins($margin: $defaultBlocksVerticalMargin) {
 	margin-top: $margin;
 	margin-bottom: $margin;
 }
@@ -18,23 +25,20 @@ $defaultBlocksVerticalMargin: 20px;
 	$blockName,
 	$breakpointName: "",
 	$attrPrefix: "",
-	$defaultValues: (top: 0, right: 0, bottom: 0, left: 0),
 	$sides: (top, right, bottom, left)
 ) {
 	$varPrefix: --wp-beer-blocks-#{$blockName}-#{camelize(
 			"#{$attrPrefix}-padding"
 		)};
 
+	@if $breakpointName == "" {
+		$breakpointName: "xs";
+	}
+
 	@each $side in $sides {
-		@if $breakpointName == "" or $breakpointName == "xs" {
+		&.wp-beer-blocks-has-padding-#{$side}-#{$breakpointName}-rule {
 			padding-#{$side}: var(
-				#{$varPrefix + capitalize($side)},
-				map.get($defaultValues, $side)
-			);
-		} @else {
-			padding-#{$side}: var(
-				#{$varPrefix + capitalize($side)}-#{$breakpointName},
-				map.get($defaultValues, $side)
+				#{$varPrefix + capitalize($side)}-#{$breakpointName}
 			);
 		}
 	}
@@ -45,54 +49,39 @@ $defaultBlocksVerticalMargin: 20px;
 	$blockName,
 	$breakpointName: "",
 	$attrPrefix: "",
-	$defaultValues: (
-		top: $defaultBlocksVerticalMargin,
-		right: auto,
-		bottom: $defaultBlocksVerticalMargin,
-		left: auto
-	),
 	$sides: (top, right, bottom, left)
 ) {
 	$varPrefix: --wp-beer-blocks-#{$blockName}-#{camelize(
 			"#{$attrPrefix}-margin"
 		)};
 
+	@if $breakpointName == "" {
+		$breakpointName: "xs";
+	}
+
 	@each $side in $sides {
-		@if $breakpointName == "" or $breakpointName == "xs" {
+		&.wp-beer-blocks-has-margin-#{$side}-#{$breakpointName}-rule {
 			margin-#{$side}: var(
-				#{$varPrefix + capitalize($side)},
-				map.get($defaultValues, $side)
-			);
-		} @else {
-			margin-#{$side}: var(
-				#{$varPrefix + capitalize($side)}-#{$breakpointName},
-				map.get($defaultValues, $side)
+				#{$varPrefix + capitalize($side)}-#{$breakpointName}
 			);
 		}
 	}
 }
 
 // Get vertical paddings rules for custom breakpoint
-@mixin verticalPaddingRules(
-	$blockName,
-	$breakpointName: "",
-	$attrPrefix: "",
-	$defaultValues: (top: 0, bottom: 0)
-) {
+@mixin verticalPaddingRules($blockName, $breakpointName: "", $attrPrefix: "") {
 	$varPrefix: --wp-beer-blocks-#{$blockName}-#{camelize(
 			"#{$attrPrefix}-padding"
 		)};
 
+	@if $breakpointName == "" {
+		$breakpointName: "xs";
+	}
+
 	@each $side in ("top", "bottom") {
-		@if $breakpointName == "" or $breakpointName == "xs" {
+		&.wp-beer-blocks-has-padding-#{$side}-#{$breakpointName}-rule {
 			padding-#{$side}: var(
-				#{$varPrefix + capitalize($side)},
-				map.get($defaultValues, $side)
-			);
-		} @else {
-			padding-#{$side}: var(
-				#{$varPrefix + capitalize($side)}-#{$breakpointName},
-				map.get($defaultValues, $side)
+				#{$varPrefix + capitalize($side)}-#{$breakpointName}
 			);
 		}
 	}
@@ -102,75 +91,58 @@ $defaultBlocksVerticalMargin: 20px;
 @mixin horizontalPaddingRules(
 	$blockName,
 	$breakpointName: "",
-	$attrPrefix: "",
-	$defaultValues: (left: 0, right: 0)
+	$attrPrefix: ""
 ) {
 	$varPrefix: --wp-beer-blocks-#{$blockName}-#{camelize(
 			"#{$attrPrefix}-padding"
 		)};
 
+	@if $breakpointName == "" {
+		$breakpointName: "xs";
+	}
+
 	@each $side in ("left", "right") {
-		@if $breakpointName == "" or $breakpointName == "xs" {
+		&.wp-beer-blocks-has-padding-#{$side}-#{$breakpointName}-rule {
 			padding-#{$side}: var(
-				#{$varPrefix + capitalize($side)},
-				map.get($defaultValues, $side)
-			);
-		} @else {
-			padding-#{$side}: var(
-				#{$varPrefix + capitalize($side)}-#{$breakpointName},
-				map.get($defaultValues, $side)
+				#{$varPrefix + capitalize($side)}-#{$breakpointName}
 			);
 		}
 	}
 }
 
 // Get vertical margin rules for custom breakpoint
-@mixin verticalMarginRules(
-	$blockName,
-	$breakpointName: "",
-	$attrPrefix: "",
-	$defaultValues: (top: 20px, bottom: 20px)
-) {
+@mixin verticalMarginRules($blockName, $breakpointName: "", $attrPrefix: "") {
 	$varPrefix: --wp-beer-blocks-#{$blockName}-#{camelize(
 			"#{$attrPrefix}-margin"
 		)};
 
+	@if $breakpointName == "" {
+		$breakpointName: "xs";
+	}
+
 	@each $side in ("top", "bottom") {
-		@if $breakpointName == "" or $breakpointName == "xs" {
+		&.wp-beer-blocks-has-margin-#{$side}-#{$breakpointName}-rule {
 			margin-#{$side}: var(
-				#{$varPrefix + capitalize($side)},
-				map.get($defaultValues, $side)
-			);
-		} @else {
-			margin-#{$side}: var(
-				#{$varPrefix + capitalize($side)}-#{$breakpointName},
-				map.get($defaultValues, $side)
+				#{$varPrefix + capitalize($side)}-#{$breakpointName}
 			);
 		}
 	}
 }
 
 // Get horizontal margin rules for custom breakpoints
-@mixin horizontalMarginRules(
-	$blockName,
-	$breakpointName: "",
-	$attrPrefix: "",
-	$defaultValues: (left: auto, right: auto)
-) {
+@mixin horizontalMarginRules($blockName, $breakpointName: "", $attrPrefix: "") {
 	$varPrefix: --wp-beer-blocks-#{$blockName}-#{camelize(
 			"#{$attrPrefix}-margin"
 		)};
 
+	@if $breakpointName == "" {
+		$breakpointName: "xs";
+	}
+
 	@each $side in ("left", "right") {
-		@if $breakpointName == "" or $breakpointName == "xs" {
+		&.wp-beer-blocks-has-margin-#{$side}-#{$breakpointName}-rule {
 			margin-#{$side}: var(
-				#{$varPrefix + capitalize($side)},
-				map.get($defaultValues, $side)
-			);
-		} @else {
-			margin-#{$side}: var(
-				#{$varPrefix + capitalize($side)}-#{$breakpointName},
-				map.get($defaultValues, $side)
+				#{$varPrefix + capitalize($side)}-#{$breakpointName}
 			);
 		}
 	}

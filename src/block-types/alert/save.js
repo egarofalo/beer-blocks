@@ -1,5 +1,6 @@
 import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
 import spacing from "./../../helpers/spacing";
+import htmlAttrs from "./../../helpers/html-attrs";
 
 const save = (props) => {
 	const {
@@ -7,11 +8,9 @@ const save = (props) => {
 	} = props;
 
 	const blockProps = useBlockProps.save({
-		className: alertType,
-		style: {
-			...spacing.paddingCssVars(props, "alert"),
-			...spacing.marginCssVars(props, "alert"),
-		},
+		className: `${alertType}${spacing.cssClasses(props)}`,
+		style: spacing.cssVars(props, "alert"),
+		...htmlAttrs.blockProps(props),
 	});
 
 	return (

@@ -2,33 +2,29 @@
 @import "./../../functions";
 
 // Get width rules
-@mixin widthRules(
-	$blockName,
-	$breakpointName: "",
-	$attrPrefix: "",
-	$defaultValue: 100%
-) {
-	$varName: --wp-beer-blocks-#{$blockName}-#{camelize("#{$attrPrefix}-width")};
+@mixin widthRules($blockName, $breakpointName: "", $attrPrefix: "") {
+	$varPrefix: --wp-beer-blocks-#{$blockName}-#{camelize("#{$attrPrefix}-width")};
 
-	@if $breakpointName == "" or $breakpointName == "xs" {
-		width: var(#{$varName}, $defaultValue);
-	} @else {
-		width: var(#{$varName}-#{$breakpointName}, $defaultValue);
+	@if $breakpointName == "" {
+		$breakpointName: "xs";
+	}
+
+	&.wp-beer-blocks-has-width-#{$breakpointName}-rule {
+		width: var(#{$varPrefix}-#{$breakpointName});
 	}
 }
 
 // Get height rules
-@mixin heightRules(
-	$blockName,
-	$breakpointName: "",
-	$attrPrefix: "",
-	$defaultValue: auto
-) {
-	$varName: --wp-beer-blocks-#{$blockName}-#{camelize("#{$attrPrefix}-height")};
+@mixin heightRules($blockName, $breakpointName: "", $attrPrefix: "") {
+	$varPrefix: --wp-beer-blocks-#{$blockName}-#{camelize(
+			"#{$attrPrefix}-height"
+		)};
 
-	@if $breakpointName == "" or $breakpointName == "xs" {
-		height: var(#{$varName}, $defaultValue);
-	} @else {
-		height: var(#{$varName}-#{$breakpointName}, $defaultValue);
+	@if $breakpointName == "" {
+		$breakpointName: "xs";
+	}
+
+	&.wp-beer-blocks-has-height-#{$breakpointName}-rule {
+		height: var(#{$varPrefix}-#{$breakpointName});
 	}
 }

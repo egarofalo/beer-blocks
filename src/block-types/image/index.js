@@ -95,25 +95,20 @@ registerBlockType("beer-blocks/image", {
 		},
 		...blockAlignment.attribute(),
 		...size.attributes({
-			breakpoints: true,
-			widthDefaultValue: "200px",
-			heightDefaultValue: "0px",
-			autoHeightDefaultValue: true,
+			widthDefaultValue: {
+				xs: "200px",
+			},
+			autoHeightDefaultValue: {
+				xs: true,
+			},
 		}),
-		...spacing.attributes({
-			breakpoints: true,
-			paddingSides: false,
-		}),
-		...typography.attributes({
-			attrPrefix: "figcaption",
-			breakpoints: true,
-		}),
+		...spacing.attributes({ paddingSides: false }),
+		...typography.attributes({ attrPrefix: "figcaption" }),
 		...colors.attributes({
 			attrPrefix: "figcaption",
 			backgroundAttr: false,
 		}),
 		...spacing.attributes({
-			breakpoints: true,
 			attrPrefix: "figcaption",
 			paddingSides: false,
 			marginSides: ["top", "bottom"],

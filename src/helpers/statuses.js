@@ -340,12 +340,16 @@ const borderAttribute = (status, attrPrefix, defaultValue) => ({
 });
 
 // returns border attribute's controls
+/*
 const borderControl = (props, attrPrefix, status) =>
 	nativeBorderControl({
 		props,
 		attrPrefix: `${attrPrefix}-${status}`,
 		enableStyle: false,
 	});
+	*/
+
+const borderControl = (props, attrPrefix, status) => null;
 
 // returns css vars for border attribute
 const borderCssVars = (props, blockName, attrPrefix) => ({

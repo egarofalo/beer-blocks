@@ -10,11 +10,13 @@ const save = (props) => {
 	} = props;
 
 	const blockProps = useBlockProps.save({
+		className: `${colors.cssClasses(props)}${spacing.cssClasses(
+			props
+		)}`.trimStart(),
 		style: {
 			...colors.cssVars(props, "tab-pane"),
 			...border.cssVars(props, "tab-pane"),
-			...spacing.paddingCssVars(props, "tab-pane"),
-			...spacing.marginCssVars(props, "tab-pane"),
+			...spacing.cssVars(props, "tab-pane"),
 		},
 	});
 

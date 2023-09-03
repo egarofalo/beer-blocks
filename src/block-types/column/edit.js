@@ -27,10 +27,11 @@ const edit = (props) => {
 	);
 
 	const blockProps = useBlockProps({
-		className: grid.getColSizingClasses({ props }),
+		className: `${grid.getColSizingClasses({
+			props,
+		})}${colors.cssClasses(props)}${spacing.cssClasses(props)}`,
 		style: {
-			...spacing.paddingCssVars(props, "column"),
-			...spacing.marginCssVars(props, "column"),
+			...spacing.cssVars(props, "column"),
 			...colors.cssVars(props, "column"),
 		},
 	});
@@ -58,7 +59,11 @@ const edit = (props) => {
 				</PanelBody>
 
 				{colors.controls({ props })}
-				{spacing.breakpointsControls({ props })}
+				{spacing.controls({
+					props,
+					paddingSides: ["top", "bottom"],
+					marginSides: ["top", "bottom"],
+				})}
 			</InspectorControls>
 
 			<div {...innerBlocksProps} />

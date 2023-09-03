@@ -9,10 +9,12 @@ import spacing from "./../../helpers/spacing";
 
 const edit = (props) => {
 	const blockProps = useBlockProps({
+		className: `${colors.cssClasses(props)}${spacing.cssClasses(
+			props
+		)}`.trimStart(),
 		style: {
 			...colors.cssVars(props, "grid"),
-			...spacing.paddingCssVars(props, "grid"),
-			...spacing.marginCssVars(props, "grid"),
+			...spacing.cssVars(props, "grid"),
 		},
 	});
 
@@ -46,7 +48,7 @@ const edit = (props) => {
 		<>
 			<InspectorControls>
 				{colors.controls({ props })}
-				{spacing.breakpointsControls({ props })}
+				{spacing.controls({ props })}
 			</InspectorControls>
 
 			<div {...innerBlocksProps} />

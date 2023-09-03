@@ -8,6 +8,7 @@ import {
 import spacing from "./../../helpers/spacing";
 import typography from "./../../helpers/typography";
 import colors from "./../../helpers/colors";
+import htmlAttrs from "./../../helpers/html-attrs";
 
 const edit = (props) => {
 	const {
@@ -16,24 +17,25 @@ const edit = (props) => {
 	} = props;
 
 	const blockProps = useBlockProps({
-		className: `has-text-align-${textAlign}`,
+		className: `has-text-align-${textAlign}${spacing.cssClasses(
+			props
+		)}${typography.cssClasses(props)}${colors.cssClasses(props)}`,
 		style: {
-			...spacing.paddingCssVars(props, "paragraph"),
-			...spacing.marginCssVars(props, "paragraph"),
-			...typography.fontFamilyStyles(props),
-			...typography.fontWeightStyles(props),
-			...typography.fontSizeCssVars(props, "paragraph"),
-			...typography.lineHeightCssVars(props, "paragraph"),
+			...spacing.cssVars(props, "paragraph"),
+			...typography.styles(props),
+			...typography.cssVars(props, "paragraph"),
 			...colors.cssVars(props, "paragraph"),
 		},
+		...htmlAttrs.blockProps(props),
 	});
 
 	return (
 		<>
 			<InspectorControls>
-				{typography.breakpointsControls({ props, initialOpen: true })}
+				{typography.controls({ props, initialOpen: true })}
 				{colors.controls({ props })}
-				{spacing.breakpointsControls({ props })}
+				{spacing.controls({ props })}
+				{htmlAttrs.controls({ props })}
 			</InspectorControls>
 
 			<BlockControls>

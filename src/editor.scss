@@ -1,9 +1,11 @@
 @import "./mixins/helpers";
 
 .editor-styles-wrapper {
-	// Remove 500px default .wp-block max-width
+	// Set to 100% blocks max-width
 	.wp-block {
 		max-width: 100%;
+		margin-left: auto;
+		margin-right: auto;
 	}
 }
 

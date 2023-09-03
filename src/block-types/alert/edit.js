@@ -7,6 +7,7 @@ import {
 import { SelectControl, PanelBody } from "@wordpress/components";
 import { options as optionsVariant } from "./../../helpers/bootstrap-variants";
 import spacing from "./../../helpers/spacing";
+import htmlAttrs from "./../../helpers/html-attrs";
 
 const edit = (props) => {
 	const {
@@ -15,11 +16,9 @@ const edit = (props) => {
 	} = props;
 
 	const blockProps = useBlockProps({
-		className: alertType,
-		style: {
-			...spacing.paddingCssVars(props, "alert"),
-			...spacing.marginCssVars(props, "alert"),
-		},
+		className: `${alertType}${spacing.cssClasses(props)}`,
+		style: spacing.cssVars(props, "alert"),
+		...htmlAttrs.blockProps(props),
 	});
 
 	return (
@@ -37,7 +36,8 @@ const edit = (props) => {
 					/>
 				</PanelBody>
 
-				{spacing.breakpointsControls({ props })}
+				{spacing.controls({ props })}
+				{htmlAttrs.controls({ props })}
 			</InspectorControls>
 
 			<div {...blockProps} role="alert">

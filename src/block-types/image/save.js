@@ -3,6 +3,7 @@ import { useBlockProps, RichText } from "@wordpress/block-editor";
 import spacing from "./../../helpers/spacing";
 import size from "../../helpers/size";
 import blockAlignment from "../../helpers/block-alignment";
+import colors from "../../helpers/colors";
 import typography from "../../helpers/typography";
 import placeholder from "./../../images/placeholder-image.svg";
 
@@ -19,13 +20,14 @@ const save = (props) => {
 	} = props;
 
 	const blockProps = useBlockProps.save({
-		style: spacing.marginCssVars(props, "image"),
+		className: spacing.cssClasses(props).trimStart(),
+		style: spacing.cssVars(props, "image"),
 	});
 
 	return (
 		<figure {...blockProps}>
 			<img
-				className="img-fluid d-block"
+				className={`img-fluid d-block${size.cssClasses(props)}`}
 				style={{
 					...blockAlignment.styles(props),
 					...size.cssVars(props, "image"),
@@ -40,13 +42,15 @@ const save = (props) => {
 						figcaptionTextAlign !== undefined
 							? ` text-${figcaptionTextAlign}`
 							: ""
-					}`}
+					}${typography.cssClasses(props, "figcaption")}${colors.cssClasses(
+						props,
+						"figcaption"
+					)}${spacing.cssClasses(props, "figcaption")}`}
 					style={{
-						...typography.fontFamilyStyles(props, "figcaption"),
-						...typography.fontWeightStyles(props, "figcaption"),
-						...typography.fontSizeCssVars(props, "image", "figcaption"),
-						...typography.lineHeightCssVars(props, "image", "figcaption"),
-						...spacing.marginCssVars(props, "image", "figcaption"),
+						...typography.styles(props, "figcaption"),
+						...typography.cssVars(props, "image", "figcaption"),
+						...colors.cssVars(props, "image", "figcaption"),
+						...spacing.cssVars(props, "image", "figcaption"),
 					}}
 					tagName="figcaption"
 					value={figcaption}

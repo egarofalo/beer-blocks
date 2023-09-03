@@ -16,7 +16,7 @@ import {
 } from "./../../helpers/fa-icons";
 import spacing from "./../../helpers/spacing";
 import typography from "./../../helpers/typography";
-import colors from "../../helpers/colors";
+import colors from "./../../helpers/colors";
 
 const edit = (props) => {
 	const {
@@ -32,21 +32,25 @@ const edit = (props) => {
 	const icons = [...farIconsClasses, ...fasIconsClasses, ...fabIconsClasses];
 
 	const blockProps = useBlockProps({
-		className:
+		className: `${
 			htmlElementType === BLOCK_LEVEL_ELEMENT
 				? `has-text-align-${textAlign}`
-				: "d-inline-block",
-		style: {
-			...typography.fontSizeCssVars(props, "fa-icon"),
-			...typography.lineHeightCssVars(props, "fa-icon"),
-			...colors.colorCssVars(props, "fa-icon"),
-			...spacing.marginCssVars(props, "fa-icon"),
-		},
+				: "d-inline-block"
+		}${spacing.cssClasses(props)}`,
+		style: spacing.cssVars(props, "fa-icon"),
 	});
 
 	const iconElem = (
 		<div {...blockProps}>
-			<i className={icon}></i>
+			<i
+				className={`${icon}${colors.cssClasses(props)}${typography.cssClasses(
+					props
+				)}`}
+				style={{
+					...colors.cssVars(props, "fa-icon"),
+					...typography.cssVars(props, "fa-icon"),
+				}}
+			></i>
 		</div>
 	);
 
@@ -63,9 +67,13 @@ const edit = (props) => {
 				/>
 			</BaseControl>
 
-			{colors.colorControl({ props, label: __("Icon color", "beer-blocks") })}
+			{colors.controls({
+				props,
+				colorControlLabel: __("Icon color", "beer-blocks"),
+				panelBody: false,
+			})}
 
-			{typography.breakpointsControls({
+			{typography.controls({
 				props,
 				panelBody: false,
 				fontSizeControlLabel: (breakpoint) =>
@@ -73,8 +81,6 @@ const edit = (props) => {
 						__("Icon size (%s)", "beer-blocks"),
 						breakpoint.toUpperCase()
 					),
-				includeFontFamilyControl: false,
-				includeFontWeightControl: false,
 			})}
 		</>
 	);
@@ -105,7 +111,7 @@ const edit = (props) => {
 					{iconControls}
 				</PanelBody>
 
-				{spacing.breakpointsControls({ props })}
+				{spacing.controls({ props, paddingSides: false })}
 			</InspectorControls>
 
 			{htmlElementType === BLOCK_LEVEL_ELEMENT && (

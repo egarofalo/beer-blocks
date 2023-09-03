@@ -3,17 +3,6 @@
 @import "./../helpers/colors";
 @import "./../helpers/size";
 
-// Default margins
-$defaultInstructionMargin: (
-	top: 0,
-	bottom: 0,
-);
-
-// Default numeration typography
-$defaultInstructionNumerationTypography: (
-	fontSize: 18px,
-);
-
 // Default numeration width
 $defaultInstructionNumerationWidth: 60px;
 
@@ -23,58 +12,30 @@ $defaultInstructionNumerationHeight: 60px;
 @mixin instruction-block-rules() {
 	.wp-block-beer-blocks-instruction {
 		@include backgroundRule("instruction");
-
-		@include media-breakpoint-down(xs) {
-			@include verticalMarginRules(
-				"instruction",
-				$defaultValues: $defaultInstructionMargin
-			);
-		}
+		@include verticalMarginRules("instruction");
 
 		@include media-breakpoint-up(sm) {
-			@include verticalMarginRules(
-				"instruction",
-				"sm",
-				$defaultValues: $defaultInstructionMargin
-			);
+			@include verticalMarginRules("instruction", "sm");
 		}
 
 		@include media-breakpoint-up(md) {
-			@include verticalMarginRules(
-				"instruction",
-				"md",
-				$defaultValues: $defaultInstructionMargin
-			);
+			@include verticalMarginRules("instruction", "md");
 		}
 
 		@include media-breakpoint-up(lg) {
-			@include verticalMarginRules(
-				"instruction",
-				"lg",
-				$defaultValues: $defaultInstructionMargin
-			);
+			@include verticalMarginRules("instruction", "lg");
 		}
 
 		@include media-breakpoint-up(xl) {
-			@include verticalMarginRules(
-				"instruction",
-				"xl",
-				$defaultValues: $defaultInstructionMargin
-			);
+			@include verticalMarginRules("instruction", "xl");
 		}
 
 		@include media-breakpoint-up(xxl) {
-			@include verticalMarginRules(
-				"instruction",
-				"xxl",
-				$defaultValues: $defaultInstructionMargin
-			);
+			@include verticalMarginRules("instruction", "xxl");
 		}
 
 		.wp-block-beer-blocks-instruction-contents {
-			@include media-breakpoint-down(xs) {
-				@include paddingRules("instruction");
-			}
+			@include paddingRules("instruction");
 
 			@include media-breakpoint-up(sm) {
 				@include paddingRules("instruction", "sm");
@@ -98,137 +59,38 @@ $defaultInstructionNumerationHeight: 60px;
 
 			.wp-block-beer-blocks-instruction-numeration {
 				@include colorsRules("instruction", "numeration");
-
-				@include media-breakpoint-down(xs) {
-					@include typographyRules(
-						"instruction",
-						"xs",
-						"numeration",
-						$defaultInstructionNumerationTypography,
-						false
-					);
-					@include widthRules(
-						"instruction",
-						"xs",
-						"numeration",
-						$defaultInstructionNumerationWidth
-					);
-					@include heightRules(
-						"instruction",
-						"xs",
-						"numeration",
-						$defaultInstructionNumerationHeight
-					);
-				}
+				@include typographyRules("instruction", "xs", "numeration", false);
+				@include widthRules("instruction", "xs", "numeration");
+				@include heightRules("instruction", "xs", "numeration");
 
 				@include media-breakpoint-up(sm) {
-					@include typographyRules(
-						"instruction",
-						"sm",
-						"numeration",
-						$defaultInstructionNumerationTypography,
-						false
-					);
-					@include widthRules(
-						"instruction",
-						"sm",
-						"numeration",
-						$defaultInstructionNumerationWidth
-					);
-					@include heightRules(
-						"instruction",
-						"sm",
-						"numeration",
-						$defaultInstructionNumerationHeight
-					);
+					@include typographyRules("instruction", "sm", "numeration", false);
+					@include widthRules("instruction", "sm", "numeration");
+					@include heightRules("instruction", "sm", "numeration");
 				}
 
 				@include media-breakpoint-up(md) {
-					@include typographyRules(
-						"instruction",
-						"md",
-						"numeration",
-						$defaultInstructionNumerationTypography,
-						false
-					);
-					@include widthRules(
-						"instruction",
-						"md",
-						"numeration",
-						$defaultInstructionNumerationWidth
-					);
-					@include heightRules(
-						"instruction",
-						"md",
-						"numeration",
-						$defaultInstructionNumerationHeight
-					);
+					@include typographyRules("instruction", "md", "numeration", false);
+					@include widthRules("instruction", "md", "numeration");
+					@include heightRules("instruction", "md", "numeration");
 				}
 
 				@include media-breakpoint-up(lg) {
-					@include typographyRules(
-						"instruction",
-						"lg",
-						"numeration",
-						$defaultInstructionNumerationTypography,
-						false
-					);
-					@include widthRules(
-						"instruction",
-						"lg",
-						"numeration",
-						$defaultInstructionNumerationWidth
-					);
-					@include heightRules(
-						"instruction",
-						"lg",
-						"numeration",
-						$defaultInstructionNumerationHeight
-					);
+					@include typographyRules("instruction", "lg", "numeration", false);
+					@include widthRules("instruction", "lg", "numeration");
+					@include heightRules("instruction", "lg", "numeration");
 				}
 
 				@include media-breakpoint-up(xl) {
-					@include typographyRules(
-						"instruction",
-						"xl",
-						"numeration",
-						$defaultInstructionNumerationTypography,
-						false
-					);
-					@include widthRules(
-						"instruction",
-						"xl",
-						"numeration",
-						$defaultInstructionNumerationWidth
-					);
-					@include heightRules(
-						"instruction",
-						"xl",
-						"numeration",
-						$defaultInstructionNumerationHeight
-					);
+					@include typographyRules("instruction", "xl", "numeration", false);
+					@include widthRules("instruction", "xl", "numeration");
+					@include heightRules("instruction", "xl", "numeration");
 				}
 
 				@include media-breakpoint-up(xxl) {
-					@include typographyRules(
-						"instruction",
-						"xxl",
-						"numeration",
-						$defaultInstructionNumerationTypography,
-						false
-					);
-					@include widthRules(
-						"instruction",
-						"xxl",
-						"numeration",
-						$defaultInstructionNumerationWidth
-					);
-					@include heightRules(
-						"instruction",
-						"xxl",
-						"numeration",
-						$defaultInstructionNumerationHeight
-					);
+					@include typographyRules("instruction", "xxl", "numeration", false);
+					@include widthRules("instruction", "xxl", "numeration");
+					@include heightRules("instruction", "xxl", "numeration");
 				}
 			}
 		}

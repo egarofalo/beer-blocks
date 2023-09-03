@@ -5,7 +5,7 @@ import flexbox from "./../../helpers/flexbox";
 import typography from "./../../helpers/typography";
 import border from "./../../helpers/border";
 import colors from "../../helpers/colors";
-import statuses from "./../../helpers/statuses";
+//import statuses from "./../../helpers/statuses";
 
 const save = (props) => {
 	const {
@@ -19,10 +19,8 @@ const save = (props) => {
 	} = props;
 
 	const blockProps = useBlockProps.save({
-		style: {
-			...spacing.marginCssVars(props, "tabs"),
-			...spacing.paddingCssVars(props, "tabs"),
-		},
+		className: spacing.cssClasses(props).trimStart(),
+		style: spacing.cssVars(props, "tabs"),
 	});
 
 	return (
@@ -30,7 +28,7 @@ const save = (props) => {
 			<ul
 				className={`nav nav-pills${
 					fillFreeSpace ? ` ${fillFreeSpace}` : ""
-				} ${flexbox.cssClasses({ props, attrPrefix: "tab" })}`.trimEnd()}
+				} ${flexbox.cssClasses(props, "tab")}`}
 				id={tabsId}
 				role="tablist"
 			>
@@ -44,7 +42,15 @@ const save = (props) => {
 							tagName="a"
 							className={`nav-link${
 								selectedTab === index ? " active" : ""
-							} ${statuses.cssClasses(props, "tab")}`}
+							}${typography.cssClasses(props, "tab")}${spacing.cssClasses(
+								props,
+								"tab"
+							)}${colors.cssClasses(props, "tab")}${
+								/*statuses.cssClasses(props, "tab")
+									? ` ${statuses.cssClasses(props, "tab")}`
+									: ""*/
+								""
+							}`}
 							id={`${tabsId}-tab-${index}`}
 							data-toggle="pill"
 							href={`#${tabsId}-pane-${index}`}
@@ -53,15 +59,12 @@ const save = (props) => {
 							aria-selected={selectedTab === index ? "true" : "false"}
 							value={item}
 							style={{
-								...typography.fontFamilyStyles(props, "tab"),
-								...typography.fontWeightStyles(props, "tab"),
-								...typography.fontSizeCssVars(props, "tabs", "tab"),
-								...typography.lineHeightCssVars(props, "tabs", "tab"),
-								...spacing.paddingCssVars(props, "tabs", "tab"),
-								...spacing.marginCssVars(props, "tabs", "tab"),
+								...typography.styles(props, "tab"),
+								...typography.cssVars(props, "tabs", "tab"),
+								...spacing.cssVars(props, "tabs", "tab"),
 								...colors.cssVars(props, "tabs", "tab"),
 								...border.cssVars(props, "tabs", "tab"),
-								...statuses.cssVars(props, "tabs", "tab"),
+								//...statuses.cssVars(props, "tabs", "tab"),
 							}}
 						/>
 					</li>

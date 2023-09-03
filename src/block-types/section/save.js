@@ -8,10 +8,12 @@ const save = (props) => {
 	} = props;
 
 	const blockProps = useBlockProps.save({
+		className: `${colors.cssClasses(props)}${spacing.cssClasses(
+			props
+		)}`.trimStart(),
 		style: {
-			...colors.backgroundCssVars(props, "section"),
-			...spacing.paddingCssVars(props, "section"),
-			...spacing.marginCssVars(props, "section"),
+			...colors.cssVars(props, "section"),
+			...spacing.cssVars(props, "section"),
 		},
 	});
 

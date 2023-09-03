@@ -12,6 +12,7 @@ import spacing from "./../../helpers/spacing";
 import tags from "./../../helpers/sectioning-tags";
 import grid from "../../helpers/grid";
 import colors from "../../helpers/colors";
+import htmlAttrs from "./../../helpers/html-attrs";
 
 const edit = (props) => {
 	const {
@@ -32,12 +33,14 @@ const edit = (props) => {
 	);
 
 	const blockProps = useBlockProps({
-		className: containerType,
+		className: `${containerType}${colors.cssClasses(props)}${spacing.cssClasses(
+			props
+		)}`,
 		style: {
-			...spacing.paddingCssVars(props, "container"),
-			...spacing.marginCssVars(props, "container"),
+			...spacing.cssVars(props, "container"),
 			...colors.cssVars(props, "container"),
 		},
+		...htmlAttrs.blockProps(props),
 	});
 
 	const innerBlocksPropsConfig = [
@@ -83,7 +86,12 @@ const edit = (props) => {
 				</PanelBody>
 
 				{colors.controls({ props })}
-				{spacing.breakpointsControls({ props })}
+				{spacing.controls({
+					props,
+					paddingSides: ["top", "bottom"],
+					marginSides: ["top", "bottom"],
+				})}
+				{htmlAttrs.controls({ props })}
 			</InspectorControls>
 
 			<TagName {...innerBlocksProps}>

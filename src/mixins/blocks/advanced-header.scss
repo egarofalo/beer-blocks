@@ -4,11 +4,8 @@
 @mixin advanced-header-block-rules() {
 	.wp-block-beer-blocks-advanced-header {
 		@include backgroundRule("advanced-header");
-
-		@include media-breakpoint-down(xs) {
-			@include paddingRules("advanced-header");
-			@include marginRules("advanced-header");
-		}
+		@include paddingRules("advanced-header");
+		@include marginRules("advanced-header");
 
 		@include media-breakpoint-up(sm) {
 			@include paddingRules("advanced-header", "sm");
@@ -48,28 +45,28 @@
 		}
 
 		.editor-styles-wrapper &.wp-block {
-			@include media-breakpoint-down(xs) {
-				@include horizontalMarginRules("advanced-header");
-			}
+			margin-top: revert;
+			margin-bottom: revert;
+			@include verticalMarginRules("advanced-header");
 
 			@include media-breakpoint-up(sm) {
-				@include horizontalMarginRules("advanced-header", "sm");
+				@include verticalMarginRules("advanced-header", "sm");
 			}
 
 			@include media-breakpoint-up(md) {
-				@include horizontalMarginRules("advanced-header", "md");
+				@include verticalMarginRules("advanced-header", "md");
 			}
 
 			@include media-breakpoint-up(lg) {
-				@include horizontalMarginRules("advanced-header", "lg");
+				@include verticalMarginRules("advanced-header", "lg");
 			}
 
 			@include media-breakpoint-up(xl) {
-				@include horizontalMarginRules("advanced-header", "xl");
+				@include verticalMarginRules("advanced-header", "xl");
 			}
 
 			@include media-breakpoint-up(xxl) {
-				@include horizontalMarginRules("advanced-header", "xxl");
+				@include verticalMarginRules("advanced-header", "xxl");
 			}
 		}
 	}

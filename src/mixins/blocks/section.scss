@@ -4,11 +4,8 @@
 @mixin section-block-rules() {
 	.wp-block-beer-blocks-section {
 		@include backgroundRule("section");
-
-		@include media-breakpoint-down(xs) {
-			@include paddingRules("section");
-			@include marginRules("section");
-		}
+		@include paddingRules("section");
+		@include marginRules("section");
 
 		@include media-breakpoint-up(sm) {
 			@include paddingRules("section", "sm");
@@ -48,28 +45,28 @@
 		}
 
 		.editor-styles-wrapper &.wp-block {
-			@include media-breakpoint-down(xs) {
-				@include horizontalMarginRules("section");
-			}
+			margin-top: revert;
+			margin-bottom: revert;
+			@include verticalMarginRules("section");
 
 			@include media-breakpoint-up(sm) {
-				@include horizontalMarginRules("section", "sm");
+				@include verticalMarginRules("section", "sm");
 			}
 
 			@include media-breakpoint-up(md) {
-				@include horizontalMarginRules("section", "md");
+				@include verticalMarginRules("section", "md");
 			}
 
 			@include media-breakpoint-up(lg) {
-				@include horizontalMarginRules("section", "lg");
+				@include verticalMarginRules("section", "lg");
 			}
 
 			@include media-breakpoint-up(xl) {
-				@include horizontalMarginRules("section", "xl");
+				@include verticalMarginRules("section", "xl");
 			}
 
 			@include media-breakpoint-up(xxl) {
-				@include horizontalMarginRules("section", "xxl");
+				@include verticalMarginRules("section", "xxl");
 			}
 		}
 	}

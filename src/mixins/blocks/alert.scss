@@ -1,66 +1,32 @@
 @import "./../helpers/spacing";
 
-// Default padding for Alert block type
-$alertBlockDefaultPadding: (
-	top: $alert-padding-y,
-	right: $alert-padding-x,
-	bottom: $alert-padding-y,
-	left: $alert-padding-x,
-);
-
 @mixin alert-block-rules() {
 	.wp-block-beer-blocks-alert.alert {
-		@include media-breakpoint-down(xs) {
-			@include paddingRules(
-				"alert",
-				"xs",
-				$defaultValues: $alertBlockDefaultPadding
-			);
-			@include marginRules("alert");
-		}
+		@include paddingRules("alert");
+		@include marginRules("alert");
 
 		@include media-breakpoint-up(sm) {
-			@include paddingRules(
-				"alert",
-				"sm",
-				$defaultValues: $alertBlockDefaultPadding
-			);
+			@include paddingRules("alert", "sm");
 			@include marginRules("alert", "sm");
 		}
 
 		@include media-breakpoint-up(md) {
-			@include paddingRules(
-				"alert",
-				"md",
-				$defaultValues: $alertBlockDefaultPadding
-			);
+			@include paddingRules("alert", "md");
 			@include marginRules("alert", "md");
 		}
 
 		@include media-breakpoint-up(lg) {
-			@include paddingRules(
-				"alert",
-				"lg",
-				$defaultValues: $alertBlockDefaultPadding
-			);
+			@include paddingRules("alert", "lg");
 			@include marginRules("alert", "lg");
 		}
 
 		@include media-breakpoint-up(xl) {
-			@include paddingRules(
-				"alert",
-				"xl",
-				$defaultValues: $alertBlockDefaultPadding
-			);
+			@include paddingRules("alert", "xl");
 			@include marginRules("alert", "xl");
 		}
 
 		@include media-breakpoint-up(xxl) {
-			@include paddingRules(
-				"alert",
-				"xxl",
-				$defaultValues: $alertBlockDefaultPadding
-			);
+			@include paddingRules("alert", "xxl");
 			@include marginRules("alert", "xxl");
 		}
 	}
@@ -70,6 +36,31 @@ $alertBlockDefaultPadding: (
 	.wp-block-beer-blocks-alert.alert {
 		&.is-selected {
 			outline: 1px dotted #035cff;
+		}
+
+		.editor-styles-wrapper &.wp-block {
+			margin-top: revert;
+			@include verticalMarginRules("alert");
+
+			@include media-breakpoint-up(sm) {
+				@include verticalMarginRules("alert", "sm");
+			}
+
+			@include media-breakpoint-up(md) {
+				@include verticalMarginRules("alert", "md");
+			}
+
+			@include media-breakpoint-up(lg) {
+				@include verticalMarginRules("alert", "lg");
+			}
+
+			@include media-breakpoint-up(xl) {
+				@include verticalMarginRules("alert", "xl");
+			}
+
+			@include media-breakpoint-up(xxl) {
+				@include verticalMarginRules("alert", "xxl");
+			}
 		}
 	}
 }

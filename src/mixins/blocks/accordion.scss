@@ -2,10 +2,8 @@
 
 @mixin accordion-block-rules() {
 	.wp-block-beer-blocks-accordion {
-		@include media-breakpoint-down(xs) {
-			@include paddingRules("accordion");
-			@include marginRules("accordion");
-		}
+		@include paddingRules("accordion");
+		@include marginRules("accordion");
 
 		@include media-breakpoint-up(sm) {
 			@include paddingRules("accordion", "sm");
@@ -37,7 +35,7 @@
 @mixin accordion-block-editor-rules() {
 	.wp-block-beer-blocks-accordion {
 		&.is-selected {
-			outline: 1px dotted #035cff !important;
+			outline: 1px dotted #035cff;
 
 			& > .button-block-appender__container {
 				display: block;
@@ -45,7 +43,7 @@
 		}
 
 		&.has-child-selected {
-			outline: 1px dotted #ff9f50 !important;
+			outline: 1px dotted #ff9f50;
 
 			& > .button-block-appender__container {
 				display: block;
@@ -59,28 +57,28 @@
 		}
 
 		.editor-styles-wrapper &.wp-block {
-			@include media-breakpoint-down(xs) {
-				@include horizontalMarginRules("accordion");
-			}
+			margin-top: revert;
+			margin-bottom: revert;
+			@include verticalMarginRules("accordion");
 
 			@include media-breakpoint-up(sm) {
-				@include horizontalMarginRules("accordion", "sm");
+				@include verticalMarginRules("accordion", "sm");
 			}
 
 			@include media-breakpoint-up(md) {
-				@include horizontalMarginRules("accordion", "md");
+				@include verticalMarginRules("accordion", "md");
 			}
 
 			@include media-breakpoint-up(lg) {
-				@include horizontalMarginRules("accordion", "lg");
+				@include verticalMarginRules("accordion", "lg");
 			}
 
 			@include media-breakpoint-up(xl) {
-				@include horizontalMarginRules("accordion", "xl");
+				@include verticalMarginRules("accordion", "xl");
 			}
 
 			@include media-breakpoint-up(xxl) {
-				@include horizontalMarginRules("accordion", "xxl");
+				@include verticalMarginRules("accordion", "xxl");
 			}
 		}
 	}

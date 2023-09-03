@@ -4,45 +4,33 @@
 @import "./../../variables";
 @import "./../../functions";
 
-// Default typography rules values
-$defaultTypographyValues: (
-	fontSize: $font-size-base,
-	lineHeight: $line-height-base,
-);
-
 // Line height rules for custom breakpoint
-@mixin lineHeightRules(
-	$blockName,
-	$breakpointName: "",
-	$attrPrefix: "",
-	$defaultValue: map.get($defaultTypographyValues, lineHeight)
-) {
+@mixin lineHeightRules($blockName, $breakpointName: "", $attrPrefix: "") {
 	$lineHeightVarName: --wp-beer-blocks-#{$blockName}-#{camelize(
 			"#{$attrPrefix}-line-height"
 		)};
 
-	@if $breakpointName == "" or $breakpointName == "xs" {
-		line-height: var(#{$lineHeightVarName}, $defaultValue);
-	} @else {
-		line-height: var(#{$lineHeightVarName}-#{$breakpointName}, $defaultValue);
+	@if $breakpointName == "" {
+		$breakpointName: "xs";
+	}
+
+	&.wp-beer-blocks-has-lineHeight-#{$breakpointName}-rule {
+		line-height: var(#{$lineHeightVarName}-#{$breakpointName});
 	}
 }
 
 // Font size rules for custom breakpoints
-@mixin fontSizeRules(
-	$blockName,
-	$breakpointName: "",
-	$attrPrefix: "",
-	$defaultValue: map.get($defaultTypographyValues, fontSize)
-) {
+@mixin fontSizeRules($blockName, $breakpointName: "", $attrPrefix: "") {
 	$fontSizeVarName: --wp-beer-blocks-#{$blockName}-#{camelize(
 			"#{$attrPrefix}-font-size"
 		)};
 
-	@if $breakpointName == "" or $breakpointName == "xs" {
-		font-size: var(#{$fontSizeVarName}, $defaultValue);
-	} @else {
-		font-size: var(#{$fontSizeVarName}-#{$breakpointName}, $defaultValue);
+	@if $breakpointName == "" {
+		$breakpointName: "xs";
+	}
+
+	&.wp-beer-blocks-has-fontSize-#{$breakpointName}-rule {
+		font-size: var(#{$fontSizeVarName}-#{$breakpointName});
 	}
 }
 
@@ -51,95 +39,11 @@ $defaultTypographyValues: (
 	$blockName,
 	$breakpointName: "",
 	$attrPrefix: "",
-	$defaultValues: $defaultTypographyValues,
 	$lineHeightRule: true
 ) {
-	@include fontSizeRules(
-		$blockName,
-		$breakpointName,
-		$attrPrefix,
-		map.get($defaultValues, fontSize)
-	);
+	@include fontSizeRules($blockName, $breakpointName, $attrPrefix);
 
 	@if $lineHeightRule {
-		@include lineHeightRules(
-			$blockName,
-			$breakpointName,
-			$attrPrefix,
-			map.get($defaultValues, lineHeight)
-		);
-	}
-}
-
-// Get headings typography rules for custom breakpoint
-@mixin headersTypographyRules(
-	$blockName,
-	$breakpointName: "",
-	$attrPrefix: "",
-	$defaultValues: $headersDefaultTypographyValues,
-	$prefixRule: ""
-) {
-	$fontSizeVarName: --wp-beer-blocks-#{$blockName}-#{camelize(
-			"#{$attrPrefix}-font-size"
-		)};
-	$lineHeightVarName: --wp-beer-blocks-#{$blockName}-#{camelize(
-			"#{$attrPrefix}-line-height"
-		)};
-
-	@each $header, $typographyValues in $defaultValues {
-		#{$prefixRule}#{$header}.wp-block-beer-blocks-#{$blockName} {
-			@if $breakpointName == "" or $breakpointName == "xs" {
-				font-size: var(
-					#{$fontSizeVarName},
-					map.get($typographyValues, fontSize)
-				);
-				line-height: var(
-					#{$lineHeightVarName},
-					map.get($typographyValues, lineHeight)
-				);
-			} @else {
-				font-size: var(
-					#{$fontSizeVarName}-#{$breakpointName},
-					map.get($typographyValues, fontSize)
-				);
-				line-height: var(
-					#{$lineHeightVarName}-#{$breakpointName},
-					map.get($typographyValues, lineHeight)
-				);
-			}
-		}
-	}
-}
-
-// Get headings typography rules for all breakpoints
-@mixin headersTypographyRulesAllBreakpoints(
-	$blockName,
-	$attrPrefix: "",
-	$defaultValues: $headersDefaultTypographyValues,
-	$breakpoints: $grid-breakpoints,
-	$prefixRule: ""
-) {
-	@each $breakpointName, $breakpoint in $breakpoints {
-		@if $breakpointName == "xs" {
-			@include media-breakpoint-down(xs) {
-				@include headersTypographyRules(
-					$blockName,
-					$breakpointName,
-					$attrPrefix,
-					$defaultValues,
-					$prefixRule
-				);
-			}
-		} @else {
-			@include media-breakpoint-up($breakpointName) {
-				@include headersTypographyRules(
-					$blockName,
-					$breakpointName,
-					$attrPrefix,
-					$defaultValues,
-					$prefixRule
-				);
-			}
-		}
+		@include lineHeightRules($blockName, $breakpointName, $attrPrefix);
 	}
 }

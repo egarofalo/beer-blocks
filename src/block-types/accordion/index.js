@@ -31,6 +31,7 @@ import "./editor.scss";
 import edit from "./edit";
 import save from "./save";
 import spacing from "../../helpers/spacing";
+import htmlAttrs from "../../helpers/html-attrs";
 
 /**
  * Block Icon.
@@ -57,7 +58,8 @@ registerBlockType("beer-blocks/accordion", {
 		id: {
 			type: "string",
 		},
-		...spacing.attributes({ breakpoints: true }),
+		...spacing.attributes(),
+		...htmlAttrs.attributes(),
 	},
 	providesContext: {
 		accordionId: "id",

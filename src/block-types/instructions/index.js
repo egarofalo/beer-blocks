@@ -68,7 +68,6 @@ registerBlockType("beer-blocks/instructions", {
 		...flexbox.attributes({ flexDirectionAttr: false }),
 		...colors.attributes({ colorAttr: false }),
 		...spacing.attributes({
-			breakpoints: true,
 			paddingSides: false,
 			marginSides: ["top", "bottom"],
 		}),

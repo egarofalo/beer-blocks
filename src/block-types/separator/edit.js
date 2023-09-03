@@ -27,6 +27,9 @@ const edit = (props) => {
 	} = props;
 
 	const blockProps = useBlockProps({
+		className: `${size.cssClasses(props)}${spacing.marginCssClasses(
+			props
+		)}`.trimStart(),
 		style: {
 			...size.cssVars(props, "separator"),
 			...spacing.marginCssVars(props, "separator"),
@@ -42,7 +45,6 @@ const edit = (props) => {
 				<PanelBody title={__("Line settings", "beer-blocks")}>
 					{size.controls({
 						props,
-						breakpoints: true,
 						minHeight: 1,
 						maxHeight: 50,
 						panelBody: false,
@@ -87,8 +89,6 @@ const edit = (props) => {
 				<PanelBody title={__("Triangle", "beer-blocks")}>
 					{size.controls({
 						props,
-						breakpoints: true,
-						breakpointsBehaviorAttrPrefix: "triangleWidth",
 						attrPrefix: "triangle",
 						widthType: "number",
 						maxWidth: 500,
@@ -139,14 +139,21 @@ const edit = (props) => {
 					})}
 				</PanelBody>
 
-				{spacing.breakpointsControls({ props })}
+				{spacing.controls({
+					props,
+					paddingSides: false,
+					marginSides: ["top", "bottom"],
+				})}
 			</InspectorControls>
 
 			<BlockControls>{blockAlignment.toolbar({ props })}</BlockControls>
 
 			<div {...blockProps}>
 				<div
-					className={`wp-beer-blocks-separator-triangle wp-beer-blocks-separator-triangle-${triangleDirection}`}
+					className={`wp-beer-blocks-separator-triangle wp-beer-blocks-separator-triangle-${triangleDirection}${size.cssClasses(
+						props,
+						"triangle"
+					)}${size.heightCssClasses(props)}`}
 					style={{
 						background: triangleBackground,
 						...size.cssVars(props, "separator", "triangle"),

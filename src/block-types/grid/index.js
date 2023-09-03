@@ -56,7 +56,7 @@ registerBlockType("beer-blocks/grid", {
 	icon: <img src={icon} alt={_x("Grid", "block title", "beer-blocks")} />,
 	attributes: {
 		...colors.attributes({ colorAttr: false }),
-		...spacing.attributes({ breakpoints: true }),
+		...spacing.attributes(),
 	},
 	edit,
 	save,

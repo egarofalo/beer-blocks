@@ -20,7 +20,7 @@ import flexbox from "./../../helpers/flexbox";
 import typography from "./../../helpers/typography";
 import border from "./../../helpers/border";
 import colors from "../../helpers/colors";
-import statuses from "./../../helpers/statuses";
+//import statuses from "./../../helpers/statuses";
 
 const edit = (props) => {
 	const {
@@ -78,10 +78,8 @@ const edit = (props) => {
 	}, [selectedTab]);
 
 	const blockProps = useBlockProps({
-		style: {
-			...spacing.marginCssVars(props, "tabs"),
-			...spacing.paddingCssVars(props, "tabs"),
-		},
+		className: spacing.cssClasses(props).trimStart(),
+		style: spacing.cssVars(props, "tabs"),
 	});
 
 	const innerBlocksPropsConfig = [
@@ -168,10 +166,9 @@ const edit = (props) => {
 					title: __("Tabs colors", "beer-blocks"),
 				})}
 
-				{typography.breakpointsControls({
+				{typography.controls({
 					props,
 					attrPrefix: "tab",
-					breakpoints: true,
 					title: __("Tabs typography", "beer-blocks"),
 				})}
 
@@ -181,7 +178,7 @@ const edit = (props) => {
 					title: __("Tabs borders", "beer-blocks"),
 				})}
 
-				{statuses.controls({
+				{/*statuses.controls({
 					props,
 					attrPrefix: "tab",
 					title: (
@@ -190,22 +187,22 @@ const edit = (props) => {
 							{__("Tabs statuses", "beer-blocks")}
 						</>
 					),
-				})}
+				})*/}
 
-				{spacing.breakpointsControls({
+				{spacing.controls({
 					props,
 					attrPrefix: "tab",
 					title: __("Tabs spacing", "beer-blocks"),
 				})}
 
-				{spacing.breakpointsControls({ props })}
+				{spacing.controls({ props })}
 			</InspectorControls>
 
 			<div {...blockProps}>
 				<ul
 					className={`nav nav-pills${
 						fillFreeSpace ? ` ${fillFreeSpace}` : ""
-					} ${flexbox.cssClasses({ props, attrPrefix: "tab" })}`.trimEnd()}
+					}${flexbox.cssClasses(props, "tab")}`}
 					id={tabsId}
 					role="tablist"
 				>
@@ -219,7 +216,15 @@ const edit = (props) => {
 								tagName="a"
 								className={`nav-link${
 									selectedTab === index ? " active" : ""
-								} ${statuses.cssClasses(props, "tab")}`}
+								}${typography.cssClasses(props, "tab")}${spacing.cssClasses(
+									props,
+									"tab"
+								)}${colors.cssClasses(props, "tab")}${
+									/*statuses.cssClasses(props, "tab")
+										? ` ${statuses.cssClasses(props, "tab")}`
+										: ""*/
+									""
+								}`}
 								id={`${tabsId}-tab-${index}`}
 								data-toggle="pill"
 								href={`#${tabsId}-pane-${index}`}
@@ -238,15 +243,12 @@ const edit = (props) => {
 									})
 								}
 								style={{
-									...typography.fontFamilyStyles(props, "tab"),
-									...typography.fontWeightStyles(props, "tab"),
-									...typography.fontSizeCssVars(props, "tabs", "tab"),
-									...typography.lineHeightCssVars(props, "tabs", "tab"),
-									...spacing.paddingCssVars(props, "tabs", "tab"),
-									...spacing.marginCssVars(props, "tabs", "tab"),
+									...typography.styles(props, "tab"),
+									...typography.cssVars(props, "tabs", "tab"),
+									...spacing.cssVars(props, "tabs", "tab"),
 									...colors.cssVars(props, "tabs", "tab"),
 									...border.cssVars(props, "tabs", "tab"),
-									...statuses.cssVars(props, "tabs", "tab"),
+									//...statuses.cssVars(props, "tabs", "tab"),
 								}}
 							/>
 						</li>

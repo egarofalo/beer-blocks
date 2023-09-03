@@ -30,13 +30,13 @@ import "./editor.scss";
  */
 import edit from "./edit";
 import save from "./save";
+import colors from "./../../helpers/colors";
 import spacing from "./../../helpers/spacing";
 
 /**
  * Block Icon.
  */
 import icon from "../../icons/info-box.svg";
-import colors from "../../helpers/colors";
 
 /**
  * Every block starts by registering a new block type definition.
@@ -72,7 +72,7 @@ registerBlockType("beer-blocks/info-box", {
 			default: false,
 		},
 		...colors.attributes({ colorAttr: false }),
-		...spacing.attributes({ breakpoints: true }),
+		...spacing.attributes(),
 	},
 	edit,
 	save,

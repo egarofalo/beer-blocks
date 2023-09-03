@@ -72,7 +72,7 @@ registerBlockType("beer-blocks/tab-pane", {
 		},
 		...colors.attributes({ colorAttr: false }),
 		...border.attributes({ borderRadius: true }),
-		...spacing.attributes({ breakpoints: true }),
+		...spacing.attributes(),
 	},
 	usesContext: ["tabsId", "selectedTab"],
 	edit,

@@ -1,6 +1,9 @@
 @import "./vendor/bootstrap/custom-variables";
 @import "./vendor/bootstrap/bootstrap-variables";
 
+// Default blocks vertical margin
+$defaultBlocksVerticalMargin: 20px;
+
 // Default headers typography rules values
 $headersDefaultTypographyValues: (
 	h1: (

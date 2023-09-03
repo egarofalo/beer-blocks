@@ -59,7 +59,6 @@ registerBlockType("beer-blocks/separator", {
 	),
 	attributes: {
 		...size.attributes({
-			breakpoints: true,
 			heightType: "number",
 			autoHeightAttr: false,
 		}),
@@ -72,8 +71,6 @@ registerBlockType("beer-blocks/separator", {
 		...blockAlignment.attribute(),
 		...size.attributes({
 			attrPrefix: "triangle",
-			breakpointsBehaviorAttrPrefix: "triangleWidth",
-			breakpoints: true,
 			widthType: "number",
 			heightAttr: false,
 			autoHeightAttr: false,
@@ -88,7 +85,6 @@ registerBlockType("beer-blocks/separator", {
 		...spacing.attributes({
 			paddingSides: false,
 			marginSides: ["top", "bottom"],
-			breakpoints: true,
 		}),
 	},
 	edit,

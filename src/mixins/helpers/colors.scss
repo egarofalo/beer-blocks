@@ -1,49 +1,28 @@
 @use "sass:map";
 
-// Plugin custom variables and functions
-@import "./../../variables";
+// Plugin custom functions
 @import "./../../functions";
 
-// Default colors
-$colorsHelperDefaults: (
-	color: $body-color,
-	background: transparent,
-);
-
 // Get background rule
-@mixin backgroundRule(
-	$blockName,
-	$attrPrefix: "",
-	$defaultValue: map.get($colorsHelperDefaults, background)
-) {
-	background: var(
-		--wp-beer-blocks-#{$blockName}-#{camelize(#{$attrPrefix}-background)},
-		$defaultValue
-	);
+@mixin backgroundRule($blockName, $attrPrefix: "") {
+	&.wp-beer-blocks-has-background-rule {
+		background: var(
+			--wp-beer-blocks-#{$blockName}-#{camelize(#{$attrPrefix}-background)}
+		);
+	}
 }
 
 // Get color rule
-@mixin colorRule(
-	$blockName,
-	$attrPrefix: "",
-	$defaultValue: map.get($colorsHelperDefaults, color)
-) {
-	color: var(
-		--wp-beer-blocks-#{$blockName}-#{camelize(#{$attrPrefix}-color)},
-		$defaultValue
-	);
+@mixin colorRule($blockName, $attrPrefix: "") {
+	&.wp-beer-blocks-has-color-rule {
+		color: var(
+			--wp-beer-blocks-#{$blockName}-#{camelize(#{$attrPrefix}-color)}
+		);
+	}
 }
 
 // Get color and background rules
-@mixin colorsRules(
-	$blockName,
-	$attrPrefix: "",
-	$defaultColors: $colorsHelperDefaults
-) {
-	@include backgroundRule(
-		$blockName,
-		$attrPrefix,
-		map.get($defaultColors, background)
-	);
-	@include colorRule($blockName, $attrPrefix, map.get($defaultColors, color));
+@mixin colorsRules($blockName, $attrPrefix: "") {
+	@include backgroundRule($blockName, $attrPrefix);
+	@include colorRule($blockName, $attrPrefix);
 }

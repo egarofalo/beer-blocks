@@ -9,6 +9,9 @@ const save = (props) => {
 	} = props;
 
 	const blockProps = useBlockProps.save({
+		className: `${size.cssClasses(props)}${spacing.marginCssClasses(
+			props
+		)}`.trimStart(),
 		style: {
 			...size.cssVars(props, "separator"),
 			...spacing.marginCssVars(props, "separator"),
@@ -21,7 +24,10 @@ const save = (props) => {
 	return (
 		<div {...blockProps}>
 			<div
-				className={`wp-beer-blocks-separator-triangle wp-beer-blocks-separator-triangle-${triangleDirection}`}
+				className={`wp-beer-blocks-separator-triangle wp-beer-blocks-separator-triangle-${triangleDirection}${size.cssClasses(
+					props,
+					"triangle"
+				)}${size.heightCssClasses(props)}`}
 				style={{
 					background: triangleBackground,
 					...size.cssVars(props, "separator", "triangle"),

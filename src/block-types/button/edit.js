@@ -22,8 +22,9 @@ import { options as optionsVariant } from "./../../helpers/bootstrap-variants";
 import typography from "./../../helpers/typography";
 import border from "./../../helpers/border";
 import spacing from "./../../helpers/spacing";
-import statuses from "./../../helpers/statuses";
+//import statuses from "./../../helpers/statuses";
 import colors from "./../../helpers/colors";
+import htmlAttrs from "./../../helpers/html-attrs";
 
 const linkControl = (
 	isURLPickerOpen,
@@ -73,46 +74,50 @@ const edit = (props) => {
 	} = props;
 
 	const [isURLPickerOpen, setIsURLPickerOpen] = useState(false);
-
-	const blockStyle = {
-		...spacing.marginCssVars(props, "button"),
-		...(!blockLevel ? { textAlign: align } : {}),
-	};
+	const blockStyle = spacing.marginCssVars(props, "button");
+	const blockClassName = `${
+		!blockLevel && align ? `text-${align}` : ""
+	}${spacing.marginCssClasses(props)}`.trimStart();
 
 	const btnStyle = {
 		...spacing.paddingCssVars(props, "button"),
-		...(!blockLevel
-			? { display: "inline-block" }
-			: { display: "block", textAlign: "center" }),
 		...(!variant
 			? {
-					...typography.fontSizeCssVars(props, "button"),
-					...typography.lineHeightCssVars(props, "button"),
 					...colors.cssVars(props, "button"),
 					...border.cssVars(props, "button"),
-					...statuses.cssVars(props, "button"),
-					...typography.fontFamilyStyles(props),
-					...typography.fontWeightStyles(props),
+					//...statuses.cssVars(props, "button"),
+					...typography.cssVars(props, "button"),
+					...typography.styles(props),
 			  }
 			: {}),
 	};
 
-	const className = variant
-		? `btn btn-${outline ? "outline-" : ""}${variant}${size ? ` ${size}` : ""}${
-				blockLevel ? " btn-block" : ""
-		  }`
-		: `wp-beer-blocks-btn-custom-styles ${statuses.cssClasses(
-				props
-		  )}`.trimEnd();
+	const btnDisplayClass = blockLevel
+		? `text-center ${variant ? "btn-block" : "d-block"}`
+		: "d-inline-block";
 
-	const blockProps = useBlockProps({ style: blockStyle });
+	const btnClassName = `${
+		variant
+			? `btn btn-${outline ? "outline-" : ""}${variant}${
+					size ? ` ${size}` : ""
+			  } ${btnDisplayClass}`
+			: `wp-beer-blocks-btn-custom-styles ${btnDisplayClass}${colors.cssClasses(
+					props
+			  )}${typography.cssClasses(props)}${/*statuses.cssClasses(props)*/ ""}`
+	}${spacing.paddingCssClasses(props)}`;
+
+	const blockProps = useBlockProps({
+		className: blockClassName,
+		style: blockStyle,
+		...htmlAttrs.blockProps(props),
+	});
 
 	let customStylesControls = (
 		<>
-			{typography.breakpointsControls({ props })}
+			{typography.controls({ props })}
 			{colors.controls({ props })}
 			{border.controls({ props })}
-			{statuses.controls({ props })}
+			{/*statuses.controls({ props })*/}
 		</>
 	);
 
@@ -136,7 +141,6 @@ const edit = (props) => {
 								...optionsVariant,
 							]}
 							onChange={(value) => setAttributes({ variant: value })}
-							style={{ paddingBottom: 0, marginBottom: 0 }}
 							help={__(
 								"If you choose 'Custom styles' you can change button typography, font color, background, borders and spacing.",
 								"beer-blocks"
@@ -191,8 +195,9 @@ const edit = (props) => {
 					</>
 				</PanelBody>
 
-				{spacing.breakpointsControls({ props })}
 				{customStylesControls}
+				{spacing.controls({ props })}
+				{htmlAttrs.controls({ props })}
 			</InspectorControls>
 
 			<BlockControls>
@@ -223,7 +228,7 @@ const edit = (props) => {
 
 			<div {...blockProps}>
 				<RichText
-					className={className}
+					className={btnClassName}
 					style={btnStyle}
 					tagName="a"
 					href={url}

@@ -5,10 +5,7 @@
 @mixin instructions-block-rules() {
 	.wp-block-beer-blocks-instructions {
 		@include backgroundRule("instructions");
-
-		@include media-breakpoint-down(xs) {
-			@include verticalMarginRules("instructions");
-		}
+		@include verticalMarginRules("instructions");
 
 		@include media-breakpoint-up(sm) {
 			@include verticalMarginRules("instructions", "sm");
@@ -54,6 +51,32 @@
 			display: none;
 			margin-top: 8px;
 			margin-bottom: 8px;
+		}
+
+		.editor-styles-wrapper &.wp-block {
+			margin-top: revert;
+			margin-bottom: revert;
+			@include verticalMarginRules("instructions");
+
+			@include media-breakpoint-up(sm) {
+				@include verticalMarginRules("instructions", "sm");
+			}
+
+			@include media-breakpoint-up(md) {
+				@include verticalMarginRules("instructions", "md");
+			}
+
+			@include media-breakpoint-up(lg) {
+				@include verticalMarginRules("instructions", "lg");
+			}
+
+			@include media-breakpoint-up(xl) {
+				@include verticalMarginRules("instructions", "xl");
+			}
+
+			@include media-breakpoint-up(xxl) {
+				@include verticalMarginRules("instructions", "xxl");
+			}
 		}
 	}
 }

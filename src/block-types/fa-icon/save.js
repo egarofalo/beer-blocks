@@ -10,21 +10,25 @@ const save = (props) => {
 	} = props;
 
 	const blockProps = useBlockProps.save({
-		className:
+		className: `${
 			htmlElementType === BLOCK_LEVEL_ELEMENT
 				? `has-text-align-${textAlign}`
-				: "d-inline-block",
-		style: {
-			...typography.fontSizeCssVars(props, "fa-icon"),
-			...typography.lineHeightCssVars(props, "fa-icon"),
-			...colors.colorCssVars(props, "fa-icon"),
-			...spacing.marginCssVars(props, "fa-icon"),
-		},
+				: "d-inline-block"
+		}${spacing.cssClasses(props)}`,
+		style: spacing.cssVars(props, "fa-icon"),
 	});
 
 	const iconElem = (
 		<div {...blockProps}>
-			<i className={icon}></i>
+			<i
+				className={`${icon}${colors.cssClasses(props)}${typography.cssClasses(
+					props
+				)}`}
+				style={{
+					...colors.cssVars(props, "fa-icon"),
+					...typography.cssVars(props, "fa-icon"),
+				}}
+			></i>
 		</div>
 	);
 

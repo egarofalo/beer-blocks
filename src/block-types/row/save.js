@@ -3,7 +3,7 @@ import flexbox from "../../helpers/flexbox";
 
 const save = (props) => {
 	const blockProps = useBlockProps.save({
-		className: `row ${flexbox.cssClasses({ props })}`.trimEnd(),
+		className: `row${flexbox.cssClasses(props)}`,
 	});
 
 	return (

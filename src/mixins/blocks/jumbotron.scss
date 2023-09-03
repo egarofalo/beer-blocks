@@ -1,84 +1,37 @@
 @import "./../helpers/colors";
 @import "./../helpers/spacing";
 
-// Default background
-$jumbotronBlockDefaultBackground: $jumbotron-bg;
-
-// Default padding for Jumbotron block type
-$jumbotronBlockDefaultPadding: (
-	top: $jumbotron-padding * 2,
-	right: $jumbotron-padding,
-	bottom: $jumbotron-padding * 2,
-	left: $jumbotron-padding,
-);
-
-// Jumbotron default padding for xs resolutions
-$jumbotronBlockDefaultPaddingXs: (
-	top: $jumbotron-padding * 0.5,
-	right: $jumbotron-padding,
-	bottom: $jumbotron-padding * 0.5,
-	left: $jumbotron-padding,
-);
-
 @mixin jumbotron-block-rules() {
 	.wp-block-beer-blocks-jumbotron {
 		&.jumbotron {
-			@include backgroundRule(
-				"jumbotron",
-				$defaultValue: $jumbotronBlockDefaultBackground
-			);
+			@include backgroundRule("jumbotron");
 		}
 
-		@include media-breakpoint-down(xs) {
-			@include paddingRules(
-				"jumbotron",
-				$defaultValues: $jumbotronBlockDefaultPaddingXs
-			);
-			@include marginRules("jumbotron");
-		}
+		@include paddingRules("jumbotron");
+		@include marginRules("jumbotron");
 
 		@include media-breakpoint-up(sm) {
-			@include paddingRules(
-				"jumbotron",
-				"sm",
-				$defaultValues: $jumbotronBlockDefaultPadding
-			);
+			@include paddingRules("jumbotron", "sm");
 			@include marginRules("jumbotron", "sm");
 		}
 
 		@include media-breakpoint-up(md) {
-			@include paddingRules(
-				"jumbotron",
-				"md",
-				$defaultValues: $jumbotronBlockDefaultPadding
-			);
+			@include paddingRules("jumbotron", "md");
 			@include marginRules("jumbotron", "md");
 		}
 
 		@include media-breakpoint-up(lg) {
-			@include paddingRules(
-				"jumbotron",
-				"lg",
-				$defaultValues: $jumbotronBlockDefaultPadding
-			);
+			@include paddingRules("jumbotron", "lg");
 			@include marginRules("jumbotron", "lg");
 		}
 
 		@include media-breakpoint-up(xl) {
-			@include paddingRules(
-				"jumbotron",
-				"xl",
-				$defaultValues: $jumbotronBlockDefaultPadding
-			);
+			@include paddingRules("jumbotron", "xl");
 			@include marginRules("jumbotron", "xl");
 		}
 
 		@include media-breakpoint-up(xxl) {
-			@include paddingRules(
-				"jumbotron",
-				"xxl",
-				$defaultValues: $jumbotronBlockDefaultPadding
-			);
+			@include paddingRules("jumbotron", "xxl");
 			@include marginRules("jumbotron", "xxl");
 		}
 	}
@@ -91,7 +44,28 @@ $jumbotronBlockDefaultPaddingXs: (
 		}
 
 		.editor-styles-wrapper &.wp-block {
-			@include backgroundRule("jumbotron");
+			margin-top: revert;
+			@include verticalMarginRules("jumbotron");
+
+			@include media-breakpoint-up(sm) {
+				@include verticalMarginRules("jumbotron", "sm");
+			}
+
+			@include media-breakpoint-up(md) {
+				@include verticalMarginRules("jumbotron", "md");
+			}
+
+			@include media-breakpoint-up(lg) {
+				@include verticalMarginRules("jumbotron", "lg");
+			}
+
+			@include media-breakpoint-up(xl) {
+				@include verticalMarginRules("jumbotron", "xl");
+			}
+
+			@include media-breakpoint-up(xxl) {
+				@include verticalMarginRules("jumbotron", "xxl");
+			}
 		}
 	}
 }

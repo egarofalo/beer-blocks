@@ -10,62 +10,37 @@ import {
 import { variantsColorPallet as variants } from "./bootstrap-variants";
 import { camelCase, has } from "lodash";
 
-// default attributes values
-const DEFAULTS = {
-	color: undefined,
-	background: undefined,
-};
-
 // returns attribute name
-export const attrName = (attr, attrPrefix = "") =>
-	camelCase(`${attrPrefix}-${attr}`);
+const attrName = (attr, attrPrefix = "") => camelCase(`${attrPrefix}-${attr}`);
 
 // returns block's color attribute
-export const colorAttribute = ({
-	attrPrefix = "",
-	defaultValue = DEFAULTS.color,
-} = {}) => ({
+const colorAttribute = (attrPrefix = "") => ({
 	[attrName("color", attrPrefix)]: {
 		type: "string",
-		default: defaultValue,
+		default: undefined,
 	},
 });
 
 // returns block's background color attribute
-export const backgroundAttribute = ({
-	attrPrefix = "",
-	defaultValue = DEFAULTS.background,
-} = {}) => ({
+const backgroundAttribute = (attrPrefix = "") => ({
 	[attrName("background", attrPrefix)]: {
 		type: "string",
-		default: defaultValue,
+		default: undefined,
 	},
 });
 
 // returns block's color and background attributes
 export const attributes = ({
 	attrPrefix = "",
-	defaultColor = DEFAULTS.color,
-	defaultBackground = DEFAULTS.background,
 	colorAttr = true,
 	backgroundAttr = true,
 } = {}) => ({
-	...(colorAttr
-		? colorAttribute({
-				attrPrefix,
-				defaultValue: defaultColor,
-		  })
-		: {}),
-	...(backgroundAttr
-		? backgroundAttribute({
-				attrPrefix,
-				defaultValue: defaultBackground,
-		  })
-		: {}),
+	...(colorAttr ? colorAttribute(attrPrefix) : {}),
+	...(backgroundAttr ? backgroundAttribute(attrPrefix) : {}),
 });
 
 // returns color attribute's controls
-export const colorControl = ({
+const colorControl = ({
 	props,
 	attrPrefix = "",
 	label = __("Font color", "beer-blocks"),
@@ -90,7 +65,7 @@ export const colorControl = ({
 };
 
 // returns background attribute's controls
-export const backgroundControl = ({
+const backgroundControl = ({
 	props,
 	attrPrefix = "",
 	label = __("Background", "beer-blocks"),
@@ -179,7 +154,7 @@ export const controls = ({
 };
 
 // returns css vars for color attribute
-export const colorCssVars = (props, blockName, attrPrefix = "") => {
+const colorCssVars = (props, blockName, attrPrefix = "") => {
 	const attr = attrName("color", attrPrefix);
 
 	const {
@@ -194,7 +169,7 @@ export const colorCssVars = (props, blockName, attrPrefix = "") => {
 };
 
 // returns css vars for background attribute
-export const backgroundCssVars = (props, blockName, attrPrefix = "") => {
+const backgroundCssVars = (props, blockName, attrPrefix = "") => {
 	const attr = attrName("background", attrPrefix);
 
 	const {
@@ -214,15 +189,53 @@ export const cssVars = (props, blockName, attrPrefix = "") => ({
 	...backgroundCssVars(props, blockName, attrPrefix),
 });
 
+// returns css classes that enable color rule
+const colorCssClass = (props, attrPrefix = "", addWhitespaceBefore = true) => {
+	const attr = attrName("color", attrPrefix);
+
+	const {
+		attributes: { [attr]: color = undefined },
+	} = props;
+
+	return color
+		? `${addWhitespaceBefore ? " " : ""}wp-beer-blocks-has-color-rule`
+		: "";
+};
+
+// returns css classes that enable backround rule
+const backgroundCssClass = (
+	props,
+	attrPrefix = "",
+	addWhitespaceBefore = true
+) => {
+	const attr = attrName("background", attrPrefix);
+
+	const {
+		attributes: { [attr]: background = undefined },
+	} = props;
+
+	return background
+		? `${addWhitespaceBefore ? " " : ""}wp-beer-blocks-has-background-rule`
+		: "";
+};
+
+// returns css classes that enable the rules used in this helper
+export const cssClasses = (
+	props,
+	attrPrefix = "",
+	addWhitespaceBefore = true
+) => {
+	let classes = `${colorCssClass(props, attrPrefix)}${backgroundCssClass(
+		props,
+		attrPrefix
+	)}`.trimStart();
+
+	return `${addWhitespaceBefore ? " " : ""}${classes}`.trimEnd();
+};
+
 export default {
-	attrName,
-	colorAttribute,
-	backgroundAttribute,
 	attributes,
-	colorControl,
-	backgroundControl,
 	controls,
-	colorCssVars,
-	backgroundCssVars,
 	cssVars,
+	cssClasses,
 };

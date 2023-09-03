@@ -1,18 +1,10 @@
 @import "./../../variables.scss";
 @import "./../helpers/spacing";
 @import "./../helpers/typography";
-@import "./../helpers/colors";
 @import "./../helpers/statuses";
 @import "./../helpers/border";
-
-// Default padding styles
-$defaultButtonPadding: (
-	top: $btn-padding-y,
-	right: $btn-padding-x,
-	bottom: $btn-padding-y,
-	left: $btn-padding-x,
-);
-
+@import "./../helpers/colors";
+/*
 // Default border styles
 $defaultButtonBorder: (
 	style: solid,
@@ -33,21 +25,13 @@ $defaultButtonStatusesBorder: (
 	color: $gray-900,
 	width: 2px,
 );
-
-// Default typography styles
-$defaultButtonTypography: (
-	fontSize: $input-btn-font-size,
-	lineHeight: $input-btn-line-height,
-);
-
+*/
 // Button cursor
 $defaultButtonCursor: if($enable-pointer-cursor-for-buttons, pointer, auto);
 
 @mixin button-block-rules() {
 	.wp-block-beer-blocks-button {
-		@include media-breakpoint-down(xs) {
-			@include marginRules("button");
-		}
+		@include marginRules("button");
 
 		@include media-breakpoint-up(sm) {
 			@include marginRules("button", "sm");
@@ -71,59 +55,32 @@ $defaultButtonCursor: if($enable-pointer-cursor-for-buttons, pointer, auto);
 
 		& > a {
 			text-decoration: none;
-
-			@include media-breakpoint-down(xs) {
-				@include paddingRules("button", $defaultValues: $defaultButtonPadding);
-			}
+			@include paddingRules("button");
 
 			@include media-breakpoint-up(sm) {
-				@include paddingRules(
-					"button",
-					"sm",
-					$defaultValues: $defaultButtonPadding
-				);
+				@include paddingRules("button", "sm");
 			}
 
 			@include media-breakpoint-up(md) {
-				@include paddingRules(
-					"button",
-					"md",
-					$defaultValues: $defaultButtonPadding
-				);
+				@include paddingRules("button", "md");
 			}
 
 			@include media-breakpoint-up(lg) {
-				@include paddingRules(
-					"button",
-					"lg",
-					$defaultValues: $defaultButtonPadding
-				);
+				@include paddingRules("button", "lg");
 			}
 
 			@include media-breakpoint-up(xl) {
-				@include paddingRules(
-					"button",
-					"xl",
-					$defaultValues: $defaultButtonPadding
-				);
+				@include paddingRules("button", "xl");
 			}
 
 			@include media-breakpoint-up(xxl) {
-				@include paddingRules(
-					"button",
-					"xxl",
-					$defaultValues: $defaultButtonPadding
-				);
+				@include paddingRules("button", "xxl");
 			}
 
 			&.wp-beer-blocks-btn-custom-styles {
 				@include colorsRules("button");
-				@include borderRules(
-					"button",
-					$borderDefaults: $defaultButtonBorder,
-					$borderRadius: true,
-					$borderRadiusDefaults: $defaultButtonBorderRadius
-				);
+				@include borderRules("button", $borderRadius: true);
+				/*
 				@include statusesRules(
 					"button",
 					$hoverColor: true,
@@ -140,53 +97,27 @@ $defaultButtonCursor: if($enable-pointer-cursor-for-buttons, pointer, auto);
 					$focusBorderDefault: $defaultButtonStatusesBorder,
 					$transition: true
 				);
-
-				@include media-breakpoint-down(xs) {
-					@include typographyRules(
-						"button",
-						"xs",
-						$defaultValues: $defaultButtonTypography
-					);
-				}
+				*/
+				@include typographyRules("button");
 
 				@include media-breakpoint-up(sm) {
-					@include typographyRules(
-						"button",
-						"sm",
-						$defaultValues: $defaultButtonTypography
-					);
+					@include typographyRules("button", "sm");
 				}
 
 				@include media-breakpoint-up(md) {
-					@include typographyRules(
-						"button",
-						"md",
-						$defaultValues: $defaultButtonTypography
-					);
+					@include typographyRules("button", "md");
 				}
 
 				@include media-breakpoint-up(lg) {
-					@include typographyRules(
-						"button",
-						"lg",
-						$defaultValues: $defaultButtonTypography
-					);
+					@include typographyRules("button", "lg");
 				}
 
 				@include media-breakpoint-up(xl) {
-					@include typographyRules(
-						"button",
-						"xl",
-						$defaultValues: $defaultButtonTypography
-					);
+					@include typographyRules("button", "xl");
 				}
 
 				@include media-breakpoint-up(xxl) {
-					@include typographyRules(
-						"button",
-						"xxl",
-						$defaultValues: $defaultButtonTypography
-					);
+					@include typographyRules("button", "xxl");
 				}
 			}
 		}
@@ -196,79 +127,53 @@ $defaultButtonCursor: if($enable-pointer-cursor-for-buttons, pointer, auto);
 @mixin button-block-editor-rules() {
 	.wp-block-beer-blocks-button {
 		.editor-styles-wrapper &.wp-block {
-			@include media-breakpoint-down(xs) {
-				@include horizontalMarginRules("button");
-			}
+			margin-top: revert;
+			margin-bottom: revert;
+			@include verticalMarginRules("button");
 
 			@include media-breakpoint-up(sm) {
-				@include horizontalMarginRules("button", "sm");
+				@include verticalMarginRules("button", "sm");
 			}
 
 			@include media-breakpoint-up(md) {
-				@include horizontalMarginRules("button", "md");
+				@include verticalMarginRules("button", "md");
 			}
 
 			@include media-breakpoint-up(lg) {
-				@include horizontalMarginRules("button", "lg");
+				@include verticalMarginRules("button", "lg");
 			}
 
 			@include media-breakpoint-up(xl) {
-				@include horizontalMarginRules("button", "xl");
+				@include verticalMarginRules("button", "xl");
 			}
 
 			@include media-breakpoint-up(xxl) {
-				@include horizontalMarginRules("button", "xxl");
+				@include verticalMarginRules("button", "xxl");
 			}
 
 			& > a {
 				text-decoration: none;
 				cursor: $defaultButtonCursor;
-
-				@include media-breakpoint-down(xs) {
-					@include paddingRules(
-						"button",
-						$defaultValues: $defaultButtonPadding
-					);
-				}
+				@include paddingRules("button");
 
 				@include media-breakpoint-up(sm) {
-					@include paddingRules(
-						"button",
-						"sm",
-						$defaultValues: $defaultButtonPadding
-					);
+					@include paddingRules("button", "sm");
 				}
 
 				@include media-breakpoint-up(md) {
-					@include paddingRules(
-						"button",
-						"md",
-						$defaultValues: $defaultButtonPadding
-					);
+					@include paddingRules("button", "md");
 				}
 
 				@include media-breakpoint-up(lg) {
-					@include paddingRules(
-						"button",
-						"lg",
-						$defaultValues: $defaultButtonPadding
-					);
+					@include paddingRules("button", "lg");
 				}
 
 				@include media-breakpoint-up(xl) {
-					@include paddingRules(
-						"button",
-						"xl",
-						$defaultValues: $defaultButtonPadding
-					);
+					@include paddingRules("button", "xl");
 				}
 
 				@include media-breakpoint-up(xxl) {
-					@include paddingRules(
-						"button",
-						"xxl",
-						$defaultValues: $defaultButtonPadding
-					);
+					@include paddingRules("button", "xxl");
 				}
 			}
 		}

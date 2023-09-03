@@ -28,7 +28,7 @@ const edit = (props) => {
 
 	const innerBlocksPropsConfig = [
 		{
-			className: `row ${flexbox.cssClasses({ props })}`.trimEnd(),
+			className: `row${flexbox.cssClasses(props)}`,
 		},
 		{
 			allowedBlocks: ["beer-blocks/column"],

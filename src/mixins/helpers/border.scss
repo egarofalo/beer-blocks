@@ -3,162 +3,61 @@
 // Plugin custom functions
 @import "./../../functions";
 
-// Default border
-$defaultBorder: (
-	style: none,
-	color: transparent,
-	width: 0px,
-);
+// Get border rules for a specific side
+@mixin innerBorderRules($varPrefix, $side) {
+	@if ($side == "all") {
+		&.wp-beer-blocks-has-border-style-rule {
+			border-#{$side}-style: var(--#{$varPrefix}Style);
+		}
 
-// Default border radius
-$defaultBorderRadius: (
-	top-left: 0px,
-	top-right: 0px,
-	bottom-right: 0px,
-	bottom-left: 0px,
-);
+		&.wp-beer-blocks-has-border-color-rule {
+			border-#{$side}-color: var(--#{$varPrefix}Color);
+		}
 
-@mixin innerBorderRules($varPrefix, $side, $defaultValue) {
-	@if map.has-key($defaultValue, style) {
-		border-#{$side}-style: var(
-			--#{$varPrefix + capitalize($side)}Style,
-			map.get($defaultValue, style)
-		);
+		&.wp-beer-blocks-has-border-width-rule {
+			border-#{$side}-width: var(--#{$varPrefix}Width);
+		}
+	} @else {
+		&.wp-beer-blocks-has-border-#{$side}-style-rule {
+			border-#{$side}-style: var(--#{$varPrefix + capitalize($side)}Style);
+		}
+
+		&.wp-beer-blocks-has-border-#{$side}-color-rule {
+			border-#{$side}-color: var(--#{$varPrefix + capitalize($side)}Color);
+		}
+
+		&.wp-beer-blocks-has-border-#{$side}-width-rule {
+			border-#{$side}-width: var(--#{$varPrefix + capitalize($side)}Width);
+		}
 	}
-
-	border-#{$side}-color: var(
-		--#{$varPrefix + capitalize($side)}Color,
-		map.get($defaultValue, color)
-	);
-
-	border-#{$side}-width: var(
-		--#{$varPrefix + capitalize($side)}Width,
-		map.get($defaultValue, width)
-	);
 }
 
-@mixin innerBorderRadiusRules($varPrefix, $side: "all", $defaultValue) {
-	@if ($side == "all") {
-		border-top-left-radius: var(
-			--#{$varPrefix}RadiusTopLeft,
-			map.get($defaultValue, top-left)
-		);
-		border-top-right-radius: var(
-			--#{$varPrefix}RadiusTopRight,
-			map.get($defaultValue, top-right)
-		);
-		border-bottom-right-radius: var(
-			--#{$varPrefix}RadiusBottomRight,
-			map.get($defaultValue, bottom-right)
-		);
-		border-bottom-left-radius: var(
-			--#{$varPrefix}RadiusBottomLeft,
-			map.get($defaultValue, bottom-left)
-		);
+// Get border radius rules for a specific corner
+@mixin innerBorderRadiusRules($varPrefix, $corner: "all") {
+	@if ($corner == "all") {
+		&.wp-beer-blocks-has-border-radius {
+			border-radius: var(--#{$varPrefix}Radius);
+		}
 	} @else {
-		border-#{$side}-radius: var(
-			--#{$varPrefix}Radius#{capitalize(camelize($side))},
-			map.get($defaultValue, $side)
-		);
+		&.wp-beer-blocks-has-border-#{$corner}-radius {
+			border-#{$corner}-radius: var(
+				--#{$varPrefix}Radius#{capitalize(camelize($corner))}
+			);
+		}
 	}
 }
 
 // Get border styles rules
-@mixin borderRules(
-	$blockName,
-	$attrPrefix: "",
-	$borderDefaults: $defaultBorder,
-	$borderRadius: false,
-	$borderRadiusDefaults: $defaultBorderRadius
-) {
+@mixin borderRules($blockName, $attrPrefix: "", $borderRadius: false) {
 	$varPrefix: wp-beer-blocks-#{$blockName}-#{camelize("#{$attrPrefix}-border")};
 
-	@each $side in (top, right, bottom, left) {
-		$defaultBorderValue: if(
-			map.has-key($borderDefaults, $side),
-			map.get($borderDefaults, $side),
-			$borderDefaults
-		);
-		@include innerBorderRules($varPrefix, $side, $defaultBorderValue);
+	@each $side in (all, top, right, bottom, left) {
+		@include innerBorderRules($varPrefix, $side);
 	}
 
 	@if $borderRadius {
-		@include innerBorderRadiusRules(
-			$varPrefix,
-			$defaultValue: $borderRadiusDefaults
-		);
-	}
-}
-
-// Get border styles rules for Accordion Item block
-@mixin accordionItemBorderRules(
-	$attrPrefix: "",
-	$borderDefaults: $defaultBorder,
-	$borderRadius: false,
-	$borderRadiusDefaults: $defaultBorderRadius
-) {
-	$varPrefix: wp-beer-blocks-accordion-item-#{camelize("#{$attrPrefix}-border")};
-
-	@each $side in (top, right, bottom, left) {
-		@include innerBorderRules($varPrefix, $side, $borderDefaults);
-
-		@if $side == bottom {
-			&:not(:last-of-type) {
-				@include innerBorderRules($varPrefix, $side, $borderDefaults);
-			}
-		} @else if $side == top {
-			&:not(:first-of-type) {
-				@include innerBorderRules($varPrefix, $side, $borderDefaults);
-			}
-		}
-	}
-
-	@if $borderRadius {
-		@include innerBorderRadiusRules(
-			$varPrefix,
-			top-left,
-			$borderRadiusDefaults
-		);
-		@include innerBorderRadiusRules(
-			$varPrefix,
-			top-right,
-			$borderRadiusDefaults
-		);
-		@include innerBorderRadiusRules(
-			$varPrefix,
-			bottom-right,
-			$borderRadiusDefaults
-		);
-		@include innerBorderRadiusRules(
-			$varPrefix,
-			bottom-left,
-			$borderRadiusDefaults
-		);
-
-		&:not(:last-of-type) {
-			@include innerBorderRadiusRules(
-				$varPrefix,
-				bottom-right,
-				$borderRadiusDefaults
-			);
-			@include innerBorderRadiusRules(
-				$varPrefix,
-				bottom-left,
-				$borderRadiusDefaults
-			);
-		}
-
-		&:not(:first-of-type) {
-			@include innerBorderRadiusRules(
-				$varPrefix,
-				top-left,
-				$borderRadiusDefaults
-			);
-			@include innerBorderRadiusRules(
-				$varPrefix,
-				top-right,
-				$borderRadiusDefaults
-			);
+		@each $corner in (all, top-left, top-right, bottom-right, bottom-left) {
+			@include innerBorderRadiusRules($varPrefix, $corner);
 		}
 	}
 }

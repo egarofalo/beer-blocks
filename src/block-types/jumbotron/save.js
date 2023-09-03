@@ -4,11 +4,12 @@ import spacing from "../../helpers/spacing";
 
 const save = (props) => {
 	const blockProps = useBlockProps.save({
-		className: "jumbotron",
+		className: `jumbotron${colors.cssClasses(props)}${spacing.cssClasses(
+			props
+		)}`,
 		style: {
 			...colors.cssVars(props, "jumbotron"),
-			...spacing.paddingCssVars(props, "jumbotron"),
-			...spacing.marginCssVars(props, "jumbotron"),
+			...spacing.cssVars(props, "jumbotron"),
 		},
 	});
 

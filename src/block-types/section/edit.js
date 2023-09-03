@@ -16,10 +16,12 @@ const edit = (props) => {
 	} = props;
 
 	const blockProps = useBlockProps({
+		className: `${colors.cssClasses(props)}${spacing.cssClasses(
+			props
+		)}`.trimStart(),
 		style: {
-			...colors.backgroundCssVars(props, "section"),
-			...spacing.paddingCssVars(props, "section"),
-			...spacing.marginCssVars(props, "section"),
+			...colors.cssVars(props, "section"),
+			...spacing.cssVars(props, "section"),
 		},
 	});
 
@@ -41,7 +43,7 @@ const edit = (props) => {
 				</PanelBody>
 
 				{colors.controls({ props })}
-				{spacing.breakpointsControls({ props })}
+				{spacing.controls({ props })}
 			</InspectorControls>
 
 			<TagName {...blockProps}>

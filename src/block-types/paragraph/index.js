@@ -33,6 +33,7 @@ import save from "./save";
 import spacing from "./../../helpers/spacing";
 import typography from "./../../helpers/typography";
 import colors from "./../../helpers/colors";
+import htmlAttrs from "./../../helpers/html-attrs";
 
 /**
  * Block Icon.
@@ -67,9 +68,10 @@ registerBlockType("beer-blocks/paragraph", {
 			type: "string",
 			default: __("Write your paragraph here...", "beer-blocks"),
 		},
-		...spacing.attributes({ breakpoints: true }),
-		...typography.attributes({ breakpoints: true }),
+		...spacing.attributes(),
+		...typography.attributes(),
 		...colors.attributes(),
+		...htmlAttrs.attributes(),
 	},
 	transforms: {
 		from: [

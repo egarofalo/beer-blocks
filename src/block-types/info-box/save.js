@@ -4,10 +4,12 @@ import spacing from "./../../helpers/spacing";
 
 const save = (props) => {
 	const blockProps = useBlockProps.save({
+		className: `${colors.cssClasses(props)}${spacing.cssClasses(
+			props
+		)}`.trimStart(),
 		style: {
 			...colors.cssVars(props, "info-box"),
-			...spacing.paddingCssVars(props, "info-box"),
-			...spacing.marginCssVars(props, "info-box"),
+			...spacing.cssVars(props, "info-box"),
 		},
 	});
 

@@ -2,21 +2,92 @@
 @import "./../helpers/size";
 @import "./../helpers/spacing";
 
+// Default line separator height
+$defaultSeparatorHeight: 1px;
+
 // Default line separator style
 $defaultSeparatorStyle: solid;
 
 // Default line separator color
 $defaultSeparatorColor: $black;
 
-// Default line separator height
-$defaultSeparatorHeight: 1px;
-
 // Default triangle width
-$defaultSeparatorTriangleWidth: 0;
+$defaultSeparatorTriangleWidth: 0px;
+
+// separator border-bottom-width styles
+@mixin separatorBorderBottomWidth($breakpointName: "xs") {
+	border-bottom-width: $defaultSeparatorHeight;
+	$varPrefix: --wp-beer-blocks-separator-height;
+
+	&.wp-beer-blocks-has-height-#{$breakpointName}-rule {
+		border-bottom-width: var(#{$varPrefix}-#{$breakpointName});
+	}
+}
+
+// separator triangle height styles
+@mixin separatorTriangleHeight($breakpointName: "xs") {
+	$varPrefix: --wp-beer-blocks-separator-triangleWidth;
+
+	&.wp-beer-blocks-has-width-#{$breakpointName}-rule {
+		height: var(#{$varPrefix}-#{$breakpointName});
+	}
+}
+
+// separator triangle border-width styles
+@mixin separatorTriangleBorderWidth($breakpointName: "xs") {
+	border-width: $defaultSeparatorHeight;
+	$varPrefix: --wp-beer-blocks-separator-height;
+
+	&.wp-beer-blocks-has-height-#{$breakpointName}-rule {
+		border-width: var(#{$varPrefix}-#{$breakpointName});
+	}
+}
+
+// separator triangle down styles
+@mixin separatorTriangleDownStyles($breakpointName: "xs") {
+	transform: translateY(calc(#{$defaultSeparatorTriangleWidth} / 2 * -1))
+		rotate(45deg);
+	$varPrefix: --wp-beer-blocks-separator-triangleWidth;
+
+	&.wp-beer-blocks-has-width-#{$breakpointName}-rule {
+		transform: translateY(calc(var(#{$varPrefix}-#{$breakpointName}) / 2 * -1))
+			rotate(45deg);
+	}
+}
+
+// separator triangle up styles
+@mixin separatorTriangleUpStyles($breakpointName: "xs") {
+	transform: translateY(
+			calc(
+				((#{$defaultSeparatorTriangleWidth} / 2) - #{$defaultSeparatorHeight}) *
+					-1
+			)
+		)
+		rotate(-135deg);
+	$varPrefix: --wp-beer-blocks-separator-triangleWidth;
+	$varPrefixHeight: --wp-beer-blocks-separator-height;
+
+	&.wp-beer-blocks-has-width-#{$breakpointName}-rule {
+		transform: translateY(
+				calc(
+					(
+							(var(#{$varPrefix}-#{$breakpointName}) / 2) -
+								var(
+									#{$varPrefixHeight}-#{$breakpointName},
+									$defaultSeparatorHeight
+								)
+						) * -1
+				)
+			)
+			rotate(-135deg);
+	}
+}
 
 @mixin separator-block-rules() {
 	.wp-block-beer-blocks-separator {
 		height: 0;
+		@include widthRules("separator");
+		@include separatorBorderBottomWidth();
 		border-bottom-style: var(
 			--wp-beer-blocks-separator-style,
 			$defaultSeparatorStyle
@@ -25,8 +96,16 @@ $defaultSeparatorTriangleWidth: 0;
 			--wp-beer-blocks-separator-color,
 			$defaultSeparatorColor
 		);
+		margin-top: revert;
+		margin-bottom: revert;
+		@include verticalMarginRules("separator");
 
 		.wp-beer-blocks-separator-triangle {
+			width: $defaultSeparatorTriangleWidth;
+			height: $defaultSeparatorTriangleWidth;
+			@include widthRules("separator", $attrPrefix: "triangle");
+			@include separatorTriangleHeight();
+			@include separatorTriangleBorderWidth();
 			border-style: var(
 				--wp-beer-blocks-separator-style,
 				$defaultSeparatorStyle
@@ -39,319 +118,112 @@ $defaultSeparatorTriangleWidth: 0;
 			border-top: none;
 			margin: auto;
 			clip-path: polygon(0 100%, 100% 0, 100% 100%);
-		}
 
-		@include media-breakpoint-down(xs) {
-			@include widthRules("separator");
-			@include verticalMarginRules("separator");
-			border-bottom-width: var(
-				--wp-beer-blocks-separator-height,
-				$defaultSeparatorHeight
-			);
+			&.wp-beer-blocks-separator-triangle-down {
+				@include separatorTriangleDownStyles();
+			}
 
-			.wp-beer-blocks-separator-triangle {
-				@include widthRules("separator", $attrPrefix: "triangle");
-				height: var(
-					--wp-beer-blocks-separator-triangleWidth,
-					$defaultSeparatorTriangleWidth
-				);
-				border-width: var(
-					--wp-beer-blocks-separator-height,
-					$defaultSeparatorHeight
-				);
-
-				&.wp-beer-blocks-separator-triangle-down {
-					transform: translateY(
-							calc(
-								var(
-										--wp-beer-blocks-separator-triangleWidth,
-										$defaultSeparatorTriangleWidth
-									) / 2 * -1
-							)
-						)
-						rotate(45deg);
-				}
-
-				&.wp-beer-blocks-separator-triangle-up {
-					transform: translateY(
-							calc(
-								(
-										(
-												var(
-														--wp-beer-blocks-separator-triangleWidth,
-														$defaultSeparatorTriangleWidth
-													) / 2
-											) -
-											var(
-												--wp-beer-blocks-separator-height,
-												$defaultSeparatorHeight
-											)
-									) * -1
-							)
-						)
-						rotate(-135deg);
-				}
+			&.wp-beer-blocks-separator-triangle-up {
+				@include separatorTriangleUpStyles();
 			}
 		}
 
 		@include media-breakpoint-up(sm) {
 			@include widthRules("separator", "sm");
+			@include separatorBorderBottomWidth("sm");
 			@include verticalMarginRules("separator", "sm");
-			border-bottom-width: var(
-				--wp-beer-blocks-separator-height-sm,
-				$defaultSeparatorHeight
-			);
 
 			.wp-beer-blocks-separator-triangle {
 				@include widthRules("separator", "sm", "triangle");
-				height: var(
-					--wp-beer-blocks-separator-triangleWidth-sm,
-					$defaultSeparatorTriangleWidth
-				);
-				border-width: var(
-					--wp-beer-blocks-separator-height-sm,
-					$defaultSeparatorHeight
-				);
+				@include separatorTriangleHeight("sm");
+				@include separatorTriangleBorderWidth("sm");
 
 				&.wp-beer-blocks-separator-triangle-down {
-					transform: translateY(
-							calc(
-								var(
-										--wp-beer-blocks-separator-triangleWidth-sm,
-										$defaultSeparatorTriangleWidth
-									) / 2 * -1
-							)
-						)
-						rotate(45deg);
+					@include separatorTriangleDownStyles("sm");
 				}
 
 				&.wp-beer-blocks-separator-triangle-up {
-					transform: translateY(
-							calc(
-								(
-										(
-												var(
-														--wp-beer-blocks-separator-triangleWidth-sm,
-														$defaultSeparatorTriangleWidth
-													) / 2
-											) -
-											var(
-												--wp-beer-blocks-separator-height-sm,
-												$defaultSeparatorHeight
-											)
-									) * -1
-							)
-						)
-						rotate(-135deg);
+					@include separatorTriangleUpStyles("sm");
 				}
 			}
 		}
 
 		@include media-breakpoint-up(md) {
 			@include widthRules("separator", "md");
+			@include separatorBorderBottomWidth("md");
 			@include verticalMarginRules("separator", "md");
-			border-bottom-width: var(
-				--wp-beer-blocks-separator-height-md,
-				$defaultSeparatorHeight
-			);
 
 			.wp-beer-blocks-separator-triangle {
 				@include widthRules("separator", "md", "triangle");
-				height: var(
-					--wp-beer-blocks-separator-triangleWidth-md,
-					$defaultSeparatorTriangleWidth
-				);
-				border-width: var(
-					--wp-beer-blocks-separator-height-md,
-					$defaultSeparatorHeight
-				);
+				@include separatorTriangleHeight("md");
+				@include separatorTriangleBorderWidth("md");
 
 				&.wp-beer-blocks-separator-triangle-down {
-					transform: translateY(
-							calc(
-								var(
-										--wp-beer-blocks-separator-triangleWidth-md,
-										$defaultSeparatorTriangleWidth
-									) / 2 * -1
-							)
-						)
-						rotate(45deg);
+					@include separatorTriangleDownStyles("md");
 				}
 
 				&.wp-beer-blocks-separator-triangle-up {
-					transform: translateY(
-							calc(
-								(
-										(
-												var(
-														--wp-beer-blocks-separator-triangleWidth-md,
-														$defaultSeparatorTriangleWidth
-													) / 2
-											) -
-											var(
-												--wp-beer-blocks-separator-height-md,
-												$defaultSeparatorHeight
-											)
-									) * -1
-							)
-						)
-						rotate(-135deg);
+					@include separatorTriangleUpStyles("md");
 				}
 			}
 		}
 
 		@include media-breakpoint-up(lg) {
 			@include widthRules("separator", "lg");
+			@include separatorBorderBottomWidth("lg");
 			@include verticalMarginRules("separator", "lg");
-			border-bottom-width: var(
-				--wp-beer-blocks-separator-height-lg,
-				$defaultSeparatorHeight
-			);
 
 			.wp-beer-blocks-separator-triangle {
 				@include widthRules("separator", "lg", "triangle");
-				height: var(
-					--wp-beer-blocks-separator-triangleWidth-lg,
-					$defaultSeparatorTriangleWidth
-				);
-				border-width: var(
-					--wp-beer-blocks-separator-height-lg,
-					$defaultSeparatorHeight
-				);
+				@include separatorTriangleHeight("lg");
+				@include separatorTriangleBorderWidth("lg");
 
 				&.wp-beer-blocks-separator-triangle-down {
-					transform: translateY(
-							calc(
-								var(
-										--wp-beer-blocks-separator-triangleWidth-lg,
-										$defaultSeparatorTriangleWidth
-									) / 2 * -1
-							)
-						)
-						rotate(45deg);
+					@include separatorTriangleDownStyles("lg");
 				}
-			}
 
-			&.wp-beer-blocks-separator-triangle-up {
-				transform: translateY(
-						calc(
-							(
-									(
-											var(
-													--wp-beer-blocks-separator-triangleWidth-lg,
-													$defaultSeparatorTriangleWidth
-												) / 2
-										) -
-										var(
-											--wp-beer-blocks-separator-height-lg,
-											$defaultSeparatorHeight
-										)
-								) * -1
-						)
-					)
-					rotate(-135deg);
+				&.wp-beer-blocks-separator-triangle-up {
+					@include separatorTriangleUpStyles("lg");
+				}
 			}
 		}
 
 		@include media-breakpoint-up(xl) {
 			@include widthRules("separator", "xl");
+			@include separatorBorderBottomWidth("xl");
 			@include verticalMarginRules("separator", "xl");
-			border-bottom-width: var(
-				--wp-beer-blocks-separator-height-xl,
-				$defaultSeparatorHeight
-			);
 
 			.wp-beer-blocks-separator-triangle {
 				@include widthRules("separator", "xl", "triangle");
-				height: var(
-					--wp-beer-blocks-separator-triangleWidth-xl,
-					$defaultSeparatorTriangleWidth
-				);
-				border-width: var(
-					--wp-beer-blocks-separator-height-xl,
-					$defaultSeparatorHeight
-				);
+				@include separatorTriangleHeight("xl");
+				@include separatorTriangleBorderWidth("xl");
 
 				&.wp-beer-blocks-separator-triangle-down {
-					transform: translateY(
-							calc(
-								var(
-										--wp-beer-blocks-separator-triangleWidth-xl,
-										$defaultSeparatorTriangleWidth
-									) / 2 * -1
-							)
-						)
-						rotate(45deg);
+					@include separatorTriangleDownStyles("xl");
 				}
 
 				&.wp-beer-blocks-separator-triangle-up {
-					transform: translateY(
-							calc(
-								(
-										(
-												var(
-														--wp-beer-blocks-separator-triangleWidth-xl,
-														$defaultSeparatorTriangleWidth
-													) / 2
-											) -
-											var(
-												--wp-beer-blocks-separator-height-xl,
-												$defaultSeparatorHeight
-											)
-									) * -1
-							)
-						)
-						rotate(-135deg);
+					@include separatorTriangleUpStyles("xl");
 				}
 			}
 		}
 
 		@include media-breakpoint-up(xxl) {
 			@include widthRules("separator", "xxl");
+			@include separatorBorderBottomWidth("xxl");
 			@include verticalMarginRules("separator", "xxl");
-			border-bottom-width: var(
-				--wp-beer-blocks-separator-height-xxl,
-				$defaultSeparatorHeight
-			);
 
 			.wp-beer-blocks-separator-triangle {
 				@include widthRules("separator", "xxl", "triangle");
-				height: var(--wp-beer-blocks-separator-triangleWidth-xxl);
-				border-width: var(
-					--wp-beer-blocks-separator-height-xxl,
-					$defaultSeparatorTriangleWidth
-				);
+				@include separatorTriangleHeight("xxl");
+				@include separatorTriangleBorderWidth("xxl");
 
 				&.wp-beer-blocks-separator-triangle-down {
-					transform: translateY(
-							calc(
-								var(
-										--wp-beer-blocks-separator-triangleWidth-xxl,
-										$defaultSeparatorTriangleWidth
-									) / 2 * -1
-							)
-						)
-						rotate(45deg);
+					@include separatorTriangleDownStyles("xxl");
 				}
 
 				&.wp-beer-blocks-separator-triangle-up {
-					transform: translateY(
-							calc(
-								(
-										(
-												var(
-														--wp-beer-blocks-separator-triangleWidth-xxl,
-														$defaultSeparatorTriangleWidth
-													) / 2
-											) -
-											var(
-												--wp-beer-blocks-separator-height-xxl,
-												$defaultSeparatorHeight
-											)
-									) * -1
-							)
-						)
-						rotate(-135deg);
+					@include separatorTriangleUpStyles("xxl");
 				}
 			}
 		}

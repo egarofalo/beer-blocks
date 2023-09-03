@@ -74,7 +74,6 @@ registerBlockType("beer-blocks/instruction", {
 		...colors.attributes({ attrPrefix: "numeration" }),
 		...size.attributes({
 			attrPrefix: "numeration",
-			breakpoints: true,
 			autoHeightAttr: false,
 		}),
 		numerationBorderRadius: {
@@ -87,13 +86,11 @@ registerBlockType("beer-blocks/instruction", {
 		}),
 		...colors.attributes({ colorAttr: false }),
 		...spacing.attributes({
-			breakpoints: true,
 			marginSides: ["top", "bottom"],
 		}),
 		...typography.attributes({
 			attrPrefix: "numeration",
-			breakpoints: true,
-			includeLineHeightAttr: false,
+			lineHeightAttr: false,
 		}),
 	},
 	usesContext: ["instructionsId"],

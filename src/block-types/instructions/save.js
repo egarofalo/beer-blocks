@@ -9,16 +9,18 @@ const save = (props) => {
 	} = props;
 
 	const blockProps = useBlockProps.save({
-		className: containerType,
+		className: `${containerType}${colors.cssClasses(props)}${spacing.cssClasses(
+			props
+		)}`,
 		style: {
 			...colors.cssVars(props, "instructions"),
-			...spacing.marginCssVars(props, "instructions"),
+			...spacing.cssVars(props, "instructions"),
 		},
 	});
 
 	return (
 		<div {...blockProps}>
-			<ul className={`p-0 row ${flexbox.cssClasses({ props })}`.trimEnd()}>
+			<ul className={`p-0 mb-0 row${flexbox.cssClasses(props)}`}>
 				<InnerBlocks.Content />
 			</ul>
 		</div>

@@ -8,11 +8,12 @@ import spacing from "./../../helpers/spacing";
 
 const edit = (props) => {
 	const blockProps = useBlockProps({
-		className: "jumbotron",
+		className: `jumbotron${colors.cssClasses(props)}${spacing.cssClasses(
+			props
+		)}`,
 		style: {
 			...colors.cssVars(props, "jumbotron"),
-			...spacing.paddingCssVars(props, "jumbotron"),
-			...spacing.marginCssVars(props, "jumbotron"),
+			...spacing.cssVars(props, "jumbotron"),
 		},
 	});
 
@@ -20,7 +21,7 @@ const edit = (props) => {
 		<>
 			<InspectorControls>
 				{colors.controls({ props })}
-				{spacing.breakpointsControls({ props })}
+				{spacing.controls({ props })}
 			</InspectorControls>
 
 			<div {...blockProps}>

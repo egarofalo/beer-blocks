@@ -1,67 +1,35 @@
 @import "./../helpers/spacing";
 @import "./../helpers/colors";
 
-// Default margins
-$defaultColumMargin: (
-	top: 0,
-	bottom: 0,
-);
-
 @mixin column-block-rules() {
 	.wp-block-beer-blocks-column {
 		@include backgroundRule("column");
-
-		@include media-breakpoint-down(xs) {
-			@include verticalPaddingRules("column");
-			@include verticalMarginRules(
-				"column",
-				$defaultValues: $defaultColumMargin
-			);
-		}
+		@include verticalPaddingRules("column");
+		@include verticalMarginRules("column");
 
 		@include media-breakpoint-up(sm) {
 			@include verticalPaddingRules("column", "sm");
-			@include verticalMarginRules(
-				"column",
-				"sm",
-				$defaultValues: $defaultColumMargin
-			);
+			@include verticalMarginRules("column", "sm");
 		}
 
 		@include media-breakpoint-up(md) {
 			@include verticalPaddingRules("column", "md");
-			@include verticalMarginRules(
-				"column",
-				"md",
-				$defaultValues: $defaultColumMargin
-			);
+			@include verticalMarginRules("column", "md");
 		}
 
 		@include media-breakpoint-up(lg) {
 			@include verticalPaddingRules("column", "lg");
-			@include verticalMarginRules(
-				"column",
-				"lg",
-				$defaultValues: $defaultColumMargin
-			);
+			@include verticalMarginRules("column", "lg");
 		}
 
 		@include media-breakpoint-up(xl) {
 			@include verticalPaddingRules("column", "xl");
-			@include verticalMarginRules(
-				"column",
-				"xl",
-				$defaultValues: $defaultColumMargin
-			);
+			@include verticalMarginRules("column", "xl");
 		}
 
 		@include media-breakpoint-up(xxl) {
 			@include verticalPaddingRules("column", "xxl");
-			@include verticalMarginRules(
-				"column",
-				"xxl",
-				$defaultValues: $defaultColumMargin
-			);
+			@include verticalMarginRules("column", "xxl");
 		}
 	}
 }
@@ -77,54 +45,28 @@ $defaultColumMargin: (
 		}
 
 		.editor-styles-wrapper &.wp-block {
-			margin-left: 0;
-			margin-right: 0;
-
-			@include media-breakpoint-down(xs) {
-				@include verticalMarginRules(
-					"column",
-					$defaultValues: $defaultColumMargin
-				);
-			}
+			margin-top: revert;
+			margin-bottom: revert;
+			@include verticalMarginRules("column");
 
 			@include media-breakpoint-up(sm) {
-				@include verticalMarginRules(
-					"column",
-					"sm",
-					$defaultValues: $defaultColumMargin
-				);
+				@include verticalMarginRules("column", "sm");
 			}
 
 			@include media-breakpoint-up(md) {
-				@include verticalMarginRules(
-					"column",
-					"md",
-					$defaultValues: $defaultColumMargin
-				);
+				@include verticalMarginRules("column", "md");
 			}
 
 			@include media-breakpoint-up(lg) {
-				@include verticalMarginRules(
-					"column",
-					"lg",
-					$defaultValues: $defaultColumMargin
-				);
+				@include verticalMarginRules("column", "lg");
 			}
 
 			@include media-breakpoint-up(xl) {
-				@include verticalMarginRules(
-					"column",
-					"xl",
-					$defaultValues: $defaultColumMargin
-				);
+				@include verticalMarginRules("column", "xl");
 			}
 
 			@include media-breakpoint-up(xxl) {
-				@include verticalMarginRules(
-					"column",
-					"xxl",
-					$defaultValues: $defaultColumMargin
-				);
+				@include verticalMarginRules("column", "xxl");
 			}
 		}
 	}

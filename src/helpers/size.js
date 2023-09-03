@@ -7,7 +7,7 @@ import {
 	PanelBody,
 	BaseControl,
 } from "@wordpress/components";
-import { camelCase, has } from "lodash";
+import { camelCase, has, get } from "lodash";
 import grid from "./grid";
 import units from "./units";
 
@@ -17,20 +17,17 @@ const validWidth = (value) => value !== undefined && value !== "";
 // check if value is a valid height
 const validHeight = (value) => value !== undefined && value !== "";
 
-// returns attributes name
-const attrName = (attr, attrPrefix = "") => camelCase(`${attrPrefix}-${attr}`);
-
 // returns width attribute with breakpoints
 const widthAttribute = ({
 	attrPrefix = "",
-	breakpoints = false,
-	defaultValue = undefined,
 	type = "string",
+	breakpointsBehavior = false,
+	defaultValue = undefined,
 } = {}) =>
 	grid.attributes({
-		attrName: attrName("width", attrPrefix),
-		breakpoints,
-		breakpointsBehavior: false,
+		attrName: camelCase(`${attrPrefix}-width`),
+		breakpoints: true,
+		breakpointsBehavior,
 		defaultValue,
 		type,
 	});
@@ -38,14 +35,14 @@ const widthAttribute = ({
 // returns height attribute with breakpoints
 const heightAttribute = ({
 	attrPrefix = "",
-	breakpoints = false,
-	defaultValue = undefined,
 	type = "string",
+	breakpointsBehavior = false,
+	defaultValue = undefined,
 } = {}) =>
 	grid.attributes({
-		attrName: attrName("height", attrPrefix),
-		breakpoints,
-		breakpointBehavior: false,
+		attrName: camelCase(`${attrPrefix}-height`),
+		breakpoints: true,
+		breakpointsBehavior,
 		defaultValue,
 		type,
 	});
@@ -53,13 +50,13 @@ const heightAttribute = ({
 // returns auto-height attribute with breakpoints
 const autoHeightAttribute = ({
 	attrPrefix = "",
-	breakpoints = false,
+	breakpointsBehavior = false,
 	defaultValue = false,
 } = {}) =>
 	grid.attributes({
-		attrName: attrName("auto-height", attrPrefix),
-		breakpoints,
-		breakpointBehavior: false,
+		attrName: camelCase(`${attrPrefix}-"auto-height"`),
+		breakpoints: true,
+		breakpointsBehavior,
 		defaultValue,
 		type: "boolean",
 	});
@@ -67,8 +64,6 @@ const autoHeightAttribute = ({
 // returns width and height attributes
 export const attributes = ({
 	attrPrefix = "",
-	breakpoints = false,
-	breakpointsBehaviorAttrPrefix = undefined,
 	widthAttr = true,
 	widthDefaultValue = undefined,
 	widthType = "string",
@@ -81,7 +76,6 @@ export const attributes = ({
 	...(widthAttr
 		? widthAttribute({
 				attrPrefix,
-				breakpoints,
 				defaultValue: widthDefaultValue,
 				type: widthType,
 		  })
@@ -89,7 +83,6 @@ export const attributes = ({
 	...(heightAttr
 		? heightAttribute({
 				attrPrefix,
-				breakpoints,
 				defaultValue: heightDefaultValue,
 				type: heightType,
 		  })
@@ -97,75 +90,46 @@ export const attributes = ({
 	...(autoHeightAttr
 		? autoHeightAttribute({
 				attrPrefix,
-				breakpoints,
 				defaultValue: autoHeightDefaultValue,
 		  })
 		: {}),
-	...(breakpoints
-		? grid.breakpointsBehaviorAttribute(
-				breakpointsBehaviorAttrPrefix
-					? breakpointsBehaviorAttrPrefix
-					: `${attrPrefix}-size`
-		  )
-		: {}),
+	...grid.breakpointsBehaviorAttribute(`${attrPrefix}-size`),
 });
 
 // return width block attribute control
 const widthControl = ({
 	props,
 	breakpoint,
-	breakpointsBehaviorAttrPrefix = undefined,
 	attrPrefix = "",
-	label = __("Width", "beer-blocks"),
+	breakpointsBehaviorAttrPrefix = "",
+	label = sprintf(__("Width (%s)", "beer-blocks"), breakpoint.toUpperCase()),
 	type = "string",
 	minWidth = 0,
 	maxWidth = 500,
 }) => {
-	const widthAttrName = attrName("width", attrPrefix);
+	const attrName = camelCase(`${attrPrefix}-width`);
 	const breakpointsBehaviorAttrName = camelCase(
-		`${
-			breakpointsBehaviorAttrPrefix
-				? breakpointsBehaviorAttrPrefix
-				: `${attrPrefix}-size`
-		}-breakpoints-behavior`
+		`${breakpointsBehaviorAttrPrefix}-breakpoints-behavior`
 	);
 
 	const {
-		attributes: {
-			[widthAttrName]: width,
-			[breakpointsBehaviorAttrName]: breakpointsBehavior = undefined,
-		},
 		setAttributes,
+		attributes: {
+			[attrName]: width,
+			[breakpointsBehaviorAttrName]: breakpointsBehavior,
+		},
 	} = props;
 
-	if (
-		breakpointsBehavior &&
-		breakpointsBehavior[breakpoint] === grid.sameBehavior
-	) {
+	if (breakpointsBehavior[breakpoint] === grid.sameBehavior) {
 		return null;
 	}
 
-	const nextBreakpoints = breakpointsBehavior
-		? grid.getNextBreakpoints(breakpoint, breakpointsBehavior)
-		: undefined;
-
 	const change = (newWidth) =>
 		setAttributes({
-			[widthAttrName]:
-				nextBreakpoints !== undefined
-					? {
-							...width,
-							[breakpoint]: newWidth,
-							...(nextBreakpoints.length > 0
-								? Object.fromEntries(
-										nextBreakpoints.map((nextBreakpoint) => [
-											nextBreakpoint,
-											newWidth,
-										])
-								  )
-								: {}),
-					  }
-					: newWidth,
+			[attrName]: {
+				...width,
+				[breakpoint]: newWidth,
+			},
 		});
 
 	const unitChange = () => {};
@@ -174,7 +138,7 @@ const widthControl = ({
 		<BaseControl label={label}>
 			{type === "number" ? (
 				<RangeControl
-					value={breakpointsBehavior !== undefined ? width[breakpoint] : width}
+					value={width[breakpoint]}
 					onChange={change}
 					min={minWidth}
 					max={maxWidth}
@@ -182,7 +146,7 @@ const widthControl = ({
 				/>
 			) : (
 				<UnitControl
-					value={breakpointsBehavior !== undefined ? width[breakpoint] : width}
+					value={width[breakpoint]}
 					onChange={change}
 					onUnitChange={unitChange}
 					units={units}
@@ -196,93 +160,59 @@ const widthControl = ({
 const heightControl = ({
 	props,
 	breakpoint,
-	breakpointsBehaviorAttrPrefix = undefined,
 	attrPrefix = "",
-	label = __("Height", "beer-blocks"),
+	breakpointsBehaviorAttrPrefix = "",
+	label = sprintf(__("Height (%s)", "beer-blocks"), breakpoint.toUpperCase()),
 	type = "string",
 	minHeight = 0,
 	maxHeight = 100,
-	autoHeightLabel = __("Set auto height", "beer-blocks"),
+	autoHeightLabel = sprintf(
+		__("Auto height (%s)", "beer-blocks"),
+		breakpoint.toUpperCase()
+	),
 }) => {
-	const heightAttrName = attrName("height", attrPrefix);
-	const autoHeightAttrName = attrName("auto-height", attrPrefix);
+	const attrName = camelCase(`${attrPrefix}-height`);
+	const autoHeightAttrName = camelCase(`${attrPrefix}-auto-height`);
 	const breakpointsBehaviorAttrName = camelCase(
-		`${
-			breakpointsBehaviorAttrPrefix
-				? breakpointsBehaviorAttrPrefix
-				: `${attrPrefix}-size`
-		}-breakpoints-behavior`
+		`${breakpointsBehaviorAttrPrefix}-breakpoints-behavior`
 	);
 
 	const {
-		attributes: {
-			[heightAttrName]: height,
-			[autoHeightAttrName]: autoHeight = undefined,
-			[breakpointsBehaviorAttrName]: breakpointsBehavior = undefined,
-		},
 		setAttributes,
+		attributes: {
+			[attrName]: height,
+			[autoHeightAttrName]: autoHeight = undefined,
+			[breakpointsBehaviorAttrName]: breakpointsBehavior,
+		},
 	} = props;
 
-	if (
-		breakpointsBehavior &&
-		breakpointsBehavior[breakpoint] === grid.sameBehavior
-	) {
+	if (breakpointsBehavior[breakpoint] === grid.sameBehavior) {
 		return null;
 	}
 
-	const nextBreakpoints = breakpointsBehavior
-		? grid.getNextBreakpoints(breakpoint, breakpointsBehavior)
-		: undefined;
-
 	const change = (newHeight) =>
 		setAttributes({
-			[heightAttrName]:
-				nextBreakpoints !== undefined
-					? {
-							...height,
-							[breakpoint]: newHeight,
-							...(nextBreakpoints.length > 0
-								? Object.fromEntries(
-										nextBreakpoints.map((nextBreakpoint) => [
-											nextBreakpoint,
-											newHeight,
-										])
-								  )
-								: {}),
-					  }
-					: newHeight,
+			[attrName]: {
+				...height,
+				[breakpoint]: newHeight,
+			},
 		});
 
 	const unitChange = () => {};
 
 	const autoHeightControlChange = () =>
 		setAttributes({
-			[autoHeightAttrName]:
-				nextBreakpoints !== undefined
-					? {
-							...autoHeight,
-							[breakpoint]: !autoHeight[breakpoint],
-							...(nextBreakpoints.length > 0
-								? Object.fromEntries(
-										nextBreakpoints.map((nextBreakpoint) => [
-											nextBreakpoint,
-											!autoHeight[breakpoint],
-										])
-								  )
-								: {}),
-					  }
-					: !autoHeight,
+			[autoHeightAttrName]: {
+				...autoHeight,
+				[breakpoint]: !autoHeight[breakpoint],
+			},
 		});
 
 	const autoHeightControl =
 		autoHeight !== undefined ? (
 			<ToggleControl
 				label={autoHeightLabel}
-				checked={
-					breakpointsBehavior !== undefined
-						? autoHeight[breakpoint]
-						: autoHeight
-				}
+				checked={autoHeight[breakpoint]}
 				onChange={autoHeightControlChange}
 			/>
 		) : null;
@@ -291,9 +221,7 @@ const heightControl = ({
 		type === "number" ? (
 			<BaseControl label={label}>
 				<RangeControl
-					value={
-						breakpointsBehavior !== undefined ? height[breakpoint] : height
-					}
+					value={height[breakpoint]}
 					onChange={change}
 					min={minHeight}
 					max={maxHeight}
@@ -303,9 +231,7 @@ const heightControl = ({
 		) : (
 			<BaseControl label={label}>
 				<UnitControl
-					value={
-						breakpointsBehavior !== undefined ? height[breakpoint] : height
-					}
+					value={height[breakpoint]}
 					onChange={change}
 					onUnitChange={unitChange}
 					units={units}
@@ -313,13 +239,8 @@ const heightControl = ({
 			</BaseControl>
 		);
 
-	let disableHeightControl = false;
-
-	if (autoHeight !== undefined) {
-		disableHeightControl = has(autoHeight, breakpoint)
-			? autoHeight[breakpoint]
-			: autoHeight;
-	}
+	const disableHeightControl =
+		autoHeight !== undefined && autoHeight[breakpoint];
 
 	return (
 		<>
@@ -336,82 +257,74 @@ const heightControl = ({
 // returns controls for width and height attributes with breakpoints
 export const controls = ({
 	props,
-	breakpoints = false,
-	breakpointsBehaviorAttrPrefix = undefined,
+	initialOpen = false,
 	attrPrefix = "",
-	widthControlLabel = __("Width", "beer-blocks"),
-	heightControlLabel = __("Height", "beer-blocks"),
-	autoHeightLabel = __("Set auto height", "beer-blocks"),
+	panelBody = true,
+	title = __("Size", "beer-blocks"),
+	widthControlLabel = (breakpoint) =>
+		sprintf(__("Width (%s)", "beer-blocks"), breakpoint.toUpperCase()),
+	heightControlLabel = (breakpoint) =>
+		sprintf(__("Height (%s)", "beer-blocks"), breakpoint.toUpperCase()),
+	autoHeightControlLabel = (breakpoint) =>
+		sprintf(__("Auto height (%s)", "beer-blocks"), breakpoint.toUpperCase()),
 	widthType = "string",
 	heightType = "string",
 	minWidth = 0,
 	maxWidth = 500,
 	minHeight = 0,
 	maxHeight = 100,
-	panelBody = true,
-	title = __("Size", "beer-blocks"),
-	initialOpen = false,
 }) => {
 	const { attributes } = props;
-	const widthAttrName = attrName("width", attrPrefix);
-	const heightAttrName = attrName("height", attrPrefix);
+	const widthAttrName = camelCase(`${attrPrefix}-width`);
+	const heightAttrName = camelCase(`${attrPrefix}-height`);
+	const breakpointsBehaviorAttrPrefix = `${attrPrefix}-size`;
 	const affectedAttrs = [widthAttrName, heightAttrName].filter((attr) =>
-		has(attributes[attr], attr)
+		has(attributes, attr)
 	);
 
-	const getInnerControls = (breakpoint = false) => (
-		<>
-			{has(attributes, widthAttrName) &&
-				widthControl({
+	if (affectedAttrs.length > 0) {
+		const breakpointsTabs = grid.getBreakpointsTabs((breakpoint) => (
+			<>
+				{grid.getBreakpointsBehaviorControl({
 					props,
+					attrPrefix: breakpointsBehaviorAttrPrefix,
 					breakpoint,
-					breakpointsBehaviorAttrPrefix,
-					attrPrefix,
-					label: widthControlLabel,
-					type: widthType,
-					minWidth,
-					maxWidth,
+					affectedAttrs,
 				})}
 
-			{has(attributes, heightAttrName) &&
-				heightControl({
-					props,
-					breakpoint,
-					breakpointsBehaviorAttrPrefix,
-					attrPrefix,
-					label: heightControlLabel,
-					type: heightType,
-					minHeight,
-					maxHeight,
-					autoHeightLabel,
-				})}
-		</>
-	);
+				{has(attributes, widthAttrName) &&
+					widthControl({
+						props,
+						breakpoint,
+						breakpointsBehaviorAttrPrefix,
+						attrPrefix,
+						label: widthControlLabel(breakpoint),
+						type: widthType,
+						minWidth,
+						maxWidth,
+					})}
 
-	if (has(attributes, widthAttrName) || has(attributes, heightAttrName)) {
-		const innerControls = breakpoints
-			? grid.getBreakpointsTabs((breakpoint) => (
-					<>
-						{grid.getBreakpointsBehaviorControl({
-							props,
-							attrPrefix: breakpointsBehaviorAttrPrefix
-								? breakpointsBehaviorAttrPrefix
-								: `${attrPrefix}-size`,
-							breakpoint,
-							affectedAttrs,
-						})}
-
-						{getInnerControls(breakpoint)}
-					</>
-			  ))
-			: getInnerControls();
+				{has(attributes, heightAttrName) &&
+					heightControl({
+						props,
+						breakpoint,
+						breakpointsBehaviorAttrPrefix,
+						attrPrefix,
+						label: heightControlLabel(breakpoint),
+						type: heightType,
+						minHeight,
+						maxHeight,
+						autoHeightLabel: autoHeightControlLabel(breakpoint),
+					})}
+			</>
+		));
 
 		return panelBody ? (
 			<PanelBody title={title} initialOpen={initialOpen}>
-				{innerControls}
+				{breakpointsTabs}
 			</PanelBody>
 		) : (
-			innerControls
+			breakpointsTabs
 		);
 	}
 
@@ -420,56 +333,104 @@ export const controls = ({
 
 // returns width css vars for style html attribute
 export const widthCssVars = (props, blockName, attrPrefix = "") => {
-	const attrWidth = attrName("width", attrPrefix);
-	const { attributes } = props;
+	const attrName = camelCase(`${attrPrefix}-width`);
+	const {
+		attributes: { [attrName]: width = undefined },
+	} = props;
 
-	if (!has(attributes, attrWidth)) {
-		return {};
-	}
+	return width
+		? Object.fromEntries(
+				grid.breakpoints
+					.map((breakpoint) => [
+						`--wp-beer-blocks-${blockName}-${attrName}-${breakpoint}`,
+						typeof width[breakpoint] === "number"
+							? `${width[breakpoint]}px`
+							: width[breakpoint],
+					])
+					.filter((cssVar) => validWidth(cssVar[1]))
+		  )
+		: {};
+};
 
-	const { [attrWidth]: width } = attributes;
+// returns css classes that enable width rule
+export const widthCssClasses = (
+	props,
+	attrPrefix = "",
+	addWhitespaceBefore = true
+) => {
+	const attrName = camelCase(`${attrPrefix}-width`);
+	const {
+		attributes: { [attrName]: width = undefined },
+	} = props;
 
-	return Object.fromEntries(
+	const widthClasses = () =>
 		grid.breakpoints
-			.map((breakpoint) => [
-				`--wp-beer-blocks-${blockName}-${attrWidth}${
-					breakpoint !== "xs" ? `-${breakpoint}` : ""
-				}`,
-				typeof width[breakpoint] === "number"
-					? `${width[breakpoint]}px`
-					: width[breakpoint],
-			])
-			.filter((cssVar) => validWidth(cssVar[1]))
-	);
+			.map((breakpoint) =>
+				validWidth(get(width, breakpoint))
+					? `wp-beer-blocks-has-width-${breakpoint}-rule`
+					: false
+			)
+			.filter((cssClass) => cssClass);
+
+	const widthClass = width
+		? `${addWhitespaceBefore && " "}${widthClasses().join(" ")}`
+		: "";
+
+	return widthClass.trimEnd();
 };
 
 // returns height css vars for style html attribute
 export const heightCssVars = (props, blockName, attrPrefix = "") => {
-	const attrHeight = attrName("height", attrPrefix);
-	const attrAutoHeight = attrName("auto-height", attrPrefix);
-	const { attributes } = props;
+	const attrName = camelCase(`${attrPrefix}-height`);
+	const autoHeightAttrName = camelCase(`${attrPrefix}-auto-height`);
+	const {
+		attributes: {
+			[attrName]: height = undefined,
+			[autoHeightAttrName]: autoHeight = undefined,
+		},
+	} = props;
 
-	if (!has(attributes, attrHeight)) {
-		return {};
-	}
+	return height
+		? Object.fromEntries(
+				grid.breakpoints
+					.map((breakpoint) => [
+						`--wp-beer-blocks-${blockName}-${attrName}-${breakpoint}`,
+						autoHeight && autoHeight[breakpoint]
+							? "auto"
+							: typeof height[breakpoint] === "number"
+							? `${height[breakpoint]}px`
+							: height[breakpoint],
+					])
+					.filter((cssVar) => validHeight(cssVar[1]))
+		  )
+		: {};
+};
 
-	const { [attrHeight]: height, [attrAutoHeight]: autoHeight = undefined } =
-		attributes;
+// returns css classes that enable height rule
+export const heightCssClasses = (
+	props,
+	attrPrefix = "",
+	addWhitespaceBefore = true
+) => {
+	const heightAttrName = camelCase(`${attrPrefix}-height`);
+	const {
+		attributes: { [heightAttrName]: height = undefined },
+	} = props;
 
-	return Object.fromEntries(
+	const heightClasses = () =>
 		grid.breakpoints
-			.map((breakpoint) => [
-				`--wp-beer-blocks-${blockName}-${attrHeight}${
-					breakpoint !== "xs" ? `-${breakpoint}` : ""
-				}`,
-				autoHeight && autoHeight[breakpoint]
-					? "auto"
-					: typeof height[breakpoint] === "number"
-					? `${height[breakpoint]}px`
-					: height[breakpoint],
-			])
-			.filter((cssVar) => validHeight(cssVar[1]))
-	);
+			.map((breakpoint) =>
+				validHeight(get(height, breakpoint))
+					? `wp-beer-blocks-has-height-${breakpoint}-rule`
+					: false
+			)
+			.filter((cssClass) => cssClass);
+
+	const heightClass = height
+		? `${addWhitespaceBefore && " "}${heightClasses().join(" ")}`
+		: "";
+
+	return heightClass.trimEnd();
 };
 
 // returns width and height css vars
@@ -478,53 +439,27 @@ export const cssVars = (props, blockName, attrPrefix = "") => ({
 	...heightCssVars(props, blockName, attrPrefix),
 });
 
-// returns width styles
-export const widthStyles = (props, attrPrefix = "") => {
-	const attrWidth = attrName("width", attrPrefix);
-	const { attributes } = props;
+// returns css classes that enable the rules used in this helper
+export const cssClasses = (
+	props,
+	attrPrefix = "",
+	addWhitespaceBefore = true
+) => {
+	const classes = `${widthCssClasses(props, attrPrefix)}${heightCssClasses(
+		props,
+		attrPrefix
+	)}`.trimStart();
 
-	if (!has(attributes, attrWidth)) {
-		return {};
-	}
-
-	const { [attrWidth]: width } = attributes;
-
-	return validWidth(width) ? { width } : {};
+	return `${addWhitespaceBefore ? " " : ""}${classes}`.trimEnd();
 };
-
-// returns height styles
-export const heightStyles = (props, attrPrefix = "") => {
-	const attrHeight = attrName("height", attrPrefix);
-	const attrAutoHeight = attrName("auto-height", attrPrefix);
-	const { attributes } = props;
-
-	if (!has(attributes, attrHeight)) {
-		return {};
-	}
-
-	const { [attrHeight]: height, [attrAutoHeight]: autoHeight = undefined } =
-		attributes;
-
-	return autoHeight
-		? { height: "auto" }
-		: validHeight(height)
-		? { height }
-		: {};
-};
-
-// returns width and height styles
-export const styles = (props, attrPrefix = "") => ({
-	...widthStyles(props, attrPrefix),
-	...heightStyles(props, attrPrefix),
-});
 
 export default {
 	attributes,
 	controls,
+	cssVars,
 	widthCssVars,
 	heightCssVars,
-	cssVars,
-	widthStyles,
-	heightStyles,
-	styles,
+	cssClasses,
+	widthCssClasses,
+	heightCssClasses,
 };

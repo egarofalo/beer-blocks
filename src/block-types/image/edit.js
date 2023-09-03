@@ -18,6 +18,7 @@ import grid from "./../../helpers/grid";
 import spacing from "./../../helpers/spacing";
 import size from "../../helpers/size";
 import blockAlignment from "../../helpers/block-alignment";
+import colors from "../../helpers/colors";
 import typography from "../../helpers/typography";
 import placeholder from "./../../images/placeholder-image.svg";
 
@@ -38,13 +39,16 @@ const edit = (props) => {
 	} = props;
 
 	const blockProps = useBlockProps({
-		style: spacing.marginCssVars(props, "image"),
+		className: spacing.cssClasses(props).trimStart(),
+		style: spacing.cssVars(props, "image"),
 	});
 
 	const getOriginalImgSizeAttrs = (width, height) => ({
-		width: grid.breakpointsAttributeValue(`${width === 0 ? 200 : width}px`),
-		height: grid.breakpointsAttributeValue(`${height}px`),
-		autoHeight: grid.breakpointsAttributeValue(height === 0),
+		width: grid.breakpointsAttributeValue({
+			xs: `${width === 0 ? 200 : width}px`,
+		}),
+		height: grid.breakpointsAttributeValue({ xs: `${height}px` }),
+		autoHeight: grid.breakpointsAttributeValue({ xs: height === 0 }),
 		sizeBreakpointsBehavior: grid.breakpointsBehaviorAttributeValue(
 			grid.sameBehavior
 		),
@@ -57,9 +61,9 @@ const edit = (props) => {
 			imgAlt: "",
 			imgNaturalWidth: 200,
 			imgNaturalHeight: 0,
-			width: grid.breakpointsAttributeValue("200px"),
-			height: grid.breakpointsAttributeValue("0px"),
-			autoHeight: true,
+			width: grid.breakpointsAttributeValue({ xs: "200px" }),
+			height: grid.breakpointsAttributeValue({ xs: "0px" }),
+			autoHeight: grid.breakpointsAttributeValue({ xs: true }),
 			sizeBreakpointsBehavior: grid.breakpointsBehaviorAttributeValue(
 				grid.sameBehavior
 			),
@@ -163,11 +167,7 @@ const edit = (props) => {
 
 			{imgId > 0 && (
 				<>
-					{size.controls({
-						props,
-						breakpoints: true,
-						panelBody: false,
-					})}
+					{size.controls({ props, panelBody: false })}
 
 					<div style={{ paddingTop: "20px" }}>
 						<Button onClick={setOriginalImageSize} variant="primary">
@@ -181,16 +181,24 @@ const edit = (props) => {
 
 	let figcaptionControls = (
 		<>
-			{typography.breakpointsControls({
+			{typography.controls({
 				props,
 				attrPrefix: "figcaption",
 				title: __("Legend typography", "beer-blocks"),
 			})}
 
-			{spacing.breakpointsControls({
+			{colors.controls({
+				props,
+				attrPrefix: "figcaption",
+				title: __("Legend color", "beer-blocks"),
+			})}
+
+			{spacing.controls({
 				props,
 				attrPrefix: "figcaption",
 				title: __("Legend spacing", "beer-blocks"),
+				paddingSides: false,
+				marginSides: ["top", "bottom"],
 			})}
 		</>
 	);
@@ -208,7 +216,7 @@ const edit = (props) => {
 					{imageControls}
 				</PanelBody>
 
-				{spacing.breakpointsControls({ props })}
+				{spacing.controls({ props, paddingSides: false })}
 				{showRemoveFigcaptionToggleField && figcaptionControls}
 			</InspectorControls>
 
@@ -227,7 +235,7 @@ const edit = (props) => {
 
 			<figure {...blockProps}>
 				<img
-					className="img-fluid d-block"
+					className={`img-fluid d-block${size.cssClasses(props)}`}
 					style={{
 						...blockAlignment.styles(props),
 						...size.cssVars(props, "image"),
@@ -242,13 +250,15 @@ const edit = (props) => {
 							figcaptionTextAlign !== undefined
 								? ` text-${figcaptionTextAlign}`
 								: ""
-						}`}
+						}${typography.cssClasses(props, "figcaption")}${colors.cssClasses(
+							props,
+							"figcaption"
+						)}${spacing.cssClasses(props, "figcaption")}`}
 						style={{
-							...typography.fontFamilyStyles(props, "figcaption"),
-							...typography.fontWeightStyles(props, "figcaption"),
-							...typography.fontSizeCssVars(props, "image", "figcaption"),
-							...typography.lineHeightCssVars(props, "image", "figcaption"),
-							...spacing.marginCssVars(props, "image", "figcaption"),
+							...typography.styles(props, "figcaption"),
+							...typography.cssVars(props, "image", "figcaption"),
+							...colors.cssVars(props, "image", "figcaption"),
+							...spacing.cssVars(props, "image", "figcaption"),
 						}}
 						placeholder={__("Add a legend", "beer-blocks")}
 						tagName="figcaption"

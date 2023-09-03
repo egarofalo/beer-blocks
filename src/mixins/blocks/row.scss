@@ -7,8 +7,6 @@
 
 @mixin row-block-editor-rules() {
 	.wp-block-beer-blocks-row {
-		@include blockDefaultMargins(0);
-
 		&.is-selected {
 			outline: 1px dotted #035cff;
 
@@ -50,6 +48,11 @@
 			&.has-child-blocks {
 				display: none;
 			}
+		}
+
+		.editor-styles-wrapper &.wp-block {
+			margin-top: revert;
+			margin-bottom: revert;
 		}
 	}
 }

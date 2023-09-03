@@ -3,8 +3,9 @@ import { useBlockProps, RichText } from "@wordpress/block-editor";
 import typography from "./../../helpers/typography";
 import border from "./../../helpers/border";
 import spacing from "./../../helpers/spacing";
-import statuses from "./../../helpers/statuses";
+//import statuses from "./../../helpers/statuses";
 import colors from "./../../helpers/colors";
+import htmlAttrs from "./../../helpers/html-attrs";
 
 const save = (props) => {
 	const {
@@ -21,43 +22,48 @@ const save = (props) => {
 		},
 	} = props;
 
-	const blockStyle = {
-		...spacing.marginCssVars(props, "button"),
-		...(!blockLevel ? { textAlign: align } : {}),
-	};
+	const blockStyle = spacing.marginCssVars(props, "button");
+	const blockClassName = `${
+		!blockLevel && align ? `text-${align}` : ""
+	}${spacing.marginCssClasses(props)}`.trimStart();
 
 	const btnStyle = {
 		...spacing.paddingCssVars(props, "button"),
-		...(!blockLevel
-			? { display: "inline-block" }
-			: { display: "block", textAlign: "center" }),
 		...(!variant
 			? {
-					...typography.fontSizeCssVars(props, "button"),
-					...typography.lineHeightCssVars(props, "button"),
 					...colors.cssVars(props, "button"),
 					...border.cssVars(props, "button"),
-					...statuses.cssVars(props, "button"),
-					...typography.fontFamilyStyles(props),
-					...typography.fontWeightStyles(props),
+					//...statuses.cssVars(props, "button"),
+					...typography.cssVars(props, "button"),
+					...typography.styles(props),
 			  }
 			: {}),
 	};
 
-	const className = variant
-		? `btn btn-${outline ? "outline-" : ""}${variant}${size ? ` ${size}` : ""}${
-				blockLevel ? " btn-block" : ""
-		  }`
-		: `wp-beer-blocks-btn-custom-styles ${statuses.cssClasses(
-				props
-		  )}`.trimEnd();
+	const btnDisplayClass = blockLevel
+		? `text-center ${variant ? "btn-block" : "d-block"}`
+		: "d-inline-block";
 
-	const blockProps = useBlockProps.save({ style: blockStyle });
+	const btnClassName = `${
+		variant
+			? `btn btn-${outline ? "outline-" : ""}${variant}${
+					size ? ` ${size}` : ""
+			  } ${btnDisplayClass}`
+			: `wp-beer-blocks-btn-custom-styles ${btnDisplayClass}${colors.cssClasses(
+					props
+			  )}${typography.cssClasses(props)}${/*statuses.cssClasses(props)*/ ""}`
+	}${spacing.paddingCssClasses(props)}`;
+
+	const blockProps = useBlockProps.save({
+		className: blockClassName,
+		style: blockStyle,
+		...htmlAttrs.blockProps(props),
+	});
 
 	return (
 		<div {...blockProps}>
 			<RichText.Content
-				className={className}
+				className={btnClassName}
 				style={btnStyle}
 				tagName="a"
 				href={url}

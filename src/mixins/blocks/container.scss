@@ -4,11 +4,8 @@
 @mixin container-block-rules() {
 	.wp-block-beer-blocks-container {
 		@include backgroundRule("container");
-
-		@include media-breakpoint-down(xs) {
-			@include verticalPaddingRules("container");
-			@include verticalMarginRules("container");
-		}
+		@include verticalPaddingRules("container");
+		@include verticalMarginRules("container");
 
 		@include media-breakpoint-up(sm) {
 			@include verticalPaddingRules("container", "sm");
@@ -85,6 +82,32 @@
 				max-width: 60px;
 				width: 100%;
 				display: inline-block;
+			}
+		}
+
+		.editor-styles-wrapper &.wp-block {
+			margin-top: revert;
+			margin-bottom: revert;
+			@include verticalMarginRules("container");
+
+			@include media-breakpoint-up(sm) {
+				@include verticalMarginRules("container", "sm");
+			}
+
+			@include media-breakpoint-up(md) {
+				@include verticalMarginRules("container", "md");
+			}
+
+			@include media-breakpoint-up(lg) {
+				@include verticalMarginRules("container", "lg");
+			}
+
+			@include media-breakpoint-up(xl) {
+				@include verticalMarginRules("container", "xl");
+			}
+
+			@include media-breakpoint-up(xxl) {
+				@include verticalMarginRules("container", "xxl");
 			}
 		}
 	}

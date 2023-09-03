@@ -59,7 +59,6 @@ registerBlockType("beer-blocks/column", {
 	attributes: {
 		...grid.getColSizingAttribute(),
 		...spacing.attributes({
-			breakpoints: true,
 			paddingSides: ["top", "bottom"],
 			marginSides: ["top", "bottom"],
 		}),

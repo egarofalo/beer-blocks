@@ -46,7 +46,6 @@ const alignItemsAttribute = ({
 export const attributes = ({
 	attrPrefix = "",
 	breakpoints = true,
-	breakpointsBehaviorAttrPrefix = undefined,
 	flexDirectionAttr = true,
 	flexDirectionDefaultValue = "row",
 	justifyContentAttr = true,
@@ -76,11 +75,7 @@ export const attributes = ({
 		  })
 		: {}),
 	...(breakpoints
-		? grid.breakpointsBehaviorAttribute(
-				breakpointsBehaviorAttrPrefix
-					? breakpointsBehaviorAttrPrefix
-					: `${attrPrefix}-flexbox`
-		  )
+		? grid.breakpointsBehaviorAttribute(`${attrPrefix}-flexbox`)
 		: {}),
 });
 
@@ -88,7 +83,6 @@ export const attributes = ({
 const flexDirectionControls = ({
 	props,
 	breakpoint,
-	breakpointsBehaviorAttrPrefix = undefined,
 	attrPrefix = "",
 	stackedContentsLabel = __("Stacked contents", "beer-blocks"),
 	stackedContentsHelp = __(
@@ -103,11 +97,7 @@ const flexDirectionControls = ({
 }) => {
 	const flexDirectionAttrName = camelCase(`${attrPrefix}-flex-direction`);
 	const breakpointsBehaviorAttrName = camelCase(
-		`${
-			breakpointsBehaviorAttrPrefix
-				? breakpointsBehaviorAttrPrefix
-				: `${attrPrefix}-flexbox`
-		}-breakpoints-behavior`
+		`${attrPrefix}-flexbox-breakpoints-behavior`
 	);
 
 	const {
@@ -205,18 +195,14 @@ const flexDirectionControls = ({
 };
 
 // Returns flex-direction property class
-const flexDirectionClasses = ({
+const flexDirectionClasses = (
 	props,
 	attrPrefix = "",
-	breakpointsBehaviorAttrPrefix = undefined,
-}) => {
+	addWhitespaceBefore = true
+) => {
 	const flexDirectionAttrName = camelCase(`${attrPrefix}-flex-direction`);
 	const breakpointsBehaviorAttrName = camelCase(
-		`${
-			breakpointsBehaviorAttrPrefix
-				? breakpointsBehaviorAttrPrefix
-				: `${attrPrefix}-flexbox`
-		}-breakpoints-behavior`
+		`${attrPrefix}-flexbox-breakpoints-behavior`
 	);
 
 	const {
@@ -228,19 +214,22 @@ const flexDirectionClasses = ({
 
 	const classes =
 		breakpointsBehavior !== undefined
-			? Object.entries(flexDirection).reduce((prevValue, currValue) => {
-					const breakpoint = currValue[0];
-					const value = currValue[1];
+			? Object.entries(flexDirection)
+					.reduce((prevValue, currValue) => {
+						const breakpoint = currValue[0];
+						const value = currValue[1];
 
-					return value && breakpointsBehavior[breakpoint] !== grid.sameBehavior
-						? `${prevValue}flex-${
-								breakpoint !== "xs" ? `${breakpoint}-` : ""
-						  }${value} `
-						: prevValue;
-			  }, "")
+						return value &&
+							breakpointsBehavior[breakpoint] !== grid.sameBehavior
+							? `${prevValue}flex-${
+									breakpoint !== "xs" ? `${breakpoint}-` : ""
+							  }${value} `
+							: prevValue;
+					}, "")
+					.trimEnd()
 			: `flex-${flexDirection}`;
 
-	return classes.trim();
+	return `${addWhitespaceBefore ? " " : ""}${classes}`.trimEnd();
 };
 
 // justify-content dropdown options
@@ -275,7 +264,6 @@ export const justifyContentOptions = [
 const justifyContentControl = ({
 	props,
 	breakpoint,
-	breakpointsBehaviorAttrPrefix = undefined,
 	attrPrefix = "",
 	label = __("Justify content", "beer-blocks"),
 	help = __(
@@ -286,11 +274,7 @@ const justifyContentControl = ({
 }) => {
 	const attrName = camelCase(`${attrPrefix}-justify-content`);
 	const breakpointsBehaviorAttrName = camelCase(
-		`${
-			breakpointsBehaviorAttrPrefix
-				? breakpointsBehaviorAttrPrefix
-				: `${attrPrefix}-flexbox`
-		}-breakpoints-behavior`
+		`${attrPrefix}-flexbox-breakpoints-behavior`
 	);
 
 	const {
@@ -347,18 +331,14 @@ const justifyContentControl = ({
 };
 
 // Returns justify-content property classes
-const justifyContentClasses = ({
+const justifyContentClasses = (
 	props,
 	attrPrefix = "",
-	breakpointsBehaviorAttrPrefix = undefined,
-}) => {
+	addWhitespaceBefore = true
+) => {
 	const attrName = camelCase(`${attrPrefix}-justify-content`);
 	const breakpointsBehaviorAttrName = camelCase(
-		`${
-			breakpointsBehaviorAttrPrefix
-				? breakpointsBehaviorAttrPrefix
-				: `${attrPrefix}-flexbox`
-		}-breakpoints-behavior`
+		`${attrPrefix}-flexbox-breakpoints-behavior`
 	);
 
 	const {
@@ -370,19 +350,22 @@ const justifyContentClasses = ({
 
 	const classes =
 		breakpointsBehavior !== undefined
-			? Object.entries(justifyContent).reduce((prevValue, currValue) => {
-					const breakpoint = currValue[0];
-					const value = currValue[1];
+			? Object.entries(justifyContent)
+					.reduce((prevValue, currValue) => {
+						const breakpoint = currValue[0];
+						const value = currValue[1];
 
-					return value && breakpointsBehavior[breakpoint] !== grid.sameBehavior
-						? `${prevValue}justify-content-${
-								breakpoint !== "xs" ? `${breakpoint}-` : ""
-						  }${value} `
-						: prevValue;
-			  }, "")
+						return value &&
+							breakpointsBehavior[breakpoint] !== grid.sameBehavior
+							? `${prevValue}justify-content-${
+									breakpoint !== "xs" ? `${breakpoint}-` : ""
+							  }${value} `
+							: prevValue;
+					}, "")
+					.trimEnd()
 			: `justify-content-${justifyContent}`;
 
-	return classes.trim();
+	return `${addWhitespaceBefore ? " " : ""}${classes}`.trimEnd();
 };
 
 // align-items dropdown options
@@ -417,7 +400,6 @@ export const alignItemsOptions = [
 const alignItemsControl = ({
 	props,
 	breakpoint,
-	breakpointsBehaviorAttrPrefix = undefined,
 	attrPrefix = "",
 	label = __("Align items", "beer-blocks"),
 	help = __(
@@ -428,11 +410,7 @@ const alignItemsControl = ({
 }) => {
 	const attrName = camelCase(`${attrPrefix}-align-items`);
 	const breakpointsBehaviorAttrName = camelCase(
-		`${
-			breakpointsBehaviorAttrPrefix
-				? breakpointsBehaviorAttrPrefix
-				: `${attrPrefix}-flexbox`
-		}-breakpoints-behavior`
+		`${attrPrefix}-flexbox-breakpoints-behavior`
 	);
 
 	const {
@@ -487,18 +465,14 @@ const alignItemsControl = ({
 };
 
 // Returns align-items property classes
-const alignItemsClasses = ({
+const alignItemsClasses = (
 	props,
 	attrPrefix = "",
-	breakpointsBehaviorAttrPrefix = undefined,
-}) => {
+	addWhitespaceBefore = true
+) => {
 	const attrName = camelCase(`${attrPrefix}-align-items`);
 	const breakpointsBehaviorAttrName = camelCase(
-		`${
-			breakpointsBehaviorAttrPrefix
-				? breakpointsBehaviorAttrPrefix
-				: `${attrPrefix}-flexbox`
-		}-breakpoints-behavior`
+		`${attrPrefix}-flexbox-breakpoints-behavior`
 	);
 
 	const {
@@ -510,26 +484,28 @@ const alignItemsClasses = ({
 
 	const classes =
 		breakpointsBehavior !== undefined
-			? Object.entries(alignItems).reduce((prevValue, currValue) => {
-					const breakpoint = currValue[0];
-					const value = currValue[1];
+			? Object.entries(alignItems)
+					.reduce((prevValue, currValue) => {
+						const breakpoint = currValue[0];
+						const value = currValue[1];
 
-					return value && breakpointsBehavior[breakpoint] !== grid.sameBehavior
-						? `${prevValue}align-items-${
-								breakpoint !== "xs" ? `${breakpoint}-` : ""
-						  }${value} `
-						: prevValue;
-			  }, "")
+						return value &&
+							breakpointsBehavior[breakpoint] !== grid.sameBehavior
+							? `${prevValue}align-items-${
+									breakpoint !== "xs" ? `${breakpoint}-` : ""
+							  }${value} `
+							: prevValue;
+					}, "")
+					.trimEnd()
 			: `align-items-${justifyContent}`;
 
-	return classes.trim();
+	return `${addWhitespaceBefore ? " " : ""}${classes}`.trimEnd();
 };
 
 // Returns justify-content and align-items flexbox controls
 export const controls = ({
 	props,
 	breakpoints = true,
-	breakpointsBehaviorAttrPrefix = undefined,
 	attrPrefix = "",
 	panelBody = true,
 	title = __("Flexbox styles", "beer-blocks"),
@@ -553,7 +529,6 @@ export const controls = ({
 				justifyContentControl({
 					props,
 					breakpoint,
-					breakpointsBehaviorAttrPrefix,
 					attrPrefix,
 					controlOptions: justifyContentControlOptions,
 				})}
@@ -562,7 +537,6 @@ export const controls = ({
 				alignItemsControl({
 					props,
 					breakpoint,
-					breakpointsBehaviorAttrPrefix,
 					attrPrefix,
 					controlOptions: alignItemsControlOption,
 				})}
@@ -571,7 +545,6 @@ export const controls = ({
 				flexDirectionControls({
 					props,
 					breakpoint,
-					breakpointsBehaviorAttrPrefix,
 					attrPrefix,
 				})}
 		</>
@@ -587,9 +560,7 @@ export const controls = ({
 					<>
 						{grid.getBreakpointsBehaviorControl({
 							props,
-							attrPrefix: breakpointsBehaviorAttrPrefix
-								? breakpointsBehaviorAttrPrefix
-								: `${attrPrefix}-flexbox`,
+							attrPrefix: `${attrPrefix}-flexbox`,
 							breakpoint,
 							affectedAttrs,
 						})}
@@ -612,41 +583,29 @@ export const controls = ({
 };
 
 // Returns flex-direction, align-items and justify-content properties classes
-export const cssClasses = ({
+export const cssClasses = (
 	props,
 	attrPrefix = "",
-	breakpointsBehaviorAttrPrefix = undefined,
-}) => {
+	addWhitespaceBefore = true
+) => {
 	const flexDirectionAttr = camelCase(`${attrPrefix}-flex-direction`);
 	const justifyContentAttr = camelCase(`${attrPrefix}-justify-content`);
 	const alignItemsAttr = camelCase(`${attrPrefix}-align-items`);
 	const { attributes } = props;
 
-	return `${
+	const classes = `${
 		has(attributes, flexDirectionAttr)
-			? `${flexDirectionClasses({
-					props,
-					attrPrefix,
-					breakpointsBehaviorAttrPrefix,
-			  })} `
+			? flexDirectionClasses(props, attrPrefix)
 			: ""
 	}${
 		has(attributes, justifyContentAttr)
-			? `${justifyContentClasses({
-					props,
-					attrPrefix,
-					breakpointsBehaviorAttrPrefix,
-			  })} `
+			? justifyContentClasses(props, attrPrefix)
 			: ""
 	}${
-		has(attributes, alignItemsAttr)
-			? alignItemsClasses({
-					props,
-					attrPrefix,
-					breakpointsBehaviorAttrPrefix,
-			  })
-			: ""
-	}`.trim();
+		has(attributes, alignItemsAttr) ? alignItemsClasses(props, attrPrefix) : ""
+	}`.trimStart();
+
+	return `${addWhitespaceBefore ? " " : ""}${classes}`.trimEnd();
 };
 
 export default {

@@ -80,7 +80,7 @@ registerBlockType("beer-blocks/accordion-item", {
 		...colors.attributes({ attrPrefix: "heading" }),
 		...border.attributes({ attrPrefix: "heading", borderRadius: true }),
 		...spacing.attributes({ attrPrefix: "heading", marginSides: false }),
-		...typography.attributes({ attrPrefix: "heading", breakpoints: true }),
+		...typography.attributes({ attrPrefix: "heading" }),
 		...spacing.attributes({ attrPrefix: "body", marginSides: false }),
 		id: {
 			type: "string",
@@ -94,7 +94,7 @@ registerBlockType("beer-blocks/accordion-item", {
 			type: "string",
 			default: undefined,
 		},
-		...spacing.attributes({ breakpoints: true }),
+		...spacing.attributes(),
 		...border.attributes({ borderRadius: true }),
 	},
 	usesContext: ["accordionId"],

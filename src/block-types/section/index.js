@@ -60,7 +60,7 @@ registerBlockType("beer-blocks/section", {
 			default: "section",
 		},
 		...colors.attributes({ colorAttr: false }),
-		...spacing.attributes({ breakpoints: true }),
+		...spacing.attributes(),
 	},
 	transforms: {
 		from: [

@@ -5,12 +5,9 @@
 @mixin paragraph-block-rules() {
 	.wp-block-beer-blocks-paragraph {
 		@include colorsRules("paragraph");
-
-		@include media-breakpoint-down(xs) {
-			@include typographyRules("paragraph");
-			@include paddingRules("paragraph");
-			@include marginRules("paragraph");
-		}
+		@include typographyRules("paragraph");
+		@include paddingRules("paragraph");
+		@include marginRules("paragraph");
 
 		@include media-breakpoint-up(sm) {
 			@include typographyRules("paragraph", "sm");
@@ -48,38 +45,6 @@
 	.wp-block-beer-blocks-paragraph {
 		&.is-selected {
 			outline: 1px dotted #035cff;
-		}
-
-		.editor-styles-wrapper &.wp-block {
-			@include media-breakpoint-down(xs) {
-				@include marginRules("paragraph");
-				@include lineHeightRules("paragraph");
-			}
-
-			@include media-breakpoint-up(sm) {
-				@include marginRules("paragraph", "sm");
-				@include lineHeightRules("paragraph", "sm");
-			}
-
-			@include media-breakpoint-up(md) {
-				@include marginRules("paragraph", "md");
-				@include lineHeightRules("paragraph", "md");
-			}
-
-			@include media-breakpoint-up(lg) {
-				@include marginRules("paragraph", "lg");
-				@include lineHeightRules("paragraph", "lg");
-			}
-
-			@include media-breakpoint-up(xl) {
-				@include marginRules("paragraph", "xl");
-				@include lineHeightRules("paragraph", "xl");
-			}
-
-			@include media-breakpoint-up(xxl) {
-				@include marginRules("paragraph", "xxl");
-				@include lineHeightRules("paragraph", "xxl");
-			}
 		}
 	}
 }

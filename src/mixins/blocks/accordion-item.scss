@@ -1,10 +1,11 @@
-@import "./../../variables.scss";
+@import "./../../variables";
 @import "./../helpers/spacing";
 @import "./../helpers/border";
 @import "./../helpers/typography";
 @import "./../helpers/colors";
 
 // Default border
+/*
 $defaultAccordionItemBorder: (
 	style: solid,
 	color: $card-border-color,
@@ -19,23 +20,6 @@ $defaultAccordionItemBorderRadius: (
 	bottom-left: $card-border-radius,
 );
 
-// Default margins
-$defaultAccordionItemMargin: (
-	top: 0,
-	right: 0,
-	bottom: 0,
-	left: 0,
-);
-
-// Default typography for heading
-$defaultAccordionItemHeadingTypography: (
-	fontSize: $input-btn-font-size,
-	lineHeight: $input-btn-line-height,
-);
-
-// Default heading background
-$defaultAccordionItemHeadingBackground: $card-cap-bg;
-
 // Default heading border
 $defaultAccordionItemHeadingBorder: (
 	top: $defaultBorder,
@@ -48,9 +32,6 @@ $defaultAccordionItemHeadingBorder: (
 	left: $defaultBorder,
 );
 
-// Default heading color
-$defaultAccordionItemHeadingColor: $link-color;
-
 // Default heading border radius
 $defaultAccordionItemHeadingBorderRadius: (
 	top-left: $card-inner-border-radius,
@@ -58,151 +39,107 @@ $defaultAccordionItemHeadingBorderRadius: (
 	bottom-right: 0,
 	bottom-left: 0,
 );
-
-// Default body background
-$defaultAccordionItemBodyBackground: $card-bg;
-
+*/
 @mixin accordion-item-block-rules() {
 	.wp-block-beer-blocks-accordion-item {
 		&.card {
-			@include media-breakpoint-down(xs) {
-				@include paddingRules("accordion-item");
-				@include marginRules(
-					"accordion-item",
-					$defaultValues: $defaultAccordionItemMargin
-				);
-			}
+			@include paddingRules("accordion-item");
+			@include marginRules("accordion-item");
 
 			@include media-breakpoint-up(sm) {
 				@include paddingRules("accordion-item", "sm");
-				@include marginRules(
-					"accordion-item",
-					"sm",
-					$defaultValues: $defaultAccordionItemMargin
-				);
+				@include marginRules("accordion-item", "sm");
 			}
 
 			@include media-breakpoint-up(md) {
 				@include paddingRules("accordion-item", "md");
-				@include marginRules(
-					"accordion-item",
-					"md",
-					$defaultValues: $defaultAccordionItemMargin
-				);
+				@include marginRules("accordion-item", "md");
 			}
 
 			@include media-breakpoint-up(lg) {
 				@include paddingRules("accordion-item", "lg");
-				@include marginRules(
-					"accordion-item",
-					"lg",
-					$defaultValues: $defaultAccordionItemMargin
-				);
+				@include marginRules("accordion-item", "lg");
 			}
 
 			@include media-breakpoint-up(xl) {
 				@include paddingRules("accordion-item", "xl");
-				@include marginRules(
-					"accordion-item",
-					"xl",
-					$defaultValues: $defaultAccordionItemMargin
-				);
+				@include marginRules("accordion-item", "xl");
 			}
 
 			@include media-breakpoint-up(xxl) {
 				@include paddingRules("accordion-item", "xxl");
-				@include marginRules(
-					"accordion-item",
-					"xxl",
-					$defaultValues: $defaultAccordionItemMargin
-				);
+				@include marginRules("accordion-item", "xxl");
 			}
 
 			.accordion > & {
+				/*
 				@include accordionItemBorderRules(
 					$borderDefaults: $defaultAccordionItemBorder,
 					$borderRadius: true,
 					$borderRadiusDefaults: $defaultAccordionItemBorderRadius
 				);
+				*/
 				@include backgroundRule("accordion-item");
+				@include borderRules("accordion-item", $borderRadius: true);
 
 				& > .card-header {
 					margin-bottom: 0;
-
-					@include backgroundRule(
-						"accordion-item",
-						"heading",
-						$defaultAccordionItemHeadingBackground
-					);
-
-					@include borderRules(
-						"accordion-item",
-						"heading",
-						$defaultAccordionItemHeadingBorder,
-						true,
-						$defaultAccordionItemHeadingBorderRadius
-					);
+					@include backgroundRule("accordion-item", "heading");
+					@include borderRules("accordion-item", "heading", true);
 
 					& > h2 .btn {
-						@include colorRule(
-							"accordion-item",
-							"heading",
-							$defaultAccordionItemHeadingColor
-						);
-
-						@include media-breakpoint-down(xs) {
-							@include typographyRules(
-								"accordion-item",
-								"xs",
-								"heading",
-								$defaultAccordionItemHeadingTypography
-							);
-						}
+						@include colorRule("accordion-item", "heading");
+						@include paddingRules("accordion-item", "xs", "heading");
+						@include typographyRules("accordion-item", "xs", "heading");
 
 						@include media-breakpoint-up(sm) {
-							@include typographyRules(
-								"accordion-item",
-								"sm",
-								"heading",
-								$defaultAccordionItemHeadingTypography
-							);
+							@include paddingRules("accordion-item", "sm", "heading");
+							@include typographyRules("accordion-item", "sm", "heading");
 						}
 
 						@include media-breakpoint-up(md) {
-							@include typographyRules(
-								"accordion-item",
-								"md",
-								"heading",
-								$defaultAccordionItemHeadingTypography
-							);
+							@include paddingRules("accordion-item", "md", "heading");
+							@include typographyRules("accordion-item", "md", "heading");
 						}
 
 						@include media-breakpoint-up(lg) {
-							@include typographyRules(
-								"accordion-item",
-								"lg",
-								"heading",
-								$defaultAccordionItemHeadingTypography
-							);
+							@include paddingRules("accordion-item", "md", "heading");
+							@include typographyRules("accordion-item", "lg", "heading");
 						}
 
 						@include media-breakpoint-up(xl) {
-							@include typographyRules(
-								"accordion-item",
-								"xl",
-								"heading",
-								$defaultAccordionItemHeadingTypography
-							);
+							@include paddingRules("accordion-item", "xl", "heading");
+							@include typographyRules("accordion-item", "xl", "heading");
 						}
 
 						@include media-breakpoint-up(xxl) {
-							@include typographyRules(
-								"accordion-item",
-								"xxl",
-								"heading",
-								$defaultAccordionItemHeadingTypography
-							);
+							@include paddingRules("accordion-item", "xxl", "heading");
+							@include typographyRules("accordion-item", "xxl", "heading");
 						}
+					}
+				}
+
+				& > .collapse > .card-body {
+					@include paddingRules("accordion-item", "xs", "body");
+
+					@include media-breakpoint-up(sm) {
+						@include paddingRules("accordion-item", "sm", "body");
+					}
+
+					@include media-breakpoint-up(md) {
+						@include paddingRules("accordion-item", "md", "body");
+					}
+
+					@include media-breakpoint-up(lg) {
+						@include paddingRules("accordion-item", "lg", "body");
+					}
+
+					@include media-breakpoint-up(xl) {
+						@include paddingRules("accordion-item", "xl", "body");
+					}
+
+					@include media-breakpoint-up(xxl) {
+						@include paddingRules("accordion-item", "xxl", "body");
 					}
 				}
 			}
@@ -211,4 +148,38 @@ $defaultAccordionItemBodyBackground: $card-bg;
 }
 
 @mixin accordion-item-block-editor-rules() {
+	.wp-block-beer-blocks-accordion-item {
+		// Fix block editor default .card padding
+		&.card {
+			padding: revert;
+		}
+
+		.editor-styles-wrapper &.wp-block {
+			&.card {
+				margin-top: revert;
+				margin-bottom: revert;
+				@include verticalMarginRules("accordion-item");
+
+				@include media-breakpoint-up(sm) {
+					@include verticalMarginRules("accordion-item", "sm");
+				}
+
+				@include media-breakpoint-up(md) {
+					@include verticalMarginRules("accordion-item", "md");
+				}
+
+				@include media-breakpoint-up(lg) {
+					@include verticalMarginRules("accordion-item", "lg");
+				}
+
+				@include media-breakpoint-up(xl) {
+					@include verticalMarginRules("accordion-item", "xl");
+				}
+
+				@include media-breakpoint-up(xxl) {
+					@include verticalMarginRules("accordion-item", "xxl");
+				}
+			}
+		}
+	}
 }

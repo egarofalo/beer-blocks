@@ -7,14 +7,18 @@ import {
 import colors from "./../../helpers/colors";
 import spacing from "./../../helpers/spacing";
 import grid from "./../../helpers/grid";
+import htmlAttrs from "./../../helpers/html-attrs";
 
 const edit = (props) => {
 	const blockProps = useBlockProps({
+		className: `${spacing.cssClasses(props)}${colors.cssClasses(
+			props
+		)}`.trimStart(),
 		style: {
-			...colors.backgroundCssVars(props, "advanced-header"),
-			...spacing.paddingCssVars(props, "advanced-header"),
-			...spacing.marginCssVars(props, "advanced-header"),
+			...colors.cssVars(props, "advanced-header"),
+			...spacing.cssVars(props, "advanced-header"),
 		},
+		...htmlAttrs.blockProps(props),
 	});
 
 	const templates = [
@@ -28,7 +32,7 @@ const edit = (props) => {
 		[
 			"beer-blocks/separator",
 			{
-				height: grid.breakpointsAttributeValue(2),
+				height: grid.breakpointsAttributeValue({ xs: 2 }),
 				align: "center",
 			},
 		],
@@ -45,7 +49,8 @@ const edit = (props) => {
 		<>
 			<InspectorControls>
 				{colors.controls({ props })}
-				{spacing.breakpointsControls({ props })}
+				{spacing.controls({ props })}
+				{htmlAttrs.controls({ props })}
 			</InspectorControls>
 
 			<div {...blockProps}>

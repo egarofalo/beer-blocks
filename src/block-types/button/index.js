@@ -35,6 +35,7 @@ import colors from "./../../helpers/colors";
 import border from "./../../helpers/border";
 import spacing from "./../../helpers/spacing";
 import statuses from "./../../helpers/statuses";
+import htmlAttrs from "./../../helpers/html-attrs";
 
 /**
  * Block Icon.
@@ -76,7 +77,7 @@ registerBlockType("beer-blocks/button", {
 		},
 		align: {
 			type: "string",
-			default: "left",
+			default: undefined,
 		},
 		variant: {
 			type: "string",
@@ -94,9 +95,9 @@ registerBlockType("beer-blocks/button", {
 			type: "boolean",
 			default: false,
 		},
-		...typography.attributes({ breakpoints: true }),
+		...typography.attributes(),
 		...border.attributes({ borderRadius: true }),
-		...spacing.attributes({ breakpoints: true }),
+		...spacing.attributes(),
 		...colors.attributes(),
 		...statuses.attributes({
 			hoverColorAttr: true,
@@ -107,6 +108,7 @@ registerBlockType("beer-blocks/button", {
 			focusBorderAttr: true,
 			transitionAttr: true,
 		}),
+		...htmlAttrs.attributes(),
 	},
 	edit,
 	save,

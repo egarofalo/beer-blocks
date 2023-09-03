@@ -8,7 +8,7 @@ import {
 	MdOutlineMonitor as XlBreakpointIcon,
 	MdOutlineTv as XxlBreakpointIcon,
 } from "react-icons/md";
-import { camelCase, isEmpty } from "lodash";
+import { camelCase, has, isEmpty, isPlainObject } from "lodash";
 
 // Bootstrap containers options for select component
 export const containerTypesOptions = [
@@ -76,8 +76,22 @@ export const colSizingTypeOptions = (resolution) => [
 export const breakpoints = ["xs", "sm", "md", "lg", "xl", "xxl"];
 
 // default value for attributes with breakpoints
-export const breakpointsAttributeValue = (defaultValue) =>
-	Object.fromEntries(breakpoints.map((key) => [[key], defaultValue]));
+export const breakpointsAttributeValue = (defaultValue) => {
+	if (
+		isPlainObject(defaultValue) &&
+		breakpoints
+			.map((breakpoint) => has(defaultValue, breakpoint))
+			.includes(true)
+	) {
+		return Object.fromEntries(
+			Object.entries(defaultValue).filter((value) =>
+				breakpoints.includes(value[0])
+			)
+		);
+	}
+
+	return Object.fromEntries(breakpoints.map((key) => [[key], defaultValue]));
+};
 
 // default value for breakpoints behavior attribute
 export const breakpointsBehaviorAttributeValue = (defaultValue) =>
@@ -105,7 +119,7 @@ export const breakpointsBehaviorAttribute = (attrPrefix = "") => ({
 export const breakpointsAttribute = ({
 	attrName,
 	breakpointsBehaviorAttributes = false,
-	defaultValue = "",
+	defaultValue = undefined,
 }) => ({
 	[attrName]: {
 		type: "object",

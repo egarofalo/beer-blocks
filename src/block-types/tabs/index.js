@@ -88,9 +88,9 @@ registerBlockType("beer-blocks/tabs", {
 		...flexbox.attributes({ alignItemsAttr: false, attrPrefix: "tab" }),
 		...colors.attributes({ attrPrefix: "tab" }),
 		...border.attributes({ attrPrefix: "tab", borderRadius: true }),
-		...spacing.attributes({ attrPrefix: "tab", breakpoints: true }),
-		...spacing.attributes({ breakpoints: true }),
-		...typography.attributes({ attrPrefix: "tab", breakpoints: true }),
+		...spacing.attributes({ attrPrefix: "tab" }),
+		...spacing.attributes(),
+		...typography.attributes({ attrPrefix: "tab" }),
 		...statuses.attributes({
 			attrPrefix: "tab",
 			hoverColorAttr: true,

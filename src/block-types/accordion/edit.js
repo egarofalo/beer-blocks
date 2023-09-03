@@ -8,6 +8,7 @@ import {
 	__experimentalUseInnerBlocksProps as __useInnerBlocksProps,
 } from "@wordpress/block-editor";
 import spacing from "./../../helpers/spacing";
+import htmlAttrs from "./../../helpers/html-attrs";
 
 const edit = (props) => {
 	const {
@@ -17,10 +18,9 @@ const edit = (props) => {
 	} = props;
 
 	const blockProps = useBlockProps({
-		style: {
-			...spacing.paddingCssVars(props, "accordion"),
-			...spacing.marginCssVars(props, "accordion"),
-		},
+		className: spacing.cssClasses(props).trimStart(),
+		style: spacing.cssVars(props, "accordion"),
+		...htmlAttrs.blockProps(props),
 	});
 
 	const innerBlocksPropsConfig = [
@@ -49,7 +49,8 @@ const edit = (props) => {
 	return (
 		<>
 			<InspectorControls>
-				{spacing.breakpointsControls({ props })}
+				{spacing.controls({ props })}
+				{htmlAttrs.controls({ props })}
 			</InspectorControls>
 
 			<div {...blockProps}>

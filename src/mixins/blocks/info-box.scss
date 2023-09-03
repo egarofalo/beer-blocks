@@ -4,11 +4,8 @@
 @mixin info-box-block-rules() {
 	.wp-block-beer-blocks-info-box {
 		@include backgroundRule("info-box");
-
-		@include media-breakpoint-down(xs) {
-			@include paddingRules("info-box");
-			@include marginRules("info-box");
-		}
+		@include paddingRules("info-box");
+		@include marginRules("info-box");
 
 		@include media-breakpoint-up(sm) {
 			@include paddingRules("info-box", "sm");
@@ -48,28 +45,28 @@
 		}
 
 		.editor-styles-wrapper &.wp-block {
-			@include media-breakpoint-down(xs) {
-				@include horizontalMarginRules("info-box");
-			}
+			margin-top: revert;
+			margin-bottom: revert;
+			@include verticalMarginRules("info-box");
 
 			@include media-breakpoint-up(sm) {
-				@include horizontalMarginRules("info-box", "sm");
+				@include verticalMarginRules("info-box", "sm");
 			}
 
 			@include media-breakpoint-up(md) {
-				@include horizontalMarginRules("info-box", "md");
+				@include verticalMarginRules("info-box", "md");
 			}
 
 			@include media-breakpoint-up(lg) {
-				@include horizontalMarginRules("info-box", "lg");
+				@include verticalMarginRules("info-box", "lg");
 			}
 
 			@include media-breakpoint-up(xl) {
-				@include horizontalMarginRules("info-box", "xl");
+				@include verticalMarginRules("info-box", "xl");
 			}
 
 			@include media-breakpoint-up(xxl) {
-				@include horizontalMarginRules("info-box", "xxl");
+				@include verticalMarginRules("info-box", "xxl");
 			}
 		}
 	}

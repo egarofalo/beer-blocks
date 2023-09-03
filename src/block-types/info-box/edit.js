@@ -23,10 +23,12 @@ const edit = (props) => {
 	} = props;
 
 	const blockProps = useBlockProps({
+		className: `${colors.cssClasses(props)}${spacing.cssClasses(
+			props
+		)}`.trimStart(),
 		style: {
 			...colors.cssVars(props, "info-box"),
-			...spacing.paddingCssVars(props, "info-box"),
-			...spacing.marginCssVars(props, "info-box"),
+			...spacing.cssVars(props, "info-box"),
 		},
 	});
 
@@ -39,7 +41,8 @@ const edit = (props) => {
 						showHtmlElementTypeToggleField: false,
 						htmlElementType: BLOCK_LEVEL_ELEMENT,
 						textAlign: "center",
-						fontSize: grid.breakpointsAttributeValue("2rem"),
+						fontSize: grid.breakpointsAttributeValue({ xs: "2rem" }),
+						margin: grid.breakpointsAttributeValue({ xs: { bottom: "1rem" } }),
 					},
 			  ]
 			: [
@@ -48,6 +51,7 @@ const edit = (props) => {
 						placeholder: __("Chose an image...", "beer-blocks"),
 						showRemoveFigcaptionToggleField: false,
 						removeFigcaption: true,
+						margin: grid.breakpointsAttributeValue({ xs: { bottom: "1rem" } }),
 					},
 			  ],
 		...(!removeIconPrefix
@@ -56,8 +60,11 @@ const edit = (props) => {
 						"beer-blocks/paragraph",
 						{
 							placeholder: __("Write prefix here...", "beer-blocks"),
-							lineHeight: grid.breakpointsAttributeValue(1.1),
+							lineHeight: grid.breakpointsAttributeValue({ xs: 1.1 }),
 							textAlign: "center",
+							margin: grid.breakpointsAttributeValue({
+								xs: { bottom: "1rem" },
+							}),
 						},
 					],
 			  ]
@@ -66,8 +73,9 @@ const edit = (props) => {
 			"beer-blocks/header",
 			{
 				placeholder: __("Write title here...", "beer-blocks"),
-				lineHeight: grid.breakpointsAttributeValue(1.1),
+				lineHeight: grid.breakpointsAttributeValue({ xs: 1.1 }),
 				textAlign: "center",
+				margin: grid.breakpointsAttributeValue({ xs: { bottom: "1rem" } }),
 			},
 		],
 		...(!removeLineSeparator
@@ -75,7 +83,10 @@ const edit = (props) => {
 					[
 						"beer-blocks/separator",
 						{
-							height: grid.breakpointsAttributeValue(2),
+							height: grid.breakpointsAttributeValue({ xs: 2 }),
+							margin: grid.breakpointsAttributeValue({
+								xs: { bottom: "1rem" },
+							}),
 							align: "center",
 						},
 					],
@@ -87,8 +98,9 @@ const edit = (props) => {
 						"beer-blocks/paragraph",
 						{
 							placeholder: __("Write short description here...", "beer-blocks"),
-							lineHeight: grid.breakpointsAttributeValue(1.1),
+							lineHeight: grid.breakpointsAttributeValue({ xs: 1.1 }),
 							textAlign: "center",
+							margin: grid.breakpointsAttributeValue({ xs: { bottom: "0px" } }),
 						},
 					],
 			  ]
@@ -146,7 +158,7 @@ const edit = (props) => {
 				</PanelBody>
 
 				{colors.controls({ props })}
-				{spacing.breakpointsControls({ props })}
+				{spacing.controls({ props })}
 			</InspectorControls>
 
 			<div {...innerBlocksProps} />

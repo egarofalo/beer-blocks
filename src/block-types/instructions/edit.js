@@ -21,16 +21,18 @@ const edit = (props) => {
 	} = props;
 
 	const blockProps = useBlockProps({
-		className: containerType,
+		className: `${containerType}${colors.cssClasses(props)}${spacing.cssClasses(
+			props
+		)}`,
 		style: {
 			...colors.cssVars(props, "instructions"),
-			...spacing.marginCssVars(props, "instructions"),
+			...spacing.cssVars(props, "instructions"),
 		},
 	});
 
 	const innerBlocksPropsConfig = [
 		{
-			className: `p-0 row ${flexbox.cssClasses({ props })}`.trimEnd(),
+			className: `p-0 mb-0 row${flexbox.cssClasses(props)}`,
 		},
 		{
 			allowedBlocks: ["beer-blocks/instruction"],
@@ -67,7 +69,11 @@ const edit = (props) => {
 				</PanelBody>
 
 				{colors.controls({ props })}
-				{spacing.breakpointsControls({ props })}
+				{spacing.controls({
+					props,
+					paddingSides: false,
+					marginSides: ["top", "bottom"],
+				})}
 			</InspectorControls>
 
 			<div {...blockProps}>

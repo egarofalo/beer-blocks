@@ -5,10 +5,11 @@ import spacing from "../../helpers/spacing";
 
 const save = (props) => {
 	const blockProps = useBlockProps.save({
-		className: grid.getColSizingClasses({ props }),
+		className: `${grid.getColSizingClasses({
+			props,
+		})}${colors.cssClasses(props)}${spacing.cssClasses(props)}`,
 		style: {
-			...spacing.paddingCssVars(props, "column"),
-			...spacing.marginCssVars(props, "column"),
+			...spacing.cssVars(props, "column"),
 			...colors.cssVars(props, "column"),
 		},
 	});
