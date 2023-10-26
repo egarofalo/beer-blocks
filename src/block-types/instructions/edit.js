@@ -12,6 +12,7 @@ import flexbox from "../../helpers/flexbox";
 import colors from "../../helpers/colors";
 import spacing from "../../helpers/spacing";
 import grid from "../../helpers/grid";
+import htmlAttrs from "../../helpers/html-attrs";
 
 const edit = (props) => {
 	const {
@@ -28,6 +29,7 @@ const edit = (props) => {
 			...colors.cssVars(props, "instructions"),
 			...spacing.cssVars(props, "instructions"),
 		},
+		...htmlAttrs.blockProps(props),
 	});
 
 	const innerBlocksPropsConfig = [
@@ -74,6 +76,7 @@ const edit = (props) => {
 					paddingSides: false,
 					marginSides: ["top", "bottom"],
 				})}
+				{htmlAttrs.controls({ props })}
 			</InspectorControls>
 
 			<div {...blockProps}>

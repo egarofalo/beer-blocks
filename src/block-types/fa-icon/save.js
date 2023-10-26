@@ -3,6 +3,7 @@ import { BLOCK_LEVEL_ELEMENT } from "./../../helpers/fa-icons";
 import spacing from "./../../helpers/spacing";
 import typography from "./../../helpers/typography";
 import colors from "../../helpers/colors";
+import htmlAttrs from "./../../helpers/html-attrs";
 
 const save = (props) => {
 	const {
@@ -16,6 +17,7 @@ const save = (props) => {
 				: "d-inline-block"
 		}${spacing.cssClasses(props)}`,
 		style: spacing.cssVars(props, "fa-icon"),
+		...htmlAttrs.blockProps(props),
 	});
 
 	const iconElem = (

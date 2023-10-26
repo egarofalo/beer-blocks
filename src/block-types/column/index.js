@@ -33,6 +33,7 @@ import save from "./save";
 import grid from "./../../helpers/grid";
 import spacing from "./../../helpers/spacing";
 import colors from "./../../helpers/colors";
+import htmlAttrs from "./../../helpers/html-attrs";
 
 /**
  * Block Icon.
@@ -63,6 +64,7 @@ registerBlockType("beer-blocks/column", {
 			marginSides: ["top", "bottom"],
 		}),
 		...colors.attributes({ colorAttr: false }),
+		...htmlAttrs.attributes(),
 	},
 	edit,
 	save,

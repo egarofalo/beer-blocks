@@ -5,7 +5,7 @@
  * Description: Beer Blocks extend the block editor with advanced and powerful blocks that help you build beautiful websites faster.
  * Requires at least: 5.6
  * Requires PHP: 7.3
- * Version: 1.6.1
+ * Version: 1.7.0
  * Author: codevelopers
  * Author URI: https://codevelopers.tech
  * License: GPL-2.0-or-later

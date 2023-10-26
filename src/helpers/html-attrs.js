@@ -28,7 +28,7 @@ const htmlAttributes = ({
 export const attributes = ({
 	attrPrefix = "",
 	defaultId = undefined,
-	defaultHtmlAttrs = [],
+	defaultHtmlAttrs = undefined,
 } = {}) => ({
 	...idAttribute({ attrPrefix, defaultValue: defaultId }),
 	...htmlAttributes({ attrPrefix, defaultValue: defaultHtmlAttrs }),
@@ -75,7 +75,7 @@ const htmlAttrsControl = ({
 			label={label}
 			value={attributes[attr]}
 			help={__(
-				"Add one or more HTML attributes separated with a new line. Each line must have the <code>attrName : value</code> format.",
+				"Add one or more HTML attributes separated with a new line. Each line must have the `attrName : value` format.",
 				"beer-blocks"
 			)}
 			rows="6"
@@ -131,11 +131,11 @@ const htmlAttrsToObject = (attr) => {
 	const lines = isString(attr) ? attr.split(/\n/) : [];
 	const attrs = lines
 		.map((htmlAttr) => {
-			if (!/^[a-zA-Z\-]{2,}\s+:\s+[a-zA-Z\-_0-9 ]{2,}$/.test(htmlAttr)) {
+			if (!/^[a-zA-Z\-]{2,}\s*:\s*[a-zA-Z\-_0-9 ]{2,}$/.test(htmlAttr)) {
 				return false;
 			}
 
-			let entry = htmlAttr.split(/\s+:\s+/);
+			let entry = htmlAttr.split(/\s*:\s*/);
 
 			return [entry[0], entry[1].trim()];
 		})

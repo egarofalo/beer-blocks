@@ -2,6 +2,7 @@ import { useBlockProps, RichText } from "@wordpress/block-editor";
 import spacing from "./../../helpers/spacing";
 import typography from "./../../helpers/typography";
 import colors from "./../../helpers/colors";
+import htmlAttrs from "./../../helpers/html-attrs";
 
 const save = (props) => {
 	const {
@@ -18,6 +19,7 @@ const save = (props) => {
 			...typography.cssVars(props, "header"),
 			...colors.cssVars(props, "header"),
 		},
+		...htmlAttrs.blockProps(props),
 	});
 
 	return (

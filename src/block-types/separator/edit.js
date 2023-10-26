@@ -16,9 +16,9 @@ import blockAlignment from "./../../helpers/block-alignment";
 import spacing from "./../../helpers/spacing";
 import { variantsColorPallet as variants } from "./../../helpers/bootstrap-variants";
 import size from "./../../helpers/size";
-import { borderStyles } from "../../helpers/border";
 import { reset } from "../../helpers/buttons";
 import grid from "../../helpers/grid";
+import htmlAttrs from "../../helpers/html-attrs";
 
 const edit = (props) => {
 	const {
@@ -37,6 +37,7 @@ const edit = (props) => {
 			...(color ? { "--wp-beer-blocks-separator-color": color } : {}),
 			...blockAlignment.styles(props),
 		},
+		...htmlAttrs.blockProps(props),
 	});
 
 	return (
@@ -55,7 +56,11 @@ const edit = (props) => {
 					<BaseControl label={__("Line style", "beer-blocks")}>
 						<SelectControl
 							value={style}
-							options={Object.entries(borderStyles).map((borderStyle) => ({
+							options={Object.entries({
+								solid: "Solid",
+								doted: "Dotted",
+								dashed: "Dashed"
+							}).map((borderStyle) => ({
 								label: borderStyle[1],
 								value: borderStyle[0],
 							}))}
@@ -144,6 +149,7 @@ const edit = (props) => {
 					paddingSides: false,
 					marginSides: ["top", "bottom"],
 				})}
+				{htmlAttrs.controls({ props })}
 			</InspectorControls>
 
 			<BlockControls>{blockAlignment.toolbar({ props })}</BlockControls>

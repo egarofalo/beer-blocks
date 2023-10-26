@@ -18,6 +18,7 @@
 		flex-wrap: wrap;
 
 		.components-tab-panel__tabs-item {
+			padding: 0;
 			padding-left: 10px;
 			padding-right: 10px;
 			flex-grow: 1;
@@ -61,5 +62,3 @@
 		}
 	}
 }
-
-@include utilities();

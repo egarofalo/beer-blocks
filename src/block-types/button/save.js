@@ -3,7 +3,7 @@ import { useBlockProps, RichText } from "@wordpress/block-editor";
 import typography from "./../../helpers/typography";
 import border from "./../../helpers/border";
 import spacing from "./../../helpers/spacing";
-//import statuses from "./../../helpers/statuses";
+import statuses from "./../../helpers/statuses";
 import colors from "./../../helpers/colors";
 import htmlAttrs from "./../../helpers/html-attrs";
 
@@ -33,7 +33,7 @@ const save = (props) => {
 			? {
 					...colors.cssVars(props, "button"),
 					...border.cssVars(props, "button"),
-					//...statuses.cssVars(props, "button"),
+					...statuses.cssVars(props, "button"),
 					...typography.cssVars(props, "button"),
 					...typography.styles(props),
 			  }
@@ -51,7 +51,9 @@ const save = (props) => {
 			  } ${btnDisplayClass}`
 			: `wp-beer-blocks-btn-custom-styles ${btnDisplayClass}${colors.cssClasses(
 					props
-			  )}${typography.cssClasses(props)}${/*statuses.cssClasses(props)*/ ""}`
+			  )}${typography.cssClasses(props)}${border.cssClasses(
+					props
+			  )}${statuses.cssClasses(props)}`
 	}${spacing.paddingCssClasses(props)}`;
 
 	const blockProps = useBlockProps.save({

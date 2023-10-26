@@ -36,6 +36,7 @@ import spacing from "./../../helpers/spacing";
 import typography from "./../../helpers/typography";
 import border from "./../../helpers/border";
 import statuses from "./../../helpers/statuses";
+import htmlAttrs from "../../helpers/html-attrs";
 
 /**
  * Block Icon.
@@ -95,12 +96,13 @@ registerBlockType("beer-blocks/tabs", {
 			attrPrefix: "tab",
 			hoverColorAttr: true,
 			hoverBackgroundAttr: true,
-			hoverBorderAttr: true,
+			hoverBorderColorAttr: true,
 			activeColorAttr: true,
 			activeBackgroundAttr: true,
-			activeBorderAttr: true,
+			activeBorderColorAttr: true,
 			transitionAttr: true,
 		}),
+		...htmlAttrs.attributes(),
 	},
 	providesContext: {
 		tabsId: "id",

@@ -10,6 +10,7 @@ import { BLOCK_LEVEL_ELEMENT } from "./../../helpers/fa-icons";
 import colors from "./../../helpers/colors";
 import spacing from "./../../helpers/spacing";
 import grid from "./../../helpers/grid";
+import htmlAttrs from "./../../helpers/html-attrs";
 
 const edit = (props) => {
 	const {
@@ -30,6 +31,7 @@ const edit = (props) => {
 			...colors.cssVars(props, "info-box"),
 			...spacing.cssVars(props, "info-box"),
 		},
+		...htmlAttrs.blockProps(props),
 	});
 
 	let template = [
@@ -159,6 +161,7 @@ const edit = (props) => {
 
 				{colors.controls({ props })}
 				{spacing.controls({ props })}
+				{htmlAttrs.controls({ props })}
 			</InspectorControls>
 
 			<div {...innerBlocksProps} />

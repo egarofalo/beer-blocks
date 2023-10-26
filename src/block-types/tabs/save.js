@@ -5,7 +5,8 @@ import flexbox from "./../../helpers/flexbox";
 import typography from "./../../helpers/typography";
 import border from "./../../helpers/border";
 import colors from "../../helpers/colors";
-//import statuses from "./../../helpers/statuses";
+import statuses from "./../../helpers/statuses";
+import htmlAttrs from "./../../helpers/html-attrs";
 
 const save = (props) => {
 	const {
@@ -21,6 +22,7 @@ const save = (props) => {
 	const blockProps = useBlockProps.save({
 		className: spacing.cssClasses(props).trimStart(),
 		style: spacing.cssVars(props, "tabs"),
+		...htmlAttrs.blockProps(props),
 	});
 
 	return (
@@ -45,12 +47,10 @@ const save = (props) => {
 							}${typography.cssClasses(props, "tab")}${spacing.cssClasses(
 								props,
 								"tab"
-							)}${colors.cssClasses(props, "tab")}${
-								/*statuses.cssClasses(props, "tab")
-									? ` ${statuses.cssClasses(props, "tab")}`
-									: ""*/
-								""
-							}`}
+							)}${colors.cssClasses(props, "tab")}${border.cssClasses(
+								props,
+								"tab"
+							)}${statuses.cssClasses(props, "tab")}`}
 							id={`${tabsId}-tab-${index}`}
 							data-toggle="pill"
 							href={`#${tabsId}-pane-${index}`}
@@ -64,7 +64,7 @@ const save = (props) => {
 								...spacing.cssVars(props, "tabs", "tab"),
 								...colors.cssVars(props, "tabs", "tab"),
 								...border.cssVars(props, "tabs", "tab"),
-								//...statuses.cssVars(props, "tabs", "tab"),
+								...statuses.cssVars(props, "tabs", "tab"),
 							}}
 						/>
 					</li>

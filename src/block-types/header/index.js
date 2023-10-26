@@ -33,6 +33,7 @@ import save from "./save";
 import spacing from "./../../helpers/spacing";
 import typography from "./../../helpers/typography";
 import colors from "./../../helpers/colors";
+import htmlAttrs from "./../../helpers/html-attrs";
 
 /**
  * Block Icon.
@@ -74,6 +75,7 @@ registerBlockType("beer-blocks/header", {
 		...spacing.attributes(),
 		...typography.attributes(),
 		...colors.attributes(),
+		...htmlAttrs.attributes(),
 	},
 	transforms: {
 		from: [

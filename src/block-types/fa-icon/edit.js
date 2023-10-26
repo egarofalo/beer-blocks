@@ -17,6 +17,7 @@ import {
 import spacing from "./../../helpers/spacing";
 import typography from "./../../helpers/typography";
 import colors from "./../../helpers/colors";
+import htmlAttrs from "./../../helpers/html-attrs";
 
 const edit = (props) => {
 	const {
@@ -38,6 +39,7 @@ const edit = (props) => {
 				: "d-inline-block"
 		}${spacing.cssClasses(props)}`,
 		style: spacing.cssVars(props, "fa-icon"),
+		...htmlAttrs.blockProps(props),
 	});
 
 	const iconElem = (
@@ -112,6 +114,7 @@ const edit = (props) => {
 				</PanelBody>
 
 				{spacing.controls({ props, paddingSides: false })}
+				{htmlAttrs.controls({ props })}
 			</InspectorControls>
 
 			{htmlElementType === BLOCK_LEVEL_ELEMENT && (

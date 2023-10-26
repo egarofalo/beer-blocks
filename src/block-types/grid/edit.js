@@ -6,6 +6,7 @@ import {
 } from "@wordpress/block-editor";
 import colors from "../../helpers/colors";
 import spacing from "./../../helpers/spacing";
+import htmlAttrs from "./../../helpers/html-attrs";
 
 const edit = (props) => {
 	const blockProps = useBlockProps({
@@ -16,6 +17,7 @@ const edit = (props) => {
 			...colors.cssVars(props, "grid"),
 			...spacing.cssVars(props, "grid"),
 		},
+		...htmlAttrs.blockProps(props),
 	});
 
 	const innerBlocksPropsConfig = [
@@ -49,6 +51,7 @@ const edit = (props) => {
 			<InspectorControls>
 				{colors.controls({ props })}
 				{spacing.controls({ props })}
+				{htmlAttrs.controls({ props })}
 			</InspectorControls>
 
 			<div {...innerBlocksProps} />

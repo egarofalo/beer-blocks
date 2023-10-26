@@ -18,7 +18,7 @@ const save = (props) => {
 	} = props;
 
 	const blockProps = useBlockProps.save({
-		className: `card${spacing.cssClasses(props)}${colors.cssClasses(props)}`,
+		className: `card${spacing.cssClasses(props)}${colors.cssClasses(props)}${border.cssClasses(props)}`,
 		style: {
 			...spacing.cssVars(props, "accordion-item"),
 			...colors.cssVars(props, "accordion-item"),
@@ -31,7 +31,7 @@ const save = (props) => {
 	return (
 		<div {...blockProps}>
 			<div
-				className={`card-header p-0${colors.cssClasses(props, "heading")}`}
+				className={`card-header p-0${colors.cssClasses(props, "heading")}${border.cssClasses(props, "heading")}`}
 				id={headingId}
 				style={{
 					...colors.cssVars(props, "accordion-item", "heading"),

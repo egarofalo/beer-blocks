@@ -4,28 +4,7 @@
 @import "./../helpers/statuses";
 @import "./../helpers/border";
 @import "./../helpers/colors";
-/*
-// Default border styles
-$defaultButtonBorder: (
-	style: solid,
-	color: $gray-900,
-	width: 2px,
-);
 
-// Default border radius styles
-$defaultButtonBorderRadius: (
-	top-right: $btn-border-radius,
-	bottom-right: $btn-border-radius,
-	bottom-left: $btn-border-radius,
-	top-left: $btn-border-radius,
-);
-
-// Default border styles for statuses helper
-$defaultButtonStatusesBorder: (
-	color: $gray-900,
-	width: 2px,
-);
-*/
 // Button cursor
 $defaultButtonCursor: if($enable-pointer-cursor-for-buttons, pointer, auto);
 
@@ -55,6 +34,11 @@ $defaultButtonCursor: if($enable-pointer-cursor-for-buttons, pointer, auto);
 
 		& > a {
 			text-decoration: none;
+
+			&:hover {
+				text-decoration: none;
+			}
+			
 			@include paddingRules("button");
 
 			@include media-breakpoint-up(sm) {
@@ -80,7 +64,6 @@ $defaultButtonCursor: if($enable-pointer-cursor-for-buttons, pointer, auto);
 			&.wp-beer-blocks-btn-custom-styles {
 				@include colorsRules("button");
 				@include borderRules("button", $borderRadius: true);
-				/*
 				@include statusesRules(
 					"button",
 					$hoverColor: true,
@@ -89,15 +72,11 @@ $defaultButtonCursor: if($enable-pointer-cursor-for-buttons, pointer, auto);
 					$hoverBackground: true,
 					$activeBackground: true,
 					$focusBackground: true,
-					$hoverBorder: true,
-					$hoverBorderDefault: $defaultButtonStatusesBorder,
-					$activeBorder: true,
-					$activeBorderDefault: $defaultButtonStatusesBorder,
-					$focusBorder: true,
-					$focusBorderDefault: $defaultButtonStatusesBorder,
+					$hoverBorderColor: true,
+					$activeBorderColor: true,
+					$focusBorderColor: true,
 					$transition: true
 				);
-				*/
 				@include typographyRules("button");
 
 				@include media-breakpoint-up(sm) {

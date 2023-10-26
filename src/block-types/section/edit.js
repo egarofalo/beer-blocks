@@ -8,6 +8,7 @@ import { SelectControl, PanelBody } from "@wordpress/components";
 import colors from "./../../helpers/colors";
 import spacing from "./../../helpers/spacing";
 import sectioningTags from "./../../helpers/sectioning-tags";
+import htmlAttrs from "./../../helpers/html-attrs";
 
 const edit = (props) => {
 	const {
@@ -23,6 +24,7 @@ const edit = (props) => {
 			...colors.cssVars(props, "section"),
 			...spacing.cssVars(props, "section"),
 		},
+		...htmlAttrs.blockProps(props),
 	});
 
 	return (
@@ -44,6 +46,7 @@ const edit = (props) => {
 
 				{colors.controls({ props })}
 				{spacing.controls({ props })}
+				{htmlAttrs.controls({ props })}
 			</InspectorControls>
 
 			<TagName {...blockProps}>

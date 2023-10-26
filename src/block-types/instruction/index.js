@@ -36,6 +36,7 @@ import typography from "../../helpers/typography";
 import colors from "../../helpers/colors";
 import size from "../../helpers/size";
 import flexbox from "../../helpers/flexbox";
+import htmlAttrs from "./../../helpers/html-attrs";
 
 /**
  * Block Icon.
@@ -92,6 +93,7 @@ registerBlockType("beer-blocks/instruction", {
 			attrPrefix: "numeration",
 			lineHeightAttr: false,
 		}),
+		...htmlAttrs.attributes(),
 	},
 	usesContext: ["instructionsId"],
 	edit,

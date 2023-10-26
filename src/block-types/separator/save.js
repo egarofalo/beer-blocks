@@ -2,6 +2,7 @@ import { useBlockProps } from "@wordpress/block-editor";
 import size from "./../../helpers/size";
 import spacing from "./../../helpers/spacing";
 import blockAlignment from "./../../helpers/block-alignment";
+import htmlAttrs from "./../../helpers/html-attrs";
 
 const save = (props) => {
 	const {
@@ -19,6 +20,7 @@ const save = (props) => {
 			...(color ? { "--wp-beer-blocks-separator-color": color } : {}),
 			...blockAlignment.styles(props),
 		},
+		...htmlAttrs.blockProps(props),
 	});
 
 	return (

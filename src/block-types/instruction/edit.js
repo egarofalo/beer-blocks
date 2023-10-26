@@ -22,6 +22,7 @@ import flexbox from "../../helpers/flexbox";
 import { units } from "../../helpers/units";
 import { reset as resetButton } from "../../helpers/buttons";
 import { camelCase } from "lodash";
+import htmlAttrs from "../../helpers/html-attrs";
 
 const edit = (props) => {
 	const {
@@ -48,6 +49,7 @@ const edit = (props) => {
 			...colors.cssVars(props, "instruction"),
 			...spacing.marginCssVars(props, "instruction"),
 		},
+		...htmlAttrs.blockProps(props),
 	});
 
 	const template = [
@@ -211,6 +213,7 @@ const edit = (props) => {
 
 				{colors.controls({ props })}
 				{spacing.controls({ props, marginSides: ["top", "bottom"] })}
+				{htmlAttrs.controls({ props })}
 			</InspectorControls>
 
 			<li {...blockProps}>

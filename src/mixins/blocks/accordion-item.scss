@@ -4,42 +4,6 @@
 @import "./../helpers/typography";
 @import "./../helpers/colors";
 
-// Default border
-/*
-$defaultAccordionItemBorder: (
-	style: solid,
-	color: $card-border-color,
-	width: $card-border-width,
-);
-
-// Default border radius
-$defaultAccordionItemBorderRadius: (
-	top-left: $card-border-radius,
-	top-right: $card-border-radius,
-	bottom-right: $card-border-radius,
-	bottom-left: $card-border-radius,
-);
-
-// Default heading border
-$defaultAccordionItemHeadingBorder: (
-	top: $defaultBorder,
-	right: $defaultBorder,
-	bottom: (
-		style: solid,
-		color: $card-border-color,
-		width: $card-border-width,
-	),
-	left: $defaultBorder,
-);
-
-// Default heading border radius
-$defaultAccordionItemHeadingBorderRadius: (
-	top-left: $card-inner-border-radius,
-	top-right: $card-inner-border-radius,
-	bottom-right: 0,
-	bottom-left: 0,
-);
-*/
 @mixin accordion-item-block-rules() {
 	.wp-block-beer-blocks-accordion-item {
 		&.card {
@@ -72,13 +36,6 @@ $defaultAccordionItemHeadingBorderRadius: (
 			}
 
 			.accordion > & {
-				/*
-				@include accordionItemBorderRules(
-					$borderDefaults: $defaultAccordionItemBorder,
-					$borderRadius: true,
-					$borderRadiusDefaults: $defaultAccordionItemBorderRadius
-				);
-				*/
 				@include backgroundRule("accordion-item");
 				@include borderRules("accordion-item", $borderRadius: true);
 
@@ -158,6 +115,7 @@ $defaultAccordionItemHeadingBorderRadius: (
 			&.card {
 				margin-top: revert;
 				margin-bottom: revert;
+				@include borderRules("accordion-item", $borderRadius: true);
 				@include verticalMarginRules("accordion-item");
 
 				@include media-breakpoint-up(sm) {

@@ -10,6 +10,7 @@ import spacing from "./../../helpers/spacing";
 import typography from "./../../helpers/typography";
 import colors from "./../../helpers/colors";
 import { headingLevelDropdown } from "./../../helpers/heading";
+import htmlAttrs from "./../../helpers/html-attrs";
 
 const edit = (props) => {
 	const {
@@ -27,6 +28,7 @@ const edit = (props) => {
 			...typography.cssVars(props, "header"),
 			...colors.cssVars(props, "header"),
 		},
+		...htmlAttrs.blockProps(props),
 	});
 
 	return (
@@ -35,6 +37,7 @@ const edit = (props) => {
 				{typography.controls({ props, initialOpen: true })}
 				{colors.controls({ props })}
 				{spacing.controls({ props })}
+				{htmlAttrs.controls({ props })}
 			</InspectorControls>
 
 			<BlockControls>

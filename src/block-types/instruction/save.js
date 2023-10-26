@@ -5,6 +5,7 @@ import spacing from "../../helpers/spacing";
 import colors from "../../helpers/colors";
 import size from "../../helpers/size";
 import flexbox from "../../helpers/flexbox";
+import htmlAttrs from "../../helpers/html-attrs";
 
 const save = (props) => {
 	const {
@@ -20,6 +21,7 @@ const save = (props) => {
 			...colors.cssVars(props, "instruction"),
 			...spacing.marginCssVars(props, "instruction"),
 		},
+		...htmlAttrs.blockProps(props),
 	});
 
 	return (

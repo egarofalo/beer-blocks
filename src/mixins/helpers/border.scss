@@ -7,15 +7,15 @@
 @mixin innerBorderRules($varPrefix, $side) {
 	@if ($side == "all") {
 		&.wp-beer-blocks-has-border-style-rule {
-			border-#{$side}-style: var(--#{$varPrefix}Style);
+			border-style: var(--#{$varPrefix}Style);
 		}
 
 		&.wp-beer-blocks-has-border-color-rule {
-			border-#{$side}-color: var(--#{$varPrefix}Color);
+			border-color: var(--#{$varPrefix}Color);
 		}
 
 		&.wp-beer-blocks-has-border-width-rule {
-			border-#{$side}-width: var(--#{$varPrefix}Width);
+			border-width: var(--#{$varPrefix}Width);
 		}
 	} @else {
 		&.wp-beer-blocks-has-border-#{$side}-style-rule {
@@ -35,11 +35,11 @@
 // Get border radius rules for a specific corner
 @mixin innerBorderRadiusRules($varPrefix, $corner: "all") {
 	@if ($corner == "all") {
-		&.wp-beer-blocks-has-border-radius {
+		&.wp-beer-blocks-has-border-radius-rule {
 			border-radius: var(--#{$varPrefix}Radius);
 		}
 	} @else {
-		&.wp-beer-blocks-has-border-#{$corner}-radius {
+		&.wp-beer-blocks-has-border-#{camelize($corner)}-radius-rule {
 			border-#{$corner}-radius: var(
 				--#{$varPrefix}Radius#{capitalize(camelize($corner))}
 			);

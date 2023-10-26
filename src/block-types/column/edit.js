@@ -11,6 +11,7 @@ import { useSelect } from "@wordpress/data";
 import grid from "./../../helpers/grid";
 import spacing from "../../helpers/spacing";
 import colors from "../../helpers/colors";
+import htmlAttrs from "../../helpers/html-attrs";
 
 const edit = (props) => {
 	const { clientId } = props;
@@ -34,6 +35,7 @@ const edit = (props) => {
 			...spacing.cssVars(props, "column"),
 			...colors.cssVars(props, "column"),
 		},
+		...htmlAttrs.blockProps(props),
 	});
 
 	const innerBlocksPropsConfig = [
@@ -64,6 +66,7 @@ const edit = (props) => {
 					paddingSides: ["top", "bottom"],
 					marginSides: ["top", "bottom"],
 				})}
+				{htmlAttrs.controls({ props })}
 			</InspectorControls>
 
 			<div {...innerBlocksProps} />

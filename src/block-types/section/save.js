@@ -1,6 +1,7 @@
 import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
 import colors from "./../../helpers/colors";
 import spacing from "./../../helpers/spacing";
+import htmlAttrs from "./../../helpers/html-attrs";
 
 const save = (props) => {
 	const {
@@ -15,6 +16,7 @@ const save = (props) => {
 			...colors.cssVars(props, "section"),
 			...spacing.cssVars(props, "section"),
 		},
+		...htmlAttrs.blockProps(props),
 	});
 
 	return (

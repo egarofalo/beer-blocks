@@ -4,21 +4,6 @@
 @import "./../helpers/border";
 @import "./../helpers/statuses";
 
-// Default color for each active tab
-//$defaultTabsTabActiveColor: $nav-pills-link-active-color;
-
-// Default background for each active tab
-//$defaultTabsTabActiveBackground: $nav-pills-link-active-bg;
-
-// Default border radius for each tab
-/*
-$defaultTabsTabBorderRadius: (
-	top-left: $nav-pills-border-radius,
-	top-right: $nav-pills-border-radius,
-	bottom-right: $nav-pills-border-radius,
-	bottom-left: $nav-pills-border-radius,
-);
-*/
 @mixin tabs-block-rules() {
 	.wp-block-beer-blocks-tabs {
 		@include paddingRules("tabs");
@@ -52,33 +37,22 @@ $defaultTabsTabBorderRadius: (
 		.nav.nav-pills {
 			& > .nav-item {
 				& > .nav-link {
-					/*
-					&.active {
-						color: $defaultTabsTabActiveColor;
-						background-color: $defaultTabsTabActiveBackground;
-					}
-					*/
 					@include colorsRules("tabs", "tab");
 					@include borderRules("tabs", "tab", $borderRadius: true);
-					/*
+					@include typographyRules("tabs", "xs", "tab");
+					@include paddingRules("tabs", "xs", "tab");
+					@include marginRules("tabs", "xs", "tab");
 					@include statusesRules(
 						"tabs",
 						"tab",
 						$hoverColor: true,
 						$activeColor: true,
-						$activeColorDefault: $defaultTabsTabActiveColor,
 						$hoverBackground: true,
 						$activeBackground: true,
-						$activeBackgroundDefault: $defaultTabsTabActiveBackground,
-						$hoverBorder: true,
-						$activeBorder: true,
-						$transition: true,
-						$activeClass: active
+						$hoverBorderColor: true,
+						$activeBorderColor: true,
+						$transition: true
 					);
-					*/
-					@include typographyRules("tabs", "xs", "tab");
-					@include paddingRules("tabs", "xs", "tab");
-					@include marginRules("tabs", "xs", "tab");
 
 					@include media-breakpoint-up(sm) {
 						@include typographyRules("tabs", "sm", "tab");

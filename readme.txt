@@ -4,9 +4,9 @@ Contributors: egarofalo
 Tags: block, design, blocks, gutenberg, blockeditor
 Donate link: https://www.paypal.com/donate?hosted_button_id=8XSCNEV5WA5TU
 Requires at least: 5.6
-Tested up to: 6.1
+Tested up to: 6.4
 Requires PHP: 7.3
-Stable tag: 1.6.0
+Stable tag: 1.7.0
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -187,6 +187,21 @@ Yes, of course! You can choose any of the font families available in Google Font
 - Apply changes and improves in row and column block types
 = 1.6.1 =
 - Fix [!issue #5](https://github.com/egarofalo/beer-blocks/issues/5)
+= 1.7.0 =
+- Add new helper features using the new `html-attrs` helper
+- Add `html-attrs` helper in all blocks
+- Update `react-icons` package from `4.6.0` to `4.10.1`
+- Improves in `colors` helper wich allows remove default background and color values in block styles
+- Improves in `spacing` helper
+- Improves in `typography` helper
+- Improves in `size` helper
+- Improves in `border` helper
+- Improves in `flexbox` helper
+- Improves in `statuses` helper
+- Fix all blocks styles due to helpers improves
+- Fixes in `button` block
+- Set `margin-top: revert` and `margin-bottom: revert` to all blocks in the editor view
+- Remove `buttons` block
 
 == Upgrade Notice ==
 

@@ -60,13 +60,10 @@ const borderRadiusIcons = (corner) =>
 	}[corner]);
 
 // border radius tabs panel options
-const borderRadiusOptions = [borderRadiusCorners].map((corner) => ({
+const borderRadiusOptions = borderRadiusCorners.map((corner) => ({
 	name: camelCase(corner),
 	title: borderRadiusIcons(corner),
 }));
-
-// border sides
-const borderSides = ["top", "right", "bottom", "left"];
 
 // checks if the attribute value has each side of borders
 const isSplitBorders = (borders) =>
@@ -266,26 +263,14 @@ export const borderCssVars = (props, blockName, attrPrefix = "") => {
 							border[1].style,
 						]),
 			  ])
-			: Object.fromEntries([
-					...borderSides.map((side) => [
-						[`--wp-beer-blocks-${blockName}-${attr + upperFirst(side)}Width`],
-						borders.width,
-					]),
-					...borderSides.map((side) => [
-						[`--wp-beer-blocks-${blockName}-${attr + upperFirst(side)}Color`],
-						borders.color,
-					]),
-					...(has(borders, "style")
-						? borderSides.map((side) => [
-								[
-									`--wp-beer-blocks-${blockName}-${
-										attr + upperFirst(side)
-									}Style`,
-								],
-								borders.style,
-						  ])
-						: []),
-			  ]);
+			: Object.fromEntries(
+					Object.entries(borders)
+						.filter((border) => border[1])
+						.map((border) => [
+							`--wp-beer-blocks-${blockName}-${attr + upperFirst(border[0])}`,
+							border[1],
+						])
+			  );
 	}
 
 	return {};
@@ -299,16 +284,19 @@ export const borderRadiusCssVars = (props, blockName, attrPrefix = "") => {
 	} = props;
 
 	if (borderRadius) {
-		return borderRadius.all
-			? { [`--wp-beer-blocks-${blockName}-${attr}`]: borderRadius.all }
-			: Object.fromEntries(
-					Object.entries(borderRadius)
-						.filter((corner) => corner[1])
-						.map((corner) => [
-							`--wp-beer-blocks-${blockName}-${attr + upperFirst(corner[0])}`,
-							corner[1],
-						])
-			  );
+		return {
+			...Object.fromEntries(
+				Object.entries(borderRadius)
+					.filter((corner) => corner[1] && corner[0] !== "all")
+					.map((corner) => [
+						`--wp-beer-blocks-${blockName}-${attr + upperFirst(corner[0])}`,
+						corner[1],
+					])
+			),
+			...(borderRadius.all
+				? { [`--wp-beer-blocks-${blockName}-${attr}`]: borderRadius.all }
+				: {}),
+		};
 	}
 
 	return {};
@@ -342,7 +330,11 @@ const borderCssClass = (props, attrPrefix = "", addWhitespaceBefore = true) => {
 							? [`wp-beer-blocks-has-border-${borderSide[0]}-style-rule`]
 							: []),
 					])
-					.join(" ")
+					.reduce(
+						(classes, arrClasses) => `${classes} ${arrClasses.join(" ")}`,
+						""
+					)
+					.trimStart()
 			: Object.entries(border)
 					.filter((borderRule) => borderRule[1])
 					.map(
@@ -362,19 +354,22 @@ const borderRadiusCssClass = (
 	attrPrefix = "",
 	addWhitespaceBefore = true
 ) => {
-	const attr = attrName(attrPrefix);
+	const attr = attrName(attrPrefix, true);
 
 	const {
 		attributes: { [attr]: borderRadius = undefined },
 	} = props;
 
 	if (borderRadius) {
-		const classes = borderRadius.all
-			? "wp-beer-blocks-has-border-radius"
-			: Object.entries(borderRadius)
-					.filter((corner) => corner[1])
-					.map((corner) => `wp-beer-blocks-has-border-${corner}-radius`)
-					.join(" ");
+		const classes = Object.entries(borderRadius)
+			.filter((corner) => corner[1])
+			.map(
+				(corner) =>
+					`wp-beer-blocks-has-border-${
+						corner[0] !== "all" ? `${corner[0]}-` : ""
+					}radius-rule`
+			)
+			.join(" ");
 
 		return classes ? `${addWhitespaceBefore ? " " : ""}${classes}` : "";
 	}

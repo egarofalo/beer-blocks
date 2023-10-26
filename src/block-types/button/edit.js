@@ -22,7 +22,7 @@ import { options as optionsVariant } from "./../../helpers/bootstrap-variants";
 import typography from "./../../helpers/typography";
 import border from "./../../helpers/border";
 import spacing from "./../../helpers/spacing";
-//import statuses from "./../../helpers/statuses";
+import statuses from "./../../helpers/statuses";
 import colors from "./../../helpers/colors";
 import htmlAttrs from "./../../helpers/html-attrs";
 
@@ -85,7 +85,7 @@ const edit = (props) => {
 			? {
 					...colors.cssVars(props, "button"),
 					...border.cssVars(props, "button"),
-					//...statuses.cssVars(props, "button"),
+					...statuses.cssVars(props, "button"),
 					...typography.cssVars(props, "button"),
 					...typography.styles(props),
 			  }
@@ -103,7 +103,9 @@ const edit = (props) => {
 			  } ${btnDisplayClass}`
 			: `wp-beer-blocks-btn-custom-styles ${btnDisplayClass}${colors.cssClasses(
 					props
-			  )}${typography.cssClasses(props)}${/*statuses.cssClasses(props)*/ ""}`
+			  )}${typography.cssClasses(props)}${border.cssClasses(
+					props
+			  )}${statuses.cssClasses(props)}`
 	}${spacing.paddingCssClasses(props)}`;
 
 	const blockProps = useBlockProps({
@@ -117,7 +119,7 @@ const edit = (props) => {
 			{typography.controls({ props })}
 			{colors.controls({ props })}
 			{border.controls({ props })}
-			{/*statuses.controls({ props })*/}
+			{statuses.controls({ props })}
 		</>
 	);
 

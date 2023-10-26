@@ -6,6 +6,7 @@ import blockAlignment from "../../helpers/block-alignment";
 import colors from "../../helpers/colors";
 import typography from "../../helpers/typography";
 import placeholder from "./../../images/placeholder-image.svg";
+import htmlAttrs from "./../../helpers/html-attrs";
 
 const save = (props) => {
 	const {
@@ -22,6 +23,7 @@ const save = (props) => {
 	const blockProps = useBlockProps.save({
 		className: spacing.cssClasses(props).trimStart(),
 		style: spacing.cssVars(props, "image"),
+		...htmlAttrs.blockProps(props),
 	});
 
 	return (

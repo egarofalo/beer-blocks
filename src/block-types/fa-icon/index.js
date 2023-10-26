@@ -34,6 +34,7 @@ import { INLINE_ELEMENT } from "./../../helpers/fa-icons";
 import colors from "./../../helpers/colors";
 import spacing from "./../../helpers/spacing";
 import typography from "./../../helpers/typography";
+import htmlAttrs from "./../../helpers/html-attrs";
 
 /**
  * Block Icon.
@@ -84,6 +85,7 @@ registerBlockType("beer-blocks/fa-icon", {
 			fontWeightAttr: false,
 		}),
 		...spacing.attributes({ paddingSides: false }),
+		...htmlAttrs.attributes(),
 	},
 	edit,
 	save,

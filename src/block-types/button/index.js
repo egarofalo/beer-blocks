@@ -102,10 +102,10 @@ registerBlockType("beer-blocks/button", {
 		...statuses.attributes({
 			hoverColorAttr: true,
 			hoverBackgroundAttr: true,
-			hoverBorderAttr: true,
+			hoverBorderColorAttr: true,
 			focusColorAttr: true,
 			focusBackgroundAttr: true,
-			focusBorderAttr: true,
+			focusBorderColorAttr: true,
 			transitionAttr: true,
 		}),
 		...htmlAttrs.attributes(),

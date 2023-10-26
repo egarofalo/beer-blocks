@@ -35,6 +35,7 @@ import size from "../../helpers/size";
 import spacing from "./../../helpers/spacing";
 import typography from "./../../helpers/typography";
 import colors from "./../../helpers/colors";
+import htmlAttrs from "./../../helpers/html-attrs";
 
 /**
  * Block Icon.
@@ -113,6 +114,7 @@ registerBlockType("beer-blocks/image", {
 			paddingSides: false,
 			marginSides: ["top", "bottom"],
 		}),
+		...htmlAttrs.attributes(),
 	},
 	edit,
 	save,

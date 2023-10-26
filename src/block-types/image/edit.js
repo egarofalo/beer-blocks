@@ -20,6 +20,7 @@ import size from "../../helpers/size";
 import blockAlignment from "../../helpers/block-alignment";
 import colors from "../../helpers/colors";
 import typography from "../../helpers/typography";
+import htmlAttrs from "./../../helpers/html-attrs";
 import placeholder from "./../../images/placeholder-image.svg";
 
 const edit = (props) => {
@@ -41,6 +42,7 @@ const edit = (props) => {
 	const blockProps = useBlockProps({
 		className: spacing.cssClasses(props).trimStart(),
 		style: spacing.cssVars(props, "image"),
+		...htmlAttrs.blockProps(props),
 	});
 
 	const getOriginalImgSizeAttrs = (width, height) => ({
@@ -218,6 +220,7 @@ const edit = (props) => {
 
 				{spacing.controls({ props, paddingSides: false })}
 				{showRemoveFigcaptionToggleField && figcaptionControls}
+				{htmlAttrs.controls({ props })}
 			</InspectorControls>
 
 			<BlockControls>

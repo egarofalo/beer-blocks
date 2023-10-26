@@ -38,7 +38,7 @@ const edit = (props) => {
 	const blockProps = useBlockProps({
 		className: `${colors.cssClasses(props)}${spacing.cssClasses(
 			props
-		)}`.trimStart(),
+		)}${border.cssClasses(props)}`.trimStart(),
 		style: {
 			...colors.cssVars(props, "tab-pane"),
 			...border.cssVars(props, "tab-pane"),

@@ -33,6 +33,7 @@ import save from "./save";
 import blockAlignment from "../../helpers/block-alignment";
 import size from "../../helpers/size";
 import spacing from "../../helpers/spacing";
+import htmlAttrs from "../../helpers/html-attrs";
 
 /**
  * Block Icon.
@@ -86,6 +87,7 @@ registerBlockType("beer-blocks/separator", {
 			paddingSides: false,
 			marginSides: ["top", "bottom"],
 		}),
+		...htmlAttrs.attributes(),
 	},
 	edit,
 	save,

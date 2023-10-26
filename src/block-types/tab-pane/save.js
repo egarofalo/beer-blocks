@@ -3,6 +3,7 @@ import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
 import colors from "./../../helpers/colors";
 import border from "./../../helpers/border";
 import spacing from "./../../helpers/spacing";
+import statuses from "./../../helpers/statuses";
 
 const save = (props) => {
 	const {
@@ -12,7 +13,7 @@ const save = (props) => {
 	const blockProps = useBlockProps.save({
 		className: `${colors.cssClasses(props)}${spacing.cssClasses(
 			props
-		)}`.trimStart(),
+		)}${border.cssClasses(props)}`.trimStart(),
 		style: {
 			...colors.cssVars(props, "tab-pane"),
 			...border.cssVars(props, "tab-pane"),

@@ -20,7 +20,8 @@ import flexbox from "./../../helpers/flexbox";
 import typography from "./../../helpers/typography";
 import border from "./../../helpers/border";
 import colors from "../../helpers/colors";
-//import statuses from "./../../helpers/statuses";
+import statuses from "./../../helpers/statuses";
+import htmlAttrs from "../../helpers/html-attrs";
 
 const edit = (props) => {
 	const {
@@ -80,6 +81,7 @@ const edit = (props) => {
 	const blockProps = useBlockProps({
 		className: spacing.cssClasses(props).trimStart(),
 		style: spacing.cssVars(props, "tabs"),
+		...htmlAttrs.blockProps(props),
 	});
 
 	const innerBlocksPropsConfig = [
@@ -178,7 +180,7 @@ const edit = (props) => {
 					title: __("Tabs borders", "beer-blocks"),
 				})}
 
-				{/*statuses.controls({
+				{statuses.controls({
 					props,
 					attrPrefix: "tab",
 					title: (
@@ -187,7 +189,7 @@ const edit = (props) => {
 							{__("Tabs statuses", "beer-blocks")}
 						</>
 					),
-				})*/}
+				})}
 
 				{spacing.controls({
 					props,
@@ -196,6 +198,7 @@ const edit = (props) => {
 				})}
 
 				{spacing.controls({ props })}
+				{htmlAttrs.controls({ props })}
 			</InspectorControls>
 
 			<div {...blockProps}>
@@ -219,12 +222,10 @@ const edit = (props) => {
 								}${typography.cssClasses(props, "tab")}${spacing.cssClasses(
 									props,
 									"tab"
-								)}${colors.cssClasses(props, "tab")}${
-									/*statuses.cssClasses(props, "tab")
-										? ` ${statuses.cssClasses(props, "tab")}`
-										: ""*/
-									""
-								}`}
+								)}${colors.cssClasses(props, "tab")}${border.cssClasses(
+									props,
+									"tab"
+								)}${statuses.cssClasses(props, "tab")}`}
 								id={`${tabsId}-tab-${index}`}
 								data-toggle="pill"
 								href={`#${tabsId}-pane-${index}`}
@@ -248,7 +249,7 @@ const edit = (props) => {
 									...spacing.cssVars(props, "tabs", "tab"),
 									...colors.cssVars(props, "tabs", "tab"),
 									...border.cssVars(props, "tabs", "tab"),
-									//...statuses.cssVars(props, "tabs", "tab"),
+									...statuses.cssVars(props, "tabs", "tab"),
 								}}
 							/>
 						</li>

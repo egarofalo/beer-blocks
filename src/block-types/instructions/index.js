@@ -33,6 +33,7 @@ import save from "./save";
 import flexbox from "../../helpers/flexbox";
 import colors from "../../helpers/colors";
 import spacing from "../../helpers/spacing";
+import htmlAttrs from "../../helpers/html-attrs";
 
 /**
  * Block Icon.
@@ -71,6 +72,7 @@ registerBlockType("beer-blocks/instructions", {
 			paddingSides: false,
 			marginSides: ["top", "bottom"],
 		}),
+		...htmlAttrs.attributes(),
 	},
 	providesContext: {
 		instructionsId: "id",
