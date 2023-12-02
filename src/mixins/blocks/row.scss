@@ -2,6 +2,27 @@
 
 @mixin row-block-rules() {
 	.wp-block-beer-blocks-row {
+		@include verticalMarginRules("row");
+
+		@include media-breakpoint-up(sm) {
+			@include verticalMarginRules("row", "sm");
+		}
+
+		@include media-breakpoint-up(md) {
+			@include verticalMarginRules("row", "md");
+		}
+
+		@include media-breakpoint-up(lg) {
+			@include verticalMarginRules("row", "lg");
+		}
+
+		@include media-breakpoint-up(xl) {
+			@include verticalMarginRules("row", "xl");
+		}
+
+		@include media-breakpoint-up(xxl) {
+			@include verticalMarginRules("row", "xxl");
+		}
 	}
 }
 
@@ -53,6 +74,27 @@
 		.editor-styles-wrapper &.wp-block {
 			margin-top: revert;
 			margin-bottom: revert;
+			@include verticalMarginRules("row");
+
+			@include media-breakpoint-up(sm) {
+				@include verticalMarginRules("row", "sm");
+			}
+
+			@include media-breakpoint-up(md) {
+				@include verticalMarginRules("row", "md");
+			}
+
+			@include media-breakpoint-up(lg) {
+				@include verticalMarginRules("row", "lg");
+			}
+
+			@include media-breakpoint-up(xl) {
+				@include verticalMarginRules("row", "xl");
+			}
+
+			@include media-breakpoint-up(xxl) {
+				@include verticalMarginRules("row", "xxl");
+			}
 		}
 	}
 }

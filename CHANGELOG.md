@@ -1,3 +1,12 @@
+## [1.8.0] - 2023-12-02
+
+- Add **letter spacing** feature to `typography` helper
+- Add **Remove gutters** field in `row` block type which allows remove gutters between columns
+- Add **Flex direction** feature in `row` block type (include _Stacked contents_ and _Reverse order_ fields)
+- Add **vertical margin** feature in `row` block type
+- Fix styles in `row` block type
+- Remove parent relation in `row` block type
+
 ## [1.7.0] - 2023-10-26
 
 - Add new helper features using the new `html-attrs` helper

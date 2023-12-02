@@ -6,12 +6,17 @@ import {
 	useInnerBlocksProps,
 	__experimentalUseInnerBlocksProps as __useInnerBlocksProps,
 } from "@wordpress/block-editor";
-import { PanelBody } from "@wordpress/components";
+import { PanelBody, ToggleControl } from "@wordpress/components";
 import { useSelect } from "@wordpress/data";
+import spacing from "../../helpers/spacing";
 import flexbox from "../../helpers/flexbox";
 
 const edit = (props) => {
-	const { clientId } = props;
+	const {
+		clientId,
+		setAttributes,
+		attributes: { removeGutters },
+	} = props;
 
 	const { hasChildBlocks } = useSelect(
 		(select) => {
@@ -24,11 +29,16 @@ const edit = (props) => {
 		[clientId]
 	);
 
-	const blockProps = useBlockProps();
+	const blockProps = useBlockProps({
+		className: spacing.cssClasses(props).trimStart(),
+		style: spacing.cssVars(props, "row"),
+	});
 
 	const innerBlocksPropsConfig = [
 		{
-			className: `row${flexbox.cssClasses(props)}`,
+			className: `row${removeGutters ? " no-gutters" : ""}${flexbox.cssClasses(
+				props
+			)}`,
 		},
 		{
 			allowedBlocks: ["beer-blocks/column"],
@@ -44,8 +54,24 @@ const edit = (props) => {
 		<>
 			<InspectorControls>
 				<PanelBody title={__("Row settings", "beer-blocks")}>
+					<ToggleControl
+						label={__("Remove gutters", "beer-blocks")}
+						help={__(
+							"Enable this toggle field to remove gutters between columns.",
+							"beer-blocks"
+						)}
+						checked={removeGutters}
+						onChange={() => setAttributes({ removeGutters: !removeGutters })}
+					/>
+
 					{flexbox.controls({ props, panelBody: false })}
 				</PanelBody>
+
+				{spacing.controls({
+					props,
+					paddingSides: false,
+					marginSides: ["top", "bottom"],
+				})}
 			</InspectorControls>
 
 			<div {...blockProps}>

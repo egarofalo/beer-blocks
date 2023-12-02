@@ -47,6 +47,8 @@
 		.editor-styles-wrapper &.wp-block {
 			margin-top: revert;
 			margin-bottom: revert;
+			margin-left: unset;
+			margin-right: unset;
 			@include verticalMarginRules("column");
 
 			@include media-breakpoint-up(sm) {

@@ -4,21 +4,6 @@
 @import "./../../variables";
 @import "./../../functions";
 
-// Line height rules for custom breakpoint
-@mixin lineHeightRules($blockName, $breakpointName: "", $attrPrefix: "") {
-	$lineHeightVarName: --wp-beer-blocks-#{$blockName}-#{camelize(
-			"#{$attrPrefix}-line-height"
-		)};
-
-	@if $breakpointName == "" {
-		$breakpointName: "xs";
-	}
-
-	&.wp-beer-blocks-has-lineHeight-#{$breakpointName}-rule {
-		line-height: var(#{$lineHeightVarName}-#{$breakpointName});
-	}
-}
-
 // Font size rules for custom breakpoints
 @mixin fontSizeRules($blockName, $breakpointName: "", $attrPrefix: "") {
 	$fontSizeVarName: --wp-beer-blocks-#{$blockName}-#{camelize(
@@ -34,16 +19,51 @@
 	}
 }
 
+// Line height rules for custom breakpoint
+@mixin lineHeightRules($blockName, $breakpointName: "", $attrPrefix: "") {
+	$lineHeightVarName: --wp-beer-blocks-#{$blockName}-#{camelize(
+			"#{$attrPrefix}-line-height"
+		)};
+
+	@if $breakpointName == "" {
+		$breakpointName: "xs";
+	}
+
+	&.wp-beer-blocks-has-lineHeight-#{$breakpointName}-rule {
+		line-height: var(#{$lineHeightVarName}-#{$breakpointName});
+	}
+}
+
+// Letter spacing rules for custom breakpoint
+@mixin letterSpacingRules($blockName, $breakpointName: "", $attrPrefix: "") {
+	$letterSpacingVarName: --wp-beer-blocks-#{$blockName}-#{camelize(
+			"#{$attrPrefix}-letter-spacing"
+		)};
+
+	@if $breakpointName == "" {
+		$breakpointName: "xs";
+	}
+
+	&.wp-beer-blocks-has-letterSpacing-#{$breakpointName}-rule {
+		letter-spacing: var(#{$letterSpacingVarName}-#{$breakpointName});
+	}
+}
+
 // Get typography rules for custom breakpoint
 @mixin typographyRules(
 	$blockName,
 	$breakpointName: "",
 	$attrPrefix: "",
-	$lineHeightRule: true
+	$lineHeightRule: true,
+	$letterSpacing: true
 ) {
 	@include fontSizeRules($blockName, $breakpointName, $attrPrefix);
 
 	@if $lineHeightRule {
 		@include lineHeightRules($blockName, $breakpointName, $attrPrefix);
+	}
+
+	@if $letterSpacing {
+		@include letterSpacingRules($blockName, $breakpointName, $attrPrefix);
 	}
 }

@@ -6,7 +6,7 @@ Donate link: https://www.paypal.com/donate?hosted_button_id=8XSCNEV5WA5TU
 Requires at least: 5.6
 Tested up to: 6.4
 Requires PHP: 7.3
-Stable tag: 1.7.0
+Stable tag: 1.8.0
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -202,6 +202,13 @@ Yes, of course! You can choose any of the font families available in Google Font
 - Fixes in `button` block
 - Set `margin-top: revert` and `margin-bottom: revert` to all blocks in the editor view
 - Remove `buttons` block
+= [1.8.0] =
+- Add **letter spacing** feature to `typography` helper
+- Add **Remove gutters** field in `row` block type which allows remove gutters between columns
+- Add **Flex direction** feature in `row` block type (include _Stacked contents_ and _Reverse order_ fields)
+- Add **vertical margin** feature in `row` block type
+- Fix styles in `row` block type
+- Remove parent relation in `row` block type
 
 == Upgrade Notice ==
 

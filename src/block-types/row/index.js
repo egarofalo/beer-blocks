@@ -31,6 +31,7 @@ import "./editor.scss";
 import edit from "./edit";
 import save from "./save";
 import flexbox from "../../helpers/flexbox";
+import spacing from "../../helpers/spacing";
 
 /**
  * Block Icon.
@@ -52,9 +53,18 @@ registerBlockType("beer-blocks/row", {
 		"beer-blocks"
 	),
 	textdomain: "beer-blocks",
-	parent: ["beer-blocks/container"],
 	icon: <img src={icon} alt={_x("Row", "block title", "beer-blocks")} />,
-	attributes: flexbox.attributes({ flexDirectionAttr: false }),
+	attributes: {
+		removeGutters: {
+			type: "boolean",
+			default: false,
+		},
+		...flexbox.attributes(),
+		...spacing.attributes({
+			paddingSides: false,
+			marginSides: ["top", "bottom"],
+		}),
+	},
 	edit,
 	save,
 });

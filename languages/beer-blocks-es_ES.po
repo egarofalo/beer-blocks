@@ -8,17 +8,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2021-08-17T13:56:20+00:00\n"
-"PO-Revision-Date: 2023-10-26 04:23+0000\n"
+"PO-Revision-Date: 2023-12-01 21:28+0000\n"
 "Language: es_ES\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: beer-blocks\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Loco-Version: 2.6.3; wp-6.1.1"
+"X-Loco-Version: 2.6.6; wp-6.3.1"
 
 #: build/accordion-item/index.js:1 build/button/index.js:1
 #: build/tab-pane/index.js:1 build/tabs/index.js:1 src/helpers/border.js:151
 msgid "%s corner"
-msgstr "Esquina %s"
+msgstr "esquina %s"
 
 #: build/button/index.js:1 build/tab-pane/index.js:1 build/tabs/index.js:1
 #: src/helpers/statuses.js:49
@@ -29,7 +29,7 @@ msgstr "-- SELECCIONE --"
 #: build/row/index.js:1 build/tabs/index.js:1 src/helpers/flexbox.js:239
 #: src/helpers/flexbox.js:375
 msgid "-- SELECT OPTION --"
-msgstr "-- SELECCIONAR OPCIÓN --"
+msgstr "-- SELECCIONE OPCIÓN --"
 
 #: inc/helpers/globals.php:223 inc/helpers/globals.php:233
 msgid "<p>Security alert: <b>NONCE CHECK FAILED</b></p>"
@@ -42,11 +42,11 @@ msgstr "Activo"
 
 #: build/image/index.js:1 src/block-types/image/edit.js:266
 msgid "Add a legend"
-msgstr "Agregar una leyenda"
+msgstr "Agregar leyenda"
 
 #: build/tab-pane/index.js:1 src/block-types/tab-pane/edit.js:56
 msgid "Add blocks by pressing the following button..."
-msgstr "Agregue bloques aquí presionando el siguiente botón..."
+msgstr "Agrega bloques presionando el siguiente botón..."
 
 #: build/accordion/index.js:1 build/advanced-header/index.js:1
 #: build/alert/index.js:1 build/button/index.js:1 build/column/index.js:1
@@ -61,11 +61,11 @@ msgid ""
 "have the `attrName : value` format."
 msgstr ""
 "Agregue uno o más atributos HTML separados por un salto de línea. Cada línea "
-"debe tener el formato `attrName : value`."
+"debe tener el formato `attrName: valor`."
 
 #: build/alert/index.js:1 src/block-types/alert/edit.js:27
 msgid "Alert settings"
-msgstr "Ajustes de la alerta"
+msgstr "Ajustes del bloque Alerta"
 
 #: build/instruction/index.js:1 build/instructions/index.js:1
 #: build/row/index.js:1 build/tabs/index.js:1 src/helpers/flexbox.js:404
@@ -87,7 +87,7 @@ msgstr "Altura automática (%s)"
 #: build/fa-icon/index.js:1 build/grid/index.js:1 build/header/index.js:1
 #: build/image/index.js:1 build/info-box/index.js:1
 #: build/instruction/index.js:1 build/instructions/index.js:1
-#: build/jumbotron/index.js:1 build/paragraph/index.js:1
+#: build/jumbotron/index.js:1 build/paragraph/index.js:1 build/row/index.js:1
 #: build/section/index.js:1 build/separator/index.js:1
 #: build/tab-pane/index.js:1 build/tabs/index.js:1 src/helpers/grid.js:58
 msgid "Auto sizing: equal width"
@@ -99,7 +99,7 @@ msgstr "Tamaño automático: columnas de igual ancho"
 #: build/fa-icon/index.js:1 build/grid/index.js:1 build/header/index.js:1
 #: build/image/index.js:1 build/info-box/index.js:1
 #: build/instruction/index.js:1 build/instructions/index.js:1
-#: build/jumbotron/index.js:1 build/paragraph/index.js:1
+#: build/jumbotron/index.js:1 build/paragraph/index.js:1 build/row/index.js:1
 #: build/section/index.js:1 build/separator/index.js:1
 #: build/tab-pane/index.js:1 build/tabs/index.js:1 src/helpers/grid.js:62
 msgid "Auto sizing: variable width content"
@@ -124,7 +124,7 @@ msgstr "Color de fondo"
 #: build/instruction/index.js:1 build/instructions/index.js:1
 #: build/row/index.js:1 build/tabs/index.js:1 src/helpers/flexbox.js:391
 msgid "Baseline"
-msgstr "Baseline"
+msgstr ""
 
 #. Plugin Name of the plugin
 msgid "Beer Blocks"
@@ -148,39 +148,35 @@ msgid ""
 "Bootstrap Containers wich provide a means to center and horizontally pad "
 "your site’s contents."
 msgstr ""
-"Los Contenedores de Bootstrap proporcionan un medio para centrar y rellenar "
+"Contenedores Bootstrap que proporcionan un medio para centrar y rellenar "
 "horizontalmente el contenido de su sitio."
 
 #: build/column/index.js:1 src/block-types/column/index.js:52
 msgctxt "block description"
 msgid "Create a Bootstrap column wich is part of the Bootstrap Grid system."
 msgstr ""
-"Crea una columna de Bootstrap que forma parte del sistema de cuadrículas de "
+"Cree una columna Bootstrap que es parte del sistema de Cuadrículas de "
 "Bootstrap."
 
-#: build/row/index.js:1 src/block-types/row/index.js:49
+#: build/row/index.js:1 src/block-types/row/index.js:50
 msgctxt "block description"
 msgid "Create a Bootstrap row wich is part of the Bootstrap Grid system."
-msgstr ""
-"Crea una fila de Bootstrap que forma parte del sistema de cuadrículas de "
-"Bootstrap."
+msgstr "Cree una fila que es parte del sistema de cuadrículas de Bootstrap."
 
 #: build/info-box/index.js:1 src/block-types/info-box/index.js:51
 msgctxt "block description"
 msgid "Create a box with a custom icon, title and a description."
-msgstr "Crea una caja con un ícono, un título y una descripción."
+msgstr "Cree una caja con un ícono personalizado, un título y una descripción."
 
 #: build/fa-icon/index.js:1 src/block-types/fa-icon/index.js:53
 msgctxt "block description"
 msgid "Create a Font Awesome icon."
-msgstr "Crea un ícono de Font Awesome."
+msgstr "Cree un ícono de Font Awesome."
 
 #: build/instruction/index.js:1 src/block-types/instruction/index.js:55
 msgctxt "block description"
 msgid "Create a list item with a numeration, title and paragraph."
-msgstr ""
-"Crea un elemento de lista con una numeración, un título y un párrafo o "
-"descripción."
+msgstr "Crea un elemento de lista con numeración, título y párrafo."
 
 #: build/image/index.js:1 src/block-types/image/index.js:54
 msgctxt "block description"
@@ -190,40 +186,39 @@ msgstr "Cree una imagen responsive."
 #: build/section/index.js:1 src/block-types/section/index.js:51
 msgctxt "block description"
 msgid "Create a section element with custom paddings and margins."
-msgstr "Crea una sección con relleno y margen ajustables."
+msgstr "Cree un sección con márgenes y rellenos personalizados."
 
 #: build/separator/index.js:1 src/block-types/separator/index.js:52
 msgctxt "block description"
 msgid "Create a separator line with custom color, width, height and margins."
 msgstr ""
-"Cree una línea separadora con color, ancho, altura y márgenes ajustables."
+"Cree una línea separadora con color, ancho, alto y márgenes ajustables."
 
 #: build/tab-pane/index.js:1 src/block-types/tab-pane/index.js:51
 msgctxt "block description"
 msgid "Create a tab panel wich is used by Tabs block."
-msgstr "Cree un panel de pestaña que sea utilizado por el bloque Pestañas."
+msgstr "Cree un panel de pestañas utilizado por el bloque de pestañas."
 
 #: build/accordion/index.js:1 src/block-types/accordion/index.js:50
 msgctxt "block description"
 msgid "Create an accordion for faqs and other purpose."
-msgstr "Crea un acordeón para FAQs y otros propósitos."
+msgstr "Crea un acordeón para preguntas frecuentes y otros fines."
 
 #: build/accordion-item/index.js:1 src/block-types/accordion-item/index.js:52
 msgctxt "block description"
 msgid "Create an accordion item."
-msgstr "Crea un elemento de acordeón."
+msgstr "Cree un item de acordeón."
 
 #: build/instructions/index.js:1 src/block-types/instructions/index.js:52
 msgctxt "block description"
 msgid "Create an instructions list."
-msgstr "Crea una lista de instrucciones."
+msgstr "Cree una lista de instrucciones."
 
 #: build/button/index.js:1 src/block-types/button/index.js:54
 msgctxt "block description"
 msgid ""
 "Create Bootstrap button with support for multiple sizes, states, and more."
-msgstr ""
-"Crea un botón Bootstrap con soporte para múltiples tamaños, estados y más."
+msgstr "Cree un botón Bootstrap con múltiples tamaños, estados y más."
 
 #: build/header/index.js:1 src/block-types/header/index.js:52
 msgctxt "block description"
@@ -233,12 +228,12 @@ msgstr "Cree un encabezado con tipografía, margen y relleno ajustables."
 #: build/advanced-header/index.js:1 src/block-types/advanced-header/index.js:51
 msgctxt "block description"
 msgid "Create headers with title, line separator and subtitle."
-msgstr "Cree encabezados con título, línea separadora y subtítulo."
+msgstr "Crea encabezados con título, línea separadora y un subtítulo."
 
 #: build/paragraph/index.js:1 src/block-types/paragraph/index.js:52
 msgctxt "block description"
 msgid "Create paragraph with custom typography, margin and padding."
-msgstr "Cree un párrafo con tipografía, margen y relleno ajustables."
+msgstr "Crea párrafos con tipografía, margen y relleno ajustables."
 
 #: build/tabs/index.js:1 src/block-types/tabs/index.js:55
 msgctxt "block description"
@@ -250,9 +245,7 @@ msgctxt "block description"
 msgid ""
 "Lightweight, flexible Bootstrap component for showcasing hero unit style "
 "content."
-msgstr ""
-"Componente Bootstrap ligero y flexible para mostrar contenido con propósitos "
-"de marketing."
+msgstr "Componente Bootstrap flexible para mostrar contenido de importancia."
 
 #: build/alert/index.js:1 src/block-types/alert/index.js:50
 msgctxt "block description"
@@ -261,8 +254,8 @@ msgid ""
 "typical user actions with the handful of available and flexible alert "
 "messages."
 msgstr ""
-"Representa las alertas de Bootstrap que brindan mensajes de "
-"retroalimentación contextual para las acciones típicas del usuario."
+"Representa alertas Bootstrap que proporcionan mensajes contextuales para el "
+"usuario."
 
 #: build/grid/index.js:1 src/block-types/grid/index.js:51
 msgctxt "block description"
@@ -270,8 +263,8 @@ msgid ""
 "Use the Bootstrap grid system to create a container with rows and columns to "
 "layout and align content."
 msgstr ""
-"Utiliza el sistema de cuadrículas de Bootstrap para crear contenedores con "
-"filas y columnas."
+"Utilice el sistema de cuadrícula de Bootstrap para crear un contenedor con "
+"filas y columnas para estructurar y alinear el contenido."
 
 #: build/button/index.js:1 src/block-types/button/edit.js:153
 msgid "Block Level Button?"
@@ -377,7 +370,7 @@ msgctxt "block title"
 msgid "Paragraph"
 msgstr "Párrafo"
 
-#: build/row/index.js:1 src/block-types/row/index.js:47
+#: build/row/index.js:1 src/block-types/row/index.js:48
 #: src/block-types/row/index.js:56
 msgctxt "block title"
 msgid "Row"
@@ -399,7 +392,7 @@ msgstr "Línea separadora"
 #: src/block-types/tab-pane/index.js:58
 msgctxt "block title"
 msgid "Tab Pane"
-msgstr "Panel de pestaña"
+msgstr "anel de pestaña"
 
 #: build/tabs/index.js:1 src/block-types/tabs/index.js:53
 #: src/block-types/tabs/index.js:61
@@ -412,10 +405,9 @@ msgid "Body"
 msgstr "Cuerpo"
 
 #: inc/helpers/bootstrap.php:95
-#, fuzzy
 #| msgid "Bootstrap Settings (v4.6.1)"
 msgid "Bootstrap Settings (v4.6.2)"
-msgstr "Ajustes de Bootstrap (v4.6.1)"
+msgstr "Ajustes de Bootstrap (v4.6.2)"
 
 #: build/instruction/index.js:1 src/block-types/instruction/edit.js:193
 msgid "Border"
@@ -426,14 +418,11 @@ msgid "Border color"
 msgstr "Color del borde"
 
 #: build/instruction/index.js:1 src/block-types/instruction/edit.js:196
-#, fuzzy
-#| msgid "Border radius"
 msgid "Border Radius"
 msgstr "Radio del borde"
 
 #: build/accordion-item/index.js:1 build/button/index.js:1
 #: build/tab-pane/index.js:1 build/tabs/index.js:1 src/helpers/border.js:105
-#| msgid "Border style"
 msgid "Border styles"
 msgstr "Estilos del borde"
 
@@ -480,7 +469,7 @@ msgstr "Cambiar nivel del encabezado"
 #: build/accordion-item/index.js:1 build/button/index.js:1
 #: build/fa-icon/index.js:1 build/header/index.js:1 build/image/index.js:1
 #: build/instruction/index.js:1 build/paragraph/index.js:1
-#: build/tabs/index.js:1 src/helpers/typography.js:247
+#: build/tabs/index.js:1 src/helpers/typography.js:319
 msgid "Choose a font family."
 msgstr "Seleccione una familia de fuentes."
 
@@ -494,7 +483,7 @@ msgstr "Seleccione una imagen"
 
 #: build/info-box/index.js:1 src/block-types/info-box/edit.js:42
 msgid "Chose an icon..."
-msgstr "Seleccione un icono..."
+msgstr "Seleccione una icono..."
 
 #: build/info-box/index.js:1 src/block-types/info-box/edit.js:53
 msgid "Chose an image..."
@@ -513,7 +502,6 @@ msgstr ""
 #: build/jumbotron/index.js:1 build/paragraph/index.js:1
 #: build/section/index.js:1 build/tab-pane/index.js:1 build/tabs/index.js:1
 #: src/block-types/instruction/edit.js:115 src/helpers/colors.js:130
-#| msgid "Color"
 msgid "Colors"
 msgstr "Colores"
 
@@ -523,7 +511,7 @@ msgstr "Colores"
 #: build/fa-icon/index.js:1 build/grid/index.js:1 build/header/index.js:1
 #: build/image/index.js:1 build/info-box/index.js:1
 #: build/instruction/index.js:1 build/instructions/index.js:1
-#: build/jumbotron/index.js:1 build/paragraph/index.js:1
+#: build/jumbotron/index.js:1 build/paragraph/index.js:1 build/row/index.js:1
 #: build/section/index.js:1 build/separator/index.js:1
 #: build/tab-pane/index.js:1 build/tabs/index.js:1 src/helpers/grid.js:357
 msgid "Column sizing (%d)"
@@ -535,7 +523,7 @@ msgstr "Tamaño de columna (%d)"
 #: build/fa-icon/index.js:1 build/grid/index.js:1 build/header/index.js:1
 #: build/image/index.js:1 build/info-box/index.js:1
 #: build/instruction/index.js:1 build/instructions/index.js:1
-#: build/jumbotron/index.js:1 build/paragraph/index.js:1
+#: build/jumbotron/index.js:1 build/paragraph/index.js:1 build/row/index.js:1
 #: build/section/index.js:1 build/separator/index.js:1
 #: build/tab-pane/index.js:1 build/tabs/index.js:1 src/helpers/grid.js:342
 msgid "Column sizing type (%s)"
@@ -552,7 +540,7 @@ msgstr "Tipo de contenedor"
 
 #: build/button/index.js:1 src/block-types/button/edit.js:141
 msgid "Custom styles"
-msgstr "Estilos personalizados"
+msgstr "stilos personalizados"
 
 #: build/tabs/index.js:1 src/block-types/tabs/edit.js:125
 msgid "Default selected tab"
@@ -606,6 +594,11 @@ msgid "Enable this toggle field if you want to remove the image legend."
 msgstr ""
 "Habilite este campo de alternancia si desea eliminar la leyenda de la imagen."
 
+#: build/row/index.js:1 src/block-types/row/edit.js:59
+msgid "Enable this toggle field to remove gutters between columns."
+msgstr ""
+"Active este campo de alternancia para eliminar las canaletas entre columnas."
+
 #: build/instruction/index.js:1 build/instructions/index.js:1
 #: build/row/index.js:1 build/tabs/index.js:1 src/helpers/flexbox.js:88
 msgid ""
@@ -622,7 +615,7 @@ msgid ""
 "value to row-reverse or column-reverse."
 msgstr ""
 "Habilite este campo de alternancia para establecer el valor de propiedad "
-"flex-direction de CSS Flexbox en row-reverse o column-reverse."
+"flex-direction de CSS Flexbox en row-reverse o column-reverse. "
 
 #: build/instruction/index.js:1 build/instructions/index.js:1
 #: build/row/index.js:1 build/tabs/index.js:1 src/helpers/flexbox.js:247
@@ -689,10 +682,9 @@ msgid "Focus"
 msgstr ""
 
 #: inc/helpers/fontawesome.php:72
-#, fuzzy
 #| msgid "Font Awesome Settings (v5.15.3)"
 msgid "Font Awesome Settings (v5.15.4)"
-msgstr "Ajustes de Font Awesome (v5.15.3)"
+msgstr "Ajustes de Font Awesome (v5.15.4)"
 
 #: build/accordion-item/index.js:1 build/advanced-header/index.js:1
 #: build/button/index.js:1 build/column/index.js:1 build/container/index.js:1
@@ -709,22 +701,22 @@ msgstr "Color de fuente"
 #: build/accordion-item/index.js:1 build/button/index.js:1
 #: build/fa-icon/index.js:1 build/header/index.js:1 build/image/index.js:1
 #: build/instruction/index.js:1 build/paragraph/index.js:1
-#: build/tabs/index.js:1 src/helpers/typography.js:246
+#: build/tabs/index.js:1 src/helpers/typography.js:318
 msgid "Font Families:"
 msgstr "Familias de fuentes:"
 
 #: build/accordion-item/index.js:1 build/button/index.js:1
 #: build/fa-icon/index.js:1 build/header/index.js:1 build/image/index.js:1
 #: build/instruction/index.js:1 build/paragraph/index.js:1
-#: build/tabs/index.js:1 src/helpers/typography.js:130
-#: src/helpers/typography.js:319
+#: build/tabs/index.js:1 src/helpers/typography.js:146
+#: src/helpers/typography.js:391
 msgid "Font size (%s)"
 msgstr "Tamaño de fuente (%s)"
 
 #: build/accordion-item/index.js:1 build/button/index.js:1
 #: build/fa-icon/index.js:1 build/header/index.js:1 build/image/index.js:1
 #: build/instruction/index.js:1 build/paragraph/index.js:1
-#: build/tabs/index.js:1 src/helpers/typography.js:298
+#: build/tabs/index.js:1 src/helpers/typography.js:370
 msgid "Font Weight"
 msgstr "Peso de la fuente"
 
@@ -801,7 +793,6 @@ msgid "Icon settings"
 msgstr "Ajustes del icono"
 
 #: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:83
-#| msgid "Icon Size (%s)"
 msgid "Icon size (%s)"
 msgstr "Tamaño del icono (%s)"
 
@@ -821,7 +812,7 @@ msgid ""
 "If you choose 'Custom styles' you can change button typography, font color, "
 "background, borders and spacing."
 msgstr ""
-"Si elige 'Estilos personalizados', puede cambiar la tipografía, el color de "
+"Si elige 'Estilos personalizados', puede cambiar la tipografía, el color de  "
 "la fuente, el fondo, los bordes y el espaciado del botón."
 
 #: build/image/index.js:1 src/block-types/image/edit.js:217
@@ -857,6 +848,14 @@ msgstr "Espaciado de la leyenda"
 msgid "Legend typography"
 msgstr "Tipografía de la leyenda"
 
+#: build/accordion-item/index.js:1 build/button/index.js:1
+#: build/fa-icon/index.js:1 build/header/index.js:1 build/image/index.js:1
+#: build/instruction/index.js:1 build/paragraph/index.js:1
+#: build/tabs/index.js:1 src/helpers/typography.js:253
+#: src/helpers/typography.js:395
+msgid "Letter spacing (%s)"
+msgstr "Espaciado de letras (%s)"
+
 #: build/separator/index.js:1 src/block-types/separator/edit.js:71
 msgid "Line color"
 msgstr "Color de la línea"
@@ -864,8 +863,8 @@ msgstr "Color de la línea"
 #: build/accordion-item/index.js:1 build/button/index.js:1
 #: build/fa-icon/index.js:1 build/header/index.js:1 build/image/index.js:1
 #: build/instruction/index.js:1 build/paragraph/index.js:1
-#: build/tabs/index.js:1 src/helpers/typography.js:186
-#: src/helpers/typography.js:321
+#: build/tabs/index.js:1 src/helpers/typography.js:202
+#: src/helpers/typography.js:393
 msgid "Line height (%s)"
 msgstr "Alto de línea (%s)"
 
@@ -925,7 +924,7 @@ msgstr ""
 #: build/fa-icon/index.js:1 build/grid/index.js:1 build/header/index.js:1
 #: build/image/index.js:1 build/info-box/index.js:1
 #: build/instruction/index.js:1 build/instructions/index.js:1
-#: build/jumbotron/index.js:1 build/paragraph/index.js:1
+#: build/jumbotron/index.js:1 build/paragraph/index.js:1 build/row/index.js:1
 #: build/section/index.js:1 build/separator/index.js:1
 #: build/tab-pane/index.js:1 build/tabs/index.js:1 src/helpers/grid.js:54
 msgid "Manual sizing"
@@ -937,7 +936,7 @@ msgstr "Tamaño manual"
 #: build/fa-icon/index.js:1 build/grid/index.js:1 build/header/index.js:1
 #: build/image/index.js:1 build/info-box/index.js:1
 #: build/instruction/index.js:1 build/instructions/index.js:1
-#: build/jumbotron/index.js:1 build/paragraph/index.js:1
+#: build/jumbotron/index.js:1 build/paragraph/index.js:1 build/row/index.js:1
 #: build/section/index.js:1 build/separator/index.js:1
 #: build/tab-pane/index.js:1 build/tabs/index.js:1 src/helpers/spacing.js:146
 #: src/helpers/spacing.js:204
@@ -955,7 +954,7 @@ msgstr "No"
 #: build/accordion-item/index.js:1 build/button/index.js:1
 #: build/fa-icon/index.js:1 build/header/index.js:1 build/image/index.js:1
 #: build/instruction/index.js:1 build/paragraph/index.js:1
-#: build/tabs/index.js:1 src/helpers/typography.js:259
+#: build/tabs/index.js:1 src/helpers/typography.js:331
 msgid "No font family options"
 msgstr "Sin opciones de familia de fuentes"
 
@@ -981,7 +980,7 @@ msgstr "¿Botón de contorno?"
 #: build/fa-icon/index.js:1 build/grid/index.js:1 build/header/index.js:1
 #: build/image/index.js:1 build/info-box/index.js:1
 #: build/instruction/index.js:1 build/instructions/index.js:1
-#: build/jumbotron/index.js:1 build/paragraph/index.js:1
+#: build/jumbotron/index.js:1 build/paragraph/index.js:1 build/row/index.js:1
 #: build/section/index.js:1 build/separator/index.js:1
 #: build/tab-pane/index.js:1 build/tabs/index.js:1 src/helpers/spacing.js:92
 #: src/helpers/spacing.js:202
@@ -992,6 +991,10 @@ msgstr "Relleno (%s)"
 #: src/block-types/image/save.js:37
 msgid "Placeholder image"
 msgstr "Imagen de marcador de posición"
+
+#: build/row/index.js:1 src/block-types/row/edit.js:58
+msgid "Remove gutters"
+msgstr "Eliminar canaletas"
 
 #: build/info-box/index.js:1 src/block-types/info-box/edit.js:154
 msgid "Remove icon description"
@@ -1039,7 +1042,7 @@ msgstr "Orden inverso"
 msgid "Rounded borders"
 msgstr "Bordes redondeados"
 
-#: build/row/index.js:1 src/block-types/row/edit.js:46
+#: build/row/index.js:1 src/block-types/row/edit.js:56
 msgid "Row settings"
 msgstr "Ajustes de fila"
 
@@ -1085,7 +1088,7 @@ msgstr "Seleccione el valor de la propiedad justify-content de Flexbox."
 #: build/accordion-item/index.js:1 build/button/index.js:1
 #: build/fa-icon/index.js:1 build/header/index.js:1 build/image/index.js:1
 #: build/instruction/index.js:1 build/paragraph/index.js:1
-#: build/tabs/index.js:1 src/helpers/typography.js:260
+#: build/tabs/index.js:1 src/helpers/typography.js:332
 msgid "Select..."
 msgstr "Seleccione..."
 
@@ -1126,7 +1129,7 @@ msgstr "Establecer la dirección del triángulo (hacia arriba o hacia abajo)"
 #: build/fa-icon/index.js:1 build/grid/index.js:1 build/header/index.js:1
 #: build/image/index.js:1 build/info-box/index.js:1
 #: build/instruction/index.js:1 build/instructions/index.js:1
-#: build/jumbotron/index.js:1 build/paragraph/index.js:1
+#: build/jumbotron/index.js:1 build/paragraph/index.js:1 build/row/index.js:1
 #: build/section/index.js:1 build/separator/index.js:1
 #: build/tab-pane/index.js:1 build/tabs/index.js:1 src/helpers/grid.js:346
 msgid "Settings applied from %s resolution and up"
@@ -1138,7 +1141,7 @@ msgstr "¡¡Los ajustes se actualizaron correctamente!!"
 
 #: build/accordion-item/index.js:1 src/block-types/accordion-item/edit.js:108
 msgid "Shows the content as default"
-msgstr "Mostrar los contenidos de forma predeterminada"
+msgstr "\"¡¡Los ajustes se actualizaron correctamente!!"
 
 #: build/image/index.js:1 build/instruction/index.js:1
 #: build/separator/index.js:1 src/block-types/instruction/edit.js:131
@@ -1177,7 +1180,7 @@ msgstr "Espacio entre (apace between)"
 #: build/fa-icon/index.js:1 build/grid/index.js:1 build/header/index.js:1
 #: build/image/index.js:1 build/info-box/index.js:1
 #: build/instruction/index.js:1 build/instructions/index.js:1
-#: build/jumbotron/index.js:1 build/paragraph/index.js:1
+#: build/jumbotron/index.js:1 build/paragraph/index.js:1 build/row/index.js:1
 #: build/section/index.js:1 build/separator/index.js:1
 #: build/tab-pane/index.js:1 build/tabs/index.js:1 src/helpers/spacing.js:200
 msgid "Spacing"
@@ -1214,8 +1217,6 @@ msgid "Tabs borders"
 msgstr "Bordes de pestañas"
 
 #: build/tabs/index.js:1 src/block-types/tabs/edit.js:168
-#, fuzzy
-#| msgid "Tabs color"
 msgid "Tabs colors"
 msgstr "Colores de pestañas"
 
@@ -1255,7 +1256,7 @@ msgstr "Triángulo"
 #: build/fa-icon/index.js:1 build/header/index.js:1 build/image/index.js:1
 #: build/instruction/index.js:1 build/paragraph/index.js:1
 #: build/tabs/index.js:1 src/block-types/instruction/edit.js:87
-#: src/helpers/typography.js:317
+#: src/helpers/typography.js:389
 msgid "Typography"
 msgstr "Tipografía"
 

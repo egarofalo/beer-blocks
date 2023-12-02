@@ -1,4 +1,4 @@
-import { __ } from "@wordpress/i18n";
+import { __, sprintf } from "@wordpress/i18n";
 import { TabPanel, RadioControl, RangeControl } from "@wordpress/components";
 import {
 	MdOutlinePhoneAndroid as XsBreakpointIcon,

@@ -30,6 +30,9 @@ const validFontSize = (value) => value !== undefined && value !== "";
 // check if value is a valid line height
 const validLineHeight = (value) => value !== undefined && value !== "";
 
+// check if value is a valid letter spacing
+const validLetterSpacing = (value) => value !== undefined && value !== "";
+
 // add google font family to head tag
 const addGoogleFontToHead = (fontFamily) => {
 	if (!fontFamily) {
@@ -90,6 +93,17 @@ const lineHeightAttribute = ({
 		type: "number",
 	});
 
+// returns letter spacing block's attribute with breakpoints
+const letterSpacingAttribute = ({
+	attrPrefix = "",
+	breakpointsBehavior = false,
+} = {}) =>
+	grid.attributes({
+		attrName: camelCase(`${attrPrefix}-letter-spacing`),
+		breakpoints: true,
+		breakpointsBehavior,
+	});
+
 // returns font family block attributes
 const fontFamilyAttribute = (attrPrefix = "") => ({
 	[camelCase(`${attrPrefix}-font-family`)]: {
@@ -110,11 +124,13 @@ const fontWeightAttribute = (attrPrefix = "") => ({
 export const attributes = ({
 	attrPrefix = "",
 	lineHeightAttr = true,
+	letterSpacing = true,
 	fontFamilyAttr = true,
 	fontWeightAttr = true,
 } = {}) => ({
 	...fontSizeAttribute({ attrPrefix }),
 	...(lineHeightAttr ? lineHeightAttribute({ attrPrefix }) : {}),
+	...(letterSpacing ? letterSpacingAttribute({ attrPrefix }) : {}),
 	...grid.breakpointsBehaviorAttribute(`${attrPrefix}-font`),
 	...(fontFamilyAttr ? fontFamilyAttribute(attrPrefix) : {}),
 	...(fontWeightAttr ? fontWeightAttribute(attrPrefix) : {}),
@@ -227,6 +243,62 @@ const lineHeightControl = ({
 	);
 };
 
+// returns controls for letter spacing attribute with breakpoints
+const letterSpacingControl = ({
+	props,
+	breakpoint,
+	attrPrefix = "",
+	breakpointsBehaviorAttrPrefix = "",
+	label = sprintf(
+		__("Letter spacing (%s)", "beer-blocks"),
+		breakpoint.toUpperCase()
+	),
+}) => {
+	const attrName = camelCase(`${attrPrefix}-letter-spacing`);
+	const breakpointsBehaviorAttrName = camelCase(
+		`${breakpointsBehaviorAttrPrefix}-breakpoints-behavior`
+	);
+
+	const {
+		setAttributes,
+		attributes: {
+			[attrName]: letterSpacing,
+			[breakpointsBehaviorAttrName]: breakpointsBehavior,
+		},
+	} = props;
+
+	if (breakpointsBehavior[breakpoint] === grid.sameBehavior) {
+		return null;
+	}
+
+	const change = (newLetterSpacing) =>
+		setAttributes({
+			[attrName]: {
+				...letterSpacing,
+				[breakpoint]: newLetterSpacing,
+			},
+		});
+
+	const unitChange = (newUnit) => {
+		setAttributes({
+			[attrName]: {
+				...letterSpacing,
+				[breakpoint]: undefined,
+			},
+		});
+	};
+
+	return (
+		<UnitControl
+			label={label}
+			value={letterSpacing[breakpoint]}
+			onChange={change}
+			onUnitChange={unitChange}
+			units={unitsOnly(["px", "rem", "em"])}
+		/>
+	);
+};
+
 // returns font family block attributes controls
 const fontFamilyControl = (props, attrPrefix = "") => {
 	const attrName = camelCase(`${attrPrefix}-font-family`);
@@ -319,16 +391,21 @@ export const controls = ({
 		sprintf(__("Font size (%s)", "beer-blocks"), breakpoint.toUpperCase()),
 	lineHeightControlLabel = (breakpoint) =>
 		sprintf(__("Line height (%s)", "beer-blocks"), breakpoint.toUpperCase()),
+	letterSpacingControlLabel = (breakpoint) =>
+		sprintf(__("Letter spacing (%s)", "beer-blocks"), breakpoint.toUpperCase()),
 }) => {
 	const { attributes } = props;
 	const fontSizeAttrName = camelCase(`${attrPrefix}-font-size`);
 	const lineHeightAttrName = camelCase(`${attrPrefix}-line-height`);
+	const letterSpacingAttrName = camelCase(`${attrPrefix}-letter-spacing`);
 	const fontFamilyAttrName = camelCase(`${attrPrefix}-font-family`);
 	const fontWeightAttrName = camelCase(`${attrPrefix}-font-weight`);
 	const breakpointsBehaviorAttrPrefix = `${attrPrefix}-font`;
-	const affectedAttrs = [fontSizeAttrName, lineHeightAttrName].filter((attr) =>
-		has(attributes, attr)
-	);
+	const affectedAttrs = [
+		fontSizeAttrName,
+		lineHeightAttrName,
+		letterSpacingAttrName,
+	].filter((attr) => has(attributes, attr));
 
 	if (affectedAttrs.length > 0) {
 		const result = (
@@ -358,6 +435,15 @@ export const controls = ({
 								attrPrefix,
 								breakpointsBehaviorAttrPrefix,
 								label: lineHeightControlLabel(breakpoint),
+							})}
+
+						{has(attributes, letterSpacingAttrName) &&
+							letterSpacingControl({
+								props,
+								breakpoint,
+								attrPrefix,
+								breakpointsBehaviorAttrPrefix,
+								label: letterSpacingControlLabel(breakpoint),
 							})}
 					</>
 				))}
@@ -397,19 +483,10 @@ const fontSizeCssVars = (props, blockName, attrPrefix = "") => {
 	return fontSize
 		? Object.fromEntries(
 				grid.breakpoints
-					.map((breakpoint) => {
-						let result = [
-							`--wp-beer-blocks-${blockName}-${attrName}-${breakpoint}`,
-						];
-
-						if (typeof fontSize[breakpoint] === "number") {
-							result.push(`${fontSize[breakpoint]}px`);
-						} else {
-							result.push(fontSize[breakpoint]);
-						}
-
-						return result;
-					})
+					.map((breakpoint) => [
+						`--wp-beer-blocks-${blockName}-${attrName}-${breakpoint}`,
+						fontSize[breakpoint],
+					])
 					.filter((cssVar) => validFontSize(cssVar[1]))
 		  )
 		: {};
@@ -512,6 +589,52 @@ const lineHeightCssClasses = (
 	return lineHeightClass.trimEnd();
 };
 
+// returns letter spacing css vars for style html attribute
+const letterSpacingCssVars = (props, blockName, attrPrefix = "") => {
+	const attrName = camelCase(`${attrPrefix}-letter-spacing`);
+	const {
+		attributes: { [attrName]: letterSpacing = undefined },
+	} = props;
+
+	return letterSpacing
+		? Object.fromEntries(
+				grid.breakpoints
+					.map((breakpoint) => [
+						`--wp-beer-blocks-${blockName}-${attrName}-${breakpoint}`,
+						letterSpacing[breakpoint],
+					])
+					.filter((cssVar) => validLetterSpacing(cssVar[1]))
+		  )
+		: {};
+};
+
+// returns css classes that enable letter spacing rule
+const letterSpacingCssClasses = (
+	props,
+	attrPrefix = "",
+	addWhitespaceBefore = true
+) => {
+	const attrName = camelCase(`${attrPrefix}-letter-spacing`);
+	const {
+		attributes: { [attrName]: letterSpacing = undefined },
+	} = props;
+
+	const letterSpacingClasses = () =>
+		grid.breakpoints
+			.map((breakpoint) =>
+				validLetterSpacing(get(letterSpacing, breakpoint))
+					? `wp-beer-blocks-has-letterSpacing-${breakpoint}-rule`
+					: false
+			)
+			.filter((cssClass) => cssClass);
+
+	const letterSpacingClass = letterSpacing
+		? `${addWhitespaceBefore && " "}${letterSpacingClasses().join(" ")}`
+		: "";
+
+	return letterSpacingClass.trimEnd();
+};
+
 // returns font styles
 export const styles = (props, attrPrefix = "") => ({
 	...fontFamilyStyles(props, attrPrefix),
@@ -522,6 +645,7 @@ export const styles = (props, attrPrefix = "") => ({
 export const cssVars = (props, blockName, attrPrefix = "") => ({
 	...fontSizeCssVars(props, blockName, attrPrefix),
 	...lineHeightCssVars(props, blockName, attrPrefix),
+	...letterSpacingCssVars(props, blockName, attrPrefix),
 });
 
 // returns css classes that enable the rules used in this helper
@@ -533,7 +657,7 @@ export const cssClasses = (
 	let classes = `${fontSizeCssClasses(props, attrPrefix)}${lineHeightCssClasses(
 		props,
 		attrPrefix
-	)}`.trimStart();
+	)}${letterSpacingCssClasses(props, attrPrefix)}`.trimStart();
 
 	return `${addWhitespaceBefore && " "}${classes}`.trimEnd();
 };
