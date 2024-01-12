@@ -3,6 +3,7 @@ import { useBlockProps, RichText } from "@wordpress/block-editor";
 import spacing from "./../../helpers/spacing";
 import size from "../../helpers/size";
 import blockAlignment from "../../helpers/block-alignment";
+import textAlignment from "../../helpers/text-alignment";
 import colors from "../../helpers/colors";
 import typography from "../../helpers/typography";
 import placeholder from "./../../images/placeholder-image.svg";
@@ -10,14 +11,7 @@ import htmlAttrs from "./../../helpers/html-attrs";
 
 const save = (props) => {
 	const {
-		attributes: {
-			imgId,
-			imgUrl,
-			imgAlt,
-			figcaption,
-			removeFigcaption,
-			figcaptionTextAlign,
-		},
+		attributes: { imgId, imgUrl, imgAlt, figcaption, removeFigcaption },
 	} = props;
 
 	const blockProps = useBlockProps.save({
@@ -29,22 +23,20 @@ const save = (props) => {
 	return (
 		<figure {...blockProps}>
 			<img
-				className={`img-fluid d-block${size.cssClasses(props)}`}
-				style={{
-					...blockAlignment.styles(props),
-					...size.cssVars(props, "image"),
-				}}
+				className={`d-block img-fluid${size.cssClasses(
+					props
+				)}${blockAlignment.cssClasses(props)}`}
+				style={size.cssVars(props, "image")}
 				alt={imgId > 0 ? imgAlt : __("Placeholder image", "beer-blocks")}
 				src={imgId > 0 ? imgUrl : placeholder}
 			/>
 
 			{!removeFigcaption && (
 				<RichText.Content
-					className={`d-block${
-						figcaptionTextAlign !== undefined
-							? ` text-${figcaptionTextAlign}`
-							: ""
-					}${typography.cssClasses(props, "figcaption")}${colors.cssClasses(
+					className={`d-block${textAlignment.cssClasses(
+						props,
+						"figcaption"
+					)}${typography.cssClasses(props, "figcaption")}${colors.cssClasses(
 						props,
 						"figcaption"
 					)}${spacing.cssClasses(props, "figcaption")}`}

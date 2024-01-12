@@ -6,7 +6,7 @@ Donate link: https://www.paypal.com/donate?hosted_button_id=8XSCNEV5WA5TU
 Requires at least: 5.6
 Tested up to: 6.4
 Requires PHP: 7.3
-Stable tag: 1.8.0
+Stable tag: 1.9.0
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -202,13 +202,40 @@ Yes, of course! You can choose any of the font families available in Google Font
 - Fixes in `button` block
 - Set `margin-top: revert` and `margin-bottom: revert` to all blocks in the editor view
 - Remove `buttons` block
-= [1.8.0] =
+= 1.8.0 =
 - Add **letter spacing** feature to `typography` helper
 - Add **Remove gutters** field in `row` block type which allows remove gutters between columns
 - Add **Flex direction** feature in `row` block type (include _Stacked contents_ and _Reverse order_ fields)
 - Add **vertical margin** feature in `row` block type
 - Fix styles in `row` block type
 - Remove parent relation in `row` block type
+= 1.9.0 =
+- Change and improves in `typography` helper logic
+- Transform functions controls to functional components in `typography` helper (fix `minified React Error` in certain situations)
+- Add `beer_blocks_google_fonts_families` hook filter to add Google Fonts manually in your theme
+- Add **border** helper features to **Info Box** block type
+- Add **border** helper features to **Section** block type
+- Add **border** helper features to **Container** block type
+- Add **Call to action button** to **Info Box** block type
+- Add `min-height`, `max-height`, `min-width` and `max-width` css properties to `size` helper
+- Add **Auto Horizontal Margins** feature to `spacing` helper
+- Add `size` helper features to the following block types:
+  - **Section** with `width`, `max-width`, `height`, `min-height` and `auto-height` controls
+  - **Container** with `width`, `max-width`, `height`, `min-height` and `auto-height` controls
+  - **Alert** with `width`, `max-width`, `height`, `min-height` and `auto-height` controls
+  - **Header** with `width` and `max-width` controls
+  - **Paragraph** with `width` and `max-width` controls
+- Add breakpoint behavior and new UI to `block-alignment` helper controls
+- Add new `text-alignment` helper
+- Add `text-alignment` helper features to the following blocks:
+  - **Accordion Item**
+  - **Button**
+  - **Fa Icon**
+  - **Header**
+  - **Image**
+  - **Paragraph**
+- Fix `block-alignment` helper usage in some blocks
+- Fix editor and blocks styles
 
 == Upgrade Notice ==
 

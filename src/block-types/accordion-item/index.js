@@ -30,6 +30,7 @@ import "./editor.scss";
  */
 import edit from "./edit";
 import save from "./save";
+import textAlignment from "./../../helpers/text-alignment";
 import colors from "./../../helpers/colors";
 import spacing from "./../../helpers/spacing";
 import typography from "./../../helpers/typography";
@@ -68,14 +69,11 @@ registerBlockType("beer-blocks/accordion-item", {
 			type: "string",
 			default: 2,
 		},
-		headingTextAlign: {
-			type: "string",
-			default: "left",
-		},
 		headingContent: {
 			type: "html",
 			default: "",
 		},
+		...textAlignment.attribute({ attrPrefix: "headeing" }),
 		...colors.attributes({ colorAttr: false }),
 		...colors.attributes({ attrPrefix: "heading" }),
 		...border.attributes({ attrPrefix: "heading", borderRadius: true }),

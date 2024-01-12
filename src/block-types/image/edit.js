@@ -1,12 +1,10 @@
-import { __ } from "@wordpress/i18n";
+import { __, sprintf } from "@wordpress/i18n";
 import {
 	useBlockProps,
 	InspectorControls,
 	MediaUpload,
 	MediaUploadCheck,
-	BlockControls,
 	RichText,
-	AlignmentToolbar,
 } from "@wordpress/block-editor";
 import {
 	PanelBody,
@@ -18,6 +16,7 @@ import grid from "./../../helpers/grid";
 import spacing from "./../../helpers/spacing";
 import size from "../../helpers/size";
 import blockAlignment from "../../helpers/block-alignment";
+import textAlignment from "../../helpers/text-alignment";
 import colors from "../../helpers/colors";
 import typography from "../../helpers/typography";
 import htmlAttrs from "./../../helpers/html-attrs";
@@ -32,7 +31,6 @@ const edit = (props) => {
 			showRemoveFigcaptionToggleField,
 			figcaption,
 			removeFigcaption,
-			figcaptionTextAlign,
 			imgNaturalWidth,
 			imgNaturalHeight,
 		},
@@ -40,7 +38,9 @@ const edit = (props) => {
 	} = props;
 
 	const blockProps = useBlockProps({
-		className: spacing.cssClasses(props).trimStart(),
+		className: `${blockAlignment.cssClasses(props)}${spacing.cssClasses(
+			props
+		)}`.trimStart(),
 		style: spacing.cssVars(props, "image"),
 		...htmlAttrs.blockProps(props),
 	});
@@ -151,7 +151,15 @@ const edit = (props) => {
 								onSelect={onSelectMedia}
 								allowedTypes={["image"]}
 								render={({ open }) => (
-									<Button onClick={open} isLarge variant="primary">
+									<Button
+										onClick={open}
+										variant="primary"
+										style={{
+											display: "block",
+											width: "100%",
+											marginTop: "5px",
+										}}
+									>
 										{__("Replace image", "beer-blocks")}
 									</Button>
 								)}
@@ -159,25 +167,17 @@ const edit = (props) => {
 						</MediaUploadCheck>
 
 						<MediaUploadCheck>
-							<Button onClick={removeMedia} isDestructive>
+							<Button
+								onClick={removeMedia}
+								isDestructive
+								style={{ display: "block", width: "100%", marginTop: "5px" }}
+							>
 								{__("Remove image", "beer-blocks")}
 							</Button>
 						</MediaUploadCheck>
 					</>
 				)}
 			</div>
-
-			{imgId > 0 && (
-				<>
-					{size.controls({ props, panelBody: false })}
-
-					<div style={{ paddingTop: "20px" }}>
-						<Button onClick={setOriginalImageSize} variant="primary">
-							{__("Set original size", "beer-blocks")}
-						</Button>
-					</div>
-				</>
-			)}
 		</>
 	);
 
@@ -193,6 +193,14 @@ const edit = (props) => {
 				props,
 				attrPrefix: "figcaption",
 				title: __("Legend color", "beer-blocks"),
+			})}
+
+			{textAlignment.controlsWithBreakpoints({
+				props,
+				attrPrefix: "figcaption",
+				title: __("Legend alignment", "beer-blocks"),
+				textAlignControlLabel: (breakpoint) =>
+					sprintf(__("Legend align (%s)", "bber-blocks"), breakpoint),
 			})}
 
 			{spacing.controls({
@@ -218,42 +226,46 @@ const edit = (props) => {
 					{imageControls}
 				</PanelBody>
 
+				{imgId > 0 &&
+					size.controls({
+						props,
+						afterPanelBody: (breakpoint) => (
+							<Button
+								onClick={setOriginalImageSize}
+								variant="primary"
+								style={{ display: "block", width: "100%", marginTop: "10px" }}
+							>
+								{__("Set original size", "beer-blocks")}
+							</Button>
+						),
+					})}
+				{blockAlignment.controlsWithBreakpoints({
+					props,
+					title: __("Alignment", "beer-blocks"),
+					blockAlignControlLabel: (breakpoint) =>
+						sprintf(__("Image align (%s)", "beer-blocks"), breakpoint),
+				})}
 				{spacing.controls({ props, paddingSides: false })}
 				{showRemoveFigcaptionToggleField && figcaptionControls}
 				{htmlAttrs.controls({ props })}
 			</InspectorControls>
 
-			<BlockControls>
-				{blockAlignment.toolbar({ props })}
-
-				{!removeFigcaption && (
-					<AlignmentToolbar
-						value={figcaptionTextAlign}
-						onChange={(textAlign) =>
-							setAttributes({ figcaptionTextAlign: textAlign })
-						}
-					/>
-				)}
-			</BlockControls>
-
 			<figure {...blockProps}>
 				<img
-					className={`img-fluid d-block${size.cssClasses(props)}`}
-					style={{
-						...blockAlignment.styles(props),
-						...size.cssVars(props, "image"),
-					}}
+					className={`d-block img-fluid${size.cssClasses(
+						props
+					)}${blockAlignment.cssClasses(props)}`}
+					style={size.cssVars(props, "image")}
 					alt={imgId > 0 ? imgAlt : __("Placeholder image", "beer-blocks")}
 					src={imgId > 0 ? imgUrl : placeholder}
 				/>
 
 				{!removeFigcaption && (
 					<RichText
-						className={`d-block${
-							figcaptionTextAlign !== undefined
-								? ` text-${figcaptionTextAlign}`
-								: ""
-						}${typography.cssClasses(props, "figcaption")}${colors.cssClasses(
+						className={`d-block${textAlignment.cssClasses(
+							props,
+							"figcaption"
+						)}${typography.cssClasses(props, "figcaption")}${colors.cssClasses(
 							props,
 							"figcaption"
 						)}${spacing.cssClasses(props, "figcaption")}`}

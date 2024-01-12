@@ -1,9 +1,11 @@
 @import "./../helpers/colors";
+@import "./../helpers/border";
 @import "./../helpers/spacing";
 
 @mixin info-box-block-rules() {
 	.wp-block-beer-blocks-info-box {
 		@include backgroundRule("info-box");
+		@include borderRules("info-box", $borderRadius: true);
 		@include paddingRules("info-box");
 		@include marginRules("info-box");
 

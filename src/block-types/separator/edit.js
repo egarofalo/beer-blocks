@@ -6,7 +6,7 @@ import {
 } from "@wordpress/block-editor";
 import {
 	PanelBody,
-	__experimentalDivider as Divider,
+	CardDivider,
 	ColorPalette,
 	SelectControl,
 	BaseControl,
@@ -27,15 +27,14 @@ const edit = (props) => {
 	} = props;
 
 	const blockProps = useBlockProps({
-		className: `${size.cssClasses(props)}${spacing.marginCssClasses(
+		className: `${blockAlignment.cssClass(props)}${size.cssClasses(
 			props
-		)}`.trimStart(),
+		)}${spacing.marginCssClasses(props)}`.trimStart(),
 		style: {
 			...size.cssVars(props, "separator"),
 			...spacing.marginCssVars(props, "separator"),
 			...(style ? { "--wp-beer-blocks-separator-style": style } : {}),
 			...(color ? { "--wp-beer-blocks-separator-color": color } : {}),
-			...blockAlignment.styles(props),
 		},
 		...htmlAttrs.blockProps(props),
 	});
@@ -51,7 +50,7 @@ const edit = (props) => {
 						panelBody: false,
 					})}
 
-					<Divider />
+					<CardDivider />
 
 					<BaseControl label={__("Line style", "beer-blocks")}>
 						<SelectControl
@@ -59,7 +58,7 @@ const edit = (props) => {
 							options={Object.entries({
 								solid: "Solid",
 								doted: "Dotted",
-								dashed: "Dashed"
+								dashed: "Dashed",
 							}).map((borderStyle) => ({
 								label: borderStyle[1],
 								value: borderStyle[0],
@@ -100,7 +99,7 @@ const edit = (props) => {
 						panelBody: false,
 					})}
 
-					<Divider />
+					<CardDivider />
 
 					<RadioControl
 						label={__("Direction", "beer-blocks")}
@@ -152,7 +151,12 @@ const edit = (props) => {
 				{htmlAttrs.controls({ props })}
 			</InspectorControls>
 
-			<BlockControls>{blockAlignment.toolbar({ props })}</BlockControls>
+			<BlockControls>
+				{blockAlignment.toolbar({
+					props,
+					label: __("Line separator alignment", "beer-blocks"),
+				})}
+			</BlockControls>
 
 			<div {...blockProps}>
 				<div

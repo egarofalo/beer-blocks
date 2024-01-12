@@ -1,33 +1,102 @@
-@import "./../helpers/spacing";
 @import "./../helpers/colors";
+@import "./../helpers/border";
+@import "./../helpers/size";
+@import "./../helpers/spacing";
 
 @mixin container-block-rules() {
 	.wp-block-beer-blocks-container {
 		@include backgroundRule("container");
+		@include borderRules("container", $borderRadius: true);
+		@include widthRules("container", $minWidthRule: true, $maxWidthRule: true);
+		@include heightRules(
+			"container",
+			$minHeightRule: true,
+			$maxHeightRule: true
+		);
 		@include verticalPaddingRules("container");
 		@include verticalMarginRules("container");
 
 		@include media-breakpoint-up(sm) {
+			@include widthRules(
+				"container",
+				"sm",
+				$minWidthRule: true,
+				$maxWidthRule: true
+			);
+			@include heightRules(
+				"container",
+				"sm",
+				$minHeightRule: true,
+				$maxHeightRule: true
+			);
 			@include verticalPaddingRules("container", "sm");
 			@include verticalMarginRules("container", "sm");
 		}
 
 		@include media-breakpoint-up(md) {
+			@include widthRules(
+				"container",
+				"md",
+				$minWidthRule: true,
+				$maxWidthRule: true
+			);
+			@include heightRules(
+				"container",
+				"md",
+				$minHeightRule: true,
+				$maxHeightRule: true
+			);
 			@include verticalPaddingRules("container", "md");
 			@include verticalMarginRules("container", "md");
 		}
 
 		@include media-breakpoint-up(lg) {
+			@include widthRules(
+				"container",
+				"lg",
+				$minWidthRule: true,
+				$maxWidthRule: true
+			);
+			@include heightRules(
+				"container",
+				"lg",
+				$minHeightRule: true,
+				$maxHeightRule: true
+			);
 			@include verticalPaddingRules("container", "lg");
 			@include verticalMarginRules("container", "lg");
 		}
 
 		@include media-breakpoint-up(xl) {
+			@include widthRules(
+				"container",
+				"xl",
+				$minWidthRule: true,
+				$maxWidthRule: true
+			);
+			@include heightRules(
+				"container",
+				"xl",
+				$minHeightRule: true,
+				$maxHeightRule: true
+			);
 			@include verticalPaddingRules("container", "xl");
 			@include verticalMarginRules("container", "xl");
 		}
 
 		@include media-breakpoint-up(xxl) {
+			@include widthRules(
+				"container",
+				"xxl",
+				$minWidthRule: true,
+				$maxWidthRule: true
+			);
+			@include heightRules(
+				"container",
+				"xxl",
+				$minHeightRule: true,
+				$maxHeightRule: true
+			);
 			@include verticalPaddingRules("container", "xxl");
 			@include verticalMarginRules("container", "xxl");
 		}

@@ -1,40 +1,47 @@
 @import "./../helpers/typography";
-@import "./../helpers/spacing";
 @import "./../helpers/colors";
+@import "./../helpers/size";
+@import "./../helpers/spacing";
 
 @mixin paragraph-block-rules() {
 	.wp-block-beer-blocks-paragraph {
 		@include colorsRules("paragraph");
 		@include typographyRules("paragraph");
+		@include widthRules("paragraph", $maxWidthRule: true);
 		@include paddingRules("paragraph");
 		@include marginRules("paragraph");
 
 		@include media-breakpoint-up(sm) {
 			@include typographyRules("paragraph", "sm");
+			@include widthRules("paragraph", "sm", $maxWidthRule: true);
 			@include paddingRules("paragraph", "sm");
 			@include marginRules("paragraph", "sm");
 		}
 
 		@include media-breakpoint-up(md) {
 			@include typographyRules("paragraph", "md");
+			@include widthRules("paragraph", "md", $maxWidthRule: true);
 			@include paddingRules("paragraph", "md");
 			@include marginRules("paragraph", "md");
 		}
 
 		@include media-breakpoint-up(lg) {
 			@include typographyRules("paragraph", "lg");
+			@include widthRules("paragraph", "lg", $maxWidthRule: true);
 			@include paddingRules("paragraph", "lg");
 			@include marginRules("paragraph", "lg");
 		}
 
 		@include media-breakpoint-up(xl) {
 			@include typographyRules("paragraph", "xl");
+			@include widthRules("paragraph", "xl", $maxWidthRule: true);
 			@include paddingRules("paragraph", "xl");
 			@include marginRules("paragraph", "xl");
 		}
 
 		@include media-breakpoint-up(xxl) {
 			@include typographyRules("paragraph", "xxl");
+			@include widthRules("paragraph", "xxl", $maxWidthRule: true);
 			@include paddingRules("paragraph", "xxl");
 			@include marginRules("paragraph", "xxl");
 		}
@@ -45,6 +52,32 @@
 	.wp-block-beer-blocks-paragraph {
 		&.is-selected {
 			outline: 1px dotted #035cff;
+		}
+
+		.editor-styles-wrapper &.wp-block {
+			margin-left: revert;
+			margin-right: revert;
+			@include horizontalMarginRules("paragraph");
+
+			@include media-breakpoint-up(sm) {
+				@include horizontalMarginRules("paragraph", "sm");
+			}
+
+			@include media-breakpoint-up(md) {
+				@include horizontalMarginRules("paragraph", "md");
+			}
+
+			@include media-breakpoint-up(lg) {
+				@include horizontalMarginRules("paragraph", "lg");
+			}
+
+			@include media-breakpoint-up(xl) {
+				@include horizontalMarginRules("paragraph", "xl");
+			}
+
+			@include media-breakpoint-up(xxl) {
+				@include horizontalMarginRules("paragraph", "xxl");
+			}
 		}
 	}
 }

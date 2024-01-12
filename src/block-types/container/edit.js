@@ -8,10 +8,12 @@ import {
 } from "@wordpress/block-editor";
 import { SelectControl, PanelBody } from "@wordpress/components";
 import { useSelect } from "@wordpress/data";
-import spacing from "./../../helpers/spacing";
 import tags from "./../../helpers/sectioning-tags";
 import grid from "../../helpers/grid";
 import colors from "../../helpers/colors";
+import border from "./../../helpers/border";
+import size from "./../../helpers/size";
+import spacing from "./../../helpers/spacing";
 import htmlAttrs from "./../../helpers/html-attrs";
 
 const edit = (props) => {
@@ -33,12 +35,14 @@ const edit = (props) => {
 	);
 
 	const blockProps = useBlockProps({
-		className: `${containerType}${colors.cssClasses(props)}${spacing.cssClasses(
+		className: `${containerType}${colors.cssClasses(props)}${border.cssClasses(
 			props
-		)}`,
+		)}${size.cssClasses(props)}${spacing.cssClasses(props)}`,
 		style: {
-			...spacing.cssVars(props, "container"),
 			...colors.cssVars(props, "container"),
+			...border.cssVars(props, "container"),
+			...size.cssVars(props, "container"),
+			...spacing.cssVars(props, "container"),
 		},
 		...htmlAttrs.blockProps(props),
 	});
@@ -86,6 +90,8 @@ const edit = (props) => {
 				</PanelBody>
 
 				{colors.controls({ props })}
+				{border.controls({ props })}
+				{size.controls({ props })}
 				{spacing.controls({
 					props,
 					paddingSides: ["top", "bottom"],

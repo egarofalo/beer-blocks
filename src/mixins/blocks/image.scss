@@ -5,25 +5,31 @@
 
 @mixin image-block-rules() {
 	.wp-block-beer-blocks-image {
+		@include paddingRules("image");
 		@include marginRules("image");
 
 		@include media-breakpoint-up(sm) {
+			@include paddingRules("image", "sm");
 			@include marginRules("image", "sm");
 		}
 
 		@include media-breakpoint-up(md) {
+			@include paddingRules("image", "md");
 			@include marginRules("image", "md");
 		}
 
 		@include media-breakpoint-up(lg) {
+			@include paddingRules("image", "lg");
 			@include marginRules("image", "lg");
 		}
 
 		@include media-breakpoint-up(xl) {
+			@include paddingRules("image", "xl");
 			@include marginRules("image", "xl");
 		}
 
 		@include media-breakpoint-up(xxl) {
+			@include paddingRules("image", "xxl");
 			@include marginRules("image", "xxl");
 		}
 

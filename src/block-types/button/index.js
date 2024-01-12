@@ -30,6 +30,7 @@ import "./editor.scss";
  */
 import edit from "./edit";
 import save from "./save";
+import textAlignment from "./../../helpers/text-alignment";
 import typography from "./../../helpers/typography";
 import colors from "./../../helpers/colors";
 import border from "./../../helpers/border";
@@ -75,10 +76,6 @@ registerBlockType("beer-blocks/button", {
 			type: "string",
 			default: "noopener",
 		},
-		align: {
-			type: "string",
-			default: undefined,
-		},
 		variant: {
 			type: "string",
 			default: "primary",
@@ -95,6 +92,9 @@ registerBlockType("beer-blocks/button", {
 			type: "boolean",
 			default: false,
 		},
+		...textAlignment.attributesWithBreakpoints({
+			defaultValue: { xs: "center" },
+		}),
 		...typography.attributes(),
 		...border.attributes({ borderRadius: true }),
 		...spacing.attributes(),

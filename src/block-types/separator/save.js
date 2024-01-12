@@ -10,15 +10,14 @@ const save = (props) => {
 	} = props;
 
 	const blockProps = useBlockProps.save({
-		className: `${size.cssClasses(props)}${spacing.marginCssClasses(
+		className: `${blockAlignment.cssClass(props)}${size.cssClasses(
 			props
-		)}`.trimStart(),
+		)}${spacing.marginCssClasses(props)}`.trimStart(),
 		style: {
 			...size.cssVars(props, "separator"),
 			...spacing.marginCssVars(props, "separator"),
 			...(style ? { "--wp-beer-blocks-separator-style": style } : {}),
 			...(color ? { "--wp-beer-blocks-separator-color": color } : {}),
-			...blockAlignment.styles(props),
 		},
 		...htmlAttrs.blockProps(props),
 	});

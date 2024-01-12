@@ -31,6 +31,7 @@ import "./editor.scss";
 import edit from "./edit";
 import save from "./save";
 import colors from "./../../helpers/colors";
+import border from "./../../helpers/border";
 import spacing from "./../../helpers/spacing";
 import htmlAttrs from "./../../helpers/html-attrs";
 
@@ -60,6 +61,10 @@ registerBlockType("beer-blocks/info-box", {
 			type: "boolean",
 			default: false,
 		},
+		showLink: {
+			type: "boolean",
+			default: false,
+		},
 		removeIconPrefix: {
 			type: "boolean",
 			default: false,
@@ -73,6 +78,7 @@ registerBlockType("beer-blocks/info-box", {
 			default: false,
 		},
 		...colors.attributes({ colorAttr: false }),
+		...border.attributes({ borderRadius: true }),
 		...spacing.attributes(),
 		...htmlAttrs.attributes(),
 	},

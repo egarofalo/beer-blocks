@@ -8,7 +8,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2021-08-17T13:56:20+00:00\n"
-"PO-Revision-Date: 2023-12-01 21:28+0000\n"
+"PO-Revision-Date: 2024-01-12 13:02+0000\n"
 "Language: es_ES\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: beer-blocks\n"
@@ -16,7 +16,9 @@ msgstr ""
 "X-Loco-Version: 2.6.6; wp-6.3.1"
 
 #: build/accordion-item/index.js:1 build/button/index.js:1
-#: build/tab-pane/index.js:1 build/tabs/index.js:1 src/helpers/border.js:151
+#: build/container/index.js:1 build/info-box/index.js:1
+#: build/section/index.js:1 build/tab-pane/index.js:1 build/tabs/index.js:1
+#: src/helpers/border.js:151
 msgid "%s corner"
 msgstr "esquina %s"
 
@@ -31,7 +33,7 @@ msgstr "-- SELECCIONE --"
 msgid "-- SELECT OPTION --"
 msgstr "-- SELECCIONE OPCIÓN --"
 
-#: inc/helpers/globals.php:223 inc/helpers/globals.php:233
+#: inc/helpers/globals.php:212 inc/helpers/globals.php:222
 msgid "<p>Security alert: <b>NONCE CHECK FAILED</b></p>"
 msgstr "<p>Alerta de seguridad: <b>FALLÓ LA VERIFICACIÓN DEL NONCE</b></p>"
 
@@ -40,7 +42,7 @@ msgstr "<p>Alerta de seguridad: <b>FALLÓ LA VERIFICACIÓN DEL NONCE</b></p>"
 msgid "Active"
 msgstr "Activo"
 
-#: build/image/index.js:1 src/block-types/image/edit.js:266
+#: build/image/index.js:1 src/block-types/image/edit.js:278
 msgid "Add a legend"
 msgstr "Agregar leyenda"
 
@@ -63,21 +65,53 @@ msgstr ""
 "Agregue uno o más atributos HTML separados por un salto de línea. Cada línea "
 "debe tener el formato `attrName: valor`."
 
-#: build/alert/index.js:1 src/block-types/alert/edit.js:27
+#: build/alert/index.js:1 src/block-types/alert/edit.js:33
 msgid "Alert settings"
 msgstr "Ajustes del bloque Alerta"
+
+#: build/image/index.js:1 build/separator/index.js:1
+#: src/helpers/block-alignment.js:34
+msgid "Align block to left"
+msgstr "Alinear bloque a la izquierda"
+
+#: build/image/index.js:1 build/separator/index.js:1
+#: src/helpers/block-alignment.js:44
+msgid "Align block to right"
+msgstr "Alinear bloque a la derecha"
 
 #: build/instruction/index.js:1 build/instructions/index.js:1
 #: build/row/index.js:1 build/tabs/index.js:1 src/helpers/flexbox.js:404
 msgid "Align items"
 msgstr "Alinear elementos"
 
-#: build/instruction/index.js:1 src/block-types/instruction/edit.js:159
+#: build/accordion-item/index.js:1 build/button/index.js:1
+#: build/fa-icon/index.js:1 build/header/index.js:1 build/image/index.js:1
+#: build/paragraph/index.js:1 src/helpers/text-alignment.js:26
+msgid "Align text to center"
+msgstr "Centrar texto"
+
+#: build/accordion-item/index.js:1 build/button/index.js:1
+#: build/fa-icon/index.js:1 build/header/index.js:1 build/image/index.js:1
+#: build/paragraph/index.js:1 src/helpers/text-alignment.js:21
+msgid "Align text to left"
+msgstr "Alinear texto a la izquierda"
+
+#: build/accordion-item/index.js:1 build/button/index.js:1
+#: build/fa-icon/index.js:1 build/header/index.js:1 build/image/index.js:1
+#: build/paragraph/index.js:1 src/helpers/text-alignment.js:31
+msgid "Align text to right"
+msgstr "Alinear texto a la derecha"
+
+#: build/button/index.js:1 build/image/index.js:1 build/instruction/index.js:1
+#: src/block-types/button/edit.js:193 src/block-types/image/edit.js:244
+#: src/block-types/instruction/edit.js:159
 msgid "Alignment"
 msgstr "Alineación"
 
+#: build/alert/index.js:1 build/container/index.js:1 build/header/index.js:1
 #: build/image/index.js:1 build/instruction/index.js:1
-#: build/separator/index.js:1 src/helpers/size.js:170 src/helpers/size.js:269
+#: build/paragraph/index.js:1 build/section/index.js:1
+#: build/separator/index.js:1 src/helpers/size.js:359 src/helpers/size.js:535
 msgid "Auto height (%s)"
 msgstr "Altura automática (%s)"
 
@@ -117,7 +151,7 @@ msgstr "Tamaño automático: columnas de ancho ajustable al contenido"
 msgid "Background"
 msgstr "Color de fondo"
 
-#: build/separator/index.js:1 src/block-types/separator/edit.js:126
+#: build/separator/index.js:1 src/block-types/separator/edit.js:125
 msgid "Background color"
 msgstr "Color de fondo"
 
@@ -138,11 +172,24 @@ msgstr ""
 "Beer Blocks amplía el editor de WordPress con bloques potentes y avanzados "
 "que te ayudan a crear hermosos sitios web más rápido."
 
-#: inc/helpers/globals.php:166
+#: inc/helpers/globals.php:155
 msgid "Beer Blocks Settings"
 msgstr "Ajustes de Beer Blocks"
 
-#: build/container/index.js:1 src/block-types/container/index.js:51
+#: build/separator/index.js:1 src/helpers/block-alignment.js:63
+msgid "Block align"
+msgstr "Alineación del bloque"
+
+#: build/image/index.js:1 src/helpers/block-alignment.js:131
+#: src/helpers/block-alignment.js:180
+msgid "Block align (%s)"
+msgstr "Alineación del bloque (%s)"
+
+#: build/image/index.js:1 src/helpers/block-alignment.js:178
+msgid "Block alignment"
+msgstr "Alineación del bloque"
+
+#: build/container/index.js:1 src/block-types/container/index.js:53
 msgctxt "block description"
 msgid ""
 "Bootstrap Containers wich provide a means to center and horizontally pad "
@@ -163,12 +210,12 @@ msgctxt "block description"
 msgid "Create a Bootstrap row wich is part of the Bootstrap Grid system."
 msgstr "Cree una fila que es parte del sistema de cuadrículas de Bootstrap."
 
-#: build/info-box/index.js:1 src/block-types/info-box/index.js:51
+#: build/info-box/index.js:1 src/block-types/info-box/index.js:52
 msgctxt "block description"
 msgid "Create a box with a custom icon, title and a description."
 msgstr "Cree una caja con un ícono personalizado, un título y una descripción."
 
-#: build/fa-icon/index.js:1 src/block-types/fa-icon/index.js:53
+#: build/fa-icon/index.js:1 src/block-types/fa-icon/index.js:54
 msgctxt "block description"
 msgid "Create a Font Awesome icon."
 msgstr "Cree un ícono de Font Awesome."
@@ -178,12 +225,12 @@ msgctxt "block description"
 msgid "Create a list item with a numeration, title and paragraph."
 msgstr "Crea un elemento de lista con numeración, título y párrafo."
 
-#: build/image/index.js:1 src/block-types/image/index.js:54
+#: build/image/index.js:1 src/block-types/image/index.js:56
 msgctxt "block description"
 msgid "Create a responsive image."
 msgstr "Cree una imagen responsive."
 
-#: build/section/index.js:1 src/block-types/section/index.js:51
+#: build/section/index.js:1 src/block-types/section/index.js:53
 msgctxt "block description"
 msgid "Create a section element with custom paddings and margins."
 msgstr "Cree un sección con márgenes y rellenos personalizados."
@@ -204,7 +251,7 @@ msgctxt "block description"
 msgid "Create an accordion for faqs and other purpose."
 msgstr "Crea un acordeón para preguntas frecuentes y otros fines."
 
-#: build/accordion-item/index.js:1 src/block-types/accordion-item/index.js:52
+#: build/accordion-item/index.js:1 src/block-types/accordion-item/index.js:53
 msgctxt "block description"
 msgid "Create an accordion item."
 msgstr "Cree un item de acordeón."
@@ -214,13 +261,13 @@ msgctxt "block description"
 msgid "Create an instructions list."
 msgstr "Cree una lista de instrucciones."
 
-#: build/button/index.js:1 src/block-types/button/index.js:54
+#: build/button/index.js:1 src/block-types/button/index.js:55
 msgctxt "block description"
 msgid ""
 "Create Bootstrap button with support for multiple sizes, states, and more."
 msgstr "Cree un botón Bootstrap con múltiples tamaños, estados y más."
 
-#: build/header/index.js:1 src/block-types/header/index.js:52
+#: build/header/index.js:1 src/block-types/header/index.js:54
 msgctxt "block description"
 msgid "Create header with custom typography, margin and padding."
 msgstr "Cree un encabezado con tipografía, margen y relleno ajustables."
@@ -230,7 +277,7 @@ msgctxt "block description"
 msgid "Create headers with title, line separator and subtitle."
 msgstr "Crea encabezados con título, línea separadora y un subtítulo."
 
-#: build/paragraph/index.js:1 src/block-types/paragraph/index.js:52
+#: build/paragraph/index.js:1 src/block-types/paragraph/index.js:54
 msgctxt "block description"
 msgid "Create paragraph with custom typography, margin and padding."
 msgstr "Crea párrafos con tipografía, margen y relleno ajustables."
@@ -247,7 +294,7 @@ msgid ""
 "content."
 msgstr "Componente Bootstrap flexible para mostrar contenido de importancia."
 
-#: build/alert/index.js:1 src/block-types/alert/index.js:50
+#: build/alert/index.js:1 src/block-types/alert/index.js:51
 msgctxt "block description"
 msgid ""
 "Represents Bootstrap Alerts that provide contextual feedback messages for "
@@ -266,11 +313,11 @@ msgstr ""
 "Utilice el sistema de cuadrícula de Bootstrap para crear un contenedor con "
 "filas y columnas para estructurar y alinear el contenido."
 
-#: build/button/index.js:1 src/block-types/button/edit.js:153
+#: build/button/index.js:1 src/block-types/button/edit.js:147
 msgid "Block Level Button?"
 msgstr "¿Botón de nivel de bloque?"
 
-#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:96
+#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:111
 msgid "Block level element type"
 msgstr "Elemento de nivel bloque"
 
@@ -280,8 +327,8 @@ msgctxt "block title"
 msgid "Accordion"
 msgstr "Acordeón"
 
-#: build/accordion-item/index.js:1 src/block-types/accordion-item/index.js:50
-#: src/block-types/accordion-item/index.js:60
+#: build/accordion-item/index.js:1 src/block-types/accordion-item/index.js:51
+#: src/block-types/accordion-item/index.js:61
 msgctxt "block title"
 msgid "Accordion Item"
 msgstr "Elemento de acordeón"
@@ -292,14 +339,14 @@ msgctxt "block title"
 msgid "Advanced Header"
 msgstr "Encabezado avanzado"
 
-#: build/alert/index.js:1 src/block-types/alert/index.js:48
-#: src/block-types/alert/index.js:56
+#: build/alert/index.js:1 src/block-types/alert/index.js:49
+#: src/block-types/alert/index.js:57
 msgctxt "block title"
 msgid "Alert"
 msgstr "Alerta"
 
-#: build/button/index.js:1 src/block-types/button/index.js:52
-#: src/block-types/button/index.js:60
+#: build/button/index.js:1 src/block-types/button/index.js:53
+#: src/block-types/button/index.js:61
 msgctxt "block title"
 msgid "Button"
 msgstr "Botón"
@@ -310,14 +357,14 @@ msgctxt "block title"
 msgid "Column"
 msgstr "Columna"
 
-#: build/container/index.js:1 src/block-types/container/index.js:49
-#: src/block-types/container/index.js:57
+#: build/container/index.js:1 src/block-types/container/index.js:51
+#: src/block-types/container/index.js:59
 msgctxt "block title"
 msgid "Container"
 msgstr "Contenedor"
 
-#: build/fa-icon/index.js:1 src/block-types/fa-icon/index.js:51
-#: src/block-types/fa-icon/index.js:62
+#: build/fa-icon/index.js:1 src/block-types/fa-icon/index.js:52
+#: src/block-types/fa-icon/index.js:63
 msgctxt "block title"
 msgid "Font Awesome Icon"
 msgstr "Icono de Font Awesome"
@@ -328,20 +375,20 @@ msgctxt "block title"
 msgid "Grid"
 msgstr "Cuadrícula"
 
-#: build/header/index.js:1 src/block-types/header/index.js:50
-#: src/block-types/header/index.js:58
+#: build/header/index.js:1 src/block-types/header/index.js:52
+#: src/block-types/header/index.js:60
 msgctxt "block title"
 msgid "Header"
 msgstr "Encabezado"
 
-#: build/image/index.js:1 src/block-types/image/index.js:52
-#: src/block-types/image/index.js:60
+#: build/image/index.js:1 src/block-types/image/index.js:54
+#: src/block-types/image/index.js:62
 msgctxt "block title"
 msgid "Image"
 msgstr "Imagen"
 
-#: build/info-box/index.js:1 src/block-types/info-box/index.js:49
-#: src/block-types/info-box/index.js:57
+#: build/info-box/index.js:1 src/block-types/info-box/index.js:50
+#: src/block-types/info-box/index.js:58
 msgctxt "block title"
 msgid "Info Box"
 msgstr "Caja de información"
@@ -364,8 +411,8 @@ msgctxt "block title"
 msgid "Jumbotron"
 msgstr "Jumbotron"
 
-#: build/paragraph/index.js:1 src/block-types/paragraph/index.js:50
-#: src/block-types/paragraph/index.js:58
+#: build/paragraph/index.js:1 src/block-types/paragraph/index.js:52
+#: src/block-types/paragraph/index.js:60
 msgctxt "block title"
 msgid "Paragraph"
 msgstr "Párrafo"
@@ -376,8 +423,8 @@ msgctxt "block title"
 msgid "Row"
 msgstr "Fila"
 
-#: build/section/index.js:1 src/block-types/section/index.js:49
-#: src/block-types/section/index.js:57
+#: build/section/index.js:1 src/block-types/section/index.js:51
+#: src/block-types/section/index.js:59
 msgctxt "block title"
 msgid "Section"
 msgstr "Sección"
@@ -400,7 +447,7 @@ msgctxt "block title"
 msgid "Tabs"
 msgstr "Pestañas"
 
-#: build/accordion-item/index.js:1 src/block-types/accordion-item/edit.js:107
+#: build/accordion-item/index.js:1 src/block-types/accordion-item/edit.js:99
 msgid "Body"
 msgstr "Cuerpo"
 
@@ -422,12 +469,16 @@ msgid "Border Radius"
 msgstr "Radio del borde"
 
 #: build/accordion-item/index.js:1 build/button/index.js:1
-#: build/tab-pane/index.js:1 build/tabs/index.js:1 src/helpers/border.js:105
+#: build/container/index.js:1 build/info-box/index.js:1
+#: build/section/index.js:1 build/tab-pane/index.js:1 build/tabs/index.js:1
+#: src/helpers/border.js:105
 msgid "Border styles"
 msgstr "Estilos del borde"
 
 #: build/accordion-item/index.js:1 build/button/index.js:1
-#: build/tab-pane/index.js:1 build/tabs/index.js:1 src/helpers/border.js:185
+#: build/container/index.js:1 build/info-box/index.js:1
+#: build/section/index.js:1 build/tab-pane/index.js:1 build/tabs/index.js:1
+#: src/helpers/border.js:185
 msgid "Borders"
 msgstr "Bordes"
 
@@ -443,15 +494,19 @@ msgstr "Bordes"
 msgid "Breakpoint behavior (%s)"
 msgstr "Comportamiento de los puntos de interrupción (%s)"
 
-#: build/button/index.js:1 src/block-types/button/edit.js:133
+#: build/button/index.js:1 src/block-types/button/edit.js:196
+msgid "Button align (%s)"
+msgstr "Alineación del bloque (%s)"
+
+#: build/button/index.js:1 src/block-types/button/edit.js:127
 msgid "Button settings"
 msgstr "Ajustes del botón"
 
-#: build/button/index.js:1 src/block-types/button/edit.js:167
+#: build/button/index.js:1 src/block-types/button/edit.js:156
 msgid "Button size"
 msgstr "Tamaño del botón"
 
-#: build/button/index.js:1 src/block-types/button/edit.js:136
+#: build/button/index.js:1 src/block-types/button/edit.js:130
 msgid "Button variant"
 msgstr "Variantes del botón"
 
@@ -461,6 +516,11 @@ msgstr "Variantes del botón"
 msgid "Center"
 msgstr "Centrar (center)"
 
+#: build/image/index.js:1 build/separator/index.js:1
+#: src/helpers/block-alignment.js:39
+msgid "Center block"
+msgstr "Centrar bloque"
+
 #: build/accordion-item/index.js:1 build/header/index.js:1
 #: src/helpers/heading.js:31 src/helpers/heading.js:39
 msgid "Change heading level"
@@ -469,11 +529,11 @@ msgstr "Cambiar nivel del encabezado"
 #: build/accordion-item/index.js:1 build/button/index.js:1
 #: build/fa-icon/index.js:1 build/header/index.js:1 build/image/index.js:1
 #: build/instruction/index.js:1 build/paragraph/index.js:1
-#: build/tabs/index.js:1 src/helpers/typography.js:319
+#: build/tabs/index.js:1 src/helpers/typography.js:315
 msgid "Choose a font family."
 msgstr "Seleccione una familia de fuentes."
 
-#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:61
+#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:56
 msgid "Choose an Icon"
 msgstr "Seleccione un icono"
 
@@ -481,11 +541,11 @@ msgstr "Seleccione un icono"
 msgid "Choose an image"
 msgstr "Seleccione una imagen"
 
-#: build/info-box/index.js:1 src/block-types/info-box/edit.js:42
+#: build/info-box/index.js:1 src/block-types/info-box/edit.js:45
 msgid "Chose an icon..."
 msgstr "Seleccione una icono..."
 
-#: build/info-box/index.js:1 src/block-types/info-box/edit.js:53
+#: build/info-box/index.js:1 src/block-types/info-box/edit.js:56
 msgid "Chose an image..."
 msgstr "Seleccione una imagen..."
 
@@ -529,16 +589,20 @@ msgstr "Tamaño de columna (%d)"
 msgid "Column sizing type (%s)"
 msgstr "Tipo de tamaño de columna (%s)"
 
-#: build/container/index.js:1 src/block-types/container/edit.js:67
+#: build/container/index.js:1 src/block-types/container/edit.js:71
 msgid "Container settings"
 msgstr "Ajustes del contenedor"
 
 #: build/container/index.js:1 build/instructions/index.js:1
-#: src/block-types/container/edit.js:69 src/block-types/instructions/edit.js:62
+#: src/block-types/container/edit.js:73 src/block-types/instructions/edit.js:62
 msgid "Container type"
 msgstr "Tipo de contenedor"
 
-#: build/button/index.js:1 src/block-types/button/edit.js:141
+#: build/info-box/index.js:1 src/block-types/info-box/edit.js:121
+msgid "CTA"
+msgstr ""
+
+#: build/button/index.js:1 src/block-types/button/edit.js:135
 msgid "Custom styles"
 msgstr "stilos personalizados"
 
@@ -546,18 +610,18 @@ msgstr "stilos personalizados"
 msgid "Default selected tab"
 msgstr "Pestaña seleccionada por defecto"
 
-#: build/separator/index.js:1 src/block-types/separator/edit.js:106
+#: build/separator/index.js:1 src/block-types/separator/edit.js:105
 msgid "Direction"
 msgstr "Dirección"
 
-#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:106
+#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:120
 msgid ""
 "Disable this toggle field if you want to display the icon as an inline "
 "element."
 msgstr ""
 "Desactive esta opción si desea mostrar el icono como un elemento en línea."
 
-#: build/separator/index.js:1 src/block-types/separator/edit.js:114
+#: build/separator/index.js:1 src/block-types/separator/edit.js:113
 msgid "Down"
 msgstr "Hacia abajo"
 
@@ -588,6 +652,19 @@ msgstr "Editar"
 #: build/button/index.js:1 build/tabs/index.js:1 src/helpers/statuses.js:629
 msgid "Element statuses"
 msgstr "Estados del elemento"
+
+#: build/accordion-item/index.js:1 build/accordion/index.js:1
+#: build/advanced-header/index.js:1 build/alert/index.js:1
+#: build/button/index.js:1 build/column/index.js:1 build/container/index.js:1
+#: build/fa-icon/index.js:1 build/grid/index.js:1 build/header/index.js:1
+#: build/image/index.js:1 build/info-box/index.js:1
+#: build/instruction/index.js:1 build/instructions/index.js:1
+#: build/jumbotron/index.js:1 build/paragraph/index.js:1 build/row/index.js:1
+#: build/section/index.js:1 build/separator/index.js:1
+#: build/tab-pane/index.js:1 build/tabs/index.js:1 src/helpers/spacing.js:217
+#: src/helpers/spacing.js:268
+msgid "Enable horizontal centering (%s)"
+msgstr "Habilitar centrado horizontal (%s)"
 
 #: build/image/index.js:1 src/block-types/image/edit.js:105
 msgid "Enable this toggle field if you want to remove the image legend."
@@ -701,22 +778,22 @@ msgstr "Color de fuente"
 #: build/accordion-item/index.js:1 build/button/index.js:1
 #: build/fa-icon/index.js:1 build/header/index.js:1 build/image/index.js:1
 #: build/instruction/index.js:1 build/paragraph/index.js:1
-#: build/tabs/index.js:1 src/helpers/typography.js:318
+#: build/tabs/index.js:1 src/helpers/typography.js:314
 msgid "Font Families:"
 msgstr "Familias de fuentes:"
 
 #: build/accordion-item/index.js:1 build/button/index.js:1
 #: build/fa-icon/index.js:1 build/header/index.js:1 build/image/index.js:1
 #: build/instruction/index.js:1 build/paragraph/index.js:1
-#: build/tabs/index.js:1 src/helpers/typography.js:146
-#: src/helpers/typography.js:391
+#: build/tabs/index.js:1 src/helpers/typography.js:137
+#: src/helpers/typography.js:374
 msgid "Font size (%s)"
 msgstr "Tamaño de fuente (%s)"
 
 #: build/accordion-item/index.js:1 build/button/index.js:1
 #: build/fa-icon/index.js:1 build/header/index.js:1 build/image/index.js:1
 #: build/instruction/index.js:1 build/paragraph/index.js:1
-#: build/tabs/index.js:1 src/helpers/typography.js:370
+#: build/tabs/index.js:1 src/helpers/typography.js:353
 msgid "Font Weight"
 msgstr "Peso de la fuente"
 
@@ -724,7 +801,7 @@ msgstr "Peso de la fuente"
 msgid "General settings"
 msgstr "Ajustes generales"
 
-#: inc/helpers/google-fonts.php:25
+#: inc/helpers/google-fonts.php:18
 msgid "Google Fonts Settings"
 msgstr "Ajustes de Google Fonts"
 
@@ -739,12 +816,14 @@ msgstr "Ajustes de Google Fonts"
 msgid "Gradient"
 msgstr "Gradiente"
 
-#: build/accordion-item/index.js:1 src/block-types/accordion-item/edit.js:74
+#: build/accordion-item/index.js:1 src/block-types/accordion-item/edit.js:66
 msgid "Heading"
 msgstr "Encabezado"
 
+#: build/alert/index.js:1 build/container/index.js:1 build/header/index.js:1
 #: build/image/index.js:1 build/instruction/index.js:1
-#: build/separator/index.js:1 src/helpers/size.js:165 src/helpers/size.js:267
+#: build/paragraph/index.js:1 build/section/index.js:1
+#: build/separator/index.js:1 src/helpers/size.js:346 src/helpers/size.js:529
 msgid "Height (%s)"
 msgstr "Altura (%s)"
 
@@ -776,7 +855,7 @@ msgid "HTML settings"
 msgstr "Ajustes HTML"
 
 #: build/container/index.js:1 build/section/index.js:1
-#: src/block-types/container/edit.js:76 src/block-types/section/edit.js:35
+#: src/block-types/container/edit.js:80 src/block-types/section/edit.js:39
 msgid "HTML Tag"
 msgstr "Etiqueta HTML"
 
@@ -784,15 +863,19 @@ msgstr "Etiqueta HTML"
 msgid "https://codevelopers.tech"
 msgstr "https://codevelopers.tech"
 
-#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:74
+#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:94
+msgid "Icon align (%s)"
+msgstr "Alineación del icono (%s)"
+
+#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:71
 msgid "Icon color"
 msgstr "Color del icono"
 
-#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:93
+#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:108
 msgid "Icon settings"
 msgstr "Ajustes del icono"
 
-#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:83
+#: build/fa-icon/index.js:1 src/block-types/fa-icon/edit.js:82
 msgid "Icon size (%s)"
 msgstr "Tamaño del icono (%s)"
 
@@ -807,7 +890,7 @@ msgstr "Tamaño del icono (%s)"
 msgid "ID attribute"
 msgstr "Atributo ID"
 
-#: build/button/index.js:1 src/block-types/button/edit.js:146
+#: build/button/index.js:1 src/block-types/button/edit.js:140
 msgid ""
 "If you choose 'Custom styles' you can change button typography, font color, "
 "background, borders and spacing."
@@ -815,11 +898,15 @@ msgstr ""
 "Si elige 'Estilos personalizados', puede cambiar la tipografía, el color de  "
 "la fuente, el fondo, los bordes y el espaciado del botón."
 
-#: build/image/index.js:1 src/block-types/image/edit.js:217
+#: build/image/index.js:1 src/block-types/image/edit.js:246
+msgid "Image align (%s)"
+msgstr "Alineación de la imagen (%s)"
+
+#: build/image/index.js:1 src/block-types/image/edit.js:225
 msgid "Image settings"
 msgstr "Ajustes de la imagen"
 
-#: build/info-box/index.js:1 src/block-types/info-box/edit.js:130
+#: build/info-box/index.js:1 src/block-types/info-box/edit.js:148
 msgid "Inner blocks visibility"
 msgstr "Visibilidad de los bloques interiores"
 
@@ -832,15 +919,25 @@ msgstr "Ajustes de instrucciones"
 msgid "Justify content"
 msgstr "Justificar contenidos"
 
-#: build/button/index.js:1 src/block-types/button/edit.js:172
+#: build/accordion-item/index.js:1 build/button/index.js:1
+#: build/fa-icon/index.js:1 build/header/index.js:1 build/image/index.js:1
+#: build/paragraph/index.js:1 src/helpers/text-alignment.js:36
+msgid "Justify text"
+msgstr "Justificar texto"
+
+#: build/button/index.js:1 src/block-types/button/edit.js:161
 msgid "Large"
 msgstr "Grande"
+
+#: build/image/index.js:1 src/block-types/image/edit.js:201
+msgid "Legend alignment"
+msgstr "Alineación de la leyenda"
 
 #: build/image/index.js:1 src/block-types/image/edit.js:195
 msgid "Legend color"
 msgstr "Color de la leyenda"
 
-#: build/image/index.js:1 src/block-types/image/edit.js:201
+#: build/image/index.js:1 src/block-types/image/edit.js:209
 msgid "Legend spacing"
 msgstr "Espaciado de la leyenda"
 
@@ -851,28 +948,32 @@ msgstr "Tipografía de la leyenda"
 #: build/accordion-item/index.js:1 build/button/index.js:1
 #: build/fa-icon/index.js:1 build/header/index.js:1 build/image/index.js:1
 #: build/instruction/index.js:1 build/paragraph/index.js:1
-#: build/tabs/index.js:1 src/helpers/typography.js:253
-#: src/helpers/typography.js:395
+#: build/tabs/index.js:1 src/helpers/typography.js:244
+#: src/helpers/typography.js:378
 msgid "Letter spacing (%s)"
 msgstr "Espaciado de letras (%s)"
 
-#: build/separator/index.js:1 src/block-types/separator/edit.js:71
+#: build/separator/index.js:1 src/block-types/separator/edit.js:70
 msgid "Line color"
 msgstr "Color de la línea"
 
 #: build/accordion-item/index.js:1 build/button/index.js:1
 #: build/fa-icon/index.js:1 build/header/index.js:1 build/image/index.js:1
 #: build/instruction/index.js:1 build/paragraph/index.js:1
-#: build/tabs/index.js:1 src/helpers/typography.js:202
-#: src/helpers/typography.js:393
+#: build/tabs/index.js:1 src/helpers/typography.js:193
+#: src/helpers/typography.js:376
 msgid "Line height (%s)"
 msgstr "Alto de línea (%s)"
 
-#: build/separator/index.js:1 src/block-types/separator/edit.js:46
+#: build/separator/index.js:1 src/block-types/separator/edit.js:157
+msgid "Line separator alignment"
+msgstr "Alineación de la línea separadora"
+
+#: build/separator/index.js:1 src/block-types/separator/edit.js:45
 msgid "Line settings"
 msgstr "Ajustes de la línea"
 
-#: build/separator/index.js:1 src/block-types/separator/edit.js:56
+#: build/separator/index.js:1 src/block-types/separator/edit.js:55
 msgid "Line style"
 msgstr "Estilos de la línea"
 
@@ -906,11 +1007,11 @@ msgstr "Cargar Font Awesome en el Editor"
 msgid "Load FontAwesome in Front"
 msgstr "Cargar Font Awesome en el Frontend"
 
-#: inc/helpers/google-fonts.php:46 inc/helpers/google-fonts.php:51
+#: inc/helpers/google-fonts.php:69 inc/helpers/google-fonts.php:74
 msgid "Load Google Fonts"
 msgstr "Cargar Google Fonts"
 
-#: inc/helpers/google-fonts.php:53
+#: inc/helpers/google-fonts.php:76
 msgid ""
 "Load Google fonts on the frontend. Uncheck this option if you want to "
 "enqueue the selected fonts manually in the active theme."
@@ -938,14 +1039,42 @@ msgstr "Tamaño manual"
 #: build/instruction/index.js:1 build/instructions/index.js:1
 #: build/jumbotron/index.js:1 build/paragraph/index.js:1 build/row/index.js:1
 #: build/section/index.js:1 build/separator/index.js:1
-#: build/tab-pane/index.js:1 build/tabs/index.js:1 src/helpers/spacing.js:146
-#: src/helpers/spacing.js:204
+#: build/tab-pane/index.js:1 build/tabs/index.js:1 src/helpers/spacing.js:162
+#: src/helpers/spacing.js:265
 msgid "Margin (%s)"
 msgstr "Margen (%s)"
 
-#: build/button/index.js:1 src/block-types/button/edit.js:176
+#: build/alert/index.js:1 build/container/index.js:1 build/header/index.js:1
+#: build/image/index.js:1 build/instruction/index.js:1
+#: build/paragraph/index.js:1 build/section/index.js:1
+#: build/separator/index.js:1 src/helpers/size.js:355 src/helpers/size.js:533
+msgid "Max height (%s)"
+msgstr "Altura máxima (%s)"
+
+#: build/alert/index.js:1 build/container/index.js:1 build/header/index.js:1
+#: build/image/index.js:1 build/instruction/index.js:1
+#: build/paragraph/index.js:1 build/section/index.js:1
+#: build/separator/index.js:1 src/helpers/size.js:213 src/helpers/size.js:527
+msgid "Max width (%s)"
+msgstr "Ancho máximo (%s)"
+
+#: build/button/index.js:1 src/block-types/button/edit.js:165
 msgid "Medium"
 msgstr "Mediano"
+
+#: build/alert/index.js:1 build/container/index.js:1 build/header/index.js:1
+#: build/image/index.js:1 build/instruction/index.js:1
+#: build/paragraph/index.js:1 build/section/index.js:1
+#: build/separator/index.js:1 src/helpers/size.js:351 src/helpers/size.js:531
+msgid "Min height (%s)"
+msgstr "Altura mínima (%s)"
+
+#: build/alert/index.js:1 build/container/index.js:1 build/header/index.js:1
+#: build/image/index.js:1 build/instruction/index.js:1
+#: build/paragraph/index.js:1 build/section/index.js:1
+#: build/separator/index.js:1 src/helpers/size.js:209 src/helpers/size.js:525
+msgid "Min width (%s)"
+msgstr "Ancho mínimo (%s)"
 
 #: build/tabs/index.js:1 src/block-types/tabs/edit.js:141
 msgid "No"
@@ -954,7 +1083,7 @@ msgstr "No"
 #: build/accordion-item/index.js:1 build/button/index.js:1
 #: build/fa-icon/index.js:1 build/header/index.js:1 build/image/index.js:1
 #: build/instruction/index.js:1 build/paragraph/index.js:1
-#: build/tabs/index.js:1 src/helpers/typography.js:331
+#: build/tabs/index.js:1 src/helpers/typography.js:323
 msgid "No font family options"
 msgstr "Sin opciones de familia de fuentes"
 
@@ -966,11 +1095,11 @@ msgstr "Ajustes de numeración"
 msgid "Open media library"
 msgstr "Abrir bliblioteca de medios"
 
-#: build/accordion-item/index.js:1 src/block-types/accordion-item/edit.js:110
+#: build/accordion-item/index.js:1 src/block-types/accordion-item/edit.js:102
 msgid "Opened"
 msgstr "Abierto"
 
-#: build/button/index.js:1 src/block-types/button/edit.js:190
+#: build/button/index.js:1 src/block-types/button/edit.js:179
 msgid "Outline Button?"
 msgstr "¿Botón de contorno?"
 
@@ -982,13 +1111,13 @@ msgstr "¿Botón de contorno?"
 #: build/instruction/index.js:1 build/instructions/index.js:1
 #: build/jumbotron/index.js:1 build/paragraph/index.js:1 build/row/index.js:1
 #: build/section/index.js:1 build/separator/index.js:1
-#: build/tab-pane/index.js:1 build/tabs/index.js:1 src/helpers/spacing.js:92
-#: src/helpers/spacing.js:202
+#: build/tab-pane/index.js:1 build/tabs/index.js:1 src/helpers/spacing.js:108
+#: src/helpers/spacing.js:263
 msgid "Padding (%s)"
 msgstr "Relleno (%s)"
 
-#: build/image/index.js:1 src/block-types/image/edit.js:246
-#: src/block-types/image/save.js:37
+#: build/image/index.js:1 src/block-types/image/edit.js:259
+#: src/block-types/image/save.js:30
 msgid "Placeholder image"
 msgstr "Imagen de marcador de posición"
 
@@ -996,15 +1125,15 @@ msgstr "Imagen de marcador de posición"
 msgid "Remove gutters"
 msgstr "Eliminar canaletas"
 
-#: build/info-box/index.js:1 src/block-types/info-box/edit.js:154
+#: build/info-box/index.js:1 src/block-types/info-box/edit.js:179
 msgid "Remove icon description"
 msgstr "Eliminar descripción del icono"
 
-#: build/info-box/index.js:1 src/block-types/info-box/edit.js:138
+#: build/info-box/index.js:1 src/block-types/info-box/edit.js:163
 msgid "Remove icon prefix"
 msgstr "Eliminar prefijo del icono"
 
-#: build/image/index.js:1 src/block-types/image/edit.js:163
+#: build/image/index.js:1 src/block-types/image/edit.js:175
 msgid "Remove image"
 msgstr "Eliminar imagen"
 
@@ -1012,18 +1141,20 @@ msgstr "Eliminar imagen"
 msgid "Remove legend"
 msgstr "Eliminar leyenda"
 
-#: build/info-box/index.js:1 src/block-types/info-box/edit.js:146
+#: build/info-box/index.js:1 src/block-types/info-box/edit.js:171
 msgid "Remove line separator"
 msgstr "Eliminar línea separadora"
 
 #: build/image/index.js:1 src/block-types/image/edit.js:149
-#: src/block-types/image/edit.js:155
+#: src/block-types/image/edit.js:163
 msgid "Replace image"
 msgstr "Reemplazar imagen"
 
 #: build/accordion-item/index.js:1 build/button/index.js:1
-#: build/instruction/index.js:1 build/separator/index.js:1
-#: build/tab-pane/index.js:1 build/tabs/index.js:1 src/helpers/buttons.js:5
+#: build/container/index.js:1 build/info-box/index.js:1
+#: build/instruction/index.js:1 build/section/index.js:1
+#: build/separator/index.js:1 build/tab-pane/index.js:1 build/tabs/index.js:1
+#: src/helpers/buttons.js:5
 msgid "Reset values"
 msgstr "Restablecer valores"
 
@@ -1038,7 +1169,9 @@ msgid "Reverse order"
 msgstr "Orden inverso"
 
 #: build/accordion-item/index.js:1 build/button/index.js:1
-#: build/tab-pane/index.js:1 build/tabs/index.js:1 src/helpers/border.js:129
+#: build/container/index.js:1 build/info-box/index.js:1
+#: build/section/index.js:1 build/tab-pane/index.js:1 build/tabs/index.js:1
+#: src/helpers/border.js:129
 msgid "Rounded borders"
 msgstr "Bordes redondeados"
 
@@ -1067,11 +1200,11 @@ msgstr "Pestañas del mismo ancho"
 msgid "Save Settings"
 msgstr "Guardar ajustes"
 
-#: build/section/index.js:1 src/block-types/section/edit.js:33
+#: build/section/index.js:1 src/block-types/section/edit.js:37
 msgid "Section settings"
 msgstr "Ajustes de la sección"
 
-#: build/alert/index.js:1 src/block-types/alert/edit.js:29
+#: build/alert/index.js:1 src/block-types/alert/edit.js:35
 msgid "Select an alert type"
 msgstr "Seleccione un tipo de alerta"
 
@@ -1088,7 +1221,7 @@ msgstr "Seleccione el valor de la propiedad justify-content de Flexbox."
 #: build/accordion-item/index.js:1 build/button/index.js:1
 #: build/fa-icon/index.js:1 build/header/index.js:1 build/image/index.js:1
 #: build/instruction/index.js:1 build/paragraph/index.js:1
-#: build/tabs/index.js:1 src/helpers/typography.js:332
+#: build/tabs/index.js:1 src/helpers/typography.js:324
 msgid "Select..."
 msgstr "Seleccione..."
 
@@ -1104,7 +1237,7 @@ msgstr "Seleccione..."
 msgid "Set different value"
 msgstr "Establecer un valor diferente"
 
-#: build/image/index.js:1 src/block-types/image/edit.js:176
+#: build/image/index.js:1 src/block-types/image/edit.js:238
 msgid "Set original size"
 msgstr "Establecer tamaño original"
 
@@ -1119,7 +1252,7 @@ msgstr "Establecer tamaño original"
 msgid "Set the HTML ID attribute."
 msgstr "Establecer el atributo ID de HTML"
 
-#: build/separator/index.js:1 src/block-types/separator/edit.js:107
+#: build/separator/index.js:1 src/block-types/separator/edit.js:106
 msgid "Set triangle direction (up or down)"
 msgstr "Establecer la dirección del triángulo (hacia arriba o hacia abajo)"
 
@@ -1135,21 +1268,27 @@ msgstr "Establecer la dirección del triángulo (hacia arriba o hacia abajo)"
 msgid "Settings applied from %s resolution and up"
 msgstr "Ajustes aplicados desde la resolución %s en adelante"
 
-#: inc/helpers/globals.php:309
+#: inc/helpers/globals.php:298
 msgid "Settings updated successfully!!"
 msgstr "¡¡Los ajustes se actualizaron correctamente!!"
 
-#: build/accordion-item/index.js:1 src/block-types/accordion-item/edit.js:108
+#: build/info-box/index.js:1 src/block-types/info-box/edit.js:156
+msgid "Show CTA"
+msgstr "Mostrar CTA"
+
+#: build/accordion-item/index.js:1 src/block-types/accordion-item/edit.js:100
 msgid "Shows the content as default"
 msgstr "\"¡¡Los ajustes se actualizaron correctamente!!"
 
+#: build/alert/index.js:1 build/container/index.js:1 build/header/index.js:1
 #: build/image/index.js:1 build/instruction/index.js:1
+#: build/paragraph/index.js:1 build/section/index.js:1
 #: build/separator/index.js:1 src/block-types/instruction/edit.js:131
-#: src/helpers/size.js:263
+#: src/helpers/size.js:521
 msgid "Size"
 msgstr "Tamaño"
 
-#: build/button/index.js:1 src/block-types/button/edit.js:180
+#: build/button/index.js:1 src/block-types/button/edit.js:169
 msgid "Small"
 msgstr "Pequeño"
 
@@ -1182,7 +1321,7 @@ msgstr "Espacio entre (apace between)"
 #: build/instruction/index.js:1 build/instructions/index.js:1
 #: build/jumbotron/index.js:1 build/paragraph/index.js:1 build/row/index.js:1
 #: build/section/index.js:1 build/separator/index.js:1
-#: build/tab-pane/index.js:1 build/tabs/index.js:1 src/helpers/spacing.js:200
+#: build/tab-pane/index.js:1 build/tabs/index.js:1 src/helpers/spacing.js:261
 msgid "Spacing"
 msgstr "Espaciado"
 
@@ -1232,6 +1371,22 @@ msgstr "Estados de pestañas"
 msgid "Tabs typography"
 msgstr "Tipografía de pestañas"
 
+#: build/accordion-item/index.js:1 src/helpers/text-alignment.js:52
+msgid "Text align"
+msgstr "Alineación del texto"
+
+#: build/button/index.js:1 build/fa-icon/index.js:1 build/header/index.js:1
+#: build/image/index.js:1 build/paragraph/index.js:1
+#: src/helpers/text-alignment.js:124 src/helpers/text-alignment.js:180
+msgid "Text align (%s)"
+msgstr "Alineación del texto (%s)"
+
+#: build/button/index.js:1 build/fa-icon/index.js:1 build/header/index.js:1
+#: build/image/index.js:1 build/paragraph/index.js:1
+#: src/helpers/text-alignment.js:178
+msgid "Text alignment"
+msgstr "Alineación del texto"
+
 #: build/button/index.js:1 build/tabs/index.js:1 src/helpers/statuses.js:107
 msgid "Transition delay (in seconds)"
 msgstr "Retardo de la transición (en segundos)"
@@ -1248,7 +1403,7 @@ msgstr "Efectos de transición"
 msgid "Transition timing function"
 msgstr "Efecto de la duración de la transición"
 
-#: build/separator/index.js:1 src/block-types/separator/edit.js:94
+#: build/separator/index.js:1 src/block-types/separator/edit.js:93
 msgid "Triangle"
 msgstr "Triángulo"
 
@@ -1256,7 +1411,7 @@ msgstr "Triángulo"
 #: build/fa-icon/index.js:1 build/header/index.js:1 build/image/index.js:1
 #: build/instruction/index.js:1 build/paragraph/index.js:1
 #: build/tabs/index.js:1 src/block-types/instruction/edit.js:87
-#: src/helpers/typography.js:389
+#: src/helpers/typography.js:372
 msgid "Typography"
 msgstr "Tipografía"
 
@@ -1264,16 +1419,18 @@ msgstr "Tipografía"
 msgid "Unselected"
 msgstr "Sin seleccionar"
 
-#: build/separator/index.js:1 src/block-types/separator/edit.js:110
+#: build/separator/index.js:1 src/block-types/separator/edit.js:109
 msgid "Up"
 msgstr "Hacia arriba"
 
-#: build/info-box/index.js:1 src/block-types/info-box/edit.js:132
+#: build/info-box/index.js:1 src/block-types/info-box/edit.js:150
 msgid "Use an image"
 msgstr "Utilizar una imagen"
 
+#: build/alert/index.js:1 build/container/index.js:1 build/header/index.js:1
 #: build/image/index.js:1 build/instruction/index.js:1
-#: build/separator/index.js:1 src/helpers/size.js:105 src/helpers/size.js:265
+#: build/paragraph/index.js:1 build/section/index.js:1
+#: build/separator/index.js:1 src/helpers/size.js:204 src/helpers/size.js:523
 msgid "Width (%s)"
 msgstr "Ancho (%s)"
 
@@ -1281,15 +1438,15 @@ msgstr "Ancho (%s)"
 msgid "Write instructions here..."
 msgstr "Escriba las instrucciones aquí..."
 
-#: build/accordion-item/index.js:1 src/block-types/accordion-item/edit.js:178
+#: build/accordion-item/index.js:1 src/block-types/accordion-item/edit.js:165
 msgid "Write item title here..."
 msgstr "Escriba el título del elemento aquí..."
 
-#: build/info-box/index.js:1 src/block-types/info-box/edit.js:64
+#: build/info-box/index.js:1 src/block-types/info-box/edit.js:68
 msgid "Write prefix here..."
 msgstr "Escriba el prefijo aquí..."
 
-#: build/info-box/index.js:1 src/block-types/info-box/edit.js:102
+#: build/info-box/index.js:1 src/block-types/info-box/edit.js:106
 msgid "Write short description here..."
 msgstr "Escriba aquí una breve descripción..."
 
@@ -1299,15 +1456,15 @@ msgstr "Escriba el subtítulo aquí..."
 
 #: build/advanced-header/index.js:1 build/info-box/index.js:1
 #: build/instruction/index.js:1 src/block-types/advanced-header/edit.js:28
-#: src/block-types/info-box/edit.js:77 src/block-types/instruction/edit.js:58
+#: src/block-types/info-box/edit.js:81 src/block-types/instruction/edit.js:58
 msgid "Write title here..."
 msgstr "Escriba el título aquí..."
 
-#: build/header/index.js:1 src/block-types/header/index.js:73
+#: build/header/index.js:1 src/block-types/header/index.js:71
 msgid "Write your header here..."
 msgstr "Escriba aquí un título..."
 
-#: build/paragraph/index.js:1 src/block-types/paragraph/index.js:69
+#: build/paragraph/index.js:1 src/block-types/paragraph/index.js:67
 msgid "Write your paragraph here..."
 msgstr "Escribe tu párrafo aquí..."
 

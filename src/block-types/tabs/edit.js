@@ -12,7 +12,7 @@ import {
 	PanelBody,
 	RadioControl,
 	SelectControl,
-	__experimentalDivider as Divider,
+	CardDivider,
 } from "@wordpress/components";
 import { MdAdsClick } from "react-icons/md";
 import spacing from "./../../helpers/spacing";
@@ -153,7 +153,7 @@ const edit = (props) => {
 						onChange={(value) => setAttributes({ fillFreeSpace: value })}
 					/>
 
-					<Divider />
+					<CardDivider />
 
 					{flexbox.controls({
 						props,

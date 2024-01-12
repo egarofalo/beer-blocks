@@ -1,5 +1,6 @@
 import { useBlockProps } from "@wordpress/block-editor";
 import { BLOCK_LEVEL_ELEMENT } from "./../../helpers/fa-icons";
+import textAlignment from "./../../helpers/text-alignment";
 import spacing from "./../../helpers/spacing";
 import typography from "./../../helpers/typography";
 import colors from "../../helpers/colors";
@@ -7,15 +8,15 @@ import htmlAttrs from "./../../helpers/html-attrs";
 
 const save = (props) => {
 	const {
-		attributes: { icon, htmlElementType, textAlign },
+		attributes: { icon, htmlElementType },
 	} = props;
+
+	const isBlockElement = htmlElementType === BLOCK_LEVEL_ELEMENT;
 
 	const blockProps = useBlockProps.save({
 		className: `${
-			htmlElementType === BLOCK_LEVEL_ELEMENT
-				? `has-text-align-${textAlign}`
-				: "d-inline-block"
-		}${spacing.cssClasses(props)}`,
+			isBlockElement ? textAlignment.cssClasses(props) : "d-inline-block"
+		}${spacing.cssClasses(props)}`.trimStart(),
 		style: spacing.cssVars(props, "fa-icon"),
 		...htmlAttrs.blockProps(props),
 	});

@@ -1,5 +1,7 @@
 import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
 import colors from "./../../helpers/colors";
+import border from "./../../helpers/border";
+import size from "./../../helpers/size";
 import spacing from "./../../helpers/spacing";
 import htmlAttrs from "./../../helpers/html-attrs";
 
@@ -9,11 +11,13 @@ const save = (props) => {
 	} = props;
 
 	const blockProps = useBlockProps.save({
-		className: `${colors.cssClasses(props)}${spacing.cssClasses(
+		className: `${colors.cssClasses(props)}${border.cssClasses(
 			props
-		)}`.trimStart(),
+		)}${size.cssClasses(props)}${spacing.cssClasses(props)}`.trimStart(),
 		style: {
 			...colors.cssVars(props, "section"),
+			...border.cssVars(props, "section"),
+			...size.cssVars(props, "section"),
 			...spacing.cssVars(props, "section"),
 		},
 		...htmlAttrs.blockProps(props),

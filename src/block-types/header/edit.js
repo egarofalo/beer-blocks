@@ -3,30 +3,34 @@ import {
 	InspectorControls,
 	RichText,
 	BlockControls,
-	AlignmentToolbar,
 } from "@wordpress/block-editor";
 import { ToolbarGroup } from "@wordpress/components";
-import spacing from "./../../helpers/spacing";
 import typography from "./../../helpers/typography";
+import textAlignment from "./../../helpers/text-alignment";
 import colors from "./../../helpers/colors";
+import size from "./../../helpers/size";
+import spacing from "./../../helpers/spacing";
 import { headingLevelDropdown } from "./../../helpers/heading";
 import htmlAttrs from "./../../helpers/html-attrs";
 
 const edit = (props) => {
 	const {
-		attributes: { headingLevel, content, textAlign, placeholder },
+		attributes: { headingLevel, content, placeholder },
 		setAttributes,
 	} = props;
 
 	const blockProps = useBlockProps({
-		className: `has-text-align-${textAlign}${colors.cssClasses(
+		className: `${textAlignment.cssClasses(props)}${colors.cssClasses(
 			props
-		)}${spacing.cssClasses(props)}${typography.cssClasses(props)}`,
+		)}${typography.cssClasses(props)}${size.cssClasses(
+			props
+		)}${spacing.cssClasses(props)}`.trimStart(),
 		style: {
-			...spacing.cssVars(props, "header"),
 			...typography.styles(props),
 			...typography.cssVars(props, "header"),
 			...colors.cssVars(props, "header"),
+			...size.cssVars(props, "header"),
+			...spacing.cssVars(props, "header"),
 		},
 		...htmlAttrs.blockProps(props),
 	});
@@ -35,19 +39,14 @@ const edit = (props) => {
 		<>
 			<InspectorControls>
 				{typography.controls({ props, initialOpen: true })}
+				{textAlignment.controlsWithBreakpoints({ props })}
 				{colors.controls({ props })}
+				{size.controls({ props })}
 				{spacing.controls({ props })}
 				{htmlAttrs.controls({ props })}
 			</InspectorControls>
 
 			<BlockControls>
-				<ToolbarGroup>
-					<AlignmentToolbar
-						value={textAlign}
-						onChange={(textAlign) => setAttributes({ textAlign })}
-					/>
-				</ToolbarGroup>
-
 				<ToolbarGroup>{headingLevelDropdown(props)}</ToolbarGroup>
 			</BlockControls>
 

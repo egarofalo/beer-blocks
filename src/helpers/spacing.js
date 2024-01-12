@@ -1,6 +1,7 @@
 import { __ } from "@wordpress/i18n";
 import {
 	PanelBody,
+	ToggleControl,
 	__experimentalBoxControl as BoxControl,
 } from "@wordpress/components";
 import { camelCase, isEmpty, capitalize, get, has } from "lodash";
@@ -64,22 +65,37 @@ const marginAttribute = ({
 	});
 };
 
+// returns block horizontal centering attributes
+const horizontalCenteringAttribute = ({
+	attrPrefix = "",
+	breakpointsBehavior = false,
+} = {}) =>
+	grid.attributes({
+		attrName: camelCase(`${attrPrefix}-mx-auto`),
+		breakpoints: true,
+		breakpointsBehavior,
+		defaultValue: false,
+		type: "object",
+	});
+
 // returns padding and margin attributes
 export const attributes = ({
 	attrPrefix = "",
 	paddingSides = ["top", "right", "bottom", "left"],
 	marginSides = ["top", "right", "bottom", "left"],
+	horizontalCenteringAttr = false,
 } = {}) => ({
 	...paddingAttribute({
 		attrPrefix,
 		paddingSides,
-		breakpointsBehavior: false,
 	}),
 	...marginAttribute({
 		attrPrefix,
 		marginSides,
-		breakpointsBehavior: false,
 	}),
+	...(horizontalCenteringAttr
+		? horizontalCenteringAttribute({ attrPrefix })
+		: {}),
 	...grid.breakpointsBehaviorAttribute(`${attrPrefix}-spacing`),
 });
 
@@ -191,6 +207,51 @@ const marginControl = ({
 	);
 };
 
+// returns horizontal centering control
+const horizontalCenteringControl = ({
+	props,
+	breakpoint,
+	attrPrefix = "",
+	breakpointsBehaviorAttrPrefix = "",
+	label = sprintf(
+		__("Enable horizontal centering (%s)", "beer-blocks"),
+		breakpoint.toUpperCase()
+	),
+}) => {
+	const attrName = camelCase(`${attrPrefix}-mx-auto`);
+	const breakpointsBehaviorAttrName = camelCase(
+		`${breakpointsBehaviorAttrPrefix}-breakpoints-behavior`
+	);
+
+	const {
+		setAttributes,
+		attributes: {
+			[attrName]: mxAuto,
+			[breakpointsBehaviorAttrName]: breakpointsBehavior,
+		},
+	} = props;
+
+	if (breakpointsBehavior[breakpoint] === grid.sameBehavior) {
+		return null;
+	}
+
+	const change = () =>
+		setAttributes({
+			[attrName]: {
+				...mxAuto,
+				[breakpoint]: !mxAuto[breakpoint],
+			},
+		});
+
+	return (
+		<ToggleControl
+			label={label}
+			checked={mxAuto[breakpoint]}
+			onChange={change}
+		/>
+	);
+};
+
 // returns controls for margin and padding attributes with breakpoints
 export const controls = ({
 	props,
@@ -202,16 +263,24 @@ export const controls = ({
 		sprintf(__("Padding (%s)", "beer-blocks"), breakpoint.toUpperCase()),
 	marginControlLabel = (breakpoint) =>
 		sprintf(__("Margin (%s)", "beer-blocks"), breakpoint.toUpperCase()),
+	horizontalCenteringControlLabel = (breakpoint) =>
+		sprintf(
+			__("Enable horizontal centering (%s)", "beer-blocks"),
+			breakpoint.toUpperCase()
+		),
 	paddingSides = ["top", "right", "bottom", "left"],
 	marginSides = ["top", "right", "bottom", "left"],
 }) => {
 	const { attributes } = props;
 	const paddingAttrName = camelCase(`${attrPrefix}-padding`);
 	const marginAttrName = camelCase(`${attrPrefix}-margin`);
+	const mxAutoAttrName = camelCase(`${attrPrefix}-mx-auto`);
 	const breakpointsBehaviorAttrPrefix = `${attrPrefix}-spacing`;
-	const affectedAttrs = [paddingAttrName, marginAttrName].filter((attr) =>
-		has(attributes, attr)
-	);
+	const affectedAttrs = [
+		paddingAttrName,
+		marginAttrName,
+		mxAutoAttrName,
+	].filter((attr) => has(attributes, attr));
 
 	if (affectedAttrs.length > 0) {
 		const breakpointsTabs = (
@@ -243,6 +312,15 @@ export const controls = ({
 								breakpointsBehaviorAttrPrefix,
 								label: marginControlLabel(breakpoint),
 								sides: marginSides,
+							})}
+
+						{has(attributes, mxAutoAttrName) &&
+							horizontalCenteringControl({
+								props,
+								breakpoint,
+								attrPrefix,
+								breakpointsBehaviorAttrPrefix,
+								label: horizontalCenteringControlLabel(breakpoint),
 							})}
 					</>
 				))}
@@ -358,8 +436,12 @@ export const marginCssClasses = (
 	addWhitespaceBefore = true
 ) => {
 	const attrName = camelCase(`${attrPrefix}-margin`);
+	const mxAutoAttrName = camelCase(`${attrPrefix}-mx-auto`);
 	const {
-		attributes: { [attrName]: margin = undefined },
+		attributes: {
+			[attrName]: margin = undefined,
+			[mxAutoAttrName]: mxAuto = undefined,
+		},
 	} = props;
 
 	const marginSideClasses = (side) =>
@@ -371,12 +453,22 @@ export const marginCssClasses = (
 			)
 			.filter((cssClass) => cssClass);
 
+	const mxAutoClasses = () =>
+		grid.breakpoints
+			.map((breakpoint) =>
+				get(mxAuto, breakpoint)
+					? `mx${breakpoint !== "xs" ? `-${breakpoint}` : ""}-auto`
+					: false
+			)
+			.filter((cssClass) => cssClass);
+
 	const marginClass = margin
 		? `${addWhitespaceBefore ? " " : ""}${[
 				...marginSideClasses("top"),
 				...marginSideClasses("right"),
 				...marginSideClasses("bottom"),
 				...marginSideClasses("left"),
+				...mxAutoClasses(),
 		  ].join(" ")}`
 		: "";
 

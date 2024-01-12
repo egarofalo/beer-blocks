@@ -2,29 +2,32 @@ import {
 	useBlockProps,
 	InspectorControls,
 	RichText,
-	BlockControls,
-	AlignmentToolbar,
 } from "@wordpress/block-editor";
-import spacing from "./../../helpers/spacing";
 import typography from "./../../helpers/typography";
+import textAlignment from "./../../helpers/text-alignment";
 import colors from "./../../helpers/colors";
+import size from "./../../helpers/size";
+import spacing from "./../../helpers/spacing";
 import htmlAttrs from "./../../helpers/html-attrs";
 
 const edit = (props) => {
 	const {
-		attributes: { content, textAlign, placeholder },
+		attributes: { content, placeholder },
 		setAttributes,
 	} = props;
 
 	const blockProps = useBlockProps({
-		className: `has-text-align-${textAlign}${spacing.cssClasses(
+		className: `${textAlignment.cssClasses(props)}${typography.cssClasses(
 			props
-		)}${typography.cssClasses(props)}${colors.cssClasses(props)}`,
+		)}${colors.cssClasses(props)}${size.cssClasses(props)}${spacing.cssClasses(
+			props
+		)}`.trimStart(),
 		style: {
-			...spacing.cssVars(props, "paragraph"),
 			...typography.styles(props),
 			...typography.cssVars(props, "paragraph"),
 			...colors.cssVars(props, "paragraph"),
+			...size.cssVars(props, "paragraph"),
+			...spacing.cssVars(props, "paragraph"),
 		},
 		...htmlAttrs.blockProps(props),
 	});
@@ -33,17 +36,12 @@ const edit = (props) => {
 		<>
 			<InspectorControls>
 				{typography.controls({ props, initialOpen: true })}
+				{textAlignment.controlsWithBreakpoints({ props })}
 				{colors.controls({ props })}
+				{size.controls({ props })}
 				{spacing.controls({ props })}
 				{htmlAttrs.controls({ props })}
 			</InspectorControls>
-
-			<BlockControls>
-				<AlignmentToolbar
-					value={textAlign}
-					onChange={(textAlign) => setAttributes({ textAlign })}
-				/>
-			</BlockControls>
 
 			<RichText
 				{...blockProps}

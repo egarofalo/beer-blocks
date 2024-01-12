@@ -8,6 +8,7 @@ import {
 import { PanelBody, ToggleControl } from "@wordpress/components";
 import { BLOCK_LEVEL_ELEMENT } from "./../../helpers/fa-icons";
 import colors from "./../../helpers/colors";
+import border from "./../../helpers/border";
 import spacing from "./../../helpers/spacing";
 import grid from "./../../helpers/grid";
 import htmlAttrs from "./../../helpers/html-attrs";
@@ -16,6 +17,7 @@ const edit = (props) => {
 	const {
 		attributes: {
 			useAnImage,
+			showLink,
 			removeIconPrefix,
 			removeLineSeparator,
 			removeDescription,
@@ -26,9 +28,10 @@ const edit = (props) => {
 	const blockProps = useBlockProps({
 		className: `${colors.cssClasses(props)}${spacing.cssClasses(
 			props
-		)}`.trimStart(),
+		)}${border.cssClasses(props)}`.trimStart(),
 		style: {
 			...colors.cssVars(props, "info-box"),
+			...border.cssVars(props, "info-box"),
 			...spacing.cssVars(props, "info-box"),
 		},
 		...htmlAttrs.blockProps(props),
@@ -42,7 +45,7 @@ const edit = (props) => {
 						placeholder: __("Chose an icon...", "beer-blocks"),
 						showHtmlElementTypeToggleField: false,
 						htmlElementType: BLOCK_LEVEL_ELEMENT,
-						textAlign: "center",
+						textAlign: grid.breakpointsAttributeValue({ xs: "center" }),
 						fontSize: grid.breakpointsAttributeValue({ xs: "2rem" }),
 						margin: grid.breakpointsAttributeValue({ xs: { bottom: "1rem" } }),
 					},
@@ -53,6 +56,7 @@ const edit = (props) => {
 						placeholder: __("Chose an image...", "beer-blocks"),
 						showRemoveFigcaptionToggleField: false,
 						removeFigcaption: true,
+						blockAlign: grid.breakpointsAttributeValue({ xs: "center" }),
 						margin: grid.breakpointsAttributeValue({ xs: { bottom: "1rem" } }),
 					},
 			  ],
@@ -63,7 +67,7 @@ const edit = (props) => {
 						{
 							placeholder: __("Write prefix here...", "beer-blocks"),
 							lineHeight: grid.breakpointsAttributeValue({ xs: 1.1 }),
-							textAlign: "center",
+							textAlign: grid.breakpointsAttributeValue({ xs: "center" }),
 							margin: grid.breakpointsAttributeValue({
 								xs: { bottom: "1rem" },
 							}),
@@ -76,7 +80,7 @@ const edit = (props) => {
 			{
 				placeholder: __("Write title here...", "beer-blocks"),
 				lineHeight: grid.breakpointsAttributeValue({ xs: 1.1 }),
-				textAlign: "center",
+				textAlign: grid.breakpointsAttributeValue({ xs: "center" }),
 				margin: grid.breakpointsAttributeValue({ xs: { bottom: "1rem" } }),
 			},
 		],
@@ -101,7 +105,21 @@ const edit = (props) => {
 						{
 							placeholder: __("Write short description here...", "beer-blocks"),
 							lineHeight: grid.breakpointsAttributeValue({ xs: 1.1 }),
-							textAlign: "center",
+							textAlign: grid.breakpointsAttributeValue({ xs: "center" }),
+							margin: grid.breakpointsAttributeValue({
+								xs: { bottom: "1rem" },
+							}),
+						},
+					],
+			  ]
+			: []),
+		...(showLink
+			? [
+					[
+						"beer-blocks/button",
+						{
+							content: __("CTA", "beer-blocks"),
+							textAlign: grid.breakpointsAttributeValue({ xs: "center" }),
 							margin: grid.breakpointsAttributeValue({ xs: { bottom: "0px" } }),
 						},
 					],
@@ -135,6 +153,13 @@ const edit = (props) => {
 					/>
 
 					<ToggleControl
+						label={__("Show CTA", "beer-blocks")}
+						help={__("Show call to action (CTA) button.")}
+						checked={showLink}
+						onChange={() => setAttributes({ showLink: !showLink })}
+					/>
+
+					<ToggleControl
 						label={__("Remove icon prefix", "beer-blocks")}
 						checked={removeIconPrefix}
 						onChange={() =>
@@ -160,6 +185,7 @@ const edit = (props) => {
 				</PanelBody>
 
 				{colors.controls({ props })}
+				{border.controls({ props })}
 				{spacing.controls({ props })}
 				{htmlAttrs.controls({ props })}
 			</InspectorControls>

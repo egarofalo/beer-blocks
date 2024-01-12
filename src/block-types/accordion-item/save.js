@@ -3,22 +3,17 @@ import spacing from "./../../helpers/spacing";
 import typography from "./../../helpers/typography";
 import border from "./../../helpers/border";
 import colors from "./../../helpers/colors";
+import textAlignment from "../../helpers/text-alignment";
 
 const save = (props) => {
 	const {
-		attributes: {
-			id,
-			headingId,
-			parentId,
-			show,
-			headingLevel,
-			headingTextAlign,
-			headingContent,
-		},
+		attributes: { id, headingId, parentId, show, headingLevel, headingContent },
 	} = props;
 
 	const blockProps = useBlockProps.save({
-		className: `card${spacing.cssClasses(props)}${colors.cssClasses(props)}${border.cssClasses(props)}`,
+		className: `card${spacing.cssClasses(props)}${colors.cssClasses(
+			props
+		)}${border.cssClasses(props)}`,
 		style: {
 			...spacing.cssVars(props, "accordion-item"),
 			...colors.cssVars(props, "accordion-item"),
@@ -31,7 +26,10 @@ const save = (props) => {
 	return (
 		<div {...blockProps}>
 			<div
-				className={`card-header p-0${colors.cssClasses(props, "heading")}${border.cssClasses(props, "heading")}`}
+				className={`card-header p-0${colors.cssClasses(
+					props,
+					"heading"
+				)}${border.cssClasses(props, "heading")}`}
 				id={headingId}
 				style={{
 					...colors.cssVars(props, "accordion-item", "heading"),
@@ -40,13 +38,13 @@ const save = (props) => {
 			>
 				<HeadingTag className="p-0 m-0">
 					<button
-						className={`btn btn-link btn-block m-0 has-text-align-${headingTextAlign}${colors.cssClasses(
+						className={`btn btn-link btn-block m-0${textAlignment.cssClass(
 							props,
 							"heading"
-						)}${spacing.cssClasses(props, "heading")}${typography.cssClasses(
+						)}${colors.cssClasses(props, "heading")}${spacing.cssClasses(
 							props,
 							"heading"
-						)}`}
+						)}${typography.cssClasses(props, "heading")}`}
 						type="button"
 						data-toggle="collapse"
 						data-target={`#${id}`}

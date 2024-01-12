@@ -1,31 +1,94 @@
+@import "./../helpers/size";
 @import "./../helpers/spacing";
 
 @mixin alert-block-rules() {
 	.wp-block-beer-blocks-alert.alert {
+		@include widthRules("alert", $minWidthRule: true, $maxWidthRule: true);
+		@include heightRules("alert", $minHeightRule: true, $maxHeightRule: true);
 		@include paddingRules("alert");
 		@include marginRules("alert");
 
 		@include media-breakpoint-up(sm) {
+			@include widthRules(
+				"alert",
+				"sm",
+				$minWidthRule: true,
+				$maxWidthRule: true
+			);
+			@include heightRules(
+				"alert",
+				"sm",
+				$minHeightRule: true,
+				$maxHeightRule: true
+			);
 			@include paddingRules("alert", "sm");
 			@include marginRules("alert", "sm");
 		}
 
 		@include media-breakpoint-up(md) {
+			@include widthRules(
+				"alert",
+				"md",
+				$minWidthRule: true,
+				$maxWidthRule: true
+			);
+			@include heightRules(
+				"alert",
+				"md",
+				$minHeightRule: true,
+				$maxHeightRule: true
+			);
 			@include paddingRules("alert", "md");
 			@include marginRules("alert", "md");
 		}
 
 		@include media-breakpoint-up(lg) {
+			@include widthRules(
+				"alert",
+				"lg",
+				$minWidthRule: true,
+				$maxWidthRule: true
+			);
+			@include heightRules(
+				"alert",
+				"lg",
+				$minHeightRule: true,
+				$maxHeightRule: true
+			);
 			@include paddingRules("alert", "lg");
 			@include marginRules("alert", "lg");
 		}
 
 		@include media-breakpoint-up(xl) {
+			@include widthRules(
+				"alert",
+				"xl",
+				$minWidthRule: true,
+				$maxWidthRule: true
+			);
+			@include heightRules(
+				"alert",
+				"xl",
+				$minHeightRule: true,
+				$maxHeightRule: true
+			);
 			@include paddingRules("alert", "xl");
 			@include marginRules("alert", "xl");
 		}
 
 		@include media-breakpoint-up(xxl) {
+			@include widthRules(
+				"alert",
+				"xxl",
+				$minWidthRule: true,
+				$maxWidthRule: true
+			);
+			@include heightRules(
+				"alert",
+				"xxl",
+				$minHeightRule: true,
+				$maxHeightRule: true
+			);
 			@include paddingRules("alert", "xxl");
 			@include marginRules("alert", "xxl");
 		}
@@ -39,27 +102,29 @@
 		}
 
 		.editor-styles-wrapper &.wp-block {
+			margin-left: revert;
+			margin-right: revert;
 			margin-top: revert;
-			@include verticalMarginRules("alert");
+			@include marginRules("alert");
 
 			@include media-breakpoint-up(sm) {
-				@include verticalMarginRules("alert", "sm");
+				@include marginRules("alert", "sm");
 			}
 
 			@include media-breakpoint-up(md) {
-				@include verticalMarginRules("alert", "md");
+				@include marginRules("alert", "md");
 			}
 
 			@include media-breakpoint-up(lg) {
-				@include verticalMarginRules("alert", "lg");
+				@include marginRules("alert", "lg");
 			}
 
 			@include media-breakpoint-up(xl) {
-				@include verticalMarginRules("alert", "xl");
+				@include marginRules("alert", "xl");
 			}
 
 			@include media-breakpoint-up(xxl) {
-				@include verticalMarginRules("alert", "xxl");
+				@include marginRules("alert", "xxl");
 			}
 		}
 	}

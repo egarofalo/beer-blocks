@@ -36,7 +36,7 @@ add_action('admin_init', BEERB_BS_HELPERS_NS . '\\add_settings_section');
 add_action('admin_init', BEERB_BS_HELPERS_NS . '\\register_settings');
 add_action('admin_init', BEERB_BS_HELPERS_NS . '\\add_settings_fields');
 
-// Enqueue Font Awesome in Frontend
+// Enqueue Font Awesome in frontend
 add_action('wp_enqueue_scripts', BEERB_FA_HELPERS_NS . '\\enqueue_front_assets');
 
 // Register Font Awesome settings
@@ -44,13 +44,20 @@ add_action('admin_init', BEERB_FA_HELPERS_NS . '\\add_settings_section');
 add_action('admin_init', BEERB_FA_HELPERS_NS . '\\register_settings');
 add_action('admin_init', BEERB_FA_HELPERS_NS . '\\add_settings_fields');
 
-// Add integrity check attribute to html links tags
+// Add integrity check attribute to Font Awesome link tag
 add_filter('style_loader_tag', BEERB_FA_HELPERS_NS . '\\filters_html_link_tags', 11, 4);
 
 // Register Google Fonts settings
 add_action('admin_init', BEERB_GF_HELPERS_NS . '\\add_settings_section');
 add_action('admin_init', BEERB_GF_HELPERS_NS . '\\register_settings');
 add_action('admin_init', BEERB_GF_HELPERS_NS . '\\add_settings_fields');
+add_action('register_setting', BEERB_GF_HELPERS_NS . '\\update_google_fonts_families_setting', 10, 3);
+
+// Enqueue Google Fonts in the editor and frontend
+add_action('enqueue_block_assets', BEERB_GF_HELPERS_NS . '\\enqueue_font_families');
+
+// Add preconnect link tag before load Google Fonts.
+add_filter('style_loader_tag', BEERB_GF_HELPERS_NS . '\\filters_html_link_tags', 11, 4);
 
 // Register block types
 add_action('init', BEERB_GLOBALS_HELPERS_NS . '\\register_block_types');

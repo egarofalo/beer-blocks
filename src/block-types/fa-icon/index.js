@@ -31,6 +31,7 @@ import "./editor.scss";
 import edit from "./edit";
 import save from "./save";
 import { INLINE_ELEMENT } from "./../../helpers/fa-icons";
+import textAlignment from "./../../helpers/text-alignment";
 import colors from "./../../helpers/colors";
 import spacing from "./../../helpers/spacing";
 import typography from "./../../helpers/typography";
@@ -75,10 +76,9 @@ registerBlockType("beer-blocks/fa-icon", {
 			type: "number",
 			default: INLINE_ELEMENT,
 		},
-		textAlign: {
-			type: "string",
-			default: "left",
-		},
+		...textAlignment.attributesWithBreakpoints({
+			defaultValue: { xs: "center" },
+		}),
 		...colors.attributes({ backgroundAttr: false }),
 		...typography.attributes({
 			fontFamilyAttr: false,

@@ -30,11 +30,13 @@ import "./editor.scss";
  */
 import edit from "./edit";
 import save from "./save";
+import textAlignment from "./../../helpers/text-alignment";
 import blockAlignment from "./../../helpers/block-alignment";
 import size from "../../helpers/size";
-import spacing from "./../../helpers/spacing";
 import typography from "./../../helpers/typography";
 import colors from "./../../helpers/colors";
+import border from "./../../helpers/border";
+import spacing from "./../../helpers/spacing";
 import htmlAttrs from "./../../helpers/html-attrs";
 
 /**
@@ -90,11 +92,7 @@ registerBlockType("beer-blocks/image", {
 			type: "boolean",
 			default: false,
 		},
-		figcaptionTextAlign: {
-			type: "string",
-			default: "center",
-		},
-		...blockAlignment.attribute(),
+		...blockAlignment.attributesWithBreakpoints(),
 		...size.attributes({
 			widthDefaultValue: {
 				xs: "200px",
@@ -103,11 +101,14 @@ registerBlockType("beer-blocks/image", {
 				xs: true,
 			},
 		}),
-		...spacing.attributes({ paddingSides: false }),
+		...spacing.attributes(),
 		...typography.attributes({ attrPrefix: "figcaption" }),
 		...colors.attributes({
 			attrPrefix: "figcaption",
 			backgroundAttr: false,
+		}),
+		...textAlignment.attributesWithBreakpoints({
+			attrPrefix: "figcaption",
 		}),
 		...spacing.attributes({
 			attrPrefix: "figcaption",

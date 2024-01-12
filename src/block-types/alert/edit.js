@@ -6,6 +6,7 @@ import {
 } from "@wordpress/block-editor";
 import { SelectControl, PanelBody } from "@wordpress/components";
 import { options as optionsVariant } from "./../../helpers/bootstrap-variants";
+import size from "./../../helpers/size";
 import spacing from "./../../helpers/spacing";
 import htmlAttrs from "./../../helpers/html-attrs";
 
@@ -16,8 +17,13 @@ const edit = (props) => {
 	} = props;
 
 	const blockProps = useBlockProps({
-		className: `${alertType}${spacing.cssClasses(props)}`,
-		style: spacing.cssVars(props, "alert"),
+		className: `${alertType}${size.cssClasses(props)}${spacing.cssClasses(
+			props
+		)}`,
+		style: {
+			...size.cssVars(props, "alert"),
+			...spacing.cssVars(props, "alert"),
+		},
 		...htmlAttrs.blockProps(props),
 	});
 
@@ -36,6 +42,7 @@ const edit = (props) => {
 					/>
 				</PanelBody>
 
+				{size.controls({ props })}
 				{spacing.controls({ props })}
 				{htmlAttrs.controls({ props })}
 			</InspectorControls>

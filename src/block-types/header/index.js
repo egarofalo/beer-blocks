@@ -30,9 +30,11 @@ import "./editor.scss";
  */
 import edit from "./edit";
 import save from "./save";
-import spacing from "./../../helpers/spacing";
 import typography from "./../../helpers/typography";
+import textAlignment from "./../../helpers/text-alignment";
 import colors from "./../../helpers/colors";
+import size from "./../../helpers/size";
+import spacing from "./../../helpers/spacing";
 import htmlAttrs from "./../../helpers/html-attrs";
 
 /**
@@ -64,17 +66,19 @@ registerBlockType("beer-blocks/header", {
 		content: {
 			type: "html",
 		},
-		textAlign: {
-			type: "string",
-			default: "left",
-		},
 		placeholder: {
 			type: "string",
 			default: __("Write your header here...", "beer-blocks"),
 		},
-		...spacing.attributes(),
 		...typography.attributes(),
+		...textAlignment.attributesWithBreakpoints(),
 		...colors.attributes(),
+		...size.attributes({
+			maxWidthAttr: true,
+			heightAttr: false,
+			autoHeightAttr: false,
+		}),
+		...spacing.attributes({ horizontalCenteringAttr: true }),
 		...htmlAttrs.attributes(),
 	},
 	transforms: {

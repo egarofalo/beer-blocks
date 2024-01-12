@@ -2,29 +2,83 @@
 @import "./../../functions";
 
 // Get width rules
-@mixin widthRules($blockName, $breakpointName: "", $attrPrefix: "") {
+@mixin widthRules(
+	$blockName,
+	$breakpointName: "",
+	$attrPrefix: "",
+	$widthRule: true,
+	$minWidthRule: false,
+	$maxWidthRule: false
+) {
 	$varPrefix: --wp-beer-blocks-#{$blockName}-#{camelize("#{$attrPrefix}-width")};
-
-	@if $breakpointName == "" {
-		$breakpointName: "xs";
-	}
-
-	&.wp-beer-blocks-has-width-#{$breakpointName}-rule {
-		width: var(#{$varPrefix}-#{$breakpointName});
-	}
-}
-
-// Get height rules
-@mixin heightRules($blockName, $breakpointName: "", $attrPrefix: "") {
-	$varPrefix: --wp-beer-blocks-#{$blockName}-#{camelize(
-			"#{$attrPrefix}-height"
+	$minWidthVarPrefix: --wp-beer-blocks-#{$blockName}-#{camelize(
+			"#{$attrPrefix}-min-width"
+		)};
+	$maxWidthVarPrefix: --wp-beer-blocks-#{$blockName}-#{camelize(
+			"#{$attrPrefix}-max-width"
 		)};
 
 	@if $breakpointName == "" {
 		$breakpointName: "xs";
 	}
 
-	&.wp-beer-blocks-has-height-#{$breakpointName}-rule {
-		height: var(#{$varPrefix}-#{$breakpointName});
+	@if $widthRule {
+		&.wp-beer-blocks-has-width-#{$breakpointName}-rule {
+			width: var(#{$varPrefix}-#{$breakpointName});
+		}
+	}
+
+	@if $minWidthRule {
+		&.wp-beer-blocks-has-min-width-#{$breakpointName}-rule {
+			min-width: var(#{$minWidthVarPrefix}-#{$breakpointName});
+		}
+	}
+
+	@if $maxWidthRule {
+		&.wp-beer-blocks-has-max-width-#{$breakpointName}-rule {
+			max-width: var(#{$maxWidthVarPrefix}-#{$breakpointName});
+		}
+	}
+}
+
+// Get height rules
+@mixin heightRules(
+	$blockName,
+	$breakpointName: "",
+	$attrPrefix: "",
+	$heightRule: true,
+	$minHeightRule: false,
+	$maxHeightRule: false
+) {
+	$varPrefix: --wp-beer-blocks-#{$blockName}-#{camelize(
+			"#{$attrPrefix}-height"
+		)};
+	$minHeightVarPrefix: --wp-beer-blocks-#{$blockName}-#{camelize(
+			"#{$attrPrefix}-min-height"
+		)};
+	$maxHeightVarPrefix: --wp-beer-blocks-#{$blockName}-#{camelize(
+			"#{$attrPrefix}-max-height"
+		)};
+
+	@if $breakpointName == "" {
+		$breakpointName: "xs";
+	}
+
+	@if $heightRule {
+		&.wp-beer-blocks-has-height-#{$breakpointName}-rule {
+			height: var(#{$varPrefix}-#{$breakpointName});
+		}
+	}
+
+	@if $minHeightRule {
+		&.wp-beer-blocks-has-min-height-#{$breakpointName}-rule {
+			min-height: var(#{$minHeightVarPrefix}-#{$breakpointName});
+		}
+	}
+
+	@if $maxHeightRule {
+		&.wp-beer-blocks-has-max-height-#{$breakpointName}-rule {
+			max-height: var(#{$maxHeightVarPrefix}-#{$breakpointName});
+		}
 	}
 }

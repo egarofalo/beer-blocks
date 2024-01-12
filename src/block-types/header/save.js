@@ -1,23 +1,28 @@
 import { useBlockProps, RichText } from "@wordpress/block-editor";
-import spacing from "./../../helpers/spacing";
 import typography from "./../../helpers/typography";
+import textAlignment from "./../../helpers/text-alignment";
 import colors from "./../../helpers/colors";
+import size from "./../../helpers/size";
+import spacing from "./../../helpers/spacing";
 import htmlAttrs from "./../../helpers/html-attrs";
 
 const save = (props) => {
 	const {
-		attributes: { headingLevel, content, textAlign },
+		attributes: { headingLevel, content },
 	} = props;
 
 	const blockProps = useBlockProps.save({
-		className: `has-text-align-${textAlign}${colors.cssClasses(
+		className: `${textAlignment.cssClasses(props)}${colors.cssClasses(
 			props
-		)}${spacing.cssClasses(props)}${typography.cssClasses(props)}`,
+		)}${typography.cssClasses(props)}${size.cssClasses(
+			props
+		)}${spacing.cssClasses(props)}`.trimStart(),
 		style: {
-			...spacing.cssVars(props, "header"),
 			...typography.styles(props),
 			...typography.cssVars(props, "header"),
 			...colors.cssVars(props, "header"),
+			...size.cssVars(props, "header"),
+			...spacing.cssVars(props, "header"),
 		},
 		...htmlAttrs.blockProps(props),
 	});

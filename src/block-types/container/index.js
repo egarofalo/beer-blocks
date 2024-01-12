@@ -30,8 +30,10 @@ import "./editor.scss";
  */
 import edit from "./edit";
 import save from "./save";
+import size from "./../../helpers/size";
 import spacing from "./../../helpers/spacing";
 import colors from "./../../helpers/colors";
+import border from "./../../helpers/border";
 import htmlAttrs from "./../../helpers/html-attrs";
 
 /**
@@ -68,11 +70,13 @@ registerBlockType("beer-blocks/container", {
 			type: "string",
 			default: "div",
 		},
+		...size.attributes({ maxWidthAttr: true, minHeightAttr: true }),
 		...spacing.attributes({
 			paddingSides: ["top", "bottom"],
 			marginSides: ["top", "bottom"],
 		}),
 		...colors.attributes({ colorAttr: false }),
+		...border.attributes({ borderRadius: true }),
 		...htmlAttrs.attributes(),
 	},
 	transforms: {

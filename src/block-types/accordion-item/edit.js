@@ -5,7 +5,6 @@ import {
 	InspectorControls,
 	RichText,
 	BlockControls,
-	AlignmentToolbar,
 	useInnerBlocksProps,
 	__experimentalUseInnerBlocksProps as __useInnerBlocksProps,
 } from "@wordpress/block-editor";
@@ -21,20 +20,13 @@ import spacing from "./../../helpers/spacing";
 import typography from "../../helpers/typography";
 import border from "../../helpers/border";
 import colors from "../../helpers/colors";
+import textAlignment from "../../helpers/text-alignment";
 
 const edit = (props) => {
 	const {
 		clientId,
 		setAttributes,
-		attributes: {
-			id,
-			headingId,
-			parentId,
-			show,
-			headingLevel,
-			headingTextAlign,
-			headingContent,
-		},
+		attributes: { id, headingId, parentId, show, headingLevel, headingContent },
 		context: { accordionId },
 	} = props;
 
@@ -130,12 +122,7 @@ const edit = (props) => {
 
 			<BlockControls>
 				<ToolbarGroup>
-					<AlignmentToolbar
-						value={headingTextAlign}
-						onChange={(textAlign) =>
-							setAttributes({ headingTextAlign: textAlign })
-						}
-					/>
+					{textAlignment.toolbar({ props, attrPrefix: "heading" })}
 				</ToolbarGroup>
 
 				<ToolbarGroup>{headingLevelDropdown(props)}</ToolbarGroup>
@@ -155,13 +142,13 @@ const edit = (props) => {
 				>
 					<HeadingTag className="p-0 m-0">
 						<button
-							className={`btn btn-link btn-block m-0 has-text-align-${headingTextAlign}${colors.cssClasses(
+							className={`btn btn-link btn-block m-0${textAlignment.cssClass(
 								props,
 								"heading"
-							)}${spacing.cssClasses(props, "heading")}${typography.cssClasses(
+							)}${colors.cssClasses(props, "heading")}${spacing.cssClasses(
 								props,
 								"heading"
-							)}`}
+							)}${typography.cssClasses(props, "heading")}`}
 							type="button"
 							data-toggle="collapse"
 							data-target={`#${collapseId}`}

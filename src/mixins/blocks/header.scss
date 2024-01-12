@@ -1,34 +1,40 @@
-@import "./../helpers/spacing";
 @import "./../helpers/typography";
 @import "./../helpers/colors";
+@import "./../helpers/size";
+@import "./../helpers/spacing";
 
 @mixin header-block-rules() {
 	.wp-block-beer-blocks-header {
 		@include colorsRules("header");
 		@include typographyRules("header");
+		@include widthRules("header", $maxWidthRule: true);
 		@include paddingRules("header");
 		@include marginRules("header");
 
 		@include media-breakpoint-up(md) {
 			@include typographyRules("header", "sm");
+			@include widthRules("header", "sm", $maxWidthRule: true);
 			@include paddingRules("header", "md");
 			@include marginRules("header", "md");
 		}
 
 		@include media-breakpoint-up(lg) {
 			@include typographyRules("header", "lg");
+			@include widthRules("header", "lg", $maxWidthRule: true);
 			@include paddingRules("header", "lg");
 			@include marginRules("header", "lg");
 		}
 
 		@include media-breakpoint-up(xl) {
 			@include typographyRules("header", "xl");
+			@include widthRules("header", "xl", $maxWidthRule: true);
 			@include paddingRules("header", "xl");
 			@include marginRules("header", "xl");
 		}
 
 		@include media-breakpoint-up(xxl) {
 			@include typographyRules("header", "xxl");
+			@include widthRules("header", "xxl", $maxWidthRule: true);
 			@include paddingRules("header", "xxl");
 			@include marginRules("header", "xxl");
 		}
@@ -42,25 +48,33 @@
 		}
 
 		.editor-styles-wrapper &.wp-block {
+			margin-left: revert;
+			margin-right: revert;
+			@include widthRules("header", $maxWidthRule: true);
 			@include horizontalMarginRules("header");
 
 			@include media-breakpoint-up(sm) {
+				@include widthRules("header", "sm", $maxWidthRule: true);
 				@include horizontalMarginRules("header", "sm");
 			}
 
 			@include media-breakpoint-up(md) {
+				@include widthRules("header", "md", $maxWidthRule: true);
 				@include horizontalMarginRules("header", "md");
 			}
 
 			@include media-breakpoint-up(lg) {
+				@include widthRules("header", "lg", $maxWidthRule: true);
 				@include horizontalMarginRules("header", "lg");
 			}
 
 			@include media-breakpoint-up(xl) {
+				@include widthRules("header", "xl", $maxWidthRule: true);
 				@include horizontalMarginRules("header", "xl");
 			}
 
 			@include media-breakpoint-up(xxl) {
+				@include widthRules("header", "xxl", $maxWidthRule: true);
 				@include horizontalMarginRules("header", "xxl");
 			}
 		}

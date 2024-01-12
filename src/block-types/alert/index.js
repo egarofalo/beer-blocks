@@ -30,6 +30,7 @@ import "./editor.scss";
  */
 import edit from "./edit";
 import save from "./save";
+import size from "./../../helpers/size";
 import spacing from "./../../helpers/spacing";
 import htmlAttrs from "./../../helpers/html-attrs";
 
@@ -62,7 +63,8 @@ registerBlockType("beer-blocks/alert", {
 			type: "string",
 			default: "alert alert-light",
 		},
-		...spacing.attributes(),
+		...size.attributes({ maxWidthAttr: true, minHeightAttr: true }),
+		...spacing.attributes({ horizontalCenteringAttr: true }),
 		...htmlAttrs.attributes(),
 	},
 	edit,

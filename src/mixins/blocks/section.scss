@@ -1,33 +1,48 @@
 @import "./../helpers/colors";
+@import "./../helpers/border";
+@import "./../helpers/size";
 @import "./../helpers/spacing";
 
 @mixin section-block-rules() {
 	.wp-block-beer-blocks-section {
 		@include backgroundRule("section");
+		@include borderRules("section", $borderRadius: true);
+		@include widthRules("section", $minWidthRule: true, $maxWidthRule: true);
+		@include heightRules("section", $minHeightRule: true, $maxHeightRule: true);
 		@include paddingRules("section");
 		@include marginRules("section");
 
 		@include media-breakpoint-up(sm) {
+			@include widthRules("section", "sm", $maxWidthRule: true);
+			@include heightRules("section", "sm", $minHeightRule: true);
 			@include paddingRules("section", "sm");
 			@include marginRules("section", "sm");
 		}
 
 		@include media-breakpoint-up(md) {
+			@include widthRules("section", "md", $maxWidthRule: true);
+			@include heightRules("section", "md", $minHeightRule: true);
 			@include paddingRules("section", "md");
 			@include marginRules("section", "md");
 		}
 
 		@include media-breakpoint-up(lg) {
+			@include widthRules("section", "lg", $maxWidthRule: true);
+			@include heightRules("section", "lg", $minHeightRule: true);
 			@include paddingRules("section", "lg");
 			@include marginRules("section", "lg");
 		}
 
 		@include media-breakpoint-up(xl) {
+			@include widthRules("section", "xl", $maxWidthRule: true);
+			@include heightRules("section", "xl", $minHeightRule: true);
 			@include paddingRules("section", "xl");
 			@include marginRules("section", "xl");
 		}
 
 		@include media-breakpoint-up(xxl) {
+			@include widthRules("section", "xxl", $maxWidthRule: true);
+			@include heightRules("section", "xxl", $minHeightRule: true);
 			@include paddingRules("section", "xxl");
 			@include marginRules("section", "xxl");
 		}
@@ -45,28 +60,30 @@
 		}
 
 		.editor-styles-wrapper &.wp-block {
+			margin-left: revert;
+			margin-right: revert;
 			margin-top: revert;
 			margin-bottom: revert;
-			@include verticalMarginRules("section");
+			@include marginRules("section");
 
 			@include media-breakpoint-up(sm) {
-				@include verticalMarginRules("section", "sm");
+				@include marginRules("section", "sm");
 			}
 
 			@include media-breakpoint-up(md) {
-				@include verticalMarginRules("section", "md");
+				@include marginRules("section", "md");
 			}
 
 			@include media-breakpoint-up(lg) {
-				@include verticalMarginRules("section", "lg");
+				@include marginRules("section", "lg");
 			}
 
 			@include media-breakpoint-up(xl) {
-				@include verticalMarginRules("section", "xl");
+				@include marginRules("section", "xl");
 			}
 
 			@include media-breakpoint-up(xxl) {
-				@include verticalMarginRules("section", "xxl");
+				@include marginRules("section", "xxl");
 			}
 		}
 	}

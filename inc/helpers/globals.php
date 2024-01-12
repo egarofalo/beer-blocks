@@ -5,7 +5,6 @@ namespace BeerBlocks\Helpers\Globals;
 use function BeerBlocks\Helpers\Bootstrap\register_editor_styles as register_bootstrap_editor_styles;
 use function BeerBlocks\Helpers\Bootstrap\register_editor_scripts as register_bootstrap_editor_scripts;
 use function BeerBlocks\Helpers\Fontawesome\register_editor_assets as register_fontawesome_editor_assets;
-use function BeerBlocks\Helpers\GoogleFonts\enqueue_selected_font_family;
 
 /**
  * Create Beer Block category (before WordPress 5.8).
@@ -100,21 +99,11 @@ function register_block_types()
 		$editor_script_handle = "beer-blocks-{$block_type}-editor-script";
 		$editor_style_handle = "beer-blocks-{$block_type}-editor-style";
 		$style_handle = "beer-blocks-{$block_type}-style";
-		$render_callback = function ($attributes, $content) {
-			foreach ($attributes as $attr => $fontFamily) {
-				if (preg_match('/[fF]ontFamily$/', $attr)) {
-					enqueue_selected_font_family($fontFamily);
-				}
-			}
-
-			return $content;
-		};
 
 		$block_type_params = [
 			'api_version' => 2,
 			'editor_script' => $editor_script_handle,
 			'editor_style' => $editor_style_handle,
-			'render_callback' => $render_callback,
 		];
 
 		if (file_exists(BEERB_PLUGIN_DIR_PATH . "/build/{$block_type}/style-index.css")) {
@@ -322,4 +311,5 @@ function uninstall()
 	delete_option(BEERB_FONTAWESOME_IN_EDITOR_SETTING);
 	delete_option(BEERB_FONTAWESOME_IN_FRONT_SETTING);
 	delete_option(BEERB_LOAD_GOOGLE_FONTS_SETTING);
+	delete_option(BEERB_GOOGLE_FONTS_FAMILIES_SETTING);
 }

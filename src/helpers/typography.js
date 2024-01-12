@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { __, sprintf } from "@wordpress/i18n";
 import {
 	PanelBody,
@@ -7,15 +6,12 @@ import {
 	BaseControl,
 	RangeControl,
 } from "@wordpress/components";
+import { useEntityRecord } from "@wordpress/core-data";
 import Select from "react-select";
-import googleFonts from "./google-fonts.json";
 import safeFonts from "./safe-fonts.json";
-import { has, get, camelCase, kebabCase } from "lodash";
+import { has, get, camelCase, isArray } from "lodash";
 import grid from "./grid";
 import { only as unitsOnly } from "./units";
-
-// Font families list
-export const fontFamilies = [...safeFonts, ...googleFonts];
 
 // Default font size units
 export const defaultUnits = [
@@ -33,41 +29,36 @@ const validLineHeight = (value) => value !== undefined && value !== "";
 // check if value is a valid letter spacing
 const validLetterSpacing = (value) => value !== undefined && value !== "";
 
-// add google font family to head tag
-const addGoogleFontToHead = (fontFamily) => {
+// get fontFamily dropdown options array
+const getFontFamilyOptions = (fontFamilies) =>
+	fontFamilies.map(({ family, fallback }) => ({
+		value: {
+			family,
+			fallback,
+		},
+		label: family,
+	}));
+
+// get fontFamily option object by fontFamily attribute value
+const getFontFamilyOption = (fontFamily, fontFamilies) => {
 	if (!fontFamily) {
-		return;
+		return null;
 	}
 
-	const fontFamilyObj = fontFamilies.find(
-		(fontObject) => fontFamily === fontObject.family
-	);
+	const option = fontFamilies.find((font) => {
+		const { family, fallback } = font;
 
-	if (!fontFamilyObj || fontFamilyObj.is_safe) {
-		return;
-	}
+		return (
+			`'${family}', ${fallback}`.toLowerCase() === fontFamily.toLowerCase()
+		);
+	});
 
-	const nameAttr = `beer-blocks-google-fonts-css-${kebabCase(fontFamily)}`;
-	let link = document.querySelector(`link[name=${nameAttr}]`);
-
-	if (link) {
-		return;
-	}
-
-	link = document.createElement("link");
-	link.setAttribute("rel", "stylesheet");
-	link.setAttribute("name", nameAttr);
-	link.setAttribute("media", "all");
-	link.setAttribute(
-		"href",
-		`https://fonts.googleapis.com/css?family=${
-			fontFamily.replace(/\s+/g, "+") +
-			(has(fontFamilyObj, "variants")
-				? `:${fontFamilyObj.variants.join(",")}`
-				: "")
-		}`
-	);
-	document.head.appendChild(link);
+	return option
+		? {
+				value: option,
+				label: option.family,
+		  }
+		: null;
 };
 
 // returns font size block's attribute with breakpoints
@@ -108,7 +99,7 @@ const letterSpacingAttribute = ({
 const fontFamilyAttribute = (attrPrefix = "") => ({
 	[camelCase(`${attrPrefix}-font-family`)]: {
 		type: "string",
-		default: undefined,
+		default: null,
 	},
 });
 
@@ -137,7 +128,7 @@ export const attributes = ({
 });
 
 // returns controls for font size attribute with breakpoints
-const fontSizeControl = ({
+const FontSizeControl = ({
 	props,
 	breakpoint,
 	attrPrefix = "",
@@ -193,7 +184,7 @@ const fontSizeControl = ({
 };
 
 // returns controls for line height attribute with breakpoints
-const lineHeightControl = ({
+const LineHeightControl = ({
 	props,
 	breakpoint,
 	attrPrefix = "",
@@ -244,7 +235,7 @@ const lineHeightControl = ({
 };
 
 // returns controls for letter spacing attribute with breakpoints
-const letterSpacingControl = ({
+const LetterSpacingControl = ({
 	props,
 	breakpoint,
 	attrPrefix = "",
@@ -300,7 +291,7 @@ const letterSpacingControl = ({
 };
 
 // returns font family block attributes controls
-const fontFamilyControl = (props, attrPrefix = "") => {
+const FontFamilyControl = ({ props, attrPrefix = "" }) => {
 	const attrName = camelCase(`${attrPrefix}-font-family`);
 
 	const {
@@ -308,9 +299,14 @@ const fontFamilyControl = (props, attrPrefix = "") => {
 		setAttributes,
 	} = props;
 
-	useEffect(() => {
-		addGoogleFontToHead(fontFamily);
-	}, []);
+	const { record = {}, hasResolved = false } = useEntityRecord("root", "site");
+	const { beer_blocks_google_fonts_families: googleFontFamilies = null } =
+		record;
+
+	const fontFamilies = [
+		...safeFonts,
+		...(isArray(googleFontFamilies) ? googleFontFamilies : []),
+	];
 
 	return (
 		<>
@@ -319,38 +315,25 @@ const fontFamilyControl = (props, attrPrefix = "") => {
 				help={__("Choose a font family.", "beer-blocks")}
 			>
 				<Select
-					options={fontFamilies.map(({ family, variants }) => ({
-						value: {
-							family,
-							variants,
-						},
-						label: family,
-					}))}
+					options={getFontFamilyOptions(fontFamilies)}
+					isDisabled={!hasResolved}
+					isLoading={!hasResolved}
 					isClearable={true}
 					isMulti={false}
 					noOptionsMessage={() => __("No font family options", "beer-blocks")}
 					placeholder={__("Select...", "beer-blocks")}
 					onChange={(selectedOption) => {
-						if (selectedOption) {
-							addGoogleFontToHead(selectedOption.value.family);
+						const { family = undefined, fallback = undefined } = get(
+							selectedOption,
+							"value",
+							{}
+						);
 
-							setAttributes({
-								[attrName]: selectedOption.value.family,
-							});
-						} else {
-							setAttributes({ [attrName]: "" });
-						}
+						setAttributes({
+							[attrName]: family ? `'${family}', ${fallback}` : null,
+						});
 					}}
-					value={
-						fontFamily
-							? {
-									label: fontFamily,
-									value: fontFamilies.find(
-										(font) => font.family === fontFamily
-									),
-							  }
-							: null
-					}
+					value={getFontFamilyOption(fontFamily, fontFamilies)}
 				/>
 			</BaseControl>
 		</>
@@ -358,7 +341,7 @@ const fontFamilyControl = (props, attrPrefix = "") => {
 };
 
 // returns font weight block controls
-const fontWeightControl = (props, attrPrefix = "") => {
+const FontWeightControl = ({ props, attrPrefix = "" }) => {
 	const attrName = camelCase(`${attrPrefix}-font-weight`);
 
 	const {
@@ -419,32 +402,35 @@ export const controls = ({
 							affectedAttrs,
 						})}
 
-						{has(attributes, fontSizeAttrName) &&
-							fontSizeControl({
-								props,
-								breakpoint,
-								attrPrefix,
-								breakpointsBehaviorAttrPrefix,
-								label: fontSizeControlLabel(breakpoint),
-							})}
+						{has(attributes, fontSizeAttrName) && (
+							<FontSizeControl
+								props={props}
+								breakpoint={breakpoint}
+								attrPrefix={attrPrefix}
+								breakpointsBehaviorAttrPrefix={breakpointsBehaviorAttrPrefix}
+								label={fontSizeControlLabel(breakpoint)}
+							/>
+						)}
 
-						{has(attributes, lineHeightAttrName) &&
-							lineHeightControl({
-								props,
-								breakpoint,
-								attrPrefix,
-								breakpointsBehaviorAttrPrefix,
-								label: lineHeightControlLabel(breakpoint),
-							})}
+						{has(attributes, lineHeightAttrName) && (
+							<LineHeightControl
+								props={props}
+								breakpoint={breakpoint}
+								attrPrefix={attrPrefix}
+								breakpointsBehaviorAttrPrefix={breakpointsBehaviorAttrPrefix}
+								label={lineHeightControlLabel(breakpoint)}
+							/>
+						)}
 
-						{has(attributes, letterSpacingAttrName) &&
-							letterSpacingControl({
-								props,
-								breakpoint,
-								attrPrefix,
-								breakpointsBehaviorAttrPrefix,
-								label: letterSpacingControlLabel(breakpoint),
-							})}
+						{has(attributes, letterSpacingAttrName) && (
+							<LetterSpacingControl
+								props={props}
+								breakpoint={breakpoint}
+								attrPrefix={attrPrefix}
+								breakpointsBehaviorAttrPrefix={breakpointsBehaviorAttrPrefix}
+								label={letterSpacingControlLabel(breakpoint)}
+							/>
+						)}
 					</>
 				))}
 
@@ -453,11 +439,13 @@ export const controls = ({
 					<Divider />
 				) : null}
 
-				{has(attributes, fontFamilyAttrName) &&
-					fontFamilyControl(props, attrPrefix)}
+				{has(attributes, fontFamilyAttrName) && (
+					<FontFamilyControl props={props} attrPrefix={attrPrefix} />
+				)}
 
-				{has(attributes, fontWeightAttrName) &&
-					fontWeightControl(props, attrPrefix)}
+				{has(attributes, fontWeightAttrName) && (
+					<FontWeightControl props={props} attrPrefix={attrPrefix} />
+				)}
 			</>
 		);
 
@@ -664,7 +652,6 @@ export const cssClasses = (
 
 export default {
 	defaultUnits,
-	fontFamilies,
 	attributes,
 	controls,
 	styles,

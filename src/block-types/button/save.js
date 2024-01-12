@@ -1,5 +1,6 @@
 import { __ } from "@wordpress/i18n";
 import { useBlockProps, RichText } from "@wordpress/block-editor";
+import textAlignment from "./../../helpers/text-alignment";
 import typography from "./../../helpers/typography";
 import border from "./../../helpers/border";
 import spacing from "./../../helpers/spacing";
@@ -14,7 +15,6 @@ const save = (props) => {
 			url,
 			opensInNewTab,
 			rel,
-			align,
 			variant,
 			outline,
 			size,
@@ -24,7 +24,7 @@ const save = (props) => {
 
 	const blockStyle = spacing.marginCssVars(props, "button");
 	const blockClassName = `${
-		!blockLevel && align ? `text-${align}` : ""
+		!blockLevel ? textAlignment.cssClasses(props) : ""
 	}${spacing.marginCssClasses(props)}`.trimStart();
 
 	const btnStyle = {

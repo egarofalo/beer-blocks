@@ -1,3 +1,32 @@
+## [1.9.0] - 2024-01-12
+
+- Change and improves in `typography` helper logic
+- Transform functions controls to functional components in `typography` helper (fix `minified React Error` in certain situations)
+- Add `beer_blocks_google_fonts_families` hook filter to add Google Fonts manually in your theme
+- Add **border** helper features to **Info Box** block type
+- Add **border** helper features to **Section** block type
+- Add **border** helper features to **Container** block type
+- Add **Call to action button** to **Info Box** block type
+- Add `min-height`, `max-height`, `min-width` and `max-width` css properties to `size` helper
+- Add **Auto Horizontal Margins** feature to `spacing` helper
+- Add `size` helper features to the following block types:
+  - **Section** with `width`, `max-width`, `height`, `min-height` and `auto-height` controls
+  - **Container** with `width`, `max-width`, `height`, `min-height` and `auto-height` controls
+  - **Alert** with `width`, `max-width`, `height`, `min-height` and `auto-height` controls
+  - **Header** with `width` and `max-width` controls
+  - **Paragraph** with `width` and `max-width` controls
+- Add breakpoint behavior and new UI to `block-alignment` helper controls
+- Add new `text-alignment` helper
+- Add `text-alignment` helper features to the following blocks:
+  - **Accordion Item**
+  - **Button**
+  - **Fa Icon**
+  - **Header**
+  - **Image**
+  - **Paragraph**
+- Fix `block-alignment` helper usage in some blocks
+- Fix editor and blocks styles
+
 ## [1.8.0] - 2023-12-02
 
 - Add **letter spacing** feature to `typography` helper

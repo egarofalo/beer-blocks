@@ -1,11 +1,11 @@
 import { __, sprintf } from "@wordpress/i18n";
+import { useBlockProps, InspectorControls } from "@wordpress/block-editor";
 import {
-	useBlockProps,
-	InspectorControls,
-	BlockControls,
-	AlignmentToolbar,
-} from "@wordpress/block-editor";
-import { PanelBody, BaseControl, ToggleControl } from "@wordpress/components";
+	PanelBody,
+	BaseControl,
+	ToggleControl,
+	CardDivider,
+} from "@wordpress/components";
 import FontIconPicker from "@fonticonpicker/react-fonticonpicker";
 import {
 	farIconsClasses,
@@ -14,6 +14,7 @@ import {
 	BLOCK_LEVEL_ELEMENT,
 	INLINE_ELEMENT,
 } from "./../../helpers/fa-icons";
+import textAlignment from "./../../helpers/text-alignment";
 import spacing from "./../../helpers/spacing";
 import typography from "./../../helpers/typography";
 import colors from "./../../helpers/colors";
@@ -21,23 +22,17 @@ import htmlAttrs from "./../../helpers/html-attrs";
 
 const edit = (props) => {
 	const {
-		attributes: {
-			icon,
-			showHtmlElementTypeToggleField,
-			htmlElementType,
-			textAlign,
-		},
+		attributes: { icon, showHtmlElementTypeToggleField, htmlElementType },
 		setAttributes,
 	} = props;
 
 	const icons = [...farIconsClasses, ...fasIconsClasses, ...fabIconsClasses];
+	const isBlockElement = htmlElementType === BLOCK_LEVEL_ELEMENT;
 
 	const blockProps = useBlockProps({
 		className: `${
-			htmlElementType === BLOCK_LEVEL_ELEMENT
-				? `has-text-align-${textAlign}`
-				: "d-inline-block"
-		}${spacing.cssClasses(props)}`,
+			isBlockElement ? textAlignment.cssClasses(props) : "d-inline-block"
+		}${spacing.cssClasses(props)}`.trimStart(),
 		style: spacing.cssVars(props, "fa-icon"),
 		...htmlAttrs.blockProps(props),
 	});
@@ -69,11 +64,15 @@ const edit = (props) => {
 				/>
 			</BaseControl>
 
+			<CardDivider />
+
 			{colors.controls({
 				props,
 				colorControlLabel: __("Icon color", "beer-blocks"),
 				panelBody: false,
 			})}
+
+			<CardDivider />
 
 			{typography.controls({
 				props,
@@ -84,6 +83,22 @@ const edit = (props) => {
 						breakpoint.toUpperCase()
 					),
 			})}
+
+			{isBlockElement && (
+				<>
+					<CardDivider />
+					{textAlignment.controlsWithBreakpoints({
+						props,
+						textAlignControlLabel: (breakpoint) =>
+							sprintf(
+								__("Icon align (%s)", "beer-blocks"),
+								breakpoint.toUpperCase()
+							),
+						excludeTextAlignControls: ["justify"],
+						panelBody: false,
+					})}
+				</>
+			)}
 		</>
 	);
 
@@ -94,13 +109,12 @@ const edit = (props) => {
 					{showHtmlElementTypeToggleField && (
 						<ToggleControl
 							label={__("Block level element type", "beer-blocks")}
-							checked={htmlElementType === BLOCK_LEVEL_ELEMENT}
+							checked={isBlockElement}
 							onChange={() =>
 								setAttributes({
-									htmlElementType:
-										htmlElementType === BLOCK_LEVEL_ELEMENT
-											? INLINE_ELEMENT
-											: BLOCK_LEVEL_ELEMENT,
+									htmlElementType: isBlockElement
+										? INLINE_ELEMENT
+										: BLOCK_LEVEL_ELEMENT,
 								})
 							}
 							help={__(
@@ -116,15 +130,6 @@ const edit = (props) => {
 				{spacing.controls({ props, paddingSides: false })}
 				{htmlAttrs.controls({ props })}
 			</InspectorControls>
-
-			{htmlElementType === BLOCK_LEVEL_ELEMENT && (
-				<BlockControls>
-					<AlignmentToolbar
-						value={textAlign}
-						onChange={(textAlign) => setAttributes({ textAlign })}
-					/>
-				</BlockControls>
-			)}
 
 			{iconElem}
 		</>

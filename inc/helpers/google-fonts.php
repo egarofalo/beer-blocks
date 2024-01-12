@@ -3,17 +3,10 @@
 namespace BeerBlocks\Helpers\GoogleFonts;
 
 define('BEERB_LOAD_GOOGLE_FONTS_SETTING', 'beer_blocks_load_google_fonts');
+define('BEERB_GOOGLE_FONTS_FAMILIES_SETTING', 'beer_blocks_google_fonts_families');
+define('BEERB_GOOGLE_FONTS_FAMILIES_FILTER', 'beer_blocks_google_fonts_families');
 define('BEERB_GOOGLE_FONTS_SETTINGS_SECTION', 'beer_blocks_google_fonts_settings_section');
-define('BEERB_GOOGLE_FONTS_STYLSHEET_NAME', 'beer_blocks_google_fonts_stylesheet_name');
-
-$fontFamilies = array_merge(
-	json_decode(
-		file_get_contents(BEERB_PLUGIN_DIR_PATH . '/src/helpers/safe-fonts.json')
-	),
-	json_decode(
-		file_get_contents(BEERB_PLUGIN_DIR_PATH . '/src/helpers/google-fonts.json')
-	)
-);
+define('BEERB_GOOGLE_FONTS_STYLSHEET_HANDLE', 'beer_blocks_google_fonts_stylesheet');
 
 /**
  * Add Google Fonts settings section.
@@ -34,6 +27,36 @@ function add_settings_section()
 function register_settings()
 {
 	register_setting(BEERB_SETTINGS_PAGE_SLUG, BEERB_LOAD_GOOGLE_FONTS_SETTING);
+	register_setting(BEERB_SETTINGS_PAGE_SLUG, BEERB_GOOGLE_FONTS_FAMILIES_SETTING, [
+		'type' => 'array',
+		'show_in_rest' => [
+			'schema' => [
+				'items' => [
+					'type' => 'object',
+					'properties' => [
+						'family' => [
+							'type' => 'string',
+						],
+						'fallback' => [
+							'type' => 'string',
+						],
+						'variants' => [
+							'type' => 'object',
+							'properties' => [
+								'normal' => [
+									'type' => 'array',
+								],
+								'italic' => [
+									'type' => 'array'
+								],
+							]
+						]
+					]
+				]
+			],
+		],
+		'default' => []
+	]);
 }
 
 /**
@@ -56,49 +79,66 @@ function add_settings_fields()
 }
 
 /**
- * Enqueue Google Fonts during the block render callback.
+ * Update google fonts families setting after register it.
  */
-function enqueue_selected_font_family($selectedFontFamily)
+function update_google_fonts_families_setting($option_group, $option_name, $args)
 {
-	global $fontFamilies;
+	if ($option_name === BEERB_GOOGLE_FONTS_FAMILIES_SETTING) {
+		$fontFamilies = apply_filters(BEERB_GOOGLE_FONTS_FAMILIES_FILTER, []);
+		update_option(BEERB_GOOGLE_FONTS_FAMILIES_SETTING, $fontFamilies);
+	}
+}
 
-	$option = filter_var(
-		get_option(BEERB_LOAD_GOOGLE_FONTS_SETTING),
-		FILTER_VALIDATE_BOOLEAN
-	);
+/**
+ * Enqueue Google Fonts Families.
+ */
+function enqueue_font_families()
+{
+	$option = filter_var(get_option(BEERB_LOAD_GOOGLE_FONTS_SETTING), FILTER_VALIDATE_BOOLEAN);
+	$fontFamilies = get_option(BEERB_GOOGLE_FONTS_FAMILIES_SETTING, []);
 
-	if (!$option) {
+	if (!$option or empty($fontFamilies)) {
 		return;
 	}
 
-	if (empty($selectedFontFamily)) {
-		return;
-	}
+	$src = array_reduce(
+		$fontFamilies,
+		function ($carry, $fontFamily) {
+			$fontFamily = $fontFamily;
+			$qryArg = $fontFamily['family'];
 
-	foreach ($fontFamilies as $fontFamily) {
-		if ($fontFamily->family === $selectedFontFamily) {
-			if ($fontFamily->is_safe) {
-				return;
+			if (!empty($fontFamily['variants'])) {
+				$normalVariants = array_map(function ($variant) {
+					return "0,{$variant}";
+				}, $fontFamily['variants']['normal'] ?? []);
+
+				$italicVariants = array_map(function ($variant) {
+					return "1,{$variant}";
+				}, $fontFamily['variants']['italic'] ?? []);
+
+				$variants = [...$normalVariants, ...$italicVariants];
+				$qryArg .= ':' . (!empty($italicVariants) ? 'ital,' : '') . 'wght@' . implode(";", $variants);
 			}
 
-			$qry_args = $fontFamily->family . (property_exists($fontFamily, 'variants') ? ':' . implode(',', $fontFamily->variants) : '');
-			$handle = BEERB_GOOGLE_FONTS_STYLSHEET_NAME . "_" . sanitize_title($fontFamily->family);
+			return $carry . ltrim(add_query_arg('family', $qryArg, ''), '?') . '&';
+		},
+		'https://fonts.googleapis.com/css2?'
+	);
 
-			add_action('get_footer', function () use ($handle, $qry_args) {
-				if (!wp_style_is($handle)) {
-					wp_enqueue_style(
-						$handle,
-						add_query_arg(
-							[
-								'family' => $qry_args
-							],
-							'//fonts.googleapis.com/css'
-						)
-					);
-				}
-			});
+	wp_enqueue_style(BEERB_GOOGLE_FONTS_STYLSHEET_HANDLE, esc_url("{$src}display=swap"));
+}
 
-			return;
-		}
+/**
+ * Add link tag with rel=preconnect attribute before load Google Fonts.
+ */
+function filters_html_link_tags($html, $handle, $href, $media)
+{
+	switch ($handle) {
+		case BEERB_GOOGLE_FONTS_STYLSHEET_HANDLE:
+			$html = '<link rel="preconnect" href="https://fonts.googleapis.com">' .
+				'<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' . $html;
+			break;
 	}
+
+	return $html;
 }

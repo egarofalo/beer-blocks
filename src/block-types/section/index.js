@@ -31,6 +31,8 @@ import "./editor.scss";
 import edit from "./edit";
 import save from "./save";
 import colors from "./../../helpers/colors";
+import border from "./../../helpers/border";
+import size from "./../../helpers/size";
 import spacing from "./../../helpers/spacing";
 import htmlAttrs from "./../../helpers/html-attrs";
 
@@ -61,7 +63,9 @@ registerBlockType("beer-blocks/section", {
 			default: "section",
 		},
 		...colors.attributes({ colorAttr: false }),
-		...spacing.attributes(),
+		...border.attributes({ borderRadius: true }),
+		...size.attributes({ maxWidthAttr: true, minHeightAttr: true }),
+		...spacing.attributes({ horizontalCenteringAttr: true }),
 		...htmlAttrs.attributes(),
 	},
 	transforms: {

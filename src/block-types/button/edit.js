@@ -5,7 +5,6 @@ import {
 	InspectorControls,
 	RichText,
 	BlockControls,
-	BlockAlignmentToolbar,
 	__experimentalLinkControl as LinkControl,
 } from "@wordpress/block-editor";
 import {
@@ -15,10 +14,10 @@ import {
 	ToolbarButton,
 	ToggleControl,
 	Popover,
-	Disabled,
 } from "@wordpress/components";
 import { link as linkIcon } from "@wordpress/icons";
 import { options as optionsVariant } from "./../../helpers/bootstrap-variants";
+import textAlignment from "./../../helpers/text-alignment";
 import typography from "./../../helpers/typography";
 import border from "./../../helpers/border";
 import spacing from "./../../helpers/spacing";
@@ -64,7 +63,6 @@ const edit = (props) => {
 			url,
 			opensInNewTab,
 			rel,
-			align,
 			variant,
 			outline,
 			size,
@@ -76,7 +74,7 @@ const edit = (props) => {
 	const [isURLPickerOpen, setIsURLPickerOpen] = useState(false);
 	const blockStyle = spacing.marginCssVars(props, "button");
 	const blockClassName = `${
-		!blockLevel && align ? `text-${align}` : ""
+		!blockLevel ? textAlignment.cssClasses(props) : ""
 	}${spacing.marginCssClasses(props)}`.trimStart();
 
 	const btnStyle = {
@@ -114,18 +112,14 @@ const edit = (props) => {
 		...htmlAttrs.blockProps(props),
 	});
 
-	let customStylesControls = (
+	const customStylesControls = !variant ? (
 		<>
 			{typography.controls({ props })}
 			{colors.controls({ props })}
 			{border.controls({ props })}
 			{statuses.controls({ props })}
 		</>
-	);
-
-	if (variant) {
-		customStylesControls = <Disabled>{customStylesControls}</Disabled>;
-	}
+	) : null;
 
 	return (
 		<>
@@ -152,12 +146,7 @@ const edit = (props) => {
 						<ToggleControl
 							label={__("Block Level Button?", "beer-blocks")}
 							checked={blockLevel}
-							onChange={(value) =>
-								setAttributes({
-									blockLevel: value,
-									align: value ? undefined : align,
-								})
-							}
+							onChange={(value) => setAttributes({ blockLevel: value })}
 						/>
 
 						{variant && (
@@ -198,6 +187,17 @@ const edit = (props) => {
 				</PanelBody>
 
 				{customStylesControls}
+				{!blockLevel &&
+					textAlignment.controlsWithBreakpoints({
+						props,
+						title: __("Alignment", "beer-blocks"),
+						textAlignControlLabel: (breakpoint) =>
+							sprintf(
+								__("Button align (%s)", "beer-blocks"),
+								breakpoint.toUpperCase()
+							),
+						excludeTextAlignControls: ["justify"],
+					})}
 				{spacing.controls({ props })}
 				{htmlAttrs.controls({ props })}
 			</InspectorControls>
@@ -209,13 +209,6 @@ const edit = (props) => {
 						label={__("Edit", "beer-blocks")}
 						onClick={() => setIsURLPickerOpen(true)}
 					/>
-
-					{!blockLevel && (
-						<BlockAlignmentToolbar
-							value={align}
-							onChange={(align) => setAttributes({ align })}
-						/>
-					)}
 
 					{linkControl(
 						isURLPickerOpen,
