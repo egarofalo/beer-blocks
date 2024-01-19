@@ -79,23 +79,12 @@ function add_settings_fields()
 }
 
 /**
- * Update google fonts families setting after register it.
- */
-function update_google_fonts_families_setting($option_group, $option_name, $args)
-{
-	if ($option_name === BEERB_GOOGLE_FONTS_FAMILIES_SETTING) {
-		$fontFamilies = apply_filters(BEERB_GOOGLE_FONTS_FAMILIES_FILTER, []);
-		update_option(BEERB_GOOGLE_FONTS_FAMILIES_SETTING, $fontFamilies);
-	}
-}
-
-/**
  * Enqueue Google Fonts Families.
  */
 function enqueue_font_families()
 {
 	$option = filter_var(get_option(BEERB_LOAD_GOOGLE_FONTS_SETTING), FILTER_VALIDATE_BOOLEAN);
-	$fontFamilies = get_option(BEERB_GOOGLE_FONTS_FAMILIES_SETTING, []);
+	$fontFamilies = apply_filters(BEERB_GOOGLE_FONTS_FAMILIES_FILTER, []);
 
 	if (!$option or empty($fontFamilies)) {
 		return;
@@ -108,13 +97,13 @@ function enqueue_font_families()
 			$qryArg = $fontFamily['family'];
 
 			if (!empty($fontFamily['variants'])) {
-				$normalVariants = array_map(function ($variant) {
-					return "0,{$variant}";
-				}, $fontFamily['variants']['normal'] ?? []);
-
 				$italicVariants = array_map(function ($variant) {
 					return "1,{$variant}";
 				}, $fontFamily['variants']['italic'] ?? []);
+
+				$normalVariants = array_map(function ($variant) use ($italicVariants) {
+					return !empty($italicVariants) ? "0,{$variant}" : $variant;
+				}, $fontFamily['variants']['normal'] ?? []);
 
 				$variants = [...$normalVariants, ...$italicVariants];
 				$qryArg .= ':' . (!empty($italicVariants) ? 'ital,' : '') . 'wght@' . implode(";", $variants);
@@ -125,7 +114,7 @@ function enqueue_font_families()
 		'https://fonts.googleapis.com/css2?'
 	);
 
-	wp_enqueue_style(BEERB_GOOGLE_FONTS_STYLSHEET_HANDLE, esc_url("{$src}display=swap"));
+	wp_enqueue_style(BEERB_GOOGLE_FONTS_STYLSHEET_HANDLE, esc_url("{$src}display=swap"), [], null);
 }
 
 /**

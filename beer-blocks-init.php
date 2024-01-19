@@ -51,7 +51,6 @@ add_filter('style_loader_tag', BEERB_FA_HELPERS_NS . '\\filters_html_link_tags',
 add_action('admin_init', BEERB_GF_HELPERS_NS . '\\add_settings_section');
 add_action('admin_init', BEERB_GF_HELPERS_NS . '\\register_settings');
 add_action('admin_init', BEERB_GF_HELPERS_NS . '\\add_settings_fields');
-add_action('register_setting', BEERB_GF_HELPERS_NS . '\\update_google_fonts_families_setting', 10, 3);
 
 // Enqueue Google Fonts in the editor and frontend
 add_action('enqueue_block_assets', BEERB_GF_HELPERS_NS . '\\enqueue_font_families');

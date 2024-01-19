@@ -1,3 +1,8 @@
+## [1.9.1] - 2024-01-19
+
+- Fix google fonts families enqueue process, since it now loads the font families using the array filtered by `beer_blocks google_fonts families` filter
+- Remove `update_google_fonts_families_setting` function used to update Google Font families settings after register the setting
+
 ## [1.9.0] - 2024-01-12
 
 - Change and improves in `typography` helper logic
