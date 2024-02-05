@@ -85,6 +85,7 @@ function enqueue_font_families()
 {
 	$option = filter_var(get_option(BEERB_LOAD_GOOGLE_FONTS_SETTING), FILTER_VALIDATE_BOOLEAN);
 	$fontFamilies = apply_filters(BEERB_GOOGLE_FONTS_FAMILIES_FILTER, []);
+	update_option(BEERB_GOOGLE_FONTS_FAMILIES_SETTING, $fontFamilies);
 
 	if (!$option or empty($fontFamilies)) {
 		return;

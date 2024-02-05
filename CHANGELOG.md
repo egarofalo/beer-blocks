@@ -1,3 +1,7 @@
+## [1.9.2] - 2024-02-05
+
+- Fix [!issue #6](https://github.com/egarofalo/beer-blocks/issues/6)
+
 ## [1.9.1] - 2024-01-19
 
 - Fix google fonts families enqueue process, since it now loads the font families using the array filtered by `beer_blocks google_fonts families` filter
