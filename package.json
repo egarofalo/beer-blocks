@@ -1,6 +1,6 @@
 {
 	"name": "beer-blocks",
-	"version": "1.9.2",
+	"version": "1.9.3",
 	"description": "Beer Blocks plugin.",
 	"author": "Lic. Edgardo Garofalo",
 	"license": "GPL-2.0-or-later",
@@ -31,6 +31,6 @@
 		"react-transition-group": "^4.4.1"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "^24.4.0"
+		"@wordpress/scripts": "^29.0.0"
 	}
 }

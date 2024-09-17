@@ -1,5 +1,5 @@
-@import "~@fonticonpicker/react-fonticonpicker/dist/fonticonpicker.base-theme.react.css";
-@import "~@fonticonpicker/react-fonticonpicker/dist/fonticonpicker.material-theme.react.css";
+@import "@fonticonpicker/react-fonticonpicker/dist/fonticonpicker.base-theme.react.css";
+@import "@fonticonpicker/react-fonticonpicker/dist/fonticonpicker.material-theme.react.css";
 @import "./../../mixins/blocks/fa-icon";
 
 @include fa-icon-block-editor-rules;

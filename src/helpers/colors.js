@@ -17,7 +17,7 @@ const attrName = (attr, attrPrefix = "") => camelCase(`${attrPrefix}-${attr}`);
 const colorAttribute = (attrPrefix = "") => ({
 	[attrName("color", attrPrefix)]: {
 		type: "string",
-		default: undefined,
+		default: "",
 	},
 });
 
@@ -25,7 +25,7 @@ const colorAttribute = (attrPrefix = "") => ({
 const backgroundAttribute = (attrPrefix = "") => ({
 	[attrName("background", attrPrefix)]: {
 		type: "string",
-		default: undefined,
+		default: "",
 	},
 });
 

@@ -1,3 +1,9 @@
+## [1.9.3] - 2024-09-17
+
+- Update `@wordpress/scripts` from `24.4.0` to `29.0.0`
+- Fix translations in `es_ES` language
+- Apply fixes to `colors` helper file in attributes definition
+
 ## [1.9.2] - 2024-02-05
 
 - Fix [!issue #6](https://github.com/egarofalo/beer-blocks/issues/6)

@@ -8,12 +8,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2021-08-17T13:56:20+00:00\n"
-"PO-Revision-Date: 2024-01-12 13:02+0000\n"
+"PO-Revision-Date: 2024-09-02 12:28+0000\n"
 "Language: es_ES\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: beer-blocks\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Loco-Version: 2.6.6; wp-6.3.1"
+"X-Loco-Version: 2.6.11; wp-6.6.1"
 
 #: build/accordion-item/index.js:1 build/button/index.js:1
 #: build/container/index.js:1 build/info-box/index.js:1
@@ -604,7 +604,7 @@ msgstr ""
 
 #: build/button/index.js:1 src/block-types/button/edit.js:135
 msgid "Custom styles"
-msgstr "stilos personalizados"
+msgstr "Estilos personalizados"
 
 #: build/tabs/index.js:1 src/block-types/tabs/edit.js:125
 msgid "Default selected tab"

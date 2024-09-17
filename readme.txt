@@ -4,9 +4,9 @@ Contributors: egarofalo
 Tags: block, design, blocks, gutenberg, blockeditor
 Donate link: https://www.paypal.com/donate?hosted_button_id=8XSCNEV5WA5TU
 Requires at least: 5.6
-Tested up to: 6.4
+Tested up to: 6.6
 Requires PHP: 7.3
-Stable tag: 1.9.2
+Stable tag: 1.9.3
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -241,6 +241,10 @@ Yes, of course! You can choose any of the font families available in Google Font
 - Remove `update_google_fonts_families_setting` function used to update Google Font families settings after register the setting
 = [1.9.2] =
 - Fix [!issue #6](https://github.com/egarofalo/beer-blocks/issues/6)
+= [1.9.3] =
+- Update `@wordpress/scripts` from `24.4.0` to `29.0.0`
+- Fix translations in `es_ES` language
+- Apply fixes to `colors` helper file in attributes definition
 
 == Upgrade Notice ==
 
