@@ -38,7 +38,7 @@ const borderRadiusCorners = [
 // returns border radius value for all corners
 const getBorderRadiusValue = (value) =>
 	Object.fromEntries(
-		borderRadiusCorners.map((corner) => [camelCase(corner), value])
+		borderRadiusCorners.map((corner) => [camelCase(corner), value]),
 	);
 
 // border radius icons for tabs panel
@@ -57,7 +57,7 @@ const borderRadiusIcons = (corner) =>
 		"top-left": (
 			<RxCornerTopLeft className="beer-blocks-border-radius-tab-icon" />
 		),
-	}[corner]);
+	})[corner];
 
 // border radius tabs panel options
 const borderRadiusOptions = borderRadiusCorners.map((corner) => ({
@@ -80,7 +80,7 @@ const attrName = (attrPrefix = "", borderRadius = false) =>
 const borderAttribute = (attrPrefix = "") => ({
 	[attrName(attrPrefix)]: {
 		type: "object",
-		default: undefined,
+		default: {},
 	},
 });
 
@@ -149,7 +149,7 @@ const borderRadiusControl = ({
 					<UnitControl
 						label={sprintf(
 							__("%s corner", "beer-blocks"),
-							upperFirst(lowerCase(tab.name))
+							upperFirst(lowerCase(tab.name)),
 						)}
 						value={borderRadius[tab.name]}
 						onChange={(value) =>
@@ -269,7 +269,7 @@ export const borderCssVars = (props, blockName, attrPrefix = "") => {
 						.map((border) => [
 							`--wp-beer-blocks-${blockName}-${attr + upperFirst(border[0])}`,
 							border[1],
-						])
+						]),
 			  );
 	}
 
@@ -291,7 +291,7 @@ export const borderRadiusCssVars = (props, blockName, attrPrefix = "") => {
 					.map((corner) => [
 						`--wp-beer-blocks-${blockName}-${attr + upperFirst(corner[0])}`,
 						corner[1],
-					])
+					]),
 			),
 			...(borderRadius.all
 				? { [`--wp-beer-blocks-${blockName}-${attr}`]: borderRadius.all }
@@ -332,13 +332,13 @@ const borderCssClass = (props, attrPrefix = "", addWhitespaceBefore = true) => {
 					])
 					.reduce(
 						(classes, arrClasses) => `${classes} ${arrClasses.join(" ")}`,
-						""
+						"",
 					)
 					.trimStart()
 			: Object.entries(border)
 					.filter((borderRule) => borderRule[1])
 					.map(
-						(borderRule) => `wp-beer-blocks-has-border-${borderRule[0]}-rule`
+						(borderRule) => `wp-beer-blocks-has-border-${borderRule[0]}-rule`,
 					)
 					.join(" ");
 
@@ -352,7 +352,7 @@ const borderCssClass = (props, attrPrefix = "", addWhitespaceBefore = true) => {
 const borderRadiusCssClass = (
 	props,
 	attrPrefix = "",
-	addWhitespaceBefore = true
+	addWhitespaceBefore = true,
 ) => {
 	const attr = attrName(attrPrefix, true);
 
@@ -367,7 +367,7 @@ const borderRadiusCssClass = (
 				(corner) =>
 					`wp-beer-blocks-has-border-${
 						corner[0] !== "all" ? `${corner[0]}-` : ""
-					}radius-rule`
+					}radius-rule`,
 			)
 			.join(" ");
 
@@ -381,11 +381,11 @@ const borderRadiusCssClass = (
 export const cssClasses = (
 	props,
 	attrPrefix = "",
-	addWhitespaceBefore = true
+	addWhitespaceBefore = true,
 ) => {
 	let classes = `${borderCssClass(props, attrPrefix)}${borderRadiusCssClass(
 		props,
-		attrPrefix
+		attrPrefix,
 	)}`.trimStart();
 
 	return `${addWhitespaceBefore ? " " : ""}${classes}`.trimEnd();

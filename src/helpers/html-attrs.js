@@ -6,7 +6,7 @@ import { camelCase, has, isString } from "lodash";
 const attrName = (attr, attrPrefix = "") => camelCase(`${attrPrefix}-${attr}`);
 
 // returns ID attribute
-const idAttribute = ({ attrPrefix = "", defaultValue = undefined } = {}) => ({
+const idAttribute = ({ attrPrefix = "", defaultValue = "" } = {}) => ({
 	[attrName("id-attr", attrPrefix)]: {
 		type: "string",
 		default: defaultValue,
@@ -14,10 +14,7 @@ const idAttribute = ({ attrPrefix = "", defaultValue = undefined } = {}) => ({
 });
 
 // returns html attributes
-const htmlAttributes = ({
-	attrPrefix = "",
-	defaultValue = undefined,
-} = {}) => ({
+const htmlAttributes = ({ attrPrefix = "", defaultValue = "" } = {}) => ({
 	[attrName("html-attrs", attrPrefix)]: {
 		type: "string",
 		default: defaultValue,
@@ -27,8 +24,8 @@ const htmlAttributes = ({
 // returns id and other html block attributes
 export const attributes = ({
 	attrPrefix = "",
-	defaultId = undefined,
-	defaultHtmlAttrs = undefined,
+	defaultId = "",
+	defaultHtmlAttrs = "",
 } = {}) => ({
 	...idAttribute({ attrPrefix, defaultValue: defaultId }),
 	...htmlAttributes({ attrPrefix, defaultValue: defaultHtmlAttrs }),
@@ -76,7 +73,7 @@ const htmlAttrsControl = ({
 			value={attributes[attr]}
 			help={__(
 				"Add one or more HTML attributes separated with a new line. Each line must have the `attrName : value` format.",
-				"beer-blocks"
+				"beer-blocks",
 			)}
 			rows="6"
 			onChange={(value) => setAttributes({ [attr]: value })}

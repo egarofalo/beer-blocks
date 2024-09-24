@@ -40,7 +40,7 @@ const toggleAttrName = (status, attrPrefix) =>
 	camelCase(
 		`${attrPrefix}-${
 			status === "transition" ? status : `${status}-status`
-		}-enabled`
+		}-enabled`,
 	);
 
 // transition timing functions
@@ -171,7 +171,7 @@ const transitionCssVars = (props, blockName, attrPrefix) => {
 const transitionCssClasses = (
 	props,
 	attrPrefix = "",
-	addWhitespaceBefore = true
+	addWhitespaceBefore = true,
 ) => {
 	const {
 		attributes: {
@@ -205,7 +205,7 @@ const transitionCssClasses = (
 const colorAttribute = (status, attrPrefix) => ({
 	[attrNameByStatus("color", status, attrPrefix)]: {
 		type: "string",
-		default: undefined,
+		default: "",
 	},
 });
 
@@ -264,7 +264,7 @@ const colorCssVars = (props, blockName, attrPrefix) => {
 const colorCssClasses = (
 	props,
 	attrPrefix = "",
-	addWhitespaceBefore = true
+	addWhitespaceBefore = true,
 ) => {
 	const {
 		attributes: {
@@ -300,7 +300,7 @@ const colorCssClasses = (
 const backgroundAttribute = (status, attrPrefix) => ({
 	[attrNameByStatus("background", status, attrPrefix)]: {
 		type: "string",
-		default: undefined,
+		default: "",
 	},
 });
 
@@ -394,7 +394,7 @@ const backgroundCssVars = (props, blockName, attrPrefix) => {
 const backgroundCssClasses = (
 	props,
 	attrPrefix = "",
-	addWhitespaceBefore = true
+	addWhitespaceBefore = true,
 ) => {
 	const {
 		attributes: {
@@ -431,7 +431,7 @@ const backgroundCssClasses = (
 const borderColorAttribute = (status, attrPrefix) => ({
 	[attrNameByStatus("border-color", status, attrPrefix)]: {
 		type: "string",
-		default: undefined,
+		default: "",
 	},
 });
 
@@ -490,7 +490,7 @@ const borderColorCssVars = (props, blockName, attrPrefix) => {
 const borderColorCssClasses = (
 	props,
 	attrPrefix = "",
-	addWhitespaceBefore = true
+	addWhitespaceBefore = true,
 ) => {
 	const {
 		attributes: {
@@ -536,7 +536,7 @@ const statusToggleControl = (props, attrPrefix, status) => {
 		<ToggleControl
 			label={sprintf(
 				__("Enable %s"),
-				status === "transition" ? "transition effects" : `${status} status`
+				status === "transition" ? "transition effects" : `${status} status`,
 			)}
 			checked={statusEnabled}
 			onChange={() => setAttributes({ [attrStatusName]: !statusEnabled })}
@@ -637,12 +637,12 @@ export const controls = ({
 	const hoverBackgroundAttrName = attrNameByStatus(
 		"background",
 		"hover",
-		attrPrefix
+		attrPrefix,
 	);
 	const hoverBorderColorAttrName = attrNameByStatus(
 		"border-color",
 		"hover",
-		attrPrefix
+		attrPrefix,
 	);
 	// active attributes names
 	const activeToggleAttrName = toggleAttrName("active", attrPrefix);
@@ -650,12 +650,12 @@ export const controls = ({
 	const activeBackgroundAttrName = attrNameByStatus(
 		"background",
 		"active",
-		attrPrefix
+		attrPrefix,
 	);
 	const activeBorderColorAttrName = attrNameByStatus(
 		"border-color",
 		"active",
-		attrPrefix
+		attrPrefix,
 	);
 	// focus attributes names
 	const focusToggleAttrName = toggleAttrName("focus", attrPrefix);
@@ -663,12 +663,12 @@ export const controls = ({
 	const focusBackgroundAttrName = attrNameByStatus(
 		"background",
 		"focus",
-		attrPrefix
+		attrPrefix,
 	);
 	const focusBorderColorAttrName = attrNameByStatus(
 		"border-color",
 		"focus",
-		attrPrefix
+		attrPrefix,
 	);
 	// hover attributes flags
 	const hoverColorAttr = has(attributes, hoverColorAttrName);
@@ -807,14 +807,14 @@ export const cssVars = (props, blockName, attrPrefix = "") => ({
 export const cssClasses = (
 	props,
 	attrPrefix = "",
-	addWhitespaceBefore = true
+	addWhitespaceBefore = true,
 ) => {
 	const classes = `${colorCssClasses(props, attrPrefix)}${backgroundCssClasses(
 		props,
-		attrPrefix
+		attrPrefix,
 	)}${borderColorCssClasses(props, attrPrefix)}${transitionCssClasses(
 		props,
-		attrPrefix
+		attrPrefix,
 	)}`.trimStart();
 
 	return `${addWhitespaceBefore ? " " : ""}${classes}`.trimEnd();
