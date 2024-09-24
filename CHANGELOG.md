@@ -1,3 +1,7 @@
+## [1.9.4] - 2024-09-24
+
+- Apply fixes to `typography` helper file in font-weight attribute definition
+
 ## [1.9.3] - 2024-09-17
 
 - Update `@wordpress/scripts` from `24.4.0` to `29.0.0`
