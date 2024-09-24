@@ -107,7 +107,7 @@ const fontFamilyAttribute = (attrPrefix = "") => ({
 const fontWeightAttribute = (attrPrefix = "") => ({
 	[camelCase(`${attrPrefix}-font-weight`)]: {
 		type: "number",
-		default: undefined,
+		default: null,
 	},
 });
 
@@ -135,12 +135,12 @@ const FontSizeControl = ({
 	breakpointsBehaviorAttrPrefix = "",
 	label = sprintf(
 		__("Font size (%s)", "beer-blocks"),
-		breakpoint.toUpperCase()
+		breakpoint.toUpperCase(),
 	),
 }) => {
 	const attrName = camelCase(`${attrPrefix}-font-size`);
 	const breakpointsBehaviorAttrName = camelCase(
-		`${breakpointsBehaviorAttrPrefix}-breakpoints-behavior`
+		`${breakpointsBehaviorAttrPrefix}-breakpoints-behavior`,
 	);
 
 	const {
@@ -191,14 +191,14 @@ const LineHeightControl = ({
 	breakpointsBehaviorAttrPrefix = "",
 	label = sprintf(
 		__("Line height (%s)", "beer-blocks"),
-		breakpoint.toUpperCase()
+		breakpoint.toUpperCase(),
 	),
 	minLineHeight = 1,
 	maxLineHeight = 5,
 }) => {
 	const attrName = camelCase(`${attrPrefix}-line-height`);
 	const breakpointsBehaviorAttrName = camelCase(
-		`${breakpointsBehaviorAttrPrefix}-breakpoints-behavior`
+		`${breakpointsBehaviorAttrPrefix}-breakpoints-behavior`,
 	);
 
 	const {
@@ -242,12 +242,12 @@ const LetterSpacingControl = ({
 	breakpointsBehaviorAttrPrefix = "",
 	label = sprintf(
 		__("Letter spacing (%s)", "beer-blocks"),
-		breakpoint.toUpperCase()
+		breakpoint.toUpperCase(),
 	),
 }) => {
 	const attrName = camelCase(`${attrPrefix}-letter-spacing`);
 	const breakpointsBehaviorAttrName = camelCase(
-		`${breakpointsBehaviorAttrPrefix}-breakpoints-behavior`
+		`${breakpointsBehaviorAttrPrefix}-breakpoints-behavior`,
 	);
 
 	const {
@@ -326,7 +326,7 @@ const FontFamilyControl = ({ props, attrPrefix = "" }) => {
 						const { family = undefined, fallback = undefined } = get(
 							selectedOption,
 							"value",
-							{}
+							{},
 						);
 
 						setAttributes({
@@ -475,7 +475,7 @@ const fontSizeCssVars = (props, blockName, attrPrefix = "") => {
 						`--wp-beer-blocks-${blockName}-${attrName}-${breakpoint}`,
 						fontSize[breakpoint],
 					])
-					.filter((cssVar) => validFontSize(cssVar[1]))
+					.filter((cssVar) => validFontSize(cssVar[1])),
 		  )
 		: {};
 };
@@ -484,7 +484,7 @@ const fontSizeCssVars = (props, blockName, attrPrefix = "") => {
 const fontSizeCssClasses = (
 	props,
 	attrPrefix = "",
-	addWhitespaceBefore = true
+	addWhitespaceBefore = true,
 ) => {
 	const attrName = camelCase(`${attrPrefix}-font-size`);
 	const {
@@ -496,7 +496,7 @@ const fontSizeCssClasses = (
 			.map((breakpoint) =>
 				validFontSize(get(fontSize, breakpoint))
 					? `wp-beer-blocks-has-fontSize-${breakpoint}-rule`
-					: false
+					: false,
 			)
 			.filter((cssClass) => cssClass);
 
@@ -545,7 +545,7 @@ const lineHeightCssVars = (props, blockName, attrPrefix = "") => {
 
 						return result;
 					})
-					.filter((cssVar) => validLineHeight(cssVar[1]))
+					.filter((cssVar) => validLineHeight(cssVar[1])),
 		  )
 		: {};
 };
@@ -554,7 +554,7 @@ const lineHeightCssVars = (props, blockName, attrPrefix = "") => {
 const lineHeightCssClasses = (
 	props,
 	attrPrefix = "",
-	addWhitespaceBefore = true
+	addWhitespaceBefore = true,
 ) => {
 	const attrName = camelCase(`${attrPrefix}-line-height`);
 	const {
@@ -566,7 +566,7 @@ const lineHeightCssClasses = (
 			.map((breakpoint) =>
 				validLineHeight(get(lineHeight, breakpoint))
 					? `wp-beer-blocks-has-lineHeight-${breakpoint}-rule`
-					: false
+					: false,
 			)
 			.filter((cssClass) => cssClass);
 
@@ -591,7 +591,7 @@ const letterSpacingCssVars = (props, blockName, attrPrefix = "") => {
 						`--wp-beer-blocks-${blockName}-${attrName}-${breakpoint}`,
 						letterSpacing[breakpoint],
 					])
-					.filter((cssVar) => validLetterSpacing(cssVar[1]))
+					.filter((cssVar) => validLetterSpacing(cssVar[1])),
 		  )
 		: {};
 };
@@ -600,7 +600,7 @@ const letterSpacingCssVars = (props, blockName, attrPrefix = "") => {
 const letterSpacingCssClasses = (
 	props,
 	attrPrefix = "",
-	addWhitespaceBefore = true
+	addWhitespaceBefore = true,
 ) => {
 	const attrName = camelCase(`${attrPrefix}-letter-spacing`);
 	const {
@@ -612,7 +612,7 @@ const letterSpacingCssClasses = (
 			.map((breakpoint) =>
 				validLetterSpacing(get(letterSpacing, breakpoint))
 					? `wp-beer-blocks-has-letterSpacing-${breakpoint}-rule`
-					: false
+					: false,
 			)
 			.filter((cssClass) => cssClass);
 
@@ -640,11 +640,11 @@ export const cssVars = (props, blockName, attrPrefix = "") => ({
 export const cssClasses = (
 	props,
 	attrPrefix = "",
-	addWhitespaceBefore = true
+	addWhitespaceBefore = true,
 ) => {
 	let classes = `${fontSizeCssClasses(props, attrPrefix)}${lineHeightCssClasses(
 		props,
-		attrPrefix
+		attrPrefix,
 	)}${letterSpacingCssClasses(props, attrPrefix)}`.trimStart();
 
 	return `${addWhitespaceBefore && " "}${classes}`.trimEnd();
