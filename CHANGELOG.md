@@ -1,3 +1,9 @@
+## [1.9.5] - 2024-09-24
+
+- Apply fixes to `border` helper file in border attribute definition
+- Apply fixes to `statuses` helper file in all colors attributes definition
+- Apply fixes to `html-attrs` helper file in id and html attributes definition
+
 ## [1.9.4] - 2024-09-24
 
 - Apply fixes to `typography` helper file in font-weight attribute definition

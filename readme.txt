@@ -6,7 +6,7 @@ Donate link: https://www.paypal.com/donate?hosted_button_id=8XSCNEV5WA5TU
 Requires at least: 5.6
 Tested up to: 6.6
 Requires PHP: 7.3
-Stable tag: 1.9.4
+Stable tag: 1.9.5
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -247,6 +247,10 @@ Yes, of course! You can choose any of the font families available in Google Font
 - Apply fixes to `colors` helper file in attributes definition
 = [1.9.4] =
 - Apply fixes to `typography` helper file in font-weight attribute definition
+= [1.9.5] =
+- Apply fixes to `border` helper file in border attribute definition
+- Apply fixes to `statuses` helper file in all colors attributes definition
+- Apply fixes to `html-attrs` helper file in id and html attributes definition
 
 == Upgrade Notice ==
 
