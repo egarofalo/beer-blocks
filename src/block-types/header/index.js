@@ -32,6 +32,7 @@ import edit from "./edit";
 import save from "./save";
 import typography from "./../../helpers/typography";
 import textAlignment from "./../../helpers/text-alignment";
+import blockAlignment from "./../../helpers/block-alignment";
 import colors from "./../../helpers/colors";
 import size from "./../../helpers/size";
 import spacing from "./../../helpers/spacing";
@@ -54,7 +55,7 @@ registerBlockType("beer-blocks/header", {
 	description: _x(
 		"Create header with custom typography, margin and padding.",
 		"block description",
-		"beer-blocks"
+		"beer-blocks",
 	),
 	textdomain: "beer-blocks",
 	icon: <img src={icon} alt={_x("Header", "block title", "beer-blocks")} />,
@@ -72,13 +73,14 @@ registerBlockType("beer-blocks/header", {
 		},
 		...typography.attributes(),
 		...textAlignment.attributesWithBreakpoints(),
+		...blockAlignment.attributesWithBreakpoints(),
 		...colors.attributes(),
 		...size.attributes({
 			maxWidthAttr: true,
 			heightAttr: false,
 			autoHeightAttr: false,
 		}),
-		...spacing.attributes({ horizontalCenteringAttr: true }),
+		...spacing.attributes(),
 		...htmlAttrs.attributes(),
 	},
 	transforms: {

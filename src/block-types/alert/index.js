@@ -30,6 +30,7 @@ import "./editor.scss";
  */
 import edit from "./edit";
 import save from "./save";
+import blockAlignment from "./../../helpers/block-alignment";
 import size from "./../../helpers/size";
 import spacing from "./../../helpers/spacing";
 import htmlAttrs from "./../../helpers/html-attrs";
@@ -51,7 +52,7 @@ registerBlockType("beer-blocks/alert", {
 	description: _x(
 		"Represents Bootstrap Alerts that provide contextual feedback messages for typical user actions with the handful of available and flexible alert messages.",
 		"block description",
-		"beer-blocks"
+		"beer-blocks",
 	),
 	textdomain: "beer-blocks",
 	icon: <img src={icon} alt={_x("Alert", "block title", "beer-blocks")} />,
@@ -63,8 +64,9 @@ registerBlockType("beer-blocks/alert", {
 			type: "string",
 			default: "alert alert-light",
 		},
+		...blockAlignment.attributesWithBreakpoints(),
 		...size.attributes({ maxWidthAttr: true, minHeightAttr: true }),
-		...spacing.attributes({ horizontalCenteringAttr: true }),
+		...spacing.attributes(),
 		...htmlAttrs.attributes(),
 	},
 	edit,

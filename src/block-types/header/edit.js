@@ -7,6 +7,7 @@ import {
 import { ToolbarGroup } from "@wordpress/components";
 import typography from "./../../helpers/typography";
 import textAlignment from "./../../helpers/text-alignment";
+import blockAlignment from "./../../helpers/block-alignment";
 import colors from "./../../helpers/colors";
 import size from "./../../helpers/size";
 import spacing from "./../../helpers/spacing";
@@ -20,11 +21,11 @@ const edit = (props) => {
 	} = props;
 
 	const blockProps = useBlockProps({
-		className: `${textAlignment.cssClasses(props)}${colors.cssClasses(
-			props
-		)}${typography.cssClasses(props)}${size.cssClasses(
-			props
-		)}${spacing.cssClasses(props)}`.trimStart(),
+		className: `${textAlignment.cssClasses(props)}${blockAlignment.cssClasses(
+			props,
+		)}${colors.cssClasses(props)}${typography.cssClasses(
+			props,
+		)}${size.cssClasses(props)}${spacing.cssClasses(props)}`.trimStart(),
 		style: {
 			...typography.styles(props),
 			...typography.cssVars(props, "header"),
@@ -40,6 +41,7 @@ const edit = (props) => {
 			<InspectorControls>
 				{typography.controls({ props, initialOpen: true })}
 				{textAlignment.controlsWithBreakpoints({ props })}
+				{blockAlignment.controlsWithBreakpoints({ props })}
 				{colors.controls({ props })}
 				{size.controls({ props })}
 				{spacing.controls({ props })}

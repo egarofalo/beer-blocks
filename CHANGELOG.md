@@ -1,3 +1,8 @@
+## [1.9.6] - 2024-11-25
+
+- Remove **Horizontal Centering** option in `Spacing` panel
+- Apply fixes in `grid` helper due a bug produced in breakpoints behavior
+
 ## [1.9.5] - 2024-09-24
 
 - Apply fixes to `border` helper file in border attribute definition

@@ -32,6 +32,7 @@ import edit from "./edit";
 import save from "./save";
 import colors from "./../../helpers/colors";
 import border from "./../../helpers/border";
+import blockAlignment from "./../../helpers/block-alignment";
 import size from "./../../helpers/size";
 import spacing from "./../../helpers/spacing";
 import htmlAttrs from "./../../helpers/html-attrs";
@@ -53,7 +54,7 @@ registerBlockType("beer-blocks/section", {
 	description: _x(
 		"Create a section element with custom paddings and margins.",
 		"block description",
-		"beer-blocks"
+		"beer-blocks",
 	),
 	textdomain: "beer-blocks",
 	icon: <img src={icon} alt={_x("Section", "block title", "beer-blocks")} />,
@@ -64,8 +65,9 @@ registerBlockType("beer-blocks/section", {
 		},
 		...colors.attributes({ colorAttr: false }),
 		...border.attributes({ borderRadius: true }),
+		...blockAlignment.attributesWithBreakpoints(),
 		...size.attributes({ maxWidthAttr: true, minHeightAttr: true }),
-		...spacing.attributes({ horizontalCenteringAttr: true }),
+		...spacing.attributes(),
 		...htmlAttrs.attributes(),
 	},
 	transforms: {

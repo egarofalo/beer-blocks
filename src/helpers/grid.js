@@ -85,12 +85,12 @@ export const breakpointsAttributeValue = (defaultValue) => {
 	) {
 		return Object.fromEntries(
 			Object.entries(defaultValue).filter((value) =>
-				breakpoints.includes(value[0])
-			)
+				breakpoints.includes(value[0]),
+			),
 		);
 	}
 
-	return Object.fromEntries(breakpoints.map((key) => [[key], defaultValue]));
+	return Object.fromEntries(breakpoints.map((key) => [key, defaultValue]));
 };
 
 // default value for breakpoints behavior attribute
@@ -98,7 +98,7 @@ export const breakpointsBehaviorAttributeValue = (defaultValue) =>
 	Object.fromEntries(
 		breakpoints
 			.filter((breakpoint) => breakpoint !== "xs")
-			.map((key) => [[key], defaultValue])
+			.map((key) => [key, defaultValue]),
 	);
 
 // breakpoints behavior attribute only
@@ -175,7 +175,7 @@ export const breakpointIcon = (breakpoint) =>
 		lg: <LgBreakpointIcon className="beer-blocks-breakpoint-tab-icon" />,
 		xl: <XlBreakpointIcon className="beer-blocks-breakpoint-tab-icon" />,
 		xxl: <XxlBreakpointIcon className="beer-blocks-breakpoint-tab-icon" />,
-	}[breakpoint]);
+	})[breakpoint];
 
 // breakpoints tabs panel options
 export const breakpointsOptions = breakpoints.map((breakpoint) => ({
@@ -199,7 +199,7 @@ export const getColSizingAttribute = ({
 	...breakpointsBehaviorAttribute(
 		breakpointsBehaviorAttrPrefix
 			? breakpointsBehaviorAttrPrefix
-			: `${attrPrefix}-col-sizing`
+			: `${attrPrefix}-col-sizing`,
 	),
 });
 
@@ -215,7 +215,7 @@ export const getColSizingClasses = ({
 			breakpointsBehaviorAttrPrefix
 				? breakpointsBehaviorAttrPrefix
 				: `${attrPrefix}-col-sizing`
-		}-breakpoints-behavior`
+		}-breakpoints-behavior`,
 	);
 
 	const {
@@ -272,7 +272,7 @@ export const getColSizingControls = ({
 			breakpointsBehaviorAttrPrefix
 				? breakpointsBehaviorAttrPrefix
 				: `${attrPrefix}-col-sizing`
-		}-breakpoints-behavior`
+		}-breakpoints-behavior`,
 	);
 	const affectedAttrs = [attrName];
 
@@ -306,7 +306,7 @@ export const getColSizingControls = ({
 								nextBreakpoints.map((nextBreakpoint) => [
 									nextBreakpoint,
 									newColSizingType,
-								])
+								]),
 						  )
 						: {}),
 				},
@@ -328,7 +328,7 @@ export const getColSizingControls = ({
 								nextBreakpoints.map((nextBreakpoint) => [
 									nextBreakpoint,
 									newColSizing,
-								])
+								]),
 						  )
 						: {}),
 				},
@@ -340,11 +340,11 @@ export const getColSizingControls = ({
 				<RadioControl
 					label={sprintf(
 						__("Column sizing type (%s)", "beer-blocks"),
-						breakpoint.toUpperCase()
+						breakpoint.toUpperCase(),
 					)}
 					help={sprintf(
 						__("Settings applied from %s resolution and up", "beer-blocks"),
-						breakpoint.toUpperCase()
+						breakpoint.toUpperCase(),
 					)}
 					selected={colSizing[breakpoint].sizingType}
 					options={colSizingTypeOptions(breakpoint)}
@@ -355,7 +355,7 @@ export const getColSizingControls = ({
 					<RangeControl
 						label={sprintf(
 							__("Column sizing (%d)", "beer-blocks"),
-							colSizing[breakpoint].size
+							colSizing[breakpoint].size,
 						)}
 						value={colSizing[breakpoint].size}
 						onChange={changeColumnSizing}
@@ -391,7 +391,7 @@ export const getPreviousBreakpoint = (breakpoint) =>
 		lg: "md",
 		xl: "lg",
 		xxl: "xl",
-	}[breakpoint]);
+	})[breakpoint];
 
 // return next breakpoints
 export const getNextBreakpoints = (breakpoint, breakpointsBehavior = {}) => {
@@ -408,7 +408,7 @@ export const getNextBreakpoints = (breakpoint, breakpointsBehavior = {}) => {
 	}
 
 	const differentBehaviorIndex = nextBreakpoints.findIndex(
-		(breakpoint) => breakpointsBehavior[breakpoint] === differentBehavior
+		(breakpoint) => breakpointsBehavior[breakpoint] === differentBehavior,
 	);
 
 	if (differentBehaviorIndex > -1) {
@@ -439,7 +439,7 @@ export const getBreakpointsBehaviorControl = ({
 					const prevBreakpoint = getPreviousBreakpoint(breakpoint);
 					const nextBreakpoints = getNextBreakpoints(
 						breakpoint,
-						breakpointsBehavior
+						breakpointsBehavior,
 					);
 
 					setAttributes({
@@ -463,12 +463,12 @@ export const getBreakpointsBehaviorControl = ({
 															nextBreakpoints.map((nextBreakpoint) => [
 																nextBreakpoint,
 																previousValue,
-															])
+															]),
 													  )
 													: {}),
 											},
 										];
-									})
+									}),
 							  )
 							: {}),
 					});
@@ -478,7 +478,7 @@ export const getBreakpointsBehaviorControl = ({
 		<RadioControl
 			label={sprintf(
 				__("Breakpoint behavior (%s)", "beer-blocks"),
-				breakpoint.toUpperCase()
+				breakpoint.toUpperCase(),
 			)}
 			selected={breakpointsBehavior[breakpoint]}
 			options={[

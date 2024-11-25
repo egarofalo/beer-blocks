@@ -1,4 +1,5 @@
 import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
+import blockAlignment from "./../../helpers/block-alignment";
 import size from "./../../helpers/size";
 import spacing from "./../../helpers/spacing";
 import htmlAttrs from "./../../helpers/html-attrs";
@@ -9,9 +10,9 @@ const save = (props) => {
 	} = props;
 
 	const blockProps = useBlockProps.save({
-		className: `${alertType}}${size.cssClasses(props)}${spacing.cssClasses(
-			props
-		)}`,
+		className: `${alertType}${blockAlignment.cssClasses(
+			props,
+		)}${size.cssClasses(props)}${spacing.cssClasses(props)}`,
 		style: {
 			...size.cssVars(props, "alert"),
 			...spacing.cssVars(props, "alert"),

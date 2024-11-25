@@ -7,6 +7,7 @@ import {
 import { SelectControl, PanelBody } from "@wordpress/components";
 import colors from "./../../helpers/colors";
 import border from "./../../helpers/border";
+import blockAlignment from "./../../helpers/block-alignment";
 import size from "./../../helpers/size";
 import spacing from "./../../helpers/spacing";
 import sectioningTags from "./../../helpers/sectioning-tags";
@@ -20,8 +21,10 @@ const edit = (props) => {
 
 	const blockProps = useBlockProps({
 		className: `${colors.cssClasses(props)}${border.cssClasses(
-			props
-		)}${size.cssClasses(props)}${spacing.cssClasses(props)}`.trimStart(),
+			props,
+		)}${blockAlignment.cssClasses(props)}${size.cssClasses(
+			props,
+		)}${spacing.cssClasses(props)}`.trimStart(),
 		style: {
 			...colors.cssVars(props, "section"),
 			...border.cssVars(props, "section"),
@@ -50,6 +53,7 @@ const edit = (props) => {
 
 				{colors.controls({ props })}
 				{border.controls({ props })}
+				{blockAlignment.controlsWithBreakpoints({ props })}
 				{size.controls({ props })}
 				{spacing.controls({ props })}
 				{htmlAttrs.controls({ props })}

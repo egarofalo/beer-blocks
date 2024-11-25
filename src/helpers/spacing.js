@@ -1,7 +1,6 @@
 import { __ } from "@wordpress/i18n";
 import {
 	PanelBody,
-	ToggleControl,
 	__experimentalBoxControl as BoxControl,
 } from "@wordpress/components";
 import { camelCase, isEmpty, capitalize, get, has } from "lodash";
@@ -30,7 +29,7 @@ const paddingAttribute = ({
 	}
 
 	const paddingAttribute = Object.fromEntries(
-		paddingSides.map((side) => [side, undefined])
+		paddingSides.map((side) => [side, undefined]),
 	);
 
 	return grid.attributes({
@@ -53,7 +52,7 @@ const marginAttribute = ({
 	}
 
 	const marginAttribute = Object.fromEntries(
-		marginSides.map((side) => [side, undefined])
+		marginSides.map((side) => [side, undefined]),
 	);
 
 	return grid.attributes({
@@ -65,25 +64,11 @@ const marginAttribute = ({
 	});
 };
 
-// returns block horizontal centering attributes
-const horizontalCenteringAttribute = ({
-	attrPrefix = "",
-	breakpointsBehavior = false,
-} = {}) =>
-	grid.attributes({
-		attrName: camelCase(`${attrPrefix}-mx-auto`),
-		breakpoints: true,
-		breakpointsBehavior,
-		defaultValue: false,
-		type: "object",
-	});
-
 // returns padding and margin attributes
 export const attributes = ({
 	attrPrefix = "",
 	paddingSides = ["top", "right", "bottom", "left"],
 	marginSides = ["top", "right", "bottom", "left"],
-	horizontalCenteringAttr = false,
 } = {}) => ({
 	...paddingAttribute({
 		attrPrefix,
@@ -93,9 +78,6 @@ export const attributes = ({
 		attrPrefix,
 		marginSides,
 	}),
-	...(horizontalCenteringAttr
-		? horizontalCenteringAttribute({ attrPrefix })
-		: {}),
 	...grid.breakpointsBehaviorAttribute(`${attrPrefix}-spacing`),
 });
 
@@ -110,7 +92,7 @@ const paddingControl = ({
 }) => {
 	const attrName = camelCase(`${attrPrefix}-padding`);
 	const breakpointsBehaviorAttrName = camelCase(
-		`${breakpointsBehaviorAttrPrefix}-breakpoints-behavior`
+		`${breakpointsBehaviorAttrPrefix}-breakpoints-behavior`,
 	);
 
 	const {
@@ -126,7 +108,7 @@ const paddingControl = ({
 	}
 
 	const defaultValue = Object.fromEntries(
-		sides.map((side) => [side, undefined])
+		sides.map((side) => [side, undefined]),
 	);
 
 	const change = (newPadding) =>
@@ -164,7 +146,7 @@ const marginControl = ({
 }) => {
 	const attrName = camelCase(`${attrPrefix}-margin`);
 	const breakpointsBehaviorAttrName = camelCase(
-		`${breakpointsBehaviorAttrPrefix}-breakpoints-behavior`
+		`${breakpointsBehaviorAttrPrefix}-breakpoints-behavior`,
 	);
 
 	const {
@@ -180,7 +162,7 @@ const marginControl = ({
 	}
 
 	const defaultValue = Object.fromEntries(
-		sides.map((side) => [side, undefined])
+		sides.map((side) => [side, undefined]),
 	);
 
 	const change = (newMargin) =>
@@ -207,51 +189,6 @@ const marginControl = ({
 	);
 };
 
-// returns horizontal centering control
-const horizontalCenteringControl = ({
-	props,
-	breakpoint,
-	attrPrefix = "",
-	breakpointsBehaviorAttrPrefix = "",
-	label = sprintf(
-		__("Enable horizontal centering (%s)", "beer-blocks"),
-		breakpoint.toUpperCase()
-	),
-}) => {
-	const attrName = camelCase(`${attrPrefix}-mx-auto`);
-	const breakpointsBehaviorAttrName = camelCase(
-		`${breakpointsBehaviorAttrPrefix}-breakpoints-behavior`
-	);
-
-	const {
-		setAttributes,
-		attributes: {
-			[attrName]: mxAuto,
-			[breakpointsBehaviorAttrName]: breakpointsBehavior,
-		},
-	} = props;
-
-	if (breakpointsBehavior[breakpoint] === grid.sameBehavior) {
-		return null;
-	}
-
-	const change = () =>
-		setAttributes({
-			[attrName]: {
-				...mxAuto,
-				[breakpoint]: !mxAuto[breakpoint],
-			},
-		});
-
-	return (
-		<ToggleControl
-			label={label}
-			checked={mxAuto[breakpoint]}
-			onChange={change}
-		/>
-	);
-};
-
 // returns controls for margin and padding attributes with breakpoints
 export const controls = ({
 	props,
@@ -263,24 +200,16 @@ export const controls = ({
 		sprintf(__("Padding (%s)", "beer-blocks"), breakpoint.toUpperCase()),
 	marginControlLabel = (breakpoint) =>
 		sprintf(__("Margin (%s)", "beer-blocks"), breakpoint.toUpperCase()),
-	horizontalCenteringControlLabel = (breakpoint) =>
-		sprintf(
-			__("Enable horizontal centering (%s)", "beer-blocks"),
-			breakpoint.toUpperCase()
-		),
 	paddingSides = ["top", "right", "bottom", "left"],
 	marginSides = ["top", "right", "bottom", "left"],
 }) => {
 	const { attributes } = props;
 	const paddingAttrName = camelCase(`${attrPrefix}-padding`);
 	const marginAttrName = camelCase(`${attrPrefix}-margin`);
-	const mxAutoAttrName = camelCase(`${attrPrefix}-mx-auto`);
 	const breakpointsBehaviorAttrPrefix = `${attrPrefix}-spacing`;
-	const affectedAttrs = [
-		paddingAttrName,
-		marginAttrName,
-		mxAutoAttrName,
-	].filter((attr) => has(attributes, attr));
+	const affectedAttrs = [paddingAttrName, marginAttrName].filter((attr) =>
+		has(attributes, attr),
+	);
 
 	if (affectedAttrs.length > 0) {
 		const breakpointsTabs = (
@@ -312,15 +241,6 @@ export const controls = ({
 								breakpointsBehaviorAttrPrefix,
 								label: marginControlLabel(breakpoint),
 								sides: marginSides,
-							})}
-
-						{has(attributes, mxAutoAttrName) &&
-							horizontalCenteringControl({
-								props,
-								breakpoint,
-								attrPrefix,
-								breakpointsBehaviorAttrPrefix,
-								label: horizontalCenteringControlLabel(breakpoint),
 							})}
 					</>
 				))}
@@ -355,7 +275,7 @@ export const paddingCssVars = (props, blockName, attrPrefix = "") => {
 					}-${breakpoint}`,
 					get(padding, `${breakpoint}.${side}`),
 				])
-				.filter((cssVar) => validPadding(cssVar[1]))
+				.filter((cssVar) => validPadding(cssVar[1])),
 		);
 
 	return padding
@@ -372,7 +292,7 @@ export const paddingCssVars = (props, blockName, attrPrefix = "") => {
 export const paddingCssClasses = (
 	props,
 	attrPrefix = "",
-	addWhitespaceBefore = true
+	addWhitespaceBefore = true,
 ) => {
 	const attrName = camelCase(`${attrPrefix}-padding`);
 	const {
@@ -384,7 +304,7 @@ export const paddingCssClasses = (
 			.map((breakpoint) =>
 				validPadding(get(padding, `${breakpoint}.${side}`))
 					? `wp-beer-blocks-has-padding-${side}-${breakpoint}-rule`
-					: false
+					: false,
 			)
 			.filter((cssClass) => cssClass);
 
@@ -416,7 +336,7 @@ export const marginCssVars = (props, blockName, attrPrefix = "") => {
 					}-${breakpoint}`,
 					get(margin, `${breakpoint}.${side}`),
 				])
-				.filter((cssVar) => validMargin(cssVar[1]))
+				.filter((cssVar) => validMargin(cssVar[1])),
 		);
 
 	return margin
@@ -433,15 +353,11 @@ export const marginCssVars = (props, blockName, attrPrefix = "") => {
 export const marginCssClasses = (
 	props,
 	attrPrefix = "",
-	addWhitespaceBefore = true
+	addWhitespaceBefore = true,
 ) => {
 	const attrName = camelCase(`${attrPrefix}-margin`);
-	const mxAutoAttrName = camelCase(`${attrPrefix}-mx-auto`);
 	const {
-		attributes: {
-			[attrName]: margin = undefined,
-			[mxAutoAttrName]: mxAuto = undefined,
-		},
+		attributes: { [attrName]: margin = undefined },
 	} = props;
 
 	const marginSideClasses = (side) =>
@@ -449,16 +365,7 @@ export const marginCssClasses = (
 			.map((breakpoint) =>
 				validMargin(get(margin, `${breakpoint}.${side}`))
 					? `wp-beer-blocks-has-margin-${side}-${breakpoint}-rule`
-					: false
-			)
-			.filter((cssClass) => cssClass);
-
-	const mxAutoClasses = () =>
-		grid.breakpoints
-			.map((breakpoint) =>
-				get(mxAuto, breakpoint)
-					? `mx${breakpoint !== "xs" ? `-${breakpoint}` : ""}-auto`
-					: false
+					: false,
 			)
 			.filter((cssClass) => cssClass);
 
@@ -468,7 +375,6 @@ export const marginCssClasses = (
 				...marginSideClasses("right"),
 				...marginSideClasses("bottom"),
 				...marginSideClasses("left"),
-				...mxAutoClasses(),
 		  ].join(" ")}`
 		: "";
 
@@ -485,11 +391,11 @@ export const cssVars = (props, blockName, attrPrefix = "") => ({
 export const cssClasses = (
 	props,
 	attrPrefix = "",
-	addWhitespaceBefore = true
+	addWhitespaceBefore = true,
 ) => {
 	const classes = `${paddingCssClasses(props, attrPrefix)}${marginCssClasses(
 		props,
-		attrPrefix
+		attrPrefix,
 	)}`.trimStart();
 
 	return `${addWhitespaceBefore ? " " : ""}${classes}`.trimEnd();

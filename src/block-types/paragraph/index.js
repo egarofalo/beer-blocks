@@ -31,6 +31,7 @@ import "./editor.scss";
 import edit from "./edit";
 import save from "./save";
 import typography from "./../../helpers/typography";
+import blockAlignment from "./../../helpers/block-alignment";
 import textAlignment from "./../../helpers/text-alignment";
 import colors from "./../../helpers/colors";
 import size from "./../../helpers/size";
@@ -54,7 +55,7 @@ registerBlockType("beer-blocks/paragraph", {
 	description: _x(
 		"Create paragraph with custom typography, margin and padding.",
 		"block description",
-		"beer-blocks"
+		"beer-blocks",
 	),
 	textdomain: "beer-blocks",
 	icon: <img src={icon} alt={_x("Paragraph", "block title", "beer-blocks")} />,
@@ -67,6 +68,7 @@ registerBlockType("beer-blocks/paragraph", {
 			default: __("Write your paragraph here...", "beer-blocks"),
 		},
 		...typography.attributes(),
+		...blockAlignment.attributesWithBreakpoints(),
 		...textAlignment.attributesWithBreakpoints(),
 		...colors.attributes(),
 		...size.attributes({
@@ -74,7 +76,7 @@ registerBlockType("beer-blocks/paragraph", {
 			heightAttr: false,
 			autoHeightAttr: false,
 		}),
-		...spacing.attributes({ horizontalCenteringAttr: true }),
+		...spacing.attributes(),
 		...htmlAttrs.attributes(),
 	},
 	transforms: {

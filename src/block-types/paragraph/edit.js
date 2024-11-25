@@ -4,6 +4,7 @@ import {
 	RichText,
 } from "@wordpress/block-editor";
 import typography from "./../../helpers/typography";
+import blockAlignment from "./../../helpers/block-alignment";
 import textAlignment from "./../../helpers/text-alignment";
 import colors from "./../../helpers/colors";
 import size from "./../../helpers/size";
@@ -17,11 +18,11 @@ const edit = (props) => {
 	} = props;
 
 	const blockProps = useBlockProps({
-		className: `${textAlignment.cssClasses(props)}${typography.cssClasses(
-			props
-		)}${colors.cssClasses(props)}${size.cssClasses(props)}${spacing.cssClasses(
-			props
-		)}`.trimStart(),
+		className: `${blockAlignment.cssClasses(props)}${textAlignment.cssClasses(
+			props,
+		)}${typography.cssClasses(props)}${colors.cssClasses(
+			props,
+		)}${size.cssClasses(props)}${spacing.cssClasses(props)}`.trimStart(),
 		style: {
 			...typography.styles(props),
 			...typography.cssVars(props, "paragraph"),
@@ -36,6 +37,7 @@ const edit = (props) => {
 		<>
 			<InspectorControls>
 				{typography.controls({ props, initialOpen: true })}
+				{blockAlignment.controlsWithBreakpoints({ props })}
 				{textAlignment.controlsWithBreakpoints({ props })}
 				{colors.controls({ props })}
 				{size.controls({ props })}
